@@ -12,69 +12,74 @@
       <PPVersion>2.1</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
       <PPPubDate>2017-12-01</PPPubDate>
-      <Keywords>QQQQ</Keywords>
+      <Keywords>Certification Authority</Keywords>
     </ReferenceTable>
   </PPReference>
 
   <RevisionHistory>
     <entry>
-      <version>Round 1</version>
-      <date>2015-04-23</date>
-      <subject>First draft of version 1.0 for comment</subject>
-    </entry>
-  </RevisionHistory>
-
-  <RevisionHistory>
-    <entry>
       <version>1.0</version>
-      <date>2015-08-14</date>
-      <subject>Release - first version released</subject>
+      <date>2014-05-16</date>
+      <subject>Initial draft</subject>
+    </entry>
+    <entry>
+      <version>1.1</version>
+      <date>2016-07-07</date>
+      <subject>Formatting updates and changes based on TC feedback</subject>
+    </entry>
+    <entry>
+      <version>1.2</version>
+      <date>2016-10-26</date>
+      <subject>Updates based on additional TC feedback and internal review</subject>
+    </entry>
+    <entry>
+      <version>2.0</version>
+      <date>2016-10-28</date>
+      <subject>Second draft</subject>
+    </entry>
+    <entry>
+      <version>2.1</version>
+      <date>2017-12-01</date>
+      <subject>Updates based on first use in evaluation</subject>
+    </entry>
+    <entry>
+      <version>2.1x</version>
+      <date>2020-06-24</date>
+      <subject>Converted to XML</subject>
     </entry>
   </RevisionHistory>
 
   <chapter title="Introduction" id="int">
     <section title="Overview" id="ppoverview">
+      	Certification Authorities (CAs), and the infrastructure they support, form the basis for one of the primary
+     	 mechanisms for providing strong assurance of identity in online transactions. The widely placed trust in
+	CAs is at the heart of security mechanisms used to protect business and financial transactions online.
+	Notably, protocols using Transport Layer Security (TLS) rely on certificates issued by CAs to identify and
+	authenticate servers and clients in web transactions. Governments around the world rely on CAs to
+	identify parties involved in transactions with them. <htm:br/><html:br/>
 
+	However, historical high-profile security breaches at major CAs trusted by widely used operating systems
+	and browsers have highlighted both the critical role CAs play in securing electronic transactions, as well
+	as the need to strongly protect them from malicious attacks. Analyses have revealed that these security
+	breaches were often the result of insufficient security controls being in place on the computer systems
+	and networks at these CAs, and were sometimes exacerbated by weak record keeping. Third-party
+	auditing programs, whose role it was to verify that proper security controls were in place, were not
+	sufficient to identify these lapses in security.<htm:br/><html:br/>
+	    
+	This Protection Profile (PP) describing security requirements for a Certification Authority is intended to
+	provide a minimal, baseline set of requirements that are targeted at mitigating well defined and described
+	threats. These requirements support CA operations performed in accordance with the National Institute
+	of Standards and Technologies (NIST) Interagency or Internal Report (IR) 7924 (Second Draft), Reference
+	Certificate Policy, May 2014, referred to as the “NIST IR.” <htm:br/><html:br/>
 
-The scope of this Protection Profile (PP) is to
-      describe the security functionality of Certification Authorities products in terms of <cite linkend="bibCC"/>
-      and to define functional and assurance requirements for such products.
-      An operating system is software that manages computer hardware and software
-      resources, and provides common services for application programs. The hardware
-      it manages may be physical or virtual.
-
-      <h:p> This is going to show some tests:
- 	<h:ul>
-	  <h:li> Terms with abbrs like ASLR, or API, should be found a linked automatically.</h:li>
-          <h:li> And components can be refered to by their name: FQQ_QQQ.1 </h:li>
-          <h:li> And so can requirements: FQQ_QQQ.1.1 or by their unique identifier: <linkref linkend="a-unique-id"/></h:li>
- 
-   	  <h:li> Or you can stop them <no-link>ASLR</no-link> </h:li>
-          <h:li> This is how you do a picture: 
-                <figure entity="images/niaplogo.png" title="Niap's Logo " id="fig-logo"/> </h:li>
-          <h:li> And this is how you reference it: <figref ref-id="fig-logo"/></h:li>
-          <h:li> This is how you do an equation with an arbitrary counter:  
-              <equation><value>x=\frac{-b\pm\sqrt{b^{2}-4ac}}{2a}</value>
-                        <label><ctr id="quadeq" ctr-type='eq-'/></label></equation>
-
-</h:li> 
-          <h:li> And this is how you reference it: <ctr-ref ref-id="quadeq"/> </h:li>
-          <h:li> <h:div><depends on="selection"><ref-id>aaa</ref-id></depends> 
-                    Some text </h:div> </h:li> 
-          <h:li> <h:div><depends on="implements" ref-id="a-feature-id"/> 
-                    Someting dependent on a feature</h:div> </h:li> 
-
-          <h:li> And here's the audit event table for mandatory requirements. <h:br/>
-
-                 <audit-events table="mandatory"/>
-          </h:li>
-        </h:ul>
-      </h:p>
+	The following sections provide both Common Criteria and technology terms used in this PP.
     </section>
+
     <tech-terms>
-      <term abbr='AES' full="Advanced Encryption Standard"/>
-      <term abbr='API' full="Application Programming Interface"/>
-      <term full="Address Space Layout Randomization" abbr="ASLR">
+	<term abbr='AES' full="Advanced Encryption Standard"/>
+      	<term abbr='AOR' full="Authorized Organizational Representative"/>
+      	<term abbr='API' full="Application Programming Interface"/>
+     <term full="Address Space Layout Randomization" abbr="ASLR">
 	An anti-exploitation feature which loads memory mappings into unpredictable
 	locations. ASLR makes it more difficult for an attacker to redirect control to code
 	that they have introduced into the address space of a process.
@@ -90,22 +95,29 @@ The scope of this Protection Profile (PP) is to
 	Software that runs on a platform and performs tasks on behalf of the user
 	or owner of the platform, as well as its supporting documentation. 
       </term>
-      <term full="Application Programming Interface" abbr="API">
-	A specification of routines, data structures, object classes, and variables
-	that allows an application to make use of services provided by another software
-	component, such as a library. APIs are often provided for a set of libraries included
-	with the platform.
-      </term>
-      <term abbr='CESG' full="Communications-Electronics Security Group"/>
-      <term abbr='CMC' full="Certificate Management over CMS"/>
-      <term abbr='CMS' full="Cryptographic Message Syntax"/>
-      <term abbr='CN' full="Common Names"/>
+      	<term full="Application Programming Interface" abbr="API">
+		A specification of routines, data structures, object classes, and variables
+		that allows an application to make use of services provided by another software
+		component, such as a library. APIs are often provided for a set of libraries included
+		with the platform.
+      	</term>
+	<term abbr='CA' full="Certification Authority"/>
+	<term abbr='CBC' full="Cipher Block Chaining"/>
+    	<term abbr='CC' full="Common Criteria"/>
+	<term abbr='CCM' full="Counter with CBC-Message Authentication Code"/>
+	<term abbr='CCMP' full="CCM Protocol"/>
+	<term abbr='CCTL' full="Common Criteria Test Lab"/>
+      	<term abbr='CESG' full="Communications-Electronics Security Group"/>
+      	<term abbr='CMC' full="Certificate Management over CMS"/>
+      	<term abbr='CMS' full="Cryptographic Message Syntax"/>
+      	<term abbr='CN' full="Common Names"/>
       <term full="Credential">
 	Data that establishes the identity of a user, e.g. a cryptographic key or
 	password.
       </term>
-      <term abbr='CRL' full="Certificate Revocation List"/>
-      <term abbr='CSA' full="Computer Security Act"/>
+      	<term abbr='CRL' full="Certificate Revocation List"/>
+      	<term abbr='CSA' full="Computer Security Act"/>
+	<term abbr='CSS' full="Certificate Status Server"/>
       <term full="Critical Security Parameters" abbr="CSP">
 	Information that is either user or system defined and
 	is used to operate a cryptographic module in processing encryption functions including
@@ -113,19 +125,20 @@ The scope of this Protection Profile (PP) is to
 	of which can compromise the security of a cryptographic module or the security of the
 	information protected by the module.
       </term>
-      <term full="Data At Rest" abbr="DAR" />
+      	<term abbr="DAR" full="Data At Rest"/>
       <term full="DAR Protection">
 	Countermeasures that prevent attackers, even those with physical access,
 	from extracting data from non-volatile storage.
 	Common techniques include data encryption and wiping.
       </term>
+      	<term abbr='DEK' full="Data Encryption Key"/>
       <term full="Data Execution Prevention" abbr="DEP">
 	An anti-exploitation feature of modern operating systems executing on
 	modern computer hardware, which enforces a non-execute permission on pages of memory.
 	DEP prevents pages of memory from containing both data and instructions, which makes
 	it more difficult for an attacker to introduce and execute code.
       </term>
-      <term abbr='DES' full="Data Encryption Standard"/>
+      	<term abbr='DES' full="Data Encryption Standard"/>
       <term full="Developer">
 	An entity that writes OS software. For the purposes of this document,
 	vendors and developers are the same.
@@ -137,46 +150,64 @@ The scope of this Protection Profile (PP) is to
 	General Purpose Operating Systems also lack the real-time constraint that defines Real Time Operating Systems (RTOS).
 	RTOSes typically power routers, switches, and embedded devices.
       </term>
-      <term abbr='DHE' full="Diffie-Hellman Ephemeral"/>
-      <term abbr='DNS' full="Domain Name System"/>
-      <term abbr='DRBG' full="Deterministic Random Bit Generator"/>
-      <term abbr='DSS' full="Digital Signature Standard"/>
-      <term abbr='DT' full="Date/Time Vector"/>
-      <term abbr='DTLS' full="Datagram Transport Layer Security"/>
-      <term abbr='EAP' full="Extensible Authentication Protocol"/>
-      <term abbr='ECDHE' full="Elliptic Curve Diffie-Hellman Ephemeral"/>
-      <term abbr='ECDSA' full="Elliptic Curve Digital Signature Algorithm"/>
-      <term abbr='EST' full="Enrollment over Secure Transport"/>
-      <term abbr='FIPS' full="Federal Information Processing Standards"/>
-      <term abbr='HMAC' full="Hash-based Message Authentication Code"/>
+      	<term abbr='DH' full="Diffie-Hellman"/>   
+      	<term abbr='DHE' full="Diffie-Hellman Key Exchange"/>
+      	<term abbr='DKM' full="Derived Keying Material"/>
+      	<term abbr='DNS' full="Domain Name System"/>
+      	<term abbr='DRBG' full="Deterministic Random Bit Generator"/>
+      	<term abbr='DSA' full="Digital Signature Algorithm"/>
+      	<term abbr='DSS' full="Digital Signature Standard"/>
+      	<term abbr='DT' full="Date/Time Vector"/>
+      	<term abbr='DTLS' full="Datagram Transport Layer Security"/>
+      	<term abbr='EAP' full="Extensible Authentication Protocol"/>
+      	<term abbr='ECC' full="Elliptic Curve Cryptography"/>
+      	<term abbr='ECDHE' full="Elliptic Curve Diffie-Hellman Ephemeral"/>
+      	<term abbr='ECDSA' full="Elliptic Curve Digital Signature Algorithm"/>
+      	<term abbr='EDC' full="Error Detection Code"/>
+      	<term abbr='EEPROM' full="Electrically Erasable Programmable Read-Only Memory"/>
+      	<term abbr='ESP' full="Encapsulating Security Payload (IPsec)"/>
+      	<term abbr='EST' full="Enrollment over Secure Transport"/>
+      	<term abbr='FFC' full="Finite-Field Cryptography"/>
+      	<term abbr='FIPS' full="Federal Information Processing Standards"/>
+      	<term abbr='GCM' full="Galois/Counter Mode"/>
+      	<term abbr='HMAC' full="Hash-based Message Authentication Code"/>
       <term full="Host-based Firewall">
 	A software-based firewall implementation running on the OS for filtering inbound and
 	outbound network traffic to and from processes running on the OS.
       </term>
-      <term abbr='HTTP' full="Hypertext Transfer Protocol"/>
-      <term abbr='HTTPS' full="Hypertext Transfer Protocol Secure"/>
-      <term abbr='DSS' full="Digital Signature Standard"/>
-      <term abbr='IETF' full="Internet Engineering Task Force"/>
-      <term abbr='IP' full="Internet Protocol"/>
-      <term abbr='ISO' full="International Organization for Standardization"/>
-      <term abbr='IT' full="Information Technology"/>
-      <term abbr='ITSEF' full="Information Technology Security Evaluation Facility"/>
-      <term abbr='NIAP' full="National Information Assurance Partnership"/>
-      <term abbr='NIST' full="National Institute of Standards and Technology"/>
-      <term abbr='OCSP' full="Online Certificate Status Protocol"/>
-      <term abbr='OID' full="Object Identifier"/>
-      <term abbr='OMB' full="Office of Management and Budget"/>
+      	<term abbr='HSM' full="Hardware Security Module"/>
+      	<term abbr='HTTP' full="Hypertext Transfer Protocol"/>
+      	<term abbr='HTTPS' full="Hypertext Transfer Protocol Secure"/>
+      	<term abbr='I&A' full="Identification and Authentication"/>
+      	<term abbr='IETF' full="Internet Engineering Task Force"/>
+      	<term abbr='IKE' full="Internet key Exchange"/>
+      	<term abbr='IP' full="Internet Protocol"/>
+      	<term abbr='IPsec' full="Internet Protocol Security"/>
+      	<term abbr='ISO' full="International Organization for Standardization"/>
+      	<term abbr='IT' full="Information Technology"/>
+      	<term abbr='ITSEF' full="Information Technology Security Evaluation Facility"/>
+      	<term abbr='IUT' full="Implementation Under Test"/>
+      	<term abbr='IV' full="Initialization Vector"/>
+      	<term abbr='KAT' full="Known Answer Tests"/>
+      	<term abbr='KDF' full="Key Derivation Function"/>
+      	<term abbr='KEK' full="Key Encryption Key"/>
+      	<term abbr='KW' full="Key Wrap"/>
+      	<term abbr='KWP' full="Key Wrapping with Padding"/>
+      	<term abbr='MAC' full="Message Authentication Code"/>
+      	<term abbr='MODP' full="Modular Exponential"/>
+      	<term abbr='NAT' full="Network Address Translation"/>
+      	<term abbr='NIAP' full="National Information Assurance Partnership"/>
+      	<term abbr='NIST' full="National Institute of Standards and Technology"/>
+      	<term abbr='NPE' full="Non-person Entity"/>
+      	<term abbr='NTP' full="Network Time Protocol"/>
+      	<term abbr='OCSP' full="Online Certificate Status Protocol"/>
+      	<term abbr='OID' full="Object Identifier"/>
+      	<term abbr='OMB' full="Office of Management and Budget"/>
       <term full="Operating System" abbr="OS">
 	Software that manages physical and logical resources and provides services
 	for applications. The terms <h:i>TOE</h:i> and <h:i>OS</h:i> are interchangeable in this
 	document. 
       </term>
-      <term abbr='PKI' full="Public Key Infrastructure"/>
-      <term abbr='PP' full="Protection Profile"/>
-      <term abbr='RBG' full="Random Bit Generator"/>
-      <term abbr='RFC' full="Request for Comment"/>
-      <term abbr='RNG' full="Random Number Generator"/>
-      <term abbr='RNGVS' full="Random Number Generator Validation System"/>
       <term full="Personally Identifiable Information" abbr="PII">
 	Any information about an individual maintained by an agency, including, but
 	not limited to, education, financial transactions, medical history, and criminal or
@@ -185,30 +216,55 @@ The scope of this Protection Profile (PP) is to
 	birth, mother's maiden name, biometric records, etc., including any other personal
 	information which is linked or linkable to an individual.<cite linkend="bibOMB"/>
       </term>
-      <term abbr='SAN' full="Subject Alternative Name"/>
-      <term abbr='SHA' full="Secure Hash Algorithm"/>
-      <term abbr='S/MIME' full="Secure/Multi-purpose Internet Mail Extensions"/>
+      	<term abbr='PGP' full="Pretty Good Privacy"/>
+      	<term abbr='PKI' full="Public Key Infrastructure"/>
+      	<term abbr='PKV' full="Public Key Verification"/>
+      	<term abbr='PP' full="Protection Profile"/>
+      	<term abbr='RA' full="Registration Authority"/>
+      	<term abbr='RAM' full="Random Access Memory"/>
+      	<term abbr='RBG' full="Random Bit Generator"/>
+      	<term abbr='rDSA' full="RSA Digital Signature Algorithm"/>
+      	<term abbr='REK' full="Root Encryption Key"/>
+      	<term abbr='RFC' full="Request for Comment"/>
+      	<term abbr='RNG' full="Random Number Generator"/>
+      	<term abbr='RNGVS' full="Random Number Generator Validation System"/>
+      	<term abbr='RSA' full="Rivest Shamir Adleman"/>
+      	<term abbr='SA' full="Security Association (IPsec)"/>
+      	<term abbr='SAN' full="Subject Alternative Name"/>
+      	<term abbr='SAR' full="Security Assurance Requirement"/>
+      	<term abbr='SFR' full="Security Functional Requirement"/>
+      	<term abbr='SHA' full="Secure Hash Algorithm"/>
+      	<term abbr='S/MIME' full="Secure/Multi-purpose Internet Mail Extensions"/>
       <term full="Sensitive Data">
 	Sensitive data may include all user or enterprise data or may be specific
 	application data such as PII, emails, messaging, documents, calendar items, and contacts.
 	Sensitive data must minimally include credentials and keys. Sensitive data shall
 	be identified in the OS's TSS by the ST author. 
       </term>
-      <term abbr='SIP' full="Session Initiation Protocol"/>
-      <term abbr='SWID' full="Software Identification"/>
-      <term abbr='TLS' full="Transport Layer Security"/>
-      <term abbr='URI' full="Uniform Resource Identifier"/>
-      <term abbr='URL' full="Uniform Resource Locator"/>
-      <term abbr='USB' full="Universal Serial Bus"/>
+      	<term abbr='SIP' full="Session Initiation Protocol"/>
+      	<term abbr='SNMP' full="Simple Network Management Protocol"/>
+      	<term abbr='SSH' full="Secure Shell"/>
+      	<term abbr='SSL' full="Secure Sockets Layer"/>
+      	<term abbr='ST' full="Security Target"/>
+      	<term abbr='SWID' full="Software Identification"/>
+      	<term abbr='TLS' full="Transport Layer Security"/>
+      	<term abbr='TOE' full="Target of Evaluation"/>
+      	<term abbr='TPM' full="Trusted Platform Module"/>
+      	<term abbr='TSF' full="TOE Security Function"/>
+      	<term abbr='TSS' full="TOE Summary Specification"/>
+      	<term abbr='URI' full="Uniform Resource Identifier"/>
+      	<term abbr='URL' full="Uniform Resource Locator"/>
+      	<term abbr='USB' full="Universal Serial Bus"/>
       <term full="User">
 	A user is subject to configuration policies applied
 	to the operating system by administrators.  On some systems under certain
 	configurations, a normal user can temporarily elevate privileges to that of an administrator.
 	At that time, such a user should be considered an administrator.
       </term>
-      <term abbr='XCCDF' full="eXtensible Configuration Checklist Description Format"/>
-      <term abbr='XOR' full="Exclusive Or"/>
-    </tech-terms>    
+      	<term abbr='XCCDF' full="eXtensible Configuration Checklist Description Format"/>
+      	<term abbr='XOR' full="Exclusive Or"/>
+    </tech-terms> 
+	  
     <section title="Compliant Targets of Evaluation" id="TOEdescription">
       <subsection title="TOE Boundary" id="TOEboundary">
         <figure entity="images/Toe.png" title="General TOE " id="toe"/>
