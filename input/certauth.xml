@@ -222,47 +222,78 @@
 		A cryptographic key used with a public key cryptographic algorithm, uniquely
 		associated with an entity, and not made public.
 	</term>
-      	<term abbr='RA' full="Registration Authority"/>
+      	<term full="Privileged user">
+		An individual with access and login privileges on the CA.
+	</term>
+      	<term full="Public key">
+		A cryptographic key used with a public key cryptographic algorithm, uniquely
+		associated with an entity, and which may be made public. (Public keys are not
+		considered CSPs.)
+	</term>
+      	<term full="Public key certificate">
+		A set of data that unambiguously identifies an entity, contains the entity's public key,
+		is digitally signed by a trusted party, and binds the public key to the entity.
+	</term>
+      	<term full="Public key (asymmetric) cryptographic algorithm">
+		A cryptographic algorithm that uses two related keys, a public key and a private key.
+		The two keys have the property that, given the public key, it is computationally
+		infeasible to derive the private key.
+	</term>
       	<term abbr='RAM' full="Random Access Memory"/>
       	<term abbr='RBG' full="Random Bit Generator"/>
       	<term abbr='rDSA' full="RSA Digital Signature Algorithm"/>
-      	<term abbr='REK' full="Root Encryption Key"/>
+      	<term full="Registration authority" abbr="RA">
+		The set of hardware, software, firmware, or some combination thereof that is used to
+		validate the identity of a subscriber before instructing the CA to manipulate a
+		certificate on the subscriber’s behalf.
+	</term>
       	<term abbr='RFC' full="Request for Comment"/>
       	<term abbr='RNG' full="Random Number Generator"/>
       	<term abbr='RNGVS' full="Random Number Generator Validation System"/>
+      	<term full="Root Encryption Key" abbr='REK'>
+		A key tied to hardware that is used to encrypt other keys such as KEKs.
+	</term>
       	<term abbr='RSA' full="Rivest Shamir Adleman"/>
       	<term abbr='SA' full="Security Association (IPsec)"/>
       	<term abbr='SAN' full="Subject Alternative Name"/>
       	<term abbr='SAR' full="Security Assurance Requirement"/>
+      	<term full="Secret key">
+		A cryptographic key used with a secret key cryptographic algorithm, uniquely
+		associated with one or more entities, and which shall not be made public. The use of
+		the term "secret" in this context does not imply a classification level rather the term
+		implies the need to protect the key from disclosure or substitution.
+	</term>
+      	<term full="Secret key (symmetric) cryptographic algorithm">
+		A cryptographic algorithm that uses a single, secret key for both encryption and
+		decryption.
+	</term>
       	<term abbr='SFR' full="Security Functional Requirement"/>
       	<term abbr='SHA' full="Secure Hash Algorithm"/>
+      	<term full="Shared secret">
+		A token used by the CMC protocol to help provide identity proofing. 
+	</term>
       	<term abbr='S/MIME' full="Secure/Multi-purpose Internet Mail Extensions"/>
-      <term full="Sensitive Data">
-	Sensitive data may include all user or enterprise data or may be specific
-	application data such as PII, emails, messaging, documents, calendar items, and contacts.
-	Sensitive data must minimally include credentials and keys. Sensitive data shall
-	be identified in the OS's TSS by the ST author. 
-      </term>
       	<term abbr='SIP' full="Session Initiation Protocol"/>
       	<term abbr='SNMP' full="Simple Network Management Protocol"/>
       	<term abbr='SSH' full="Secure Shell"/>
       	<term abbr='SSL' full="Secure Sockets Layer"/>
       	<term abbr='ST' full="Security Target"/>
+      	<term full="Subscriber">
+		A human or machine entity that is bound to one or more certificates maintained by
+		the CA.
+	</term>
       	<term abbr='SWID' full="Software Identification"/>
       	<term abbr='TLS' full="Transport Layer Security"/>
       	<term abbr='TOE' full="Target of Evaluation"/>
       	<term abbr='TPM' full="Trusted Platform Module"/>
+      	<term full="Trust Anchor Database">
+		A list of trusted root Certification Authority certificates.
+	</term>
       	<term abbr='TSF' full="TOE Security Function"/>
       	<term abbr='TSS' full="TOE Summary Specification"/>
       	<term abbr='URI' full="Uniform Resource Identifier"/>
       	<term abbr='URL' full="Uniform Resource Locator"/>
       	<term abbr='USB' full="Universal Serial Bus"/>
-      <term full="User">
-	A user is subject to configuration policies applied
-	to the operating system by administrators.  On some systems under certain
-	configurations, a normal user can temporarily elevate privileges to that of an administrator.
-	At that time, such a user should be considered an administrator.
-      </term>
       	<term abbr='XCCDF' full="eXtensible Configuration Checklist Description Format"/>
       	<term abbr='XOR' full="Exclusive Or"/>
     </tech-terms> 
