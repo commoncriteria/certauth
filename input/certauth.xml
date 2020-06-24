@@ -77,7 +77,6 @@
 
     <tech-terms>
 	<term abbr='AES' full="Advanced Encryption Standard"/>
-      	<term abbr='AOR' full="Authorized Organizational Representative"/>
       	<term abbr='API' full="Application Programming Interface"/>
       	<term full="Administrator">
 		The Administrator is responsible for management activities, including configuration of
@@ -88,7 +87,6 @@
 		Authority Staff or RA Staff to manage a restricted set of certificates associated to
 		devices belonging to a particular organization
       	</term>
-	<term abbr='CA' full="Certification Authority"/>
 	<term abbr='CBC' full="Cipher Block Chaining"/>
     	<term abbr='CC' full="Common Criteria"/>
 	<term abbr='CCM' full="Counter with CBC-Message Authentication Code"/>
@@ -104,7 +102,7 @@
 		revokes, and manages public key certificates and certificate status information.
       	</term>
       	<term abbr='CESG' full="Communications-Electronics Security Group"/>
-      	<term abbr='CMC' full="Certificate Management over CMM">
+      	<term abbr='CMC' full="Certificate Management over CMS">
 		Certificate Management over CMM. A standard certificate enrollment protocol.
 	</term>
       	<term abbr='CMS' full="Cryptographic Message Syntax"/>
@@ -159,7 +157,6 @@
       	<term abbr='ECC' full="Elliptic Curve Cryptography"/>
       	<term abbr='ECDHE' full="Elliptic Curve Diffie-Hellman Ephemeral"/>
       	<term abbr='ECDSA' full="Elliptic Curve Digital Signature Algorithm"/>
-      	<term abbr='EDC' full="Error Detection Code"/>
       	<term abbr='EEPROM' full="Electrically Erasable Programmable Read-Only Memory"/>
       	<term full="Encrypted key">
 		A cryptographic key that has been encrypted with a key encrypting key, a PIN or a
@@ -242,7 +239,7 @@
       	<term abbr='RAM' full="Random Access Memory"/>
       	<term abbr='RBG' full="Random Bit Generator"/>
       	<term abbr='rDSA' full="RSA Digital Signature Algorithm"/>
-      	<term full="Registration authority" abbr="RA">
+      	<term full="Registration Authority" abbr="RA">
 		The set of hardware, software, firmware, or some combination thereof that is used to
 		validate the identity of a subscriber before instructing the CA to manipulate a
 		certificate on the subscriber’s behalf.
@@ -299,22 +296,147 @@
     </tech-terms> 
 	  
     <section title="Compliant Targets of Evaluation" id="TOEdescription">
+	    A CA system is an entity that issues and manages public-key certificates. The CA is the primary component
+	of a public key infrastructure (PKI), which consists of programs, data formats, procedures, communication
+	protocols, security policies, and public key cryptographic mechanisms working together to enable people
+	in various locations to establish trust through secure communications. To achieve this goal, a PKI may
+	provide some or all of the following security management services:<h:br/>
+	    <h:ul>
+		    <h:li>Key generation/storage</h:li>
+		    <h:li>Certificate generation, modification, re-key, renewal, and distribution</h:li>
+		    <h:li>Certificate revocation list (CRL) generation and distribution</h:li>
+		    <h:li>Key escrow and recovery</h:li>
+		    <h:li>Directory management of certificate related items</h:li>
+		    <h:li>Certificate token initialization/programming/management</h:li>
+		    <h:li>System management functions (e.g., security audit, configuration management, archive)</h:li>
+	    </h:ul>
+	    A CA performs a number of certificate management functions besides certificate issuance:<h:br/>
+	    <h:ul>
+		    <h:li><h:b>Re-issuance:</h:b>A CA handles re-issuance of certificates when they expire, 
+			    since certificates have a finite validity period. Reissuance may be renewal of the
+			    current public key; rekey with a new public key; or modification to other data in 
+			    the public key certificate.</h:li>
+		    <h:li><h:b>Revocation:</h:b> The CA is also responsible for indicating, when notified 
+			    via a subscriber or privileged user, that a certificate should no longer be used 
+			    or relied upon; this is referred to as revocation. For example, a certificate 
+			    needs to be revoked if an individuals’ private key is compromised or if the CA 
+			    issued the certificate to the wrong person. Identifiers of revoked certificates
+			    are stored on an electronic list called a certificate revocation list (CRL). The
+			    CRL is digitally signed by the CA and published to a repository accessible by 
+			    the relying parties. The CRL is used to compare against certificates to ensure a
+			    certificate is not invalid when used. Alternatively, a CA can provide a 
+			    Certificate Status Service (CSS) that provides revocation status responses to
+			    subscribers and relying parties. The CSS’ revocation status information may be
+			    based on certificate history information from the CA, a CRL from the CA, or a
+			    CRL retrieved from a repository. A CA must be able to provide revocation status,
+			    but either approach is acceptable. </h:li>
+		    <h:li><h:b>Distribution:</h:b>The CA handles the publishing of certificates and CRLs
+			    that it issues to a repository. The repository enables subscribers and relying
+			    parties to obtain subscriber certificates and CRLs to perform functions such as 
+			    encrypting emails and data to recipients or verifying signatures on transactions.
+			    Typically, CRL location is advertised in the certificate itself as an HTTP pointer
+			    to allow the relying parties to obtain the CRL.</h:li>
+		    <h:li><h:b>Storage:</h:b> The CA keeps a history of a subscriber’s previously issued and
+			    revoked certificates.</h:li>
+	    </h:ul>
+	There are a number of optional functions that a CA may perform. For example, a CA may issue CRLs 
+	or may provide a CSS that responds to certificate status requests from subscribers and relying
+	parties. A CA may generate public/private key pairs for subscribers, usually for encryption; this function may be
+	delegated to a different PKI component. In some cases, a CA will escrow private keys for encryption 
+	certificates, a function typically delegated to a key escrow PKI component. If a CA handles subscriber key
+	generation and escrow, it should also keep a history of subscriber keys to support cases where an old
+	encryption key may be required to decrypt data. A CA may also be responsible for verifying subscriber
+	identities who request to interact with the CA. If the CA does not provide this functionality directly, it is
+	expected to interface with a registration authority (RA) that does.<h:br/><h:br/>
+
+	The CA can be internal to an organization or it can be managed by an outside organization dedicated to
+	this type of service. If the CA is internal, the organization controls the CA server, configures how the
+	subscriber identity proofing takes place during registration, maintains the certificates, and revokes
+	certificates when necessary. If the CA is a third party organization specifically designed to serve as a CA,
+	then other individuals and companies pay them to supply this service. Depending on the nature of
+	agreement and service, the organization may be fully or to some extent involved in subscriber registration,
+	certificate management, and revocation.	    
+	    
       <subsection title="TOE Boundary" id="TOEboundary">
-        <figure entity="images/Toe.png" title="General TOE " id="toe"/>
-      </subsection>
-      <subsection title="TOE Platform" id="TOEplatform">
-      </subsection>
+	Figure 1 below illustrates an example PKI architecture; this architecture is for illustration only and is not
+	meant to represent requirements for an actual deployment. Within a PKI, the CA is responsible for issuing
+	and managing public-key certificates for subjects to prove their identities; these subjects are typically
+	called subscribers and can be people, devices, applications, or servers. A public-key certificate is a
+	credential that contains the public key for that subscriber bound with other identifying information using
+	a CA’s digital signature. To obtain a certificate, subscribers register with the PKI. Depending on how the
+	PKI is designed, this is done either directly through the CA itself or optionally through a third-party RA
+	which verifies the requester’s identity before the request is handled by the CA. Part of the registration
+	process is the generation of a private/public key pair that occurs either at the CA, at the RA or (typically)
+	on the subscriber’s system. If not generated by the CA, the public key is transmitted to the CA during the
+	registration process. The CA signs the certificate with a digital signature (using its own private key) that
+	binds the public key and other identifying information to the subscriber. In this capacity, the CA acts as a
+	trusted third party by asserting the authenticity of the subscriber, the public key, and the binding of the
+	subscriber to the public key. This allows relying parties (e.g., individuals or applications) to verify and trust
+	signatures or assertions made by the subscriber using the private key that corresponds to the public key
+	contained in the certificate. This also allows the relying parties to use the public key in the certificate to
+	carry out encrypted communication with the subscriber.<h:br/><h:br/>
+	      
+	<figure entity="images/Toe.png" title="TOE Boundary in Example PKI Architecture" id="toe"/>
+	      
+	This PP defines requirements only for CA system component(s) that issue and manage public key
+	certificates and certificate status information, to include interfaces to components not under the control
+	of the ST author that may be required to meet these requirements as shown in Figure 1. <h:br/><h:br/>
+	      
+	While the functionality that the TOE is obligated to implement (in response to the described threat
+	environment) is discussed in detail in later sections, it is useful to give a brief description here. Compliant
+	TOEs will provide security functionality that addresses threats to the TOE and implements policies that
+	are imposed by law or regulation. Compliant TOEs must authenticate and validate certificate requests and
+	control the use of its private signature key(s) so that only valid, properly authorized certificates are issued;
+	it must validate and authenticate all revocation requests and provide accurate and up-to-date revocation
+	status information; and it must validate any requests for optional services (key generation, key escrow or
+	recovery), authenticate and determine authorization for such services according to applicable security
+	policies and ensure that only authorized services are performed. The TOE must protect itself from
+	common network attacks, limit the damage that could occur by privileged user error, and be able to
+	recover from damage that can occur via either network attacks or human error, to include reconstitution
+	of functionality necessary to maintain any and all certificates issued for the duration of their validity
+	periods in the case of TOE failure. The TOE must also offer auditing of a set of events that are associated
+	with security-relevant activity on the TOE, and these events must be retained for long-term storage even
+	in the event of a failure of the TOE. Audit storage should be reliable and extensible, although this could
+	be on a device that is distinct from the TOE. The TOE must offer some protection for common network
+	denial of service attacks and must also provide the ability to verify the source of updates to components
+	of the TOE. <h:br/><h:br/>
+	      
+	A CA system which is the Target of Evaluation (TOE) of this PP may be a software package installed on a
+	general computing platform, a set of software packages installed on distributed general computing
+	platforms, or an integrated device including hardware and software. This PP makes no distinction in these
+	cases and imposes requirements on the TOE and/or Operational Environment to ensure that the
+	requirements can be met in any of these cases. Whenever the TOE depends on external components to
+	meet the requirements of this PP, those components are included in the Operational Environment and
+	the AGD_OPE and AGD_PRE sections of this PP describe requirements on the TOE to document these
+	dependencies. For example, the TOE provides cryptographic operations involved in the signing of
+	certificates, which may depend on an external cryptographic module such as a trusted computing module
+	(TPM) on the general computing platform or an external hardware security module (HSM).<h:br/><h:br/>
+
+	The CA manages certificates by providing validity information, either via the issuance of Certificate
+	Revocation Lists (CRLs) or via a Certificate Status Service (CSS) that provides real-time responses to validity
+	queries. Because a CA acts as a trusted third party, and because recommended operations require
+	independent monitoring of its operations, the CA must maintain an audit record that can be reviewed.
+	This audit record may be maintained on the TOE, or on an external audit server.<h:br/><h:br/>
+	
+	The threats and security objectives apply generally to a CA system. In order to provide consistent
+	requirements for all TOEs, the requirements in Section 5 include selections to indicate where external
+	components may be used. The TOE platform, external cryptographic modules, external audit servers, and
+	external CSS that are not under the control of the security target (ST) author may be used to meet the
+	respective TOE requirements. In these cases, the ST author must provide evidence that the requirement
+	is met by the selected component. When external components are selected, this evidence is typically via
+	validation against an appropriate PP.<h:br/><h:br/>
+	      
+	It is intended that the set of requirements in this PP is limited in scope in order to promote quicker, less
+	costly evaluations that provide some value to end users.
+     </subsection>
     </section>
-    <section title="Use Cases" id="usecases">Requirements in this Protection Profile are designed to
-      address the security problems in at least the following use cases. These use cases are intentionally
-      very broad, as many specific use cases exist for an operating system. These use cases may also
-      overlap with one another.  An operating system's functionality may even be effectively extended by
-      privileged applications installed onto it.  However, these are out of scope of this PP. <usecases>
-        <usecase title="End User Devices" id="enduserdevices">
-          <description>
-          </description>
-        </usecase>
-      </usecases>
+
+    <section title="Use Cases" id="usecases">
+	Requirements in this PP are designed to address the security problem for CA systems. The fundamental
+	usage of a CA system will not differ drastically based on the functionality it provides. Different TOEs may
+	vary because of the inclusion or exclusion of the various optional, objective, and selection-based
+	requirements defined in the annexes of this PP but they are all expected to be used in the same general
+	manner for the same general purposes. 
     </section>
   </chapter>
 
