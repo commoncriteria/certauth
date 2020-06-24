@@ -56,7 +56,7 @@
 	CAs is at the heart of security mechanisms used to protect business and financial transactions online.
 	Notably, protocols using Transport Layer Security (TLS) rely on certificates issued by CAs to identify and
 	authenticate servers and clients in web transactions. Governments around the world rely on CAs to
-	identify parties involved in transactions with them. <htm:br/><html:br/>
+	identify parties involved in transactions with them. <htm:br/><htm:br/>
 
 	However, historical high-profile security breaches at major CAs trusted by widely used operating systems
 	and browsers have highlighted both the critical role CAs play in securing electronic transactions, as well
@@ -64,13 +64,13 @@
 	breaches were often the result of insufficient security controls being in place on the computer systems
 	and networks at these CAs, and were sometimes exacerbated by weak record keeping. Third-party
 	auditing programs, whose role it was to verify that proper security controls were in place, were not
-	sufficient to identify these lapses in security.<htm:br/><html:br/>
+	sufficient to identify these lapses in security.<htm:br/><htm:br/>
 	    
 	This Protection Profile (PP) describing security requirements for a Certification Authority is intended to
 	provide a minimal, baseline set of requirements that are targeted at mitigating well defined and described
 	threats. These requirements support CA operations performed in accordance with the National Institute
 	of Standards and Technologies (NIST) Interagency or Internal Report (IR) 7924 (Second Draft), Reference
-	Certificate Policy, May 2014, referred to as the “NIST IR.” <htm:br/><html:br/>
+	Certificate Policy, May 2014, referred to as the “NIST IR.” <htm:br/><htm:br/>
 
 	The following sections provide both Common Criteria and technology terms used in this PP.
     </section>
