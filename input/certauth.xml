@@ -79,27 +79,14 @@
 	<term abbr='AES' full="Advanced Encryption Standard"/>
       	<term abbr='AOR' full="Authorized Organizational Representative"/>
       	<term abbr='API' full="Application Programming Interface"/>
-     <term full="Address Space Layout Randomization" abbr="ASLR">
-	An anti-exploitation feature which loads memory mappings into unpredictable
-	locations. ASLR makes it more difficult for an attacker to redirect control to code
-	that they have introduced into the address space of a process.
-      </term>
-      <term full="Administrator">
-	An administrator is responsible for management activities, including setting policies that are 
-	applied by the enterprise on the operating system.
-	This administrator could be acting remotely through a management server, from which the system
-	receives configuration policies.
-	An administrator can enforce settings on the system which cannot be overridden by non-administrator users.
-      </term>
-      <term full="Application" abbr="app">
-	Software that runs on a platform and performs tasks on behalf of the user
-	or owner of the platform, as well as its supporting documentation. 
-      </term>
-      	<term full="Application Programming Interface" abbr="API">
-		A specification of routines, data structures, object classes, and variables
-		that allows an application to make use of services provided by another software
-		component, such as a library. APIs are often provided for a set of libraries included
-		with the platform.
+      	<term full="Administrator">
+		The Administrator is responsible for management activities, including configuration of
+		the CA and its security functions.
+      	</term>
+      	<term full="Authorized Organizational Representative" abbr="AOR">
+		An optional privileged user role which is delegated authority by the Certification
+		Authority Staff or RA Staff to manage a restricted set of certificates associated to
+		devices belonging to a particular organization
       	</term>
 	<term abbr='CA' full="Certification Authority"/>
 	<term abbr='CBC' full="Cipher Block Chaining"/>
@@ -107,49 +94,58 @@
 	<term abbr='CCM' full="Counter with CBC-Message Authentication Code"/>
 	<term abbr='CCMP' full="CCM Protocol"/>
 	<term abbr='CCTL' full="Common Criteria Test Lab"/>
+      	<term full="Certificate Profile">
+		A set of configuration parameters that defines everything associated with a type of
+		certificate, in particular the contents (fields and extensions) of the generated
+		certificate.
+      	</term>
+      	<term full="Certification Authority" abbr="CA">
+		The set of hardware, software, firmware, or some combination thereof, that issues,
+		revokes, and manages public key certificates and certificate status information.
+      	</term>
       	<term abbr='CESG' full="Communications-Electronics Security Group"/>
-      	<term abbr='CMC' full="Certificate Management over CMS"/>
+      	<term abbr='CMC' full="Certificate Management over CMM">
+		Certificate Management over CMM. A standard certificate enrollment protocol.
+	</term>
       	<term abbr='CMS' full="Cryptographic Message Syntax"/>
       	<term abbr='CN' full="Common Names"/>
-      <term full="Credential">
-	Data that establishes the identity of a user, e.g. a cryptographic key or
-	password.
-      </term>
+      	<term full="Compromise">
+		The unauthorized disclosure, modification, substitution or use of sensitive data
+		(including plaintext cryptographic keys and other CSPs).
+      	</term>
+      	<term full="Confidentiality">
+		The property that sensitive information is not disclosed to unauthorized individuals,
+		entities or processes.
+      	</term>
       	<term abbr='CRL' full="Certificate Revocation List"/>
       	<term abbr='CSA' full="Computer Security Act"/>
 	<term abbr='CSS' full="Certificate Status Server"/>
-      <term full="Critical Security Parameters" abbr="CSP">
-	Information that is either user or system defined and
-	is used to operate a cryptographic module in processing encryption functions including
-	cryptographic keys and authentication data, such as passwords, the disclosure or modification
-	of which can compromise the security of a cryptographic module or the security of the
-	information protected by the module.
-      </term>
+      	<term full="Critical Security Parameter" abbr="CSP">
+		Security-related information (e.g., secret and private cryptographic keys,
+		authentication data such as passwords and PINs) appearing in plaintext or otherwise
+		unprotected form and whose disclosure or modification can compromise the security
+		of a CA or the security of the information protected by the CA.
+      	</term>
+      	<term full="Cryptographic key">
+		A parameter used in conjunction with a cryptographic algorithm that determines: <h:br/>	
+		<h:ul>
+			<h:li>the transformation of plaintext data into ciphertext data,</h:li>
+			<h:li>the transformation of ciphertext data into plaintext data,</h:li>
+			<h:li>a digital signature computed from data,</h:li>
+			<h:li>a keyed hash computed from data,</h:li>
+			<h:li>the verification of a digital signature computed from data,</h:li>
+			<h:li>an authentication code computed from data, or an exchange agreement of a shared secret.</h:li>
+		</h:ul>
+      	</term>
       	<term abbr="DAR" full="Data At Rest"/>
-      <term full="DAR Protection">
-	Countermeasures that prevent attackers, even those with physical access,
-	from extracting data from non-volatile storage.
-	Common techniques include data encryption and wiping.
-      </term>
-      	<term abbr='DEK' full="Data Encryption Key"/>
-      <term full="Data Execution Prevention" abbr="DEP">
-	An anti-exploitation feature of modern operating systems executing on
-	modern computer hardware, which enforces a non-execute permission on pages of memory.
-	DEP prevents pages of memory from containing both data and instructions, which makes
-	it more difficult for an attacker to introduce and execute code.
-      </term>
+      	<term abbr='DEK' full="Data Encryption Key">
+		A key used to encrypt data-at-rest.
+	</term>
       	<term abbr='DES' full="Data Encryption Standard"/>
-      <term full="Developer">
-	An entity that writes OS software. For the purposes of this document,
-	vendors and developers are the same.
-      </term>
-      <term full="General Purpose Operating System">
-	A class of OSes designed to support a wide-variety of workloads consisting of many concurrent applications or services.
-	Typical characteristics for OSes in this class include support for third-party applications,
-	support for multiple users, and security separation between users and their respective resources.
-	General Purpose Operating Systems also lack the real-time constraint that defines Real Time Operating Systems (RTOS).
-	RTOSes typically power routers, switches, and embedded devices.
-      </term>
+      	<term full="Digital Signature">
+		A non-forgeable transformation of data that allows proof of the source (with
+		nonrepudiation) and verification of the integrity of that data.
+	</term>
       	<term abbr='DH' full="Diffie-Hellman"/>   
       	<term abbr='DHE' full="Diffie-Hellman Key Exchange"/>
       	<term abbr='DKM' full="Derived Keying Material"/>
@@ -165,22 +161,30 @@
       	<term abbr='ECDSA' full="Elliptic Curve Digital Signature Algorithm"/>
       	<term abbr='EDC' full="Error Detection Code"/>
       	<term abbr='EEPROM' full="Electrically Erasable Programmable Read-Only Memory"/>
+      	<term full="Encrypted key">
+		A cryptographic key that has been encrypted with a key encrypting key, a PIN or a
+		password in order to disguise the value of the underlying plaintext key.
+	</term>
+      	<term full="Error detection code" abbr="EDC">
+		A code computed from data and comprised of redundant bits of information designed
+		to detect, but not correct, unintentional changes in the data.
+	</term>
       	<term abbr='ESP' full="Encapsulating Security Payload (IPsec)"/>
       	<term abbr='EST' full="Enrollment over Secure Transport"/>
       	<term abbr='FFC' full="Finite-Field Cryptography"/>
       	<term abbr='FIPS' full="Federal Information Processing Standards"/>
       	<term abbr='GCM' full="Galois/Counter Mode"/>
       	<term abbr='HMAC' full="Hash-based Message Authentication Code"/>
-      <term full="Host-based Firewall">
-	A software-based firewall implementation running on the OS for filtering inbound and
-	outbound network traffic to and from processes running on the OS.
-      </term>
       	<term abbr='HSM' full="Hardware Security Module"/>
       	<term abbr='HTTP' full="Hypertext Transfer Protocol"/>
       	<term abbr='HTTPS' full="Hypertext Transfer Protocol Secure"/>
       	<term abbr='I and A' full="Identification and Authentication"/>
       	<term abbr='IETF' full="Internet Engineering Task Force"/>
       	<term abbr='IKE' full="Internet key Exchange"/>
+      	<term full="Integrity">
+		The property that sensitive data has not been modified or deleted in an unauthorized
+		and undetected manner.
+	</term>
       	<term abbr='IP' full="Internet Protocol"/>
       	<term abbr='IPsec' full="Internet Protocol Security"/>
       	<term abbr='ISO' full="International Organization for Standardization"/>
@@ -190,7 +194,14 @@
       	<term abbr='IV' full="Initialization Vector"/>
       	<term abbr='KAT' full="Known Answer Tests"/>
       	<term abbr='KDF' full="Key Derivation Function"/>
-      	<term abbr='KEK' full="Key Encryption Key"/>
+      	<term abbr='KEK' full="Key Encryption Key">
+		A key used to encrypt other keys, such as DEKs, or storage that contains keys.
+	</term>
+      	<term full="Key sharing">
+		A multi-party computation (MPC) mechanism that allows two or more parties, each
+		with key components, to jointly produce a plaintext key without revealing any of the
+		key components.
+	</term>
       	<term abbr='KW' full="Key Wrap"/>
       	<term abbr='KWP' full="Key Wrapping with Padding"/>
       	<term abbr='MAC' full="Message Authentication Code"/>
@@ -203,23 +214,14 @@
       	<term abbr='OCSP' full="Online Certificate Status Protocol"/>
       	<term abbr='OID' full="Object Identifier"/>
       	<term abbr='OMB' full="Office of Management and Budget"/>
-      <term full="Operating System" abbr="OS">
-	Software that manages physical and logical resources and provides services
-	for applications. The terms <h:i>TOE</h:i> and <h:i>OS</h:i> are interchangeable in this
-	document. 
-      </term>
-      <term full="Personally Identifiable Information" abbr="PII">
-	Any information about an individual maintained by an agency, including, but
-	not limited to, education, financial transactions, medical history, and criminal or
-	employment history and information which can be used to distinguish or trace an
-	individual's identity, such as their name, social security number, date and place of
-	birth, mother's maiden name, biometric records, etc., including any other personal
-	information which is linked or linkable to an individual.<cite linkend="bibOMB"/>
-      </term>
       	<term abbr='PGP' full="Pretty Good Privacy"/>
       	<term abbr='PKI' full="Public Key Infrastructure"/>
       	<term abbr='PKV' full="Public Key Verification"/>
       	<term abbr='PP' full="Protection Profile"/>
+      	<term full="Private key">
+		A cryptographic key used with a public key cryptographic algorithm, uniquely
+		associated with an entity, and not made public.
+	</term>
       	<term abbr='RA' full="Registration Authority"/>
       	<term abbr='RAM' full="Random Access Memory"/>
       	<term abbr='RBG' full="Random Bit Generator"/>
