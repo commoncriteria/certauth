@@ -781,26 +781,79 @@
     </section>
 	  
     <section title="Security Objectives for the Operational Environment"
-      id="SecurityObjectivesTOEorEnvironment">The following security objectives for the operational
-      environment assist the OS in correctly providing its security functionality.
-      These track with the assumptions about the environment. <SOEs>
+      id="SecurityObjectivesTOEorEnvironment">Note that PP allows the ST author in some cases to select if the TSF or Operational Environment is
+	invoked to perform some function. There are several Objectives for the Operational Environment that
+	correspond to those SFRs, covering the case where the ST author selects the item pertaining to the
+	Operational Environment being invoked to perform the function. If the TOE performs all such functions
+	(that is, the Operational Environment-related selection is not chosen), then the corresponding Objective
+	for the Operational Environment will need to be removed by the ST author.
+      <SOEs>
         <SOE name="OE.PLATFORM">
           <description>The OS relies on being installed on trusted
             hardware.</description>
         </SOE>
-        <SOE name="OE.PROPER_USER">
-          <description> The user of the OS is not willfully negligent or hostile,
-            and uses the software within compliance of the applied enterprise security policy.
-            Standard user accounts are provisioned in accordance with the least privilege model.
-            Users requiring higher levels of access should have a separate account dedicated for
-            that use. </description>
+        <SOE name="OE.CERT_REPOSITORY">
+          <description>The Operational Environment provides a certificate repository for storage of certificates (and
+		optionally CRLs) issued by the TSF.
+		</description>
         </SOE>
-        <SOE name="OE.PROPER_ADMIN">
-          <description> The administrator of the OS is not careless, willfully
-            negligent or hostile, and administers the OS within compliance of the applied enterprise
-            security policy. </description>
+        <SOE name="OE.CERT_REPOSITORY_SEARCH">
+          <description>The Operational Environment provides the ability to search a certificate repository for specific
+		certificate fields in certificates issued by the TSF and return the certificate and an identifier for the
+		certificate that can be used to search the audit trail for events related to that certificate. </description>
+        </SOE>
+        <SOE name="OE.AUDIT_RETENTION">
+          <description>The Operational Environment provides mechanisms for retention of audit records for both normal
+	and extended retention periods.</description>
+        </SOE>
+        <SOE name="OE.AUDIT_REVIEW">
+          <description>The Operational Environment provides a mechanism for the review of specified audit data.</description>
+        </SOE>
+        <SOE name="OE.AUDIT_STORAGE">
+          <description>The Operational Environment provides a mechanism for the storage of specified audit data.</description>
+        </SOE>
+        <SOE name="OE.CRYPTOGRAPHY">
+          <description>The Operational Environment provides cryptographic services that can be invoked by the TSF in order
+		to perform security functionality.</description>
+        </SOE>
+        <SOE name="OE.KEY_ARCHIVAL">
+          <description>The Operational Environment provides the ability to use split knowledge procedures to enforce twoparty control to export keys necessary to resume CA functionality if the TSF should fail.
+		</description>
+        </SOE>
+        <SOE name="OE.NO_GENERAL_PURPOSE">
+          <description>There are no general-purpose computing capabilities (e.g., compilers or user applications) available
+		on the TOE, other than those services necessary for the operation, administration and support of the
+		TOE.</description>
+        </SOE>
+        <SOE name="OE.PHYSICAL">
+          <description>Physical security, commensurate with the value of the TOE and the data it contains, is provided by the
+		environment.</description>
+        </SOE>
+        <SOE name="OE.PUBLIC_KEY_PROTECTION">
+          <description>The Operational Environment provides protection for specified public keys associated with CA
+		functions.</description>
+        </SOE>
+        <SOE name="OE.SESSION_PROTECTION_LOCAL">
+          <description>The Operational Environment provides the ability to lock or terminate local administrative sessions.</description>
+        </SOE>
+        <SOE name="OE.SESSION_PROTECTION_REMOTE">
+          <description>The Operational Environment provides the ability to lock or terminate remote administrative sessions.</description>
+        </SOE>
+        <SOE name="OE.TOE_ADMINISTRATION">
+          <description>The Operational Environment provides specified management capabilities required for the overall
+		operation of a Certificate Authority, and the ability to restrict access to a subset of the capabilities as
+		specified in the ST. </description>
+        </SOE>
+        <SOE name="OE.TRUSTED_ADMIN">
+          <description>The administrator of the TOE is not careless, willfully negligent or hostile, and administers the
+		software within compliance of the applied enterprise security policy.</description>
+        </SOE>
+        <SOE name="OE.TRUSTED_PLATFORM">
+          <description>The operating system on which the TOE has been installed is securely configured, regularly patched,
+		and not subject to unauthorized access.</description>
         </SOE>
       </SOEs></section>
+	  
     <section title="Security Objectives Rationale" id="SOR">
       <!-- This section is populated by boilerplates.xsl in transforms. -->
       </section>
