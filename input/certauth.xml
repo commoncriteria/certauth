@@ -580,49 +580,48 @@
 	  
     <section title="Assumptions" id="assumptions">
       <assumptions>
-        <assumption name="A.PLATFORM">
-          <description> The OS relies upon a trustworthy computing platform for
-            its execution. This underlying platform is out of scope of this PP. </description>
-          <objective-refer ref="OE.PLATFORM">
-            <rationale> The operational environment objective OE.PLATFORM is realized through
-              A.PLATFORM. </rationale>
+        <assumption name="A.NO_GENERAL_PURPOSE">
+          <description>It is assumed that there are no general-purpose computing capabilities (e.g., compilers
+		  or user applications) available on the TOE, other than those services necessary for the
+		  operation, administration and support of the TOE. </description>
+          <objective-refer ref="OE.NO_GENERAL_PURPOSE">
+            <rationale>There are no general-purpose computing capabilities (e.g., compilers or user
+		applications) available on the TOE, other than those services necessary for the
+		operation, administration and support of the TOE.</rationale>
           </objective-refer>
         </assumption>
-        <assumption name="A.PROPER_USER">
-          <description> The user of the OS is not willfully negligent or hostile, and uses the
-            software in compliance with the applied enterprise security policy. At the same time,
-            malicious software could act <h:i>as</h:i> the user, so requirements which
-            confine malicious subjects are still in scope.</description>
-          <objective-refer ref="OE.PROPER_USER">
-            <rationale>The operational environment objective OE.PROPER_USER is realized through
-              A.PROPER_USER.</rationale>
+        <assumption name="A.PHYSICAL">
+          <description>Physical security, commensurate with the value of the TOE and the data it contains, is 
+		  assumed to be provided by the environment.</description>
+          <objective-refer ref="OE.PHYSICAL">
+            <rationale>Physical security, commensurate with the value of the TOE and the data it contains, is
+		provided by the environment.</rationale>
           </objective-refer>
         </assumption>
-        <assumption name="A.PROPER_ADMIN">
-          <description> The administrator of the OS is not careless, willfully negligent or hostile,
-            and administers the OS within compliance of the applied enterprise security policy. </description>
-          <objective-refer ref="OE.PROPER_ADMIN">
-            <rationale>The operational environment objective OE.PROPER_ADMIN is realized through
-              A.PROPER_ADMIN.</rationale>
+        <assumption name="A.TRUSTED_ADMIN">
+          <description> TOE Administrators are assumed to follow and apply all administrator guidance in
+		  a trusted manner.</description>
+          <objective-refer ref="OE.TRUSTED_ADMIN">
+            <rationale>The administrator of the TOE is not careless, willfully negligent or hostile, and
+		administers the software within compliance of the applied enterprise security policy.</rationale>
           </objective-refer>
         </assumption>
       </assumptions>
     </section>
-<!--    <section title="Organizational Security Policies" id="OSPs">
+	  
+    <section title="Organizational Security Policies" id="OSPs">
       <OSPs>
-        <OSP id="P.ENTERPRISE">
-          <description>If the OS is bound to a directory or management server, the configuration of
-            the OS software must be capable of adhering to the enterprise security policies
-            distributed by them.</description>
-          <objective-refer ref="O.MANAGEMENT">
-            <rationale>The organizational security policy P.ENTERPRISE is enforced through the
-              objective O.MANAGEMENT as this objective represents how the enterprise and user assert
-              management over the OS.</rationale>
+        <OSP id="P.ACCESS_BANNER">
+          <description>The TOE shall display an initial banner describing restrictions of use, legal agreements,
+		  or any other appropriate information to which users consent by accessing the TOE.</description>
+          <objective-refer ref="O.DISPLAY_BANNER">
+            <rationale>The TOE will display an advisory warning regarding use of the TOE.</rationale>
           </objective-refer>
         </OSP>
       </OSPs>
-    </section> -->
+    </section>
   </chapter>
+	
   <chapter title="Security Objectives" id="obj">
     <section title="Security Objectives for the TOE" id="SecurityObjectivesTOE">
       <SOs>
