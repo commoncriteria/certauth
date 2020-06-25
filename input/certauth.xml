@@ -103,7 +103,7 @@
       	</term>
       	<term abbr='CESG' full="Communications-Electronics Security Group"/>
       	<term abbr='CMC' full="Certificate Management over CMS">
-		Certificate Management over CMM. A standard certificate enrollment protocol.
+		Certificate Management over CMS. A standard certificate enrollment protocol.
 	</term>
       	<term abbr='CMS' full="Cryptographic Message Syntax"/>
       	<term abbr='CN' full="Common Names"/>
@@ -376,7 +376,7 @@
 	contained in the certificate. This also allows the relying parties to use the public key in the certificate to
 	carry out encrypted communication with the subscriber.<h:br/><h:br/>
 	      
-	<figure entity="images/Toe.png" title="TOE Boundary in Example PKI Architecture" id="toe"/>
+	<figure entity="images/CertAuth-Toe.png" title="TOE Boundary in Example PKI Architecture" id="toe"/>
 	      
 	This PP defines requirements only for CA system component(s) that issue and manage public key
 	certificates and certificate status information, to include interfaces to components not under the control
@@ -441,75 +441,143 @@
   </chapter>
 
   <chapter title="Conformance Claims" id="cclaims"/>
-  <chapter title="Security Problem Description" id="spd">The security problem is described in terms
-    of the threats that the OS is expected to address, assumptions about the
-    operational environment, and any organizational security policies that the OS
-    is expected to enforce.
-    <section title="Threats" id="threats">
+	
+  <chapter title="Security Problem Description" id="spd">
+	  
+  The security problem is described in terms of the threats that the OS is expected to address, assumptions
+  about the operational environment, and any organizational security policies that the OS
+  is expected to enforce.
+
+  <section title="Threats" id="threats">
       <threats>
-        <threat name="T.NETWORK_ATTACK">
-          <description> An attacker is positioned on a communications channel or elsewhere on the
-            network infrastructure. Attackers may engage in communications with applications and
-            services running on or part of the OS with the intent of compromise. Engagement may
-            consist of altering existing legitimate communications.</description>
-          <objective-refer ref="O.PROTECTED_COMMS">
-            <rationale>The threat T.NETWORK_ATTACK is countered by O.PROTECTED_COMMS as this
-              provides for integrity of transmitted data.</rationale>
+
+	<threat name="T.PRIVILEGED_USER_ERROR">
+          <description> A privileged user or non-person entity (NPE) improperly exercises or adversely affects
+		  the TOE, resulting in unauthorized services, ineffective security mechanisms, or unintended
+		  circumvention of security mechanisms.</description>
+          <objective-refer ref="O.AUDIT_LOSS_RESPONSE">
+            <rationale>The TOE will respond to possible loss of audit records when audit trail storage is full
+		or nearly full by restricting auditable events.</rationale>
           </objective-refer>
-          <objective-refer ref="O.INTEGRITY">
-            <rationale>The threat T.NETWORK_ATTACK is countered by O.INTEGRITY as this provides for
-              integrity of software that is installed onto the system from the network.</rationale>
+          <objective-refer ref="O.AUDIT_PROTECTION">
+            <rationale>The TOE will protect audit records against unauthorized access, modification, or
+		deletion to ensure accountability of user actions.</rationale>
           </objective-refer>
-          <objective-refer ref="O.MANAGEMENT">
-            <rationale>The threat T.NETWORK_ATTACK is countered by O.MANAGEMENT as this provides for
-              the ability to configure the OS to defend against network attack.</rationale>
+          <objective-refer ref="O.SESSION_LOCK">
+            <rationale>The TOE will provide mechanisms that mitigate the risk of unattended sessions
+		being hijacked.</rationale>
           </objective-refer>
-          <objective-refer ref="O.ACCOUNTABILITY">
-            <rationale>The threat T.NETWORK_ATTACK is countered by O.ACCOUNTABILITY as this
-              provides a mechanism for the OS to report behavior that may indicate a network
-              attack has occurred.</rationale>
-          </objective-refer>
-        </threat>
-        <threat name="T.NETWORK_EAVESDROP">
-          <description> An attacker is positioned on a communications channel or elsewhere on the
-            network infrastructure. Attackers may monitor and gain access to data exchanged between
-            applications and services that are running on or part of the OS. </description>
-          <objective-refer ref="O.PROTECTED_COMMS">
-            <rationale>The threat T.NETWORK_EAVESDROP is countered by O.PROTECTED_COMMS as this
-              provides for confidentiality of transmitted data.</rationale>
-          </objective-refer>
-          <objective-refer ref="O.MANAGEMENT">
-            <rationale>The threat T.NETWORK_EAVESDROP is countered by O.MANAGEMENT as this provides
-              for the ability to configure the OS to protect the confidentiality of its transmitted
-              data.</rationale>
+          <objective-refer ref="O.TOE_ADMINISTRATION">
+            <rationale>The TOE will provide mechanisms to ensure that only privileged users are able to log in
+		and configure the TOE, and provide protections for logged-in users. The TOE will
+		ensure that administrative responsibilities are separated across different roles in order
+		to mitigate the impact of improper administrative activities or unauthorized
+		administrative access.</rationale>
           </objective-refer>
         </threat>
-        <threat name="T.LOCAL_ATTACK">
-          <description> An attacker may compromise applications running on the OS. The
-            compromised application may provide maliciously formatted input to the OS through a
-            variety of channels including unprivileged system calls and messaging via the
-            file system. </description>
-          <objective-refer ref="O.INTEGRITY">
-            <rationale>The objective O.INTEGRITY protects against the use of mechanisms that weaken
-              the TOE with regard to attack by other software on the
-              platform.</rationale>
-          </objective-refer>
-          <objective-refer ref="O.ACCOUNTABILITY">
-            <rationale>The objective O.ACCOUNTABILITY protects against local attacks by providing
-              a mechanism to report behavior that may indicate a local attack is occurring or
-              has occurred.</rationale>
+        <threat name="T.TSF_FAILURE">
+          <description> Security mechanisms of the TOE may fail, leading to a compromise of the TSF.</description>
+          <objective-refer ref="O.TSF_SELF_TEST">
+            <rationale>The TOE will provide the capability to test some subset of its security functionality to
+		ensure it is operating properly. The TOE will provide integrity protection to detect
+		modifications to firmware, software, and archived data.</rationale>
           </objective-refer>
         </threat>
-        <threat name="T.LIMITED_PHYSICAL_ACCESS">
-          <description> An attacker may attempt to access data on the OS while having a limited
-            amount of time with the physical device. </description>
-          <objective-refer ref="O.PROTECTED_STORAGE">
-            <rationale>The objective O.PROTECTED_STORAGE protects against unauthorized attempts to
-              access physical storage used by the TOE.</rationale>
+        <threat name="T.UNAUTHENTICATED_TRANSACTIONS">
+          <description> Relying parties within an information system depend on the TOE to accurately bind subjects
+		  to their credentials for use in authenticating and providing privacy for transactions. Without 
+		  the proper binding provided by the TOE, relying parties cannot ensure adequate access controls
+		  on sensitive information, ensure transactional integrity, ensure proper accountability, and/or
+		  enforce nonrepudiation. </description>
+          <objective-refer ref="O.CERTIFICATES">
+            <rationale>The TSF must ensure that certificates, certificate revocation lists, and certificate
+		status information are valid.</rationale>
+          </objective-refer>
+          <objective-refer ref="O.CONFIGURATION_MANAGEMENT">
+            <rationale>The TOE will conduct configuration management to assure identification of
+		system connectivity (software, hardware, and firmware), and components (software,
+		hardware, and firmware), auditing of configuration data, and controlling changes
+		to configuration items.</rationale>
+          </objective-refer>
+          <objective-refer ref="O.INTEGRITY_PROTECTION">
+            <rationale>The TOE will provide appropriate integrity protection for TSF data and software and
+		any user data stored by the TOE. </rationale>
+          </objective-refer>
+          <objective-refer ref="O.NON_REPUDIATION">
+            <rationale>The TOE will prevent a subscriber from avoiding accountability for sending a
+		message by providing evidence that the subscriber sent the message; and control
+		communications from unknown source. </rationale>
+          </objective-refer>
+        </threat>
+        <threat name="T.UNAUTHORIZED_ACCESS">
+          <description> A malicious user, process, or external IT entity intentionally circumvents TOE security
+		  mechanisms. </description>
+          <objective-refer ref="O.PROTECTED_COMMUNICATIONS">
+            <rationale>The TOE will provide protected communication channels for administrators,
+		other parts of a distributed TOE, and authorized IT entities. The TOE will protect
+		data assets when they are being transmitted to and from the TOE, including through
+		intervening untrusted components. </rationale>
+          </objective-refer>
+          <objective-refer ref="O.SESSION_LOCK">
+            <rationale>The TOE will provide mechanisms that mitigate the risk of unattended sessions
+		being hijacked. </rationale>
+          </objective-refer>
+          <objective-refer ref="O.TOE_ADMINISTRATION">
+            <rationale>The TOE will provide mechanisms to ensure that only privileged users are able to log in
+		and configure the TOE, and provide protections for logged-in users. The TOE will
+		ensure that administrative responsibilities are separated across different roles in order
+		to mitigate the impact of improper administrative activities or unauthorized
+		administrative access. </rationale>
+          </objective-refer>
+        </threat>
+        <threat name="T.UNAUTHORIZED_UPDATE">
+          <description> A malicious party attempts to supply the end user with an update to the product that
+		  may compromise the security features of the TOE.</description>
+          <objective-refer ref="O.VERIFIABLE_UPDATES">
+            <rationale>The TOE will provide the capability to help ensure that any updates to the TOE can be
+		verified by the administrator to be unaltered and from a trusted source.</rationale>
+          </objective-refer>
+        </threat>
+        <threat name="T.UNDETECTED_ACTIONS">
+          <description> Remote users or external IT entities may take actions that adversely affect the security of the TOE.</description>
+          <objective-refer ref="O.AUDIT_LOSS_RESPONSE">
+            <rationale>The TOE will respond to possible loss of audit records when audit trail storage is full
+		or nearly full by restricting auditable events</rationale>
+          </objective-refer>
+          <objective-refer ref="O.AUDIT_PROTECTION">
+            <rationale>The TOE will protect audit records against unauthorized access, modification, or
+		deletion to ensure accountability of user actions.</rationale>
+          </objective-refer>
+          <objective-refer ref="O.SYSTEM_MONITORING">
+            <rationale>The TOE will provide the capability to generate audit data and send those data to
+		an external IT entity. The TOE will record in audit records: date and time of action and
+		the entity responsible for the action.</rationale>
+          </objective-refer>
+        </threat>
+        <threat name="T.USER_DATA_REUSE">
+          <description>A malicious user, process, or external IT entity may gain access to user data that is not cleared
+		  when resources are reallocated.</description>
+          <objective-refer ref="O.RESIDUAL_INFORMATION_CLEARING">
+            <rationale>The TOE will ensure that any data contained in a protected resource is not available
+		when the resource is reallocated.</rationale>
+          </objective-refer>
+        </threat>
+        <threat name="T.WEAK_CRYPTO">
+          <description>A weak hash or signature scheme may be compromised by an attacker and used to apply
+		  integrity checks to malicious content so that it appears legitimate.</description>
+          <objective-refer ref="O.PROTECTED_COMMUNICATIONS">
+            <rationale>The TOE will provide protected communication channels for administrators, other parts of
+		a distributed TOE, and authorized IT entities. The TOE will protect data assets when they are
+		being transmitted to and from the TOE, including through intervening untrusted components.</rationale>
+          </objective-refer>
+          <objective-refer ref="O.VERIFIABLE_UPDATES">
+            <rationale>The TOE will provide the capability to help ensure that any updates to the TOE can be
+		verified by the administrator to be unaltered and from a trusted source.</rationale>
           </objective-refer>
         </threat>
       </threats>
     </section>
+	  
     <section title="Assumptions" id="assumptions">
       <assumptions>
         <assumption name="A.PLATFORM">
