@@ -624,82 +624,162 @@
 	
   <chapter title="Security Objectives" id="obj">
     <section title="Security Objectives for the TOE" id="SecurityObjectivesTOE">
+	In some cases, an objective is addressed only by requirements that are either selection-based or
+	optional. In these cases, if none of those requirements are included in the ST, the ST author does not
+	include that objective in the ST.
       <SOs>
-        <SO name="O.ACCOUNTABILITY">
-          <description> Conformant OSes ensure that information exists that allows
-            administrators to discover unintentional issues with the configuration and operation of
-            the operating system and discover its cause.  Gathering event information and immediately
-            transmitting it to another system can also enable incident response in the event
-            of system compromise.</description>
-          <addressed-by>FAU_GEN.1</addressed-by><rationale>'cause FAU_GEN.1 is awesome</rationale>
-          <addressed-by>FTP_ITC_EXT.1</addressed-by><rationale>Cause FTP reasons </rationale>
+        <SO name="O.AUDIT_LOSS_RESPONSE">
+          <description> The TOE will respond to possible loss of audit records when audit trail storage is full 
+		  or nearly full by restricting auditable events.</description>
+          <addressed-by>FAU_ADP_EXT.1</addressed-by><rationale>X</rationale>
+          <addressed-by>FAU_STG.4</addressed-by><rationale>X</rationale>
         </SO>
-        <SO name="O.INTEGRITY">
-          <description>Conformant OSes ensure the integrity of their update
-            packages. OSes are seldom if ever shipped without errors, and the
-            ability to deploy patches and updates with integrity is critical to enterprise network
-            security. Conformant OSes provide execution environment-based
-            mitigations that increase the cost to attackers by adding complexity to the task of
-            compromising systems. </description>
-            <addressed-by>FPT_SBOP_EXT.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FPT_ASLR_EXT.1</addressed-by><rationale>ASLR For reasons </rationale>
-            <addressed-by>FPT_TUD_EXT.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FPT_TUD_EXT.2</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FCS_COP.1/HASH</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FCS_COP.1/SIGN</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FCS_COP.1/KEYHMAC</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FPT_ACF_EXT.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FPT_SRP_EXT.1</addressed-by><rationale>For reasons </rationale>
+        <SO name="O.AUDIT_PROTECTION">
+          <description>The TOE will protect audit records against unauthorized access, modification, or deletion
+		  to ensure accountability of user actions.</description>
+            <addressed-by>FAU_ADP_EXT.1</addressed-by><rationale>For reasons </rationale>
+            <addressed-by>FAU_STG.1(1) (selection-based)</addressed-by><rationale>For reasons </rationale>
+            <addressed-by>FAU_STG.1(2) (selection-based)</addressed-by><rationale>For reasons </rationale>
+            <addressed-by> FAU_STG.1(2) (selection-based)</addressed-by><rationale>For reasons </rationale>
+        </SO>
+        <SO name="O.CERTIFICATES">
+          <description>The TSF must ensure that certificates, certificate revocation lists, and certificate status
+		  information are valid.</description>
+            <addressed-by>FDP_CER_EXT.1</addressed-by><rationale>For reasons </rationale>
+            <addressed-by>FDP_CER_EXT.2</addressed-by><rationale>For reasons </rationale>
+            <addressed-by>FDP_CER_EXT.3</addressed-by><rationale>For reasons </rationale>
+            <addressed-by>FDP_CER_EXT.4 (optional)</addressed-by><rationale>For reasons </rationale>
+            <addressed-by>FDP_CRL_EXT.1 (selection-based)</addressed-by><rationale>For reasons </rationale>
+            <addressed-by>FDP_CSI_EXT.1</addressed-by><rationale>For reasons </rationale>
+            <addressed-by>FDP_OCSPG_EXT.1 (selection-based)</addressed-by><rationale>For reasons </rationale>
+            <addressed-by>FDP_SDP_EXT.1 (selection-based)</addressed-by><rationale>For reasons </rationale>
+            <addressed-by>FDP_STG_EXT.1 (optional)</addressed-by><rationale>For reasons </rationale>
+            <addressed-by>FIA_CMCS_EXT.1 (selection-based)</addressed-by><rationale>For reasons </rationale>
+            <addressed-by>FIA_ESTS_EXT.1 (selection-based)</addressed-by><rationale>For reasons </rationale>
             <addressed-by>FIA_X509_EXT.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FPT_TST_EXT.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FTP_ITC_EXT.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FPT_W^X_EXT.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FIA_AFL.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FIA_UAU.5</addressed-by><rationale>For reasons </rationale>
+            <addressed-by>FIA_X509_EXT.2</addressed-by><rationale>For reasons </rationale>
+            <addressed-by>FPT_NPE_EXT.1 (optional)</addressed-by><rationale>For reasons </rationale>
         </SO>
-        <SO name="O.MANAGEMENT">
-          <description> To facilitate management by users and the enterprise, conformant OSes
-	    provide consistent and supported interfaces for their
-            security-relevant configuration and maintenance. This includes the deployment of
-            applications and application updates through the use of platform-supported deployment
-            mechanisms and formats, as well as providing mechanisms for configuration and
-            application execution control. </description>
-            <addressed-by>FMT_MOF_EXT.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FMT_SMF_EXT.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FTA_TAB.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FTP_TRP.1</addressed-by><rationale>For reasons </rationale>
-        </SO>
-	<!-- <SO id="O.RESILIENCE"> -->
-	<!--   <description>  -->
-	<!--     To address the issue of exploitation in the event of software vulnerabilities,  -->
-	<!--     conformant OSs employ industry-standard exploitation countermeasures. -->
-	<!--   </description> -->
-	<!-- </SO> -->
-        <SO name="O.PROTECTED_STORAGE">
-          <description>
-To address the issue of loss of confidentiality of credentials in the event of
-loss of physical control of the storage medium, conformant OSes
-provide data-at-rest protection for credentials.
-Conformant OSes also provide access controls which allow users to keep their files private from other
-users of the same system.
+        <SO name="O.CONFIGURATION_MANAGEMENT">
+          <description>The TOE will conduct configuration management to assure identification of system connectivity
+		(software, hardware, and firmware), and components (software, hardware, and firmware), auditing
+		of configuration data, and controlling changes to configuration items.
           </description>
-          <addressed-by>FCS_STO_EXT.1, FCS_RBG_EXT.1, FCS_COP.1/ENCRYPT, FDP_ACF_EXT.1</addressed-by>
+          <addressed-by>FDP_CER_EXT.1, FDP_CER_EXT.4 (optional), FDP_CRL_EXT.1 (selection-based), FDP_OCSPG_EXT.1 (selection-based), FMT_MOF.1(1), FMT_MOF.1(2), FMT_MOF.1(3),
+		FMT_MOF.1(4), FMT_MOF.1(5), FMT_MTD.1, FPT_NPE_EXT.1 (optional)</addressed-by>
           <rationale>Rationale for a big chunk</rationale>
         </SO>
-        <SO name="O.PROTECTED_COMMS">
-          <description> To address both passive (eavesdropping) and active (packet modification)
-            network attack threats, conformant OSes provide mechanisms to create
-            trusted channels for CSP and sensitive data. Both CSP and sensitive data
-            should not be exposed outside of the platform. </description>
+        <SO name="O.DISPLAY_BANNER">
+          <description>The TOE will display an advisory warning regarding use of the TOE.</description>
           <addressed-by>
-            FCS_RBG_EXT.1, FCS_CKM.1, FCS_CKM.2, FCS_CKM_EXT.4, FCS_COP.1/ENCRYPT,
-            FCS_COP.1/HASH, FCS_COP.1/SIGN, FCS_COP.1/HMAC, FDP_IFC_EXT.1, FIA_X509_EXT.1,
-            FIA_X509_EXT.2, FTP_ITC_EXT.1
+            FTA_TAB.1
           </addressed-by>
+          <rationale>Rationale for a big chunk</rationale>
+        </SO>
+        <SO name="O.INTEGRITY_PROTECTION">
+          <description>The TOE will provide appropriate integrity protection for TSF data and software and any user data
+		stored by the TOE.</description>
+          <addressed-by>
+            FCS_CDP_EXT.1, FCS_CKM_EXT.5 (selection-based), FDP_ITT.1 (selection-based),
+		FPT_ITT.1 (selection-based), FPT_TST_EXT.1 (optional), FPT_TST_EXT.2 (optional)
+          </addressed-by>
+          <rationale>Rationale for a big chunk</rationale>
+        </SO>
+        <SO name="O.NON_REPUDIATION">
+          <description>The TOE will prevent a subscriber from avoiding accountability for sending a message by providing
+		evidence that the subscriber sent the message; and control communications from unknown source.
+		</description>
+          <addressed-by>
+            FCO_NRO_EXT.2, FCO_NRR_EXT.2 (selection-based), FIA_CMCC_EXT.1 (selectionbased), FIA_ESTC_EXT.1 (selection-based)
+          </addressed-by>
+          <rationale>Rationale for a big chunk</rationale>
+        </SO>
+        <SO name="O.PROTECTED_COMMUNICATIONS">
+          <description>The TOE will provide protected communication channels for administrators, other parts of a
+		distributed TOE, and authorized IT entities. The TOE will protect data assets when they are being
+		transmitted to and from the TOE, including through intervening untrusted components.
+		</description>
+          <addressed-by>
+            FCS_CDP_EXT.1, FCS_CKM.1 (selection-based), FCS_CKM.2 (selection-based),
+		FCS_CKM_EXT.1(1) (selection-based), FCS_CKM_EXT.1(2) (selection-based), FCS_CKM_EXT.1(3)
+		(selection-based), FCS_CKM_EXT.1(4) (selection-based), FCS_CKM_EXT.4 (selection-based),
+		FCS_CKM_EXT.7 (selection-based), FCS_CKM_EXT.8 (selection-based), FCS_COP.1(1) (selectionbased), FCS_COP.1(2) (selection-based), FCS_COP.1(3) (selection-based), FCS_COP.1(4) (selectionbased), FCS_COP.1(5) (optional), FCS_HTTPS_EXT.1 (selection-based), FCS_IPSEC_EXT.1 (selectionbased), FCS_RBG_EXT.1 (selection-based), FCS_STG_EXT.1, FCS_TLSC_EXT.2 (selection-based),
+		FCS_TLSS_EXT.1 (selection-based), FDP_ITT.1 (selection-based), FIA_PSK_EXT.1 (selection-based),
+		FPT_ITT.1 (selection-based), FPT_KST_EXT.1, FPT_KST_EXT.2, FPT_SKP_EXT.1, FPT_SKY_EXT.1
+		(optional), FPT_SKY_EXT.2 (selection-based), FTP_ITC.1 (selection-based), FTP_TRP.1          </addressed-by>
+          <rationale>Rationale for a big chunk</rationale>
+        </SO>
+        <SO name="O.RECOVERY">
+          <description>The TOE will have the capability to store and recover to a previous state at the direction of the
+		administrator (e.g., provide support for archival and recovery capabilities).
+		</description>
+          <addressed-by>
+            FCS_CDP_EXT.1, FCS_CKM_EXT.6 (selection-based), FPT_FLS.1, FPT_RCV.1   </addressed-by>
+          <rationale>Rationale for a big chunk</rationale>
+        </SO>
+        <SO name="O.RESIDUAL_INFORMATION_CLEARING">
+          <description>The TOE will ensure that any data contained in a protected resource is not available when the resource
+		is reallocated.
+		</description>
+          <addressed-by>
+            FDP_RIP.1  
+	  </addressed-by>
+          <rationale>Rationale for a big chunk</rationale>
+        </SO>
+        <SO name="O.SESSION_LOCK">
+          <description>The TOE will provide mechanisms that mitigate the risk of unattended sessions being hijacked.
+		</description>
+          <addressed-by>
+            FTA_SSL_EXT.1 (optional) 
+	  </addressed-by>
+          <rationale>Rationale for a big chunk</rationale>
+        </SO>
+        <SO name="O.SYSTEM_MONITORING">
+          <description>The TOE will provide the capability to generate audit data. The TOE will record in audit records: date
+		and time of action and the entity responsible for the action.
+		</description>
+          <addressed-by>
+             FAU_ADP_EXT.1, FAU_GEN.1, FAU_GEN.2, FAU_SAR.1 (selection-based), FAU_SAR.3
+		(selection-based), FAU_GCR_EXT.1, FAU_SCR_EXT.1 (selection-based), FAU_SEL.1 (selection-based),
+		FAU_STG_EXT.1 (selection-based), FIA_UIA_EXT.1, FPT_STM.1
+	  </addressed-by>
+          <rationale>Rationale for a big chunk</rationale>
+        </SO>
+        <SO name="O.TOE_ADMINISTRATION">
+          <description>The TOE will provide mechanisms to ensure that only privileged users are able to log in and configure
+		the TOE, and provide protections for logged-in users. The TOE will ensure that administrative
+		responsibilities are separated across different roles in order to mitigate the impact of improper
+		administrative activities or unauthorized administrative access.
+		</description>
+          <addressed-by>
+             FIA_AFL.1 (selection-based), FIA_PMG_EXT.1 (selection-based), FIA_UAU.7 (selectionbased), FIA_UAU_EXT.1, FIA_UIA_EXT.1, FMT_MOF.1(1), FMT_MOF.1(2), FMT_MOF.1(3),
+		FMT_MOF.1(4), FMT_MOF.1(5), FMT_MTD.1, FMT_SMF.1, FMT_SMR.2, FPT_APW_EXT.1 (selectionbased), FTA_SSL_EXT.1 (optional), FTA_SSL.3 (optional), FTA_SSL.4
+	  </addressed-by>
+          <rationale>Rationale for a big chunk</rationale>
+        </SO>
+        <SO name="O.TSF_SELF_TEST">
+          <description>The TOE will provide integrity protection to detect modifications to firmware, software, and archived
+		data.
+		</description>
+          <addressed-by>
+              FPT_TST_EXT.1 (optional), FPT_TST_EXT.2 (optional)
+		<note role="application">If this SFR is not claimed by the TOE, this functionality is expected to be satisfied by
+			the environmental objective OE.TRUSTED_PLATFORM.</note>
+	  </addressed-by>
+          <rationale>Rationale for a big chunk</rationale>
+        </SO>
+        <SO name="O.VERIFIABLE_UPDATES">
+          <description>The TOE will provide the capability to help ensure that any updates to the TOE can be verified by the
+		administrator to be unaltered and from a trusted source.
+		</description>
+          <addressed-by>
+              FCS_CDP_EXT.1, FCS_COP.1(2) (selection-based), FIA_X509_EXT.2, FPT_TUD_EXT.1
+	  </addressed-by>
           <rationale>Rationale for a big chunk</rationale>
         </SO>
       </SOs>
     </section>
+	  
     <section title="Security Objectives for the Operational Environment"
       id="SecurityObjectivesTOEorEnvironment">The following security objectives for the operational
       environment assist the OS in correctly providing its security functionality.
