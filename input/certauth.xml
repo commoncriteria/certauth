@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="../transforms/pp2html.xsl"?>
 
 <PP xmlns="https://niap-ccevs.org/cc/v1" name="Protection Profile for Certification Authorities"
-    xmlns:h="http://www.w3.org/1999/xhtml">
+    xmlns:h="http://www.w3.org/1999/xhtml" boilerplate="yes">
 
   <!-- <inline-comment color='green'> Hello World QQQQ </inline-comment> -->
   <!-- <inline-comment color='blue' linebreak='yes'> Hello World QQQQ </inline-comment> -->
@@ -859,26 +859,52 @@
       </section>
   </chapter>
 
-  <chapter title="Security Requirements" id="req">This chapter describes the security requirements
-    which have to be fulfilled by the <abbr linkend="OS"/>. Those requirements comprise functional
-    components from Part 2 and assurance components from Part 3 of <cite linkend="bibCC"/>. The
-    following notations are used: <h:ul>
-      <h:li>
-        <h:b>Refinement</h:b> operation (denoted by <h:b>bold text</h:b>): is used to add details to a
-        requirement, and thus further restricts a requirement.</h:li>
-      <h:li>
-        <h:b>Selection</h:b> (denoted by <h:i>italicized text</h:i>): is used to select one or more options
-        provided by the [CC] in stating a requirement.</h:li>
-      <h:li>
-        <h:b>Assignment</h:b> operation (denoted by <h:span class="assignable-content">italicized text</h:span>): is used to assign a
-        specific value to an unspecified parameter, such as the length of a password. Showing the
-        value in square brackets indicates assignment.</h:li>
-      <h:li>
-        <h:b>Iteration</h:b> operation: are identified with a number inside parentheses (e.g.
-        "(1)")</h:li>
-    </h:ul>
+  <chapter title="Security Requirements" id="req">The Security Functional Requirements (SFRs) included in this section are derived
+	  from Part 2 of the <h:i>Common Criteria for Information Technology Security Evaluation, Version 3.1, Revision 4</h:i>, with
+	  additional extended functional components.<h:br/><h:br/>
+	  The CC defines operations on Security Functional Requirements: assignments, selections, assignments
+		within selections and refinements. This document uses the following font conventions to identify the
+		operations defined by the CC: <h:br/><h:br/>
+		<h:ul>
+      		<h:li>
+	        <h:b>Refinement</h:b> operation (denoted by <h:b>bold text</h:b>): is used to add details to a
+        	requirement, and thus further restricts a requirement.</h:li>
+      		<h:li>
+        	<h:b>Selection</h:b> (denoted by <h:i>italicized text</h:i>): is used to select one or more options
+        	provided by the [CC] in stating a requirement.</h:li>
+      		<h:li>
+        	<h:b>Assignment</h:b> operation (denoted by <h:span class="assignable-content">italicized text</h:span>): is used to assign a
+        	specific value to an unspecified parameter, such as the length of a password. Showing the
+        	value in square brackets indicates assignment.</h:li>
+      		<h:li>
+        	<h:b>Iteration</h:b> operation: are identified with a number inside parentheses (e.g.
+        		"(1)")</h:li>
+      		<h:li>
+        	<h:b>Extended SFRs</h:b>  are identified by having a label “_EXT” appended to the SFR name. </h:li>
+    		</h:ul>
 
-    <section title="Security Functional Requirements" id="SFRs">
+    <section title="TOE Security Functional Requirements" id="SFRs">
+	    The Security Functional Requirements (SFRs) included in this section are derived from Part 2 of the
+	Common Criteria for Information Technology Security Evaluation, Version 3.1, Revision 4, with
+	additional extended functional components. The following table lists the SFRs that are defined in this
+	section as well as any auditable events associated with their enforcement. The following table presents
+	the baseline (mandatory) requirements for compliant TOEs, and also used to specify whether the TSF or
+	OE is responsible for actions pertaining to a particular audit event associated with the SFRs (this is done
+	in FAU_ADP_EXT.1 below). If the TOE relies on the Operational Environment to provide some of the
+	TOE’s auditing functionality, the ST author is expected to identify whether each of the auditable events
+	for the claimed SFRs are implemented by the TSF or by the Operational Environment, along with the
+	specific environmental component that provides the auditing functionality if applicable. The ST author
+	should refer to the right-most column of Table 4 through Table 6 and complete these fields accordingly.<h:br/><h:br/>
+
+	<!-- For some reason, the audit table is here. But why not? -->
+	<!-- The CA audit table actually has 5 fields, but the fifth one is not used.
+	     The fourth field reports the retention requirement for the records. This seems like it should not be
+	     a PP requirement since it is operational and not really a product feature.  -->
+	    
+	<audit-table table="mandatory">
+		<h:b>Auditable Events for Mandatory SFRs</h:b><h:br/>
+	</audit-table>
+	    
       <subsection title="QQQQ" id="QQQQ">
          <f-component cc-id="fqq_qqq.1" name="QQQQQ">
           <f-element id="a-unique-id">
