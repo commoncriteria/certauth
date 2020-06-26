@@ -1311,7 +1311,6 @@
 				</selectable>
 			</selectables>.
 		</title>
-		</f-element>
                 <note role="application">
 			The TOE is responsible for providing proof of origin for information it issues and
 			verifying proof of origin for information it receives. Based on what is chosen in the
@@ -1404,8 +1403,9 @@
 				from testing.
 			</Tests>
                     </aactivity>
-		    <audit-event/>
-                </f-component>
+		</f-element>
+	    <audit-event/>
+          </f-component>
 	
 	      <f-component cc-id="fqq_qqq.4" name="UQQQQQ" status="sel-based">
           <selection-depends req="a-unique-id" ids="aaa"/>
