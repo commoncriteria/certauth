@@ -901,10 +901,10 @@
 	     The fourth field reports the retention requirement for the records. This seems like it should not be
 	     a PP requirement since it is operational and not really a product feature.  -->
 	    
-	<audit-table table="mandatory">
-		<h:b>Auditable Events for Mandatory SFRs</h:b><h:br/>
-	</audit-table>
-	
+      <subsection title="Auditable Events for Mandatory SFRs" id="ss-audit-events">
+	<audit-table table="mandatory"/>
+      </subsection>
+	      
 	<!-- Class: FAU: Security Audit  -->
         <!--                             -->
       <subsection title="Class: Security Audit (FAU)" id="fau">
