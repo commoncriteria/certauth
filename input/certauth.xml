@@ -904,8 +904,14 @@
 	<audit-table table="mandatory">
 		<h:b>Auditable Events for Mandatory SFRs</h:b><h:br/>
 	</audit-table>
-	    
+	
+	<!-- Class: FAU: Security Audit  -->
+        <!--                             -->
       <subsection title="Class: Security Audit (FAU)" id="fau">
+	       
+	 <!--               -->     
+ 	 <!-- FAU_ADP_EXT.1 -->
+	 <!--               -->
          <f-component cc-id="fau_adp_ext.1" name="Audit Dependencies" status="mandatory">
           <f-element>
             <title> The TSF shall implement audit functionality and 
@@ -982,106 +988,58 @@
           </f-element>
  	  <audit-event/> 
         </f-component>
-	      
-        <f-component cc-id="fqq_qqq.3" name="BQQQQQ" status="objective">
-          <f-element>
-            <title> The TOE shall do <assignable>guidance on what things should be assignable </assignable>. </title>
-            <note role="application">Notes. Notes. Notes.</note>
-            <aactivity>
-              <Guidance>
-Activities assoiated with guidance
-              </Guidance>
-	    </aactivity>
-          </f-element>
-        </f-component>
-        <f-component cc-id="fqq_qqq.2" name="TQQQQQ" status="optional">
-          <f-element>
-            <title> The TOE shall do soemthing.</title>
-            <note role="application"></note>
-            <aactivity>
-              <TSS>
-Activities assoiated with the TSS.
-              </TSS>
-	    </aactivity>
-          </f-element>
-        </f-component>
-         <f-component cc-id="fqq_qqq.4" name="UQQQQQ" status="sel-based">
-          <selection-depends req="a-unique-id" ids="aaa"/>
-          <f-element>
-            <title> The TOE shall do something great.</title>
-            <note role="application"></note>
-            <aactivity>
-              <TSS>
-Activities assoiated with the TSS.
-              </TSS>
-	    </aactivity>
-          </f-element>
-        </f-component>
-        <f-component cc-id="fqq_qqq.6" name="WQQQQQ">
-          <depends on="implements" ref-id="a-feature-id"/>
-          <f-element>
-            <title> The TOE shall do something with regards to some implementation.</title>
-            <note role="application"></note>
-            <aactivity>
-              <TSS>
-Activities assoiated with the TSS.
-              </TSS>
-	    </aactivity>
-          </f-element>
-        </f-component>
-      </subsection>
 
-      <subsection title="Security Management (FMT)" id="fmt-2">
-          <f-component cc-id="fmt_smf.1" iteration="HOST" name="Specification of Management Functions (EDR Management of Host Agent)">
-            <f-element>
-              <title>The EDR shall be capable of performing the following functions that control
-                behavior of the Host Agent:<h:br/>
-                <management-function-set default="O">
-                  <manager cid="a">Administrator</manager>
-                  <manager cid="s">SOC Analyst</manager>
-                  <manager cid="u">Read-Only User</manager>
-                  <management-function>
-                    <text>Configure the time frame for sending Host Agent data to the EDR
-                        <assignable>list of configurable time frames</assignable>
-                    </text>
-                    <M ref="a"/><O ref="s"/><_ ref="u"/>
-                  </management-function>
-                  <management-function>
-                    <text>Assign a label or tag to categorize or group individual endpoint systems </text>
-                    <M ref="a"/><O ref="s"/><_ ref="u"/>
-                  </management-function>
-                </management-function-set>
-              </title>
-              <note role="application">This requirement captures all the configuration
-                functionality the EDR provides the administrator to configure the
-                EDR Host Agents. <h:br/><h:br/>
-              Chart legend: X = Mandatory, O = Optional, - = N/A</note>
-              <aactivity>
-                <TSS>The evaluator shall verify the ST contains a list of roles and what functions they can perform.  
-                  The evaluator shall verify the list matches the chart in the requirement.</TSS>
-                <Guidance>The evaluator shall review the operational guidance to verify that the EDR has
-                documented capabilities to perform the management functions.</Guidance>
-                <Tests>The evaluator shall perform the below tests:
-                 <testlist>
-                   <test>The evaluator shall modify the time frame for sending Host Agent data to the EDR
-                   and verify that an affected Host Agent is sending data at the intended interval.</test>
-                   <test>The evaluator shall tag or categorize a group of individual endpoint systems and
-                   verify that the tag or categorization persists within the EDR management dashboard for
-                   other users.</test>
-                   <test>The evaluator shall attempt each function with each role and verify access conforms with the chart in the requirement.</test>
-                 </testlist>
-                </Tests>
-              </aactivity>
-            </f-element>
-          </f-component>
-         </subsection> 
-          <!-- FAU_GEN.1 -->
-            <subsection id="fau" title="Security Audit (FAU)">
-                <f-component cc-id="fau_gen.1" name="Audit Data Generation">
-                    <f-element>
-                        <title>The <abbr linkend="TSF"/> shall be able to generate an audit record of the following auditable events:
+	 <!--               -->     
+ 	 <!-- FAU_GCR_EXT.1 -->
+	 <!--               -->     
+        <f-component cc-id="fau_gcr_ext.1" name="Generation of Certificate Repository" status="mandatory">
+          <f-element>
+            <title>The TSF shall 
+		    <selectables>
+			    <selectable>store</selectable>
+			    <selectable>invoke the Operational Environment to store</selectable>
+		    </selectables>
+		certificates and 
+		    <selectables>
+			    <selectable>CRLs</selectable>
+			    <selectable>no other information</selectable>
+		    </selectables>
+		issued by the TSF. </title>
+            <aactivity>
+		<TSS>
+		The evaluator shall examine the TSS to determine that it describes the
+		certificate repository. If the certificate repository is provided by the OE, the
+		evaluator shall check the TSS to ensure it describes the interfaces invoked by
+		the TOE to store certificates (and CRLs). 
+		</TSS>
+                <Guidance>
+		There is no guidance associated with this evaluation activity.
+                </Guidance>
+		<Tests>
+			The evaluator shall perform the following tests:
+			<h:ul><h:li>Test 1: The evaluator shall generate a certificate to be stored in the
+				repository. The evaluator shall confirm that the certificate is stored in
+				the certificate repository.</h:li>
+				<h:li>Test 2 (conditional): If “CRLs” are selected in the SFR, the evaluator
+				shall generate a CRL and verify that it is stored in the certificate
+				repository.</h:li>
+			</h:ul>
+	    </aactivity>
+          </f-element>
+          <audit-event/>
+        </f-component>
+		
+	<!--               -->     
+        <!-- FAU_GEN.1     -->
+	<!--      not done         -->     
+        <f-component cc-id="fau_gen.1" name="Audit Data Generation" status="mandatory">
+           <f-element>
+              <title>The TSF shall generate <refinement>and <selectables><selectable>invoke the Operational 
+		      Environment to generate</selectable><selectable>no other actions</selectable></selectables></refinement>
+		      an audit record of the following auditable events:
                             <h:ol type="a">
-                                <h:li>Start-up and shutdown of audit functions</h:li>
+                                <h:li>Start-up of the TSF audit functions</h:li>
+                                <h:li>All auditable events for the <h:i>[not specified]</h:i> level of audit; and </h:li>
                                 <h:li>All administrative actions</h:li>
                                 <h:li>[Specifically defined auditable events in Table 1]</h:li>
                                 <h:li><selectables>
@@ -1188,6 +1146,89 @@ Activities assoiated with the TSS.
                         <add-info>None.</add-info>
 		    </audit-event>
                 </f-component>
+	
+		
+		<f-component cc-id="fqq_qqq.2" name="TQQQQQ" status="optional">
+          <f-element>
+            <title> The TOE shall do soemthing.</title>
+            <note role="application"></note>
+            <aactivity>
+              <TSS>
+Activities assoiated with the TSS.
+              </TSS>
+	    </aactivity>
+          </f-element>
+        </f-component>
+         <f-component cc-id="fqq_qqq.4" name="UQQQQQ" status="sel-based">
+          <selection-depends req="a-unique-id" ids="aaa"/>
+          <f-element>
+            <title> The TOE shall do something great.</title>
+            <note role="application"></note>
+            <aactivity>
+              <TSS>
+Activities assoiated with the TSS.
+              </TSS>
+	    </aactivity>
+          </f-element>
+        </f-component>
+        <f-component cc-id="fqq_qqq.6" name="WQQQQQ">
+          <depends on="implements" ref-id="a-feature-id"/>
+          <f-element>
+            <title> The TOE shall do something with regards to some implementation.</title>
+            <note role="application"></note>
+            <aactivity>
+              <TSS>
+Activities assoiated with the TSS.
+              </TSS>
+	    </aactivity>
+          </f-element>
+        </f-component>
+      </subsection>
+
+      <subsection title="Security Management (FMT)" id="fmt-2">
+          <f-component cc-id="fmt_smf.1" iteration="HOST" name="Specification of Management Functions (EDR Management of Host Agent)">
+            <f-element>
+              <title>The EDR shall be capable of performing the following functions that control
+                behavior of the Host Agent:<h:br/>
+                <management-function-set default="O">
+                  <manager cid="a">Administrator</manager>
+                  <manager cid="s">SOC Analyst</manager>
+                  <manager cid="u">Read-Only User</manager>
+                  <management-function>
+                    <text>Configure the time frame for sending Host Agent data to the EDR
+                        <assignable>list of configurable time frames</assignable>
+                    </text>
+                    <M ref="a"/><O ref="s"/><_ ref="u"/>
+                  </management-function>
+                  <management-function>
+                    <text>Assign a label or tag to categorize or group individual endpoint systems </text>
+                    <M ref="a"/><O ref="s"/><_ ref="u"/>
+                  </management-function>
+                </management-function-set>
+              </title>
+              <note role="application">This requirement captures all the configuration
+                functionality the EDR provides the administrator to configure the
+                EDR Host Agents. <h:br/><h:br/>
+              Chart legend: X = Mandatory, O = Optional, - = N/A</note>
+              <aactivity>
+                <TSS>The evaluator shall verify the ST contains a list of roles and what functions they can perform.  
+                  The evaluator shall verify the list matches the chart in the requirement.</TSS>
+                <Guidance>The evaluator shall review the operational guidance to verify that the EDR has
+                documented capabilities to perform the management functions.</Guidance>
+                <Tests>The evaluator shall perform the below tests:
+                 <testlist>
+                   <test>The evaluator shall modify the time frame for sending Host Agent data to the EDR
+                   and verify that an affected Host Agent is sending data at the intended interval.</test>
+                   <test>The evaluator shall tag or categorize a group of individual endpoint systems and
+                   verify that the tag or categorization persists within the EDR management dashboard for
+                   other users.</test>
+                   <test>The evaluator shall attempt each function with each role and verify access conforms with the chart in the requirement.</test>
+                 </testlist>
+                </Tests>
+              </aactivity>
+            </f-element>
+          </f-component>
+         </subsection> 
                 
                 <!-- FAU_SAR.1 -->
                 <f-component cc-id="fau_sar.1" name="Audit Review">
