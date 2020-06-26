@@ -1024,6 +1024,7 @@
 				shall generate a CRL and verify that it is stored in the certificate
 				repository.</h:li>
 			</h:ul>
+		 </Tests>
 	    </aactivity>
           </f-element>
           <audit-event/>
