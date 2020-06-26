@@ -905,6 +905,7 @@
 	<audit-table table="mandatory"/>
       </subsection>
 	      
+        <!--                             -->
 	<!-- Class: FAU: Security Audit  -->
         <!--                             -->
       <subsection title="Class: Security Audit (FAU)" id="fau">
@@ -1032,10 +1033,10 @@
 		
 	<!--               -->     
         <!-- FAU_GEN.1     -->
-	<!--      not done         -->     
+	<!--               -->     
         <f-component cc-id="fau_gen.1" name="Audit Data Generation" status="mandatory">
            <f-element>
-              <title>The TSF shall generate <refinement>and <selectables><selectable>invoke the Operational 
+		   <title><h:b>Refinement:</h:b>The TSF shall generate <refinement>and <selectables><selectable>invoke the Operational 
 		      Environment to generate</selectable><selectable>no other actions</selectable></selectables></refinement>
 		      an audit record of the following auditable events:
                             <h:ol type="a">
@@ -1065,7 +1066,7 @@
 	    </note>	     
         </f-element>
         <f-element>
-		<title>The TSF shall <refinement>
+		<title><h:b>Refinement:</h:b>The TSF shall <refinement>
 			<selectables><selectable>include</selectable>
 				<selectable> invoke the Operational Environment to include</selectable>
 			</selectables></refinement>
@@ -1177,10 +1178,12 @@
 		<audit-event />
              </f-component>
 	
-		
+	<!--               -->     
+        <!-- FAU_GEN.2     -->
+	<!--               -->     		
 	<f-component cc-id="fau_gen.2" name="User Identity Association" status="mandatory">
           <f-element>
-            <title> For audit events resulting from actions of identified users, the TSF
+		  <title><h:b>Refinement:</h:b>For audit events resulting from actions of identified users, the TSF
 		    shall be able to <refinement><selectables><selectable>associate</selectable>
 		    <selectable>invoke the Operational Environment to associate</selectable></selectables>
 		    </refinement>
@@ -1198,8 +1201,211 @@
 		</Tests>
 	    </aactivity>
           </f-element>
+	<audit-event/>
         </f-component>
+	      
+	<!--               -->     
+        <!-- FAU_STG.4     -->
+	<!--               -->     
+        <f-component cc-id="fau_stg.4" name="Prevention of Audit Data Loss" status="mandatory">
+        <f-element>
+		<title><h:b>Refinement:</h:b>The TSF shall <refinement>[prevent audited events, except those taken
+			by the Auditor]</refinement> and <assignable>other actions to be taken in case of audit storage
+			failure</assignable> if the audit trail <h:b>cannot be written to.</h:b>
+                </title>
+		<note role="application">
+			This requirement applies to the TOE regardless of whether the audit trail is stored
+			within the TOE boundary (e.g. the audit trail is full) or on an external system in the
+			Operational Environment (e.g. the connection to a remote audit repository is
+			broken). In either case, the ST author is expected to describe how the TSF is made
+			aware of any such failures and how it behaves in response.
+		</note>
+		<aactivity>
+			<TSS>
+				The evaluator shall examine the TSS to ensure it describes the behavior of the
+				TSF and what actions can be performed by the Auditor, if any, when the audit
+				trail is full. 
+			</TSS>
+			<Guidance>
+				The evaluator shall examine the operational guidance to ensure it describes
+				what having a full audit trail means and how an Auditor recognizes that this has
+				occurred. The evaluator shall also examine the operational guidance to ensure
+				it includes remedial steps for correcting the issue. 
+			</Guidance>
+			<Tests>
+				The evaluator shall perform the following tests. Test 1 is performed regardless
+				of where the audit repository is stored, since it is testing the capability of the
+				TOE to react to an indication that the repository is full. Test 2 is only executed
+				in cases where an external repository is supported, and tests the ability of the
+				TOE to detect when the connection to the repository becomes unavailable.<h:br/><h:br/>
+				<h:ul>
+					<h:li>Test 1: The evaluator shall cause the audit trail to become full, verify
+						that the TSF behaves as documented in the TSS, and verify that a
+						privileged user can perform the documented remedial steps.</h:li>
+					<h:li>Test 2 (conditional): If the TOE uses a remote repository in the
+						Operational Environment to store audit data, the evaluator shall cause
+						the audit trail to become unavailable, verify that the TSF behaves as
+						documented in the TSS, and verify that a privileged user can perform
+						the documented remedial steps.</h:li>
+				</h:ul><h:br/><h:br/>
+				<h:i>Equivalency</h:i><h:br/><h:br/>
+				Testing of the TOE may be performed on a subset of the platforms listed in the
+				TOE's ST. Justification must be provided for those platforms that were excluded
+				from testing.
+			</Tests>
+		</aactivity>
+        </f-element>
+	</f-component>
+	</subsection>
+	    
+        <!--                             -->
+	<!-- Class: FCO: Communications  -->
+        <!--                             -->
+      <subsection title="Class: Communications (FCO)" id="fco">
 
+	<!--               -->     
+        <!-- FCO_NRO_EXT.2 -->
+	<!--               -->     
+	<f-component cc-id="fco_nro_ext.2" name="Certificate-Based Proof of Origin" status="mandatory">
+		<f-element>
+               	<title>The TSF shall provide proof of origin for certificates it issues in accordance with
+			the digital signature requirements using a mechanism in accordance with RFC
+			5280 and FCS_COP.1(2).
+                </title>
+		</f-element>
+		<f-element>
+               	<title>The TSF shall provide proof of origin for certificate status information it issues in
+			accordance with the digital signature requirements in 
+			<selectables><selectable>CRLs (RFC 5280)</selectable>
+				<selectable>OCSP (RFC 6960)</selectable>
+				<selectable><assignable>other OCSP standards</assignable></selectable>
+			</selectables> and FCS_COP.1(2).
+                </title>
+		</f-element>
+		<f-element>
+               	<title>The TSF shall require and verify proof of origin for certificate requests it receives
+			<selectables><selectable>CMC using mechanisms in accordance with FIA_CMCS_EXT.1</selectable>
+				<selectable>EST using mechanisms in accordance with FIA_ESTS_EXT.1</selectable></selectables>.
+                </title>
+		</f-element>
+		<f-element>
+               	<title>The TSF shall require and verify proof of origin for public keys contained in
+			certificate requests it receives via 
+			<selectables><selectable>proof-of-possession mechanisms in CMC using mechanisms in
+				accordance with FIA_CMCS_EXT.1</selectable>
+				<selectable>proof-of-possession mechanisms in EST in accordance with FIA_ESTS_EXT.1</selectable>
+			</selectables>.
+                </title>
+		</f-element>
+		<f-element>
+               	<title>The TSF shall 
+			<selectables>
+			<selectable>require and verify proof of origin for revocation requests it receives via
+				<selectables><selectable>CMC using mechanisms in accordance with FIA_CMCS_EXT.1</selectable>
+					<selectable>EST using optional “full CMC” functionality in accordance with FIA_ESTS_EXT.1</selectable>
+					<selectable><assignable>support manual processes for revocation requests and responses</assignable></selectable>
+				</selectables>.
+                </title>
+		</f-element>
+                <note role="application">
+			The TOE is responsible for providing proof of origin for information it issues and
+			verifying proof of origin for information it receives. Based on what is chosen in the
+			selection for FCO_NRO_EXT.2.2, the applicable requirements from Annex B (i.e.,
+			FDP_CRL_EXT.1, FDP_OCSPG_EXT.1) must be included. Based on what is chosen
+			in the selections for FCO_NRO_EXT.2.3-FCO_NRO_EXT.2.5, the applicable
+			requirements from Annex B (i.e., FIA_CMCS_EXT.1, FIA_ESTS_EXT.1) must be
+			included. <h:br/><h:br/>
+			A TOE that supports both EST and CMC and can obtain revocation requests via
+			one of the protocols would be in compliance with FCO_NRO_EXT.2.5. Manual
+			process to support revocation requests and responses are claimed and described
+			if EST does not support full CMC requests and CMC is not claimed.<h:br/><h:br/>
+			This SFR references FCS_COP.1(2) which, according to FCS_CDP_EXT.1, may be
+			implemented by the TOE or the OE. If FCS_CDP_EXT.1 indicates that FCS_COP.1(2)
+			is implemented by the OE, then FCO_NRO_EXT.2.1 and FCO_NRO_EXT.2.2 are in
+			accordance with FCS_COP.1(2) if they interface with the OE to invoke the
+			signature algorithms indicated in FCS_COP.1(2). 
+
+                        <aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure it describes the mechanisms
+					used for generating proof of origin and the security-relevant information to
+					which the mechanism applies. The TSS shall describe how the TSF relates the
+					identity and other specified attributes of the originator of the information to
+					the security relevant portions of the information to which the evidence applies.
+					The TSS shall also describe how verification of the proof of origin of information
+					for all security-relevant information is performed and shall also specify the
+					cases in which verification of proof of origin is performed.<h:br/><h:br/>
+					For TOEs that only support EST, and do not support revocation requests under
+					either CMC or EST, the TSS must describe the mechanism used to determine
+					whether to revoke certificates.<h:br/><h:br/>
+					For TOEs that select “support manual processes for revocation requests and
+					responses,” the evaluator shall ensure the TSS describes those processes.
+				</TSS>
+				<Guidance>
+					If configurable, evaluator shall examine the operational guidance to ensure it
+					defines how to configure the applicable algorithms used for providing and
+					verifying proof of origin as defined in FCS_COP.1(2).<h:br/><h:br/>
+					For TOEs that only support EST, and do not support revocation requests under
+					either CMC or EST, the evaluator shall examine the guidance to ensure it
+					describes support for privileged user functionality as part of this mechanism.<h:br/><h:br/>
+					For TOEs that select “support manual processes for revocation requests and
+					responses,” the evaluator shall ensure the operational guidance provides a
+					description of the processes the administrators are to follow. The evaluator
+					shall ensure these are consistent with the descriptions of these processes in
+					the TSS.
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following tests for each request format
+					selected and for each request supported:<h:br/><h:br/>
+					TOE is online (requires establishment of a client capable of generating
+					certificate requests and has a valid HTTPS connection to the TOE):
+                                <testlist>
+                                    <test>Test 1: For each supported request, the evaluator shall generate and
+					submit a properly authenticated request to the TOE and verify the
+					responses are signed.
+                                    </test>
+                                    <test>Test 2: For each supported request, the evaluator shall generate
+					requests that are unsigned, submit to the TOE, and verify that the TOE
+					rejects the request.
+                                    </test>
+                                    <test>Test 3: For each supported request, the evaluator shall generate
+					requests that have an invalid signature based on the RFC, submit to the
+					TOE, and verify that the TOE rejects the request.
+                                    </test>
+                                    <test>Test 4: For each supported request, the evaluator shall generate
+					requests that are not signed by authorized entities, submit to the TOE,
+					and verify that the TOE rejects the request.
+                                    </test>
+                                    <test>Test 5: For each supported request using password based
+					authentication, the evaluator shall use invalid passwords and verify
+					that the TSF rejects the requests.
+                                    </test>
+                                    <test>Test 6: For each proof of possession mode supported, the evaluator
+					shall generate an otherwise valid request but modify the proof of
+					possession value. The evaluator shall submit the modified request and
+					verify that the TSF rejects the request.
+                                    </test>
+                                    <test>Test 7 (Transport Test) For each supported request message, the evaluator shall send
+					an otherwise valid request using HTTP rather than HTTPS and shall
+					verify the TSF rejects the request.
+                                    </test>
+                                    <test>Test 8 (Offline Test): With the TOE in offline mode, the evaluator shall log into the
+					TOE locally as the CA Operations Staff role and perform tests 1-4
+					above.
+                                    </test>
+                                </testlist>
+					<h:i>Equivalency</h:i>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE's ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+                        </aactivity>
+                    </f-element>
+		    <audit-event/>
+                </f-component>
+	 
+
+	
 	      <f-component cc-id="fqq_qqq.4" name="UQQQQQ" status="sel-based">
           <selection-depends req="a-unique-id" ids="aaa"/>
           <f-element>
@@ -1212,6 +1418,7 @@ Activities assoiated with the TSS.
 	    </aactivity>
           </f-element>
         </f-component>
+			
         <f-component cc-id="fqq_qqq.6" name="WQQQQQ">
           <depends on="implements" ref-id="a-feature-id"/>
           <f-element>
