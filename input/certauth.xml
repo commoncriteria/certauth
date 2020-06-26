@@ -1231,6 +1231,7 @@ Activities assoiated with the TSS.
           </f-component>
          </subsection> 
                 
+      <subsection title="Class: Security Audit (FAU)" id="fau">
                 <!-- FAU_SAR.1 -->
                 <f-component cc-id="fau_sar.1" name="Audit Review">
                     <f-element>
