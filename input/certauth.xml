@@ -1068,7 +1068,7 @@
 		<title>The TSF shall <refinement>
 			<selectables><selectable>include</selectable>
 				<selectable> invoke the Operational Environment to include</selectable>
-			</selectables>
+			</selectables></refinement>
 			within each audit record at least the following information:
                         <h:ol type="a">
                              <h:li>Date and time of the event, type of event, subject identity, and the outcome
@@ -1178,18 +1178,29 @@
              </f-component>
 	
 		
-		<f-component cc-id="fqq_qqq.2" name="TQQQQQ" status="optional">
+	<f-component cc-id="fau_gen.2" name="User Identity Association" status="mandatory">
           <f-element>
-            <title> The TOE shall do soemthing.</title>
-            <note role="application"></note>
+            <title> For audit events resulting from actions of identified users, the TSF
+		    shall be able to <refinement><selectables><selectable>associate</selectable>
+		    <selectable>invoke the Operational Environment to associate</selectable></selectables>
+		    </refinement>
+		    each auditable event with the identity of the user that caused the event.
+	    </title>
+            <note role="application">
+		As with FAU_GEN.1.2, if the TSF initiates the generation of the audit event, but
+		the OE is responsible for associating the user ID with that event (if appropriate for
+		that event), then the ST author selects “invoke the Operational Environment to
+		associate” for this SFR. 
+	    </note>
             <aactivity>
-              <TSS>
-Activities assoiated with the TSS.
-              </TSS>
+              	<Tests>
+			This activity should be accomplished in conjunction with the testing of FAU_GEN.1. 
+		</Tests>
 	    </aactivity>
           </f-element>
         </f-component>
-         <f-component cc-id="fqq_qqq.4" name="UQQQQQ" status="sel-based">
+
+	      <f-component cc-id="fqq_qqq.4" name="UQQQQQ" status="sel-based">
           <selection-depends req="a-unique-id" ids="aaa"/>
           <f-element>
             <title> The TOE shall do something great.</title>
