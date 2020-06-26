@@ -376,9 +376,9 @@
 	contained in the certificate. This also allows the relying parties to use the public key in the certificate to
 	carry out encrypted communication with the subscriber.<h:br/><h:br/>
 	      
-	<figure entity="images/CertAuth-Toe.png" title="TOE Boundary in Example PKI Architecture" id="toe"/>
+	<figure entity="images/CertAuth-TOE.png" title="TOE Boundary in Example PKI Architecture" id="toe"/>
 	      
-	This PP defines requirements only for CA system component(s) that issue and manage public key
+	<h:br/><h:br/>This PP defines requirements only for CA system component(s) that issue and manage public key
 	certificates and certificate status information, to include interfaces to components not under the control
 	of the ST author that may be required to meet these requirements as shown in Figure 1. <h:br/><h:br/>
 	      
@@ -611,7 +611,7 @@
 	  
     <section title="Organizational Security Policies" id="OSPs">
       <OSPs>
-        <OSP id="P.ACCESS_BANNER">
+        <OSP name="P.ACCESS_BANNER">
           <description>The TOE shall display an initial banner describing restrictions of use, legal agreements,
 		  or any other appropriate information to which users consent by accessing the TOE.</description>
           <objective-refer ref="O.DISPLAY_BANNER">
@@ -905,39 +905,84 @@
 		<h:b>Auditable Events for Mandatory SFRs</h:b><h:br/>
 	</audit-table>
 	    
-      <subsection title="QQQQ" id="QQQQ">
-         <f-component cc-id="fqq_qqq.1" name="QQQQQ">
-          <f-element id="a-unique-id">
-            <title> The TOE shall do either <selectables><selectable id="aaa">this</selectable><selectable>that</selectable></selectables>. 
+      <subsection title="Class: Security Audit (FAU)" id="fau">
+         <f-component cc-id="fau_adp_ext.1" name="Audit Dependencies" status="mandatory">
+          <f-element>
+            <title> The TSF shall implement audit functionality and 
+		    <selectables>
+			    <selectable>interface with auditing function(s) in the Operational Environment</selectable>
+			    <selectable>no additional audit functionality</selectable>
+		    </selectables>
+		    in order to perform audit operations on the following audit data: 
+		    <assignable>Auditable events in Table 4 through Table 6 that require persistent storage</assignable>. 
             </title>
-            <note role="application"></note>
-            <aactivity>
+            <note role="application">
+		  If any audit functions (e.g. storage, review) are accomplished by the TOE
+		communicating over a network connection with a physically external audit server,
+		then the ST author must include FTP_ITC.1 with "audit server" selected. If the TOE
+		relies on the Operational Environment to provide some of the TOE’s auditing
+		functionality, the ST author is expected to identify whether each of the auditable
+		events for the claimed SFRs are implemented by the TOE or by the Operational
+		Environment, along with the specific environmental component that provides the
+		auditing functionality if applicable. The ST author should refer to the right-most
+		column of Table 4 through Table 6 and complete these fields accordingly<h:br/><h:br/>
+		    
+		   If any audit review is performed by an auditor through an interface provided by
+		the TSF, then FAU_SAR.1 and FAU_SAR.3 in Annex B.2 will be included in the ST by
+		the ST author.<h:br/><h:br/>
+
+		If any audit pre-selection is performed by an auditor through an interface provided
+		by the TSF, then FAU_SEL.1 in Annex B.2 will be included in the ST by the ST author.<h:br/><h:br/>
+		    
+		Audit records stored within the TOE boundary that are generated due to audit
+		events marked “extended” in tables 4, 5, and 6 that are included in the ST, then
+		FAU_STG.1(2) will be included in the ST by the ST author.<h:br/><h:br/>   
+
+		If the TSF initiates the storage of the audit data (that is, it generates audit data
+		that will be stored either by the TOE or the OE), then FAU_STG_EXT.1 will be
+		included in the ST by the ST Author. <h:br/><h:br/>
+		    
+		Audit records for the TSF are divided into two sets of events, whose retention
+		periods might be significantly different operationally. Generally, information
+		necessary to maintain an issued certificate or to determine the circumstances of
+		a certificate issuance is required to be available at least as long as the validity of
+		an issued certificate, and perhaps longer according the statutes, laws, or policies
+		applicable to the issuance and intended use of a particular certificate. Other audit
+		data is typically retained only to support normal operations. The ‘Retention’
+		column in Table 4 (as well as Tables 5 and 6 for the optional and selection-based
+		SFRs) indicates whether the audit record is intended to be used for ‘normal’
+		(shorter-term) or ‘extended’ (longer-term) purposes.<h:br/><h:br/>
+   
+		For the FDP_CER_EXT.2 audit event, the intent is that auditing is performed only
+		once incoming data are recognized by the TOE as a “request”. Cases where
+		incoming data are rejected before they are processed as “requests” by the TOE
+		(and thus the action “fails”) do not need to be audited by the FDP_CER_EXT.2
+		audit event.<h:br/><h:br/>
+	  </note>
+          <aactivity>
               <TSS>
-Activities assoiated with the TSS.
+		The evaluator shall examine the TSS and operational guidance in order to verify
+		that they describe each of the relevant auditable events, how audit records of
+		these events are formatted, and what component of the TOE or Operational
+		Environment is responsible for handling these events.<h:br/><h:br/>
+		      
+		For those auditable events that are generated by the TOE and stored within the
+		TOE boundary, the assurance activities are included for the relevant selectionbased audit SFRs.
               </TSS>
-               <Guidance>
-Activities assoiated with guidance
+              <Guidance>
+		There is no guidance associated with this evaluation activity.
               </Guidance>
              <Tests>
-Activities assoiated with the TTests.
+		For any auditable events that are handled by the TOE’s Operational
+		Environment, the evaluator shall demonstrate that these events are auditable.<h:br/><h:br/>	     
+		Testing that audit records associated with an SFR are generated is performed
+		in conjunction with testing the SFR.
               </Tests>
 	    </aactivity>
           </f-element>
- 	  <audit-event>
-             <table known="mandatory"/>
-                <description>
-	On failure of audit data capture due to lack of disk space or pre-defined limit.<h:br></h:br>
-	        </description>
-                <add-info>None.</add-info>
-          </audit-event>
-  	  <audit-event>
-             <table other="turtle"/>
-                <description>
-	On number of turtles in the area.
-	        </description>
-                <add-info>None.</add-info>
-          </audit-event>
+ 	  <audit-event/> 
         </f-component>
+	      
         <f-component cc-id="fqq_qqq.3" name="BQQQQQ" status="objective">
           <f-element>
             <title> The TOE shall do <assignable>guidance on what things should be assignable </assignable>. </title>
