@@ -1300,14 +1300,17 @@
 		<f-element>
                	<title>The TSF shall 
 			<selectables>
-			<selectable>require and verify proof of origin for revocation requests it receives via
-				<selectables><selectable>CMC using mechanisms in accordance with FIA_CMCS_EXT.1</selectable>
-					<selectable>EST using optional “full CMC” functionality in accordance with FIA_ESTS_EXT.1</selectable>
-				</selectables>
-			</selectable>
-			<selectable><assignable>support manual processes for revocation requests and responses</assignable></selectable>
+				<selectable>require and verify proof of origin for revocation requests it receives via
+					<selectables>
+						<selectable>CMC using mechanisms in accordance with FIA_CMCS_EXT.1</selectable>
+						<selectable>EST using optional “full CMC” functionality in accordance with FIA_ESTS_EXT.1</selectable>
+					</selectables>
+				</selectable>
+				<selectable>
+					<assignable>support manual processes for revocation requests and responses</assignable>
+				</selectable>
 			</selectables>.
-                </title>
+		</title>
 		</f-element>
                 <note role="application">
 			The TOE is responsible for providing proof of origin for information it issues and
@@ -1326,41 +1329,40 @@
 			is implemented by the OE, then FCO_NRO_EXT.2.1 and FCO_NRO_EXT.2.2 are in
 			accordance with FCS_COP.1(2) if they interface with the OE to invoke the
 			signature algorithms indicated in FCS_COP.1(2). 
-
-                        <aactivity>
-				<TSS>
-					The evaluator shall examine the TSS to ensure it describes the mechanisms
-					used for generating proof of origin and the security-relevant information to
-					which the mechanism applies. The TSS shall describe how the TSF relates the
-					identity and other specified attributes of the originator of the information to
-					the security relevant portions of the information to which the evidence applies.
-					The TSS shall also describe how verification of the proof of origin of information
-					for all security-relevant information is performed and shall also specify the
-					cases in which verification of proof of origin is performed.<h:br/><h:br/>
-					For TOEs that only support EST, and do not support revocation requests under
-					either CMC or EST, the TSS must describe the mechanism used to determine
-					whether to revoke certificates.<h:br/><h:br/>
-					For TOEs that select “support manual processes for revocation requests and
-					responses,” the evaluator shall ensure the TSS describes those processes.
-				</TSS>
-				<Guidance>
-					If configurable, evaluator shall examine the operational guidance to ensure it
-					defines how to configure the applicable algorithms used for providing and
-					verifying proof of origin as defined in FCS_COP.1(2).<h:br/><h:br/>
-					For TOEs that only support EST, and do not support revocation requests under
-					either CMC or EST, the evaluator shall examine the guidance to ensure it
-					describes support for privileged user functionality as part of this mechanism.<h:br/><h:br/>
-					For TOEs that select “support manual processes for revocation requests and
-					responses,” the evaluator shall ensure the operational guidance provides a
-					description of the processes the administrators are to follow. The evaluator
-					shall ensure these are consistent with the descriptions of these processes in
-					the TSS.
-				</Guidance>
-				<Tests>
-					The evaluator shall perform the following tests for each request format
-					selected and for each request supported:<h:br/><h:br/>
-					TOE is online (requires establishment of a client capable of generating
-					certificate requests and has a valid HTTPS connection to the TOE):
+		<aactivity>
+			<TSS>
+				The evaluator shall examine the TSS to ensure it describes the mechanisms
+				used for generating proof of origin and the security-relevant information to
+				which the mechanism applies. The TSS shall describe how the TSF relates the
+				identity and other specified attributes of the originator of the information to
+				the security relevant portions of the information to which the evidence applies.
+				The TSS shall also describe how verification of the proof of origin of information
+				for all security-relevant information is performed and shall also specify the
+				cases in which verification of proof of origin is performed.<h:br/><h:br/>
+				For TOEs that only support EST, and do not support revocation requests under
+				either CMC or EST, the TSS must describe the mechanism used to determine
+				whether to revoke certificates.<h:br/><h:br/>
+				For TOEs that select “support manual processes for revocation requests and
+				responses,” the evaluator shall ensure the TSS describes those processes.
+			</TSS>
+			<Guidance>
+				If configurable, evaluator shall examine the operational guidance to ensure it
+				defines how to configure the applicable algorithms used for providing and
+				verifying proof of origin as defined in FCS_COP.1(2).<h:br/><h:br/>
+				For TOEs that only support EST, and do not support revocation requests under
+				either CMC or EST, the evaluator shall examine the guidance to ensure it
+				describes support for privileged user functionality as part of this mechanism.<h:br/><h:br/>
+				For TOEs that select “support manual processes for revocation requests and
+				responses,” the evaluator shall ensure the operational guidance provides a
+				description of the processes the administrators are to follow. The evaluator
+				shall ensure these are consistent with the descriptions of these processes in
+				the TSS.
+			</Guidance>
+			<Tests>
+				The evaluator shall perform the following tests for each request format
+				selected and for each request supported:<h:br/><h:br/>
+				TOE is online (requires establishment of a client capable of generating
+				certificate requests and has a valid HTTPS connection to the TOE):
                                 <testlist>
                                     <test>Test 1: For each supported request, the evaluator shall generate and
 					submit a properly authenticated request to the TOE and verify the
@@ -1396,17 +1398,14 @@
 					above.
                                     </test>
                                 </testlist>
-					<h:i>Equivalency</h:i>
-					Testing of the TOE may be performed on a subset of the platforms listed in the
-					TOE's ST. Justification must be provided for those platforms that were excluded
-					from testing.
-				</Tests>
-                        </aactivity>
-                    </f-element>
+				<h:i>Equivalency</h:i>
+				Testing of the TOE may be performed on a subset of the platforms listed in the
+				TOE's ST. Justification must be provided for those platforms that were excluded
+				from testing.
+			</Tests>
+                    </aactivity>
 		    <audit-event/>
                 </f-component>
-	 
-
 	
 	      <f-component cc-id="fqq_qqq.4" name="UQQQQQ" status="sel-based">
           <selection-depends req="a-unique-id" ids="aaa"/>
