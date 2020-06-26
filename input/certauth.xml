@@ -1328,6 +1328,7 @@
 			is implemented by the OE, then FCO_NRO_EXT.2.1 and FCO_NRO_EXT.2.2 are in
 			accordance with FCS_COP.1(2) if they interface with the OE to invoke the
 			signature algorithms indicated in FCS_COP.1(2). 
+		</note>
 		<aactivity>
 			<TSS>
 				The evaluator shall examine the TSS to ensure it describes the mechanisms
