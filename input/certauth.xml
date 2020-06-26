@@ -1161,17 +1161,6 @@
 			Testing of the TOE may be performed on a subset of the platforms listed in the
 			TOE's ST. Justification must be provided for those platforms that were excluded
 			from testing.<h:br/><h:br/> 
-				    							
-			See <ctr-ref ref-id="man-table">: Auditable Events</ctr-ref> for more information.
-
-			<!-- AUDIT TABLE for MANDATORY SFRs. This needs to move outside the EAs -->
-                        <ctr id="man-table" ctr-type="Table">: Auditable Events</ctr>
-                        <audit-events table="mandatory"/><h:br/>
-			    
-                        <audit-events table="turtle">
-                            <ctr id="turtle-table" ctr-type="Table">: Auditable Events</ctr>
-			    <depends on="selection"><ref-id>table2</ref-id></depends>
-			</audit-events><h:br/>
                      </Tests>   
                   </aactivity>
                 </f-element>
