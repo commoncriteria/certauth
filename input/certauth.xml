@@ -1303,8 +1303,10 @@
 			<selectable>require and verify proof of origin for revocation requests it receives via
 				<selectables><selectable>CMC using mechanisms in accordance with FIA_CMCS_EXT.1</selectable>
 					<selectable>EST using optional “full CMC” functionality in accordance with FIA_ESTS_EXT.1</selectable>
-					<selectable><assignable>support manual processes for revocation requests and responses</assignable></selectable>
-				</selectables>.
+				</selectables>
+			</selectable>
+			<selectable><assignable>support manual processes for revocation requests and responses</assignable></selectable>
+			</selectables>.
                 </title>
 		</f-element>
                 <note role="application">
