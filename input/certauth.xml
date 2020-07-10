@@ -1255,7 +1255,7 @@
 	<!--               -->     
         <!-- FCO_NRO_EXT.2 -->
 	<!--               -->     
-	<f-component cc-id="fco_nro_ext.2" name="Certificate-Based Proof of Origin" status="mandatory">
+	<f-component cc-id="fco_nro_ext.2" name="Certificate-Based Proof of Origin">
 		<f-element>
                	<title>The TSF shall provide proof of origin for certificates it issues in accordance with
 			the digital signature requirements using a mechanism in accordance with RFC
