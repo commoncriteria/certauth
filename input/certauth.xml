@@ -913,7 +913,7 @@
 	 <!--               -->     
  	 <!-- FAU_ADP_EXT.1 -->
 	 <!--               -->
-         <f-component cc-id="fau_adp_ext.1" name="Audit Dependencies" status="mandatory">
+         <f-component cc-id="fau_adp_ext.1" name="Audit Dependencies">
           <f-element>
             <title> The TSF shall implement audit functionality and 
 		    <selectables>
