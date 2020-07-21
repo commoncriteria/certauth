@@ -703,7 +703,8 @@
             FCS_CDP_EXT.1, FCS_CKM.1 (selection-based), FCS_CKM.2 (selection-based),
 		FCS_CKM_EXT.1(1) (selection-based), FCS_CKM_EXT.1(2) (selection-based), FCS_CKM_EXT.1(3)
 		(selection-based), FCS_CKM_EXT.1(4) (selection-based), FCS_CKM_EXT.4 (selection-based),
-		FCS_CKM_EXT.7 (selection-based), FCS_CKM_EXT.8 (selection-based), FCS_COP.1(1) (selectionbased), FCS_COP.1(2) (selection-based), FCS_COP.1(3) (selection-based), FCS_COP.1(4) (selectionbased), FCS_COP.1(5) (optional), FCS_HTTPS_EXT.1 (selection-based), FCS_IPSEC_EXT.1 (selectionbased), FCS_RBG_EXT.1 (selection-based), FCS_STG_EXT.1, FCS_TLSC_EXT.2 (selection-based),
+		FCS_CKM_EXT.7 (selection-based), FCS_CKM_EXT.8 (selection-based), FCS_COP.1(1) (selectionbased), 
+		FCS_COP.1(2) (selection-based), FCS_COP.1(3) (selection-based), FCS_COP.1(4) (selectionbased), FCS_COP.1(5) (optional), FCS_HTTPS_EXT.1 (selection-based), FCS_IPSEC_EXT.1 (selectionbased), FCS_RBG_EXT.1 (selection-based), FCS_STG_EXT.1, FCS_TLSC_EXT.2 (selection-based),
 		FCS_TLSS_EXT.1 (selection-based), FDP_ITT.1 (selection-based), FIA_PSK_EXT.1 (selection-based),
 		FPT_ITT.1 (selection-based), FPT_KST_EXT.1, FPT_KST_EXT.2, FPT_SKP_EXT.1, FPT_SKY_EXT.1
 		(optional), FPT_SKY_EXT.2 (selection-based), FTP_ITC.1 (selection-based), FTP_TRP.1          </addressed-by>
@@ -1504,279 +1505,501 @@
 			<h:li><selectable>in a hardware cryptographic module</selectable></h:li>
 		 </selectables>. 
 	      </title>
-		      
-		      
-		   <!--   @@@@@@@@@   -->
-		      
-		      
-              <note role="application">A hardware keystore can be exposed to the TSF through a variety
-                of interfaces, including embedded on the motherboard, USB, microSD, and Bluetooth.
-                <htm:br/><htm:br/> Immutable hardware is considered outside of this requirement and
-                will be covered elsewhere. <htm:br/><htm:br/> If the secure key storage is implemented
-                in software that is protected as required by FCS_STG_EXT.2, the ST author shall select
-                "software-based." If "software-based" is selected, the ST author shall select "all
-                software-based key storage" in FCS_STG_EXT.2. <htm:br/><htm:br/> Support for secure
-                key storage for all symmetric keys and persistent secrets will be required in future
-                revisions. </note>
-            </f-element>
-            <f-element>
-              <title>The TSF shall be capable of importing keys/secrets into the secure key storage
-                upon request of <selectables>
-                  <selectable>the user</selectable>
-                  <selectable>the administrator</selectable>
-                </selectables> and <selectables>
-                  <selectable>applications running on the TSF</selectable>
-                  <selectable exclusive="yes">no other subjects</selectable>
-                </selectables>. </title>
-              <note role="application"> If the ST Author selects only user, the ST Author shall select
-                function <ctr-ref ref-id="keyStorage"/> in FMT_MOF_EXT.1.1. </note>
-            </f-element>
-            <f-element>
-              <title>The TSF shall be capable of destroying keys/secrets in the secure key storage
-                upon request of <selectables>
-                  <selectable>the user</selectable>
-                  <selectable>the administrator</selectable>
-                </selectables>. </title>
-              <note role="application">If the ST Author selects only user, the ST Author shall select
-                function <ctr-ref ref-id="keyWipe"/> in FMT_MOF_EXT.1.1. </note>
-            </f-element>
-            <f-element>
-              <title>The TSF shall have the capability to allow only the application that imported the
-                key/secret the use of the key/secret. Exceptions may only be explicitly authorized by <selectables>
-                  <selectable>the user</selectable>
-                  <selectable>the administrator</selectable>
-                  <selectable>a common application developer</selectable>
-                </selectables>. </title>
-              <note role="application">If the ST Author selects user or administrator, the ST Author
-                must also select function <ctr-ref ref-id="sharedKeys"/> in FMT_SMF_EXT.1.1. If the ST
-                Author selects only user, the ST Author shall select function <ctr-ref
-                  ref-id="sharedKeys"/> in FMT_MOF_EXT.1.1. </note>
-            </f-element>
-            <f-element>
-              <title>The TSF shall allow only the application that imported the key/secret to request
-                that the key/secret be destroyed. Exceptions may only be explicitly authorized by <selectables>
-                  <selectable>the user</selectable>
-                  <selectable>the administrator</selectable>
-                  <selectable>a common application developer</selectable>
-                </selectables>. </title>
-              <note role="application">If the ST Author selects user or administrator, the ST Author
-                must also select function <ctr-ref ref-id="keyWipeRules"/> in FMT_SMF_EXT.1.1. If the
-                ST Author selects only user, the ST Author shall select function <ctr-ref
-                  ref-id="keyWipeRules"/> in FMT_MOF_EXT.1.1. </note>
-              <aactivity> The evaluator shall verify that the API documentation provided according to
-                <secref linkend="adv"/> includes the security functions (import, use, and
-                destruction) described in these requirements. The API documentation shall include the
-                method by which applications restrict access to their keys/secrets in order to meet
-                FCS_STG_EXT.1.4". <htm:br/><htm:br/>
-                <TSS> The evaluator shall review the TSS to determine that the TOE implements the
-                  required secure key storage. The evaluator shall ensure that the TSS contains a
-                  description of the key storage mechanism that justifies the selection of "mutable
-                  hardware" or "software-based". <htm:br/><htm:br/>
-                </TSS>
-                <Guidance> The evaluator shall review the AGD guidance to determine that it describes
-                  the steps needed to import or destroy keys/secrets.<htm:br/><htm:br/>
-                </Guidance>
-                <Tests> The evaluator shall test the functionality of each security function: <testlist>
-                  <test>The evaluator shall import keys/secrets of each supported type according to
-                    the AGD guidance. The evaluator shall write, or the developer shall provide
-                    access to, an application that generates a key/secret of each supported type and
-                    calls the import functions. The evaluator shall verify that no errors occur
-                    during import.</test><htm:br/>
-                  <test>The evaluator shall write, or the developer shall provide access to, an
-                    application that uses an imported key/secret: <htm:br/>
-                    <htm:ul>
-                      <htm:li>For RSA, the secret shall be used to sign data.</htm:li>
-                      <htm:li>For ECDSA, the secret shall be used to sign data</htm:li>
-                    </htm:ul>
-                    <htm:br/> In the future additional types will be required to be tested: <htm:br/>
-                    <htm:ul>
-                      <htm:li>For symmetric algorithms, the secret shall be used to encrypt
-                        data.</htm:li>
-                      <htm:li>For persistent secrets, the secret shall be compared to the imported
-                        secret. </htm:li>
-                    </htm:ul>
-                    <htm:br/> The evaluator shall repeat this test with the application-imported
-                    keys/secrets and a different application’s imported keys/secrets. The evaluator
-                    shall verify that the TOE requires approval before allowing the application to
-                    use the key/secret imported by the user or by a different application: <htm:br/>
-                    <htm:ul>
-                      <htm:li>The evaluator shall deny the approvals to verify that the application
-                        is not able to use the key/secret as described. </htm:li>
-                      <htm:li>The evaluator shall repeat the test, allowing the approvals to verify
-                        that the application is able to use the key/secret as described.</htm:li>
-                    </htm:ul>
-                    <htm:br/> If the ST Author has selected "common application developer", this
-                    test is performed by either using applications from different developers or
-                    appropriately (according to API documentation) not authorizing sharing.<htm:br/>
-                  </test>
-                  <test>The evaluator shall destroy keys/secrets of each supported type according to
-                    the AGD guidance. The evaluator shall write, or the developer shall provide
-                    access to, an application that destroys an imported key/secret.
-                    <htm:br/><htm:br/> The evaluator shall repeat this test with the
-                    application-imported keys/secrets and a different application’s imported
-                    keys/secrets. The evaluator shall verify that the TOE requires approval before
-                    allowing the application to destroy the key/secret imported by the administrator
-                    or by a different application: <htm:br/><htm:br/>
-                    <htm:ul>
-                      <htm:li>The evaluator shall deny the approvals and verify that the application
-                        is still able to use the key/secret as described. </htm:li>
-                      <htm:li>The evaluator shall repeat the test, allowing the approvals and
-                        verifying that the application is no longer able to use the key/secret as
-                        described.</htm:li>
-                    </htm:ul>
-                    <htm:br/> If the ST Author has selected "common application developer", this
-                    test is performed by either using applications from different developers or
-                    appropriately (according to API documentation) not authorizing sharing. </test>
-                </testlist>
-                </Tests>
-              </aactivity>
-            </f-element>
-          </f-component>
-          <f-component cc-id="fcs_stg_ext.2" name="Extended: Encrypted Cryptographic Key Storage">
-            <f-element>
-              <title>The TSF shall encrypt all DEKs, KEKs, <assignable>any long-term trusted channel
-                key material</assignable> and <selectables>
-                  <selectable>all software-based key storage</selectable>
-                  <selectable exclusive="yes">no other keys</selectable>
-                </selectables> by KEKs that are <selectables linebreak="yes">
-                  <selectable>Protected by the REK with <selectables linebreak="yes">
-                    <selectable>encryption by a REK</selectable>
-                    <selectable>encryption by a KEK chaining from a REK</selectable>
-                    <selectable>encryption by a KEK that is derived from a REK</selectable>
-                  </selectables>
-                  </selectable>
-                  <selectable>Protected by the REK and the password with <selectables linebreak="yes">
-                    <selectable>encryption by a REK and the password-derived KEK</selectable>
-                    <selectable>encryption by a KEK chaining to a REK and the password-derived or
-                      biometric-unlocked KEK</selectable>
-                    <selectable>encryption by a KEK that is derived from a REK and the
-                      password-derived or biometric-unlocked KEK</selectable>
-                  </selectables>
-                  </selectable>
-                </selectables>. </title>
-              <note role="application">The ST author must select "all software-based key storage" if
-                "software-based" is selected in FCS_STG_EXT.1.1. If the ST author selects "mutable
-                hardware" in FCS_STG_EXT.1.1, the secure key storage is not subject to this
-                requirement. REKs are not subject to this requirement. <htm:br/><htm:br/> A REK and
-                the password-derived KEK may be combined to form a combined KEK (as described in
-                FCS_CKM_EXT.3) in order to meet this requirement. <htm:br/><htm:br/> Sensitive data is
-                protected by the REK and the password or biometric. Sensitive data includes some or
-                all user or enterprise data. Software-based key storage itself shall be considered
-                sensitive data and be protected accordingly, i.e. by the password or biometric and
-                REK. <htm:br/><htm:br/> All keys must ultimately be protected by a REK. Sensitive data
-                must be protected by the password or biometric (selection 2). In particular, <figref
-                  ref-id="Keys"/> has KEKs protected according to these requirements: DEK_1 meets 2a
-                and would be appropriate for sensitive data, DEK_2 meets 1b and would not be
-                appropriate for sensitive data, K_1 meets 1a and is not considered a sensitive key,
-                and K_2 meets 2b and is considered a sensitive key. <htm:br/><htm:br/> Long-term
-                trusted channel key material includes WPA2 (PSKs), IPsec (PSKs and client
-                certificates) and Bluetooth keys. These keys shall not be protected by the password,
-                as they may be necessary in the locked state. For clarity, the ST author must assign
-                any Long-term trusted channel key material supported by the TOE . At a minimum, a TOE
-                must support at least WPA2 and Bluetooth keys. <htm:br/><htm:br/> The documentation of
-                the product's encryption key management should be detailed enough that, after reading,
-                the evaluator will thoroughly understand the product's key management and how it meets
-                the requirements to ensure the keys are adequately protected. This documentation
-                should include an essay and diagram(s). This documentation is not required to be part
-                of the TSS - it can be submitted as a separate document and marked as developer
-                proprietary. </note>
-              <aactivity>
-                <TSS>The evaluator shall review the TSS to determine that the TSS includes key
-                  hierarchy description of the protection of each DEK for data-at-rest, of
-                  software-based key storage, of long-term trusted channel keys, and of KEK related to
-                  the protection of the DEKs, long-term trusted channel keys, and software-based key
-                  storage. This description must include a diagram illustrating the key hierarchy
-                  implemented by the TOE in order to demonstrate that the implementation meets
-                  FCS_STG_EXT.2. The description shall indicate how the functionality described by
-                  FCS_RBG_EXT.1 is invoked to generate DEKs (FCS_CKM_EXT.2), the key size
-                  (FCS_CKM_EXT.2 and FCS_CKM_EXT.3) for each key, how each KEK is formed (generated,
-                  derived, or combined according to FCS_CKM_EXT.3), the integrity protection method
-                  for each encrypted key (FCS_STG_EXT.3), and the IV generation for each key encrypted
-                  by the same KEK (FCS_IV_EXT.1). More detail for each task follows the corresponding
-                  requirement. </TSS>
-              </aactivity>
-            </f-element>
-            <f-element>
-              <title>DEKs, KEKs, <assignable>any long-term trusted channel key material</assignable>
-                and <selectables>
-                  <selectable>all software-based key storage</selectable>
-                  <selectable exclusive="yes">no other keys</selectable>
-                </selectables> shall be encrypted using one of the following methods: <selectables>
-                  <selectable>using a SP800-56B key establishment scheme</selectable>
-                  <selectable>using AES in the <selectables>
-                    <selectable>Key Wrap (KW) mode</selectable>
-                    <selectable>Key Wrap with Padding (KWP) mode</selectable>
-                    <selectable>GCM</selectable>
-                    <selectable>CCM</selectable>
-                    <selectable>CBC mode</selectable>
-                  </selectables></selectable>
-                </selectables> . </title>
-              <note role="application">The ST author selects which key encryption schemes are used by
-                the TOE. This requirement refers only to KEKs as defined this PP and does not refer to
-                those KEKs specified in other standards. The ST author must assign the same Long-term
-                trusted channel key material assigned in FCS_STG_EXT.2.1.</note>
-              <aactivity>
-                <TSS>The evaluator shall examine the key hierarchy description in the TSS section to
-                  verify that each DEK and software-stored key is encrypted according to
-                  FCS_STG_EXT.2.</TSS>
-              </aactivity>
-            </f-element>
-          </f-component>
-          <f-component cc-id="fcs_stg_ext.3" name="Extended: Integrity of encrypted key storage">
-            <f-element>
-              <title>The TSF shall protect the integrity of any encrypted DEKs and KEKs and <selectables>
-                <selectable>long-term trusted channel key material</selectable>
-                <selectable>all software-based key storage</selectable>
-                <selectable exclusive="yes">no other keys</selectable>
-              </selectables> by <selectables linebreak="yes">
-                <selectable><selectables>
-                  <selectable>GCM</selectable>
-                  <selectable>CCM</selectable>
-                  <selectable>Key Wrap</selectable>
-                  <selectable>Key Wrap with Padding</selectable>
-                </selectables> cipher mode for encryption according to FCS_STG_EXT.2</selectable>
-                <selectable>a hash (FCS_COP.1/HASH) of the stored key that is encrypted by a key
-                  protected by FCS_STG_EXT.2</selectable>
-                <selectable>a keyed hash (FCS_COP.1/KEYHMAC) using a key protected by a key
-                  protected by FCS_STG_EXT.2</selectable>
-                <selectable>a digital signature of the stored key using an asymmetric key protected
-                  according to FCS_STG_EXT.2</selectable>
-                <selectable>an immediate application of the key for decrypting the protected data
-                  followed by a successful verification of the decrypted data with previously known
-                  information</selectable>
-              </selectables>. </title>
-              <note role="application">The ST author must assign the same Long-term trusted channel
-                key material assigned in FCS_STG_EXT.2.1.</note>
-            </f-element>
-            <f-element>
-              <title>The TSF shall verify the integrity of the <selectables>
-                <selectable>hash</selectable>
-                <selectable>digital signature</selectable>
-                <selectable>MAC</selectable>
-              </selectables> of the stored key prior to use of the key. </title>
-              <note role="application">This requirement is not applicable to derived keys that are not
-                stored. It is not expected that a single key will be protected from corruption by
-                multiple of these methods; however, a product may use one integrity-protection method
-                for one type of key and a different method for other types of keys. The explicit
-                Evaluation Activities for each of the options will be addressed in each of the
-                requirements (FCS_COP.1.1/HASH, FCS_COP.1.1/KEYHMAC). <htm:br/><htm:br/> Key Wrapping
-                shall be implemented per SP800-38F.<htm:br/><htm:br/> The documentation of the
-                product's encryption key management should be detailed enough that, after reading, the
-                evaluator will thoroughly understand the product's key management and how it meets the
-                requirements to ensure the keys are adequately protected. This documentation should
-                include an essay and diagram(s). This documentation is not required to be part of the
-                TSS - it can be submitted as a separate document and marked as developer proprietary. </note>
-              <aactivity>
-                <TSS>The evaluator shall examine the key hierarchy description in the TSS section to
-                  verify that each encrypted key is integrity protected according to one of the
-                  options in FCS_STG_EXT.3. </TSS>
-              </aactivity>
-            </f-element>
-          </f-component>
-        </subsection>
+              <note role="application">This requirement ensures that persistent secret keys and private keys are stored
+		securely when not in use. If some secrets/keys are manipulated by the TOE and
+		others are manipulated by the environment, then both of the selections can be
+		specified by the ST author and the ST author must identify in the TSS those keys
+		which are manipulated by the TOE and those by the environment.<h:br/><h:br/> 
+		If the TOE is an application, and not a dedicated server, then it should store its
+		private keys in the environment-provided key storage.<h:br/><h:br/>
+		The ST author is responsible for selecting the manner in which the keys are stored
+		and where they are stored in the selections above. <h:br/><h:br/> 
+		This SFR applies only to keys that are relevant to the requirements in the PP/ST; it
+		does not apply to keys that have no bearing on CA PP functionality.
+ 	      </note>
+	      <aactivity>
+		      <TSS>
+			Regardless of whether this requirement is met by the TOE or the Operational
+			Environment, the evaluator will check the TSS to ensure that it lists each
+			persistent secret and private key needed to meet the requirements in the ST.
+			For each of these items, the evaluator will confirm that the TSS lists for what
+			purpose it is used, and how it is stored. 
+		      </TSS>
+		      <Guidance>
+			There are no AGD assurance activities for this requirement beyond what is
+			necessary to satisfy the requirements in [CEM].   
+		      </Guidance>
+		      <Tests>
+			There are no ATE assurance activities for this requirement beyond what is
+			necessary to satisfy the requirements in [CEM]. 
+		      </Tests>
+		      <h:i>Equivalency</h:i><h:br/><h:br/>
+		      	Testing of the TOE may be performed on a subset of the platforms listed in the
+			TOE’s ST. Justification must be provided for those platforms that were excluded
+			from testing.
+	      </aactivity>
+	    </f-element>
+	</f-component>
+      </subsection>
+		
+		
+        <!--                             -->
+	<!-- Class: FCP: User Data Protection  -->
+        <!--                             -->
+      <subsection title="Class: User Data Protection (FDP)" id="fdp">
 
+	<!--               -->     
+        <!-- FDP_CER_EXT.1 -->
+	<!--               -->     
+        <f-component cc-id="fdp_cer_ext.1" name="Certificate Profiles">
+		<f-element>
+			<title>
+				The TSF shall implement a certificate profile function and shall ensure that issued
+				certificates are consistent with configured profiles.
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				The TSF shall generate certificates using profiles that comply with requirements
+				for certificates as specified in IETF RFC 5280, “Internet X.509 Public Key
+				Infrastructure Certificate and Certificate Revocation List (CRL) Profile”, while
+				ensuring that the following conditions are met:
+				<h:ol type="a">
+					<h:li>The version field shall contain the integer 2.</h:li>
+					<h:li>The issuerUniqueID or subjectUniqueID fields are not populated.</h:li>
+					<h:li>The serialNumber shall be unique with respect to the issuing Certification
+						Authority</h:li>
+					<h:li>The validity field shall specify a notBefore value that does not precede the
+						current time and a notAfter value that does not precede the value specified
+						in notBefore.</h:li>
+					<h:li>The issuer field is not empty.</h:li>
+					<h:li>The signature field and the algorithm in the subjectPublicKeyInfo field shall
+						contain the OID for a signature algorithm specified in FCS_COP.1(2).</h:li>
+					<h:li>The following extensions are supported:
+						<h:ol type="a">
+							<h:li>subjectKeyIdentifier</h:li>
+							<h:li>authorityKeyIdentifier</h:li>
+							<h:li>basicConstraints</h:li>
+							<h:li>keyUsage</h:li>
+							<h:li>extendedKeyUsage</h:li>
+							<h:li>certificatePolicy</h:li>
+						</h:ol>
+					</h:li>
+					<h:li>A subject field containing a null Name (e.g., a sequence of zero relative
+						distinguished names) is accompanied by a populated critical subjectAltName
+						extension.</h:li>
+					<h:li>The subjectKeyIdentifier extension is populated with a value unique for each
+						public key contained in a certificate issued by the TSF. </h:li>
+					<h:li>The authorityKeyIdentifier extension in any certificate issued by the TOE must
+						be populated and must be the same as the subjectKeyIdentifier extension
+						contained in the issuer’s signing certificate. </h:li>
+					<h:li>Populated keyUsage and extendedKeyUsage fields in the same certificate
+						contain consistent values. </h:li>
+				</h:ol>
+			</title>
+			<note role="application">
+				FDP_CER_EXT.1.2 is intended to clarify the standard interpretation that subject
+				key identifiers MUST be unique to a public key in a certificate issued by a CA (not
+				that the public keys are unique). The intended meaning is that it is acceptable to
+				issue a certificate with a public key contained in a request that happens to match 
+				another certificate issued by the CA when the other certificate also contains the
+				requested public key; it is not acceptable that requests for certificates containing
+				different public keys result in the same subject key identifier - as this would
+				contradict the definition of the subject key identifier included in the RFC: "The
+				subject key identifier extension provides a means of identifying certificates that
+				contain a particular public key." This is not possible if the value is not unique to
+				the public keys it issues. <h:br/><h:br/>
+				The SFR refines RFC 5280 by requiring all certificate profiles used by the TOE be
+				configurable to include the subject key identifier; the RFC only requires it for CA
+				certificates. The RFC indicates a CA SHOULD provide subject key identifiers for end
+				entity certificates.<h:br/><h:br/>
+				When a single instance of the TOE represents multiple CAs, it is acceptable that a
+				subject key identifier issued by one CA match the subject key identifier of another
+				CA, whether implemented within the TOE or as a separate instance.
+			</note>
+		</f-element>
+      		<f-element>
+			<title>
+				The TSF shall be able to generate at least 20 bits of random for use in issued
+				certificates to be included in 
+				<selectables>
+					<selectable>serialNumber</selectable>
+					<selectable>notBefore</selectable>
+					<selectable>notAfter</selectable>
+				</selectables> fields, where the random values are generated in accordance with FCS_RBG_EXT.1.
+			</title>
+			<note role="application">
+				The requirement applies only to the issuance of X.509 v3 certificates. An optional
+				requirement in Annex A allows for the issuance of X.509 certificates other than
+				V3.<h:br/><h:br/>
+				Consistency is defined in RFC5280 for FDP_CER_EXT.1.2, item i; specifically, for
+				each extendedKeyUsage purpose specified, there must be a consistent keyUsage
+				purpose set.<h:br/><h:br/>
+				RFC updates to RFC 5280 are included in this requirement.<h:br/><h:br/>
+				The random input to issued certificates in FDP_CER_EXT.1.3 can be spread across
+				multiple of the selectable fields so that the total number of inserted bits is at least
+				20. Select all that apply.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure it describes the certificate profile
+					function in accordance with FDP_CER_EXT.1.1 The TSS shall describe how
+					certificate profiles are configured and then selected to issue certificates in
+					accordance with FDP_CER_EXT.1.2. The evaluator shall also ensure that the TSS
+					describes how the TSF ensures that a certificate-requesting subject possesses
+					the applicable private key. Finally, the evaluator shall ensure that the TSS
+					describes how 20 bits of random are generated in accordance with
+					FDP_CER_EXT.1.3 and which certificate fields are involved.
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the operational guidance to ensure that
+					instructions are available to configure certificate profiles used for certificate
+					generation in accordance with this requirement. The operational guidance
+					shall also specify how to configure proof of possession and, if applicable, how
+					to configure unique serial number generation.
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following tests for each supported certificate
+					format:
+					<testlist>
+					<test>
+						Test 1: The evaluator shall configure a certificate profile using the
+						available guidance, request a certificate using the profile, and then
+						examine the certificate contents to ensure it matches the configured
+						certificate profile.
+					</test>
+					<test>
+						Test 2: The evaluator shall specifically examine the certificate
+						generated in Test 1 to ensure that it satisfies all field constraints in
+						FDP_CER_EXT.1.2.
+					</test>
+					<test>
+						Test 3: The evaluator shall test the fields “d”, “e”, “f”, and “i” in
+						FDP_CER_EXT.1.2 as follows:<h:br/><h:br/>
+						<h:b>Field “d”:</h:b> The evaluator shall send a request with a
+						subjectPublicKeyInfo that is allowed by the profile, and observe the
+						request succeeds. The evaluator shall then send a request with a
+						subjectPublicKeyInfo that is not allowed by the profile, and observe
+						that the request is rejected (or the value that is put into the certificate
+						is what was in the profile).<h:br/><h:br/>
+						<h:b>Field “e”:</h:b> The evaluator shall send a request with a KeyUsage that is
+						allowed by the profile, and observe the request succeeds. The
+						evaluator shall then send a request with a KeyUsage that is not allowed
+						by the profile, and observe that the request is rejected (or the value
+						that is put into the certificate is what was in the profile).<h:br/><h:br>
+						<h:b>Field “f”:</h:b> The evaluator shall send requests to show that the CA accepts
+						requests that provide an identifier in either one or both of the subject
+						and subjectAltName fields, but rejects requests that do not provide an
+						identifier for either one of those fields.<h:br/><h:br/>
+						<h:b>Field “i”:</h:b> For each EKU listed in section 4.2.1.12 of RFC 5280, the
+						evaluator performs the following tests. The evaluator shall send a
+						request with a KeyUsage that is consistent (as documented in section
+						4.2.1.12 of RFC 5280) with the profile EKU, and observe the request
+						succeeds. The evaluator shall then send a request with a KeyUsage
+						that is not consistent (as documented in section 4.2.1.12 of RFC 5280)
+						with the profile EKU, and observe that the request is rejected. The
+						evaluator shall send the EKU to a profile with a consistent KeyUsage
+						(but no specified EKU) and observe the request succeeds. The 
+						evaluator shall send the EKU to a profile with an inconsistent KeyUsage
+						(but no specified EKU) and observe the request is rejected.<h:br/><h:br/>
+					</test>
+					<test>
+						Test 4: For each extendedKeyUsage value defined in section 4.2.1.12
+						of RFC 5280, the evaluator shall attempt to configure a certificate
+						profile with each inconsistent keyUsage for that extendedKeyUsage
+						field. If the CA rejects the attempt to create such a profile, then the
+						test succeeds. If the creation of such a profile is allowed, the evaluator
+						shall submit a certificate request using the profile, and show that the
+						TSF does not issue the certificate.<h:br/><h:br/>
+					</test>
+					<test>
+						Test 5: The evaluator shall configure a certificate profile and create a
+						certificate request that violates the validity period setting in the
+						configured profile (e.g., notBefore precedes the current time, the
+						combination of notBefore and notAfter is beyond the validity period
+						setting). The evaluator shall submit the certificate request using the
+						profile and verify that the TSF rejects the request.<h:br/><h:br/>
+					</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>		
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.<h:br/><h:br/>
+				</Tests>
+			</aactivity>
+		</f-element>		
+	</f-component>
+
+	<!--               -->     
+        <!-- FDP_CER_EXT.2 -->
+	<!--               -->     
+        <f-component cc-id="fdp_cer_ext.2" name="Certificate Request Matching">
+		<f-element>
+			<title>
+				The TSF shall establish a linkage from certificate requests to issued certificates.
+			</title>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure it describes the linkage between
+					submitted requests and issued certificates.
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the operational guidance to ensure it contains
+					instructions for how to trace a submitted request to an issued certificate and
+					vice versa via the TOE’s interface.
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following test:
+					<testlist>
+						<test>
+							Test 1: The evaluator shall configure a certificate profile using the available
+							guidance and request a certificate using the profile as a subscriber. The
+							evaluator shall then assume the CA Operations role and verify that a linkage
+							between submitted certificate requests and issued certificates is provided.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>		
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.<h:br/><h:br/>
+				</Tests>
+			</aactivity>
+		</f-element>
+	</f-component>
+
+	<!--               -->     
+        <!-- FDP_CER_EXT.3 -->
+	<!--               -->     
+        <f-component cc-id="fdp_cer_ext.3" name="Certificate Issuance Approval">
+		<f-element>
+			<title>
+				The TSF shall support the approval of certificates by 
+				<selectables>
+					<selectable>RA</selectable>
+					<selectable>AOR</selectable>
+					<selectable>CA</selectable>
+					<selectable>Operations Staff</selectable>
+					<selectable>rules</selectable>
+				</selectables>
+				issued according to a configured certificate profile.
+			</title>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure it describes the certificate
+					issuance approval function, including the available interfaces that must be
+					used.<h:br/><h:br/>
+					The evaluator shall examine the operational guidance to ensure that it contains
+					instructions for any configuration aspects of the certificate issuance approval
+					function and the steps needed to perform an approval.
+				</TSS>
+				<Tests>
+					The evaluator shall perform the following test:
+					<testlist>
+						<test>
+							Test 1: The evaluator shall configure the certificate issuance approval
+							function in accordance with the operational guidance. The evaluator shall
+							create a certificate request and submit it to the TOE. The evaluator shall
+							access the TOE using the defined interface and verify that the submitted
+							request is in the appropriate queue. The evaluator shall then assume either
+							the CA Operations Staff role or the RA Staff role and approve the certificate
+							request and issue the certificate. The evaluator shall verify that a certificate
+							was issued.
+						</test>
+						If ‘rules’ is selected in FDP_CER_EXT.3.1 to allow automatic approval, the
+						evaluator shall follow operational guidance to configure the certificate
+						issuance approval function to follow a rule for automatic approval, and
+						perform the following tests:
+						<test>
+							Test 2: The evaluator shall construct one or more certificate requests that
+							meet the rules for automatic approval, and shall verify that each requested
+							certificate was issued.
+						</test>
+						<test>
+							Test 3: The evaluator shall attempt to construct one or more certificate
+							requests that violate the rules for automatic approval, and shall verify that
+							the requested certificates are not issued.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>		
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.<h:br/><h:br/>
+				</Tests>
+			</aactivity>
+		</f-element>
+	</f-component>
+		
+	<!--               -->     
+        <!-- FDP_CSI_EXT.1 -->
+	<!--               -->     
+        <f-component cc-id="fdp_csi_ext.1" name="Certificate Status Information">
+		<f-element>
+			<title>
+				The TSF shall provide certificate status information whose format complies with
+				<selectables>
+					<selectable>ITU-T Recommendation X.509v1 CRL</selectable>
+					<selectable>ITU-T Recommendation X.509v2 CRL</selectable>
+					<selectable>the OCSP standard as defined by
+						<selectables>
+							<selectable>RFC 6960</selectable>
+							<selectable>other OCSP standard</selectable>
+						</selectables>
+					</selectable>
+				</selectables>.
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				The TSF shall support the approval of changes to the status of a certificate by
+				<selectables>
+					<selectable>RA</selectable>
+					<selectable>CA operations staff</selectable>
+					<selectable>rules</selectable>
+				</selectables>.
+			</title>
+			<note role="application">
+				Based on the selection, the ST author must choose the appropriate requirements
+				from Annex B.<h:br/><h:br/>
+				The ST should specify the format used to supply certificate status information. If
+				other OCSP standard is selected, only current standards shall be selected, the RFC
+				shall be referenced, and any optional features within the RFC shall be specified.<h:br/><h:br/>
+				The various iterations of FMT_MOF.1 defines the role or roles authorized to
+				approve changes to a certificate’s status.<h:br/><h:br/>
+				The “changes” referenced in FDP_CSI_EXT.1.2 are the revocation requests
+				received by the TOE.
+			</note>
+			<aactivity>
+			<TSS>
+				The evaluator shall examine the TSS to ensure it describes the certificate status
+				function and applicable formats, in accordance with this requirement, that can
+				be used to issue certificate status. The TSS must reflect the selection made by
+				the ST author as well as the selection-based requirements from Annex B.<h:br/><h:br/>
+				For TOEs that support OCSP, the TOE’s ST shall specify the OCSP standard and
+				the ST author shall ensure that a description of the format is available.<h:br/><h:br/>
+				The evaluator shall also ensure that the TSS describes the process for approving
+				changes to the status of a certificate, including the interfaces that must be
+				used.<h:br/><h:br/>
+				If the TOE supports the configuration of certificate status information, the
+				evaluator shall examine the operational guidance to ensure that instructions
+				are available to configure the certificate status function to utilize the formats
+				identified in FDP_CSI_EXT.1.1. 
+			</TSS>
+			<Guidance>
+				The evaluator shall examine the operational guidance to ensure that it contains
+				instructions for any configuration aspects of the certificate status change
+				approval function and the steps needed to perform an approval.
+			</Guidance>
+			<Tests>
+				Based on the selection, the evaluator shall perform the applicable tests
+				associated with the requirements in Annex C:
+				<testlist>
+					<test>
+						Test 1: For certificate status information, the evaluator shall configure
+						the TSF to provide certificate status information according to each
+						format identified in FDP_CSI_EXT.1.1 in turn and request certificate
+						status for each format. Each certificate status response shall be
+						examined to ensure that it conforms to the format as described in the
+						TSS.
+					</test>
+					<test>
+						Test 2: For each selected certificate status format, the evaluator shall
+						issue a valid certificate from the TOE. The evaluator shall then cause
+						the TOE to issue certificate status information. The evaluator shall
+						check the certificate status information to verify that it reflects that the
+						certificate is valid.
+					</test>
+					<test>
+						Test 3: For each selected certificate status format, the evaluator shall
+						revoke a valid certificate from the TOE. The evaluator shall then cause
+						the TOE to issue certificate status information. The evaluator shall
+						check the certificate status information to verify that it reflects that the
+						certificate is revoked.
+					</test>
+					<test>
+						Test 4: The evaluator shall configure the certificate status change
+						approval function in accordance with the operational guidance. The
+						evaluator shall create a certificate status change request and submit it 
+						to the TOE. The evaluator shall access the TOE using the defined
+						interface and verify that the submitted request is in the appropriate
+						queue. The evaluator shall approve the certificate status change
+						request. The evaluator shall then cause the TOE to issue certificate
+						status information. The evaluator shall check the certificate status
+						information to verify that it reflects the state of the certificate.
+					</test>
+				</testlist>
+				<h:i>Equivalency</h:i><h:br/><h:br/>		
+				Testing of the TOE may be performed on a subset of the platforms listed in the
+				TOE’s ST. Justification must be provided for those platforms that were excluded
+				from testing.<h:br/><h:br/>
+			</Tests>
+			</aactivity>
+		</f-element>
+	</f-component>
+		
+	<!--               -->     
+        <!-- FDP_RIP.1 -->
+	<!--               -->     
+        <f-component cc-id="fdp_rip.1" name="Subset Residual Information Protection">
+		<f-element>
+			<title>
+				<refinement>Refinement:</refinement> The TSF <refinement>and 
+				<selectables>
+					<selectable>Operational Environment</selectable>
+					<selectable>no other component</selectable>
+				</selectables></refinement>
+				shall ensure that any previous information content of a resource is
+				made unavailable upon the 
+				<selectables>
+					<selectable>allocation of the resource to</selectable>
+					<selectable>deallocation of the resource from</selectable>
+				</selectables> 
+				the following objects: <assignable>list of objects</assignable>. 
+			</title>		
+			<note role="application">
+				“Resources” in the context of this requirement are any data buffers used to
+				implement certificate authority functions, including network communications
+				with the Certificate Authority. The concern is that a buffer or memory area might
+				be reused in subsequent function or communication channel resulting in
+				inappropriate disclosure of sensitive data. Note that this requirement applies only
+				to resources that the TSF controls. “Objects” refers to any sensitive data objects
+				that are under control of the TSF, such as subscribers’ personally identifiable
+				information.<h:br/><h:br/>
+				The first selection should include ‘Operational Environment’ if the TSF depends on
+				a component of the OE to store and protect TSF data. The ST should specify the
+				component and any interface used to meet this requirement. 
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure that, at a minimum, it describes
+					how the previous information content is made unavailable, and at what point
+					in the buffer processing this occurs.
+				</TSS>
+				<Guidance>
+					There are no AGD assurance activities for this requirement beyond what is
+					necessary to satisfy the requirements in [CEM].
+				</Guidance>
+				<Tests>
+					There are no ATE assurance activities for this requirement beyond what is
+					necessary to satisfy the requirements in [CEM].
+					<h:i>Equivalency</h:i><h:br/><h:br/>		
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.<h:br/><h:br/>
+				</Tests>
+			</aactivity>
+		</f-element>
+	</f-component>
+		
+	</subsection>   <!-- FDP -->
 	      
-	      
+	<!--                             -->
+	<!-- Class: FIA: Identification and Authentication  -->
+        <!--                             -->
+      	<subsection title="Class: Identification and Authentication (FIA)" id="fia">
+		
+		<!-- ************************ -->
+		
+			
         <f-component cc-id="fcs_ckm.1" name="Cryptographic key generation">
           <f-element>
             <title> The TSF shall generate <refinement>asymmetric</refinement> cryptographic keys in
