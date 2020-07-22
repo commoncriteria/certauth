@@ -2296,7 +2296,7 @@
 			<note role="application">
 				A “non-TOE entity” refers to users (privileged user, subscribers, and relying
 				parties) of services available from the TOE directly. If the TOE is able to download
-				certificates from the certificate repository prior to initiating the I&A process, the
+				certificates from the certificate repository prior to initiating the I&amp;A process, the
 				ST author includes that item in the ST. While it should be the case that few or no
 				services are available to external entities prior to identification and 
 				authentication, if there are some available to non-TOE entities, these should be
@@ -2340,8 +2340,8 @@
 					allowed/used, any protocol transactions that take place, and what constitutes
 					a “successful logon”.<h:br/><h:br/>
 					The evaluator shall examine the TSS to determine that it describes all actions
-					that can be performed prior to I&A as well as all actions that require successful
-					I&A, and by whom these actions can be performed. Any constraints on these
+					that can be performed prior to I&amp;A as well as all actions that require successful
+					I&amp;A, and by whom these actions can be performed. Any constraints on these
 					services shall be documented in the TSS.
 				</TSS>
 				<Guidance>
@@ -2365,7 +2365,7 @@
 							Test 1: The evaluator shall use the operational guidance to
 							configure the appropriate credential supported for the access
 							method. For that credential/access method, the evaluator shall
-							show that providing correct I&A information results in the ability
+							show that providing correct I&amp;A information results in the ability
 							to access the system, while providing incorrect information results
 							in denial of access.
 						</test>
@@ -2377,12 +2377,12 @@
 							determine that the list of services available is limited to those
 							specified in the requirement. The evaluator shall also verify that
 							non-authenticated remote entities cannot access the services
-							listed in FIA_UIA_EXT.1.2 that require I&A.
+							listed in FIA_UIA_EXT.1.2 that require I&amp;A.
 						</test>
 						<test>
 							Test 3: For local access, the evaluator shall exercise the services in
 							accordance with FIA_UIA_EXT.1.1 available to a local privileged
-							user prior to I&A, and make sure this list is consistent with the
+							user prior to I&amp;A, and make sure this list is consistent with the
 							requirement.
 						</test>
 						<test>
