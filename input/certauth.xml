@@ -1502,7 +1502,7 @@
 				</selectables>,
 				FCS_CKM_EXT.7, and FCS_CKM_EXT.8
 				</selectable></h:li>
-			<h:li><selectable>in a hardware cryptographic module</selectable></h:li>
+			<h:li><selectable>in a hardware cryptographic module</selectable></h:li></h:ul>
 		 </selectables>. 
 	      </title>
               <note role="application">This requirement ensures that persistent secret keys and private keys are stored
