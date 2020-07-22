@@ -2761,7 +2761,7 @@
 						<selectable><h:li>Ability to import private keys;</h:li></selectable>
 						<selectable><h:li>Ability to export TOE private keys (not for archival);</h:li></selectable>
 						<selectable><h:li>Ability to disable deprecated algorithms;</h:li></selectable>
-						<selectable><h:li>Ability to accept certificates whose revocation status cannot be determined;</h:li>/selectable>
+						<selectable><h:li>Ability to accept certificates whose revocation status cannot be determined;</h:li></selectable>
 						<selectable><h:li>Ability to accept, process and export CMC messages;</h:li></selectable>
 						<selectable><h:li>No other capabilities.</h:li></selectable>
 					</selectables>
