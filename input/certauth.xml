@@ -2432,7 +2432,7 @@
 	<!--               -->     
         <!-- FMT_MOF.1(1) -->
 	<!--               -->     
-        <f-component cc-id="fia_mof.1" iteration="1" name="Management of Security Functions Behavior (Administrator Functions)">
+        <f-component cc-id="fmt_mof.1" iteration="1" name="Management of Security Functions Behavior (Administrator Functions)">
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement>The 
@@ -2485,7 +2485,7 @@
 	<!--               -->     
         <!-- FMT_MOF.1(2) -->
 	<!--               -->     
-        <f-component cc-id="fia_mof.1" iteration="2" name="Management of Security Functions Behavior (CA/RA Functions)">
+        <f-component cc-id="fmt_mof.1" iteration="2" name="Management of Security Functions Behavior (CA/RA Functions)">
 		<f-element>	     
 			<title>
 				<refinement>Refinement:</refinement>The
@@ -2527,7 +2527,7 @@
 	<!--               -->     
         <!-- FMT_MOF.1(3) -->
 	<!--               -->     
-        <f-component cc-id="fia_mof.1" iteration="3" name="Management of Security Functions Behavior (CA Operations Functions)">
+        <f-component cc-id="fmt_mof.1" iteration="3" name="Management of Security Functions Behavior (CA Operations Functions)">
 		<f-element>
 			<title>
 				<refinement>:Refinement:</refinement>
@@ -2564,7 +2564,251 @@
 			</aactivity>
 		</f-element>
 	</f-component>
-		
+	
+	<!--               -->     
+        <!-- FMT_MOF.1(4) -->
+	<!--               -->     
+        <f-component cc-id="fmt_mof.1" iteration="4" name="Management of Security Functions Behavior (Admin/Officer Functions)">
+		<f-element>	     
+			<title>
+				<refinement>Refinement:</refinement> The
+				<refinement><selectables>
+					<selectable>TSF</selectable>
+					<selectable>Operational Environment</selectable>
+					</selectables></refinement>
+				shall restrict the ability to
+				<refinement><h:ol a="1">
+					<h:li>perform destruction of sensitive data when no longer needed;</h:li>
+					<selectables>
+						<selectable><h:li>participate as a second party for archival and recovery;</h:li></selectable>
+						<selectable><h:li>import a key share to support recovery of a CA signing key;</h:li></selectable>
+						<selectable><h:li>perform encrypted export of private or secret key or critical data</h:li></selectable>
+					</selectables>
+					</h:ol>
+				</refinement>
+				to 
+				<refinement><selectables>
+					<selectable>Administrators</selectable>
+					<selectable>Auditor</selectable>
+					<selectable>CA Operations Staff</selectable>
+					</selectables>
+				</refinement>.
+			</title>
+			<note role="application">
+				It is acceptable to have the auditor participate in archive and recovery of the key
+				as one of the parties in a 'two party' procedure; in the current key archive
+				requirements, any participant (including the auditor) only gains access to key
+				shares (but cannot access the key).
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure it identifies the restrictions
+					consistent with this requirement. For every function specified across all
+					iterations, the TSS must specify how the restriction is achieved and how (by
+					role or some other specified mechanism). This applies whether the ST author
+					selects “TSF” or “Operational Environment” in the first SFR selection.
+				</TSS>
+				<Guidance>
+					If the role restriction mechanism is configurable, the evaluator shall examine
+					the operational guidance to determine that the necessary instructions to meet
+					each iteration of the FMT_MOF.1 requirement for the TOE in its evaluated
+					configuration are provided. This applies only to management functions
+					implemented by or accessible through the TSF.
+				</Guidance>
+				<Tests>
+					Testing only applies to functions implemented by or accessible through the TSF.<h:br/><h:br/>
+					The evaluator shall, for each management function, assume the role defined
+					for that function and demonstrate that the assigned role can perform the
+					functions. The evaluator shall, for each management function, assume each
+					role not assigned to that function, attempt to use the function, and verify that
+					the TSF does not permit it.
+					<h:i>Equivalency</h:i><h:br/><h:br/>		
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s evaluated configuration in the ST. Justification must be provided for
+					those platforms that were excluded from testing. Note that this must explicitly
+					cover functionality for capabilities implemented by the Operational
+					Environment, if “Operational Environment” is selected.<h:br/><h:br/>
+				</Tests>
+			</aactivity>
+		</f-element>
+	</f-component>
+				
+	<!--               -->     
+        <!-- FMT_MOF.1(5) -->
+	<!--               -->     
+        <f-component cc-id="fmt_mof.1" iteration="5" name="Management of Security Functions Behavior (Autitor Functions)">
+		<f-element>
+			<title>
+				<refinement>Refinement:</refinement>The 
+				<refinement><selectables>
+					<selectable>TSF</selectable>
+					<selectable>Operational Environment</selectable>
+					</selectables>
+				</refinement>
+				shall restrict the ability to
+				<refinement><h:ul>
+					<h:li>Delete entries from the audit trail</h:li>
+					<selectables>
+						<selectable><h:li>Search the audit trail</h:li></selectable>
+						<selectable><h:li>Set or change the retention period parameter for audit records requiring
+							extended retention</h:li></selectable>
+					</selectables></h:ul>
+				</refinement>
+				to [<h:i>auditors</h:i>].
+			</title>
+			<aactivity>
+				<Tests>
+					Testing for this requirement is defined under FMT_MOF.1(4). The only
+					difference between the iterations of FMT_MOF.1 is the specific set of
+					management functions that are available to each administrative role. Testing
+					for this SFR is conducted sufficiently thoroughly if the evaluator can
+					demonstrate that the assigned role can perform only the functions specified in
+					the SFR.
+				</Tests>
+			</aactivity>
+		</f-element>
+	</f-component>
+
+	     
+	<!--               -->     
+        <!-- FMT_MTD.1 -->
+	<!--               -->     
+        <f-component cc-id="fmt_mtd.1" name="Management of TSF Data">
+		<f-element>
+			<title>
+				The TSF shall restrict the ability to <h:b>manage the TSF data</h:b> to [<h:i>privileged users</h:i>].
+			</title>
+			<note role="application">
+				The word “manage” includes but is not limited to create, initialize, view, change
+				default, modify, delete, clear, and append. This requirement is intended to be the
+				“default” requirement for management of TSF data; other iterations of FMT_MTD
+				should place different restrictions or operations available on the specificallyidentified TSF data. TSF data includes cryptographic information as well;
+				managing these data would include the association of a cryptographic protocol
+				with an interface, for instance. The specifics of management of data associated
+				with defined operations are contained in the FMT_MOF iterations.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to determine that, for each administrative
+					function identified in the operational guidance; those that are accessible
+					through an interface prior to administrator log-in are identified. For each of
+					these functions, the evaluator shall also confirm that the TSS details how the
+					ability to manipulate the TSF data through these interfaces is disallowed for
+					non-administrative users.
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the operational guidance to determine that each
+					of the TSF-data-manipulating functions implemented in response to the
+					requirements of this PP is identified, and that configuration information is
+					provided to ensure that only administrators have access to the functions.
+				</Guidance>
+				<Tests>
+					The evaluator shall ensure that all TSF data specified in the ST can be managed
+					in the ways specified in the ST by Administrators, and that non-administrative
+					roles are not authorized to manage TSF data. This activity may be performed in
+					the course of performing other testing and does not necessarily need to be
+					done as a separate test.
+					<h:i>Equivalency</h:i>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>
+	</f-component>			
+
+	
+	<!--               -->     
+        <!-- FMT_SMF.1 -->
+	<!--               -->     
+        <f-component cc-id="fmt_smf.1" name="Specification of Management Functions">
+		<f-element>
+			<title>
+				<refinement>Refinement:</refinement> The 
+				<refinement><selectables>
+					<selectable>TSF</selectable>
+					<selectable>Operational Environment</selectable>
+					</selectables>
+				</refinement>
+				shall be capable of performing the following management functions: [
+				<h:ol a="1">
+					<h:li>Ability to manage the TOE locally and remotely;</h:li>					
+					<h:li>Ability to perform updates to the TOE;</h:li>
+					<h:li>Ability to perform archival and recovery;</h:li>
+					<h:li>Ability to manage the audit mechanism;</h:li>
+					<h:li>Ability to configure and manage certificate profiles;</h:li>
+					<h:li>Ability to approve and execute the issuance of certificates;</h:li>
+					<h:li>Ability to approve certificate revocation;</h:li>
+					<h:li>Ability to modify revocation configuration;</h:li>
+					<h:li>Ability to configure subscriber self-service request constraints;</h:li>
+					<h:li>Ability to perform on-demand integrity tests;</h:li>
+					<h:li>Ability to destroy sensitive user data when no longer needed;</h:li>
+					<h:li>Ability to import and remove X.509v3 certificates into/from the Trust Anchor Database;</h:li>
+					<selectables><selectable>
+						<selectable><h:li>Ability to configure the NPE ruleset;</h:li></selectable>
+						<selectable><h:li>Ability to configure automated process used to approve the revocation of a
+							certificate or information about the revocation of a certificate;</h:li>/selectable>
+						<selectable><h:li>Ability to approve rulesets that govern the authorizations of RAs or AORs to
+							manage particular certificates on behalf of an organization;</h:li>/selectable>
+						<selectable><h:li>
+							<selectables>
+								<selectable>Ability to modify the CRL configuration</selectable>
+								<selectable>Ability to modify the OCSP configuration</selectable>
+							</selectables></h:li>/selectable>
+						<selectable><h:li>Ability to configure the list of TOE-provided services available before an entity
+							is identified and authenticated, as specified in FIA_UIA_EXT.1;</h:li>/selectable>
+						<selectable><h:li>Ability to configure the cryptographic functionality;</h:li>/selectable>
+						<selectable><h:li>Ability to import private keys;</h:li>/selectable>
+						<selectable><h:li>Ability to export TOE private keys (not for archival);</h:li>/selectable>
+						<selectable><h:li>Ability to disable deprecated algorithms;</h:li>/selectable>
+						<selectable><h:li>Ability to accept certificates whose revocation status cannot be determined;</h:li>/selectable>
+						<selectable><h:li>Ability to accept, process and export CMC messages;</h:li>/selectable>
+						<selectable><h:li>No other capabilities.</h:li>/selectable>
+					</selectables>
+				</h:ol>
+			</title>
+			<note role="application">
+				Some TOE functions require the use of the Operational Environment. The ST
+				author simply must make clear in the ST what management functions are
+				performed by the TOE itself or which are performed by the TOE in conjunction with
+				its environment.<h:br/><h:br/>
+				Except as indicated below, the security management functions for FMT_SMF.1 are
+				distributed throughout the PP and are included as part of the requirements in
+				FMT_MOF.1 and any cryptographic management functions specified in the
+				reference standards. Compliance to these requirements satisfies compliance with
+				FMT_SMF.1.
+			</note>
+			<aactivity>
+				<TSS>
+					There are no TSS assurance activities for this requirement beyond what is
+					necessary to satisfy the requirements in [CEM].
+				</TSS>
+				<Guidance>
+					The evaluator shall check to make sure that every management function
+					mandated by the PP is described in the operational guidance and that the
+					description contains the information required to perform the management
+					duties associated with the management function.
+				</Guidance>
+				<Tests>
+					In the course of performing the testing activities for the evaluation, the
+					evaluator shall use all supported interfaces, although it is not necessary to
+					repeat each test involving an administrative action with each interface. The
+					evaluator shall ensure, however, that each supported method of administering
+					the TOE that conforms to the requirements of this PP be tested; for instance,
+					if the TOE can be administered through a local hardware interface; SSH; and
+					TLS/HTTPS; then all three methods of administration must be exercised during
+					the evaluation team’s test activities.<h:br/><h:br/>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s evaluated configuration in the ST. Justification must be provided for
+					those platforms that were excluded from testing. Note that this must explicitly
+					cover guidance instructions and functionality for capabilities implemented by
+					the Operational Environment, if “Operational Environment” is selected.
+				</Tests>
+			</aactivity>
+	     </f-element>
+	</f-component>						
+							
 <!-- **************   -->		
 		
         <f-component cc-id="fcs_ckm.1" name="Cryptographic key generation">
@@ -2607,31 +2851,31 @@
               key establishment and entity authentication. When key generation is used for key
               establishment, the schemes in FCS_CKM.2/UNLOCKED and selected cryptographic protocols
               must match the selection. When key generation is used for entity authentication, the
-              public key may be associated with an X.509v3 certificate. <htm:br/><htm:br/> If the
+              public key may be associated with an X.509v3 certificate. <h:br/><h:br/> If the
               TOE acts as a receiver in the RSA key establishment scheme, the TOE does not need to
               implement RSA key generation. <htm:br/><htm:br/> Curve25519 can only be used for ECDH
               and in conjunction with FDP_DAR_EXT.2.2. </note>
             <aactivity>
               <TSS> The evaluator shall ensure that the TSS identifies the key sizes supported by
                 the TOE. If the ST specifies more than one scheme, the evaluator shall examine the
-                TSS to verify that it identifies the usage for each scheme. <htm:br/><htm:br/></TSS>
+                TSS to verify that it identifies the usage for each scheme. <h:br/><h:br/></TSS>
               <Guidance> The evaluator shall verify that the AGD guidance instructs the
                 administrator how to configure the TOE to use the selected key generation scheme(s)
-                and key size(s) for all uses defined in this PP.<htm:br/><htm:br/>
+                and key size(s) for all uses defined in this PP.<h:br/><h:br/>
               </Guidance>
               <Tests>
-                <htm:b>Assurance Activity Note:</htm:b> The following tests require the developer to
+                <h:b>Assurance Activity Note:</h:b> The following tests require the developer to
                 provide access to a test platform that provides the evaluator with tools that are
-                typically not found on factory products.<htm:br/><htm:br/>
-                <htm:i><htm:b>Key Generation for FIPS PUB 186-4 RSA
-                Schemes</htm:b></htm:i><htm:br/><htm:br/> The evaluator shall verify the
+                typically not found on factory products.<h:br/><h:br/>
+                <h:i><h:b>Key Generation for FIPS PUB 186-4 RSA
+                Schemes</h:b></h:i><h:br/><h:br/> The evaluator shall verify the
                 implementation of RSA Key Generation by the TOE using the Key Generation test. This
                 test verifies the ability of the TSF to correctly produce values for the key
-                components including the public verification exponent <htm:i>e</htm:i>, the private
-                prime factors <htm:i>p</htm:i> and <htm:i>q</htm:i>, the public modulus n and the
-                calculation of the private signature exponent <htm:i>d</htm:i>. <htm:br/><htm:br/>
+                components including the public verification exponent <h:i>e</h:i>, the private
+                prime factors <h:i>p</h:i> and <h:i>q</h:i>, the public modulus n and the
+                calculation of the private signature exponent <h:i>d</h:i>. <h:br/><h:br/>
                 Key Pair generation specifies 5 ways (or methods) to generate the primes
-                  <htm:i>p</htm:i> and <htm:i>q</htm:i>. These include: <htm:ol>
+                  <h:i>p</h:i> and <h:i>q</h:i>. These include: <h:ol>
                   <htm:li>Random Primes: <htm:ul>
                       <htm:li>Provable primes</htm:li>
                       <htm:li>Probable primes</htm:li>
