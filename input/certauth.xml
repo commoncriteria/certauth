@@ -2747,23 +2747,23 @@
 					<selectables><selectable>
 						<selectable><h:li>Ability to configure the NPE ruleset;</h:li></selectable>
 						<selectable><h:li>Ability to configure automated process used to approve the revocation of a
-							certificate or information about the revocation of a certificate;</h:li>/selectable>
+							certificate or information about the revocation of a certificate;</h:li></selectable>
 						<selectable><h:li>Ability to approve rulesets that govern the authorizations of RAs or AORs to
-							manage particular certificates on behalf of an organization;</h:li>/selectable>
+							manage particular certificates on behalf of an organization;</h:li></selectable>
 						<selectable><h:li>
 							<selectables>
 								<selectable>Ability to modify the CRL configuration</selectable>
 								<selectable>Ability to modify the OCSP configuration</selectable>
-							</selectables></h:li>/selectable>
+							</selectables></h:li></selectable>
 						<selectable><h:li>Ability to configure the list of TOE-provided services available before an entity
-							is identified and authenticated, as specified in FIA_UIA_EXT.1;</h:li>/selectable>
-						<selectable><h:li>Ability to configure the cryptographic functionality;</h:li>/selectable>
-						<selectable><h:li>Ability to import private keys;</h:li>/selectable>
-						<selectable><h:li>Ability to export TOE private keys (not for archival);</h:li>/selectable>
-						<selectable><h:li>Ability to disable deprecated algorithms;</h:li>/selectable>
+							is identified and authenticated, as specified in FIA_UIA_EXT.1;</h:li></selectable>
+						<selectable><h:li>Ability to configure the cryptographic functionality;</h:li></selectable>
+						<selectable><h:li>Ability to import private keys;</h:li></selectable>
+						<selectable><h:li>Ability to export TOE private keys (not for archival);</h:li></selectable>
+						<selectable><h:li>Ability to disable deprecated algorithms;</h:li></selectable>
 						<selectable><h:li>Ability to accept certificates whose revocation status cannot be determined;</h:li>/selectable>
-						<selectable><h:li>Ability to accept, process and export CMC messages;</h:li>/selectable>
-						<selectable><h:li>No other capabilities.</h:li>/selectable>
+						<selectable><h:li>Ability to accept, process and export CMC messages;</h:li></selectable>
+						<selectable><h:li>No other capabilities.</h:li></selectable>
 					</selectables>
 				</h:ol>
 			</title>
