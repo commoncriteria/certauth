@@ -2141,13 +2141,13 @@
 				X.509v3 certificates as defined by RFC 5280 to support authentication for code
 				signing for TOE updates, 
 				<selectables>
-					<selectabe>IPsec</selectable>
+					<selectable>IPsec</selectable>
 					<selectable>TLS</selectable>
 					<selectable>HTTPS</selectable>
 					<selectable>SSH</selectable>
 				</selectables>, and 
 				<selectables>
-					<selectable>integrity verification for TSF protected data</selectables>
+					<selectable>integrity verification for TSF protected data</selectable>
 					<selectable>integrity verification for TSF software and firmware</selectable>
 					<selectable><assignable>other uses</assignable></selectable>
 					<selectable>no additional uses</selectable>
