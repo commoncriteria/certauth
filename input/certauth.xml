@@ -2744,7 +2744,7 @@
 					<h:li>Ability to perform on-demand integrity tests;</h:li>
 					<h:li>Ability to destroy sensitive user data when no longer needed;</h:li>
 					<h:li>Ability to import and remove X.509v3 certificates into/from the Trust Anchor Database;</h:li>
-					<selectables><selectable>
+					<selectables>
 						<selectable><h:li>Ability to configure the NPE ruleset;</h:li></selectable>
 						<selectable><h:li>Ability to configure automated process used to approve the revocation of a
 							certificate or information about the revocation of a certificate;</h:li></selectable>
