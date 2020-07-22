@@ -1686,7 +1686,7 @@
 						allowed by the profile, and observe the request succeeds. The
 						evaluator shall then send a request with a KeyUsage that is not allowed
 						by the profile, and observe that the request is rejected (or the value
-						that is put into the certificate is what was in the profile).<h:br/><h:br>
+						that is put into the certificate is what was in the profile).<h:br/><h:br/>
 						<h:b>Field “f”:</h:b> The evaluator shall send requests to show that the CA accepts
 						requests that provide an identifier in either one or both of the subject
 						and subjectAltName fields, but rejects requests that do not provide an
