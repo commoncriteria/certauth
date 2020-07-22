@@ -2450,7 +2450,7 @@
 						<h:li>perform updates to the TOE;</h:li>
 						<h:li>perform on-demand integrity tests;</h:li>
 						<h:li>import and remove X.509v3 certificates into/from the Trust Anchor
-							Database;</h:i>
+							Database;</h:li>
 						<h:li><selectables><selectable>Import 
 							<assignable> secret and private keys other than the CA’s signing keys</assignable>
 							</selectable></selectables></h:li>
@@ -2530,7 +2530,7 @@
         <f-component cc-id="fia_mof.1" iteration="3" name="Management of Security Functions Behavior (CA Operations Functions)">
 		<f-element>
 			<title>
-				<refinement:Refinement:</refinement>
+				<refinement>:Refinement:</refinement>
 				The <refinement>
 				<selectables>
 					<selectable>TSF</selectable>
