@@ -2808,7 +2808,231 @@
 			</aactivity>
 	     </f-element>
 	</f-component>						
-							
+
+	     
+	<!--               -->     
+        <!-- FMT_SMR.2 -->
+	<!--               -->     
+        <f-component cc-id="fmt_smr.2" name="Restrictions on Security Roles">
+		<f-element>
+			<title>
+				<refinement>Refinement:</refinement>The TSF 
+				<refinement>and 
+					<selectables>
+						<selectable>Operational Environment</selectable>
+						<selectable>no other component</selectable>
+					</selectables>
+				</refinement> shall maintain the roles: [<h:br/>
+				<h:ul>
+					<h:li><h:i>Administrator</h:i></h:li>
+					<h:li><h:i>Auditor</h:i></h:li>
+					<h:li><h:i>CA Operations Staff</h:i></h:li>
+					<h:li><selectables>
+						<selectable>RA Staff</selectable>
+						<selectable>Authorized Organizational Representative</selectable>
+						<selectable>no other roles</selectable>
+						</selectables>
+					</h:li>
+				</h:ul>
+			</title>
+		</f-element>
+		<f-element>
+			<title><refinement>Refinement:</refinement>The TSF 
+				<refinement> and
+					<selectables>
+						<selectable>Operational Environment</selectable>
+						<selectable>no other component</selectable>
+					</selectables>
+				</refinement>
+				shall be able to associate users with roles.
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				<refinement>Refinement:</refinement>The TSF
+				<refinement>and<selectables>
+					<selectable>Operational Environment</selectable>
+					<selectable>no other component</selectable>
+					</selectables>
+				</refinement>shall ensure that the conditions [
+				<h:ul><h:i>
+					<h:li>No identity is authorized to assume both an Auditor role and any of the other
+						roles in FMT_SMR.2.1; and</h:li>
+					<h:li>No identity is authorized to assume both a CA Operations Staff role and any
+						of the other roles in FMT_SMR.2.1</h:li></h:i>]
+				</h:ul> are satisfied.
+			</title>
+			<note role="application">
+				This document specifies five roles: Administrator, Auditor, CA Operations Staff,
+				Registration Authority, and Authorized Organizational Representative. However,
+				the TOE is not required to maintain all six roles. 
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure it identifies the roles, the
+					privileges granted to and limitations of each role, and whether they are
+					implemented by the TOE or by the TOE in conjunction with its environment.
+					The evaluator shall also examine the TSS to ensure it describes the interfaces
+					available to each role and how role separation is ensured.
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the AGD documents to ensure they contain
+					instructions for using either the TOE or the TOE in conjunction with its
+					environment to assign roles to the corresponding users.<h:br/><h:br/>
+					The evaluator shall review the operational guidance to ensure that it contains
+					instructions for how the roles connect to and perform operations on the TOE
+					and which interfaces are supported.
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following tests:
+					<testlist>
+						<test>
+							Test 1: For each supported role, the evaluator shall assume the role
+							and connect to the TOE as specified in the AGD documentation. The
+							evaluator shall verify that the role can perform the documented
+							operations.
+						</test>
+						<test>
+							Test 2: The evaluator shall attempt to assume the Auditor role in
+							conjunction with any other role as defined in FMT_SMR.2.1 and shall
+							verify it is not possible.
+						</test>
+						<test>
+							Test 3: The evaluator shall attempt to assume the CA Operations Staff
+							role in conjunction with any other role as defined in FMT_SMR.2.1 and
+							shall verify it is not possible.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>
+	</f-component>
+	     
+	     
+ 	<!--                             -->
+	<!-- Class: FPT: Protection of the TSF  -->
+        <!--                             -->
+     <subsection title="Class: Protection of the TSF (FPT)" id="fpt">
+
+	<!--               -->     
+        <!-- FPT_FLS.1 -->
+	<!--               -->     
+        <f-component cc-id="fpt_fls.1" name="Failure with Preservation of Secure State">
+		<f-element>
+			<title>
+				The TSF shall preserve a secure state when the following types of failures occur:
+				<selectables>
+					<selectable>DRBG failure</selectable>
+					<selectable>signature verification failure</selectable>
+					<selectable>integrity test failure</selectable>
+					<selectable>integrity failure on audit</selectable>
+					<selectable>integrity failure on Trust Anchor database</selectable>
+					<selectable><assignable>other potential TSF failures</assignable></selectable>
+					<selectable><assignable>other potential Operational Environment failures</assignable></selectable>
+				</selectables>.
+			</title>
+			<note role="application">
+				The intent of this requirement is to prevent the use of failed randomization and
+				other events that can compromise the operation of the CA. This means that the
+				TOE must be able to attain a secure/safe state when any of the identified failures
+				occurs. If the TOE should encounter a failure in the middle of a critical operation,
+				the TOE should not just quit operating, leaving key material and user data
+				unprotected.<h:br/><h:br/>
+				The failure of an Operational Environment component can be just as detrimental
+				to security as a failure of the TSF itself. Therefore, in addition to describing the
+				potential TSF failures and how the TOE preserves a secure state in response, the
+				ST author is also expected to use this SFR to express how the TOE is made aware
+				of any environmental failures and how it responds to these.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to determine that the TOE’s
+					implementation of the fail secure functionality is documented. The evaluator
+					shall first examine the TSS section to ensure that all failure modes specified in
+					the ST are described. The evaluator shall then ensure that the TOE will attain a
+					secure state after inserting each specified failure mode type. The evaluator
+					shall review the TSS to determine that the definition of secure state is defined
+					and is suitable to ensure protection of key material and user data.
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the operational guidance to ensure it describes
+					the actions that might occur and provides remedial instructions for the
+					administrator.
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following test:
+					<testlist>
+						<test>
+							Test 1: The evaluator shall attempt to cause each documented failure
+							to occur and shall verify that the actions taken by the TSF are those
+							specified in FPT_FLS.1.1. For those failures that the evaluator cannot
+							cause, the evaluator shall provide a justification to explain why the
+							failure could not be induced. 
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>	
+	</f-component>				
+					
+	<!--               -->     
+        <!-- FPT_KST_EXT.1 -->
+	<!--               -->     
+        <f-component cc-id="fpt_kst_ext.1" name="No Plaintext Key Export">
+		<f-element>
+			<title>
+				The TSF and 
+				<selectables>
+					<selectable>Operational Environment</selectable>
+					<selectable>no other component</selectable>
+				</selectables> shall prevent the plaintext export of
+				<assignable>list of all keys used by the TSF</assignable>.
+			</title>
+			<note role="application">
+				Keys include all TOE secret and private keys, as well as any user secret and private
+				keys. The intent of this optional requirement is to prevent the keys from being
+				exported during an archive event authorized by the TOE user or administrator.<h:br/><h:br/>
+				If TSF keys are stored in the OE, the TSF requires support of the OE to meet this
+				requirement. The Operational Environment shall be selected and the specific
+				components used shall be described in the TSS.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure it lists all keys that are not
+					exported from the TOE for all platforms listed in the TOE’s ST.
+				</TSS>
+				<Guidance>
+					There are no AGD assurance activities for this requirement beyond what is
+					necessary to satisfy the requirements in [CEM].
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following test:
+					<testlist>
+						<test>
+							Test 1: The evaluator shall access the export interface of the TOE and
+							shall verify that the interface prevents the export of all keys listed in
+							the TSS.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>
+	<f-component>	
+
+					
+	     
 <!-- **************   -->		
 		
         <f-component cc-id="fcs_ckm.1" name="Cryptographic key generation">
