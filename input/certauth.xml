@@ -3031,8 +3031,407 @@
 		</f-element>
 	<f-component>	
 
+	<!--               -->     
+        <!-- FPT_KST_EXT.2 -->
+	<!--               -->     
+        <f-component cc-id="fpt_kst_ext.2" name="Key Protection">
+		<f-element>
+			<title>
+				The TSF and 
+				<selectables>
+					<selectable>Operational Environment</selectable>
+					<selectable>no other components</selectable>
+				</selectables>
+				shall prevent unauthorized use of all TSF private and secret keys.
+			</title>
+			<note role="application">
+				The intent of this requirement is to protect TSF private and secret keys from both
+				unauthorized users and unprivileged processes. Users should not be able to access
+				the keys through “normal” interfaces.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure it describes how unauthorized
+					use of TSF private and secret keys is prevented for both users and processes.
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the AGD guidance to ensure it contains
+					instructions for configuring the TOE or Operational Environment to prevent
+					unauthorized access to TSF secret and private keys by users or processes.
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following test:
+					<testlist>
+						<test>
+							Test 1: The evaluator shall assume each of the non-Administrator
+							roles supported by the TOE and shall attempt to use the available
+							TOE interface to access the keys. The evaluator shall verify that
+							these attempts fail.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>
+	</f-component>
+		
+
+	<!--               -->     
+        <!-- FPT_RCV.1 -->
+	<!--               -->     
+        <f-component cc-id="fpt_rcv.1" name="Manual Trusted Recovery">
+		<f-element>
+			<title>
+				After 
+				<assignable>list of failures/service discontinuities</assignable>
+				the TSF shall enter a maintenance mode where the ability to return to a secure state
+				is provided.
+			</title>
+			<note role="application">
+				This requirement ensures that the TSF can determine that the TOE is started up
+				without protection compromise and can recover without protection compromise
+				after discontinuity of operations. Anticipated failures include actions that result in
+				a system crash, media failures, or discontinuity of operations caused by erroneous 
+				administrative action or lack of erroneous administrative action. The data that
+				needs to be restored includes the TSF keys needed for signature, the Trust Anchor
+				Database, keys needed for management of certificates, all signed certificates, and
+				any certificate status information.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to determine that it describes how the TOE
+					enters a maintenance mode after a failure and the possible actions that can
+					take place while in that mode. 
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the AGD guidance to ensure it contains
+					instructions for restoring the TOE to a secure state when it enters the
+					maintenance mode, including the steps necessary to perform while in this
+					state.
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following test:
+					<testlist>
+						<test>
+							Test 1: The evaluator shall attempt to cause each documented
+							failure to occur and shall verify that the result of this failure is that
+							the TSF enters a maintenance mode. The evaluator shall also verify
+							that the maintenance mode can be exited and the TSF can be
+							restored to a secure state. This testing may be performed in
+							conjunction with FPT_FLS.1.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>
+	</f-component>
 					
-	     
+	<!--               -->     
+        <!-- FPT_SKP_EXT.1 -->
+	<!--               -->     
+        <f-component cc-id="fpt_skp_ext.1" name="Protection of Keys">
+		<f-element>
+			<title>
+				The TSF shall 
+				<selectables>
+					<selectable>implement</selectable>
+					<selectable>interface with the Operational Environment to implement</selectable>
+				</selectables>
+				the ability to prevent reading of all pre-shared keys, private, and
+				secret keys (e.g., KEKs, DEKs, session keys).
+			</title>
+			<note role="application">
+				The intent of the requirement is that an administrator is unable to read or view
+				the identified keys through “normal” interfaces. While it is understood that the
+				administrator could directly read memory to view these keys, to do so is not a
+				trivial task and may require substantial work on the part of an administrator.
+				Since the administrator is considered a trusted agent, it is assumed they would
+				not endeavor in such an activity.
+			</note>
+			<aactivity>
+				<TSS>
+					Regardless of whether this requirement is met by the TOE or the Operational
+					Environment, the evaluator shall examine the TSS to determine that it details
+					each persistent private and secret key needed to meet the requirements in the
+					ST. For each of these items, the evaluator shall confirm that the TSS details how
+					any secret or private keys are stored and that they are unable to be viewed
+					through an interface designed specifically for that purpose, as outlined in the
+					application note. If these values are not stored in plaintext, the TSS shall
+					describe how they are protected/obscured.
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the AGD guidance to ensure it contains any
+					necessary instructions for configuring the TOE or Operational Environment to
+					support this requirement.
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following test:
+					<testlist>
+						<test>
+							Test 1: The evaluator shall assume each of the non-Administrator
+							roles supported by the TOE and shall attempt to use the available
+							TOE interface to read the keys specified by the TOE. The evaluator
+							shall verify that these attempts fail.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>
+	</f-component>
+		
+	<!--               -->     
+        <!-- FPT_STM.1 -->
+	<!--               -->     
+        <f-component cc-id="fpt_stm.1" name="Reliable Time Stamps">
+		<f-element>
+			<title>
+				<refinement>Refinement:</refinement> The TSF shall 
+				<selectables>
+					<selectable>provide</selectable>
+					<selectable>interface with the Operational Environment to provide</selectable>
+				</selectables> reliable time stamps. 
+			</title>
+			<note role="application">
+				The TSF is expected to use time data for accuracy in signing and verification
+				activities. Depending on the functionality provided by the TOE, it may also use
+				time data for accurate generation of audit logs and secure communications that
+				have a time component.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure that it lists each security function
+					that makes use of time. The TSS provides a description of how the time is
+					maintained and considered reliable in the context of each of the time related
+					functions.
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the operational guidance to ensure it instructs the
+					administrator how to set the time. If the TOE supports the use of a network
+					time protocol (NTP) server, the operational guidance shall describe how a
+					communication path is established between the TOE and the NTP server, and
+					any configuration of the NTP client on the TOE to support this communication.
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following tests:
+					<testlist>
+						<test>
+							Test 1: The evaluator shall use the operational guidance to set the
+							time. The evaluator shall then use an available interface to observe
+							that the time was set correctly.
+						</test>
+						<test>
+							Test 2: [conditional] If the TOE supports the use of an NTP server;
+							the evaluator shall use the operational guidance to configure the
+							NTP client on the TOE, and set up a communication path with the
+							NTP server. The evaluator will observe that the NTP server has set
+							the time to what is expected. If the TOE supports multiple
+							protocols for establishing a connection with the NTP server, the
+							evaluator shall perform this test using each supported protocol
+							claimed in the operational guidance.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>
+	</f-component>
+		
+	<!--               -->     
+        <!-- FPT_TUD_EXT.1 -->
+	<!--               -->     
+        <f-component cc-id="fpt_tud_ext.1" name="Trusted Update">
+		<f-element>
+			<title>
+				The TSF shall
+				<selectables>
+					<selectable>implement</selectable>
+					<selectable>interface with the Operational Environment to implement</selectable>
+				</selectables>
+				the ability to check for updates and patches to the TOE.
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				The TSF shall
+				<selectables>
+					<selectable>implement</selectable>
+					<selectable>interface with the Operational Environment to implement</selectable>
+				</selectables>
+				the ability to provide Administrators the ability to initiate updates
+				to TOE firmware/software.
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				The TSF shall
+				<selectables>
+					<selectable>implement</selectable>
+					<selectable>interface with the Operational Environment to implement</selectable>
+				</selectables>
+				the ability to verify firmware/software updates to the TOE using a
+				digital signature prior to installing those updates.
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				The TSF shall
+				<selectables>
+					<selectable>implement</selectable>
+					<selectable>interface with the Operational Environment to implement</selectable>
+				</selectables>
+				 the ability to verify the digital signature whenever the software or
+				firmware is externally loaded into the TOE and if verification fails, the TSF shall
+				<assignable>action to be taken if the verification fails</assignable>.
+			</title>
+			<note role="application">
+				The digital signature mechanism referenced in the third element is the one
+				specified in FCS_COP.1(2).
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall verify that the TSS section of the ST describes all TSF
+					software update mechanisms for updating the system software. The evaluator
+					shall verify that the description includes a digital signature verification of the
+					software before installation and that installation fails if the verification fails.
+					The evaluator shall verify that all software and firmware involved in updating
+					the TSF is described and, if multiple stages and software are indicated, that the
+					software/firmware responsible for each stage is indicated and that the stage(s)
+					which perform signature verification of the update are identified.<h:br/><h:br/>
+					The evaluator shall verify that the TSS describes the method by which the
+					digital signature is verified.<h:br/><h:br/>
+					The evaluator shall verify that the TSS describes that the public key used to
+					verify the signature is either hardware-protected or is validated to chain to a
+					public key in the Trust Anchor Database. If hardware-protection is selected, the
+					evaluator shall verify that the method of hardware-protection is described and
+					that the ST author has justified why the public key may not be modified by
+					unauthorized parties.<h:br/><h:br/>
+					[conditional] If the ST author indicates that the public key for software update
+					digital signature verification, the evaluator shall verify that the update
+					mechanism includes a certificate validation according to FIA_X509_EXT.1 and
+					a check for the Code Signing purpose in the extendedKeyUsage.
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the operational user to ensure it contains the
+					required information regarding TOE version verification and TOE updates as
+					specified in AGD_OPE.1.
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following tests:
+					<testlist>
+						<test>
+							Test 1: The evaluator shall perform the version verification activity
+							to determine the current version of the product. The evaluator
+							shall obtain a legitimate update using procedures described in the
+							operational guidance and verifies that it is successfully installed on
+							the TOE. Then, the evaluator shall perform a subset of other
+							assurance activity tests to demonstrate that the update functions
+							as expected. After the update, the evaluator shall perform the
+							version verification activity again to verify the version correctly
+							corresponds to that of the update.
+						</test>
+						<test>
+							Test 2: The evaluator shall obtain or produce an illegitimate
+							update, and shall attempt to install it on the TOE. The evaluator
+							shall verify that the TOE rejects the update.
+						</test>
+						<test>
+							Test 3: The evaluator shall obtain or produce an update with an
+							invalid signature, and shall attempt to install it on the TOE. The
+							evaluatorshall verify that the TOE rejects the update and performs
+							any other actions specified in the TSS.
+						</test>
+						<test>
+							Test 4: The evaluator shall digitally sign the update with a
+							certificate that does not have the Code Signing purpose and verify
+							that application installation fails. The evaluator shall repeat the
+							test using a valid certificate and a certificate that contains the Code
+							Signing purpose and verify that the application installation
+							succeeds.
+						</test>
+						<test>
+							Test 5: The tester shall attempt to install an update without the
+							digital signature and shall verify that installation fails. The tester
+							shall attempt to install an update with altered digital signature, and
+							verify that installation fails.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>					
+			</aactivity>
+		</f-element>
+	</f-component>
+			
+ 	<!--                             -->
+	<!-- Class: FPT: Protection of the TSF  -->
+        <!--                             -->
+     <subsection title="Class: TOE Access (FTA)" id="fta">
+
+	<!--               -->     
+        <!-- FPT_FLS.1 -->
+	<!--               -->     
+        <f-component cc-id="fta_ssl.4" name="User-Initiated Termination">
+		<f-element>
+			<title>
+				<refinement>Refinement:</refinement>The TSF shall 
+				<refinement><selectables>
+					<selectable>implement</selectable>
+					<selectable>interface with the Operational Environment to implement</selectable>
+					</selectables> the ability to </refinement> allow <refinement>privileged </refinement>
+				user-initiated termination of the <refinement>privileged</refinement> user’s own interactive session.
+			</title>
+			<aactivity>
+				<TSS>
+					There are no TSS assurance activities for this requirement beyond what is
+					necessary to satisfy the requirements in [CEM].
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the operational guidance to ensure it describes
+					how to terminate interactive sessions.
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following tests:
+					<testlist>
+						<test>
+							Test 1: The evaluator shall initiate an interactive local session with
+							the TOE. The evaluator shall then follow the operational guidance
+							to terminate the session and observe that the session has been
+							terminated.
+						</test>
+						<test>
+							Test 2: The evaluator shall initiate an interactive remote session
+							with the TOE. The evaluator shall then follow the operational
+							guidance to terminate the session and observe that the session has
+							been terminated.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>
+	</f-component>
+
+		
+		
 <!-- **************   -->		
 		
         <f-component cc-id="fcs_ckm.1" name="Cryptographic key generation">
