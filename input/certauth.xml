@@ -1245,6 +1245,7 @@
 			</Tests>
 		</aactivity>
         </f-element>
+	<audit-event/>
 	</f-component>
 	</subsection>
 	    
@@ -1484,6 +1485,7 @@
               </Tests>
             </aactivity>
           </f-element>
+	<audit-event/>
         </f-component>
 
         <f-component name="Cryptographic Key Storage" cc-id="fcs_stg_ext">
@@ -1539,6 +1541,7 @@
 			from testing.
 	      </aactivity>
 	    </f-element>
+	<audit-event/>
 	</f-component>
       </subsection>
 		
@@ -1727,7 +1730,11 @@
 					from testing.<h:br/><h:br/>
 				</Tests>
 			</aactivity>
-		</f-element>		
+		</f-element>	
+		<audit-event>
+			<audit-event-descr>Certificate generation: Success.</audit-event-descr>
+			<audit-event-info>Certificate value or object identifier.</audit-event-info>
+		</audit-event>
 	</f-component>
 
 	<!--               -->     
@@ -1765,6 +1772,16 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event>
+			<audit-event-descr>Linking of certificate to certificate request: Success</audit-event-descr>
+			<audit-event-info>Certificate value or object identifier</audit-event-info>
+			<audit-event-info>Certificate request or link to certificate request object identifier</audit-event-info>
+		</audit-event>
+		<audit-event>
+			<audit-event-descr>Linking of certificate to certificate request: Failure</audit-event-descr>
+			<audit-event-info>Reason for failure</audit-event-info>
+			<audit-event-info>Certificate request or link to certificate request object identifier</audit-event-info>
+		</audit-event>
 	</f-component>
 
 	<!--               -->     
@@ -1827,6 +1844,11 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event>
+			<audit-event-descr>Failed certificate approvals</audit-event-descr>
+			<audit-event-info>Reason for failure</audit-event-info>
+			<audit-event-info>Certificate request or link to certificate request object identifier</audit-event-info>
+		</audit-event>
 	</f-component>
 		
 	<!--               -->     
@@ -1934,6 +1956,7 @@
 			</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event/>
 	</f-component>
 		
 	<!--               -->     
@@ -1988,6 +2011,7 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event/>
 	</f-component>
 		
 	</subsection>   <!-- FDP -->
@@ -2124,7 +2148,10 @@
 					from testing.<h:br/><h:br/>
 				</Tests>
 			</aactivity>
-		</f-element>				
+		</f-element>
+		<audit-event>
+			<audit-event-descr>Failed certificate validations</audit-event-descr>
+		</audit-event>
 	</f-component>
 
 	<!--               -->     
@@ -2239,6 +2266,9 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event>
+			<audit-event-descr>Failed authentications</audit-event-descr>
+		</audit-event>
 	</f-component>
 	
 	<!--               -->     
@@ -2270,6 +2300,10 @@
 				</TSS>
 			</aactivity>
 		</f-element>
+		<audit-event>
+			<audit-event-descr>All uses of the authentication mechanism used for access to TOE related functions</audit-event-descr>
+			<audit-event-info>Origin of the attempt (e.g., IP address)</audit-event-info>
+		</audit-event>
 	</f-component>
 
 	<!--               -->     
@@ -2411,6 +2445,11 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event>
+			<audit-event-descr>All use of the identification and authentication mechanism used for TOE-related roles</audit-event-descr>
+			<audit-event-info>Provided user identity.</audit-event-info>
+			<audit-event-info>Origin of the attempt (e.g., IP address)</audit-event-info>
+		</audit-event>
 	</f-component>		
       </subsection>
 		
@@ -2480,6 +2519,7 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event/>
 	</f-component>			
 		
 	<!--               -->     
@@ -2522,6 +2562,7 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event/>		
 	</f-component>				
 	     
 	<!--               -->     
@@ -2563,6 +2604,7 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event/>
 	</f-component>
 	
 	<!--               -->     
@@ -2631,6 +2673,7 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event/>
 	</f-component>
 				
 	<!--               -->     
@@ -2667,6 +2710,7 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event/>
 	</f-component>
 
 	     
@@ -2715,6 +2759,7 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event/>
 	</f-component>			
 
 	
@@ -2807,6 +2852,7 @@
 				</Tests>
 			</aactivity>
 	     </f-element>
+		<audit-event/>
 	</f-component>						
 
 	     
@@ -2910,6 +2956,10 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event>
+			<audit-event-descr>Modifications to the group of users that are part of a role</audit-event-decr>
+			<audit-event-info>Modifications to the group of users that are part of the role</audit-event-info>
+		</audit-event>
 	</f-component>
 	     
 	     
@@ -2981,6 +3031,10 @@
 				</Tests>
 			</aactivity>
 		</f-element>	
+		<audit-event>
+			<audit-event-descr>Invocation of failures under the requirement</audit-event-descr>
+			<audit-event-info>Indication that the TSF has failed with the type of failure that occurred</audit-event-info>
+		</audit-event>
 	</f-component>				
 					
 	<!--               -->     
@@ -3029,6 +3083,7 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event/>
 	<f-component>	
 
 	<!--               -->     
@@ -3076,6 +3131,10 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event>
+			<audit-event-descr>All unauthorized attempts to use the TOE secret abnd private keys.</audit-event-descr>
+			<audit-event-info>Identifier of user or process that attempted access.</audit-event-info>
+		</audit-event>
 	</f-component>
 		
 
@@ -3131,6 +3190,13 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event>
+			<audit-event-descr>The fact that a faiure of service discontinuity occurred.</audit-event-descr>
+		</audit-event>
+		<audit-event>
+			<audit-event-descr>Resumption of the regular operation.</audit-event-descr>
+			<audit-event-info>TSF failure types that are available on recovery.</audit-event-info>
+		</audit-event>
 	</f-component>
 					
 	<!--               -->     
@@ -3188,6 +3254,7 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event/>
 	</f-component>
 		
 	<!--               -->     
@@ -3248,6 +3315,10 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event>
+			<audit-event-descr>Changes to the time</audit-event-info>
+			<audit-event-info>The new and old values for the time.</audit-event-info>
+		</audit-event>
 	</f-component>
 		
 	<!--               -->     
@@ -3376,6 +3447,10 @@
 				</Tests>					
 			</aactivity>
 		</f-element>
+		<audit-event>
+			<audit-event-descr>Initiation of update.</audit-event-descr>
+			<audit-event-info>Version number</audit-event-info>
+		</audit-event>
 	</f-component>
 			
  	<!--                             -->
@@ -3428,6 +3503,9 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event>
+			<audit-event-descr>The termination of an interactive section.</audit-event-descr>
+		</audit-event>
 	</f-component>
 
 	<!--               -->     
@@ -3475,6 +3553,7 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		</audit-event/>
 	</f-component>
 			
 	<!--                             -->
@@ -3564,6 +3643,18 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event>
+			<audit-event-descr>Initiation of the trusted channel.</audit-event-descr>
+			<audit-event-info>Identification of the claimed user identity</audit-event-info>
+		</audit-event>
+		<audit-event>
+			<audit-event-descr>Termination of the trusted channel.</audit-event-descr>
+			<audit-event-info>Identification of the claimed user identity</audit-event-info>
+		</audit-event>
+		<audit-event>
+			<audit-event-descr>Failures of the trusted path functions.</audit-event-descr>
+			<audit-event-info>Identification of the claimed user identity</audit-event-info>
+		</audit-event>
 	</f-component>
      </subsection>   
    </section>
