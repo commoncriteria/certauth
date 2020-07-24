@@ -2217,17 +2217,47 @@
 				<TSS>
 					The evaluator shall examine the TSS to verify that it describes (for each
 					supported platform) how the data destruction functionality is performed or
-					invoked.
-The evaluator shall examine the TSS to ensure it describes each user data type
-as indicated in FDP_SDP_EXT.1.1, including where it is stored, how it is
-protected (including mode and key size used when encrypting the data), when
-it is destroyed (for example, immediately after use, on system shutdown, etc.);
-and the type of destruction procedure that is performed.
-The evaluator shall ensure that the mode and key size used in the encryption
-of the data is specified in the FCS_COP.1 SFR.
-If the Operational Environment is invoked to perform the functions, the TSS
-shall list the interfaces (APIs) that are invoked.
-	      
+					invoked.<h:br/><h:br/>
+					The evaluator shall examine the TSS to ensure it describes each user data type
+					as indicated in FDP_SDP_EXT.1.1, including where it is stored, how it is
+					protected (including mode and key size used when encrypting the data), when
+					it is destroyed (for example, immediately after use, on system shutdown, etc.);
+					and the type of destruction procedure that is performed.<h:br/><h:br/>
+					The evaluator shall ensure that the mode and key size used in the encryption
+					of the data is specified in the FCS_COP.1 SFR.<h:br/><h:br/>
+					If the Operational Environment is invoked to perform the functions, the TSS
+					shall list the interfaces (APIs) that are invoked.
+				</TSS>
+				<Guidance>
+					If the protection and destruction of user data is configurable, the evaluator
+					shall examine the operational guidance to ensure it instructs the administrator
+					how to ensure that user data is protected and destroyed in accordance with
+					this requirement.
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following tests for each platform listed in the
+					ST:
+					<testlist>
+						<test>
+							Test 1: The evaluator shall, for each user data type listed in the TSS,
+							locate where the data is stored and verify that it is encrypted.
+						</test>
+						<test>
+							Test 2: The evaluator shall, for each user data type listed in the TSS,
+							initiate the supported data destruction mechanism according to the
+							documented times that it should be initiated for that user data type
+							(e.g., immediately after use, on system shutdown, etc.) and verify
+							that the protected data has been destroyed.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>		
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.<h:br/><h:br/>
+				</Tests>
+			</aactivity>
+		</f-element>
+	</f-component>    
 	</subsection>   <!-- FDP -->
 	      
 	<!--                             -->
