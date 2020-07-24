@@ -1488,6 +1488,83 @@
 	<audit-event/>
         </f-component>
 
+	<f-component name="Cryptographic Operation (Password-based Key Derivation Function)" cc-id="fcs_cop" status="optional">
+        	<f-element>
+			<title>
+				<refinement>Refinement:</refinement> The TSF shall
+			    	<refinement><selectables>
+				    	<selectable>perform</selectable>
+				    	<selectable>invoke interfaces in the Operational Environment to perform</selectable>
+				    	</selectable>
+			    	</refinement>
+				[<h:i>Password-based Key Derivation Functions</h:i>]
+				in accordance with a specified cryptographic algorithm
+				<refinement><selectables>
+					<selectable>HMAC-SHA-1</selectable>
+					<selectable>HMAC-SHA-256</selectable>
+					<selectable>HMAC-SHA-384</selectable>
+					<selectable>HMAC-SHA-512</selectable>
+					</selectables>
+				</refinement>					
+				and <refinement>output</refinement> cryptographic key sizes
+				<selectables>
+					<selectable>128-bit</selectable>
+					<selectable>256-bit</selectable>
+				</selectables> that meet the following: [<h:i>NIST SP 800-32</h:i>].
+			</title>
+			<note role="application">
+				This requirement is optional. It will be claimed if the method of protecting key
+				shares in FPT_SKY_EXT.2 or any other mechanism to enforce access by privileged
+				user depends on passwords. It may also be claimed if other mechanisms use
+				password-based encryption.<h:br/><h:br/>
+				In the first selection for each element, the ST author chooses whether the TOE
+				performs the derivation, or whether it invokes interfaces in the Operational
+				Environment for the functionality.<h:br/><h:br/>
+				The ST author selects the appropriate hash algorithm used in the second selection.<h:br/><h:br/>
+				The cryptographic key sizes in the third selection should be made to correspond to
+				the KEK key sizes selected in FCS_CKM_EXT.1(3). A future requirement will add a
+				refinement to require a PBKDF iteration count of at least 1000.<h:br/><h:br/>
+				This password must be conditioned into a string of bits that forms the submask to
+				be used as input into the KEK. Conditioning is be performed using one of the
+				identified hash functions. NIST SP 800-132 requires the use of a pseudo-random
+				function (PRF) consisting of HMAC with an approved hash function. The ST author
+				selects the hash function used, also includes the appropriate requirements for
+				HMAC and the hash function.
+			</note>
+			<aactivity>
+				<TSS>
+					If this SFR is implemented by the TSF, then the evaluator shall perform the
+					following activities.<h:br/><h:br/>
+					The evaluator shall check that the TSS describes the method by which the
+					password is first encoded and then fed to the SHA algorithm. The settings for
+					the algorithm (padding, blocking, etc.) shall be described, and the evaluator
+					shall verify that these are supported by the selections in this component as well
+					as the selections concerning the hash function itself. The evaluator shall verify
+					that the TSS contains a description of how the output of the hash function is
+					used to form the submask that will be input into the function and is the same
+					length as the DEK or KEK being protected.<h:br/><h:br/>
+					For the NIST SP 800-132-based conditioning of the passphrase, the required
+					assurance activities will be performed when doing the assurance activities for
+					the appropriate requirements (FCS_COP.1.1(4)). If any manipulation of the key
+					is performed in forming the submask that will be used to form the KEK, that
+					process shall be described in the TSS.
+				</TSS>
+				<Guidance>
+					There are no AGD assurance activities for this requirement beyond what is
+					necessary to satisfy the requirements in [CEM].
+				</Guidance>
+				<Tests>
+					There are no ATE assurance activities for this requirement beyond what is
+					necessary to satisfy the requirements in [CEM].
+				      	<h:i>Equivalency</h:i><h:br/><h:br/>
+				      	Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>
+	</f-component>
+	      
         <f-component name="Cryptographic Key Storage" cc-id="fcs_stg_ext">
             <f-element>
               <title>Persistent private and secret keys shall be stored within the
@@ -1850,7 +1927,61 @@
 			<audit-event-info>Certificate request or link to certificate request object identifier</audit-event-info>
 		</audit-event>
 	</f-component>
-		
+	
+	<!--               -->     
+        <!-- FDP_CER_EXT.4 -->
+	<!--               -->     
+        <f-component cc-id="fdp_cer_ext.4" name="Certificate Status Information" status="optional">
+		<f-element>
+			<title>
+				For X.509 certificate formats other than v3, the TSF shall ensure that these
+				certificate formats contain the following general characteristics:
+				<h:ul>
+					<h:li>Version (0 or 1);</h:li>
+					<h:li>Unique identifier of the issuer;</h:li>
+					<h:li>keyUsage;</h:li>
+					<h:li>Unique identifier of the certificate</h:li>
+					<h:li>Validity period</h:li>
+					<h:li>Signature field in accordance with FCS_COP.1(2)</h:li>
+				</h:ul>
+			</title>
+			<note role="application">
+				This optional requirement can be included if X.509 certificate formats other than
+				the mandated v3 are supported.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure it describes the X.509 certificate
+					generation function and the supported and non- features of the ITU-T
+					Recommendation X.509, in accordance with FDP_CER_EXT.2.1, that can be
+					used to issue certificates. The evaluator shall ensure that the TSS identifies
+					which of the values identified in FDP_CER_EXT.2.1 can be included in generated
+					certificates.
+				</TSS>
+				<Guidance>
+					If the TOE supports configurable certificate profiles, the evaluator shall
+					examine the operational guidance to ensure that instructions are available to
+					configure certificate profiles used for the generation of X.509 certificates. 
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following test:
+					<testlist>
+						<test>
+							Test 1: For each field defined in FDP_CER_EXT.2.1, the evaluator shall
+							attempt to create a certificate request that violates the required
+							conditions of the field. The evaluator shall determine that all such
+							attempts are rejected by the TSF. 
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>		
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.<h:br/><h:br/>
+				</Tests>
+			</aactivity>
+		</f-element>
+	</f-component>
+	      
 	<!--               -->     
         <!-- FDP_CSI_EXT.1 -->
 	<!--               -->     
@@ -2014,6 +2145,89 @@
 		<audit-event/>
 	</f-component>
 		
+	<!--               -->     
+        <!-- FDP_CDP_EXT.1 -->
+	<!--               -->     
+        <f-component cc-id="fdp_cdp_ext.1" name="User Sensitive Data Protection" status="optional">
+		<f-element>
+			<title>
+				The TSF shall 
+				<selectables>
+					<selectable>protect</selectable>
+					<selectable>invoke interfaces to the Operational Environment to protect</selectable>
+				</selectables>
+				<selectables><h:ul>
+					<selectable><h:li>subscriber identity information</h:li></selectable>
+					<selectable><h:li>subscriber contact information</h:li></selectable>
+					<selectable><h:li>photograph from official ID such as an organization ID badge, passport or
+							driver’s license,</h:li></selectable>
+					<selectable><h:li>background check information</h:li></selectable>
+					<selectable><h:li>copies of legal documents</h:li></selectable>
+					<selectable><h:li>captured biometrics</h:li></selectable>
+					<selectable><h:li><assignable>other personally identifiable information</assignable></h:li></selectable>
+					</h:ul>
+				</selectables> through encryption in accordance with FCS_COP.1(1) using a DEK.
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				The TSF shall 
+				<selectables>
+					<selectable>destroy</selectable>
+					<selectable>invoke interfaces to the Operational Environment to destroy</selectable>
+				</selectables> all protected data when no longer required in accordance with the
+				specified cryptographic data destruction method:
+				<selectables><h:ul>
+					<selectable><h:li>by clearing the DEK encrypting the protected data,</h:li></selectable>
+					<selectable><h:li>in accordance with the following rules:
+						<h:ul><h:li>For volatile EEPROM the destruction shall be executed by a single direct
+							overwrite consisting of
+							<selectables><h:ul>
+								<selectable><h:li>a pseudo random pattern using the TSF’s RBG (as specified in
+									FCS_RBG_EXT.1),</h:li></selectable>
+								<selectable><h:li>zeroes</h:li></selectable>
+								</h:ul>
+							</selectables> followed by a read-verify.</h:li>
+							<h:li>For volatile flash memory the destruction shall be executed by 
+								<selectables><h:ul>
+									<selectable><h:li>a single direct overwrite consisting of zeroes,</h:li></selectable>
+									<selectable><h:li>a block erase</h:li></selectable>
+									</h:ul>
+								</selectables>
+								followed by a read-verify.</h:li>
+						</h:ul></h:li>
+					</selectable></h:ul>
+				</selectables>
+			</title>
+			<note role="application">
+				In the first selection for each element, the ST author chooses whether the TOE
+				performs the protection/destruction, or whether it invokes interfaces in the
+				Operational Environment for the functionality.<h:br/><h:br/>
+				The DEK referenced in FDP_SDP_EXT.1.1 is generated by FCS_CKM_EXT.1(1).<h:br/><h:br/>
+				In the second selection in FDP_SDP_EXT.1.1, the ST author should indicate all
+				protected data (e.g., subscriber PII) that is protected by the TOE or Operational
+				Environment and specify how that protection is accomplished. Information
+				included only in issued certificates is not included in this requirement. This is not
+				a general requirement to protect all PII anywhere on the system, but instead deals
+				only with information used by the TOE in performing CA functions.<h:br/><h:br/>
+				For FDP_SDP_EXT.1.2, destroying data refers to rendering it inaccessible to any
+				authorized or unauthorized user or process.		
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to verify that it describes (for each
+					supported platform) how the data destruction functionality is performed or
+					invoked.
+The evaluator shall examine the TSS to ensure it describes each user data type
+as indicated in FDP_SDP_EXT.1.1, including where it is stored, how it is
+protected (including mode and key size used when encrypting the data), when
+it is destroyed (for example, immediately after use, on system shutdown, etc.);
+and the type of destruction procedure that is performed.
+The evaluator shall ensure that the mode and key size used in the encryption
+of the data is specified in the FCS_COP.1 SFR.
+If the Operational Environment is invoked to perform the functions, the TSS
+shall list the interfaces (APIs) that are invoked.
+	      
 	</subsection>   <!-- FDP -->
 	      
 	<!--                             -->
@@ -5342,6 +5556,7 @@
             </aactivity>
           </f-element>
         </f-component>
+		
         <f-component cc-id="fcs_cop.1" name="Cryptographic operation" iteration="ENCRYPT">
           <f-element>
             <title>The TSF shall perform encryption/decryption in accordance with a specified
@@ -5608,6 +5823,7 @@
             </aactivity>
           </f-element>
         </f-component>
+		
         <f-component cc-id="fcs_cop.1" name="Cryptographic operation" iteration="HASH">
           <f-element>
             <title>The TSF shall perform <refinement>cryptographic hashing</refinement> in
@@ -5701,6 +5917,7 @@
             </aactivity>
           </f-element>
         </f-component>
+		
         <f-component cc-id="fcs_cop.1" name="Cryptographic operation" iteration="SIGN">
           <f-element>
             <title>The TSF shall perform <refinement>cryptographic signature services (generation
@@ -5770,6 +5987,7 @@
             </aactivity>
           </f-element>
         </f-component>
+		
         <f-component cc-id="fcs_cop.1" name="Cryptographic operation" iteration="KEYHMAC">
           <f-element>
             <title>The TSF shall perform <refinement>keyed-hash message authentication</refinement>
@@ -5807,6 +6025,7 @@
             </aactivity>
           </f-element>
         </f-component>
+		
         <f-component cc-id="fcs_cop.1" name="Cryptographic operation" iteration="CONDITION">
           <f-element>
             <title>The TSF shall perform <refinement>conditioning</refinement> in accordance with a
@@ -5856,6 +6075,7 @@
             </aactivity>
           </f-element>
         </f-component>
+		
         <f-component cc-id="fcs_https_ext.1" name="Extended: HTTPS Protocol">
           <f-element>
             <title>The TSF shall implement the HTTPS protocol that complies with RFC 2818. </title>
