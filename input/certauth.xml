@@ -3560,7 +3560,7 @@
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>Changes to the time</audit-event-info>
+			<audit-event-descr>Changes to the time</audit-event-descr>
 			<audit-event-info>The new and old values for the time.</audit-event-info>
 		</audit-event>
 	</f-component>
@@ -3799,6 +3799,7 @@
 		</f-element>
 		<audit-event/>
 	</f-component>
+	</subsection>
 			
 	<!--                             -->
 	<!-- Class: FTP: Trusted Path/Channels  -->
