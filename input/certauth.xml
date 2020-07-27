@@ -3205,6 +3205,7 @@
 			<audit-event-info>Modifications to the group of users that are part of the role</audit-event-info>
 		</audit-event>
 	</f-component>
+	</subsection>
 	     
 	     
  	<!--                             -->
@@ -3504,7 +3505,7 @@
 	<!--               -->     
         <!-- FPT_STM.1 -->
 	<!--               -->     
-        <f-component cc-id="fpt_stm.1" name="Reliable Time Stamps">
+    <f-component cc-id="fpt_stm.1" name="Reliable Time Stamps">
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement> The TSF shall 
@@ -3568,7 +3569,7 @@
 	<!--               -->     
         <!-- FPT_TUD_EXT.1 -->
 	<!--               -->     
-        <f-component cc-id="fpt_tud_ext.1" name="Trusted Update">
+    <f-component cc-id="fpt_tud_ext.1" name="Trusted Update">
 		<f-element>
 			<title>
 				The TSF shall
@@ -3706,7 +3707,7 @@
 	<!--               -->     
         <!-- FTA_SSL.4 -->
 	<!--               -->     
-        <f-component cc-id="fta_ssl.4" name="User-Initiated Termination">
+    <f-component cc-id="fta_ssl.4" name="User-Initiated Termination">
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement>The TSF shall 
@@ -3756,7 +3757,7 @@
 	<!--               -->     
         <!-- FTA_TAB.1 -->
 	<!--               -->     
-        <f-component cc-id="fta_tab.1" name="Default TOE Access Banners">
+    <f-component cc-id="fta_tab.1" name="Default TOE Access Banners">
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement> Before establishing a <refinement>privileged</refinement>
@@ -3810,7 +3811,7 @@
 	<!--               -->     
         <!-- FTP_TRP.1 -->
 	<!--               -->     
-        <f-component cc-id="ftp_trp.1" name="Trusted Path">
+    <f-component cc-id="ftp_trp.1" name="Trusted Path">
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement> The TSF shall 
@@ -3902,7 +3903,7 @@
 			<audit-event-info>Identification of the claimed user identity</audit-event-info>
 		</audit-event>
 	</f-component>
-     </subsection>   
+    </subsection>   
    </section>
 
 <!--  ************************************************  -->
@@ -3941,7 +3942,7 @@
 		Section 5.1 should provide the ST authors with sufficient information to determine the appropriate
 		content for the TSS section.
 		
-          	<a-component cc-id="adv_fsp.1" name="Basic Functional Specification (ADV_FSP.1)">
+        <a-component cc-id="adv_fsp.1" name="Basic Functional Specification (ADV_FSP.1)">
 			
 	        	<a-element type="D">
               			<title>The developer shall provide a functional specification.</title>
@@ -3960,29 +3961,28 @@
 					element ADV_FSP.1.2D is implicitly already done and no
 					additional documentation is necessary.
 				</note>					
-	            	</a-element>
+	        </a-element>
 	  		<a-element type="C">
 				<title>The functional specification shall describe the purpose and method of use for
               				each SFR-enforcing and SFR-supporting TSFI.</title>
-            		</a-element>
-            		<a-element type="C">
+            </a-element>
+            <a-element type="C">
               			<title>The functional specification shall identify all parameters associated with each
               				SFR-enforcing and SFR-supporting TSFI.</title>
-	            	</a-element>
-            		<a-element type="C">
+	        </a-element>
+            <a-element type="C">
               			<title>The functional specification shall provide rationale for the implicit
               				categorization of interfaces as SFR-non-interfering.</title>
-            		</a-element>
-            		<a-element type="C">
+            </a-element>
+            <a-element type="C">
               			<title>The tracing shall demonstrate that the SFRs trace to TSFIs 
-					in the functional specification.
-	      			</title>
-            		</a-element>	  
-            		<a-element type="E">
+						in the functional specification.</title>
+            </a-element>	  
+            <a-element type="E">
               			<title>The evaluator shall confirm that the information provided meets all requirements
               				for content and presentation of evidence.</title>
-            		</a-element>
-            		<a-element type="E">
+            </a-element>
+            <a-element type="E">
               			<title>The evaluator shall determine that the functional specification is an accurate
               				and complete instantiation of the SFRs.</title>
               			<aactivity-sar>
@@ -3995,9 +3995,9 @@
               				activity because there is insufficient interface information, then an adequate
               				functional specification has not been provided.
 	      			</aactivity-sar>
-            		</a-element>
-        	</a-component>
-      	</subsection>
+			</a-element>
+        </a-component>
+     </subsection>
 
 	<subsection id="agd" title="Class AGD: Guidance Documentation">
 		The guidance documents will be provided with the ST. Guidance must include a description of how the IT
@@ -4149,9 +4149,9 @@
 			</aactivity-sar>
             	</a-element>
       	</a-component>	
-</subsection>
+	</subsection>
 
-<subsection id="alc" title="Class ALC: Life-cycle Support"> 
+	<subsection id="alc" title="Class ALC: Life-cycle Support"> 
 	At the assurance level provided for TOEs conformant to this PP, life-cycle support is limited to end-uservisible aspects of the life-cycle, rather than an examination of the TOE vendor’s development and
 	configuration management process. This is not meant to diminish the critical role that a developer’s
 	practices play in contributing to the overall trustworthiness of a product; rather, it is a reflection on the
@@ -4207,12 +4207,13 @@
 			</aactivity-sar>
           	</a-element>
         </a-component>
+	</subsection>
+	
+	<subsection title="Class ASE: Security Target Evaluation" id="ase">
+		As per ASE activities defined in [CEM].
+	</subsection>
 
-<subsection title="Class ASE: Security Target Evaluation" id="ase">
-	As per ASE activities defined in [CEM].
-</subsection>
-
-<subsection id="ate" title="Class ATE: Tests">
+	<subsection id="ate" title="Class ATE: Tests">
 	Testing is specified for functional aspects of the system as well as aspects that take advantage of design
 	or implementation weaknesses. The former is done through the ATE_IND family, while the latter is
 	through the AVA_VAN family. At the assurance level specified in this PP, testing is based on advertised
@@ -4273,9 +4274,9 @@
 			</aactivity-sar>
 		</a-element>
 	</a-component>
-</subsection>
+	</subsection>
 	
-<subsection id="ava" title="Class AVA: Vulnerability Assessment">
+	<subsection id="ava" title="Class AVA: Vulnerability Assessment">
 	For the current generation of this Protection Profile, the evaluation lab is expected to survey open sources
 	to discover what vulnerabilities have been discovered in these types of products. In most cases, these
 	vulnerabilities will require sophistication beyond that of a basic attacker. Until penetration tools are
@@ -4324,14 +4325,14 @@
 			</aactivity-sar>
           	</a-element>  
  	</a-component>
-     </subsection>      
-    </section>
+    </subsection>      
+  </section>
   </chapter>
 
 		
 		
 <!-- **************   -->		
-		
+<!--		
         <f-component cc-id="fcs_ckm.1" name="Cryptographic key generation">
           <f-element>
             <title> The TSF shall generate <refinement>asymmetric</refinement> cryptographic keys in
@@ -6142,7 +6143,6 @@
                 ref-id="certInvalid"/> configures whether to allow/disallow the establishment of a
               trusted channel if the peer certificate is deemed invalid. </note>
             <aactivity>
-              <!-- TODO: Need to fix EA and interweave FMT_SMF_EXT function certInvalid -->
               <Tests>
                 <testlist>
                   <test>The evaluator shall attempt to establish an HTTPS connection with a
@@ -6362,7 +6362,8 @@
               </h:ul>
             </title><note role="application"> 
               For each of the listed FCS components in the bulleted list, the intent is that the TOE will make available all algorithms specified for that component in the ST. For example, if for FCS_COP.1/HASH the ST author selects SHA-256, then the TOE would have to make available an interface to perform SHA-1 (the "mandatory" portion of FCS_COP.1/HASH) and SHA-256 (the "selected" portion of FCS_COP.1/HASH).<h:br/><h:br/> 
-              The exception is for FCS_COP.1/ENCRYPT. The TOE is not required to make available AES_CCMP, AES_XTS, AES_GCMP-256, or AES_CCMP_256 even though they may be implemented to perform TSF-related functions. It is acceptable for the platform to not provide AES Key Wrap (KW) and AES Key Wrap with Padding (KWP) to applications even if selected in FCS_COP.1/ENCRYPT. <!-- NIAP: I do not want to remove Key Wrap from selection, but I am basically negating the SFR in the app note.  --> However, the ST author is expected to select AES-GCM and/or AES-CCM if it is selected in the ST for the FCS_COP.1/ENCRYPT component. 
+              The exception is for FCS_COP.1/ENCRYPT. The TOE is not required to make available AES_CCMP, AES_XTS, AES_GCMP-256, or AES_CCMP_256 even though they may be implemented to perform TSF-related functions. It is acceptable for the platform to not provide AES Key Wrap (KW) and AES Key Wrap with Padding (KWP) to applications even if selected in FCS_COP.1/ENCRYPT. 
+			  However, the ST author is expected to select AES-GCM and/or AES-CCM if it is selected in the ST for the FCS_COP.1/ENCRYPT component. 
             </note>
             <aactivity> The evaluator shall verify that the API documentation provided according to
                 <secref linkend="adv"/> includes the security functions (cryptographic algorithms)
@@ -6405,16 +6406,6 @@
           section also describes the secure key storage services to be provided by the Mobile
           Device for use by applications and users, applying the same level of protection for
           these keys as keys internal to the OS.
-          <!--   <h:div class="comp">
-          <h:h3>FCS_STG Cryptographic Storage</h:h3>
-          <h:p class="comp"> 
-            The following requirements describe how keys are protected. All keys
-            must ultimately be protected by a REK, and may optionally be protected by the user’s
-            authentication factor. Each key’s confidentiality and integrity must be protected. This
-            section also describes the secure key storage services to be provided by the Mobile
-            Device for use by applications and users, applying the same level of protection for
-            these keys as keys internal to the OS. </h:p>
-        </h:div>-->
           <f-component cc-id="fcs_stg_ext.1" name="Extended: Cryptographic Key Storage">
             <f-element>
               <title>The TSF shall provide <selectables>
@@ -6767,12 +6758,14 @@ Activities assoiated with the TSS.
           </f-component>
          </subsection> 
                 
-    </section>
+    </section>   -->
   <!-- 
        Do NOT put SFRs in this section. All SFR belong up above in SFR section. 
        To make an SFR optional tag it above as status="optional" 
   -->
-  <appendix title="Optional Requirements" id="optional"> As indicated in <secref linkend="ccl"/>,
+  <appendix title="Optional Requirements" id="optional"> 
+  
+	As indicated in <secref linkend="ccl"/>,
     the baseline requirements (those that must be performed by the <abbr linkend="OS"/>) are
     contained in the body of this PP. Additionally, there are three other types of requirements
     specified in <appref linkend="optional"/>, <appref linkend="sel-based"/>, and <appref
