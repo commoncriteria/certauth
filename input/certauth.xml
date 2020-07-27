@@ -3201,7 +3201,7 @@
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>Modifications to the group of users that are part of a role</audit-event-decr>
+			<audit-event-descr>Modifications to the group of users that are part of a role</audit-event-descr>
 			<audit-event-info>Modifications to the group of users that are part of the role</audit-event-info>
 		</audit-event>
 	</f-component>
@@ -3797,7 +3797,7 @@
 				</Tests>
 			</aactivity>
 		</f-element>
-		</audit-event/>
+		<audit-event/>
 	</f-component>
 			
 	<!--                             -->
