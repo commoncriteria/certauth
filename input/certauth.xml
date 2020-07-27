@@ -1495,7 +1495,7 @@
 			    	<refinement><selectables>
 				    	<selectable>perform</selectable>
 				    	<selectable>invoke interfaces in the Operational Environment to perform</selectable>
-				    	</selectable>
+				    	</selectables>
 			    	</refinement>
 				[<h:i>Password-based Key Derivation Functions</h:i>]
 				in accordance with a specified cryptographic algorithm
