@@ -3328,12 +3328,12 @@
 			</aactivity>
 		</f-element>
 		<audit-event/>
-	<f-component>	
+	</f-component>	
 
 	<!--               -->     
         <!-- FPT_KST_EXT.2 -->
 	<!--               -->     
-        <f-component cc-id="fpt_kst_ext.2" name="Key Protection">
+    <f-component cc-id="fpt_kst_ext.2" name="Key Protection">
 		<f-element>
 			<title>
 				The TSF and 
@@ -3696,6 +3696,7 @@
 			<audit-event-info>Version number</audit-event-info>
 		</audit-event>
 	</f-component>
+	</subsection>
 			
  	<!--                             -->
 	<!-- Class: FTA: TOE Access  -->
