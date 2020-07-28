@@ -1491,7 +1491,7 @@
 	<audit-event/>
         </f-component>
 
-	<f-component name="Cryptographic Operation (Password-based Key Derivation Function)" cc-id="fcs_cop" status="optional">
+	<f-component name="Cryptographic Operation (Password-based Key Derivation Function)" cc-id="fcs_cop" iteration="5" status="optional">
         	<f-element>
 			<title>
 				<refinement>Refinement:</refinement> The TSF shall
@@ -2149,9 +2149,9 @@
 	</f-component>
 		
 	<!--               -->     
-        <!-- FDP_CDP_EXT.1 -->
+        <!-- FDP_SDP_EXT.1 -->
 	<!--               -->     
-        <f-component cc-id="fdp_cdp_ext.1" name="User Sensitive Data Protection" status="optional">
+        <f-component cc-id="fdp_sdp_ext.1" name="User Sensitive Data Protection" status="optional">
 		<f-element>
 			<title>
 				The TSF shall 
@@ -2260,7 +2260,71 @@
 				</Tests>
 			</aactivity>
 		</f-element>
-	</f-component>    
+	</f-component> 
+
+	<!--             -->
+	<!-- FDP_STG_EXT.1  -->
+	<!--             -->
+
+    <f-component cc-id="fdp_stg_ext.1" name="User Sensitive Data Protection" status="optional">
+		<f-element>
+			<title>
+				The TSF shall use [selection: access controlled storage, an integrity mechanism] to
+				protect the trusted public keys and certificates (trust store elements) used to
+				validate local logon, trusted channel, and external communication to the CA.
+			</title>
+			<note role="application">
+				Public keys used to satisfy CA-related requirements in the ST must be protected.
+				If the TOE protects the keys or a subset of the keys, this SFR is included in the ST.
+				It is acceptable if some or all of the public keys are stored in the OE and protected 
+				by OE-provided mechanisms. If this is the case, then the ST author includes
+				OE.PUBLIC_KEY_PROTECTION in the ST. It is acceptable for the TOE to protect
+				some keys and the OE to protect other keys.<h:br/><h:br/>
+				There are two allowed methods of providing protection if this requirement is
+				claimed in the ST. The first is that the TOE implements access control mechanisms
+				to perform the protection; this is only claimed when the TOE is providing the
+				storage for the public keys. The second is to provide a cryptographic-based
+				integrity check on the public keys when they are accessed for use by the TOE; this
+				is claimed for public keys stored either by the TOE or in the OE and an integrity
+				mechanism is implemented. If this method is used (the second selection is
+				chosen), then the ST author include FCS_CKM_EXT.5 in the ST as well as this SFR.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure it describes the trusted public
+					keys and certificates implemented, including trust stores that contains root CA
+					certificates, used to meet the requirements of this PP. This description shall
+					contain information pertaining to how certificates are loaded into the store,
+					and (if the first selection in the requirement is chosen) how the store is
+					protected from unauthorized access in accordance with the permissions
+					established in FMT_SMF.1 and FMT_MOF.1(1) through FMT_MOF.1(5).
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the operational guidance to ensure it contains
+					instructions for how to load certificates and public key into and remove
+					certificates and public keys from the protected storage.
+				</Guidance>
+				<Tests>
+					This test is conditional on the first selection in the SFR being chosen. If the
+					second selection is chosen, the evaluator does not perform this and instead
+					performs the actions called for FCS_CKM_EXT.5.
+					<testlist>
+						<test>
+							Test 1 (conditional): The evaluator shall attempt to modify the
+							contents of the Trust Anchor Database in a way that violates the
+							documented permissions and verify that the attempt fails. 
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>
+	</f-component>
+		
+	
 	</subsection>   <!-- FDP -->
 	      
 	<!--                             -->
@@ -3384,7 +3448,86 @@
 			<audit-event-info>Identifier of user or process that attempted access.</audit-event-info>
 		</audit-event>
 	</f-component>
-		
+
+	<!--               -->     
+    <!-- FPT_NPE_EXT.1 -->
+	<!--               -->     
+    <f-component cc-id="fpt_npe_ext.1" name="NPE Contraints" status="optional">
+		<f-element>
+			<title>
+				The TSF shall enforce an Administrator-configurable ruleset that specifies
+				authorizations to submit NPE certificate requests. 
+			</title>
+			<note role="application">
+				The rulesets specify when approval by a CA, RA, and/or AOR is required and limits
+				the authorizations of RAs or specific Authorized Organizational Representatives
+				(AORs), to approve NPE certificates associated to a particular organization.
+			</note>
+		</f-element>
+		<f-element>
+			<title>
+				The TSF shall require the CA Operations Staff to register any RA, and shall require
+				a CA Operations Staff or authorized RA to register any AORs, and associate each
+				AOR with an organization or set of devices prior to that AOR making requests on
+				behalf of an assigned organization or devices. 
+			</title>
+			<note role="application">
+				Registration authorities may be restricted in the types of certificates they are
+				authorized to request, or the subjects asserted in those requests, but typically
+				have wide authority to request certificates. AORs, on the other hand, are
+				restricted to NPE certificate types, and are further restricted to request certificates
+				for a small number of devices owned by their affiliated organization. Similar to
+				subscriber self-service requests, an AOR’s request authority is provided only for
+				those certificates associated to devices the particular AOR is authorized to
+				manage.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure it describes the AOR constraint
+					mechanism, including the ruleset and its enforcement.
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the operational guidance to verify that it describes
+					how to configure the ruleset. The evaluator shall ensure that the operational
+					guidance includes instructions on how the RAs and CA Operations staff register
+					the AORs and associate the AORs with particular organizations. The evaluator
+					shall also examine the operational guidance to ensure it also describes how
+					AORs, RAs or CA Operations Staff perform certificate management on behalf
+					of the organization for which they are registered.
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following tests:
+					<testlist>
+						<test>
+							Test 1: The evaluator shall assume the Administrator role and
+							configure the ruleset. The evaluator shall then assume other roles and
+							verify that no other roles can modify the ruleset.
+						</test>
+						<test>
+							Test 2: The evaluator shall configure the ruleset that restricts an AOR
+							to a particular organization. The evaluator shall assume a CA
+							Operations Staff or RA role and register an AOR with an organization,
+							authorizing the AOR to perform specific operations on that 
+							organization’s behalf. The evaluator shall then verify that the AOR can
+							perform each authorized operation on behalf of the organization.
+						</test>
+						<test>
+							Test 3: The evaluator shall configure the ruleset that restricts an AOR
+							to a particular organization. The evaluator shall assume a CA
+							Operations Staff or RA role and register an AOR with an organization,
+							authorizing the AOR to perform specific operations on that
+							organization’s behalf. The evaluator shall verify that the AOR cannot
+							perform any operations on behalf of organizations for which it is not
+							registered. The evaluator shall also verify that the AOR cannot perform
+							unauthorized operations on behalf of its assigned organization.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+				
 
 	<!--               -->     
         <!-- FPT_RCV.1 -->
@@ -3504,7 +3647,77 @@
 		</f-element>
 		<audit-event/>
 	</f-component>
-		
+	
+	<!--               -->     
+    <!-- FPT_SKY_EXT.1 -->
+	<!--               -->     
+    <f-component cc-id="fpt_sky_ext.1" name="Split Knowledge Procedures" status="optional">
+		<f-element>
+			<title>
+				The TSF shall 
+				<selectables>
+					<selectable>support</selectable>
+					<selectable>interface with the operational environment to support</selectable>
+				</selectables>
+				split knowledge procedures to enforce two-party control for the export of CA signing keys and 
+				<selectables>
+					<selectable>no other data</selectable>
+					<selectable>user private keys</selectable>
+					<selectable><assignable>critical data or keys</assignable></selectable>
+				</selectables>
+				necessary to resume CA functionality after TSF failure using
+				<selectables>
+					<selectable>key sharing mechanisms in accordance with FCS_CKM_EXT.1(3), 
+					FCS_CKM_EXT.1(4), FCS_CKM_EXT.6, and FPT_SKY_EXT.2</selectable>
+					<selectable><assignable>other mechanism</assignable></selectable>
+				</selectables>.
+			</title>
+			<note role="application">
+				The intent of this requirement is to limit access to critical keys that are necessary
+				to maintain operations after a failure.<h:br/><h:br/>
+				Key sharing mechanisms are also referred to as secret sharing mechanisms, or
+				threshold schemes and are commonly used by hardware security modules to clone
+				keys between devices.<h:br/><h:br/>
+				The ST author includes this SFR in the ST when the TOE is used to enforce split
+				knowledge procedures, either directly or via interfaces with the OE. If enforcement
+				of split knowledge procedures is performed entirely by the OE, then this SFR is not
+				included in the ST and OE.KEY_ARCHIVAL is included in the ST.
+			</note>
+			<aactivity>
+				<note>
+					If the TSF implements a key sharing mechanism, this SFR is satisfied through
+					the referenced SFRs in Appendices B.3 and B.8 of the PP. FCS_CKM_EXT.1(3)
+					specifies how the key shares generated in accordance with FCS_CKM_EXT.1(4)
+					are used to produce a KEK to protect the keys listed in this requirement. The
+					protection of those keys with the KEK is done by mechanism required in 
+					FCS_CKM_EXT.6. FPT_SKY_EXT.2 specifies access control for the key shares
+					themselves.<h:br/><h:br/>
+					If the TSF interfaces with a cryptographic module in the Operational
+					Environment to implement a key sharing mechanism, the evaluator shall
+					examine the TSS to ensure that the interface to the OE, and cryptographic
+					provider for the key sharing mechanism is described.<h:br/><h:br/>
+					If the TSF implements another split knowledge procedure, the evaluator shall
+					examine the TSS to ensure the procedure is adequately described, and assess
+					the procedure to ensure that it is effective in restricting access to the CA signing
+					key and all other selected data and keys. The evaluator shall attempt to devise
+					tests to validate that the TSF implements the described mechanism. The
+					evaluator shall review the AGD to ensure it contains clear instructions to
+					privileged users on how to conduct the procedures.<h:br/><h:br/>
+					If the TSF interfaces with the OE to implement other split knowledge
+					procedures, the evaluator shall examine the TSS to ensure the procedure is
+					adequately described, and assess the procedure to ensure that it is effective in
+					restricting access to the CA signing key and all other selected data and keys.
+					The evaluator shall ensure that the TSS describes the dependence on the OE
+					and identifies any cryptographic providers within the OE used to support the
+					procedures. The evaluator shall also examine the AGD guidance to ensure it
+					contains instructions for configuring the OE to restrict access to the CA signing
+					key and all other selected data and keys.
+				</note>
+			</aactivity>
+		</f-element>
+	</f-component>
+
+	
 	<!--               -->     
         <!-- FPT_STM.1 -->
 	<!--               -->     
