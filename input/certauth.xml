@@ -3873,7 +3873,7 @@
 		<audit-event>
 			<audit-event-descr>Detected integrity violations</audit-event-descr>
 			<audit-event-info>The identity of the object that caused the integrity violation</audit-event-info>
-		</audit-info>
+		</audit-event>
 	</f-component>
 	
 	<!--               -->     
@@ -3949,7 +3949,7 @@
 		<audit-event>
 			<audit-event-descr>Detected integrity violations</audit-event-descr>
 			<audit-event-info>The identity of the object that caused the integrity violation</audit-event-info>
-		</audit-info>		
+		</audit-event>		
 	</f-component>
 
 				
@@ -4202,7 +4202,7 @@
 				<selectables><h:ul>
 					<h:li><selectable>lock the session–- disable any activity of the user’s data access/display
 					devices other than unlocking the session, and requiring that the privileged user
-					reauthenticate to the TSF prior to unlocking the session;</selectable><h:li>
+					reauthenticate to the TSF prior to unlocking the session;</selectable></h:li>
 					<h:li><selectable>terminate the session</selectable></h:li>
 				</h:ul></selectables>
 				after an Administrator-configured time period of inactivity.
