@@ -3527,7 +3527,9 @@
 					TOE’s ST. Justification must be provided for those platforms that were excluded
 					from testing.
 				</Tests>
-				
+			</aactivity>
+		</f-element>
+	</f-component>
 
 	<!--               -->     
         <!-- FPT_RCV.1 -->
