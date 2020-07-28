@@ -1165,7 +1165,10 @@
                      </Tests>   
                   </aactivity>
                 </f-element>
-		<audit-event />
+				<audit-event />
+				<audit-table table="mandatory">
+					<h:b>Table 1: Auditable events for Mandatory SFRs:</h:b><h:br/>
+				</audit-table>
              </f-component>
 	
 	<!--               -->     
