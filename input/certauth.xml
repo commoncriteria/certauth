@@ -1410,7 +1410,7 @@
       <subsection title="Class: Cryptographic Support (FCS)" id="fcs">
 
 	<!--               -->     
-        <!-- FCS_CDP_EXT.1 -->
+    <!-- FCS_CDP_EXT.1 -->
 	<!--               -->     
         <f-component cc-id="fcs_cdp_ext.1" name="Cryptographic Dependencies">
           <f-element>
@@ -1488,11 +1488,12 @@
               </Tests>
             </aactivity>
           </f-element>
-	<audit-event/>
-        </f-component>
+		<audit-event/>
+    </f-component>
+
 
 	<f-component name="Cryptographic Operation (Password-based Key Derivation Function)" cc-id="fcs_cop" iteration="5" status="optional">
-        	<f-element>
+       	<f-element>
 			<title>
 				<refinement>Refinement:</refinement> The TSF shall
 			    	<refinement><selectables>
@@ -1566,6 +1567,7 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event/>
 	</f-component>
 	      
         <f-component name="Cryptographic Key Storage" cc-id="fcs_stg_ext">
@@ -1983,6 +1985,11 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event>
+			<audit-event-descr>Certificate generation</audit-event-descr>
+			<audit-event-info>Name/identifier of the certificate.</audit-event-info>
+			<audit-event-info>Value of the certificate generated</audit-event-info>
+		</audit-event>
 	</f-component>
 	      
 	<!--               -->     
@@ -2260,6 +2267,7 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event/>
 	</f-component> 
 
 	<!--             -->
@@ -2322,6 +2330,11 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event>
+			<audit-event-descr>Changes to the trusted public keys and certificates relevant to TOE
+				functions, including additions and deletions.</audit-event-descr>
+			<audit-event-info>The public key and all context information associated with the key.</audit-event-info>
+		</audit-event>
 	</f-component>
 		
 	
@@ -3529,6 +3542,10 @@
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event>
+			<audit-event-descr>All changes to NPE rule sets and NPE.</audit-event-descr>
+			<audit-event-info>The changes made to the NPE rule sets and associations</audit-event-info>
+		</audit-event>
 	</f-component>
 
 	<!--               -->     
@@ -3717,6 +3734,7 @@
 				</note>
 			</aactivity>
 		</f-element>
+		<audit-event/>
 	</f-component>
 
 	
@@ -3783,7 +3801,158 @@
 			<audit-event-info>The new and old values for the time.</audit-event-info>
 		</audit-event>
 	</f-component>
-		
+
+	<!--               -->     
+    <!-- FPT_TST_EXT.1 -->
+	<!--               -->     
+    <f-component cc-id="fpt_tst_ext.1" name="TOE Integrity Test" status="optional">
+		<f-element>
+			<title>
+				The TSF shall apply a 
+				<selectables>
+					<selectable>keyed hash according to FCS_COP.1(4)</selectable>
+					<selectable>digital signature algorithm according to FCS_COP.1(2)</selectable>
+				</selectables>
+				to the TOE software and firmware.
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				The 
+				<selectables>
+					<selectable>TSF</selectable>
+					<selectable>Operational Environment</selectable>
+				</selectables> 
+				shall verify the integrity of the TOE software and firmware 
+				<selectables>
+					<selectable>at power-up</selectable>
+					<selectable>at initialization</selectable>
+					<selectable>on-demand by a privileged user</selectable>
+				</selectables>.
+			</title>
+			<note role="application">
+				The ST author includes this SFR when the TSF includes a mechanism that can
+				perform integrity tests on software/firmware, for instance, if the TSF includes an
+				operating system.<h:br/><h:br/>
+				The ST author selects “integrity test failure” in FPT_FLS.1 if this component is
+				included in the ST.<h:br/><h:br/>
+				When FCS_CDP_EXT.1 indicates that FCS_COP.1(4), or FCS_COP.1(2) are
+				implemented by the OE, FPT_TST_EXT.1.1 is in accordance with those SFR if the
+				TSF interfaces with the OE to invoke the algorithms indicated.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure it describes the mechanisms that
+					will be used to verify the integrity software/firmware and the action(s) taken if
+					any of the integrity tests fails.
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the operational guidance to ensure that it includes
+					instructions to verify the integrity of the software/firmware. 
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following tests:
+					<testlist>
+						<test>
+							Test 1: The evaluator shall modify a TOE binary to verify the
+							integrity test fails and the action defined in FPT_TST_EXT.1.2
+							occurs. If this test cannot be performed, the evaluator shall provide
+							a justification.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>
+		<audit-event>
+			<audit-event-descr>Execution of this set of TSF integrity tests</audit-event-descr>
+		</audit-event>
+		<audit-event>
+			<audit-event-descr>Detected integrity violations</audit-event-descr>
+			<audit-event-info>The identity of the object that caused the integrity violation</audit-event-info>
+		</audit-info>
+	</f-component>
+	
+	<!--               -->     
+    <!-- FPT_TST_EXT.2 -->
+	<!--               -->     
+    <f-component cc-id="fpt_tst_ext.2" name="Integrity Test" status="optional">
+		<f-element>
+			<title>
+				The TSF shall apply a 
+				<selectables>
+					<selectable>keyed hash according to FCS_COP.1(4)</selectable>
+					<selectable>digital signature algorithm according to FCS_COP.1(2)</selectable>
+				</selectables>
+				to the 
+				<selectables>
+					<selectable>Trust Anchor Database element(s)</selectable>
+					<selectable>TSF keys used to manage certificates</selectable>
+					<selectable>certificate database</selectable>
+					<selectable><assignable>other data relevant to TSF security</assignable></selectable>
+				</selectables>.
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				Integrity shall be verified at 
+				<selectables>
+					<selectable>power-up</selectable>
+					<selectable>initialization</selectable>
+					<selectable>on-demand by a privileged user</selectable>
+				</selectables>.
+			</title>
+			<note role="application">
+				The ST author includes this SFR when the TSF itself provides integrity protection
+				for any of the items listed in the second selection of FPT_TST_EXT.2.1.<h:br/><h:br/>
+				The ST author selects “integrity test failure” in FPT_FLS.1 if this component is
+				included in the ST.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure it describes the mechanisms that
+					will be used to verify the integrity of the selected data and the action(s) taken
+					if any of the integrity tests fails.
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the operational guidance to ensure that it includes
+					instructions to verify the integrity of the selected data. 
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following tests:
+					<testlist>
+						<test>
+							Test 1: The evaluator shall use the operational guidance
+							instructions to verify the integrity of each protected element
+							specified in the TSS.
+						</test>
+						<test>
+							Test 2: The evaluator shall modify an instance of each type of data
+							selected in FPT_TST_EXT.2.1 to verify the integrity test fails and the
+							action defined in FPT_TST_EXT.2.2 occurs. If this test cannot be
+							performed, the evaluator shall provide a justification.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>
+		<audit-event>
+			<audit-event-descr>Execution of this set of TSF integrity tests</audit-event-descr>
+		</audit-event>
+		<audit-event>
+			<audit-event-descr>Detected integrity violations</audit-event-descr>
+			<audit-event-info>The identity of the object that caused the integrity violation</audit-event-info>
+		</audit-info>		
+	</f-component>
+
+				
 	<!--               -->     
         <!-- FPT_TUD_EXT.1 -->
 	<!--               -->     
@@ -3923,7 +4092,58 @@
      <subsection title="Class: TOE Access (FTA)" id="fta">
 
 	<!--               -->     
-        <!-- FTA_SSL.4 -->
+    <!-- FTA_SSL.3 -->
+	<!--               -->     
+    <f-component cc-id="fta_ssl.3" name="TSF-Initiated Termination" status="optional">
+		<f-element>
+			<title>
+				<refinement>Refinement:</refinement>The TSF shall terminate <refinement> a remote</refinement>
+				session after a <assignable><refinement>admnistrator-configurable</refinement> time interval 
+				of session activity</assignable>.
+			</title>
+			<note role="assignable">
+				This requirement is included if the TSF is implementing the mechanism used to
+				terminate remote sessions after a defined time period. If this requirement is not
+				included in the ST, then OE.SESSION_PROTECTION_REMOTE will be included in the
+				ST.
+			</note>
+			<aactivity>
+				<TSS>
+					There are no TSS assurance activities for this requirement beyond what is
+					necessary to satisfy the requirements in [CEM].
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the operational guidance to ensure it includes
+					instructions for configuring the inactivity time period for remote interactive
+					sessions.
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following test:
+					<testlist>
+						<test>
+							Test 1: The evaluator shall follow the operational guidance to
+							configure several different values for the inactivity time period
+							referenced in the component. For each period configured, the
+							evaluator shall establish a remote interactive session with the TOE. 
+							The evaluator shall then observe that the session is terminated
+							after the configured time period.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>
+		<audit-event>
+			<audit-event-descr>The termination of a remote session by the session termination mechanism</audit-event-descr>
+		</audit-event>
+	</f-component>
+
+
+	<!--               -->     
+    <!-- FTA_SSL.4 -->
 	<!--               -->     
     <f-component cc-id="fta_ssl.4" name="User-Initiated Termination">
 		<f-element>
@@ -3972,8 +4192,67 @@
 		</audit-event>
 	</f-component>
 
+
 	<!--               -->     
-        <!-- FTA_TAB.1 -->
+    <!-- FTA_SSL_EXT.1 -->
+	<!--               -->     
+    <f-component cc-id="fta_ssl_ext.1" name="TSF-Initiated Session Locking" status="optional">
+		<f-element>
+			<title>The TSF shall, for local interactive sessions, 
+				<selectables><h:ul>
+					<h:li><selectable>lock the session–- disable any activity of the user’s data access/display
+					devices other than unlocking the session, and requiring that the privileged user
+					reauthenticate to the TSF prior to unlocking the session;</selectable><h:li>
+					<h:li><selectable>terminate the session</selectable></h:li>
+				</h:ul></selectables>
+				after an Administrator-configured time period of inactivity.
+			</title>
+			<note role="application">
+				This requirement is included if the TSF is implementing the mechanism used to
+				terminate or lock local sessions after a defined time period. If this requirement is
+				not included in the ST, then OE.SESSION_PROTECTION_LOCAL will be included in
+				the ST.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure it describe the mechanism used
+					for locking local interactive sessions, including the resulting behavior.
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the operational guidance to ensure it includes
+					instructions for configuring the inactivity time period for local interactive
+					sessions.
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following test:
+					<testlist>
+						<test>
+							Test 1: The evaluator shall follow the operational guidance to
+							configure several different values for the inactivity time period
+							referenced in the component. For each period configured, the
+							evaluator shall establish a local interactive session with the TOE.
+							The evaluator shall then observe that the session is either locked
+							or terminated after the configured time period. If locking was
+							selected from the component, the evaluator shall ensure that reauthentication 
+							is needed when trying to unlock the session.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>
+		<audit-event>
+			<audit-event-descr>Any attempts at unlocking or termination of an interactive session.</audit-event-descr>
+		</audit-event>
+	</f-component>
+						
+				
+
+	<!--               -->     
+    <!-- FTA_TAB.1 -->
 	<!--               -->     
     <f-component cc-id="fta_tab.1" name="Default TOE Access Banners">
 		<f-element>
