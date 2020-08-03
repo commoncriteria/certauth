@@ -48,6 +48,11 @@
       <subject>Converted to XML</subject>
     </entry>
   </RevisionHistory>
+	
+  <pp-preferences>
+	<pp-pref name="display-audit-with-sfrs">0</pp-pref>
+	<pp-pref name="audit-events-in-sfrs">1</pp-pref>
+  </pp-preferences>
 
   <chapter title="Introduction" id="int">
     <section title="Overview" id="ppoverview">
