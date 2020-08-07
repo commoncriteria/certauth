@@ -998,12 +998,15 @@
 
 	 <!--               -->     
  	 <!-- FAU_GCR_EXT.1 -->
-	 <!--               -->     
+	 <!-- If "store" is chosen in the first selection, then FAU_SCR_EXT.1 is included. This is not documented
+		clearly anywhere in the PP, but this is what we think is intended.
+	-->
+	<!--               -->     
         <f-component cc-id="fau_gcr_ext.1" name="Generation of Certificate Repository" status="mandatory">
           <f-element>
             <title>The TSF shall 
 		    <selectables>
-			    <selectable>store</selectable>
+			    <selectable id="store-certs">store</selectable> <!-- causes inclusion of FAU_SCR_EXT.1 -->
 			    <selectable>invoke the Operational Environment to store</selectable>
 		    </selectables>
 		certificates and 
@@ -1202,6 +1205,78 @@
 	<audit-event/>
         </f-component>
 	      
+	<!--               -->     
+        <!-- FAU_SCR_EXT.1     -->
+	<!-- After considerable analysis, we decided that this SFR should be included if "store" is selected
+		in the first selection of FAU_GCR_EXT.1. The reasoning is that the TOE needs to do certificate
+  		review if the TOE stores certificates (versus the OE storing certificates).  
+
+ 		The app note below is original and has not been changed from the current PP version.   
+	-->
+	<!--               -->     
+        <f-component cc-id="fau_scr_ext.1" name="Certificate Repository Review" status="sel-based">
+		<selection-depends req="fau_gcr_ext.1" ids="store-certs"/></selection-depends>
+	      	<f-element>
+			<title>The TSF shall 
+				<selectables>
+					<selectable>provide</selectable>
+					<selectable>invoke the Operational Environment to provide</selectable>
+				</selectables> the capability to search for certificates containing specified values
+				of the following certificate fields:
+				<selectables><h:ul>
+					<h:li><selectable>subject name</selectable></h:li>
+					<h:li><selectable>individual components of subject alternative name</selectable></h:li>
+					<h:li><selectable>subject ID</selectable></h:li>
+					<h:li><selectable>issuer ID</selectable></h:li>
+					<h:li><selectable>algorithm ID</selectable></h:li>
+					<h:li><selectable>public key</selectabe></h:li>
+					<h:li><selectable>key usage</selectable></h:li>
+					<h:li><selectable>extended key usage</selectable></h:li>
+					<h:li><selectable>serial number</selectable></h:li>
+					<h:li><selectable><assignable>list of other certificate fields</assignable></selectable></h:li>
+				</h:ul></selectables>,
+				returning all matching certificates and
+				<assignable>object identifier(s) of matching certificate(s)</assignable>.
+			</title>      
+			<note role="application">
+				The ability to search on certificate fields is useful for conducting forensic analysis.
+				If the certificate repository is stored within the TOE boundary, then the first item
+				of the first selection is chosen. If the repository is stored in the OE, but the auditor
+				uses TSF interfaces to perform this function on the repository, then the second
+				item of the first selection is chosen. It is allowed that this function be provided
+				entirely by the OE (when the repository is stored in the OE); if this is the case, then
+				this requirement is not included in the ST, but instead the
+				OE.CERTIFICATE_REPOSITORY_SEARCH objective is included (this objective is
+				omitted in the other two cases, when this SFR is included in the ST).<h:br/><h:br/>
+				In the second selection and assignment, the ST author includes/fills in the values
+				that can be searched on for this function; at least one value is required to be
+				selected.
+			</note>
+			<aactivity>
+				<note>
+					The following activities apply regardless of the selection made in the first
+					selection in the SFR. The test activities can be conducted in conjunction with
+					those for FDP_CER_EXT.1 and FAU_GCR_EXT.1.
+				</note>
+				<Guidance>
+					The evaluator shall examine the operational guidance to ensure it contains
+					instructions for searching the specified information.
+				</Guidance>
+				<Tests>
+					The evaluator shall generate a sufficient number and variety of certificates to
+					populate the repository certificates having at least two values for each of the
+					search fields selected in this SFR. The evaluator shall then, following the
+					instructions within the operational guidance, search the repository or audit
+					record for certificates containing specific values for each search field included
+					in the ST, and confirm that all certificates matching the search criteria are
+					returned; all returned certificates match the criteria; and the object identifier
+					is returned. The object identifier will be used in testing for FAU_SAR.3.
+				</Tests>
+			</aactivity>
+		</f-element>
+      </f-component>
+
+	    
 	<!--               -->     
         <!-- FAU_STG.4     -->
 	<!--               -->     
@@ -1522,8 +1597,97 @@
 		<audit-event/>
     </f-component>
 
-
-	<f-component name="Cryptographic Operation (Password-based Key Derivation Function)" cc-id="fcs_cop" iteration="5" status="optional">
+    <!--                  -->     
+    <!-- FCS_CKM_EXT.1(1) -->
+    <!-- Impl-dep on protectSubscriberInfo feature -->
+    <!--                  -->     
+    <f-component cc-id="fcs_ckm_ext.1" iteration="1" name="Symmetric Key Generation for DEKs" status="impl-dep">
+          <depends on="implements"><ref-id>protectSubscriberInfo</ref-id></depends>
+          <f-element>
+            <title>The TSF shall
+		    <selectables>
+			    <selectable>generate</selectable>
+			    <selectable>invoke interfaces provided by the Operational Environment to generate</selectable>
+		    </selectables> data encryption keys (DEKs) of size 
+		    <selectables>
+			    <selectable>128-bit</selectable>
+			    <selectable>256-bit</selectable>
+		    </selectables> using
+		    <selectables> <h:ul>
+		  	<h:li><selectable>an RBG that meets this profile (as specified in FCS_RBG_EXT.1)</selectable></h:li>
+			<h:li><selectable>a key generation capability of the Operational Environment</selectable></h:li>
+			<h:li><selectable>a TSF-provided mechanism that combines KEKs in a way that preserves the
+				effective entropy of each factor by 
+				<h:ul><selectables>
+					<h:li><selectable>using an XOR operation</selectable></h:li>
+					<h:li><selectable>concatenating the keys and using a key derivation
+						function (KDF) in accordance with SP 800-108</selectable></h:li>
+					<h:li><selectable>encrypting one key with another in accordance with
+						FCS_COP.1(1) and using modes 
+						<selectables>
+							<selectable>AES-CCM</selectable>
+							<selectable>AES-GCM</selectable>
+							<selectable>AES Key Wrap</selectable>
+							<selectable>AES Key Wrap with Padding</selectable>
+						</selectables></selectable></h:li>
+					</selectables></h:ul></selectable></h:li></h:ul></selectables>.
+	</title>
+        <note role="application">
+		Data encryption keys (DEKs) are used to protect data at rest (e.g., subscriber PII
+		of security critical parameters) that needs to be encrypted. These are
+		distinguished from KEKs (whose generation is described in FCS_CKM_EXT.1(2))
+		that are used to protect other keys – DEKs, other KEKs, and other types of keys
+		stored by the user or applications.<h:br/><h:br/>
+		The first selection must match the selection for this component in FCS_CDP_EXT.1
+		in terms of whether this functionality is implemented by the TOE or through the
+		OE.<h:br/><h:br/>
+		The second selection is simply the number of bits in the DEK.<h:br/><h:br/>
+		For the third selection, if the TSF invokes an RBG that is implemented by the TOE
+		or implemented by the OE, the first item is selected and FCS_RBG_EXT.1 is
+		included in the ST. If the TSF invokes a key-generation mechanism in the OE (that
+		is not a direct invocation of an RBG), then the second item (“a key generation
+		capability of the Operational Environment”) is selected; in this case the second
+		item of the first selection ("invoke interfaces provided by the Operational
+		Environment to generate") should have also been chosen. If the TSF uses a method
+		to combine KEKs to produce the DEK, the third item is selected and the method
+		used to produce the DEK from the KEKs is chosen in the fourth selection.
+		Additionally, if thisthird item is selected (TSF combining KEKs to produce the DEK),
+		then FCS_CKM_EXT.1(2) (to specify how the KEKs used are generated) and
+		FCS_CKM_EXT.7 (to specify how the REK that anchors the KEKs is generated and
+		protected) in Annex B.8 must be included. Finally, if the third item in the fourth
+		selection statement is chosen (key wrap), then FCS_COP.1(1) will be included in
+		the ST and the appropriate key wrap method will be chosen in the fifth selection.
+	  </note>
+          <aactivity>
+          	<TSS>
+			For DEKs generated using an RBG, the evaluator shall examine the TSS of the
+			TOE to verify that it describes, for either the TOE or the Operational
+			Environment, how the functionality described by FCS_RBG_EXT.1 is invoked.
+			The evaluator shall review the TSS and other evidence to determine that the
+			key size being requested from the RBG is identical to the key size used for the
+			encryption/decryption of the data or key.<h:br/><h:br/>
+			For each DEK that is formed from a combination by the TSF (that is, “perform”
+			is selected in the first selection, and “combined from KEKs…” is selected in the
+			second selection), the evaluator shall verify that the TSS describes the method
+			of combination and contains a justification for preserving the effective entropy.		
+              	</TSS>
+		<Guidance>
+			There are no AGD assurance activities for this requirement beyond what is
+			necessary to satisfy the requirements in [CEM].
+		</Guidance>
+		<Tests>
+			There are no ATE assurance activities for this requirement beyond what is
+			necessary to satisfy the requirements in [CEM].<h:br/><h:br/>
+			<h:i>Equivalency</h:i><h:br/><h:br/>
+			Testing of the TOE may be performed on a subset of the platforms listed in the
+			TOE’s ST. Justification must be provided for those platforms that were excluded
+			from testing.
+		  </Tests>
+	    </aactivity>
+          </f-element>
+    </f-component>
+	      
+<f-component name="Cryptographic Operation (Password-based Key Derivation Function)" cc-id="fcs_cop" iteration="5" status="optional">
        	<f-element>
 			<title>
 				<refinement>Refinement:</refinement> The TSF shall
@@ -4982,6 +5146,17 @@
   <appendix title="Acronyms" id="acronyms">
    <acronyms/>
   </appendix>
-
+	
+  <implements>
+    <feature id="protectSubscriberInfo" title="TOE Responsible for Protecting Subscriber Information">
+      <description>If the TOE does not rely on an RA, or if the CA provides a centralized repository for
+	      subscriber information, the following SFRs must be claimed in order for the TOE to provide
+	      assurance that subscriber data is protected.<h:ul>
+	      <h:li> FCS_CKM_EXT.1(1)</h:li>
+	      </h:ul>
+      </description>
+    </feature>
+  </implements>
+	
 </PP>
 
