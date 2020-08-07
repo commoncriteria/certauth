@@ -1204,12 +1204,97 @@
           </f-element>
 	<audit-event/>
         </f-component>
+
 	      
+	<!--               -->     
+        <!-- FAU_SAR.1     -->
+	<!-- According to FAU_ADP_EXT.1, this SFR is included:
+		"If any audit review is performed by an auditor through an interface provided by
+		the TSF, then FAU_SAR.1 and FAU_SAR.3 in Annex B.2 will be included in the ST by
+		the ST author." 
+	     According to this very SFR, "This SFR is included in the ST by the ST author if the operations
+ 		provided by the TSF (as specified in FAU_ADP_EXT.1) include the review of audit records. If this
+		SFR is not selected, the ST author includes OE.AUDIT_REVIEW." 
+
+	     But there is no selection of operations in FAU_ADP_EXT.1. XXXXXXXXXXXXXXXXXXXX.
+	-->
+	<!--               -->     
+        <f-component cc-id="fau_sar.1" name="Audit Review" status="sel-based">
+		<selection-depends req="fau_adp_ext.1" ids="XXXXXXXXXXXXXX"/></selection-depends>
+		<f-element>
+			<title>The TSF shall provide [<h:i>Auditors</h:i>] with the capability to read all
+				information from the audit records.</title>
+		</f-element>
+		<f-element>
+			<title>
+				<refinement>Refinement:</refinement>The TSF shall provide the audit records in
+				a manner suitable for the Auditor to interpret the information.
+			</title>
+			<note role="application">
+	      			This SFR is included in the ST by the ST author if the operations provided by the
+				TSF (as specified in FAU_ADP_EXT.1) include the review of audit records. If this
+				SFR is not selected, the ST author includes OE.AUDIT_REVIEW.
+			</note>
+			<aactivity>
+				<Tests>
+					This activity should be accomplished in conjunction with the testing of
+					FAU_GEN.1. Review of each of each of the generated audit records
+					demonstrates that these records are reviewable. 
+				</Tests>
+			</aactivity>
+		</f-element>
+      </f-component>
+
+    	<!--               -->     
+        <!-- FAU_SAR.3     -->
+	<!-- According to FAU_ADP_EXT.1, this SFR is included:
+		"If any audit review is performed by an auditor through an interface provided by
+		the TSF, then FAU_SAR.1 and FAU_SAR.3 in Annex B.2 will be included in the ST by
+		the ST author." 
+	     According to this very SFR, "This SFR is included in the ST by the ST author if the operations
+ 		provided by the TSF (as specified in FAU_ADP_EXT.1) include the review of audit records." 
+
+	     When we figure out how to include FAU_SAR.1, we will know how to include this one.
+	-->
+	<!--               -->     
+        <f-component cc-id="fau_sar.3" name="Selectable Audit Review" status="sel-based">
+		<selection-depends req="fau_adp_ext.1" ids="XXXXXXXXXXXXXX"/></selection-depends>
+		<f-element>
+			<title>
+				The TSF shall provide the ability to apply [<h:i>searches</h:i>] of audit data
+				based on <assignable>object identifier of certificate</assignable> associated with
+				the event.
+			</title>
+			<note role="application">
+	    			This SFR is included in the ST by the ST author if the operations provided by the
+				TSF (as specified in FAU_ADP_EXT.1) include the review of audit records. If this
+				SFR is not selected, the ST author includes OE.AUDIT_REVIEW. FAU_SCR_EXT.1
+				defines the ability of the TOE to search a certificate repository to find certificates
+				based on certain values of individual fields, and return an object identifier of the
+				certificate. The intent of this SFR--along with FAU_SCR_EXT.1--is that the auditor
+				has the ability to obtain a certificate’s unique identifier by searching for other
+				known fields and then using that unique identifier as an input to searching audit
+				data for all activities involving that certificate. Therefore, the assignment for this
+				SFR and the corresponding assignment in FAU_SCR_EXT.1 are to be made
+				identical by the ST author.
+			</note>
+			<aactivity>
+				<Tests>
+					This activity should be accomplished in conjunction with the testing of
+					FAU_GEN.1.
+				</Tests>
+			</aactivity>
+		</f-element>
+	</f-complement>
+				
 	<!--               -->     
         <!-- FAU_SCR_EXT.1     -->
 	<!-- After considerable analysis, we decided that this SFR should be included if "store" is selected
 		in the first selection of FAU_GCR_EXT.1. The reasoning is that the TOE needs to do certificate
   		review if the TOE stores certificates (versus the OE storing certificates).  
+
+		We also believe that the first selection should not be a selection, since this SFR should
+		not be included if the OE provides the capability.
 
  		The app note below is original and has not been changed from the current PP version.   
 	-->
@@ -1276,7 +1361,238 @@
 		</f-element>
       </f-component>
 
+    	<!--               -->     
+        <!-- FAU_SEL.1     -->
+	<!-- According to FAU_ADP_EXT.1, this SFR is included:
+		"If any audit pre-selection is performed by an auditor through an interface provided
+		by the TSF, then FAU_SEL.1 in Annex B.2 will be included in the ST by the ST author."
+ 
+	     According to this very SFR, "This SFR is included in the ST by the ST author if the operations
+ 		provided by the TSF (as specified in FAU_ADP_EXT.1) include the pre-selection of audit records." 
+	-->
+	<!--               -->     
+        <f-component cc-id="fau_sel.1" name="Selective Audit" status="sel-based">
+		<selection-depends req="fau_adp_ext.1" ids="XXXXXXXXXXXXXXXX"/></selection-depends>
+		<f-element>
+			<title>
+				<refinement>Refinement:</refinement> The TSF shall be able to select the set of
+				events to be audited by specific mechanisms from the set of all auditable events
+				based on the following attributes:
+				<h:ol a="a">
+					<h:li><selectables>
+						<selectable>object identity</selectable>
+						<selectable>user identity</selectable>
+						<selectable>subject identity</selectable>
+						<selectable>host identity</selectable>
+						<selectable>event type</selectable>
+					</selectables></h:li>
+					<h:li><assignable>list of additional attributes that audit selectivity 
+						is based upon</assignable></h:li>
+				</h:ol>.
+			</title>
+			<note role="application">
+				This SFR is included in the ST by the ST author if the operations provided by the
+				TSF (as specified in FAU_ADP_EXT.1) include the pre-selection of audit records.
+			</note>
+			<aactivity>
+				<TSS>
+					There are no TSS assurance activities for this requirement beyond what is
+					necessary to satisfy the requirements in [CEM].
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the operational guidance to ensure that it itemizes
+					all event types, as well as describes all attributes that are to be selectable in
+					accordance with the requirement, to include those attributes listed in the
+					assignment. The operational guidance shall also contain instructions on how to
+					set the pre-selection as well as explain the syntax (if present) for multi-value
+					pre-selection. The administrative guidance shall also identify those audit
+					records that are always recorded, regardless of the selection criteria currently
+					being enforced.
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following tests:
+					<testlist>
+						<test>
+							Test 1: For each attribute listed in the requirement, the evaluator shall
+							devise a test to show that selecting the attribute causes only audit
+							events with that attribute (or those that are always recorded, as
+							identified in the administrative guidance) to be recorded.
+						</test>
+						<test>
+							Test 2: [conditional] If the TSF supports specification of more complex
+							audit pre-selection criteria (e.g., multiple attributes, logical
+							expressions using attributes) then the evaluator shall devise tests
+							showing that this capability is correctly implemented. The evaluator
+							shall also, in the test plan, provide a short narrative justifying the set
+							of tests as representative and sufficient to exercise the capability.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE's ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>
+	</f-component>		
+			
+    	<!--               -->     
+        <!-- FAU_STG.1(1)     -->
+	<!-- According to FAU_ADP_EXT.1, this SFR is included:
+		"Audit records stored within the TOE boundary that are generated due to audit
+		events marked “extended” in tables 4, 5, and 6 that are included in the ST, then
+		FAU_STG.1(2) will be included in the ST by the ST author." But that is not this SFR.
+ 
+	     According to this very SFR, "This requirement applies when the audit data are stored by the TOE 
+		itself. If the TSF does not store all (or any) of the audit data, OE.AUDIT_STORAGE is included
+		in the ST." 
+	-->
+	<!--               -->     
+        <f-component cc-id="fau_stg.1" name="Selective Audit" iteration="1" status="sel-based">
+		<selection-depends req="fau_adp_ext.1" ids="XXXXXXXXXXXXXXXX"/></selection-depends>
+		<f-element>
+			<title>
+				The TSF shall protect the stored audit records in the audit trail from unauthorized
+				deletion.
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				The TSF shall be able to [<h:i>prevent</h:i>] unauthorized modifications to the
+				stored audit records in the audit trail.
+			</title>
+			<note role="application">
+				This requirement applies when the audit data are stored by the TOE itself. If the
+				TSF does not store all (or any) of the audit data, OE.AUDIT_STORAGE is included
+				in the ST.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure that it lists each type of audit log
+					generated by the TOE. For each audit log, the TSS shall describe how it is stored,
+					where it is located, and how it is protected. The evaluator shall verify that the
+					TSS’ description of the protection includes prevention of unauthorized
+					deletion. The TSS description shall also include prevention of modification. If
+					roles other than the Auditor are not provided with an interface for accessing
+					the stored audit records, the TSS shall provide a justification for why the role
+					cannot delete or modify the audit records.
+				</TSS>
+				<Guidance>
+					There are no AGD assurance activities for this requirement beyond what is
+					necessary to satisfy the requirements in [CEM].
+				</Guidance>
+				<Tests>
+					<testlist>
+						<test>
+							Test 1: The evaluator shall assume each role (other than the auditor
+							role) and attempt to delete the stored audit records, then verify that
+							the attempted deletion failed. 
+						</test>
+						<test>
+							Test 2: The evaluator shall assume each role (including the auditor role)
+							and attempt to modify the stored audit records and verify that the
+							attempted modification was prevented.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE's ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>
+	</f-component>
 	    
+    	<!--               -->     
+        <!-- FAU_STG.1(2)     -->
+	<!-- According to FAU_ADP_EXT.1, this SFR is included:
+		"Audit records stored within the TOE boundary that are generated due to audit
+		events marked “extended” in tables 4, 5, and 6 that are included in the ST, then
+		FAU_STG.1(2) will be included in the ST by the ST author." But that is not this SFR.
+ 
+	     According to this very SFR, "This requirement applies to audit data stored within the TOE boundary
+ 		that is expected to persist intact beyond the validity of certificates issued by the CA, even
+		in the event of unexpected TSF failure. Refer to Table 4 through Table 6 for the
+		auditable events marked as requiring extended retention that are relevant to this
+		SFR." 
+	-->
+	<!--               -->     
+        <f-component cc-id="fau_stg.1" name="Selective Audit" iteration="2" status="sel-based">
+		<selection-depends req="fau_adp_ext.1" ids="XXXXXXXXXXXXXXXX"/></selection-depends>
+		<f-element>
+			<title>
+				<refinement>Refinement:</refinement> The TSF shall protect the stored audit records
+				<refinement>with extended retention requirements</refinement> in the audit trail
+				from deletion prior to their retention period by an auditor.
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				<refinement>Refinement:</refinement> The TSF shall be able to [<h:i>prevent</h:i>] 
+				modifications to the stored audit records <refinement>with extended retention
+				requirements</refinement> in the audit trail.
+			</title>
+			<note role="application">
+				This requirement applies to audit data stored within the TOE boundary that is
+				expected to persist intact beyond the validity of certificates issued by the CA, even
+				in the event of unexpected TSF failure. Refer to Table 4 through Table 6 for the
+				auditable events marked as requiring extended retention that are relevant to this
+				SFR.<h:br/><h:br/>
+				Audit events that are not covered by this SFR (that is, those requiring extended
+				retention and stored in the OE) will be protected via integrity and redundancy
+				mechanisms typically provided in archive servers. To reflect this, if any audit
+				events marked “extended” in tables 4, 5, and 6 are stored in the OE, then
+				OE.AUDIT_RETENTION is included in the ST.<h:br/><h:br/>
+				If any audit storage provided by the TOE is used for audit events marked
+				“extended” in tables 4, 5, and 6 that are included in the ST, then this SFR will be
+				included in the ST by the ST author.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure that it lists each type of audit log
+					generated by the TOE. For each audit log, the TSS shall describe how it is stored,
+					where it is located, and how it is protected. The evaluator shall verify that the
+					TSS’ description of the protection includes prevention of deletion prior to the
+					retention period. The TSS description shall also include prevention of
+					modification of events after they are written to the audit trail. If the TSF
+					requires the actions of an Auditor to meet these requirements, the TSS shall
+					describe the restrictions on Auditor activity. If roles other than the Auditor are
+					provided with an interface for accessing the stored audit records, the TSS shall
+					provide a justification for why the role cannot delete or modify the audit
+					records.
+				</TSS>
+				<Guidance>
+					There are no AGD assurance activities for this requirement beyond what is
+					necessary to satisfy the requirements in [CEM].
+				</Guidance>
+				<Tests>
+					The testing may be accomplished with the testing performed by FAU_STG.1(1).<h:br/><h:br/>
+					The evaluator shall perform the following tests for each role other than the
+					Auditor role:
+					<testlist>
+						<test>
+							Test 1: For each audit event marked identified with extended retention
+							requirements in the ST, the evaluator shall assume a role and attempt
+							to delete the stored audit records, then verify that the attempted
+							deletion failed. 
+						</test>
+						<test>
+							Test 2: For each audit event marked identified with extended retention
+							requirements in the ST, the evaluator shall assume a role and attempt
+							to modify the stored audit records and verify that the attempted
+							modification was prevented.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE's ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>
+	</f-component>
+
+
 	<!--               -->     
         <!-- FAU_STG.4     -->
 	<!--               -->     
@@ -1330,6 +1646,161 @@
         </f-element>
 	<audit-event/>
 	</f-component>
+
+    	<!--               -->     
+        <!-- FAU_STG_EXT.1     -->
+	<!-- According to FAU_ADP_EXT.1, this SFR is included:
+		"If the TSF initiates the storage of the audit data (that is, it generates audit data
+		that will be stored either by the TOE or the OE), then FAU_STG_EXT.1 will be
+		included in the ST by the ST Author. "
+ 
+	     According to this very SFR, "This requirement is included in the ST if the TSF initiates the storage 
+		of the audit data. The last item in the selection (external audit server) should only be selected
+		(and this SFR included in the ST) if the TOE is responsible for connecting to the
+		external audit server to store the data." 
+	-->
+	<!--               -->     
+        <f-component cc-id="fau_stg_ext.1" name="External Audit Trail Storage" status="sel-based">
+		<selection-depends req="fau_adp_ext.1" ids="XXXXXXXXXXXXXXXX"/></selection-depends>
+		<f-element>
+			<title>
+				The TSF shall maintain availability and integrity of audit data by storing it
+				<selectables>
+					<selectable id="loc-TOE">locally on the TOE</selectable>
+					<selectable>locally on the TOE platform</selectable>
+					<selectable id="tchannel">on an external IT entity using a trusted channel protocol
+						defined in FTP_ITC.1</selectable>
+				</selectables>.
+			</title>
+			<note role="application">
+				There are 3 cases for the storage of audit data: Locally on the TOE (within the TOE
+				boundary without going over a network connection); locally on the TOE platform
+				(outside the TOE boundary, but without going over a network connection); and
+				external to the TOE platform (meaning over a network connection to a physically
+				distinct IT entity). The TOE may rely on a non-TOE audit server for storage of these
+				audit records and the ability to allow the administrator to review these audit
+				records is provided by the operational environment. In the selection, the ST author
+				chooses the method used by the TOE to store audit data.<h:br/><h:br/>
+				This requirement is included in the ST if the TSF initiates the storage of the audit
+				data. The last item in the selection (external audit server) should only be selected
+				(and this SFR included in the ST) if the TOE is responsible for connecting to the
+				external audit server to store the data.<h:br/><h:br/>
+				If the last item in the selection is chosen, the ST author must include FTP_ITC.1
+				with “audit server” selection, and ensures that the supporting protocol
+				requirement matches the selection is included in the ST.<h:br/><h:br/>
+				The TOE platform and external IT entity are considered part of the Operational
+				Environment.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure it describes the audit storage
+					mechanism from the perspective of the TOE. The TSS must also describe the
+					means by which the audit data are stored locally, or transferred to the external
+					IT entity (and how the trusted channel is provided). 
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the operational guidance to ensure it describes
+					the configuration of any local audit storage mechanism (first two items in the
+					selection in the SFR), including its location and size.<h:br/><h:br/>
+					The evaluator shall examine the operational guidance to determine that it
+					describes the relationship between the local audit data (stored inside the TOE
+					boundary and, if applicable, on the TOE platform) and the audit data that are
+					sent to the external IT entity (if applicable). For example, when an audit event
+					is generated, whether it is simultaneously sent to the external IT entity and the
+					local store, or is the local store used as a buffer and “cleared” periodically by
+					sending the data to the external IT entity.<h:br/><h:br/>
+					If an external audit server is used, the evaluator shall also examine the
+					operational guidance to ensure it describes how to establish the trusted
+					channel to the audit server, as well as describe any requirements on the audit
+					server (particular audit server protocol, version of the protocol required, etc.),
+					as well as configuration of the TOE needed to communicate with the audit
+					server.
+				</Guidance>
+				<Tests>
+					Testing of the trusted channel mechanism (if the last item is selected in the
+					SFR) will be performed as specified in the associated assurance activities for
+					the particular trusted channel mechanism.<h:br/><h:br/>
+					The evaluator shall perform the following tests if the last selection in the SFR is
+					made:
+					<testlist>
+						<test>
+							Test 1: [conditional] The evaluator shall establish a connection
+							between the TOE and the audit server according to the configuration
+							guidance provided. The evaluator shall then examine the traffic that
+							passes between the audit server and the TOE during several activities
+							of the evaluator’s choice designed to generate audit data to be
+							transferred to the audit server. The evaluator shall verify that the
+							connection has been successfully established, and that they are
+							successfully received by the audit server. The evaluator shall record the
+							particular software (name, version) used on the audit server during
+							testing.
+						</test>
+						<test>
+							Test 2: [conditional] The evaluator shall examine the audit data
+							transferred to the external audit server in Test 1 and compare it to the
+							locally stored audit data. The evaluator shall verify that the audit
+							records match. If there and any differences, the evaluator shall
+							examine the operational guidance to verify that it explains any
+							discrepancies between locally stored and transmitted audit data. 
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE's ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>
+	</f-component>
+
+    	<!--               -->     
+        <!-- FAU_STG_EXT.2     -->
+	<!-- According to FAU_ADP_EXT.1, this SFR is included:
+		""
+ 
+	     According to this very SFR, "This SFR is to be included if “locally on the TOE” is selected in FAU_STG_EXT.1, and
+		OE.AUDIT_RETENTION is not included in the ST. " 
+	-->
+	<!--               -->     
+        <f-component cc-id="fau_stg_ext.2" name="Audit Data Retention" status="sel-based">
+		<selection-depends req="fau_stg_ext.1" ids="loc-TOE"/></selection-depends>
+		<f-element>
+			<title>
+				The TSF shall apply the following rules for retention of audit data: 
+				<h:ul>
+					<h:li>Audit records required to have extended retention shall be retained at
+						least until an auditor configured extension beyond the validity of 
+						all certificates impacted by the event. </h:li>
+					<h:li><assignable>list of rules</assignable></h:li>
+				</h:ul>
+			</title>
+			<note role="application">
+				This SFR is to be included if “locally on the TOE” is selected in FAU_STG_EXT.1, and
+				OE.AUDIT_RETENTION is not included in the ST. The TSF may apply different
+				policies for different types of audit data (e.g. one type of record may be stored
+				indefinitely while another type is automatically purged after a set period of time).
+				If this SFR is not included in the ST, then OE.AUDIT_RETENTION is included in the
+				ST.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall review the TSS to ensure the rules specified are adequate
+					for the retention of audit records as indicated in Tables 4 through 6.<h:br/><h:br/>
+					The evaluator shall assume the role of an auditor and establish an extension
+					period for the retention of certificate-related audit records. The evaluator shall
+					cause the TSF to issue a certificate of short validity period. Prior to the
+					retention period (not-after-date+extension), and prior to transferring the audit
+					record to an external archive, the evaluator shall attempt to delete he audit
+					record of an event marked ‘extended’, and observe that the audit record was
+					not deleted. Also during this time, the evaluator shall attempt to modify the
+					audit record of an event marked ‘extended’, and observe that the audit record
+					was not modified. 
+				</TSS>
+			</aactivity>
+		</f-element>
+	</f-component>
+
+
 	</subsection>
 	    
         <!--                             -->
