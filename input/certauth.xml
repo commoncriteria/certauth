@@ -1784,7 +1784,7 @@
 	-->
 	<!--               -->     
         <f-component cc-id="fau_stg_ext.2" name="Audit Data Retention" status="sel-based">
-		<selection-depends req="fau_stg_ext.1" ids="loc-TOE"/></selection-depends>
+		<selection-depends req="fau_stg_ext.1" ids="loc-TOE"/>
 		<f-element>
 			<title>
 				The TSF shall apply the following rules for retention of audit data: 
