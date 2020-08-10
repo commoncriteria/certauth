@@ -1216,11 +1216,12 @@
  		provided by the TSF (as specified in FAU_ADP_EXT.1) include the review of audit records. If this
 		SFR is not selected, the ST author includes OE.AUDIT_REVIEW." 
 
-	     But there is no selection of operations in FAU_ADP_EXT.1. XXXXXXXXXXXXXXXXXXXX.
+	     But there is no selection of operations in FAU_ADP_EXT.1. 
+		 So, I'm going to implement this as an implementation dependent requirement.
 	-->
 	<!--               -->     
-        <f-component cc-id="fau_sar.1" name="Audit Review" status="sel-based">
-		<selection-depends req="fau_adp_ext.1" ids="XXXXXXXXXXXXXX"/></selection-depends>
+        <f-component cc-id="fau_sar.1" name="Audit Review" status="impl-dep">
+          <depends on="implements"><ref-id>auditReview</ref-id></depends>
 		<f-element>
 			<title>The TSF shall provide [<h:i>Auditors</h:i>] with the capability to read all
 				information from the audit records.</title>
@@ -1257,8 +1258,8 @@
 	     When we figure out how to include FAU_SAR.1, we will know how to include this one.
 	-->
 	<!--               -->     
-        <f-component cc-id="fau_sar.3" name="Selectable Audit Review" status="sel-based">
-		<selection-depends req="fau_adp_ext.1" ids="XXXXXXXXXXXXXX"/></selection-depends>
+        <f-component cc-id="fau_sar.3" name="Selectable Audit Review" status="impl-dep">
+          <depends on="implements"><ref-id>auditReview</ref-id></depends>
 		<f-element>
 			<title>
 				The TSF shall provide the ability to apply [<h:i>searches</h:i>] of audit data
@@ -1303,7 +1304,7 @@
 		<selection-depends req="fau_gcr_ext.1" ids="store-certs"/></selection-depends>
 	      	<f-element>
 			<title>The TSF shall 
-				<selectables>
+				<selectables>   <!-- This should not be a selection, only "provide" makes sense here -->
 					<selectable>provide</selectable>
 					<selectable>invoke the Operational Environment to provide</selectable>
 				</selectables> the capability to search for certificates containing specified values
@@ -1369,10 +1370,13 @@
  
 	     According to this very SFR, "This SFR is included in the ST by the ST author if the operations
  		provided by the TSF (as specified in FAU_ADP_EXT.1) include the pre-selection of audit records." 
+		
+		We are dealing with this by using impl-dep. It might make more sense for FAU_ADP_EXT to include a 
+		selection of operations, but here we are.
 	-->
 	<!--               -->     
-        <f-component cc-id="fau_sel.1" name="Selective Audit" status="sel-based">
-		<selection-depends req="fau_adp_ext.1" ids="XXXXXXXXXXXXXXXX"/></selection-depends>
+        <f-component cc-id="fau_sel.1" name="Selective Audit" status="impl-dep">
+          <depends on="implements"><ref-id>auditPreSelect</ref-id></depends>
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement> The TSF shall be able to select the set of
@@ -1446,10 +1450,13 @@
 	     According to this very SFR, "This requirement applies when the audit data are stored by the TOE 
 		itself. If the TSF does not store all (or any) of the audit data, OE.AUDIT_STORAGE is included
 		in the ST." 
+		
+		This really should be activated by a selection in FAU_ADP_EXT.1, but it's an assignmant for some reason.
+		So, we're going to use the feature feature until it gets fixed. If that is possible.
 	-->
 	<!--               -->     
         <f-component cc-id="fau_stg.1" name="Selective Audit" iteration="1" status="sel-based">
-		<selection-depends req="fau_adp_ext.1" ids="XXXXXXXXXXXXXXXX"/></selection-depends>
+          <depends on="implements"><ref-id>auditStorage</ref-id></depends>
 		<f-element>
 			<title>
 				The TSF shall protect the stored audit records in the audit trail from unauthorized
@@ -1515,10 +1522,12 @@
 		in the event of unexpected TSF failure. Refer to Table 4 through Table 6 for the
 		auditable events marked as requiring extended retention that are relevant to this
 		SFR." 
+		
+		See FAU_STG.1(1)
 	-->
 	<!--               -->     
         <f-component cc-id="fau_stg.1" name="Selective Audit" iteration="2" status="sel-based">
-		<selection-depends req="fau_adp_ext.1" ids="XXXXXXXXXXXXXXXX"/></selection-depends>
+          <depends on="implements"><ref-id>auditStorage</ref-id></depends>
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement> The TSF shall protect the stored audit records
@@ -1649,7 +1658,7 @@
 
     	<!--               -->     
         <!-- FAU_STG_EXT.1     -->
-	<!-- According to FAU_ADP_EXT.1, this SFR is included:
+		<!-- According to FAU_ADP_EXT.1, this SFR is included:
 		"If the TSF initiates the storage of the audit data (that is, it generates audit data
 		that will be stored either by the TOE or the OE), then FAU_STG_EXT.1 will be
 		included in the ST by the ST Author. "
@@ -1658,10 +1667,12 @@
 		of the audit data. The last item in the selection (external audit server) should only be selected
 		(and this SFR included in the ST) if the TOE is responsible for connecting to the
 		external audit server to store the data." 
+		
+		I don't understand why this is a selection-based requirement. I am making it mandatory for now.
 	-->
 	<!--               -->     
-        <f-component cc-id="fau_stg_ext.1" name="External Audit Trail Storage" status="sel-based">
-		<selection-depends req="fau_adp_ext.1" ids="XXXXXXXXXXXXXXXX"/></selection-depends>
+        <f-component cc-id="fau_stg_ext.1" name="External Audit Trail Storage" status="mandatory">
+<!--		<selection-depends req="fau_adp_ext.1" ids="XXXXXXXXXXXXXXXX"/></selection-depends>  -->
 		<f-element>
 			<title>
 				The TSF shall maintain availability and integrity of audit data by storing it
@@ -5627,6 +5638,31 @@
 	      </h:ul>
       </description>
     </feature>
+	<feature id="auditReview" title="TOE supports Audit Review">
+		<description> If the TOE supports review of audit records, then the following SFRs must be included:
+			<h:ul>
+				<h:li>FAU_SAR.1</h:li>
+				<h:li>FAU_SAR.3</h:li>
+			</h:ul>
+		</description>
+	</feature>
+	<feature id="auditPreSelect" title="TSF Supports Audit Pre-Select">
+		<description>If any audit pre-selection is performed by an auditor through an interface provided
+			by the TSF, then the following SFRs muct be included:
+			<h:ul>
+				<h:li>FAU_SEL.1</h:li>
+			</h:ul>
+		</description>
+	</feature>
+	<feature id="auditStorage" title="TSF Supports Storage of Audit Records">
+		<description>If any storage of audit records is performed by the TOE, then the following SFRs must be
+		included:
+			<h:ul>
+				<h:li>FAU_STG.1(1)</h:li>
+				<h:li>FAU_STG.1(2)</h:li>
+			</h:ul>
+		</description>
+	</feature>
   </implements>
 	
 </PP>
