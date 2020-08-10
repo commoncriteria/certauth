@@ -1286,7 +1286,7 @@
 				</Tests>
 			</aactivity>
 		</f-element>
-	</f-complement>
+	</f-component>
 				
 	<!--               -->     
         <!-- FAU_SCR_EXT.1     -->
@@ -1301,7 +1301,7 @@
 	-->
 	<!--               -->     
         <f-component cc-id="fau_scr_ext.1" name="Certificate Repository Review" status="sel-based">
-		<selection-depends req="fau_gcr_ext.1" ids="store-certs"/></selection-depends>
+		<selection-depends req="fau_gcr_ext.1" ids="store-certs"/>
 	      	<f-element>
 			<title>The TSF shall 
 				<selectables>   <!-- This should not be a selection, only "provide" makes sense here -->
