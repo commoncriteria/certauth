@@ -1220,7 +1220,7 @@
 		 So, I'm going to implement this as an implementation dependent requirement.
 	-->
 	<!--               -->     
-        <f-component cc-id="fau_sar.1" name="Audit Review" status="impl-dep">
+        <f-component cc-id="fau_sar.1" name="Audit Review" status="feat-based">
           <depends on="implements"><ref-id>auditReview</ref-id></depends>
 		<f-element>
 			<title>The TSF shall provide [<h:i>Auditors</h:i>] with the capability to read all
@@ -1259,7 +1259,7 @@
 	     When we figure out how to include FAU_SAR.1, we will know how to include this one.
 	-->
 	<!--               -->     
-        <f-component cc-id="fau_sar.3" name="Selectable Audit Review" status="impl-dep">
+        <f-component cc-id="fau_sar.3" name="Selectable Audit Review" status="feat-based">
           <depends on="implements"><ref-id>auditReview</ref-id></depends>
 		<f-element>
 			<title>
@@ -1374,11 +1374,11 @@
 	     According to this very SFR, "This SFR is included in the ST by the ST author if the operations
  		provided by the TSF (as specified in FAU_ADP_EXT.1) include the pre-selection of audit records." 
 		
-		We are dealing with this by using impl-dep. It might make more sense for FAU_ADP_EXT to include a 
+		We are dealing with this by using feat-based. It might make more sense for FAU_ADP_EXT to include a 
 		selection of operations, but here we are.
 	-->
 	<!--               -->     
-        <f-component cc-id="fau_sel.1" name="Selective Audit" status="impl-dep">
+        <f-component cc-id="fau_sel.1" name="Selective Audit" status="feat-based">
           <depends on="implements"><ref-id>auditPreSelect</ref-id></depends>
 		<f-element>
 			<title>
@@ -2092,9 +2092,9 @@
 
     <!--                  -->     
     <!-- FCS_CKM_EXT.1(1) -->
-    <!-- Impl-dep on protectSubscriberInfo feature -->
+    <!-- Feat-based on protectSubscriberInfo feature -->
     <!--                  -->     
-    <f-component cc-id="fcs_ckm_ext.1" iteration="1" name="Symmetric Key Generation for DEKs" status="impl-dep">
+    <f-component cc-id="fcs_ckm_ext.1" iteration="1" name="Symmetric Key Generation for DEKs" status="feat-based">
           <depends on="implements"><ref-id>protectSubscriberInfo</ref-id></depends>
           <f-element>
             <title>The TSF shall
