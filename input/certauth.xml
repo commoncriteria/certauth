@@ -1003,7 +1003,7 @@
 	-->
 	<!--               -->     
         <f-component cc-id="fau_gcr_ext.1" name="Generation of Certificate Repository" status="mandatory">
-          <f-element>
+          <f-element id="fau-gcr-ext-1e1">
             <title>The TSF shall 
 		    <selectables>
 			    <selectable id="store-certs">store</selectable> <!-- causes inclusion of FAU_SCR_EXT.1 -->
@@ -1303,7 +1303,7 @@
 	-->
 	<!--               -->     
         <f-component cc-id="fau_scr_ext.1" name="Certificate Repository Review" status="sel-based">
-		<selection-depends req="fau_gcr_ext.1" ids="store-certs"/>
+		<selection-depends req="fau-gcr-ext-1e1" ids="store-certs"/>
 	      	<f-element>
 			<title>The TSF shall 
 				<selectables>   <!-- This should not be a selection, only "provide" makes sense here -->
@@ -1682,7 +1682,7 @@
 	<!--               -->     
         <f-component cc-id="fau_stg_ext.1" name="External Audit Trail Storage" status="mandatory">
 <!--		<selection-depends req="fau_adp_ext.1" ids="XXXXXXXXXXXXXXXX"/></selection-depends>  -->
-		<f-element>
+		<f-element id="fau-stg-ext-1e1">
 			<title>
 				The TSF shall maintain availability and integrity of audit data by storing it
 				<selectables>
@@ -1784,7 +1784,7 @@
 	-->
 	<!--               -->     
         <f-component cc-id="fau_stg_ext.2" name="Audit Data Retention" status="sel-based">
-		<selection-depends req="fau_stg_ext.1" ids="loc-TOE"/>
+		<selection-depends req="fau-stg-ext-1e1" ids="loc-TOE"/>
 		<f-element>
 			<title>
 				The TSF shall apply the following rules for retention of audit data: 
