@@ -5645,34 +5645,21 @@
     <feature id="protectSubscriberInfo" title="TOE Responsible for Protecting Subscriber Information">
       <description>If the TOE does not rely on an RA, or if the CA provides a centralized repository for
 	      subscriber information, the following SFRs must be claimed in order for the TOE to provide
-	      assurance that subscriber data is protected.<h:ul>
-	      <h:li> FCS_CKM_EXT.1(1)</h:li>
-	      </h:ul>
+	      assurance that subscriber data is protected.
       </description>
     </feature>
 	<feature id="auditReview" title="TOE supports Audit Review">
 		<description> If the TOE supports review of audit records, then the following SFRs must be included:
-			<h:ul>
-				<h:li>FAU_SAR.1</h:li>
-				<h:li>FAU_SAR.3</h:li>
-			</h:ul>
 		</description>
 	</feature>
 	<feature id="auditPreSelect" title="TSF Supports Audit Pre-Select">
 		<description>If any audit pre-selection is performed by an auditor through an interface provided
 			by the TSF, then the following SFRs muct be included:
-			<h:ul>
-				<h:li>FAU_SEL.1</h:li>
-			</h:ul>
 		</description>
 	</feature>
 	<feature id="auditStorage" title="TSF Supports Storage of Audit Records">
 		<description>If any storage of audit records is performed by the TOE, then the following SFRs must be
 		included:
-			<h:ul>
-				<h:li>FAU_STG.1(1)</h:li>
-				<h:li>FAU_STG.1(2)</h:li>
-			</h:ul>
 		</description>
 	</feature>
   </implements>
