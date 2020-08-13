@@ -1462,7 +1462,7 @@
 		So, we're going to use the feature feature until it gets fixed. If that is possible.
 	-->
 	<!--               -->     
-        <f-component cc-id="fau_stg.1" name="Selective Audit" iteration="1" status="sel-based">
+        <f-component cc-id="fau_stg.1" name="Selective Audit" iteration="1" status="feat-based">
           <depends on="implements"><ref-id>auditStorage</ref-id></depends>
 		<f-element>
 			<title>
@@ -1534,7 +1534,7 @@
 		See FAU_STG.1(1)
 	-->
 	<!--               -->     
-        <f-component cc-id="fau_stg.1" name="Selective Audit" iteration="2" status="sel-based">
+        <f-component cc-id="fau_stg.1" name="Selective Audit" iteration="2" status="feat-based">
           <depends on="implements"><ref-id>auditStorage</ref-id></depends>
 		<f-element>
 			<title>
