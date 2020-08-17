@@ -2115,7 +2115,7 @@
 				<h:li><selectable>FFC schemes using cryptographic key sizes of 2048-bit or
 					greater that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”,
 					Appendix B.1</selectable></h:li>
-			</selectables>
+			</h:ul></selectables>
 			and specified cryptographic key sizes 
 				<assignable>equivalent to or greater than a symmetric key strength of 112 bits</assignable>
 				<del>that meet the following: [assignment: list of standards]</del>.
@@ -2214,9 +2214,9 @@
 					<h:li> Generator g constructed through an unverifiable process.</h:li>
 				</h:ul>
 				The Key generation specifies 2 ways to generate the private key x:
-				<h:ul><h:li>len(q) bit output of RBG where 1 <=x <= q-1</h:li>
+				<h:ul><h:li>len(q) bit output of RBG where 1 &lt;=x &lt;= q-1</h:li>
 					<h:li>len(q) + 64 bit output of RBG, followed by a mod q-1 operation
-						and a +1 operation, where 1<= x<=q-1.</h:li>
+						and a +1 operation, where 1&lt;= x&lt;=q-1.</h:li>
 				</h:ul>
 				The security strength of the RBG must be at least that of the security offered
 				by the FFC parameter set.<h:br/><h:br/>
