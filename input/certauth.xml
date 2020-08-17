@@ -2012,7 +2012,7 @@
     <!-- FCS_CDP_EXT.1 -->
 	<!--               -->     
         <f-component cc-id="fcs_cdp_ext.1" name="Cryptographic Dependencies">
-          <f-element>
+          <f-element id="fcs-cdp-ext-1e1">
             <title> The TSF shall 
 		    <selectables>
 			    <selectable>implement cryptographic functionality</selectable>
@@ -2020,7 +2020,7 @@
 		    </selectables>
 		    in order to perform 
 		    <selectables>
-			    <selectable>FCS_CKM.1</selectable>
+			    <selectable id="crypto-sel-ckm-1">FCS_CKM.1</selectable>
 			    <selectable>FCS_CKM.2</selectable>
 			    <selectable>FCS_CKM_EXT.1(1)</selectable>
                             <selectable>FCS_CKM_EXT.1(2)</selectable>
@@ -2090,6 +2090,159 @@
 		<audit-event/>
     </f-component>
 
+    <!--                  -->     
+    <!-- FCS_CKM.1 -->
+    <!-- Selection-based .... -->
+    <!--                  -->     
+    <f-component cc-id="fcs_ckm.1" name="Cryptographic Key Generation" status="sel-based">
+	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-1"/>
+	<f-element>
+		<title><refinement>Refinement:</refinement> The TSF shall <refinement>
+			<selectables>
+				<selectable>generate</selectable>
+				<selectable>invoke interfaces provided by the Operational Environment to generate</selectable>
+			</selectables> asymmetric </refinement>cryptographic keys in accordance with the specified key generation algorithm:
+			<selectables><h:ul>
+				<h:li><selectable>RSA schemes using cryptographic key sizes of 2048-bit or
+					greater that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.3;</selectable></h:li>
+				<h:li><selectable>ECC schemes using “NIST curves”
+					<selectables>
+						<selectable>P-256</selectable>
+						<selectable>P-384</selectable>
+						<selectable>P-521</selectable>
+					</selectables>
+					that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.4;</h:li></selectable>
+				<h:li><selectable>FFC schemes using cryptographic key sizes of 2048-bit or
+					greater that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”,
+					Appendix B.1</h:li></selectable>
+			</selectables>
+			and specified cryptographic key sizes 
+				<assignable>equivalent to or greater than a symmetric key strength of 112 bits</assignable>
+				<del>that meet the following: [assignment: list of standards]</del>.
+		</title>
+	    	<note role="application">
+			The ST authors should specify whether the TOE generates these keys or whether
+			the Operational Environment is used.<h:br/><h:br/>
+			For keys used for authentication, only RSA- or ECC-based selections are allowed.
+			The ST author will make clear in the ST which keys are used for what purpose.<h:br/><h:br/>
+			This component requires that the TSF or Operational Environment be able to
+			generate the public/private key pairs that are used for key establishment purposes
+			for the various cryptographic protocols (HTTPS, TLS, IPsec, SSH) used by the TOE.
+			If multiple schemes are supported, then the ST author should iterate this
+			requirement to capture this capability. The scheme used will be chosen by the ST
+			author from the selection.<h:br/><h:br/>
+			Since the domain parameters to be used are specified by the requirements of the
+			protocol in this PP, it is not expected that the TOE will generate domain
+			parameters, and therefore there is no additional domain parameter validation
+			needed when the TOE complies with the protocols specified in this PP.<h:br/><h:br/>
+			The generated key strength of 2048-bit DSA and RSA keys need to be equivalent
+			to, or greater than, a symmetric key strength of 112 bits. See NIST Special
+			Publication 800-57, “Recommendation for Key Management” for information
+			about equivalent key strengths. 
+		</note>	
+		<aactivity>
+			<TSS>
+				The evaluator shall ensure that the TSS identifies the key sizes supported. If the
+				ST specifies more than one scheme, the evaluator shall examine the TSS to
+				verify that it identifies the usage for each scheme.
+			</TSS>
+			<Guidance>
+				The evaluator shall verify that the AGD guidance instructs the administrator
+				how to configure the TOE or OE to use the selected key generation scheme(s)
+				and key size(s) for all cryptographic protocols defined in the Security Target.
+			</Guidance>
+			<Tests>
+				If this requirement is met by the TOE, the evaluator shall verify the
+				implementation of the key generation routines of the supported schemes using
+				the following tests:
+				<h4>Key Generation for FIPS PUB 186-4 RSA Schemes</h4>
+				The evaluator shall verify the implementation of RSA Key Generation by the
+				TOE using the Key Generation test. This test verifies the ability of the TSF to
+				correctly produce values for the key components including the public
+				verification exponent e, the private prime factors p and q, the public modulus
+				n and the calculation of the private signature exponent d.<h:br/><h:br/>
+				Key Pair generation specifies 5 ways (or methods) to generate the primes p
+				and q. These include:<h:br/><h:br/>
+				<h:ol a="a">
+					<h:li>Random Primes:<h:ul>  
+						<h:li>Provable Primes</h:li>
+						<h:li>Probable Primes</h:li>
+					</h:ul></h:li>
+					<h:li>Primes with Conditions:<h:ul>
+						<h:li>Primes p1, p2, q1,q2, p and q shall all be provable primes</h:li>
+						<h:li>Primes p1, p2, q1, and q2 shall be provable primes and p and q
+							shall be probable primes</h:li>
+						<h:li> Primes p1, p2, q1,q2, p and q shall all be probable primes</h:li>
+					</h:ul></h:li>
+				</h:ol>
+				To test the key generation method for the Random Provable primes method
+				and for all the Primes with Conditions methods, the evaluator must seed the
+				TSF key generation routine with sufficient data to deterministically generate
+				the RSA key pair. This includes the random seed(s), the public exponent of
+				the RSA key, and the desired key length. For each key length supported, the
+				evaluator shall have the TSF generate 25 key pairs. The evaluator shall verify
+				the correctness of the TSF’s implementation by comparing values generated
+				by the TSF with those generated from a known good implementation.
+				<h4>Key Generation for Elliptic Curve Cryptography (ECC)</h4>
+				<h5>FIPS 186-4 ECC Key Generation Test</h5>
+				For each supported NIST curve, i.e., P-256, P-384 and P-521, the evaluator
+				shall require the implementation under test (IUT) to generate 10 private/public
+				key pairs. The private key shall be generated using an approved random bit
+				generator (RBG). To determine correctness, the evaluator shall submit the
+				generated key pairs to the public key verification (PKV) function of a known
+				good implementation.
+				<h5>FIPS 186-4 Public Key Verification (PKV) Test</h5>
+				For each supported NIST curve, i.e., P-256, P-384 and P-521, the evaluator
+				shall generate 10 private/public key pairs using the key generation function of
+				a known good implementation and modify five of the public key values so that
+				they are incorrect, leaving five values unchanged (i.e., correct). The evaluator
+				shall obtain in response a set of 10 PASS/FAIL values.
+				<h5>Key Generation for Finite-Field Cryptography (FFC)</h5>
+				The evaluator shall verify the implementation of the Parameters Generation
+				and the Key Generation for FFC by the TOE using the Parameter Generation
+				and Key Generation test. This test verifies the ability of the TSF to correctly
+				produce values for the field prime p, the cryptographic prime q (dividing p-1),
+				the cryptographic group generator g, and the calculation of the private key x
+				and public key y.<h:br/><h:br/>
+				The Parameter generation specifies 2 ways (or methods) to generate the
+				cryptographic prime q and the field prime p:
+				<h:ul><h:li>Primes q and p shall both be provable primes</h:li>
+					<h:li>Primes q and field prime p shall both be probable primes</h:li>
+				</h:ul>
+				and two ways to generate the cryptographic group generator g:
+				<h:ul><h:li> Generator g constructed through a verifiable process</h:li>
+					<h:li> Generator g constructed through an unverifiable process.</h:li>
+				</h:ul>
+				The Key generation specifies 2 ways to generate the private key x:
+				<h:ul><h:li>len(q) bit output of RBG where 1 <=x <= q-1</h:li>
+					<h:li>len(q) + 64 bit output of RBG, followed by a mod q-1 operation
+						and a +1 operation, where 1<= x<=q-1.</h:li>
+				</h:ul>
+				The security strength of the RBG must be at least that of the security offered
+				by the FFC parameter set.<h:br/><h:br/>
+				To test the cryptographic and field prime generation method for the provable
+				primes method and/or the group generator g for a verifiable process, the
+				evaluator must seed the TSF parameter generation routine with sufficient data
+				to deterministically generate the parameter set.<h:br/><h:br/>
+				For each key length supported, the evaluator shall have the TSF generate 25
+				parameter sets and key pairs. The evaluator shall verify the correctness of the
+				TSF’s implementation by comparing values generated by the TSF with those
+				generated from a known good implementation. Verification must also confirm
+				<h:ul><h:li>g != 0,1</h:li>
+					<h:li>q divides p-1</h:li>
+					<h:li>g^q mod p = 1</h:li>
+					<h:li>g^x mod p = y</h:li>
+				</h:ul>
+				for each FFC parameter set and key pair.<h:br/><h:br/>
+				<h:i>Equivalency</h:i>
+				Testing of the TOE may be performed on a subset of the platforms listed in the
+				TOE’s ST. Justification must be provided for those platforms that were excluded
+				from testing.<h:br/><h:br/>
+			</Tests>
+		</aactivity>
+	</f-element>
+    </f-component>
+				
     <!--                  -->     
     <!-- FCS_CKM_EXT.1(1) -->
     <!-- Feat-based on protectSubscriberInfo feature -->
