@@ -1385,7 +1385,7 @@
 				<refinement>Refinement:</refinement> The TSF shall be able to select the set of
 				events to be audited by specific mechanisms from the set of all auditable events
 				based on the following attributes:
-				<h:ol a="a">
+				<h:ol type="a">
 					<h:li><selectables>
 						<selectable>object identity</selectable>
 						<selectable>user identity</selectable>
@@ -2163,7 +2163,7 @@
 				n and the calculation of the private signature exponent d.<h:br/><h:br/>
 				Key Pair generation specifies 5 ways (or methods) to generate the primes p
 				and q. These include:<h:br/><h:br/>
-				<h:ol a="a">
+				<h:ol type="a">
 					<h:li>Random Primes:<h:ul>  
 						<h:li>Provable Primes</h:li>
 						<h:li>Probable Primes</h:li>
@@ -2368,7 +2368,7 @@
 				<h:h4>SP800-56B Key Establishment Schemes </h:h4>
 				If the TOE acts as a sender, the following assurance activity shall be performed
 				to ensure the proper operation of every TOE supported combination of RSAbased key establishment scheme: <h:br/><h:br/>
-				<h:ol a="a"><h:li>
+				<h:ol type="a"><h:li>
 				To conduct this test the evaluator shall generate or obtain test vectors
 				from a known good implementation of the TOE supported schemes.
 				For each combination of supported key establishment scheme and its
@@ -2389,7 +2389,7 @@
 				If the TOE acts as a receiver, the following assurance activities shall be
 				performed to ensure the proper operation of every TOE supported
 				combination of RSA-based key establishment scheme: 
-				<h:ol a="a"><h:li>
+				<h:ol type="a"><h:li>
 				 To conduct this test the evaluator shall generate or obtain test vectors
 				from a known good implementation of the TOE supported schemes. For
 				each combination of supported key establishment scheme and its options
@@ -3839,7 +3839,7 @@
 					</selectables></refinement>
 				shall restrict the abiulity to
 				<refinement>
-					<h:ol a="1">
+					<h:ol type="1">
 						<h:li>manage the TOE locally and remotely;</h:li>
 						<h:li>configure the audit mechanism;</h:li>
 						<h:li>configure and manage certificate profiles;</h:li>
@@ -3892,7 +3892,7 @@
 					<selectable>Operational Environment</selectable>
 					</selectables></refinement>
 				shall restrict the ability to<h:br/><h:br/>
-				<refinement><h:ol a="1">
+				<refinement><h:ol type="1">
 					<h:li>approve and execute the issuance of certificates;</h:li>
 					<h:li>configure subscriber self-service request constraints;</h:li>
 					<selectables>
@@ -3937,7 +3937,7 @@
 				</selectables></refinement>
 				shall restict the ability to
 				<refinement>
-					<h:ol a="1">
+					<h:ol type="1">
 						<h:li>approve certificate revocation;</h:li>
 						<selectables>
 							<selectable><h:li>perform archival and recovery;</h:li></selectable>
@@ -3977,7 +3977,7 @@
 					<selectable>Operational Environment</selectable>
 					</selectables></refinement>
 				shall restrict the ability to
-				<refinement><h:ol a="1">
+				<refinement><h:ol type="1">
 					<h:li>perform destruction of sensitive data when no longer needed;</h:li>
 					<selectables>
 						<selectable><h:li>participate as a second party for archival and recovery;</h:li></selectable>
@@ -4134,7 +4134,7 @@
 					</selectables>
 				</refinement>
 				shall be capable of performing the following management functions: [
-				<h:ol a="1">
+				<h:ol type="1">
 					<h:li>Ability to manage the TOE locally and remotely;</h:li>					
 					<h:li>Ability to perform updates to the TOE;</h:li>
 					<h:li>Ability to perform archival and recovery;</h:li>
