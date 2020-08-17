@@ -2111,10 +2111,10 @@
 						<selectable>P-384</selectable>
 						<selectable>P-521</selectable>
 					</selectables>
-					that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.4;</h:li></selectable>
+					that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.4;</selectable></h:li>
 				<h:li><selectable>FFC schemes using cryptographic key sizes of 2048-bit or
 					greater that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”,
-					Appendix B.1</h:li></selectable>
+					Appendix B.1</selectable></h:li>
 			</selectables>
 			and specified cryptographic key sizes 
 				<assignable>equivalent to or greater than a symmetric key strength of 112 bits</assignable>
