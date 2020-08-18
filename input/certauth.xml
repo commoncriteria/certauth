@@ -2696,7 +2696,7 @@
 							<selectables linebreak = "yes">
 								<selectable>a pseudo-random pattern using the TSF’s RBG</selectable>
 								<selectable>zeroes</selectable>
-								<selectable>ones</selectables>
+								<selectable>ones</selectable>
 								<selectable>a new value of a key</selectable>
 								<selectable><assignable>some value that does not contain any CSP</assignable></selectable>
 							</selectables>
@@ -2713,7 +2713,7 @@
 			The TSF shall 
 			<selectables>
 				<selectable>destroy</selectable>
-				<selectable>invoke interfaces provided by the Operational Environment to destroy</selectables>
+				<selectable>invoke interfaces provided by the Operational Environment to destroy</selectable>
 			</selectables> all plaintext keying material cryptographic security
 				parameters when no longer needed. 
 		</title>	
@@ -2725,15 +2725,15 @@
 			logically address specific memory locations. In another implementation, the
 			application may simply have a handle to a resource and can only ask the platform
 			to delete the resource. The level of detail to which the TOE has access will be
-			reflected in the TSS section of the ST.<h:br/<h:br/>
+			reflected in the TSS section of the ST.<h:br/><h:br/>
 			Several selections allow assignment of a ‘value that does not contain any CSP’.
 			This means that the TOE uses some other specified data not drawn from an RBG
 			meeting FCS_RBG_EXT requirements, and not being any of the particular values
 			listed as other selection options. The point of the phrase ‘does not contain any
 			CSP’ is to ensure that the overwritten data is carefully selected, and not taken
 			from a general ‘pool’ that might contain current or residual data that itself
-			requires confidentiality protection.<h:br/<h:br/>
-			Key destruction does not apply to the public component of asymmetric key pairs.<h:br/<h:br/>
+			requires confidentiality protection.<h:br/><h:br/>
+			Key destruction does not apply to the public component of asymmetric key pairs.<h:br/><h:br/>
 	 	</note>
 		<aactivity>
 			<TSS>
