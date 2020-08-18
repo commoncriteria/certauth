@@ -2651,7 +2651,164 @@
 	<audit-event />
     </f-component>
 
-	      
+    <!--                  -->     
+    <!-- FCS_CKM_EXT.4 -->
+    <!-- Selection-based  -->
+    <!--                  -->     
+    <f-component cc-id="fcs_ckm_ext.4" name="Cryptographic Key Destruction" status="sel-based">
+	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-ext-4"/>
+	<f-element>
+		<title>
+			The TSF shall 
+			<selectables>
+				<selectable>destroy</selectable>
+				<selectable>invoke interfaces provided by the Operational Environment to destroy</selectable>
+			</selectables>
+			all cryptographic keys and critical security parameters
+			which are not permanently protected from export by hardware when no longer
+			required, in accordance with the specified cryptographic key destruction method
+			<selectables linebreak="yes">
+				<selectable>by clearing the KEK encrypting the target key</selectable>
+				<selectable>for volatile memory, the destruction shall be executed by a
+					<selectables linebreak = "yes">
+						<selectable>single direct overwrite consisting of 
+							<selectables linebreak = "yes">
+								<selectable>a pseudo-random pattern using the TSF’s RBG</selectable>
+								<selectable>zeroes</selectable>
+								<selectable>ones</selectable>
+								<selectable>a new value of a key</selectable>
+								<selectable><assignable>some value that does not contain any CSP</assignable></selectable>
+							</selectables>
+						</selectable>
+						<selectable>removal of power to the memory</selectable>
+						<selectable>destruction of reference to the key directly followed by a request for 
+							garbage collection</selectable>
+					</selectables>
+				</selectable>
+				<selectable>for non-volatile memory that consists of the invocation of an interface
+					provided by the underlying platform that
+					<selectables linebreak="yes">
+						<selectable>logically addresses the storage location of the key and performs a
+							<selectables>
+								<selectable>single</selectable>
+								<selectable><assignable>ST author-defined multi-pass</assignable></selectable>
+							</selectables> direct overwrite consisting of
+							<selectables linebreak = "yes">
+								<selectable>a pseudo-random pattern using the TSF’s RBG</selectable>
+								<selectable>zeroes</selectable>
+								<selectable>ones</selectables>
+								<selectable>a new value of a key</selectable>
+								<selectable><assignable>some value that does not contain any CSP</assignable></selectable>
+							</selectables>
+						</selectable>
+						<selectable>instructs the underlying platform to destroy the abstraction that
+							represents the key</selectable>
+					</selectables>
+				</selectable>
+			</selectables>
+		</title>
+	</f-element>
+	<f-element>
+		<title>
+			The TSF shall 
+			<selectables>
+				<selectable>destroy</selectable>
+				<selectable>invoke interfaces provided by the Operational Environment to destroy</selectables>
+			</selectables> all plaintext keying material cryptographic security
+				parameters when no longer needed. 
+		</title>	
+		<note role="application}>
+			The interface referenced in the requirement could take different forms, the most
+			likely of which is an application programming interface to an OS kernel. There may
+			be various levels of abstraction visible. For instance, in a given implementation
+			the application may have access to the file system details and may be able to
+			logically address specific memory locations. In another implementation, the
+			application may simply have a handle to a resource and can only ask the platform
+			to delete the resource. The level of detail to which the TOE has access will be
+			reflected in the TSS section of the ST.<h:br/<h:br/>
+			Several selections allow assignment of a ‘value that does not contain any CSP’.
+			This means that the TOE uses some other specified data not drawn from an RBG
+			meeting FCS_RBG_EXT requirements, and not being any of the particular values
+			listed as other selection options. The point of the phrase ‘does not contain any
+			CSP’ is to ensure that the overwritten data is carefully selected, and not taken
+			from a general ‘pool’ that might contain current or residual data that itself
+			requires confidentiality protection.<h:br/<h:br/>
+			Key destruction does not apply to the public component of asymmetric key pairs.<h:br/<h:br/>
+	 	</note>
+		<aactivity>
+			<TSS>
+				The evaluator shall examine the TSS to ensure it describes each of the secret
+				keys (keys used for symmetric encryption), private keys, and critical security
+				parameters; when they are destroyed (for example, immediately after use, on
+				system shutdown, etc.); and the type of destruction procedure that is
+				performed (overwrite with zeros, overwrite three times with random pattern,
+				etc.). If different types of memory are used to store the materials to be
+				protected, the evaluator shall examine the TSS to ensure it describes the
+				destruction procedure in terms of the memory in which the data are stored.
+			</TSS>
+			<Guidance>
+			    	The evaluator shall examine the AGD guidance to ensure it contains
+				instructions for configuring the TOE to support the required key destruction
+				functionality.
+		    	</Guidance>
+			<Tests>
+				If this requirement is met by volatile memory in the TOE boundary (the second
+				item in the second selection of FCS_CKM_EXT.4.1), the evaluator shall attempt
+				to perform the following tests:
+				<testlist>
+			    		<test>Test 1: The evaluator shall utilize appropriate combinations of
+						specialized operational environment and development tools
+						(debuggers, simulators, etc.) for the TOE and instrumented TOE builds
+						to test that keys are cleared correctly, including all intermediate copies
+						of the key that may have been created internally by the TOE during
+						normal cryptographic processing with that key.<h:br/><h:br/>
+						Cryptographic TOE implementations in software shall be loaded and
+						exercised under a debugger to perform such tests. The evaluator shall
+						perform the following test for each key subject to clearing, including
+						intermediate plaintext copies of keys that are subsequently encrypted
+						for storage by the TOE:
+			    			<h:ol type="1">
+							<h:li>Load the instrumented TOE build in a debugger.</h:li>
+							<h:li>Record the value of the key in the TOE subject to clearing. </h:li>
+							<h:li>Cause the TOE to perform a normal cryptographic processing with
+							      the key from #1.</h:li>
+							<h:li>Cause the TOE to clear the key.</h:li>
+							<h:li>Cause the TOE to stop the execution but not exit.</h:li>
+							<h:li>Cause the TOE to dump the entire memory footprint of the TOE
+								into a binary file.</h:li>
+							<h:li>Search the content of the binary file created in #4 for instances of
+							      the known key value from #1.</h:li>
+					      </h:ol>
+						The test succeeds if no copies of the key from #1 are found in step #7 above
+						and fails otherwise.<h:br/><h:br/>
+						The evaluator shall perform this test on all keys, including those subsequently
+						encrypted for storage, to ensure plaintext intermediate copies are cleared.<h:br/><h:br/>
+				      </test>
+				      <test>
+					Test 2: (Conditional) In cases where the TOE is implemented in
+					firmware and operates in a limited operating environment that does
+					not allow the use of debuggers, the evaluator shall utilize a simulator
+					for the TOE on a general purpose operating system. The evaluator shall
+					confirm that keys can be tracked and that destruction occurs. The
+					evaluator shall provide a rationale explaining the instrumentation of
+					the simulated test environment and justifying the obtained test
+					results.<h:br/><h:br/>
+							      <h:i>Equivalency</h:i>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+					</test>
+				</testlist>
+			</Tests>
+		</aactivity>
+	</f-element>
+	<audit-event>
+	    <audit-event-descr>Failure of the key destruction process for TOE keys</audit-event-descr>
+	    <audit-event-info>Identity of object or entity being cleared.</audit-event-info>
+							      </audit-event>
+							      </f-component>
+							 
+			    
     <!--                  -->     
     <!-- FCS_COP.1(5) -->
     <!-- Selection-based  -->
