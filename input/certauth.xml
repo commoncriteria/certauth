@@ -2717,7 +2717,7 @@
 			</selectables> all plaintext keying material cryptographic security
 				parameters when no longer needed. 
 		</title>	
-		<note role="application}>
+		<note role="application">
 			The interface referenced in the requirement could take different forms, the most
 			likely of which is an application programming interface to an OS kernel. There may
 			be various levels of abstraction visible. For instance, in a given implementation
