@@ -2566,7 +2566,7 @@
 						<selectable>256-bit</selectable>
 					</selectables>
 				</selectable>
-			</selectables> using <h:br/<h:br/>
+			</selectables> using <h:br/><h:br/>
 			<selectables><h:ul>
 				<h:li><selectable>an Operational Environment-provided mechanism that combines Key Shares
 					and produces a KEK,</selectable></h:li>
