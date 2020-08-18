@@ -1311,7 +1311,7 @@
 					<selectable>invoke the Operational Environment to provide</selectable>
 				</selectables> the capability to search for certificates containing specified values
 				of the following certificate fields:
-				<selectables>
+				<selectables linebreak="yes">
 					<selectable>subject name</selectable>
 					<selectable>individual components of subject alternative name</selectable>
 					<selectable>subject ID</selectable>
@@ -1383,17 +1383,18 @@
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement> The TSF shall be able to select the set of
-				events to be audited by specific mechanisms from the set of all auditable events
+				events to be audited by <refinement>specific mechanisms</refinement> from the set of all auditable events
 				based on the following attributes:
-				<selectables>
+				<h:ol type="a"><h:li><selectables>
 					<selectable>object identity</selectable>
 					<selectable>user identity</selectable>
 					<selectable>subject identity</selectable>
 					<selectable>host identity</selectable>
 					<selectable>event type</selectable>
-				</selectables>
-				<assignable>list of additional attributes that audit selectivity 
-						is based upon</assignable>.
+				</selectables></h:li>
+				<h:li><assignable>list of additional attributes that audit selectivity 
+					is based upon</assignable>.</h:li>
+				</h:ol>
 			</title>
 			<note role="application">
 				This SFR is included in the ST by the ST author if the operations provided by the
@@ -2100,7 +2101,7 @@
 				<selectable>generate</selectable>
 				<selectable>invoke interfaces provided by the Operational Environment to generate</selectable>
 			</selectables> asymmetric </refinement>cryptographic keys in accordance with the specified key generation algorithm:
-			<selectables>
+			<selectables linebreak="yes">
 				<selectable>RSA schemes using cryptographic key sizes of 2048-bit or
 					greater that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.3;</selectable>
 				<selectable>ECC schemes using “NIST curves”
@@ -2263,7 +2264,7 @@
 				<selectable>invoke interfaces provided by the Operational Environment to perform</selectable>
 			</selectables> key establishment </refinement>in accordance with a
 			specified cryptographic key <refinement>establishment</refinement> algorithm
-			<refinement><selectables>
+			<refinement><selectables linebreak="yes">
 				<selectable>RSA-based key establishment schemes that meet the following: NIST
 					Special Publication 800-56B Revision 1, “Recommendation for Pair-Wise
 					Key Establishment Schemes Using Integer Factorization Cryptography”;</selectable>
@@ -2460,17 +2461,18 @@
 		    <selectables>
 			    <selectable>generate</selectable>
 			    <selectable>invoke interfaces provided by the Operational Environment to generate</selectable>
-		    </selectables> data encryption keys (DEKs) of size 
+		    </selectables> 
+		    data encryption keys (DEKs) of size 
 		    <selectables>
 			    <selectable>128-bit</selectable>
 			    <selectable>256-bit</selectable>
 		    </selectables> using
-		    <selectables>
+		    <selectables linebreak="yes">
 		  	<selectable>an RBG that meets this profile (as specified in FCS_RBG_EXT.1)</selectable>
 			<selectable>a key generation capability of the Operational Environment</selectable>
 			<selectable>a TSF-provided mechanism that combines KEKs in a way that preserves the
 				effective entropy of each factor by 
-				<selectables>
+				<selectables linebreak="yes">
 					<selectable>using an XOR operation</selectable>
 					<selectable>concatenating the keys and using a key derivation
 						function (KDF) in accordance with SP 800-108</selectable>
@@ -2482,7 +2484,9 @@
 							<selectable>AES Key Wrap</selectable>
 							<selectable>AES Key Wrap with Padding</selectable>
 						</selectables></selectable>
-					</selectables></selectable></selectables>.
+					</selectables>
+			    </selectable>
+		    </selectables>.
 	</title>
         <note role="application">
 		Data encryption keys (DEKs) are used to protect data at rest (e.g., subscriber PII
@@ -2565,12 +2569,12 @@
 					</selectables>
 				</selectable>
 			</selectables> using <h:br/><h:br/>
-			<selectables>
+			<selectables linebreak="yes">
 				<selectable>an Operational Environment-provided mechanism that combines Key Shares
 					and produces a KEK,</selectable>
 				<selectable>a TSF-provided mechanism that combines Key Shares in a way that preserves
 					the effective entropy of each factor by 
-					<selectables>
+					<selectables linebreak="yes">
 						<selectable>polynomial interpolation based on Shimir’s secret
 							sharing scheme</selectable>
 						<selectable>geometric construction based on Blakely’s secret
@@ -2619,6 +2623,35 @@
 	<audit-event />
     </f-component>  
 
+    <!--                  -->     
+    <!-- FCS_CKM_EXT.1(4) -->
+    <!-- Selection-based  -->
+    <!--                  -->     
+    <f-component cc-id="fcs_ckm_ext.1" iteration="4" name="Generation of Key Shares" status="sel-based">
+	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-1i4"/>
+	<f-element>
+		<title>The TSF shall be able to
+			<selectables>
+				<selectable>generate</selectable>
+				<selectable>invoke interfaces provided by the Operational Environment to generate</selectable>
+			</selectables> key shares of strength [<h:i>greater than or
+			equal to the security strength of the KEK defined in FCS_CKM_EXT.1(3)</h:i>]
+			for the key sharing mechanism indicated in FCS_CKM_EXT.1(3).
+		</title>
+		<aactivity>
+			<TSS>
+				The evaluator shall review the TSS to confirm that the key share mechanism is
+				described. If the TSF generates the key shares (the first item in the selection is
+				chosen), the evaluator shall review the TSS to confirm that the generated 
+				shares are greater than or equal to the security strength of the KEK defined in
+				FCS_CKM_EXT.1(3).
+			</TSS>
+		</activity>
+	</f-element>
+	<audit-event />
+    </f-component>
+
+	      
     <!--                  -->     
     <!-- FCS_COP.1(5) -->
     <!-- Selection-based  -->
@@ -2700,7 +2733,10 @@
 		</f-element>
 		<audit-event/>
 	</f-component>
-	      
+
+	<!--               -->     
+        <!-- FCS_STG_EXT.1 -->
+	<!--               -->           
         <f-component name="Cryptographic Key Storage" cc-id="fcs_stg_ext">
             <f-element>
               <title>Persistent private and secret keys shall be stored within the
@@ -2708,7 +2744,7 @@
 			<selectable>TSF</selectable>
 			<selectable>Operational environment</selectable>
 		</selectables>
-                <selectables>
+                <selectables linebreak="yes">
 			<selectable>encrypted within a hardware rooted key hierarchy established in
 				accordance with
 				<selectables>
@@ -3297,7 +3333,7 @@
 					<selectable>protect</selectable>
 					<selectable>invoke interfaces to the Operational Environment to protect</selectable>
 				</selectables>
-				<selectables>
+				<selectables linebreak="yes">
 					<selectable>subscriber identity information</selectable>
 					<selectable>subscriber contact information</selectable>
 					<selectable>photograph from official ID such as an organization ID badge, passport or
@@ -3317,18 +3353,18 @@
 					<selectable>invoke interfaces to the Operational Environment to destroy</selectable>
 				</selectables> all protected data when no longer required in accordance with the
 				specified cryptographic data destruction method:
-				<selectables>
+				<selectables linebreak="yes">
 					<selectable>by clearing the DEK encrypting the protected data,</selectable>
 					<selectable>in accordance with the following rules:<h:br/><h:br/>
 						For volatile EEPROM the destruction shall be executed by a single direct
 							overwrite consisting of
-							<selectables>
+							<selectables linebreak="yes">
 								<selectable>a pseudo random pattern using the TSF’s RBG (as specified in
 									FCS_RBG_EXT.1),</selectable>
 								<selectable>zeroes</selectable>
 							</selectables> followed by a read-verify.<h:br/>h:br/>
 							For volatile flash memory the destruction shall be executed by 
-								<selectables>
+								<selectables linebreak="yes">
 									<selectable>a single direct overwrite consisting of zeroes,</selectable>
 									<selectable>a block erase</selectable>
 								</selectables>
@@ -3932,7 +3968,7 @@
 					</selectables></refinement>
 				shall restrict the abiulity to
 				<refinement>
-					<h:ol type="1">
+					<h:ul>
 						<h:li>manage the TOE locally and remotely;</h:li>
 						<h:li>configure the audit mechanism;</h:li>
 						<h:li>configure and manage certificate profiles;</h:li>
@@ -3941,15 +3977,16 @@
 						<h:li>perform on-demand integrity tests;</h:li>
 						<h:li>import and remove X.509v3 certificates into/from the Trust Anchor
 							Database;</h:li>
-						<h:li><selectables><selectable>Import 
-							<assignable> secret and private keys other than the CA’s signing keys</assignable>
-							</selectable></selectables></h:li>
-						<h:li>configure certificate revocation list function;</h:li>
-						<h:li>configure OCSP function;</h:li>
-						<h:li>disable deprecated algorithms;</h:li>
-						<h:li>accept certificates whose validity cannot be determined;</h:li>
-						<h:li><assignable>other security management functions</assignable></h:li>
-					</h:ol>
+						<h:li>
+						<selectables linebreak="yes">
+							<selectable>Import <assignable> secret and private keys other than the CA’s signing keys</assignable></selectable>
+							<selectable>configure certificate revocation list function;</selectable>
+							<selectable>configure OCSP function;</selectable>
+							<selectable>disable deprecated algorithms;</selectable>
+							<selectable>accept certificates whose validity cannot be determined;</selectable>
+							<selectable><assignable>other security management functions</assignable></selectable>
+						</selectables></h:li>
+					</h:ul>
 				</refinement>
 				to [<h:i>Administrators</h:i>].	
 			</title>
@@ -3985,16 +4022,16 @@
 					<selectable>Operational Environment</selectable>
 					</selectables></refinement>
 				shall restrict the ability to<h:br/><h:br/>
-				<refinement><h:ol type="1">
+				<refinement><h:ul>
 					<h:li>approve and execute the issuance of certificates;</h:li>
 					<h:li>configure subscriber self-service request constraints;</h:li>
-					<selectables>
-						<selectable><h:li>configure automated certificate approval management;</h:li></selectable>
-						<selectable><h:li>approve rulesets that govern the authorizations of AORs to manage
-							particular certificates on behalf of an organization;</h:li></selectable>
-						<selectable><h:li>accept, process and export CMC messages;</h:li></selectable>
-						<selectable><h:li>no other function</h:li></selectable>
-					</selectables></h:ol></refinement>
+					<h:li><selectables linebreak="yes">
+						<selectable>configure automated certificate approval management;</selectable>
+						<selectable>approve rulesets that govern the authorizations of AORs to manage
+							particular certificates on behalf of an organization;</selectable>
+						<selectable>accept, process and export CMC messages;</selectable>
+						<selectable>no other function</selectable>
+					</selectables></h:li></h:ul></refinement>
 					to 
 				<refinement>
 					<selectables>
@@ -4030,18 +4067,18 @@
 				</selectables></refinement>
 				shall restict the ability to
 				<refinement>
-					<h:ol type="1">
+					<h:ul>
 						<h:li>approve certificate revocation;</h:li>
-						<selectables>
-							<selectable><h:li>perform archival and recovery;</h:li></selectable>
-							<selectable><h:li>import a key share to support recovery of a CA signing key;</h:li></selectable>
-							<selectable><h:li>approve rulesets that govern the authorizations of RAs to manage
-								particular certificates on behalf of an organization;</h:li></selectable>
-							<selectable><h:li>export PKCS#10 certificate request;</h:li></selectable>
-							<selectable><h:li>import CA certificate;</h:li></selectable>
-							<selectable><h:li>no other function</h:li></selectable>
-						</selectables>
-					</h:ol>
+						<h:li><selectables linebreak="yes">
+							<selectable>perform archival and recovery;</selectable>
+							<selectable>import a key share to support recovery of a CA signing key;</selectable>
+							<selectable>approve rulesets that govern the authorizations of RAs to manage
+								particular certificates on behalf of an organization;</selectable>
+							<selectable>export PKCS#10 certificate request;</selectable>
+							<selectable>import CA certificate;</selectable>
+							<selectable>no other function</selectable>
+						</selectables></h:li>
+					</h:ul>
 				</refinement> to <refinement>[CA Operations Staff]</refinement>.
 			</title>
 			<aactivity>
@@ -4070,14 +4107,14 @@
 					<selectable>Operational Environment</selectable>
 					</selectables></refinement>
 				shall restrict the ability to
-				<refinement><h:ol type="1">
+				<refinement><h:ul>
 					<h:li>perform destruction of sensitive data when no longer needed;</h:li>
-					<selectables>
-						<selectable><h:li>participate as a second party for archival and recovery;</h:li></selectable>
-						<selectable><h:li>import a key share to support recovery of a CA signing key;</h:li></selectable>
-						<selectable><h:li>perform encrypted export of private or secret key or critical data</h:li></selectable>
-					</selectables>
-					</h:ol>
+					<h:li><selectables linebreak="yes">
+						<selectable>participate as a second party for archival and recovery;</selectable>
+						<selectable>import a key share to support recovery of a CA signing key;</selectable>
+						<selectable>perform encrypted export of private or secret key or critical data</selectable>
+					</selectables></h:li>
+					</h:ul>
 				</refinement>
 				to 
 				<refinement><selectables>
@@ -4142,11 +4179,11 @@
 				shall restrict the ability to
 				<refinement><h:ul>
 					<h:li>Delete entries from the audit trail</h:li>
-					<selectables>
-						<selectable><h:li>Search the audit trail</h:li></selectable>
-						<selectable><h:li>Set or change the retention period parameter for audit records requiring
-							extended retention</h:li></selectable>
-					</selectables></h:ul>
+					<h:li><selectables>
+						<selectable>Search the audit trail</selectable>
+						<selectable>Set or change the retention period parameter for audit records requiring
+							extended retention</selectable>
+					</selectables></h:li></h:ul>
 				</refinement>
 				to [<h:i>auditors</h:i>].
 			</title>
@@ -4227,7 +4264,7 @@
 					</selectables>
 				</refinement>
 				shall be capable of performing the following management functions: [
-				<h:ol type="1">
+				<h:ul type="1">
 					<h:li>Ability to manage the TOE locally and remotely;</h:li>					
 					<h:li>Ability to perform updates to the TOE;</h:li>
 					<h:li>Ability to perform archival and recovery;</h:li>
@@ -4240,28 +4277,28 @@
 					<h:li>Ability to perform on-demand integrity tests;</h:li>
 					<h:li>Ability to destroy sensitive user data when no longer needed;</h:li>
 					<h:li>Ability to import and remove X.509v3 certificates into/from the Trust Anchor Database;</h:li>
-					<selectables>
-						<selectable><h:li>Ability to configure the NPE ruleset;</h:li></selectable>
-						<selectable><h:li>Ability to configure automated process used to approve the revocation of a
-							certificate or information about the revocation of a certificate;</h:li></selectable>
-						<selectable><h:li>Ability to approve rulesets that govern the authorizations of RAs or AORs to
-							manage particular certificates on behalf of an organization;</h:li></selectable>
-						<selectable><h:li>
+					<h:li><selectables linebreak="yes">
+						<selectable>Ability to configure the NPE ruleset;</selectable>
+						<selectable>Ability to configure automated process used to approve the revocation of a
+							certificate or information about the revocation of a certificate;</selectable>
+						<selectable>Ability to approve rulesets that govern the authorizations of RAs or AORs to
+							manage particular certificates on behalf of an organization;</selectable>
+						<selectable>
 							<selectables>
 								<selectable>Ability to modify the CRL configuration</selectable>
 								<selectable>Ability to modify the OCSP configuration</selectable>
-							</selectables></h:li></selectable>
-						<selectable><h:li>Ability to configure the list of TOE-provided services available before an entity
-							is identified and authenticated, as specified in FIA_UIA_EXT.1;</h:li></selectable>
-						<selectable><h:li>Ability to configure the cryptographic functionality;</h:li></selectable>
-						<selectable><h:li>Ability to import private keys;</h:li></selectable>
-						<selectable><h:li>Ability to export TOE private keys (not for archival);</h:li></selectable>
-						<selectable><h:li>Ability to disable deprecated algorithms;</h:li></selectable>
-						<selectable><h:li>Ability to accept certificates whose revocation status cannot be determined;</h:li></selectable>
-						<selectable><h:li>Ability to accept, process and export CMC messages;</h:li></selectable>
-						<selectable><h:li>No other capabilities.</h:li></selectable>
-					</selectables>
-				</h:ol>
+							</selectables></selectable>
+						<selectable>Ability to configure the list of TOE-provided services available before an entity
+							is identified and authenticated, as specified in FIA_UIA_EXT.1;</selectable>
+						<selectable>Ability to configure the cryptographic functionality;</selectable>
+						<selectable>Ability to import private keys;</selectable>
+						<selectable>Ability to export TOE private keys (not for archival);</selectable>
+						<selectable>Ability to disable deprecated algorithms;</selectable>
+						<selectable>Ability to accept certificates whose revocation status cannot be determined;</selectable>
+						<selectable>Ability to accept, process and export CMC messages;</selectable>
+						<selectable>No other capabilities.</selectable>
+					</selectables></h:li>
+				</h:ul>
 			</title>
 			<note role="application">
 				Some TOE functions require the use of the Operational Environment. The ST
@@ -5326,12 +5363,12 @@
     <f-component cc-id="fta_ssl_ext.1" name="TSF-Initiated Session Locking" status="optional">
 		<f-element>
 			<title>The TSF shall, for local interactive sessions, 
-				<selectables><h:ul>
-					<h:li><selectable>lock the session–- disable any activity of the user’s data access/display
+				<selectables linebreak="yes">
+					<selectable>lock the session–- disable any activity of the user’s data access/display
 					devices other than unlocking the session, and requiring that the privileged user
-					reauthenticate to the TSF prior to unlocking the session;</selectable></h:li>
-					<h:li><selectable>terminate the session</selectable></h:li>
-				</h:ul></selectables>
+					reauthenticate to the TSF prior to unlocking the session;</selectable>
+					<selectable>terminate the session</selectable>
+				</selectables>
 				after an Administrator-configured time period of inactivity.
 			</title>
 			<note role="application">
