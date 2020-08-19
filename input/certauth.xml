@@ -2895,7 +2895,99 @@
 	</audit-event>
     </f-component>
 	      
-			    
+    <!--                  -->     
+    <!-- FCS_CKM_EXT.6 -->
+    <!-- Selection-based  -->
+    <!--                  -->     
+    <f-component cc-id="fcs_ckm_ext.6" name="Key Archival" status="sel-based">
+	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-ext-6"/>
+	<f-element>
+		<title>The TSF shall 
+			<selectables>
+				<selectable>provide</selectable>
+				<selectable>invoke interfaces in the Operational Environment to provide</selectable>
+			</selectables> a mechanism to protect TOE secret and private keys required for
+			continuity of operations and 
+			<selectables>
+				<selectable>user private keys</selectable>
+				<selectable>no other keys</selectable>
+			</selectables>.
+		</title>
+	</f-element>
+	<f-element>
+		<title>
+			The TSF shall 
+			<selectables>
+				<selectable>be able to</selectable>
+				<selectable>invoke interfaces in the Operational Environment to be able to</selectable>
+			</selectables> export the protected keys (in FCS_CKM_EXT.6.1) for
+			the purpose of archival in encrypted form.
+		</title>
+	</f-element>
+	<f-element>
+		<title>
+			The TSF shall 
+			<selectables>
+				<selectable>be able to</selectable>
+				<selectable>invoke interfaces in the Operational Environment to be able to</selectable>
+			</selectables> import protected keys (in FCS_CKM_EXT.6.1) for the
+			purpose of continued operations after failure.
+		</title>
+	</f-element>
+	<f-element>
+		<title>
+			The TSF shall 
+			<selectables>
+				<selectable>encrypt</selectable>
+				<selectable>invoke interfaces in the Operational Environment to encrypt</selectable>
+			</selectables> the keys specified in FCS_CKM_EXT.6.1 in accordance with 
+			<selectables>
+				<selectable>FCS_COP.1(1)</selectable>
+				<selectable>FCS_CKM.1</selectable>
+			</selectables> using the KEK generated in accordance with
+			FCS_CKM_EXT.1(3).
+		</title>
+	</f-element>
+	<f-element>
+		<title>
+			The TSF shall 
+			<selectables>
+				<selectable>decrypt</selectable>
+				<selectable>invoke interfaces in the Operational Environment to decrypt</selectable>
+			</selectables> the keys specified in FCS_CKM_EXT.6.1 in accordance with 
+			<selectables>
+				<selectable>FCS_COP.1(1)</selectable>
+				<selectable>FCS_CKM.1</selectable>
+			</selectables> using the KEK generated in accordance with FCS_CKM_EXT.1(3).
+		</title>
+		<note role="application">
+			This requirement is required when ‘key sharing mechanisms…’ is selected in
+			FPT_SKY_EXT.1., and ensures that the archival of any keys required for continuity
+			of operations (e.g., signature keys used to sign CRLs) from the TOE involves
+			encryption of those keys using KEKs that were derived using key sharing
+			mechanisms as specified in FCS_CKM_EXT.1(3). 
+		</note>
+		<aactivity>
+			<TSS>
+				The evaluator shall examine the TSS to verify that it lists the keys that are
+				archived, the encryption method (key size and mode) used, and that the
+				method of archival is described.
+			</TSS>
+			<Guidance>
+				The evaluator shall verify that the operational guidance provides instructions
+				on how to perform this function (protection and export of the keys to be
+				archived) in a manner that is consistent with its description in the ST. If aspects
+				of the archive function are configurable, the evaluator shall confirm that the
+				operational guidance describes the various configuration options.
+			</Guidance>
+		</aactivity>
+	</f-element>
+	<audit-event>
+		<audit-event-descr>All key archival actions.</audit-event-descr>
+	</audit-event>
+    </f-component>
+	    
+	    
     <!--                  -->     
     <!-- FCS_COP.1(5) -->
     <!-- Selection-based  -->
