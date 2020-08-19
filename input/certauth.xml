@@ -1027,13 +1027,16 @@
                 </Guidance>
 		<Tests>
 			The evaluator shall perform the following tests:
-			<h:ul><h:li>Test 1: The evaluator shall generate a certificate to be stored in the
+			<testlist>
+				<test>The evaluator shall generate a certificate to be stored in the
 				repository. The evaluator shall confirm that the certificate is stored in
-				the certificate repository.</h:li>
-				<h:li>Test 2 (conditional): If “CRLs” are selected in the SFR, the evaluator
+				the certificate repository.
+				</test>
+				<test>(conditional) If “CRLs” are selected in the SFR, the evaluator
 				shall generate a CRL and verify that it is stored in the certificate
-				repository.</h:li>
-			</h:ul>
+				repository.
+				</test>
+			</testlist>
 		 </Tests>
 	    </aactivity>
           </f-element>
@@ -1419,13 +1422,13 @@
 					The evaluator shall perform the following tests:
 					<testlist>
 						<test>
-							Test 1: For each attribute listed in the requirement, the evaluator shall
+							For each attribute listed in the requirement, the evaluator shall
 							devise a test to show that selecting the attribute causes only audit
 							events with that attribute (or those that are always recorded, as
 							identified in the administrative guidance) to be recorded.
 						</test>
 						<test>
-							Test 2: [conditional] If the TSF supports specification of more complex
+							[conditional] If the TSF supports specification of more complex
 							audit pre-selection criteria (e.g., multiple attributes, logical
 							expressions using attributes) then the evaluator shall devise tests
 							showing that this capability is correctly implemented. The evaluator
@@ -1497,12 +1500,12 @@
 				<Tests>
 					<testlist>
 						<test>
-							Test 1: The evaluator shall assume each role (other than the auditor
+							The evaluator shall assume each role (other than the auditor
 							role) and attempt to delete the stored audit records, then verify that
 							the attempted deletion failed. 
 						</test>
 						<test>
-							Test 2: The evaluator shall assume each role (including the auditor role)
+							The evaluator shall assume each role (including the auditor role)
 							and attempt to modify the stored audit records and verify that the
 							attempted modification was prevented.
 						</test>
@@ -1587,13 +1590,13 @@
 					Auditor role:
 					<testlist>
 						<test>
-							Test 1: For each audit event marked identified with extended retention
+							For each audit event marked identified with extended retention
 							requirements in the ST, the evaluator shall assume a role and attempt
 							to delete the stored audit records, then verify that the attempted
 							deletion failed. 
 						</test>
 						<test>
-							Test 2: For each audit event marked identified with extended retention
+							For each audit event marked identified with extended retention
 							requirements in the ST, the evaluator shall assume a role and attempt
 							to modify the stored audit records and verify that the attempted
 							modification was prevented.
@@ -1644,16 +1647,20 @@
 				TOE to react to an indication that the repository is full. Test 2 is only executed
 				in cases where an external repository is supported, and tests the ability of the
 				TOE to detect when the connection to the repository becomes unavailable.<h:br/><h:br/>
-				<h:ul>
-					<h:li>Test 1: The evaluator shall cause the audit trail to become full, verify
+				<testlist>
+					<test>
+					        The evaluator shall cause the audit trail to become full, verify
 						that the TSF behaves as documented in the TSS, and verify that a
-						privileged user can perform the documented remedial steps.</h:li>
-					<h:li>Test 2 (conditional): If the TOE uses a remote repository in the
+						privileged user can perform the documented remedial steps.
+					</test>
+					<test> (conditional) If the TOE uses a remote repository in the
 						Operational Environment to store audit data, the evaluator shall cause
 						the audit trail to become unavailable, verify that the TSF behaves as
 						documented in the TSS, and verify that a privileged user can perform
-						the documented remedial steps.</h:li>
-				</h:ul><h:br/><h:br/>
+						the documented remedial steps.
+					</test>
+				</testlist>
+				<h:br/><h:br/>
 				<h:i>Equivalency</h:i><h:br/><h:br/>
 				Testing of the TOE may be performed on a subset of the platforms listed in the
 				TOE's ST. Justification must be provided for those platforms that were excluded
@@ -1743,7 +1750,7 @@
 					made:
 					<testlist>
 						<test>
-							Test 1: [conditional] The evaluator shall establish a connection
+							[conditional] The evaluator shall establish a connection
 							between the TOE and the audit server according to the configuration
 							guidance provided. The evaluator shall then examine the traffic that
 							passes between the audit server and the TOE during several activities
@@ -1755,7 +1762,7 @@
 							testing.
 						</test>
 						<test>
-							Test 2: [conditional] The evaluator shall examine the audit data
+							[conditional] The evaluator shall examine the audit data
 							transferred to the external audit server in Test 1 and compare it to the
 							locally stored audit data. The evaluator shall verify that the audit
 							records match. If there and any differences, the evaluator shall
@@ -1930,36 +1937,36 @@
 				TOE is online (requires establishment of a client capable of generating
 				certificate requests and has a valid HTTPS connection to the TOE):
                                 <testlist>
-                                    <test>Test 1: For each supported request, the evaluator shall generate and
+                                    <test>For each supported request, the evaluator shall generate and
 					submit a properly authenticated request to the TOE and verify the
 					responses are signed.
                                     </test>
-                                    <test>Test 2: For each supported request, the evaluator shall generate
+                                    <test>For each supported request, the evaluator shall generate
 					requests that are unsigned, submit to the TOE, and verify that the TOE
 					rejects the request.
                                     </test>
-                                    <test>Test 3: For each supported request, the evaluator shall generate
+                                    <test>For each supported request, the evaluator shall generate
 					requests that have an invalid signature based on the RFC, submit to the
 					TOE, and verify that the TOE rejects the request.
                                     </test>
-                                    <test>Test 4: For each supported request, the evaluator shall generate
+                                    <test>For each supported request, the evaluator shall generate
 					requests that are not signed by authorized entities, submit to the TOE,
 					and verify that the TOE rejects the request.
                                     </test>
-                                    <test>Test 5: For each supported request using password based
+                                    <test>For each supported request using password based
 					authentication, the evaluator shall use invalid passwords and verify
 					that the TSF rejects the requests.
                                     </test>
-                                    <test>Test 6: For each proof of possession mode supported, the evaluator
+                                    <test>For each proof of possession mode supported, the evaluator
 					shall generate an otherwise valid request but modify the proof of
 					possession value. The evaluator shall submit the modified request and
 					verify that the TSF rejects the request.
                                     </test>
-                                    <test>Test 7 (Transport Test) For each supported request message, the evaluator shall send
+                                    <test>(Transport Test) For each supported request message, the evaluator shall send
 					an otherwise valid request using HTTP rather than HTTPS and shall
 					verify the TSF rejects the request.
                                     </test>
-                                    <test>Test 8 (Offline Test): With the TOE in offline mode, the evaluator shall log into the
+                                    <test>(Offline Test): With the TOE in offline mode, the evaluator shall log into the
 					TOE locally as the CA Operations Staff role and perform tests 1-4
 					above.
                                     </test>
@@ -2756,7 +2763,7 @@
 				item in the second selection of FCS_CKM_EXT.4.1), the evaluator shall attempt
 				to perform the following tests:
 				<testlist>
-			    		<test>Test 1: The evaluator shall utilize appropriate combinations of
+			    		<test>The evaluator shall utilize appropriate combinations of
 						specialized operational environment and development tools
 						(debuggers, simulators, etc.) for the TOE and instrumented TOE builds
 						to test that keys are cleared correctly, including all intermediate copies
@@ -2785,7 +2792,7 @@
 						encrypted for storage, to ensure plaintext intermediate copies are cleared.<h:br/><h:br/>
 				      </test>
 				      <test>
-					Test 2: (Conditional) In cases where the TOE is implemented in
+					(Conditional) In cases where the TOE is implemented in
 					firmware and operates in a limited operating environment that does
 					not allow the use of debuggers, the evaluator shall utilize a simulator
 					for the TOE on a general purpose operating system. The evaluator shall
@@ -2793,7 +2800,7 @@
 					evaluator shall provide a rationale explaining the instrumentation of
 					the simulated test environment and justifying the obtained test
 					results.<h:br/><h:br/>
-							      <h:i>Equivalency</h:i>
+					<h:i>Equivalency</h:i>
 					Testing of the TOE may be performed on a subset of the platforms listed in the
 					TOE’s ST. Justification must be provided for those platforms that were excluded
 					from testing.
@@ -2872,7 +2879,7 @@
 				following test:
 				<testlist>
 					<test>
-						Test 1: The evaluator shall attempt to violate the protection of a public
+						The evaluator shall attempt to violate the protection of a public
 						key to verify that the action specified in FCS_CKM_EXT.5.2 occurs.
 					</test>
 				</testlist>
@@ -3152,18 +3159,18 @@
 					format:
 					<testlist>
 					<test>
-						Test 1: The evaluator shall configure a certificate profile using the
+						The evaluator shall configure a certificate profile using the
 						available guidance, request a certificate using the profile, and then
 						examine the certificate contents to ensure it matches the configured
 						certificate profile.
 					</test>
 					<test>
-						Test 2: The evaluator shall specifically examine the certificate
+						The evaluator shall specifically examine the certificate
 						generated in Test 1 to ensure that it satisfies all field constraints in
 						FDP_CER_EXT.1.2.
 					</test>
 					<test>
-						Test 3: The evaluator shall test the fields “d”, “e”, “f”, and “i” in
+						The evaluator shall test the fields “d”, “e”, “f”, and “i” in
 						FDP_CER_EXT.1.2 as follows:<h:br/><h:br/>
 						<h:b>Field “d”:</h:b> The evaluator shall send a request with a
 						subjectPublicKeyInfo that is allowed by the profile, and observe the
@@ -3193,7 +3200,7 @@
 						(but no specified EKU) and observe the request is rejected.<h:br/><h:br/>
 					</test>
 					<test>
-						Test 4: For each extendedKeyUsage value defined in section 4.2.1.12
+						For each extendedKeyUsage value defined in section 4.2.1.12
 						of RFC 5280, the evaluator shall attempt to configure a certificate
 						profile with each inconsistent keyUsage for that extendedKeyUsage
 						field. If the CA rejects the attempt to create such a profile, then the
@@ -3202,7 +3209,7 @@
 						TSF does not issue the certificate.<h:br/><h:br/>
 					</test>
 					<test>
-						Test 5: The evaluator shall configure a certificate profile and create a
+						The evaluator shall configure a certificate profile and create a
 						certificate request that violates the validity period setting in the
 						configured profile (e.g., notBefore precedes the current time, the
 						combination of notBefore and notAfter is beyond the validity period
@@ -3245,7 +3252,7 @@
 					The evaluator shall perform the following test:
 					<testlist>
 						<test>
-							Test 1: The evaluator shall configure a certificate profile using the available
+							The evaluator shall configure a certificate profile using the available
 							guidance and request a certificate using the profile as a subscriber. The
 							evaluator shall then assume the CA Operations role and verify that a linkage
 							between submitted certificate requests and issued certificates is provided.
@@ -3299,7 +3306,7 @@
 					The evaluator shall perform the following test:
 					<testlist>
 						<test>
-							Test 1: The evaluator shall configure the certificate issuance approval
+							The evaluator shall configure the certificate issuance approval
 							function in accordance with the operational guidance. The evaluator shall
 							create a certificate request and submit it to the TOE. The evaluator shall
 							access the TOE using the defined interface and verify that the submitted
@@ -3313,12 +3320,12 @@
 						issuance approval function to follow a rule for automatic approval, and
 						perform the following tests:
 						<test>
-							Test 2: The evaluator shall construct one or more certificate requests that
+							The evaluator shall construct one or more certificate requests that
 							meet the rules for automatic approval, and shall verify that each requested
 							certificate was issued.
 						</test>
 						<test>
-							Test 3: The evaluator shall attempt to construct one or more certificate
+							The evaluator shall attempt to construct one or more certificate
 							requests that violate the rules for automatic approval, and shall verify that
 							the requested certificates are not issued.
 						</test>
@@ -3376,7 +3383,7 @@
 					The evaluator shall perform the following test:
 					<testlist>
 						<test>
-							Test 1: For each field defined in FDP_CER_EXT.2.1, the evaluator shall
+							For each field defined in FDP_CER_EXT.2.1, the evaluator shall
 							attempt to create a certificate request that violates the required
 							conditions of the field. The evaluator shall determine that all such
 							attempts are rejected by the TSF. 
@@ -3461,7 +3468,7 @@
 				associated with the requirements in Annex C:
 				<testlist>
 					<test>
-						Test 1: For certificate status information, the evaluator shall configure
+						For certificate status information, the evaluator shall configure
 						the TSF to provide certificate status information according to each
 						format identified in FDP_CSI_EXT.1.1 in turn and request certificate
 						status for each format. Each certificate status response shall be
@@ -3469,21 +3476,21 @@
 						TSS.
 					</test>
 					<test>
-						Test 2: For each selected certificate status format, the evaluator shall
+						For each selected certificate status format, the evaluator shall
 						issue a valid certificate from the TOE. The evaluator shall then cause
 						the TOE to issue certificate status information. The evaluator shall
 						check the certificate status information to verify that it reflects that the
 						certificate is valid.
 					</test>
 					<test>
-						Test 3: For each selected certificate status format, the evaluator shall
+						For each selected certificate status format, the evaluator shall
 						revoke a valid certificate from the TOE. The evaluator shall then cause
 						the TOE to issue certificate status information. The evaluator shall
 						check the certificate status information to verify that it reflects that the
 						certificate is revoked.
 					</test>
 					<test>
-						Test 4: The evaluator shall configure the certificate status change
+						The evaluator shall configure the certificate status change
 						approval function in accordance with the operational guidance. The
 						evaluator shall create a certificate status change request and submit it 
 						to the TOE. The evaluator shall access the TOE using the defined
@@ -3649,11 +3656,11 @@
 					ST:
 					<testlist>
 						<test>
-							Test 1: The evaluator shall, for each user data type listed in the TSS,
+							The evaluator shall, for each user data type listed in the TSS,
 							locate where the data is stored and verify that it is encrypted.
 						</test>
 						<test>
-							Test 2: The evaluator shall, for each user data type listed in the TSS,
+							The evaluator shall, for each user data type listed in the TSS,
 							initiate the supported data destruction mechanism according to the
 							documented times that it should be initiated for that user data type
 							(e.g., immediately after use, on system shutdown, etc.) and verify
@@ -3718,7 +3725,7 @@
 					performs the actions called for FCS_CKM_EXT.5.
 					<testlist>
 						<test>
-							Test 1 (conditional): The evaluator shall attempt to modify the
+							(conditional) The evaluator shall attempt to modify the
 							contents of the Trust Anchor Database in a way that violates the
 							documented permissions and verify that the attempt fails. 
 						</test>
@@ -3834,16 +3841,16 @@
 					FIA_X509_EXT.2.1. The tests for the extendedKeyUsage rules are performed in
 					conjunction with the uses that require those rules.<h:br/><h:br/>
 					<testlist>
-						<test>Test 1: The evaluator shall demonstrate that validating a certificate
+						<test>The evaluator shall demonstrate that validating a certificate
 							without a valid certification path results in the function (application
 							validation, trusted channel setup, or trusted software update) failing.
 							The evaluator shall then load a certificate or certificates needed to
 							validate the certificate to be used in the function, and demonstrate
 							that the function succeeds. The evaluator then shall delete one of the
 							certificates, and show that the function fails. </test>
-						<test>Test 2: The evaluator shall demonstrate that validating an expired
+						<test>The evaluator shall demonstrate that validating an expired
 							certificate anywhere in a certificate path results in the function failing.</test>
-						<test>Test 3: The evaluator shall test that the TOE can properly handle
+						<test>The evaluator shall test that the TOE can properly handle
 							revoked certificates –conditional on whether CRL or OCSP is selected;
 							if both are selected, and then a test is performed for each method. The 
 							evaluator has to only test one up in the trust chain (future revisions
@@ -3852,18 +3859,18 @@
 							validation function succeeds. The evaluator shall then attempt the test
 							with a certificate that will be revoked (for each method chosen in the
 							selection) and verify that the validation function fails. </test>
-						<test>Test 4: The evaluator shall construct a certificate path, such that the
+						<test>The evaluator shall construct a certificate path, such that the
 							certificate of the CA issuing the CA’s certificate does not contain the
 							basicConstraints extension. The validation of the certificate path fails.</test>
-						<test>Test 5: The evaluator shall construct a certificate path, such that the
+						<test>The evaluator shall construct a certificate path, such that the
 							certificate of the CA issuing the CA’s certificate has the cA flag in the
 							basicConstraints extension not set. The validation of the certificate
 							path fails.</test>
-						<test>Test 6: The evaluator shall construct a certificate path, such that the
+						<test>The evaluator shall construct a certificate path, such that the
 							certificate of the CA issuing the CA’s certificate has the cA flag in the
 							basicConstraints extension set to TRUE. The validation of the certificate
 							path succeeds.</test>
-						<test>Test 7: The evaluator shall modify a single byte in the certificate and
+						<test>The evaluator shall modify a single byte in the certificate and
 							verify that the certificate fails to validate.</test>
 					</testlist>
 					<h:i>Equivalency</h:i><h:br/><h:br/>		
@@ -3963,7 +3970,7 @@
 					The evaluator shall perform the following tests:
 					<testlist>
 						<test>
-							Test 1: For each function listed in FIA_X509_EXT.2.1 that requires the
+							For each function listed in FIA_X509_EXT.2.1 that requires the
 							use of certificates the evaluator shall demonstrate that using a
 							certificate without a valid certification path results in the function
 							failing. Using the operational guidance, the evaluator shall then load a
@@ -3973,7 +3980,7 @@
 							function fails.
 						</test>
 						<test>
-							Test 2: The evaluator shall demonstrate that using a valid certificate
+							The evaluator shall demonstrate that using a valid certificate
 							that requires certificate validation checking to be performed in at least
 							some part by communicating with a non-TOE entity. The evaluator
 							shall then manipulate the environment so that the TOE is unable to
@@ -4120,7 +4127,7 @@
 					authentication mechanisms listed in FIA_UAU_EXT.1:
 					<testlist>
 						<test>
-							Test 1: The evaluator shall use the operational guidance to
+							The evaluator shall use the operational guidance to
 							configure the appropriate credential supported for the access
 							method. For that credential/access method, the evaluator shall
 							show that providing correct I&amp;A information results in the ability
@@ -4128,7 +4135,7 @@
 							in denial of access.
 						</test>
 						<test>
-							Test 2: The evaluator shall configure the non-authenticated
+							The evaluator shall configure the non-authenticated
 							services allowed according to the operational guidance, and then
 							determine the services available to an external remote entity
 							(including subscribers and relying parties). The evaluator shall
@@ -4138,13 +4145,13 @@
 							listed in FIA_UIA_EXT.1.2 that require I&amp;A.
 						</test>
 						<test>
-							Test 3: For local access, the evaluator shall exercise the services in
+							For local access, the evaluator shall exercise the services in
 							accordance with FIA_UIA_EXT.1.1 available to a local privileged
 							user prior to I&amp;A, and make sure this list is consistent with the
 							requirement.
 						</test>
 						<test>
-							Test 4: The evaluator shall configure the constraints on subscriber
+							The evaluator shall configure the constraints on subscriber
 							self-service requests. The evaluator shall assume a CA Operations
 							Staff or RA Staff role and issue a certificate to at least one unique
 							subscriber. For each configured service, the evaluator shall request
@@ -4152,7 +4159,7 @@
 							they can be performed.
 						</test>
 						<test>
-							Test 5: The evaluator shall configure the constraints on subscriber
+							The evaluator shall configure the constraints on subscriber
 							self-service requests. The evaluator shall assume a CA Operations
 							Staff or RA Staff role and issue a certificate to at least two unique
 							subscribers. For each configured service, the evaluator shall
@@ -4658,18 +4665,18 @@
 					The evaluator shall perform the following tests:
 					<testlist>
 						<test>
-							Test 1: For each supported role, the evaluator shall assume the role
+							For each supported role, the evaluator shall assume the role
 							and connect to the TOE as specified in the AGD documentation. The
 							evaluator shall verify that the role can perform the documented
 							operations.
 						</test>
 						<test>
-							Test 2: The evaluator shall attempt to assume the Auditor role in
+							The evaluator shall attempt to assume the Auditor role in
 							conjunction with any other role as defined in FMT_SMR.2.1 and shall
 							verify it is not possible.
 						</test>
 						<test>
-							Test 3: The evaluator shall attempt to assume the CA Operations Staff
+							The evaluator shall attempt to assume the CA Operations Staff
 							role in conjunction with any other role as defined in FMT_SMR.2.1 and
 							shall verify it is not possible.
 						</test>
@@ -4743,7 +4750,7 @@
 					The evaluator shall perform the following test:
 					<testlist>
 						<test>
-							Test 1: The evaluator shall attempt to cause each documented failure
+							The evaluator shall attempt to cause each documented failure
 							to occur and shall verify that the actions taken by the TSF are those
 							specified in FPT_FLS.1.1. For those failures that the evaluator cannot
 							cause, the evaluator shall provide a justification to explain why the
@@ -4797,7 +4804,7 @@
 					The evaluator shall perform the following test:
 					<testlist>
 						<test>
-							Test 1: The evaluator shall access the export interface of the TOE and
+							The evaluator shall access the export interface of the TOE and
 							shall verify that the interface prevents the export of all keys listed in
 							the TSS.
 						</test>
@@ -4844,7 +4851,7 @@
 					The evaluator shall perform the following test:
 					<testlist>
 						<test>
-							Test 1: The evaluator shall assume each of the non-Administrator
+							The evaluator shall assume each of the non-Administrator
 							roles supported by the TOE and shall attempt to use the available
 							TOE interface to access the keys. The evaluator shall verify that
 							these attempts fail.
@@ -4913,12 +4920,12 @@
 					The evaluator shall perform the following tests:
 					<testlist>
 						<test>
-							Test 1: The evaluator shall assume the Administrator role and
+							The evaluator shall assume the Administrator role and
 							configure the ruleset. The evaluator shall then assume other roles and
 							verify that no other roles can modify the ruleset.
 						</test>
 						<test>
-							Test 2: The evaluator shall configure the ruleset that restricts an AOR
+							The evaluator shall configure the ruleset that restricts an AOR
 							to a particular organization. The evaluator shall assume a CA
 							Operations Staff or RA role and register an AOR with an organization,
 							authorizing the AOR to perform specific operations on that 
@@ -4926,7 +4933,7 @@
 							perform each authorized operation on behalf of the organization.
 						</test>
 						<test>
-							Test 3: The evaluator shall configure the ruleset that restricts an AOR
+							The evaluator shall configure the ruleset that restricts an AOR
 							to a particular organization. The evaluator shall assume a CA
 							Operations Staff or RA role and register an AOR with an organization,
 							authorizing the AOR to perform specific operations on that
@@ -4986,7 +4993,7 @@
 					The evaluator shall perform the following test:
 					<testlist>
 						<test>
-							Test 1: The evaluator shall attempt to cause each documented
+							The evaluator shall attempt to cause each documented
 							failure to occur and shall verify that the result of this failure is that
 							the TSF enters a maintenance mode. The evaluator shall also verify
 							that the maintenance mode can be exited and the TSF can be
@@ -5052,7 +5059,7 @@
 					The evaluator shall perform the following test:
 					<testlist>
 						<test>
-							Test 1: The evaluator shall assume each of the non-Administrator
+							The evaluator shall assume each of the non-Administrator
 							roles supported by the TOE and shall attempt to use the available
 							TOE interface to read the keys specified by the TOE. The evaluator
 							shall verify that these attempts fail.
@@ -5175,12 +5182,12 @@
 					The evaluator shall perform the following tests:
 					<testlist>
 						<test>
-							Test 1: The evaluator shall use the operational guidance to set the
+							The evaluator shall use the operational guidance to set the
 							time. The evaluator shall then use an available interface to observe
 							that the time was set correctly.
 						</test>
 						<test>
-							Test 2: [conditional] If the TOE supports the use of an NTP server;
+							[conditional] If the TOE supports the use of an NTP server;
 							the evaluator shall use the operational guidance to configure the
 							NTP client on the TOE, and set up a communication path with the
 							NTP server. The evaluator will observe that the NTP server has set
@@ -5255,7 +5262,7 @@
 					The evaluator shall perform the following tests:
 					<testlist>
 						<test>
-							Test 1: The evaluator shall modify a TOE binary to verify the
+							The evaluator shall modify a TOE binary to verify the
 							integrity test fails and the action defined in FPT_TST_EXT.1.2
 							occurs. If this test cannot be performed, the evaluator shall provide
 							a justification.
@@ -5326,12 +5333,12 @@
 					The evaluator shall perform the following tests:
 					<testlist>
 						<test>
-							Test 1: The evaluator shall use the operational guidance
+							The evaluator shall use the operational guidance
 							instructions to verify the integrity of each protected element
 							specified in the TSS.
 						</test>
 						<test>
-							Test 2: The evaluator shall modify an instance of each type of data
+							The evaluator shall modify an instance of each type of data
 							selected in FPT_TST_EXT.2.1 to verify the integrity test fails and the
 							action defined in FPT_TST_EXT.2.2 occurs. If this test cannot be
 							performed, the evaluator shall provide a justification.
@@ -5437,7 +5444,7 @@
 					The evaluator shall perform the following tests:
 					<testlist>
 						<test>
-							Test 1: The evaluator shall perform the version verification activity
+							The evaluator shall perform the version verification activity
 							to determine the current version of the product. The evaluator
 							shall obtain a legitimate update using procedures described in the
 							operational guidance and verifies that it is successfully installed on
@@ -5448,18 +5455,18 @@
 							corresponds to that of the update.
 						</test>
 						<test>
-							Test 2: The evaluator shall obtain or produce an illegitimate
+							The evaluator shall obtain or produce an illegitimate
 							update, and shall attempt to install it on the TOE. The evaluator
 							shall verify that the TOE rejects the update.
 						</test>
 						<test>
-							Test 3: The evaluator shall obtain or produce an update with an
+							The evaluator shall obtain or produce an update with an
 							invalid signature, and shall attempt to install it on the TOE. The
 							evaluatorshall verify that the TOE rejects the update and performs
 							any other actions specified in the TSS.
 						</test>
 						<test>
-							Test 4: The evaluator shall digitally sign the update with a
+							The evaluator shall digitally sign the update with a
 							certificate that does not have the Code Signing purpose and verify
 							that application installation fails. The evaluator shall repeat the
 							test using a valid certificate and a certificate that contains the Code
@@ -5467,7 +5474,7 @@
 							succeeds.
 						</test>
 						<test>
-							Test 5: The tester shall attempt to install an update without the
+							The tester shall attempt to install an update without the
 							digital signature and shall verify that installation fails. The tester
 							shall attempt to install an update with altered digital signature, and
 							verify that installation fails.
@@ -5522,7 +5529,7 @@
 					The evaluator shall perform the following test:
 					<testlist>
 						<test>
-							Test 1: The evaluator shall follow the operational guidance to
+							The evaluator shall follow the operational guidance to
 							configure several different values for the inactivity time period
 							referenced in the component. For each period configured, the
 							evaluator shall establish a remote interactive session with the TOE. 
@@ -5569,13 +5576,13 @@
 					The evaluator shall perform the following tests:
 					<testlist>
 						<test>
-							Test 1: The evaluator shall initiate an interactive local session with
+							The evaluator shall initiate an interactive local session with
 							the TOE. The evaluator shall then follow the operational guidance
 							to terminate the session and observe that the session has been
 							terminated.
 						</test>
 						<test>
-							Test 2: The evaluator shall initiate an interactive remote session
+							The evaluator shall initiate an interactive remote session
 							with the TOE. The evaluator shall then follow the operational
 							guidance to terminate the session and observe that the session has
 							been terminated.
@@ -5628,7 +5635,7 @@
 					The evaluator shall perform the following test:
 					<testlist>
 						<test>
-							Test 1: The evaluator shall follow the operational guidance to
+							The evaluator shall follow the operational guidance to
 							configure several different values for the inactivity time period
 							referenced in the component. For each period configured, the
 							evaluator shall establish a local interactive session with the TOE.
@@ -5683,7 +5690,7 @@
 					The evaluator shall perform the following test:
 					<testlist>
 						<test>
-							Test 1: The evaluator shall follow the operational guidance to
+							The evaluator shall follow the operational guidance to
 							configure a notice and consent warning message. The evaluator
 							shall then, for each method of access specified in the TSS, establish
 							a session with the TOE. The evaluator shall verify that the notice
@@ -5763,20 +5770,20 @@
 					The evaluator shall perform the following tests:
 					<testlist>
 						<test>
-							Test 1: The evaluator shall ensure that communications using each
+							The evaluator shall ensure that communications using each
 							specified (in the operational guidance) remote method is tested
 							during the course of the evaluation, setting up the connections as
 							described in the operational guidance and ensuring that
 							communication is successful.
 						</test>
 						<test>
-							Test 2: For each method of remote communication supported, the
+							For each method of remote communication supported, the
 							evaluator shall follow the operational guidance to ensure that
 							there is no available interface that can be used by a remote user to
 							establish a remote session without invoking the trusted path.
 						</test>
 						<test>
-							Test 3: The evaluator shall ensure, for each method of remote
+							The evaluator shall ensure, for each method of remote
 							communication, the channel data is not sent in plaintext.
 						</test>
 					</testlist>
