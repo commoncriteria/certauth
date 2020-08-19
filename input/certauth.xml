@@ -2805,9 +2805,89 @@
 	<audit-event>
 	    <audit-event-descr>Failure of the key destruction process for TOE keys</audit-event-descr>
 	    <audit-event-info>Identity of object or entity being cleared.</audit-event-info>
-							      </audit-event>
-							      </f-component>
-							 
+	</audit-event>
+    </f-component>
+
+	      
+    <!--                  -->     
+    <!-- FCS_CKM_EXT.5 -->
+    <!-- Selection-based  -->
+    <!--                  -->     
+    <f-component cc-id="fcs_ckm_ext.5" name="Public Key Integrity" status="sel-based">
+	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-ext-5"/>
+	<f-element>
+		<title>
+			The TSF shall 
+			<selectables>
+				<selectable>protect</selectable>
+				<selectable>invoke interfaces in the Operational Environment to protect</selectable>
+			</selectables> public keys used to meet CA requirements against undetected
+			modification through the use of
+			<selectables>
+				<selectable>digital signatures (in accordance with FCS_COP.1(2))</selectable>
+				<selectable>keyed hashes (in accordance with FCS_COP.1(4))</selectable>
+			</selectables>.
+		</title>
+	</f-element>
+	<f-element>
+		<title>The 
+			<selectables>
+				<selectable>digital signature</selectable>
+				<selectable>keyed hash</selectable>
+			</selectables> used to protect a public key shall be verified upon each access to the key. 
+		</title>
+		<note role="application">
+			This SFR is included when the second selection in FDP_STG_EXT.1.1 is chosen, and
+			applies to the public keys listed in that SFR. If integrity protection is provided
+			entirely by the OE with no interaction from the TOE (and that is the only method
+			of protecting the public keys), then FDP_STG_EXT.1 should not be claimed in the
+			ST, and instead OE.PUBLIC_KEY_PROTECTION should be included in the ST.<h:br/><h:br/>
+			The first item in the first selection is chosen when the TSF performs the
+			cryptographic operation in the second selection itself. If the OE performs the
+			cryptographic operation (calculation of the digital signature or keyed hash), the
+			ST author chooses the second item in the first selection. In either case, the TSF is
+			the entity responsible for checking the public key on each access and taking
+			actions on integrity failures.<h:br/><h:br/>
+			The ST author selects “integrity failure on Trust Anchor database” for FPT_FLS.1 if
+			this SFR is included in the ST.<h:br/><h:br/>
+		</note>
+		<aactivity>
+			<TSS>
+				The evaluator shall examine the TSS to ensure it describes each applicable public
+				key, where it is stored and protected, the purpose of the public key, the
+				mechanism used to protect the public key from undetected modification, and
+				the method (for each public key) by which the integrity of the key is checked in
+				accordance with FCS_CKM_EXT.5.2.
+			</TSS>
+			<Guidance>
+				There are no AGD assurance activities for this requirement beyond what is
+				necessary to satisfy the requirements in [CEM].
+			</Guidance>
+			<Tests>
+				NOTE: It might not be possible to directly access certain public keys via the TOE
+				interface in a way that is needed to perform the test below. If that is the case,
+				then the evaluator must describe for each applicable key the interface and
+				indicate why the interface does not allow access to the public keys.<h:br/><h:br/>
+				For each public key identified in the TSS, the evaluator shall perform the
+				following test:
+				<testlist>
+					<test>
+						Test 1: The evaluator shall attempt to violate the protection of a public
+						key to verify that the action specified in FCS_CKM_EXT.5.2 occurs.
+					</test>
+				</testlist>
+				<h:i>Equivalency</h:i><h:br/><h:br/>
+				Testing of the TOE may be performed on a subset of the platforms listed in the
+				TOE’s ST. Justification must be provided for those platforms that were excluded
+				from testing.
+			</Tests>
+		</aactivity>
+	</f-element>
+	<audit-event>
+		<audit-event-descr>Failure of the key destruction process for TOE related keys.</audit-event-descr>
+	</audit-event>
+    </f-component>
+	      
 			    
     <!--                  -->     
     <!-- FCS_COP.1(5) -->
