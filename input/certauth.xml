@@ -2987,7 +2987,167 @@
 	</audit-event>
     </f-component>
 	    
-	    
+    <!--                  -->     
+    <!-- FCS_COP.1(1) -->
+    <!-- Selection-based  -->
+    <!--                  -->    	      
+<f-component name="Cryptographic Operation (AES Encryption/Decryption)" cc-id="fcs_cop.1" iteration="1" status="sel-based">
+	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-cop-1i1"/>
+	<f-element>
+		<title>
+			<refinement>Refinement:</refinement> The TSF shall 
+			<refinement><selectables>
+				<selectable>perform</selectable>
+				<selectable>invoke interfaces in the operational environment to perform</selectable>
+			</selectables></refinement> [<h:i>encryption and decryption</h:i>] in accordance
+			with a specified cryptographic algorithm: <h:br/><h:br/>
+			<refinement><selectables linebreak="yes">
+				<selectable>AES-CBC (as defined in NIST SP 800-38A) mode</selectable>
+				<selectable>AES-CCM (as defined in NIST SP 800-38C) mode</selectable>
+				<selectable>AES-GCM (as defined in NIST SP 800-38D) mode</selectable>
+				<selectable>AES-XTS (as defined in NIST SP 800-38E) mode</selectable>
+				<selectable>AES Key Wrap (KW) (as defined in NIST SP 800-38F) mode</selectable>
+				<selectable>AES Key Wrap with Padding (KWP) (as defined in NIST SP 800-38F) mode</selectable>
+			</selectables></refinement>
+			and cryptographic key size 
+			<selectables>
+				<selectable>128-bit</selectable>
+				<selectable>256-bit</selectable>
+			</selectables> <h:s>that meet the following: [assignment: list of standards]</h:s>.
+		</title>
+		<note role="application">
+			For the third selection of FCS_COP.1.1(1), the ST author should choose the mode
+			or modes in which AES operates. For the fourth selection, the ST author should
+			choose the key sizes besides 128-bit that are supported by this functionality.<h:br/><h:br/>
+			This SFR is in support of multiple TOE encryption requirements. AES-CBC is used
+			for encryption only, AES-CCM and AES-GCM for encryption and authentication,
+			AES-XTS for encryption only, and AES Key Wrap and AES Key Wrap with Padding
+			for key wrapping. It is necessary for the ST author to ensure that the selected AES
+			modes and key sizes are consistent with the claims made in any of the selectionbased cryptographic protocols (e.g. if FCS_IPSEC_EXT.1 is selected, CBC and/or
+			GCM must be selected depending on the selections made in FCS_IPSEC_EXT.1.4).<h:br/><h:br/>
+		</note>
+		<aactivity>
+			<TSS>
+				Regardless of whether the requirement is met by the TSF or the TSF in
+				conjunction with the TOE platform, the evaluator shall examine the TSS to
+				ensure that all key encryption and decryption functions use the approved
+				algorithms, modes, and key sizes.
+			</TSS>
+			<Guidance>
+				The evaluator shall examine the AGD guidance to ensure it contains
+				instructions for configuring the TOE or the TOE in conjunction with the
+				Operational Environment for the required encryption algorithms and
+				associated modes and key sizes.
+			</Guidance>
+			<Tests>
+				The following tests shall be performed for functionality implemented by the
+				TSF.<h:br/><h:br/>
+				<h:b>AES-CBC Tests</h:b><h:br/><h:br/>
+				<h:b>AES-CBC Known Answer Tests</h:b><h:br/><h:br/>
+				There are four Known Answer Tests (KATs), described below. In all KATs, the
+				plaintext, ciphertext, and IV values shall be 128-bit blocks. The results from
+				each test may either be obtained by the evaluator directly or by supplying the
+				inputs to the implementer and receiving the results in response. To determine
+				correctness, the evaluator shall compare the resulting values to those obtained
+				by submitting the same inputs to a known good implementation. <h:br/><h:br/>
+				
+				<h:b>KAT-1.</h:b> To test the encrypt functionality of AES-CBC, the evaluator shall
+				supply a set of 5 plaintext values for each key size selected and obtain 
+				the ciphertext value that results from AES-CBC encryption of the given
+				plaintext using a key value of all zeros and an IV of all zeros. Five
+				plaintext values shall be encrypted with an all-zeros key of length equal
+				to the selected key size, for each key size selected.<h:br/><h:br/>
+				To test the decrypt functionality of AES-CBC, the evaluator shall
+				perform the same test as for encrypt, using the ciphertext values as
+				input and AES-CBC decryption.
+
+				<h:b>KAT-2.</h:b> To test the encrypt functionality of AES-CBC, the evaluator shall
+				supply a set of 5 key values for each key size selected and obtain the
+				ciphertext value that results from AES-CBC encryption of an all-zeros
+				plaintext using the given key value and an IV of all zeros. Five of the
+				keys shall be of length equal to the selected key size, for each key size
+				selected.<h:br/><h:br/>
+				To test the decrypt functionality of AES-CBC, the evaluator shall
+				perform the same test as for encrypt, using an all-zero ciphertext value
+				as input and AES-CBC decryption.<h:br/><h:br/>
+			
+				<h:b>KAT-3.</h:b> To test the encrypt functionality of AES-CBC, the evaluator shall
+				supply a set of key values described below for each key size selected
+				and obtain the ciphertext value that results from AES encryption of an
+				all-zeros plaintext using the given key value and an IV of all zeros. The
+				keys in each set shall have the same length as the selected key size, for
+				each key size, N. Key I in each set shall have the leftmost I bits be ones
+				and the rightmost N-I bits be zeros, for I in [1,N].<h:br/><h:br/>
+				To test the decrypt functionality of AES-CBC, the evaluator shall supply
+				the two sets of key and ciphertext value pairs described below and
+				obtain the plaintext value that results from AES-CBC decryption of the
+				given ciphertext using the given key and an IV of all zeros. Each set of
+				key/ciphertext pairs shall have N N-bit key/ciphertext pairs, and the
+				second set of key/ciphertext pairs for selected key size, N. Key I in each
+				set shall have the leftmost I bits be ones and the rightmost N-I bits be
+				zeros, for I in [1,N]. The ciphertext value in each pair shall be the value
+				that results in an all-zeros plaintext when decrypted with its
+				corresponding key.<h:br/><h:br/>
+				
+				<h:b>KAT-4.</h:b> To test the encrypt functionality of AES-CBC, the evaluator shall
+				supply the set of 128 plaintext values described below and obtain
+				ciphertext values that result from AES-CBC encryption of the given
+				plaintext using a key value of all zeros of length equal to the selected
+				key size with an IV of all zeros for each key size selected. Plaintext value
+				I in each set shall have the leftmost I bits be ones and the rightmost
+				128-I bits be zeros, for I in [1,128].<h:br/><h:br/>
+				To test the decrypt functionality of AES-CBC, the evaluator shall
+				perform the same test as for encrypt, using ciphertext values of the 
+				same form as the plaintext in the encrypt test as input and AES-CBC
+				decryption.<h:br/><h:br/>
+				
+				<h:b>AES-CBC Multi-Block Message Test</h:b><h:br/><h:br/>
+				The evaluator shall test the encrypt functionality by encrypting an i-block
+				message where 1 < I <=10. The evaluator shall choose a key, an IV and plaintext
+				message of length I blocks and encrypt the message, using the mode to be
+				tested, with the chosen key and IV. The ciphertext shall be compared to the
+				result of encrypting the same plaintext message with the same key and IV using
+				a known good implementation.<h:br/><h:br/>
+				The evaluator shall also test the decrypt functionality for each mode by
+				decrypting an i-block message where 1 < I <=10. The evaluator shall choose a
+				key, an IV and a ciphertext message of length I blocks and decrypt the message,
+				using the mode to be tested, with the chosen key and IV. The plaintext shall be
+				compared to the result of decrypting the same ciphertext message with the
+				same key and IV using a known good implementation. <h:br/><h:br/>
+				
+				<h:b>AES-CBC Monte Carlo Tests</h:b><h:br/><h:br/>
+				The evaluator shall test the encrypt functionality using a set of 100 plaintext,
+				IV, and key 3-tuples for each selected key size. The plaintext and IV values shall
+				be 128-bit blocks. For each 3-tuple, 1000 iterations shall be run as follows: <h:br/><h:br/>
+				
+				<h:pre>
+				# Input: PT, IV, Key
+				for I = 1 to 1000:
+					if I == 1:
+						CT[1] = AES-CBC-Encrypt(Key, IV, PT)
+						PT = IV
+					else:
+						CT[i] = AES-CBC-Encrypt(Key, PT)
+						PT = CT[i-1]
+				</h:pre><h:br/><h:br/>
+			
+				The ciphertext computed in the 1000th iteration (i.e., CT[1000]) is the result for
+				that trial. This result shall be compared to the result of running 1000 iterations
+				with the same values using a known good implementation.<h:br/><h:br/>
+				The evaluator shall test the decrypt functionality using the same test as for
+				encrypt, exchanging CT and PT and replacing AES-CBC-Encrypt with AES-CBCDecrypt. <h:br/><h:br/>
+				
+				<h:b><h:u>AES-CCM Tests</h:u></h:b><h:br/><h:br/>
+				The evaluator shall test the generation-encryption and decryption-verification
+				functionality of AES-CCM for the following input parameter and tag lengths: <h:br/><h:br/>
+				<h:b>Eash selected key length</h:b><h:br/><h:br/>
+				<h:b>Two payload lengths.</h:b>One payload length shall be the shortest
+				supported payload length, greater than or equal to zero bytes. The
+				other payload length shall be the longest supported payload length,
+				less than or equal to 32 bytes (256 bits). <h:br/><h:br/>
+				
+				
+			
     <!--                  -->     
     <!-- FCS_COP.1(5) -->
     <!-- Selection-based  -->
