@@ -3546,8 +3546,82 @@
 	<audit-event/>
     </f-component>
 			
-
+    <!--                  -->     
+    <!-- FCS_COP.1(4) -->
+    <!-- Selection-based  -->
+    <!--                  -->    	      
+<f-component name="Cryptographic Operation (Keyed-Hash Message Authentication)" cc-id="fcs_cop.1" iteration="4" status="sel-based">
+	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-cop-1i4"/>
+	<f-element>
+		<title>
+			<refinement>Refinement: </refinement>The TSF shall 
+			<refinement><selectables>
+				<selectable>perform</selectable>
+				<selectable>invoke interfaces in the operational environment to perform</selectable>
+			</selectables></refinement>
+			[<h:i>keyed hash message authentication</h:i>] in
+			accordance with a specified cryptographic algorithm <refinement>HMAC-
+			<selectables>
+				<selectable>SHA-1</selectable>
+				<selectable>SHA-256</selectable>
+				<selectable>SHA-384</selectable>
+				<selectable>SHA-512</selectable>
+			</selectables> key size <assignable>key size (in bits) used in HMAC</assignable>, 
+			and message digest sizes 
+			<selectables>
+				<selectable>160</selectable>
+				<selectable>256</selectable>
+				<selectable>384</selectable>
+				<selectable>512</selectable>
+			</selectables> bits</refinement> that meet the following: 
+			[<h:i>FIPS Pub 198-1,“The Keyed Hash Message Authentication Code”;
+			FIPS Pub 180-4, “Secure Hash Standard”</h:i>].
+		</title>
+		<note role="application">
+			The intent of this requirement is to specify the keyed hash message authentication
+			function used when used for key establishment purposes for the various
+			cryptographic protocols used by the TOE (e.g., trusted channel). The hash
+			selection must support the message digest size selection. The hash selection
+			should be consistent with the overall strength of the algorithm used for
+			FCS_COP.1(1).<h:br/><h:br/>
+			In future versions of this document, SHA-1 may be removed as an option. SHA-1
+			for generating digital signatures was disallowed after December 2013, and SHA1 for verification of digital signatures is strongly discouraged as there may be risk
+			in accepting these signatures. <h:br/><h:br/>
+		</note>
+		<aactivity>
+			<TSS>
+				Regardless of whether the requirement is met by the TSF or TOE platform, the
+				evaluator shall examine the TSS to ensure that all keyed hash functions use the
+				approved algorithms and key sizes.
+			</TSS>
+			<Guidance>
+				The evaluator shall examine the AGD guidance to ensure it contains
+				instructions for configuring the TOE or the TOE in conjunction with the
+				Operational Environment for the required hash sizes and message digest sizes.
+			</Guidance>
+			<Tests>
+				If this requirement is met by the TOE, the evaluator shall perform the following
+				test:<h:br/><h:br/>
+				<testlist>
+					<test>
+						For each of the supported parameter sets, the evaluator shall
+						compose 15 sets of test data. Each set shall consist of a key and
+						message data. The evaluator shall have the TSF generate HMAC tags
+						for these sets of test data. The resulting MAC tags shall be compared
+						to the result of generating HMAC tags with the same key and IV using
+						a known good implementation.
+					</test>
+				</testlist>
+				<h:i>Equivalency</h:i><h:br/><h:br/>
+				Testing of the TOE may be performed on a subset of the platforms listed in the
+				TOE’s ST. Justification must be provided for those platforms that were excluded
+				from testing.
+			</Tests>
+		</aactivity>
+	</f-element>
+    </f-component>			
 	
+	      
     <!--                  -->     
     <!-- FCS_COP.1(5) -->
     <!-- Selection-based  -->
