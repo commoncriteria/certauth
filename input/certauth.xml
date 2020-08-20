@@ -4810,6 +4810,48 @@
 		<audit-event />
 	</f-component>
 
+	<!--               -->     
+        <!-- FIA_UAU.7 -->
+	<!--               -->     
+        <f-component cc-id="fia_uau.7" name="Protected Authentication Feedback" status="sel-based">
+		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/>
+		<f-element>
+			<title>
+				<refinement>Refinement: </refinement>The TSF shall provide only 
+				<refinement>[<h:i>obscured feedback and <assignable> list
+					of other feedback</assignable></h:i>]</refinement>
+					to the <refinement>privileged</refinement> user while the 
+					authentication is in progress.
+			</title>
+			<aactivity>
+				<TSS>
+					For each authentication mechanism selected in FIA_UAU_EXT.1.1, the
+					evaluator shall examine the TSS to ensure it describes how obscured feedback
+					is provided to the authenticating user. If no obscured feedback is provided, the
+					TSS must provide justification for why it is not provided.
+				</TSS>
+				<Guidance>
+					There are no AGD assurance activities for this requirement beyond what is
+					necessary to satisfy the requirements in [CEM].
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following test:
+					<testlist>
+						<test>
+							The evaluator shall locally authenticate to the TOE and verify
+							that at most obscured feedback is provided while entering the
+							authentication information.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>
+		<audit-event />
+	</f-component>
 		
 		
 	<!--               -->     
@@ -5761,6 +5803,55 @@
         <!--                             -->
      <subsection title="Class: Protection of the TSF (FPT)" id="fpt">
 
+	<!--               -->     
+        <!-- FPT_APW_EXT.1 -->
+	<!--               -->     
+        <f-component cc-id="fpt_apw_ext.1" name="Protection of Privileged USer Password" status="sel-based">
+		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/>
+		<f-element>
+			<title>The TSF shall store passwords in non-plaintext form.</title>
+		</f-element>
+		<f-element>
+			<title>The TSF shall prevent the reading of plaintext passwords.</title>
+			<note role="application">
+				The intent of the requirement is that raw password authentication data are not
+				stored in the clear, and that no user or administrator is able to read the plaintext
+				password through “normal” interfaces. An all-powerful administrator of course
+				could directly read memory to capture a password but is trusted not to do so.<h:br/><h:br/>
+				In this version of the PP there are no requirements on the method used to store
+				the passwords in non-plaintext form, but cryptographic methods based on the
+				requirements in FCS_COP are preferred. In future versions of this PP, FCS_COPbased cryptographic methods that conform to the Level 2 Credential Storage
+				requirements from NIST SP 800-63 will be required.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to determine that it details all
+					authentication data that are subject to this requirement, and the method used
+					to obscure the plaintext password data when stored. The evaluator shall
+					ensure that the TSS also details that passwords are stored in such a way that
+					they are unable to be viewed through an interface designed specifically for that
+					purpose, as outlined in the application note.<h:br/><h:br/>
+					There are no AGD assurance activities for this requirement beyond what is
+					necessary to satisfy the requirements in [CEM].
+				</TSS>
+				<Tests>
+					The evaluator shall perform the following test:<h:br/><h:br/>
+					<testlist>
+						<test> 
+							The evaluator shall use forensic tools to search storage media
+							to verify that passwords cannot be found in an unobscured (e.g.,
+							plaintext) form.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>
+	</f-component>
+	     
 	<!--               -->     
         <!-- FPT_FLS.1 -->
 	<!--               -->     
