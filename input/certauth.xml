@@ -3917,7 +3917,65 @@
 	</f-component>
       </subsection>
 		
+<!--                             -->
+<!-- Class: FCO: Communication  -->
+<!--                             -->
+<subsection title="Class: Communication (FCO)" id="fco">
+	    
+    <!--                  -->     
+    <!-- FCO_NRR_EXT.2 -->
+    <!-- Selection-based  -->
+    <!--                  -->    	      
+<f-component name="Certificate-Based Proof of Receipt" cc-id="fco_nrr_ext.2" status="sel-based">
+	<selection-depends req="fia-cmcs-ext-1e2" ids="sel-cert-req-protocol"/>
+	<f-element>
+		<title>
+			The TSF shall provide proof of receipt for 
+			<selectables>
+				<selectable>CMC</selectable>
+				<selectable>EST</selectable>
+			</selectables> by providing signed responses using mechanisms in accordance with 
+			<selectables>
+				<selectable>FIA_CMCS_EXT.1</selectable>
+				<selectable>FIA_ESTS_EXT.1</selectable>.
+			</selectables>
+		</title>
+		<note role="application">
+			Based on what is chosen in the selections, the applicable requirements from Annex
+			B (i.e., FIA_CMCS_EXT.1, FIA_ESTS_EXT.1) must be included.<h:br/><h:br/>
+			This SFR is claimed if “CMC full responses” is selected in FIA_CMCS_EXT.1.2.
+		</note>
+		<aactivity>
+			<TSS>
+				The evaluator shall examine the TSS to ensure it describes the mechanisms
+				used for generating proof of origin for certificate request response.<h:br/><h:br/>
+				If configurable, evaluator shall examine the operational guidance to ensure it
+				defines how to configure the applicable algorithms used for providing proof of
+				origin as defined in FCS_COP.1(2).
+			</TSS>
+			<Tests>
+				The evaluator shall perform the following test for each selection:
+				<testlist>
+					<test>
+						For each supported request message, the evaluator shall
+						generate and submit a properly authenticated request to the TOE and
+						verify the response is signed. The evaluator shall verify the signature
+						on the responses and show that they are signed by the TOE that
+						generated the response.
+					</test>
+				</testlist>
+				<h:i>Equivalency</h:i><h:br/><h:br/>
+				Testing of the TOE may be performed on a subset of the platforms listed in the
+				TOE’s ST. Justification must be provided for those platforms that were excluded
+				from testing.
+			</Tests>
+		</aactivity>
+	</f-element>
+	<audit-event />
+</f-component>
 		
+</subsection>
+	
         <!--                             -->
 	<!-- Class: FDP: User Data Protection  -->
         <!--                             -->
