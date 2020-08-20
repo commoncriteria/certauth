@@ -4742,8 +4742,76 @@
 		</audit-event>
 	</f-component>							
 				
+	<!--               -->     
+        <!-- FIA_PMG_EXT.1 -->
+	<!--               -->     
+        <f-component cc-id="fia_pmg_ext.1" name="Password Management" status="sel-based">
+		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/>
+		<f-element>
+			<title>
+				The TSF shall provide the following password management capabilities for
+				privileged passwords:<h:ul>
+				<h:li>Passwords shall be able to be composed of any combination of upper and
+					lower case letters, numbers, and the following special characters: 
+					<selectables>
+						<selectable>“!”</selectable>
+						<selectable>“@”</selectable>
+						<selectable>“#”</selectable>
+						<selectable>“$”</selectable>
+						<selectable>“%”</selectable>
+						<selectable>“^”</selectable>
+						<selectable>“&”</selectable>
+						<selectable>“*”</selectable>
+						<selectable>“(”</selectable>
+						<selectable>“)”</selectable>
+						<selectable><assignable>other characters</assignable></selectable>
+					</selectables>;</h:li>
+				<h:li>Minimum password length shall be settable by the Administrator, and
+					support passwords of 14 characters or greater.</h:li></h:ul>
+			</title>
+			<note role="application">
+				The ST author selects the special characters that are supported by TOE; they may
+				optionally list additional special characters supported using the assignment.
+				"Privileged passwords" refers to passwords used by privileged users at the local
+				console or over protocols that support passwords, such as SSH and HTTPS.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure it describes how the minimum
+					password is established and the range of values that can be assigned.
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the operational guidance to determine that it
+					provides guidance to security administrators on the composition of strong
+					passwords, and that it provides instructions on setting the minimum password
+					length.
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following test:<h:br/><h:br/>
+					<testlist>
+						<test>
+							The evaluator shall compose passwords that either meet
+							the requirements, or fail to meet the requirements, in some way.
+							For each password, the evaluator shall verify that the TOE supports
+							the password. While the evaluator is not required (nor is it
+							feasible) to test all possible compositions of passwords, the 
+							evaluator shall ensure that all characters, rule characteristics, and
+							a minimum length listed in the requirement are supported, and
+							justify the subset of those characters chosen for testing.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.<h:br/><h:br/>
+				</Tests>
+			</aactivity>
+		</f-element>
+		<audit-event />
+	</f-component>
 
-			
+		
+		
 	<!--               -->     
         <!-- FIA_X509_EXT.1 -->
 	<!--               -->     
