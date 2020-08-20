@@ -1980,8 +1980,63 @@
 		</f-element>
 	    <audit-event/>
           </f-component>
-       </subsection>
+
+	    
+    <!--                  -->     
+    <!-- FCO_NRR_EXT.2 -->
+    <!-- Selection-based  -->
+    <!--                  -->    	      
+<f-component name="Certificate-Based Proof of Receipt" cc-id="fco_nrr_ext.2" status="sel-based">
+	<selection-depends req="fia-cmcs-ext-1e2" ids="sel-cert-req-protocol"/>
+	<f-element id="fco-nrr-ext-2e1">
+		<title>
+			The TSF shall provide proof of receipt for 
+			<selectables>
+				<selectable>CMC</selectable>
+				<selectable>EST</selectable>
+			</selectables> by providing signed responses using mechanisms in accordance with 
+			<selectables>
+				<selectable id="sel-fia-cmcs-ext-1">FIA_CMCS_EXT.1</selectable>
+				<selectable id="sel-fia-ests-ext-1">FIA_ESTS_EXT.1</selectable>.
+			</selectables>
+		</title>
+		<note role="application">
+			Based on what is chosen in the selections, the applicable requirements from Annex
+			B (i.e., FIA_CMCS_EXT.1, FIA_ESTS_EXT.1) must be included.<h:br/><h:br/>
+			This SFR is claimed if “CMC full responses” is selected in FIA_CMCS_EXT.1.2.
+		</note>
+		<aactivity>
+			<TSS>
+				The evaluator shall examine the TSS to ensure it describes the mechanisms
+				used for generating proof of origin for certificate request response.<h:br/><h:br/>
+				If configurable, evaluator shall examine the operational guidance to ensure it
+				defines how to configure the applicable algorithms used for providing proof of
+				origin as defined in FCS_COP.1(2).
+			</TSS>
+			<Tests>
+				The evaluator shall perform the following test for each selection:
+				<testlist>
+					<test>
+						For each supported request message, the evaluator shall
+						generate and submit a properly authenticated request to the TOE and
+						verify the response is signed. The evaluator shall verify the signature
+						on the responses and show that they are signed by the TOE that
+						generated the response.
+					</test>
+				</testlist>
+				<h:i>Equivalency</h:i><h:br/><h:br/>
+				Testing of the TOE may be performed on a subset of the platforms listed in the
+				TOE’s ST. Justification must be provided for those platforms that were excluded
+				from testing.
+			</Tests>
+		</aactivity>
+	</f-element>
+	<audit-event />
+</f-component>
+		
+</subsection>
 	
+	    
 	      
         <!--                             -->
 	<!-- Class: FCS: Cryptographic Support  -->
@@ -3917,65 +3972,7 @@
 	</f-component>
       </subsection>
 		
-<!--                             -->
-<!-- Class: FCO: Communication  -->
-<!--                             -->
-<subsection title="Class: Communication (FCO)" id="fco">
-	    
-    <!--                  -->     
-    <!-- FCO_NRR_EXT.2 -->
-    <!-- Selection-based  -->
-    <!--                  -->    	      
-<f-component name="Certificate-Based Proof of Receipt" cc-id="fco_nrr_ext.2" status="sel-based">
-	<selection-depends req="fia-cmcs-ext-1e2" ids="sel-cert-req-protocol"/>
-	<f-element>
-		<title>
-			The TSF shall provide proof of receipt for 
-			<selectables>
-				<selectable>CMC</selectable>
-				<selectable>EST</selectable>
-			</selectables> by providing signed responses using mechanisms in accordance with 
-			<selectables>
-				<selectable>FIA_CMCS_EXT.1</selectable>
-				<selectable>FIA_ESTS_EXT.1</selectable>.
-			</selectables>
-		</title>
-		<note role="application">
-			Based on what is chosen in the selections, the applicable requirements from Annex
-			B (i.e., FIA_CMCS_EXT.1, FIA_ESTS_EXT.1) must be included.<h:br/><h:br/>
-			This SFR is claimed if “CMC full responses” is selected in FIA_CMCS_EXT.1.2.
-		</note>
-		<aactivity>
-			<TSS>
-				The evaluator shall examine the TSS to ensure it describes the mechanisms
-				used for generating proof of origin for certificate request response.<h:br/><h:br/>
-				If configurable, evaluator shall examine the operational guidance to ensure it
-				defines how to configure the applicable algorithms used for providing proof of
-				origin as defined in FCS_COP.1(2).
-			</TSS>
-			<Tests>
-				The evaluator shall perform the following test for each selection:
-				<testlist>
-					<test>
-						For each supported request message, the evaluator shall
-						generate and submit a properly authenticated request to the TOE and
-						verify the response is signed. The evaluator shall verify the signature
-						on the responses and show that they are signed by the TOE that
-						generated the response.
-					</test>
-				</testlist>
-				<h:i>Equivalency</h:i><h:br/><h:br/>
-				Testing of the TOE may be performed on a subset of the platforms listed in the
-				TOE’s ST. Justification must be provided for those platforms that were excluded
-				from testing.
-			</Tests>
-		</aactivity>
-	</f-element>
-	<audit-event />
-</f-component>
-		
-</subsection>
-	
+
         <!--                             -->
 	<!-- Class: FDP: User Data Protection  -->
         <!--                             -->
@@ -4799,7 +4796,341 @@
 			<audit-event-descr>The reenablement of disabled nonadministrative accounts. </audit-event-descr>
 		</audit-event>
 	</f-component>							
-				
+
+		
+	<!--               -->     
+        <!-- FIA_CMCS_EXT.1 -->
+	<!--               -->     
+        <f-component cc-id="fia_cmcs_ext.1" name="Certificate Management over CMS (CMC) Server" status="sel-based">
+		<selection-depends req="fco-nrr-ext-2e1" ids="sel-fco-cmcs-ext-1"/>
+		<f-element>
+			<title>
+				The TSF shall be able to accept and process CMC full requests and 
+				<selectables>
+					<selectable>simple requests</selectable>
+					<selectable>no other requests</selectable>
+				</selectables>.
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				The TSF shall be able to generate CMC simple responses and 
+				<selectables>
+					<selectable>CMC full responses</selectable>
+					<selectable>no other</selectable>
+				</selectables> that are consistent with the selected certificate profile and
+				which are in accordance with RFC 5272 as updated by RFC 6402, meeting the
+				compliance requirements for CMS server and certification authorities in
+				accordance with RFC 5474 as updated by RFC 6402.
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				The TSF shall require CMC transport over HTTPS for online CMC messages in
+				accordance with RFC 5273 as updated by RFC 6402, where the HTTPS is
+				established in accordance with FCS_HTTPS_EXT.1. For CMC requests containing
+				certificate requests other than initial certificate requests authenticated using
+				shared secrets in AuthenticatedData requests or in the Identity Proof Version 2
+				Control of SignedData requests, the TSF shall require HTTPS with client
+				authentication, shall ensure the authenticating entity is the same as the entity
+				signing the CMC request and any subject indicated in the requested certificate(s)
+				are the same as the authenticating entity, or the authenticating entity is
+				<selectables>
+					<selectable>an authorized RA for the requested subject</selectable>
+					<selectable>an AOR registered for the requested subject</selectable>
+					<selectable>no other entity</selectable>
+				</selectables>.
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				The TSF shall require CMC simple and full messages use cryptographic support in
+				accordance with this profile. At a minimum the TSF shall ensure:<h:br/><h:br/>
+				<h:ul>
+					<h:li>Signature generation and verification for SignedData are performed in
+						accordance with FCS_COP.1(2)</h:li>
+					<h:li>Encryption for EnvelopedData is performed in accordance with FCS_COP.1(1)</h:li>
+					<h:li>PasswordRecipientInfo for EnvelopedData or AuthenticatedData is derived in
+						accordance with FCS_COP.1(5)</h:li>
+					<h:li>hashAlgId in Identity Proof Version 2 control, keyGenAlgorithm in Pop Link
+						Witness Version 2 control, witnessAlgID in Encrypted POP and Decrypted POP
+						controls, hashAlgorithm in Publish Trust Anchors control are in accordance
+						with FCS_COP.1(3)</h:li>
+					<h:li>macAlgId in Identity Proof Version 2 control, macAlgorithm in POP Link
+						Witness Version 2 Control, and the POPAlgID in Encrypted POP and Decrypted
+						POP controls, are in accordance with FCS_COP.1(4)</h:li>
+					<h:li>DHPOP mechanisms shall be as specified in RFC 6955 with cryptographic
+						support in accordance with this Protection Profile</h:li>
+				</h:ul>
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				The TSF shall accept, process and export CMC messages under the control of local
+				privileged user sessions for privileged users with CA Operations Staff, 
+				<selectables>
+					<selectable>RA Staff</selectable>
+					<selectable>no other</selectable>
+				</selectables> role.
+			</title>
+			<note role="application">
+				FIA_CMCS_EXT.1.5 focuses on offline root CAs that do not have direct connection
+				to external IT entities.<h:br/><h:br/>
+				In subsequent versions of the PP, the TSF will be required to meet the Suite B
+				profile for CMC as described in RFC 6403. 
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure that it describes how CMC server
+					support is provided. <h:br/><h:br/>
+					The evaluator shall examine the TSS to determine how initial requests are
+					authenticated when no certificates are available.
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the operational guidance to ensure it contains
+					instructions on how to configure CMC processing to support the TOE’s
+					certificate profiles.<h:br/><h:br/>
+					If the TSS indicates that neither AuthenticatedData or Identity Proof Version 2
+					Control mechanisms using shared secretes are supported, the evaluator shall
+					also examine the operational guidance to ensure that it describes how to
+					authenticate requests for subordinate CA certificates, initial subscriber
+					certificates and, if supported, initial certificates for Registration Authority
+					Officers, when no other certificates are available.
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following tests:<h:br/><h:br/>
+					<h:b>Test Group A. Offline CA Operations:</h:b><h:br/><h:br/>
+					<testlist>
+						<test><h:ul>
+							<h:li>The evaluator shall establish the TSF in an offline mode to provide
+								an operational root CA, (CA-0) according to AGD-PRE.</h:li>
+							<h:li>The evaluator shall use a CMC client to generate and export a CMC
+								full request to obtain CA-0’s certificate. The evaluator shall log into
+								the TSF with CA Operations Staff role to submit the request, and
+								observe that the CA-0’s certificate is returned in the response.</h:li>
+							<h:li>[Conditional on CMC support for shared secrets:] While still logged
+								into the TSF, the evaluator shall establish a username and shared
+								secret to be used to authenticate a subordinate CA (CA-1) for use
+								in Test 2.</h:li>
+							<h:li>The evaluator shall install the CA’s certificate into the CMC client’s
+								trust store for use in subsequent tests.</h:li>
+							</h:ul>
+						</test>
+						<test><h:ul>
+							<h:li>The evaluator shall establish a second instance of the TSF to be a
+								subordinate CA (CA-1) to the root CA established in Test 1.</h:li>
+							<h:li>The evaluator shall log into the CA-1 TSF in the CA Operations Staff
+								role and load the self-signed certificate obtained in Test 1 into the
+								CA-1’s trust store</h:li>
+							<h:li>The evaluator shall generate certificate request(s):
+								<h:ul>
+									<h:li>[Conditional on CMC support shared secrets]: The evaluator
+										shall request the CA-1 TSF to generate a CMC requests for the
+										CA-0 TSF to sign its certificate, using the established username
+										as password from test 1 to authenticate the request using CMC
+										AuthenticatedData or Identity Proof Version 2 Control
+										mechanisms,</h:li>
+									<h:li>[Conditional on CMC support for shared secrets] The evaluator
+										shall generate two CMC request for certificates on the CMC
+										client using the same authentication mechanism(s) as on the 
+										subordinate CA-1 TSF. The first request CMC client shall use the
+										same username established by the CA-0 TSF, but use a
+										modified the shared secret. The second request shall use a
+										modified the username, but use the established shared secret.</h:li>
+									<h:li>[Conditional, if the TSF does not provide CMC support for
+										shared secrets:] The evaluator shall follow operational
+										guidance to generate a certificate request for the CA-1 TSF that
+										can be authenticated by manual processes.</h:li>
+								</h:ul>
+							</h:li>
+							</h:ul>
+						</test>
+						<test><h:ul>
+							<h:li>The evaluator shall sign into the CA-0 TSF in the CA Operations Staff
+								role and submit in turn the requests generated in Test 2.</h:li>
+							<h:li>The evaluator shall observe that the CA-0 TSF generates a CMC
+								response containing CA-1’s signed certificate for the correctly
+								authenticated request, and that the root CA certificate repository
+								and audit trail indicates successful generation.</h:li>
+							<h:li>[Conditional on CMC support for shared secrets:] For each request
+								from the CMC client including modified authentication data, the
+								evaluator shall observe that the CA-0 TSF either generates a full
+								CMC request indicating errors or does not return a request, and
+								that the CA-0 TSF’s audit trail indicates the errors.</h:li>
+							</h:ul>
+						</test>
+						<test>
+							The evaluator shall sign into the subordinate CA in the CA
+							Operations Staff role, import the simple CMC response and complete
+							the initialization of the CA-1 TSF in accordance with OGD-PRE.
+						</test>
+					</testlist>
+					<h:b>Test Group B. Online subordinate CA (uses root and subordinate CA established
+						in offline tests):</h:b>
+					<testlist>
+						<test><h:ul>
+							<h:li>[Conditional on CMC support for shared secrets:] The evaluator
+								shall log onto the CA-1 TSF in the CA Operations Staff role and
+								establish a username and shared secret for entities represented by
+								the CMC client established above. A different username and shared
+								secret should be used for at least as many entities are there are
+								request types and POP controls (but at least two).</h:li>
+							<h:li>For each request type indicated in the selection for
+								FIA_CMCS_EXT.1.1 and for each POP control supported, the
+								evaluator shall use the CMC client to establish a CMC request, using
+								a different identifier (subject name) for each request. </h:li>
+							<h:li>[Conditional on CMC support for shared secrets:] The evaluator
+								shall log onto the subordinate CA in the CA Operations Staff role
+								and establish a username and shared secret for entities
+								represented by the CMC client established above. A different
+								username and shared secret should be used for at least as many
+								entities are there are request types and POP controls (but at least
+								two).</h:li>
+							<h:li>For each request type indicated in the selection for
+								FIA_CMCS_EXT.1.1 and for each POP control supported, the 
+								evaluator shall use the client to establish a CMC request, using a
+								different identifier (subject name) for each request.
+								<h:ul>
+									<h:li>[Conditional on CMC support for shared secrets:] The evaluator
+										shall authenticate the requests using the established
+										username/shared secret combinations.</h:li>
+									<h:li>[Conditional on TSF not providing CMC support for shared
+										secrets:] The evaluator shall generate certificate requests that
+										can be authenticated via mechanisms described in the OGD.</h:li>
+								</h:ul></h:li>
+							<h:li>The evaluator shall copy each request, and create new requests
+								with modified POP values.</h:li>
+							<h:li>[Conditional on CMC support for shared secrets:] The evaluator
+								shall establish an HTTPS session without client authentication
+								between the CMC client and the CA-1 TSF, and submit in turn, each
+								of the modified requests, observing that the CA-1 TSF returns full
+								CMC responses indicating POP errors, or does not return responses
+								and the CA-1 TSF’s logs indicate the errors.</h:li>
+							<h:li>The evaluator shall then submit in turn, each of the unmodified
+								requests under the HTTPS session, provide any required approvals,
+								and observe that the CA-1 TSF returns CMC responses containing
+								signed end-entity certificates, each of which properly chain to the
+								root CA-0 and that the CA-1 TSF’s repository and audit trail indicate
+								successful issuance.</h:li>
+							</h:ul>
+						</test>
+						<test><h:ul>
+							<h:li>The evaluator shall select one of the client’s certificates and use
+								the CMC client to generate a CMC request for a certificate update,
+								authenticated with the selected certificate.</h:li>
+							<h:li>The evaluator shall submit the request under the existing, nonauthenticated HTTPS session, and observe that either the CA-1 TSF
+								responds with a full CMC response indicating that the transport is
+								invalid or that no response is provided and the CA-1 TSF’s audit trail
+								indicates the error.</h:li>
+							</h:ul>
+						</test>
+						<test>
+							The evaluator shall establish a new HTTPS session between the
+							CMC client and the CA-1 TSF using client authentication with the
+							selected client certificate (and associated private key) and resubmit
+							the request selected in Test 2, observing that the CA-1 TSF returns a
+							simple CMC response containing a valid certificate for the client. The
+							HTTPS session is retained for Test 4.
+						</test>
+						<test>
+							The evaluator shall select a second client certificate, with a
+							different subject name from that used to establish the HTTPS session,
+							and shall generate a CMC request to update that certificate. The
+							evaluator shall observe that the CA-1 TSF returns a full CMC response
+							indicating CMC transport failure or does not respond, and that the CA1 audit trail indicates the error.
+						</test>
+					</testlist>
+					<h:b>Test Group C. Support for Certificate Profiles</h:b>
+					<testlist>
+						<test>
+							The evaluator shall configure the CA-1 TSF to use a certificate
+							profile requiring extensions not used in Test Groups A or B.
+						</test>
+						<test>
+							The evaluator shall select a valid certificate and use the CMC
+							client to generate a CMC request to update the certificate that is
+							otherwise valid, but not populating the required extension, establish
+							an HTTPS session between the client and the CA-1 TSF with client
+							authentication using the selected client certificate and associated
+							private key, and submit the CMC request. The evaluator shall observe
+							that the CA-1 TSF responds in one of the following ways:
+							<h:ul>
+								<h:li>returns a full CMC response rejecting the update indicating a
+									profile error</h:li>
+								<h:li>returns a simple CMC response containing a certificate
+									meeting the current profile (implicitly rejecting the request
+									without the required extension), or </h:li>
+								<h:li>does not return a response, and the CA-1 TSF’s audit trail
+									indicates the error,</h:li>
+							</h:ul>
+						</test>
+						<test>
+							The evaluator shall generate another otherwise valid CMC
+							request for the selected certificate, this time populating the extension,
+							but with an invalid value. The evaluator shall submit the request via
+							the proper HTTPS transport and observe that the that the CA-1 TSF
+							responds in one of the following ways:
+							<h:ul>
+								<h:li>returns a full CMC response rejecting the update indicating a
+									profile error</h:li>
+								<h:li>returns a simple CMC response containing a certificate
+									meeting the current profile (implicitly rejecting the request
+									without the required extension), or </h:li>
+								<h:li>does not return a response, and the CA-1 TSF’s audit trail
+									indicates the error,</h:li>
+							</h:ul>
+						</test>
+						<test>
+							The evaluator shall generate and submit a valid CMC request
+							including the extension and observe that the subordinate CA returns a
+							simple CMC response with the updated certificate and that the
+							subordinate CA certificate repository and audit trail indicate the
+							successful issuance.
+						</test>
+					</testlist>
+					<h:b>Test Group D. Additional Testing of Controls</h:b><h:br/><h:br/>
+					<testlist>
+						<test>
+							For each required control, the evaluator shall generate and
+							submit an otherwise valid CMC request including a certificate update
+							where the control is missing, or submitted with an invalid value, and
+							observe that the subordinate CA returns a full CMC with the error
+							indicated or does not respond, and that the subordinate CA audit trail
+							indicates the error.
+						</test>
+					</testlist>
+					<h:b>Test Group E. Additional Cryptographic Testing</h:b><h:br/><h:br/>
+					<testlist>
+						<test>
+							For each item in FIA_CMCS_EXT.1.5, the evaluator shall
+							generate and submit an otherwise valid CMC request including a
+							certificate update where the item uses an invalid cryptographic
+							mechanism, and observe that the subordinate CA returns a full CMC
+							indicating the failure or does not respond, and that the subordinate CA
+							audit trail indicates the error.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing. 
+				</Tests>
+			</aactivity>
+		</f-element>
+		<audit-event>
+			<audit-event-descr>CMC requests (generated or received) containing certificate requests or revocation
+				requests.</audit-event-descr>
+			<audit-event-info>Identifiers for all entities authenticating the request, including the
+				entity providing client authentication for the CMC transport (if any).</audit-event-info>
+			<audit-event-info>The submitted request</audit-event-info>
+		</audit-event>
+		<audit-event>
+			<audit-event-descr>CMC responses issued.</audit-event-descr>
+			<audit-event-info>Any signed response.</audit-event-info>
+		</audit-event>
+	</f-component>		
+		
+		
 	<!--               -->     
         <!-- FIA_PMG_EXT.1 -->
 	<!--               -->     
