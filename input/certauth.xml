@@ -4760,7 +4760,7 @@
 						<selectable>“$”</selectable>
 						<selectable>“%”</selectable>
 						<selectable>“^”</selectable>
-						<selectable>“&”</selectable>
+						<selectable>“&amp;”</selectable>
 						<selectable>“*”</selectable>
 						<selectable>“(”</selectable>
 						<selectable>“)”</selectable>
