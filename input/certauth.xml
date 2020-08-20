@@ -3441,7 +3441,113 @@
     </f-component>
 				
 			
-	      
+    <!--                  -->     
+    <!-- FCS_COP.1(3) -->
+    <!-- Selection-based  -->
+    <!--                  -->    	      
+<f-component name="Cryptographic Operation (Cryptographic Hashing)" cc-id="fcs_cop.1" iteration="3" status="sel-based">
+	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-cop-1i3"/>
+	<f-element>
+		<title>
+			<refinement>Refinement: </refinement>The TSF shall <refinement>
+			<selectables>
+				<selectable>perform</selectable>
+				<selectable>invoke interfaces in the operational environment to perform</selectable>
+			</selectables></refinement> [<h:i>cryptographic hashing services</h:i>] in
+			accordance with a specified cryptographic algorithm 
+			<refinement><selectables>
+				<selectable>SHA-1</selectable>
+				<selectable>SHA-256</selectable>
+				<selectable>SHA-384</selectable>
+				<selectable>SHA-512</selectable>
+			</selectables> and message digest sizes 
+			<selectables>
+				<selectable>160</selectable>
+				<selectable>256</selectable>
+				<selectable>384</selectable>
+				<selectable>512</selectable>
+			</selectables> bits</refinement>
+			that meet the following: [<h:i>FIPS Pub 180-4, “Secure Hash Standard”</h:i>].
+		</title>
+		<note role="application">
+			In future versions of this document, SHA-1 may be removed as an option. SHA-1
+			for generating digital signatures was disallowed after December 2013, and SHA1 for verification of digital signatures is strongly discouraged as there may be risk
+			in accepting these signatures.<h:br/><h:br/>
+			The selection of the hashing algorithm must correspond to the selection of the
+			message digest size; for example, if SHA-1 is chosen, then the only valid message
+			digest size selection would be 160 bits.<h:br/><h:br/>
+			The TSF hashing functions can be implemented in one of two modes. The first
+			mode is the byte-oriented mode. In this mode the TSF only hashes messages that
+			are an integral number of bytes in length; i.e., the length (in bits) of the message
+			to be hashed is divisible by 8. The second mode is the bit-oriented mode. In this
+			mode the TSF hashes messages of arbitrary length. As there are different tests for
+			each mode, an indication is given in the following sections for the bit-oriented vs.
+			the byte-oriented test modes.<h:br/><h:br/>
+		</note>
+		<aactivity>
+			<TSS>
+				Regardless of whether the requirement is met by the TSF or TOE platform, the
+				evaluator shall examine the TSS to ensure that all hash functions use the
+				approved algorithms, modes and key sizes.
+			</TSS>
+			<Guidance>
+				The evaluator shall examine the AGD guidance to ensure it documents how to
+				configure the TOE or the TOE in conjunction with the Operational Environment
+				for the required hash sizes. The AGD guidance shall also include instructions
+				for disabling deprecated algorithms.
+			</Guidance>
+			<Tests>
+				If this requirement is met by the TOE, the evaluator shall perform all of the
+				following tests for each hash algorithm implemented by the TSF and used to
+				satisfy the requirements of this PP.<h:br/><h:br/>
+				<h:b>Short Messages Test -- Bit-Oriented Mode</h:b><h:br/><h:br/>
+				The evaluator shall devise an input set consisting of m+1 messages, where m is
+				the block length of the hash algorithm. The length of the messages range
+				sequentially from 0 to m bits. The message text shall be pseudorandomly
+				generated. The evaluator shall compute the message digest for each of the
+				messages and ensure that the correct result is produced when the messages
+				are provided to the TSF.<h:br/><h:br/>
+				<h:b>Short Messages Test -- Byte-Oriented Mode</h:b><h:br/><h:br/>
+				The evaluator shall devise an input set consisting of m/8+1 messages, where m
+				is the block length of the hash algorithm. The length of the messages range
+				sequentially from 0 to m/8 bytes, with each message being an integral number
+				of bytes. The message text shall be pseudorandomly generated. The evaluator
+				shall compute the message digest for each of the messages and ensure that
+				the correct result is produced when the messages are provided to the TSF.<h:br/><h:br/>
+				<h:b>Selected Long Messages Test -- Bit-Oriented Mode</h:b><h:br/><h:br/>
+				The evaluator shall devise an input set consisting of m messages, where m is
+				the block length of the hash algorithm. The length of the ith message is 512 +
+				99*i, where 1 ≤ i ≤ m. The message text shall be pseudorandomly generated.
+				The evaluator shall compute the message digest for each of the messages and
+				ensure that the correct result is produced when the messages are provided to
+				the TSF.<h:br/><h:br/>
+				<h:b>Selected Long Messages Test -- Byte-Oriented Mode</h:b><h:br/><h:br/>
+				The evaluator shall devise an input set consisting of m/8 messages, where m is
+				the block length of the hash algorithm. The length of the ith message is 512 +
+				8*99*i, where 1 ≤ i ≤ m/8. The message text shall be pseudorandomly
+				generated. The evaluator shall compute the message digest for each of the
+				messages and ensure that the correct result is produced when the messages
+				are provided to the TSF.<h:br/><h:br/>
+				<h:b>Pseudorandomly Generated Messages Test</h:b><h:br/><h:br/>
+				This test is for byte-oriented implementations only. The evaluator shall
+				randomly generate a seed that is n bits long, where n is the length of
+				the message digest produced by the hash function to be tested. The
+				evaluator shall then formulate a set of 100 messages and associated
+				digests by following the algorithm provided in Figure 1 of [SHAVS]. The
+				evaluator shall then ensure that the correct result is produced when
+				the messages are provided to the TSF.<h:br/><h:br/>
+				<h:i>Equivalency</h:i><h:br/><h:br/>
+				Testing of the TOE may be performed on a subset of the platforms listed in the
+				TOE’s ST. Justification must be provided for those platforms that were excluded
+				from testing.
+			</Tests>
+		</aactivity>
+	</f-element>
+	<audit-event/>
+    </f-component>
+			
+
+	
     <!--                  -->     
     <!-- FCS_COP.1(5) -->
     <!-- Selection-based  -->
@@ -3586,7 +3692,7 @@
 		
 		
         <!--                             -->
-	<!-- Class: FCP: User Data Protection  -->
+	<!-- Class: FDP: User Data Protection  -->
         <!--                             -->
       <subsection title="Class: User Data Protection (FDP)" id="fdp">
 
