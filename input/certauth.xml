@@ -4797,6 +4797,118 @@
 		</audit-event>
 	</f-component>							
 
+	<!--               -->     
+        <!-- FIA_CMCC_EXT.1 -->
+	<!--               -->     
+        <f-component cc-id="fia_cmcc_ext.1" name="Certificate Management over CMS (CMC) Client" status="sel-based">
+		<selection-depends req="fco-nrr-ext-2e1" ids="sel-fco-cmcc-ext-1"/>
+		<f-element>
+			<title>
+				The TSF shall be able to generate CMC full requests and 
+				<selectables>
+					<selectable>simple requests</selectable>
+					<selectable>no other requests</selectable>
+				</selectables> and to accept and process CMC simple and CMC full
+				responses in accordance with RFC 5272 as updated by RFC 6402, meeting the
+				compliance requirements for a client and end-entity in accordance with RFC 5474
+				as updated by RFC 6402. 
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				The TSF shall export CMC requests and import CMC responses under the control
+				of a privileged user under the CA Operations Staff role.
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				The TSF shall require CMC transport over HTTPS for online CMC messages in
+				accordance with RFC 5273 as updated by RFC 6402, where the HTTPS is
+				established in accordance with FCS_HTTPS_EXT.1. For CMC requests containing
+				certificate requests other than initial certificate requests authenticated using
+				shared secrets in AuthenticatedData requests or in the Identity Proof Version 2
+				Control of SignedData requests, the TSF shall require HTTPS with client
+				authentication.
+			</title>
+			<note role="application">
+				A CA implemented by the TOE that is not a root CA will need to interface with a
+				root or intermediate CA. 
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure that it describes how CMC client
+					support is provided. 
+				</TSS>
+				<Guidance>
+					If the TSS indicates that neither AuthenticatedData or Identity Proof Version 2
+					Control mechanisms using shared secretes are supported, the evaluator shall
+					also examine the operational guidance to ensure that it describes how to
+					authenticate requests for subordinate CA certificates, initial subscriber
+					certificates and, if supported, initial certificates for Registration Authority
+					Officers, when no other certificates are available.
+				</Guidance>
+				<Tests>
+					Testing for FIA_CMCC_EXT.1 is performed in conjunction with tests in
+					FIA_CMCS_EXT.1, performing additional test activities as follows:<h:br/><h:br/>
+					While completing test 2 for FIA_CMCS_EXT.1 for Test Group A:<h:br/><h:br/>
+					<h:ul>
+						<h:li>Test 2:
+						<h:ul>
+							<h:li>The evaluator shall review the CA-1 TSF’s trust store and observe
+								that the offline CA-0 certificate is trusted.</h:li>
+							<h:li>The evaluator shall log onto the CA-1 TSF using a privileged user
+								without CA Operations Staff privilege (e.g., with administrator
+								privileges), and attempt to export the request, observing that the
+								attempt fails.</h:li>
+							<h:li>The evaluator shall examine the certificate request(s) generated on
+								the CA-1 TSF are compliant with with RFC 5272 as updated by RFC
+								6402 and RFC 5474 as updated by RFC 6402.</h:li>
+						</h:ul>
+						</h:li>
+					</h:ul>
+					After completing tests in Test Group B the evaluator shall perform the
+					following:<h:br/><h:br/>
+					<h:ul>
+						<h:li>Test 5:
+							<h:ul>
+								<h:li>The evaluator shall establish a third instance of the TSF
+									implementing an online CA (CA-2) subordinate to the online CA-1
+									established for Test Group B in FIA_CMCC_EXT.1. </h:li>
+								<h:li>For one of the request types indicated in the selection for
+									FIA_CMCC_EXT.1.1 and one of the POP control supported, the
+									evaluator shall log into the CA-2 TSF in the CA Operations Staff role
+									and cause CA-2 to generate CMC request.</h:li>
+								<h:li>The evaluator shall cause the CA-2 CMC request to be
+									authenticated (using any available mechanism) to CA-1, and install
+									the certificate for the CA using CA-1’s CMC response.</h:li>
+								<h:li>The evaluator shall cause the CA-2 TSF to generate a valid
+									certificate update request.</h:li>
+								<h:li>The evaluator shall send the update request to the CA-1 TSF via
+									HTTPS.</h:li>
+								<h:li>The evaluator shall observe that the CA-2 TSF receives and
+									processes the response from CA-1 and that the updated CA-2
+									certificate is available for use.</h:li>
+							</h:ul>
+						</h:li>
+					</h:ul>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing. 
+				</Tests>
+			</aactivity>
+		</f-element>
+		<audit-event>
+			<audit-event-descr>CMC requests (generated or received) containing certificate requests or revocation requests.</audit-event-descr>
+			<audit-event-info>Identifiers for all entities authenticating the request, including the entity providing client authentication for the
+				CMC transport (if any).</audit-event-info>
+			<audit-event-info>The submitted request</audit-event-info>
+		</audit-event>
+		<audit-event>
+			<audit-event-descr>CMC responses issued.</audit-event-descr>
+			<audit-event-info>Any signed response.</audit-event-info>
+		</audit-event>
+	</f-component>
 		
 	<!--               -->     
         <!-- FIA_CMCS_EXT.1 -->
