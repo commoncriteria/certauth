@@ -4923,11 +4923,11 @@
 				</selectables>.
 			</title>
 		</f-element>
-		<f-element>
+		<f-element id="fia-cmcs-ext-1e2">
 			<title>
 				The TSF shall be able to generate CMC simple responses and 
 				<selectables>
-					<selectable>CMC full responses</selectable>
+					<selectable id="sel-cert-req-protocol">CMC full responses</selectable>
 					<selectable>no other</selectable>
 				</selectables> that are consistent with the selected certificate profile and
 				which are in accordance with RFC 5272 as updated by RFC 6402, meeting the
@@ -5241,7 +5241,139 @@
 		</audit-event>
 	</f-component>		
 		
-		
+	<!--               -->     
+    <!-- FIA_ESTS_EXT.1 -->
+	<!--               -->     
+    <f-component cc-id="fia_ests_ext.1" name="Enrollment over Secure Transport (EST) Server" status="sel-based">
+		<selection-depends req="fco-nrr-ext-2e1" ids="sel-fco-ests-ext-1"/>
+		<f-element>
+			<title>
+				The TSF shall use the Enrollment over Secure Transport (EST) protocol as specified
+				in RFC 7030 to receive, process, and respond to certificate simple enrollment
+				requests from authorized clients. 
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				The TSF shall authenticate EST clients for initial enrollment and for supplemental
+				authentication via 
+				<selectables>
+					<selectable>HTTP basic authentication in accordance with RFC7030 section 3.2.3;</selectable>
+					<selectable>HTTP digest authentication using a cryptographic hash algorithm in
+						accordance with FCS_COP.1(3) and RFC 7030 section 3.2.3;</selectable>
+					<selectable>TLS certificate-based mutual authentication in accordance with
+						RFC 7030 section 3.3.2 and FCS_TLSS_EXT.1</selectable>
+				</selectables>.
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				The TSF shall authorize EST clients based on [selection: the authenticated client
+				certificate is issued by the same issuer that asserts id-kp-cmcRA in its extended
+				key usage extension as specified by RFC 7030 Section 3.7, <assignable>policy used
+				by the TOE to determine client authorization in accordance with RFC 7030 section
+				3.7</assignable>.
+			</title>
+			<note role="application">
+				Enrollment over Secure Transport (EST) uses the simple Certificate Request
+				Message as specified in RFC 7030. EST also uses HTTPS as specified in
+				FCS_HTTPS_EXT.1 to establish a secure connection with an EST client.<h:br/><h:br/>
+				If this requirement is included in the ST, the ST author includes FCS_TLSS_EXT.1.<h:br/><h:br/>
+				For FIA_ESTS_EXT.1.3, the ST author selects the method used to authenticate
+				clients for initial enrollment, or in cases where supplemental authentication is
+				required. If the second item is chosen in the selection, the ST author includes
+				FCS_COP.1(3) in the ST.<h:br/><h:br/>
+				For FIA_ESTS_EXT.1.4, the ST author should specify how the TOE determines a
+				client is authorized if the request does not have the id-kp-cmcRA EKU included in
+				its certificate. The assignment requires that this method be compliant with the
+				requirements in RFC 7030, section 3.7.<h:br/><h:br/>
+				If only the third item is chosen in the selection for FIA_ESTS_EXT.1.3, or if the first
+				item is chosen in the selection for FIA_ESTS_EXT.1.4, then support of an RA or AOR
+				is required for initial authentication and SFR selections associated to the support
+				for these optional roles must be claimed.	
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure it describes the implementation
+					of this protocol. If the description indicates the use or RA or AOR for initial
+					issuance or authorization of certificates, the evaluator shall examine the TSS to
+					ensure that these roles are supported.
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the operational guidance to ensure it contains
+					instructions on configuring the TOE so that EST conforms to the description in
+					the TSS. 
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following tests:<h:br/><h:br/>
+					<testlist>
+						<test>
+							The evaluator shall use an EST client to request certificate
+							enrollment of an authorized subject to obtain a new certificate
+							from the TOE using the simple enrolment method described in RFC
+							7030 Section 4.2, authenticating the request using an existing
+							certificate and corresponding private key as described by RFC 7030
+							Section 3.3.2. The evaluator shall confirm that the TOE issues a
+							certificate and returns it to the client.	
+						</test>
+						<test>
+							The evaluator shall use an EST client to request certificate
+							enrollment of an authorized subject to obtain a new certificate
+							from the TOE using the simple enrolment method described in RFC
+							7030 Section 4.2, authenticating the request using an existing
+							certificate and corresponding private key as described by RFC 7030
+							Section 3.3.2. The evaluator shall confirm that the TOE issues a
+							certificate and returns it to the client.
+						</test>
+						<test>
+							If “a certificate issued by the same issuer that asserts id-kpcmcRA in its extended key usage extension” is selected in
+							FIA_ESTS_EXT.1.4, the evaluator shall use an EST client to request
+							certificate enrollment of a subject not known to the TOE to be
+							authorized, to request an initial certificate from the TOE using the
+							simple enrollment method described in RFC 7030 Section 4.2,
+							authenticating the request using an RA’s certificate issued by the
+							TOE’s Certification Authority functionality that asserts id-kpcmcRA in its extended key usage extension. The evaluator shall
+							confirm that the TOE issues a certificate and returns it to the client.
+						</test>
+						<test>
+							If “a certificate issued by the same issuer that asserts id-kpcmcRA in its extended key usage extension” is selected in
+							FIA_ESTS_EXT.1.4, the evaluator shall use an EST client to request
+							certificate enrollment of a subject not known to the TOE to be
+							authorized, to request an initial certificate from the TOE using the
+							simple enrollment method described in RFC 7030 Section 4.2,
+							authenticating the request using a certificate issued by the TOE’s
+							Certification Authority functionality that does not assert id-kpcmcRA in its extended key usage extension and which is not
+							associated with RA or AOR privileges by the CA. The evaluator shall
+							confirm that the TOE does not issue a certificate.
+						</test>
+						<test>
+							The evaluator shall modify the EST client or setup a man-inthe-middle tool between the EST client and TOE to perform the
+							and modify a valid certificate request by modifying at least one byte in
+							the certificationRequestInfo field of the certificate request message and verify that the
+							TOE rejects the request.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+						Testing of the TOE may be performed on a subset of the platforms listed in the
+						TOE’s ST. Justification must be provided for those platforms that were excluded
+						from testing.<h:br/><h:br/>
+				</Tests>
+			</aactivity>
+		</f-element>
+		<audit-event>
+			<audit-event-descr>EST requests (generated or received) containing certificate
+				requests or revocation requests.</audit-event-descr>
+			<audit-event-info>Identifiers for all entities authenticating the request, including the
+				entity providing client authentication for the EST transport (if any).</audit-event-info>
+			<audit-event-info>The submitted request.</audit-event-info>
+		</audit-event>
+		<audit-event>
+			<audit-event-descr>EST responses issued.</audit-event-descr>
+			<audit-event-info>Any signed response.</audit-event-info>
+		</audit-event>
+	</f-component>
+
+
 	<!--               -->     
         <!-- FIA_PMG_EXT.1 -->
 	<!--               -->     
