@@ -765,12 +765,11 @@
         </SO>
         <SO name="O.TSF_SELF_TEST">
           <description>The TOE will provide integrity protection to detect modifications to firmware, software, and archived
-		data.
+		data. If this SFR is not claimed by the TOE, this functionality is expected to be satisfied by
+			the environmental objective OE.TRUSTED_PLATFORM.
 		</description>
           <addressed-by>
               FPT_TST_EXT.1 (optional), FPT_TST_EXT.2 (optional)
-		<note role="application">If this SFR is not claimed by the TOE, this functionality is expected to be satisfied by
-			the environmental objective OE.TRUSTED_PLATFORM.</note>
 	  </addressed-by>
           <rationale>Rationale for a big chunk</rationale>
         </SO>
@@ -865,7 +864,8 @@
       </section>
   </chapter>
 
-  <chapter title="Security Requirements" id="req">The Security Functional Requirements (SFRs) included in this section are derived
+  <chapter title="Security Requirements" id="req">
+      The Security Functional Requirements (SFRs) included in this section are derived
 	  from Part 2 of the <h:i>Common Criteria for Information Technology Security Evaluation, Version 3.1, Revision 4</h:i>, with
 	  additional extended functional components.<h:br/><h:br/>
 	  The CC defines operations on Security Functional Requirements: assignments, selections, assignments
@@ -889,7 +889,7 @@
         	<h:b>Extended SFRs</h:b>  are identified by having a label “_EXT” appended to the SFR name. </h:li>
     		</h:ul>
 
-    <section title="TOE Security Functional Requirements" id="SFRs">
+    <section title="Security Functional Requirements" id="SFRs">
 	    The Security Functional Requirements (SFRs) included in this section are derived from Part 2 of the
 	Common Criteria for Information Technology Security Evaluation, Version 3.1, Revision 4, with
 	additional extended functional components. The following table lists the SFRs that are defined in this
@@ -1344,16 +1344,15 @@
 				selected.
 			</note>
 			<aactivity>
-				<note>
-					The following activities apply regardless of the selection made in the first
-					selection in the SFR. The test activities can be conducted in conjunction with
-					those for FDP_CER_EXT.1 and FAU_GCR_EXT.1.
-				</note>
 				<Guidance>
+					The following activities apply regardless of the selection made in the first
+					selection in the SFR. <h:br/><h:br/>
 					The evaluator shall examine the operational guidance to ensure it contains
 					instructions for searching the specified information.
 				</Guidance>
 				<Tests>
+					The test activities can be conducted in conjunction with
+					those for FDP_CER_EXT.1 and FAU_GCR_EXT.1.<h:br/><h:br/>
 					The evaluator shall generate a sufficient number and variety of certificates to
 					populate the repository certificates having at least two values for each of the
 					search fields selected in this SFR. The evaluator shall then, following the
@@ -1997,8 +1996,8 @@
 			</selectables> by providing signed responses using mechanisms in accordance with 
 			<selectables>
 				<selectable id="sel-fia-cmcs-ext-1">FIA_CMCS_EXT.1</selectable>
-				<selectable id="sel-fia-ests-ext-1">FIA_ESTS_EXT.1</selectable>.
-			</selectables>
+				<selectable id="sel-fia-ests-ext-1">FIA_ESTS_EXT.1</selectable>
+			</selectables>.
 		</title>
 		<note role="application">
 			Based on what is chosen in the selections, the applicable requirements from Annex
@@ -3915,7 +3914,7 @@
 	<!--               -->     
         <!-- FCS_STG_EXT.1 -->
 	<!--               -->           
-        <f-component name="Cryptographic Key Storage" cc-id="fcs_stg_ext">
+        <f-component name="Cryptographic Key Storage" cc-id="fcs_stg_ext.1">
             <f-element>
               <title>Persistent private and secret keys shall be stored within the
 		<selectables>
@@ -3961,11 +3960,11 @@
 		      <Tests>
 			There are no ATE assurance activities for this requirement beyond what is
 			necessary to satisfy the requirements in [CEM]. 
-		      </Tests>
 		      <h:i>Equivalency</h:i><h:br/><h:br/>
 		      	Testing of the TOE may be performed on a subset of the platforms listed in the
 			TOE’s ST. Justification must be provided for those platforms that were excluded
 			from testing.
+		      </Tests>
 	      </aactivity>
 	    </f-element>
 	<audit-event/>
@@ -6763,7 +6762,7 @@
 				included in the ST and OE.KEY_ARCHIVAL is included in the ST.
 			</note>
 			<aactivity>
-				<note>
+				<TSS>
 					If the TSF implements a key sharing mechanism, this SFR is satisfied through
 					the referenced SFRs in Appendices B.3 and B.8 of the PP. FCS_CKM_EXT.1(3)
 					specifies how the key shares generated in accordance with FCS_CKM_EXT.1(4)
@@ -6791,7 +6790,7 @@
 					procedures. The evaluator shall also examine the AGD guidance to ensure it
 					contains instructions for configuring the OE to restrict access to the CA signing
 					key and all other selected data and keys.
-				</note>
+				</TSS>
 			</aactivity>
 		</f-element>
 		<audit-event/>
@@ -7161,7 +7160,7 @@
 				session after a <assignable><refinement>admnistrator-configurable</refinement> time interval 
 				of session activity</assignable>.
 			</title>
-			<note role="assignable">
+			<note role="application">
 				This requirement is included if the TSF is implementing the mechanism used to
 				terminate remote sessions after a defined time period. If this requirement is not
 				included in the ST, then OE.SESSION_PROTECTION_REMOTE will be included in the
