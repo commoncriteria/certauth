@@ -908,8 +908,12 @@
 	     a PP requirement since it is operational and not really a product feature.  -->
 	    
       <subsection title="Auditable Events for Mandatory SFRs" id="ss-audit-events">
-	<audit-table table="mandatory"/>
-      </subsection>
+           <audit-table table="mandatory">
+ 	     <h:br/><h:b><ctr ctr-type="Table" id="atref-mandatory-ss">: Auditable Events for Mandatory SFRs</ctr></h:b>
+        </audit-table>
+
+	    
+	    </subsection>
 	      
         <!--                             -->
 	<!-- Class: FAU: Security Audit  -->
@@ -1056,7 +1060,14 @@
                                 <h:li>All auditable events for the <refinement>not specified</refinement> level of audit; and </h:li>
                                 <h:li><refinement>All administrative actions invoked through the TSF interface</refinement>;</h:li>
                                 <h:li><refinement>Specifically defined auditable events listed in Table 4 through Table 6</refinement></h:li>
-                            </h:ol>
+                                <h:li><refinement>Specifically defined auditable events listed in <ctr-ref ref-id="atref-mandatory-ss"/></refinement></h:li>
+                                <h:li><refinement>Specifically defined auditable events listed in <ctr-ref ref-id="atref-mandatory-faugen"/></refinement></h:li>
+                                <h:li><refinement>Specifically defined auditable events listed in <ctr-ref ref-id="atref-optional"/></refinement></h:li>
+                                <h:li><refinement>Specifically defined auditable events listed in <ctr-ref ref-id="atref-objective"/></refinement></h:li>
+                                <h:li><refinement>Specifically defined auditable events listed in <ctr-ref ref-id="atref-sel-based"/></refinement></h:li>
+				<h:li><refinement>Specifically defined auditable events listed in <ctr-ref ref-id="atref-impl-dep"/></refinement></h:li>
+
+			    </h:ol>
              </title>
 	     <note role="application">
 		The ST author will include a consolidated table of auditable events for all
@@ -1177,9 +1188,9 @@
                   </aactivity>
                 </f-element>
 				<audit-event />
-				<audit-table table="mandatory">
-					<h:b>Table 1: Auditable events for Mandatory SFRs:</h:b><h:br/>
-				</audit-table>
+		           <audit-table table="mandatory">
+		  	     <h:br/><h:b><ctr ctr-type="Table" id="atref-mandatory-faugen">: Auditable Events for Mandatory SFRs</ctr></h:b>
+	   		</audit-table>
              </f-component>
 	
 	<!--               -->     
