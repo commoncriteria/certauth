@@ -901,7 +901,7 @@
 	 <!--               -->     
  	 <!-- FAU_ADP_EXT.1 -->
 	 <!--               -->
-         <f-component cc-id="fau_adp_ext.1" name="Audit Dependencies">
+         <f-component cc-id="fau_adp_ext.1" name="Audit Dependencies" status="mandatory">
           <f-element>
             <title> The TSF shall implement audit functionality and 
 		    <selectables>
@@ -1822,7 +1822,7 @@
 	<!--               -->     
         <!-- FCO_NRO_EXT.2 -->
 	<!--               -->     
-	<f-component cc-id="fco_nro_ext.2" name="Certificate-Based Proof of Origin">
+	<f-component cc-id="fco_nro_ext.2" name="Certificate-Based Proof of Origin" status="mandatory">
 		<f-element>
                	<title>The TSF shall provide proof of origin for certificates it issues in accordance with
 			the digital signature requirements using a mechanism in accordance with RFC
@@ -2030,7 +2030,7 @@
 	<!--               -->     
     <!-- FCS_CDP_EXT.1 -->
 	<!--               -->     
-        <f-component cc-id="fcs_cdp_ext.1" name="Cryptographic Dependencies">
+        <f-component cc-id="fcs_cdp_ext.1" name="Cryptographic Dependencies" status="mandatory">
           <f-element id="fcs-cdp-ext-1e1">
             <title> The TSF shall 
 		    <selectables>
@@ -3873,7 +3873,7 @@
 	<!--               -->     
         <!-- FCS_STG_EXT.1 -->
 	<!--               -->           
-        <f-component name="Cryptographic Key Storage" cc-id="fcs_stg_ext.1">
+        <f-component name="Cryptographic Key Storage" cc-id="fcs_stg_ext.1" status="mandatory">
             <f-element>
               <title>Persistent private and secret keys shall be stored within the
 		<selectables>
@@ -3943,7 +3943,7 @@
 	<!--               -->     
         <!-- FDP_CER_EXT.1 -->
 	<!--               -->     
-        <f-component cc-id="fdp_cer_ext.1" name="Certificate Profiles">
+        <f-component cc-id="fdp_cer_ext.1" name="Certificate Profiles" status="mandatory">
 		<f-element>
 			<title>
 				The TSF shall implement a certificate profile function and shall ensure that issued
@@ -4129,7 +4129,7 @@
 	<!--               -->     
         <!-- FDP_CER_EXT.2 -->
 	<!--               -->     
-        <f-component cc-id="fdp_cer_ext.2" name="Certificate Request Matching">
+        <f-component cc-id="fdp_cer_ext.2" name="Certificate Request Matching" status="mandatory">
 		<f-element>
 			<title>
 				The TSF shall establish a linkage from certificate requests to issued certificates.
@@ -4176,7 +4176,7 @@
 	<!--               -->     
         <!-- FDP_CER_EXT.3 -->
 	<!--               -->     
-        <f-component cc-id="fdp_cer_ext.3" name="Certificate Issuance Approval">
+        <f-component cc-id="fdp_cer_ext.3" name="Certificate Issuance Approval" status="mandatory">
 		<f-element>
 			<title>
 				The TSF shall support the approval of certificates by 
@@ -4302,7 +4302,7 @@
 	<!--               -->     
     <!-- FDP_CRL_EXT.1 -->
 	<!--               -->     
-	<f-component cc-id="fdp_crl_ext.1" name="Certificate Revocation List Validation">
+	<f-component cc-id="fdp_crl_ext.1" name="Certificate Revocation List Validation" status="sel-based">
 		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/> <!-- TODO: This is wrong -->
 		<f-element>
 			<title>
@@ -4375,7 +4375,7 @@
 	<!--               -->     
         <!-- FDP_CSI_EXT.1 -->
 	<!--               -->     
-        <f-component cc-id="fdp_csi_ext.1" name="Certificate Status Information">
+        <f-component cc-id="fdp_csi_ext.1" name="Certificate Status Information" status="mandatory">
 		<f-element>
 			<title>
 				The TSF shall provide certificate status information whose format complies with
@@ -4483,7 +4483,7 @@
 	<!--               -->     
     <!-- FDP_OCSPG_EXT.1 -->
 	<!--               -->     
-	<f-component cc-id="fdp_ocspg_ext.1" name="OCSP Basic Response Generation">
+	<f-component cc-id="fdp_ocspg_ext.1" name="OCSP Basic Response Generation" status="sel-based">
 		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/> <!-- TODO: This is wrong -->
 		<f-element>
 			<title>
@@ -4557,7 +4557,7 @@
 	<!--               -->     
         <!-- FDP_RIP.1 -->
 	<!--               -->     
-        <f-component cc-id="fdp_rip.1" name="Subset Residual Information Protection">
+        <f-component cc-id="fdp_rip.1" name="Subset Residual Information Protection" status="mandatory">
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement> The TSF <refinement>and 
@@ -5765,7 +5765,7 @@
 	<!--               -->     
         <!-- FIA_X509_EXT.1 -->
 	<!--               -->     
-        <f-component cc-id="fia_x509_ext.1" name="Certificate Validation">
+        <f-component cc-id="fia_x509_ext.1" name="Certificate Validation" status="mandatory">
 		<f-element>
 			<title>
 				The TSF shall 
@@ -5898,7 +5898,7 @@
 	<!--               -->     
         <!-- FIA_X509_EXT.2 -->
 	<!--               -->     
-        <f-component cc-id="fia_x509_ext.2" name="Certificate-based Authentication">
+        <f-component cc-id="fia_x509_ext.2" name="Certificate-based Authentication" status="mandatory">
 		<f-element>
 			<title>
 				The TSF shall 
@@ -6016,7 +6016,7 @@
 	<!--               -->     
         <!-- FIA_UAU_EXT.1 -->
 	<!--               -->     
-        <f-component cc-id="fia_uau_ext.1" name="Authentication Mechanism">
+        <f-component cc-id="fia_uau_ext.1" name="Authentication Mechanism" status="mandatory">
 		<f-element id="fia-uau-ext-1e1">
 			<title>
 				The TSF shall 
@@ -6051,7 +6051,7 @@
 	<!--               -->     
         <!-- FIA_UIA_EXT.1 -->
 	<!--               -->     
-        <f-component cc-id="fia_uia_ext.1" name="User Identification and Authentication">
+        <f-component cc-id="fia_uia_ext.1" name="User Identification and Authentication" status="mandatory">
 		<f-element>
 			<title>
 				The TSF shall allow the following actions prior to requiring a non-TOE entity to
@@ -6280,7 +6280,8 @@
 	<!--               -->     
         <!-- FMT_MOF.1(1) -->
 	<!--               -->     
-        <f-component cc-id="fmt_mof.1" iteration="1" name="Management of Security Functions Behavior (Administrator Functions)">
+        <f-component cc-id="fmt_mof.1" iteration="1" name="Management of Security Functions Behavior (Administrator Functions)"
+		status="mandatory">
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement>The 
@@ -6335,7 +6336,7 @@
 	<!--               -->     
         <!-- FMT_MOF.1(2) -->
 	<!--               -->     
-        <f-component cc-id="fmt_mof.1" iteration="2" name="Management of Security Functions Behavior (CA/RA Functions)">
+        <f-component cc-id="fmt_mof.1" iteration="2" name="Management of Security Functions Behavior (CA/RA Functions)" status="mandatory">
 		<f-element>	     
 			<title>
 				<refinement>Refinement:</refinement>The
@@ -6378,7 +6379,7 @@
 	<!--               -->     
         <!-- FMT_MOF.1(3) -->
 	<!--               -->     
-        <f-component cc-id="fmt_mof.1" iteration="3" name="Management of Security Functions Behavior (CA Operations Functions)">
+        <f-component cc-id="fmt_mof.1" iteration="3" name="Management of Security Functions Behavior (CA Operations Functions)" status="mandatory">
 		<f-element>
 			<title>
 				<refinement>:Refinement:</refinement>
@@ -6420,7 +6421,7 @@
 	<!--               -->     
         <!-- FMT_MOF.1(4) -->
 	<!--               -->     
-        <f-component cc-id="fmt_mof.1" iteration="4" name="Management of Security Functions Behavior (Admin/Officer Functions)">
+        <f-component cc-id="fmt_mof.1" iteration="4" name="Management of Security Functions Behavior (Admin/Officer Functions)" status="mandatory">
 		<f-element>	     
 			<title>
 				<refinement>Refinement:</refinement> The
@@ -6489,7 +6490,7 @@
 	<!--               -->     
         <!-- FMT_MOF.1(5) -->
 	<!--               -->     
-        <f-component cc-id="fmt_mof.1" iteration="5" name="Management of Security Functions Behavior (Autitor Functions)">
+        <f-component cc-id="fmt_mof.1" iteration="5" name="Management of Security Functions Behavior (Autitor Functions)" status="mandatory">
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement>The 
@@ -6527,7 +6528,7 @@
 	<!--               -->     
         <!-- FMT_MTD.1 -->
 	<!--               -->     
-        <f-component cc-id="fmt_mtd.1" name="Management of TSF Data">
+        <f-component cc-id="fmt_mtd.1" name="Management of TSF Data" status="mandatory">
 		<f-element>
 			<title>
 				The TSF shall restrict the ability to <h:b>manage the TSF data</h:b> to [<h:i>privileged users</h:i>].
@@ -6576,7 +6577,7 @@
 	<!--               -->     
         <!-- FMT_SMF.1 -->
 	<!--               -->     
-        <f-component cc-id="fmt_smf.1" name="Specification of Management Functions">
+        <f-component cc-id="fmt_smf.1" name="Specification of Management Functions" status="mandatory">
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement> The 
@@ -6669,7 +6670,7 @@
 	<!--               -->     
         <!-- FMT_SMR.2 -->
 	<!--               -->     
-        <f-component cc-id="fmt_smr.2" name="Restrictions on Security Roles">
+        <f-component cc-id="fmt_smr.2" name="Restrictions on Security Roles" status="mandatory">
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement>The TSF 
@@ -6834,7 +6835,7 @@
 	<!--               -->     
         <!-- FPT_FLS.1 -->
 	<!--               -->     
-        <f-component cc-id="fpt_fls.1" name="Failure with Preservation of Secure State">
+        <f-component cc-id="fpt_fls.1" name="Failure with Preservation of Secure State" status="mandatory">
 		<f-element>
 			<title>
 				The TSF shall preserve a secure state when the following types of failures occur:
@@ -6903,7 +6904,7 @@
 	<!--               -->     
         <!-- FPT_KST_EXT.1 -->
 	<!--               -->     
-        <f-component cc-id="fpt_kst_ext.1" name="No Plaintext Key Export">
+        <f-component cc-id="fpt_kst_ext.1" name="No Plaintext Key Export" status="mandatory">
 		<f-element>
 			<title>
 				The TSF and 
@@ -6952,7 +6953,7 @@
 	<!--               -->     
         <!-- FPT_KST_EXT.2 -->
 	<!--               -->     
-    <f-component cc-id="fpt_kst_ext.2" name="Key Protection">
+    <f-component cc-id="fpt_kst_ext.2" name="Key Protection" status="mandatory">
 		<f-element>
 			<title>
 				The TSF and 
@@ -7089,7 +7090,7 @@
 	<!--               -->     
         <!-- FPT_RCV.1 -->
 	<!--               -->     
-        <f-component cc-id="fpt_rcv.1" name="Manual Trusted Recovery">
+        <f-component cc-id="fpt_rcv.1" name="Manual Trusted Recovery" status="mandatory">
 		<f-element>
 			<title>
 				After 
@@ -7150,7 +7151,7 @@
 	<!--               -->     
         <!-- FPT_SKP_EXT.1 -->
 	<!--               -->     
-        <f-component cc-id="fpt_skp_ext.1" name="Protection of Keys">
+        <f-component cc-id="fpt_skp_ext.1" name="Protection of Keys" status="mandatory">
 		<f-element>
 			<title>
 				The TSF shall 
@@ -7279,7 +7280,7 @@
 	<!--               -->     
         <!-- FPT_STM.1 -->
 	<!--               -->     
-    <f-component cc-id="fpt_stm.1" name="Reliable Time Stamps">
+    <f-component cc-id="fpt_stm.1" name="Reliable Time Stamps" status="mandatory">
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement> The TSF shall 
@@ -7494,7 +7495,7 @@
 	<!--               -->     
         <!-- FPT_TUD_EXT.1 -->
 	<!--               -->     
-    <f-component cc-id="fpt_tud_ext.1" name="Trusted Update">
+    <f-component cc-id="fpt_tud_ext.1" name="Trusted Update" status="mandatory">
 		<f-element>
 			<title>
 				The TSF shall
@@ -7683,7 +7684,7 @@
 	<!--               -->     
     <!-- FTA_SSL.4 -->
 	<!--               -->     
-    <f-component cc-id="fta_ssl.4" name="User-Initiated Termination">
+    <f-component cc-id="fta_ssl.4" name="User-Initiated Termination" status="mandatory">
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement>The TSF shall 
@@ -7792,7 +7793,7 @@
 	<!--               -->     
     <!-- FTA_TAB.1 -->
 	<!--               -->     
-    <f-component cc-id="fta_tab.1" name="Default TOE Access Banners">
+    <f-component cc-id="fta_tab.1" name="Default TOE Access Banners" status="mandatory">
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement> Before establishing a <refinement>privileged</refinement>
@@ -7850,7 +7851,7 @@
 		to perform ST-mandated functions.  This needs to be related to specific 
 		selections, otherwise it is not selection-based. -->
 	
-	<f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel">
+	<f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel" status="sel-based">
 		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/> <!-- TODO: This is wrong -->
 		<f-element>
 			<title>
@@ -7980,7 +7981,7 @@
 	<!--               -->     
         <!-- FTP_TRP.1 -->
 	<!--               -->     
-    <f-component cc-id="ftp_trp.1" name="Trusted Path">
+    <f-component cc-id="ftp_trp.1" name="Trusted Path" status="mandatory">
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement> The TSF shall 
