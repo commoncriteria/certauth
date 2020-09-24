@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="../transforms/pp2html.xsl"?>
 
 <PP xmlns="https://niap-ccevs.org/cc/v1" name="Protection Profile for Certification Authorities"
-    xmlns:h="http://www.w3.org/1999/xhtml" boilerplate="yes">
+    xmlns:h="http://www.w3.org/1999/xhtml" boilerplate="yes" type="pp">
 
   <!-- <inline-comment color='green'> Hello World QQQQ </inline-comment> -->
   <!-- <inline-comment color='blue' linebreak='yes'> Hello World QQQQ </inline-comment> -->
@@ -865,29 +865,7 @@
   </chapter>
 
   <chapter title="Security Requirements" id="req">
-      The Security Functional Requirements (SFRs) included in this section are derived
-	  from Part 2 of the <h:i>Common Criteria for Information Technology Security Evaluation, Version 3.1, Revision 4</h:i>, with
-	  additional extended functional components.<h:br/><h:br/>
-	  The CC defines operations on Security Functional Requirements: assignments, selections, assignments
-		within selections and refinements. This document uses the following font conventions to identify the
-		operations defined by the CC: <h:br/><h:br/>
-		<h:ul>
-      		<h:li>
-	        <h:b>Refinement</h:b> operation (denoted by <h:b>bold text</h:b>): is used to add details to a
-        	requirement, and thus further restricts a requirement.</h:li>
-      		<h:li>
-        	<h:b>Selection</h:b> (denoted by <h:i>italicized text</h:i>): is used to select one or more options
-        	provided by the [CC] in stating a requirement.</h:li>
-      		<h:li>
-        	<h:b>Assignment</h:b> operation (denoted by <h:span class="assignable-content">italicized text</h:span>): is used to assign a
-        	specific value to an unspecified parameter, such as the length of a password. Showing the
-        	value in square brackets indicates assignment.</h:li>
-      		<h:li>
-        	<h:b>Iteration</h:b> operation: are identified with a number inside parentheses (e.g.
-        		"(1)")</h:li>
-      		<h:li>
-        	<h:b>Extended SFRs</h:b>  are identified by having a label “_EXT” appended to the SFR name. </h:li>
-    		</h:ul>
+    <!-- There is boilerplate here -->
 
     <section title="Security Functional Requirements" id="SFRs">
 	    The Security Functional Requirements (SFRs) included in this section are derived from Part 2 of the
@@ -1061,7 +1039,6 @@
                                 <h:li><refinement>All administrative actions invoked through the TSF interface</refinement>;</h:li>
                                 <h:li><refinement>Specifically defined auditable events listed in Table 4 through Table 6</refinement></h:li>
                                 <h:li><refinement>Specifically defined auditable events listed in <ctr-ref ref-id="atref-mandatory-ss"/></refinement></h:li>
-                                <h:li><refinement>Specifically defined auditable events listed in <ctr-ref ref-id="atref-mandatory-faugen"/></refinement></h:li>
                                 <h:li><refinement>Specifically defined auditable events listed in <ctr-ref ref-id="atref-optional"/></refinement></h:li>
                                 <h:li><refinement>Specifically defined auditable events listed in <ctr-ref ref-id="atref-sel-based"/></refinement></h:li>
 				<h:li><refinement>Specifically defined auditable events listed in <ctr-ref ref-id="atref-impl-dep"/></refinement></h:li>
@@ -1187,9 +1164,6 @@
                   </aactivity>
                 </f-element>
 				<audit-event />
-		           <audit-table table="mandatory">
-		  	     <h:br/><h:b><ctr ctr-type="Table" id="atref-mandatory-faugen">: Auditable Events for Mandatory SFRs</ctr></h:b>
-	   		</audit-table>
              </f-component>
 	
 	<!--               -->     
@@ -3981,6 +3955,10 @@
 	</f-component>
       </subsection>
 		
+		
+		<!-- FSC_TLSS_EXT.1 will go here. It has same selection-depends as FIA_ESTS_EXT.1 
+				<selection-depends req="fco-nrr-ext-2e1" ids="sel-fco-ests-ext-1"/>
+        -->
 
         <!--                             -->
 	<!-- Class: FDP: User Data Protection  -->
@@ -4347,6 +4325,79 @@
 	</f-component>
 	      
 	<!--               -->     
+    <!-- FDP_CRL_EXT.1 -->
+	<!--               -->     
+	<f-component cc-id="fdp_crl_ext.1" name="Certificate Revocation List Validation">
+		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/> <!-- TODO: This is wrong -->
+		<f-element>
+			<title>
+				A TSF that issues CRLs shall verify that all mandatory fields in any CRL issued
+				contain values in accordance with ITU-T Recommendation X.509. At a minimum,
+				the following items shall be validated:<h:br/><h:br/>
+				<h:ol type="a">
+					<h:li>If the version field is present, then it shall contain a 1.</h:li>
+					<h:li>If the CRL contains any critical extensions, then the version 
+						field shall be present and contain the integer 1.</h:li>
+					<h:li>If the issuer field contains a null Name (e.g., a sequence of zero relative
+						distinguished names), then the CRL shall contain a critical issuerAltName
+						extension.</h:li>
+					<h:li>The signature and signatureAlgorithm fields shall contain the OID for a digital
+						signature algorithm in accordance with FCS_COP.1(2).</h:li>
+					<h:li>The thisUpdate field shall indicate the issue date of the CRL.</h:li>
+					<h:li>The time specified in the nextUpdate field (if populated) shall not precede the
+						time specified in the thisUpdate field.</h:li>
+				</h:ol>
+			</title>
+			<note role="application">
+				This SFR must be included in the ST if TODO.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure it indicates whether the TOE
+					supports CRL generation and, if so, describes the CRL generation function. Also,
+					the evaluator shall ensure that the TSS identifies which of the values identified
+					in FDP_CRL_EXT.1.1 can be included in CRLs.	
+				</TSS>
+				<Tests>
+					If the TOE supports configuration of the CRL issuing function, the evaluator
+					shall examine the operational guidance to ensure that instructions are
+					available to configure issuance of CRL in accordance with 
+					FDP_CRL_EXT.1.1.<h:br/><h:br/>
+					The evaluator shall perform the following tests:<h:br/><h:br/>
+					<testlist>
+						<test>
+							If CRL can be issued, the evaluator shall configure the CRL
+							function using available user guidance and request a CRL in order to
+							ensure that the resulting CRL satisfies all field constraints in
+							FDP_CRL_EXT.1.1.
+						</test>
+						<test>
+							For each field defined in FDP_CRL_EXT.1.1, the evaluator shall
+							attempt to create a CRL that violates the required conditions of the
+							field. The evaluator shall determine that all such attempts are rejected
+							by the TSF. 
+						</test>
+						<test>
+							The evaluator shall make a selection of fields from a configured
+							CRL function and shall attempt to create a CRL that violates the
+							required conditions of the field. The evaluator shall determine that all
+							such attempts are rejected by the TSF.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.<h:br/><h:br/>
+				</Tests>
+			</aactivity>
+		</f-element>
+		<audit-event>
+			<audit-event-descr>Failure to generate CRL.</audit-event-descr>
+		</audit-event>
+	</f-component>
+
+		  
+	<!--               -->     
         <!-- FDP_CSI_EXT.1 -->
 	<!--               -->     
         <f-component cc-id="fdp_csi_ext.1" name="Certificate Status Information">
@@ -4453,6 +4504,80 @@
 		</f-element>
 		<audit-event/>
 	</f-component>
+
+	<!--               -->     
+    <!-- FDP_OCSPG_EXT.1 -->
+	<!--               -->     
+	<f-component cc-id="fdp_ocspg_ext.1" name="OCSP Basic Response Generation">
+		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/> <!-- TODO: This is wrong -->
+		<f-element>
+			<title>
+				The TSF shall ensure that all mandatory fields in the OCSP response contain values
+				in accordance with the standards specified in FDP_CSI_EXT.1. At a minimum, the
+				following items shall be enforced:<h:br/><h:br/>
+				<h:ol type="a">
+					<h:li>The version field shall indicate a current version.</h:li>
+					<h:li>The signatureAlgorithm field shall contain the object 
+						identifier (OID) for a digital signature algorithm in accordance with 
+						FCS_COP.1(2).</h:li>
+					<h:li>The thisUpdate field shall indicate the time at which the status being
+							indicated is known to be correct.</h:li>
+					<h:li>The producedAt field shall indicate the time at which the OCSP responder
+						signed the response.</h:li>
+					<h:li>The time specified in the nextUpdate field (if populated) shall not precede the
+						time specified in the thisUpdate field.</h:li>
+				</h:ol>
+			</title>
+			<note role="application">
+				This SFR must be included in the ST if TODO.<h:br/><h:br/>
+				If RFC 6960 is selected in FCO_NRO_EXT.2.2, the current version is 1 (value 0)
+				and the fields are as named above. If ‘other OCSP standard’ is selected, then the
+				equivalent fields for items a – e above should be identified and the current
+				version should match the specification. 
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure it indicates whether the TOE
+					supports OCSP and, if so, describes the OCSP response function. Also, the
+					evaluator shall ensure that the TSS identifies which of the values identified in
+					FDP_OCSPG_EXT.1.1 can be included in OCSP responses.
+				</TSS>
+				<Tests>
+					If the TOE supports configuration of the OCSP function, the evaluator shall
+					examine the operational guidance to ensure that instructions are available to
+					configure the OCSP response function in accordance with FDP_OCSPG_EXT.1.1.<h:br/><h:br/>
+					The evaluator shall perform the following tests:<h:br/><h:br/>
+					<testlist>
+						<test>
+							For each OCSP response format identified in FCO_NRO_EXT.2.2,
+							the evaluator shall configure the OCSP response function, establish a
+							client and submit, in turn, an OCSP request to the TSF for the status of
+							a certificate issued by a CA implemented by the TOE and which is not
+							revoked, a certificate issued by a CA implemented by the TOE which
+							has been revoked, and a certificate not issued by a CA implemented by
+							the TOE. The evaluator shall ensure that the responses satisfy all
+							constraints in FDP_OCSPG_EXT.1.1 and reflects the correct status in
+							accordance with the referenced standard.
+						</test>
+						<test>
+							For each OCSP response format defined in FDP_CSI_EXT.1.1,
+							and for each item a-e of this SFR, the evaluator shall attempt to create
+							an OCSP response that violates the required conditions. The evaluator
+							shall determine that all such attempts are rejected by the TSF. 
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.<h:br/><h:br/>
+				</Tests>
+			</aactivity>
+		</f-element>
+		<audit-event>
+			<audit-event-descr>Failure to generate cerficate statuws information.</audit-event-descr>
+		</audit-event>
+	</f-component>
+
 		
 	<!--               -->     
         <!-- FDP_RIP.1 -->
@@ -4727,6 +4852,9 @@
 				</selectables>.
 			</title>
 			<note role="application">
+				This requirement is applicable only if the TOE provides its own password-based
+				authentication mechanism. Thus it is included in the ST only if "local 
+				password-based authentication mechanism" is selected in FIA_UAU_EXT.1.1.<h:br/><h:br/>
 				This requirement does not apply to a privileged user at the local console, since it
 				does not make sense to lock a local privileged user’s account in this fashion. This
 				could be addressed by (for example) requiring a separate account for local
@@ -4840,6 +4968,7 @@
 				authentication.
 			</title>
 			<note role="application">
+				This SFR is included in the ST if TODO. <h:br/><h:br/>
 				A CA implemented by the TOE that is not a root CA will need to interface with a
 				root or intermediate CA. 
 			</note>
@@ -4995,6 +5124,7 @@
 				</selectables> role.
 			</title>
 			<note role="application">
+				This SFR is selected if TODO.<h:br/><h:br/>
 				FIA_CMCS_EXT.1.5 focuses on offline root CAs that do not have direct connection
 				to external IT entities.<h:br/><h:br/>
 				In subsequent versions of the PP, the TSF will be required to meet the Suite B
@@ -5252,6 +5382,159 @@
 	</f-component>		
 		
 	<!--               -->     
+    <!-- FIA_ESTC_EXT.1 -->
+	<!--               -->     
+    <f-component cc-id="fia_estc_ext.1" name="Enrollment over Secure Transport (EST) Client" status="sel-based">
+		<selection-depends req="fco-nrr-ext-2e1" ids="sel-fco-ests-ext-1"/>  <!-- TODO This is probably wrong -->
+		<f-element>
+			<title>
+				The TSF shall use the Enrollment over Secure Transport (EST) as specified in RFC
+				7030 to obtain its CA certificate and 
+				<assignable>other certificates for the TOE</assignable>
+				from an EST server associated to an external certification authority certification
+				authority (external CA) to which a CA implemented by the TSF is subordinate. 
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				The TSF shall be able to obtain EST server and CA certificates for authorized EST
+				services via 
+				<selectables>
+					<selectable>implicit TA database configured by an 
+						<selectables>
+							<selectable>administrator</selectable>
+							<selectable>CA operations staff</selectable>
+						</selectables></selectable>
+					<selectable>an explicit TA database populated via a TLSauthenticated EST CA
+						certificate request in accordance with RFC 7030 section 4.1.2 and FCS_TLSC_EXT.2
+					</selectable>
+				</selectables>.
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				The TSF shall authenticate EST servers using X.509 certificates that chain to trust
+				store elements from the 
+				<selectables>
+					<selectable>implicit TA database</selectable>
+					<selectable>explicit TA database</selectable>
+				</selectables> in accordance with FIA_X.509_EXT.1/Rev for all EST requests.
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				The TSF shall authenticate its certificate enrollment requests to receive the
+				signing certificate for CA implemented by the TOE, and 
+				<assignable>other certificates required to authenticate the TOE</assignable>
+				, from an authorized EST server using 
+				<selectables linebreak="true">
+					<selectable>HTTP basic authentication transported over TLS in accordance with RFC 7030
+						section 3.2.3 and FCS_TLSC_EXT.2.</selectable>
+					<selectable>HTTP digest authentication using a cryptographic hash algorithm in
+						accordance with FCS_COP.1/HASH, transported over TLS in accordance with
+						RFC 7030 section 3.2.3 and FCS_TLSC_EXT.2.</selectable>
+					<selectable>Certificate-based authentication in accordance with RFC 7030 section 3.3.2
+						and FCS_TSL_EXT.2 using 
+						<assignable>a pre-existing certificate authorized by the EST server</assignable>
+						</selectable>
+				</selectables>.
+			</title>
+		</f-element>	
+		<f-element>
+			<title>
+				The TSF shall generate authenticated re-enrollment requests in accordance with
+				RFC 7030 Section 3.3.2 and FCS_TLSC_EXT, using an existing valid certificate with
+				the same subject name as the requested certificate and which was issued by the
+				external CA. 
+			</title>
+			<note role="application">
+				This SFR must be included in the ST is TODO. <h:br/><h:br/>
+				A CA used as an intermediate certification authority in a PKI will need to make
+				requests to external CAs to which it is subordinate. It is acceptable to use EST to
+				generate these requests. <h:br/><h:br/>
+				The third choice in the selection for FIA_ESTC_EXT.1.4 is selected if a pre-existing
+				certificate exists. The assignment should specify whether this pre-existing
+				certificate is established by the vendor, or installed by a privileged user. 
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure it describes the implementation
+					of this protocol, the certificates obtained, and any pre-existing certificates or
+					trust anchor databases used by the protocol.
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the operational guidance to ensure it contains
+					instructions on configuring the TOE so that EST conforms to the description in
+					the TSS.<h:br/><h:br/>
+					The evaluator shall examine the operational guidance to ensure it contains
+					instructions for obtaining or configuring the TA database (implicit or explicit)
+					and any required initial certificates.
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following tests:
+					<testlist>
+						<test>The evaluator shall establish an external CA and EST server,
+							and configure the TOE as indicated in the AGD to authorize the EST
+							server for EST services using the external CA. The evaluator shall
+							examine the TOE logs and TA database(s) using available interfaces
+							to ensure the EST server and external CA’s certificates are
+							authorized for EST services.
+						</test>
+						<test>
+							For each authentication method specified in
+							FIA_ESTC_EXT.1.4, the evaluator shall generate one or more
+							certificate enrollment requests using the authentication method
+							to obtain TOE required certificates from the authorized CA via the
+							EST server established in Test 1. In accordance with guidance
+							documentation, the evaluator shall obtain all required certificates
+							in aggregate to allow the TOE to operate a CA.
+						</test>
+						<test>
+							The evaluator shall make a valid request for a certificate to
+							be issued by the CA certificate obtained in test 2, and confirm that
+							the certificate received from the TOE is signed by the TOE’s CA
+							certificate issued by the external CA. 
+						</test>
+						<test>
+							The evaluator shall generate a re-enrollement request and
+							submit it to the authorized EST server in accordance with
+							FIA_ESTC_EXT.1 to update the CA’s signing certificate the same CA
+							implemented by the TOE used in Test 3. The evaluator shall make
+							a valid request for a certificate from that CA, and observe that the
+							new CA certificate signs the returned certificate.
+						</test>
+						<test>
+							The evaluator shall establish a second EST server configured
+							to authorize the TOE’s EST client but which not authorized by the
+							client to provide EST services. The evaluator shall generate an 
+							enrollment request for the TOE’s embedded CA signing certificate,
+							and submit it to the second EST server. The evaluator shall repeat
+							Test 3, observing that the certificate returned by the second EST
+							server is not listed as the issuer of certificate chain returned.
+						</test>
+					</testlist>
+					<h:i>Equivalency</h:i>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.<h:br/><h:br/>
+				</Tests>
+			</aactivity>
+		</f-element>
+		<audit-event>
+			<audit-event-descr>EST requests (generated or received) containing certificate requests
+				or revocation requests.</audit-event-descr>
+			<audit-event-info>Identifiers for all entities authenticating the request, including the
+				entity providing client authentication for the EST transport (if any).</audit-event-info>
+			<audit-event-info>The submitted request.</audit-event-info>
+		</audit-event>
+		<audit-event>
+			<audit-event-descr>EST responses issued.</audit-event-descr>
+			<audit-event-info>Any signed response.</audit-event-info>
+		</audit-event>
+	</f-component>
+
+		
+	<!--               -->     
     <!-- FIA_ESTS_EXT.1 -->
 	<!--               -->     
     <f-component cc-id="fia_ests_ext.1" name="Enrollment over Secure Transport (EST) Server" status="sel-based">
@@ -5288,7 +5571,7 @@
 				Enrollment over Secure Transport (EST) uses the simple Certificate Request
 				Message as specified in RFC 7030. EST also uses HTTPS as specified in
 				FCS_HTTPS_EXT.1 to establish a secure connection with an EST client.<h:br/><h:br/>
-				If this requirement is included in the ST, the ST author includes FCS_TLSS_EXT.1.<h:br/><h:br/>
+				This SFR is included in the ST if TODO. If this requirement is included in the ST, the ST author includes FCS_TLSS_EXT.1.<h:br/><h:br/>
 				For FIA_ESTS_EXT.1.3, the ST author selects the method used to authenticate
 				clients for initial enrollment, or in cases where supplemental authentication is
 				required. If the second item is chosen in the selection, the ST author includes
@@ -5412,6 +5695,9 @@
 					support passwords of 14 characters or greater.</h:li></h:ul>
 			</title>
 			<note role="application">
+				This requirement is applicable only if the TOE provides its own password-based
+				authentication mechanism. Thus it is included in the ST only if "local 
+				password-based authentication mechanism" is selected in FIA_UAU_EXT.1.1.<h:br/><h:br/>				
 				The ST author selects the special characters that are supported by TOE; they may
 				optionally list additional special characters supported using the assignment.
 				"Privileged passwords" refers to passwords used by privileged users at the local
@@ -5465,6 +5751,11 @@
 					to the <refinement>privileged</refinement> user while the 
 					authentication is in progress.
 			</title>
+			<note role="application">
+				This requirement is applicable only if the TOE provides its own password-based
+				authentication mechanism. Thus it is included in the ST only if "local 
+				password-based authentication mechanism" is selected in FIA_UAU_EXT.1.1.<h:br/><h:br/>
+			</note>
 			<aactivity>
 				<TSS>
 					For each authentication mechanism selected in FIA_UAU_EXT.1.1, the
@@ -5746,6 +6037,7 @@
 		</audit-event>
 	</f-component>
 	
+
 	<!--               -->     
         <!-- FIA_UAU_EXT.1 -->
 	<!--               -->     
@@ -5926,7 +6218,74 @@
 			<audit-event-info>Origin of the attempt (e.g., IP address)</audit-event-info>
 		</audit-event>
 	</f-component>		
-      </subsection>
+
+	<!--               -->     
+    <!-- FIA_X509_EXT.3 -->
+	<!--               -->     
+    <f-component cc-id="fia_x509_ext.3" name="X509 Certificate Request" status="sel-based">
+		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/>  <!-- TODO This is wrong -->
+		<f-element>
+			<title>
+				The TSF shall generate a Certificate Request Message as specified by RFC
+				2986 and be able to provide the following information in the request:
+				public key, CA's distinguished name, 
+				<assignable>other information describing the CA implemented by the TOE</assignable>.
+			</title>
+			<note role="application">
+				The public key is the public key portion of the public-private key pair generated
+				by the TOE as specified in FCS_CKM.1. The CA distinguished name and any
+				additional information shall be configurable by a CA Operations Staff role.
+			</note>
+		</f-element>
+		<f-element>
+			<title>
+				The TSF shall validate the chain of certificates from the Root CA upon receiving
+				the CA Certificate Response.
+			</title>
+			<note role="application">
+				This SFR must be included in the ST if TODO.
+			</note>
+			<aactivity>
+				<TSS>
+					If the ST author selects “device-specific information”, the evaluator shall verify
+					that the TSS contains a description of the device-specific fields used in certificate
+					requests.
+				</TSS>
+				<Guidance>
+					The evaluator shall check to ensure that the guidance documentation contains
+					instructions on requesting certificates from a CA, including generation of a
+					Certificate Request Message. If the ST author selects “Common Name",
+					"Organization”, “Organizational Unit”, or "Country", the evaluator shall ensure
+					that this guidance includes instructions for establishing these fields before
+					creating the certificate request message.
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following tests:
+					<testlist>
+						<test>
+							The evaluator shall use the guidance documentation to cause the TOE
+							to generate a certificate request message. The evaluator shall capture the
+							generated message and ensure that it conforms to the format specified. The 
+							evaluator shall confirm that the certificate request provides the public key and
+							other required information, including any necessary user-input information.
+						</test>
+						<test>
+							The evaluator shall demonstrate that validating a certificate response
+							message without a valid certification path results in the function failing. The
+							evaluator shall then load a certificate or certificates as trusted CAs needed
+							to validate the certificate response message, and demonstrate that the function
+							succeeds.
+						</test>
+					</testlist>
+				</Tests>
+			</aactivity>
+		</f-element>
+		<audit-event/>   <!-- TODO Make sure this is right. There is no entry for this SFR in any audit table -->
+	</f-component>
+
+</subsection>
+
+
 		
  	<!--                             -->
 	<!-- Class: FMT: Security Management  -->
@@ -6456,6 +6815,9 @@
 		<f-element>
 			<title>The TSF shall prevent the reading of plaintext passwords.</title>
 			<note role="application">
+				This requirement is applicable only if the TOE provides its own password-based
+				authentication mechanism. Thus it is included in the ST only if "local 
+				password-based authentication mechanism" is selected in FIA_UAU_EXT.1.1.<h:br/><h:br/>
 				The intent of the requirement is that raw password authentication data are not
 				stored in the clear, and that no user or administrator is able to read the plaintext
 				password through “normal” interfaces. An all-powerful administrator of course
@@ -7507,6 +7869,140 @@
      <subsection title="Class: Trusted Path/Channels (FTP)" id="ftp">
 
 	<!--               -->     
+    <!-- FTP_ITC.1 -->
+	<!--               -->     
+	<!-- Must be included if any the TOE talks to any "physically distinct IT entities"
+		to perform ST-mandated functions.  This needs to be related to specific 
+		selections, otherwise it is not selection-based. -->
+	
+	<f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel">
+		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/> <!-- TODO: This is wrong -->
+		<f-element>
+			<title>
+				<refinement>Refinement:</refinement> 
+				The TSF shall <refinement>use 
+				<selectables>
+					<selectable id="ftp-itc-https">HTTPS</selectable>
+					<selectable id="ftp-itc-ipsec">IPsec</selectable>
+					<selectable id="ftp-itc-tls">TLS</selectable>
+					<selectable id="ftp-itc-ssh">SSH</selectable>
+					<selectable id="ftp-itc-https">HTTPS</selectable>
+				</selectables></refinement>
+				to provide a <refinement>trusted</refinmenet>
+				communication channel between itself and 
+				<refinement>authorized external network
+				based IT entities supporting the following capabilities: 
+				<selectables>
+					<selectable>audit server</selectable>
+					<selectable>external cryptographic module</selectable>
+					<selectable>directory services</selectable>
+					<selectable>RA</selectable>
+					<selecyable><assignable>other components</assignable></selectable>
+				</selectables></refinement>
+				that is logically distinct from other communication channels and
+				provides assured identification of its end points and protection of the channel
+				data from modification or disclosure.
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				The TSF shall permit [<h:i>the TSF, the authorized IT entities</h:i>] to initiate communication
+				via the trusted channel.
+			</title>
+		</f-element>
+		<f-element>
+			<title>
+				The TSF shall initiate communication via the trusted channel for <assignable>
+					list of services for which the TSF is able to initiate communications</assignable>
+			</title>
+			<note role="application">
+				This SFR must be included in the SFR if TODO.<h:br/><h:br/>
+				The intent of the above requirement is to use a cryptographic protocol to protect
+				external communications with authorized IT entities that the TOE interacts with
+				to perform its functions. While there are no requirements on the party initiating
+				the communication, the ST author lists in the assignment for FTP_ITC.1.3 the
+				services for which the TOE can initiate the communication with the authorized IT
+				entity (it is acceptable to assign “no services” for FTP_ITC.1.3 if the TOE does not
+				initiate any of the covered connections). Note that SSH is not included because
+				this protocol is not used by the TSF to connect to other components. If the ST
+				author selects SSH, the TSF shall be validated against the Extended Package for
+				Secure Shell. <h:br/><h:br/>
+				The requirement implies that not only are communications protected when they
+				are initially established, but also on resumption after an interruption. It may be
+				the case that some part of the TOE setup involves manually setting up tunnels to
+				protect other communication, and if after an interruption the TOE attempts to reestablish the communication automatically with (the necessary) manual
+				intervention, there may be a window created where an attacker might be able to
+				gain critical information or compromise a connection.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to determine that, for all communications
+					with authorized IT entities identified in the requirement, each communications
+					mechanism is identified in terms of the allowed protocols for that IT entity. The
+					evaluator shall also confirm that all protocols listed in the TSS are specified and
+					included in the requirements in the ST.<h:br/><h:br/>
+					If an external cryptographic module is selected in FTP_ITC.1.1, the evaluator
+					shall examine the TSS to ensure it describes how the external module is used
+					for cryptographic operations versus how any locally provided cryptographic
+					functionality is used.
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the operational guidance to ensure it contains
+					instructions for establishing the allowed protocols with each authorized IT
+					entity, and that it contains recovery instructions should a connection be
+					interrupted. 
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following tests:<h:br/><h:br/>
+					<testlist>
+						<test>
+							The evaluator shall ensure that communications using each
+							protocol with each authorized IT entity is tested during the course
+							of the evaluation, setting up the connections as described in the
+							operational guidance and ensuring that communication is
+							successful.
+						</test>
+						<test>
+							For each protocol that the TOE can initiate as defined in the
+							requirement, the evaluator shall follow the operational guidance
+							to ensure that in fact the communication channel can be initiated
+							from the TOE.
+						</test>
+						<test>
+							The evaluator shall ensure, for each communication
+							channel with an authorized IT entity, the channel data is not sent
+							in plaintext.
+						</test>
+						<test>
+							The evaluator shall, for each protocol associated with each
+							authorized IT entity tested during test 1, cause an interruption to
+							the connection. The evaluator shall ensure that when connectivity
+							is restored, communications are appropriately protected.
+						</test>
+					</testlist>
+					Further assurance activities are associated with the specific protocols. <h:br/><h:br/>
+					<h:i>Equivalency</h:i>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.<h:br/><h:br/>
+				</Tests>
+			</aactivity>
+		</f-element>
+		<audit-event>
+			<audit-event-descr>Initiation of the trusted channel.</audit-event-descr>
+		</audit-event>
+		<audit-event>
+			<audit-event-descr>Termination of the trusted channel.</audit-event-descr>
+		</audit-event>					
+		<audit-event>
+			<audit-event-descr>Failure of the trusted channel functions.</audit-event-descr>
+			<audit-event-info>Identification of the initiator and target of failed trusted channels
+				establishment attempt.</audit-event-info>
+		</audit-event>
+	</f-component>
+
+
+	<!--               -->     
         <!-- FTP_TRP.1 -->
 	<!--               -->     
     <f-component cc-id="ftp_trp.1" name="Trusted Path">
@@ -7514,10 +8010,10 @@
 			<title>
 				<refinement>Refinement:</refinement> The TSF shall 
 				<refinement>use <selectables>
-					<selectable>HTTPS</selectable>
-					<selectable>IPsec</selectable>
-					<selectable>SSH</selectable>
-					<selectable>TLS</selectable>
+					<selectable id="ftp-trp-https">HTTPS</selectable>
+					<selectable id="ftp-trp-ipsec">IPsec</selectable>
+					<selectable id="ftp-trp-ssh">SSH</selectable>
+					<selectable id="ftp-trp-tls">TLS</selectable>
 					</selectables> to </refinement>
 				provide <refinement>a trusted</refinement> communication path between itself and 
 				<refinement>remote subscribers and privileged users</refinement>
