@@ -7888,7 +7888,7 @@
 					<selectable id="ftp-itc-ssh">SSH</selectable>
 					<selectable id="ftp-itc-https">HTTPS</selectable>
 				</selectables></refinement>
-				to provide a <refinement>trusted</refinmenet>
+				to provide a <refinement>trusted</refinement>
 				communication channel between itself and 
 				<refinement>authorized external network
 				based IT entities supporting the following capabilities: 
@@ -7897,7 +7897,7 @@
 					<selectable>external cryptographic module</selectable>
 					<selectable>directory services</selectable>
 					<selectable>RA</selectable>
-					<selecyable><assignable>other components</assignable></selectable>
+					<selectable><assignable>other components</assignable></selectable>
 				</selectables></refinement>
 				that is logically distinct from other communication channels and
 				provides assured identification of its end points and protection of the channel
