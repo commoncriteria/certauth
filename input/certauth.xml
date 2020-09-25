@@ -4355,7 +4355,7 @@
 			negotiated to protect the 
 			<selectables>
 				<selectable>IKEv1 Phase 2</selectable>
-				<selecatble>IKEv2 CHILD_SA</selectable>
+				<selectable>IKEv2 CHILD_SA</selectable>
 			</selectables> connection.
 		</title>
 		<note role="application">
