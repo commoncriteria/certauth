@@ -4410,25 +4410,207 @@
 			</Tests>
 		</aactivity>
 	</f-element>
-	
-	
+	<f-element>
+		<title>
+			The TSF shall ensure that all IKE protocols perform peer authentication using a
+			<selectables>
+				<selectable>RSA</selectable>
+				<selectable>ECDSA</selectable>
+			</selectables> that use X.509v3 certificates that conform to RFC 4945 and 
+			<selectables>
+				<selectable>Pre-shared Keys</selectable>
+				<selectable>no other method</selectable>
+			</selectables>.
+		</title>
+		<note role="application">
+			At least one public-key-based Peer Authentication method is required in order to
+			conform to this PP; one or more of the public key schemes is chosen by the ST
+			author to reflect what is implemented. The ST author also ensures that
+			appropriate FCS requirements reflecting the algorithms used (and key generation
+			capabilities, if provided) are listed to support those methods. Note that the TSS
+			will elaborate on the way in which these algorithms are to be used (for example,
+			2409 specifies three authentication methods using public keys; each one
+			supported will be described in the TSS).
+		</note>
+		<aactivity>
+			<TSS>
+				The evaluator ensures that the TSS identifies RSA and/or ECDSA as being used
+				to perform peer authentication. The description shall be consistent with the
+				algorithms as specified in FCS_COP.1(2) Cryptographic Operations (for
+				cryptographic signature).<h:br/><h:br/>
+				If pre-shared keys are chosen in the selection, the evaluator shall check to
+				ensure that the TSS describes how pre-shared keys are established and used in
+				authentication of IPsec connections. The evaluator shall check that the
+				operational guidance describes how pre-shared keys are to be generated and
+				established. The description in the TSS and the operational guidance shall also
+				indicate how pre-shared key establishment is accomplished for TOEs that can
+				generate a pre-shared key as well as TOEs that simply use a pre-shared key. 
+			</TSS>
+			<Guidance>
+				The evaluator ensures the operational guidance describes how to set up the
+				TOE to use certificates with RSA and/or ECDSA signatures and public keys.
+				In order to construct the environment and configure the TOE for the following
+				tests, the evaluator will ensure that the operational guidance describes how to
+				configure the TOE to connect to a trusted CA, and ensure a valid certificate for
+				that CA is loaded into the TOE and marked “trusted”. 
+			</Guidance>
+			<Tests>
+				For efficiency sake, the testing that is performed may be combined with the
+				testing for FIA_X509_EXT.1, FIA_X509_EXT.2 (for IPsec connections), and
+				FCS_IPSEC_EXT.1.1. The following tests shall be repeated for each peer
+				authentication selected in the FCS_IPSEC_EXT.1.1 selection above:
+				<testlist>
+					<test>
+						The evaluator shall configure the TOE to use a private key and
+						associated certificate signed by a trusted CA and shall establish an IPsec
+						connection with the peer.
+					</test>
+					<test>
+						[conditional] The evaluator shall generate a pre-shared key offTOE and use it, as indicated in the operational guidance, to establish
+						an IPsec connection with the peer.
+					</test>
+				</testlist>
+			</Tests>
+		</aactivity>
+	</f-element>
+	<f-element>
+		<title>
+			The TSF shall support peer identifiers of the following types: 
+			<selectables>
+				<selectable>IP address</selectable>
+				<selectable>Fully Qualified Domain Name (FQDN)</selectable>
+				<selectable>user FQDN</selectable>
+				<selectable>Distinguished Name (DN)</selectable>
+			</selectables> and
+			<selectables>
+				<selectable>no other reference identifier type</selectable>
+				<selecatble><assignable>other supported reference identifier types</assignable></selecatble>
+			</selectables>.
+		</title>
+		<note role="application">
+			The TOE must support at least one of the following identifier types: IP address,
+			Fully Qualified Domain Name (FQDN), user FQDN, or Distinguished Name (DN). In
+			the future, the TOE will be required to support all of these identifier types. The TOE
+			is expected to support as many IP address formats (IPv4 and IPv6) as IP versions
+			supported by the TOE in general. The ST author may assign additional supported
+			identifier types in the second selection.
+		</note>
+		<aactivity>
+			<Tests>
+				The assurance activities for this element are performed in conjunction with the
+				assurance activities for the next element.
+			</Tests>
+		</aactivity>
+	</f-element>
+	<f-element>
+		<title>
+			The TSF shall not establish an SA if the presented identifier does not match the
+			configured reference identifier of the peer.
+		</title>
+		<note role="application">
+			At this time, only the comparison between the presented identifier in the peer’s
+			certificate and the peer’s reference identifier is mandated by the testing below.
+			However, in the future, this requirement will address two aspects of the peer
+			certificate validation: 1) comparison of the peer’s ID payload to the peer’s
+			certificate which are both presented identifiers, as required by RFC 4945 and 2)
+			verification that the peer identified by the ID payload and the certificate is the
+			peer expected by the TOE (per the reference identifier). At that time, the TOE will
+			be required to demonstrate both aspects (i.e. that the TOE enforces that the peer’s
+			ID payload matches the peer’s certificate which both match configured peer
+			reference identifiers).<h:br/><h:br/>
+			Excluding the DN identifier type (which is necessarily the Subject DN in the peer
+			certificate), the TOE may support the identifier in either the Common Name or
+			Subject Alternative Name (SAN) or both. If both are supported, the preferred logic
+			is to compare the reference identifier to a presented SAN, and only if the peer’s
+			certificate does not contain a SAN, to fall back to a comparison against the
+			Common Name. In the future, the TOE will be required to compare the reference
+			identifier to the presented identifier in the SAN only, ignoring the Common Name.<h:br/><h:br/>
+			The configuration of the peer reference identifier is addressed by FMT_SMF.1.1.
+		</note>
+		<aactivity>
+			<TSS>
+				The evaluator shall ensure that the TSS describes how the TOE compares the
+				peer’s presented identifier to the reference identifier. This description shall
+				include whether the certificate presented identifier is compared to the ID
+				payload presented identifier, which field(s) of the certificate are used as the
+				presented identifier (DN, Common Name, or SAN), and, if multiple fields are
+				supported, the logical order comparison. If the ST author assigned an additional
+				identifier type, the TSS description shall also include a description of that type
+				and the method by which that type is compared to the peer’s presented
+				certificate.
+			</TSS>
+			<Guidance>
+				The evaluator shall ensure that the operational guidance includes the
+				configuration of the reference identifier(s) for the peer.
+			</Guidance>
+			<Tests>
+				For each supported identifier type (excluding DNs), the evaluator shall repeat
+				the following tests:<h:br/><h:br/>
+				<testlist>
+					<test>
+						For each field of the certificate supported for comparison, the evaluator
+						shall configure the peer’s reference identifier on the TOE (per the 
+						administrative guidance) to match the field in the peer’s presented certificate
+						and shall verify that the IKE authentication succeeds.
+					</test>
+					<test>
+						For each field of the certificate support for comparison, the evaluator
+						shall configure the peer’s reference identifier on the TOE (per the
+						administrative guidance) to not match the field in the peer’s presented
+						certificate and shall verify that the IKE authentication fails.
+					</test>
+					<test>
+						(conditional) If, according to the TSS, the TOE supports both Common
+						Name and SAN certificate fields and uses the preferred logic outlined in the
+						Application Note, the tests above with the Common Name field shall be
+						performed using peer certificates with no SAN extension. Additionally, the
+						evaluator shall configure the peer’s reference identifier on the TOE to not
+						match the SAN in the peer’s presented certificate but to match the Common
+						Name in the peer’s presented certificate, and verify that the IKE authentication
+						fails.
+					</test>
+					<test>
+						(conditional) If the TOE supports DN identifier types, the evaluator shall
+						configure the peer’s reference identifier on the TOE (per the administrative
+						guidance) to match the subject DN in the peer’s presented certificate and shall
+						verify that the IKE authentication succeeds. To demonstrate a bit-wise
+						comparison of the DN, the evaluator shall change a single bit in the DN
+						(preferably, in an Object Identifier (OID) in the DN) and verify that the IKE
+						authentication fails.
+					</test>
+					<test>
+						(conditional) If the TOE supports both IPv4 and IPv6 and supports IP
+						address identifier types, the evaluator must repeat test 1 and 2 with both IPv4
+						address identifiers and IPv6 identifiers. Additionally, the evaluator shall verify
+						that the TOE verifies that the IP header matches the identifiers by setting the
+						presented identifiers and the reference identifier with the same IP address that
+						differs from the actual IP address of the peer in the IP headers and verifying
+						that the IKE authentication fails.
+					</test>
+					<test>
+						(conditional) If, according to the TSS, the TOE performs comparisons
+						between the peer’s ID payload and the peer’s certificate, the evaluator shall
+						repeat the following test for each combination of supported identifier types
+						and supported certificate fields (as above). The evaluator shall configure the
+						peer to present a different ID payload than the field in the peer’s presented
+						certificate and verify that the TOE fails to authenticate the IKE peer.
+					</test>
+				</testlist>
+			</Tests>
+		</aactivity>
+	</f-element>
+	<audit-event>
+		<audit-event-descr>Failure to establish an IPsec SA.</audit-event-descr>
+		<audit-event-info>Reason for failure.</audit-event-info>
+		<audit-event-info>Non-TOE endpoint of connection attempt (IP address).</audit-event-info>
+	</audit-event>
+	<audit-event>
+		<audit-event-descr>Establishment/Termination of an IPsec SA.</audit-event-descr>
+		<audit-event-info>Non-TOE endpoint of connection attempt (IP address).</audit-event-info>
+	</audit-event>	
 </f-component>
 						
-						
-
-
-
-
-
-
-					
-
-
-
-
-
-
-			
+		
 			
     <!--                  -->     
     <!-- FCS_RBG_EXT.1 -->
