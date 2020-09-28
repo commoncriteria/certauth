@@ -3320,8 +3320,9 @@
 				<selectable>Digital Signature Algorithm (DSA) with a key size (modulus) of 2048
 					bits or greater, that meets FIPS-PUB 186-4, “Digital Signature Standard”]</selectable>
 			</selectables></refinement>
-			<h:s><h:i>and cryptographic key sizes [assignment: cryptographic key sizes] that meet the
-				following: [assignment: list of standards].</h:i></h:s>
+			<h:s><h:i>and cryptographic key sizes 
+				<assignable>cryptographic key sizes</assignable> that meet the
+				following: <assignable>list of standards</assignable>.</h:i></h:s>
 		</title>
 		<note role="application">
 			The ST should specify whether the TOE performs the algorithms, or whether the
@@ -9269,7 +9270,7 @@
 	
 	<f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel" status="sel-based">
 		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/> <!-- TODO: This is wrong -->
-		<f-element>
+		<f-element id="ftp-itc-1e1">
 			<title>
 				<refinement>Refinement:</refinement> 
 				The TSF shall <refinement>use 
@@ -9398,7 +9399,7 @@
         <!-- FTP_TRP.1 -->
 	<!--               -->     
     <f-component cc-id="ftp_trp.1" name="Trusted Path" status="mandatory">
-		<f-element>
+		<f-element id="ftp-trp-1e1">
 			<title>
 				<refinement>Refinement:</refinement> The TSF shall 
 				<refinement>use <selectables>
@@ -9916,12 +9917,9 @@
   </chapter>
 
 	<!-- Appendixes  -->
-
-	<appendix title="Optional Requirements" id="optional"> 
-	</appendix>
-
-	<appendix title="Selection-Based Requirements" id="sel-based"> 
-	</appendix>
+	<!-- These first two get eaten and replaced with whatever the xsl generates -->	
+	<appendix title="Optional Requirements" id="optional"/> 
+	<appendix title="Selection-Based Requirements" id="sel-based"/> 
 
 
   <!-- Remove this section if an Entropy Assessment is not needed -->
