@@ -5102,7 +5102,7 @@
     <!-- FCS_TLSS_EXT.1 -->
     <!-- Selection-based  -->
     <!--                  -->    	      
-<f-component name="TLS Server Protocol" cc-id="fcs_tlsc_ext.1" status="sel-based">
+<f-component name="TLS Server Protocol" cc-id="fcs_tlss_ext.1" status="sel-based">
 	<selection-depends req="ftp-itc-1e1" ids="ftp-itc-tls"/>   <!-- Is this right? -->
 	<selection-depends req="ftp-trp-1e1" ids="ftp-trp-tls"/>   <!-- Is this right? -->
 	<selection-depends req="fco-nrr-ext-2e1" ids="sel-fco-ests-ext-1"/>
