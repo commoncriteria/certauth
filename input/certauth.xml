@@ -58,7 +58,7 @@
     This could be stand-alone or part of a larger section that defines the relationship between this doc and 
 other requirements docs. e.g. allowable PP compositions, supported modules, etc.
 And maybe there should be a section of the PP that says all this. So maybe some boilerplate around this?
-    There are 3 kinds (so far): mandatory (always included),
+    There are 3 kinds (so far): mandatory (always included), 
 				conditional (sel-based), 
 				feature dependent (impl-dep)
  <include-pkg id="pkg-tls" type="mandatory"/>    - tls package is always included
