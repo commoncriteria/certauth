@@ -4828,8 +4828,8 @@
     <!-- Selection-based  -->
     <!--                  -->    	      
 <f-component name="TLS Client Protocol" cc-id="fcs_tlsc_ext.1" status="sel-based">
-	<selection-depends req="ftp-itc-1e1" ids="ftp-itc-tls"/>
-	<selection-depends req="ftp-trp-1e1" ids="ftp-trp-tls"/>
+	<selection-depends req="ftp-itc-1e1" ids="ftp-itc-tls"/>   <!-- Is this right? -->
+	<selection-depends req="ftp-trp-1e1" ids="ftp-trp-tls"/>   <!-- Is this right? -->
 	<f-element>
 		<title>
 			The TSF shall implement 
@@ -5097,13 +5097,259 @@
 		<audit-event-descr>Establishment/Termination of a TLS session.</audit-event-descr>
 	</audit-event>							
 </f-component>	     
-	      
+
+    <!--                  -->     
+    <!-- FCS_TLSS_EXT.1 -->
+    <!-- Selection-based  -->
+    <!--                  -->    	      
+<f-component name="TLS Server Protocol" cc-id="fcs_tlsc_ext.1" status="sel-based">
+	<selection-depends req="ftp-itc-1e1" ids="ftp-itc-tls"/>   <!-- Is this right? -->
+	<selection-depends req="ftp-trp-1e1" ids="ftp-trp-tls"/>   <!-- Is this right? -->
+	<selection-depends req="fco-nrr-ext-2e1" ids="sel-fco-ests-ext-1"/>
+	<f-element>
+		<title>
+		      The TSF shall implement 
+			<selectables>
+				<selectable>TLS 1.2 (RFC 5246)</selectable>
+				<selectable>TLS 1.1 (RFC 4346)</selectable>
+			</selectables>
+			supporting the following ciphersuites: 
+			<selectables linebreak="yes">
+				<selectable>TLS_RSA_WITH_AES_128_CBC_SHA as defined in RFC 3268</selectable>
+				<selectable>TLS_RSA_WITH_AES_256_CBC_SHA as defined in RFC 3268</selectable>
+				<selectable>TLS_DHE_RSA_WITH_AES_128_CBC_SHA as defined in RFC 3268</selectable>
+				<selectable>TLS_DHE_RSA_WITH_AES_256_CBC_SHA as defined in RFC 3268</selectable>
+				<selectable>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA as defined in RFC 4492</selectable>
+				<selectable>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA as defined in RFC 4492</selectable>
+				<selectable>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA as defined in RFC 4492</selectable>
+				<selectable>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA as defined in RFC 4492</selectable>
+				<selectable>TLS_RSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5246</selectable>
+				<selectable>TLS_RSA_WITH_AES_256_CBC_ SHA256 as defined in RFC 5246</selectable>
+				<selectable>TLS_DHE_RSA_WITH_AES_128_CBC_ SHA256 as defined in RFC 5246</selectable>
+				<selectable>TLS_DHE_RSA_WITH_AES_256_CBC_ SHA256 as defined in RFC 5246</selectable>
+				<selectable>TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5288</selectable>
+				<selectable>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5289</selectable>
+				<selectable>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 as defined in RFC 5289</selectable>
+				<selectable>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5289</selectable>
+				<selectable>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</selectable>
+				<selectable>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5289</selectable>
+				<selectable>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5289</selectable>
+				<selectable>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 as defined in RFC 5289</selectable>
+				<selectable>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</selectable>
+			</selectables>
+			and no other ciphersuite.
+		</title>
+		<note role="application">
+			The ciphersuites to be tested in the evaluated configuration are limited by this
+			requirement. The ST author should select the ciphersuites that are supported. It is
+			necessary to limit the ciphersuites that can be used in an evaluated configuration
+			administratively on the server in the test environment. The Suite B algorithms
+			listed above (RFC 6460) are the preferred algorithms for implementation.<h:br/><h:br/>
+			These requirements will be revisited as new TLS versions are standardized by the
+			IETF.<h:br/><h:br/>
+			It is recognized that RFC 5246 mandates the cipher suite
+			TLS_RSA_WITH_AES_128_CBC_SHA, but use of SHA-1 for digital signature
+			generation is no longer recommended (see NIST SP 800-131A rev-1 and SP 800-
+			78-4). Subsequent revisions of the PP will not include SHA-1.
+		</note>
+		<aactivity>
+			<TSS>
+				The evaluator shall check the description of the implementation of this
+				protocol in the TSS to ensure that the ciphersuites supported are specified. The
+				evaluator shall check the TSS to ensure that the ciphersuites specified are
+				identical to those listed for this component. 
+			</TSS>
+			<Guidance>
+				The evaluator shall also check the operational guidance to ensure that it
+				contains instructions on configuring the TOE so that TLS conforms to the
+				description in the TSS (for instance, the set of ciphersuites advertised by the
+				TOE may have to be restricted to meet the requirements).
+			</Guidance>
+			<Tests>
+				<testlist>
+					<test>
+						The evaluator shall establish a TLS connection using each of the
+						ciphersuites specified by the requirement. This connection may be established
+						as part of the establishment of a higher-level protocol, e.g., as part of an EAP
+						session. It is sufficient to observe the successful negotiation of a ciphersuite to
+						satisfy the intent of the test; it is not necessary to examine the characteristics
+						of the encrypted traffic in an attempt to discern the ciphersuite being used (for
+						example, that the cryptographic algorithm is 128-bit AES and not 256-bit AES).
+					</test>
+					<test>
+						The evaluator shall send a Client Hello to the server with a list of
+						ciphersuites that does not contain any of the ciphersuites in the server’s ST and
+						verify that the server denies the connection. Additionally, the evaluator shall
+						send a Client Hello to the server containing only the
+						TLS_NULL_WITH_NULL_NULL ciphersuite and verify that the server denies the
+						connection.
+					</test>
+					<test>
+						The evaluator shall use a client to send a key exchange message in the
+						TLS connection that the does not match the server-selected ciphersuite (for
+						example, send an ECDHE key exchange while using the
+						TLS_RSA_WITH_AES_128_CBC_SHA ciphersuite or send a RSA key exchange
+						while using one of the ECDSA ciphersuites.) The evaluator shall verify that the
+						TOE disconnects after the receiving the key exchange message.
+					</test>
+					<test>
+						The evaluator shall perform the following modifications to the traffic:<h:br/><h:br/>
+						<h:ol type="a">
+							<h:li>Modify at a byte in the client’s nonce in the Client Hello handshake
+								message, and verify that the server rejects the client’s Certificate
+								Verify handshake message (if using mutual authentication) or that the
+								server denies the client’s Finished handshake message.</h:li>
+							<h:li>[conditional] If an ECDHE or DHE ciphersuite is selected, modify the
+								signature block in the Client’s Key Exchange handshake message, and
+								verify that the server rejects the client’s Certificate Verify handshake
+								message (if using mutual authentication) or that the server denies the
+								client’s Finished handshake message.</h:li>
+							<h:li>Modify a byte in the Client Finished handshake message, and verify
+								that the server rejects the connection and does not send any
+								application data.</h:li>
+							<h:li>After generating a fatal alert by sending a Finished message from the
+								client before the client sends a ChangeCipherSpec message, send a
+								Client Hello with the session identifier from the previous test, and
+								verify that the server denies the connection. </h:li>
+							<h:li>Send a garbled message from the client after the client has issued the
+								ChangeCipherSpec message and verify that the Server denies the
+								connection.</h:li>
+						</h:ol>
+					</test>
+				</testlist>
+			</Tests>
+		</aactivity>
+	</f-element>
+	<f-element>
+		<title>
+			The TSF shall deny connections from clients requesting SSL 2.0, SSL 3.0, TLS 1.0
+			and 
+			<selectables>
+				<selectable>TLS 1.1</selectable>
+				<selectable>TLS 1.2</selectable>
+				<selectable>no other TLS versions</selectable>
+			</selectables>.
+		</title>
+		<note role="application">
+			All SSL versions and TLS v1.0 are denied. Any TLS versions not selected in
+			FCS_TLSS_EXT.1.1 should be selected here.
+		</note>
+		<aactivity>
+			<TSS>
+				The evaluator shall verify that the TSS contains a description of the denial of
+				old SSL and TLS versions.
+			</TSS>
+			<Guidance>
+				The evaluator shall verify that any configuration necessary to meet the
+				requirement are contained in the AGD guidance.
+			</Guidance>
+			<Tests>
+				The evaluator shall send a Client Hello requesting a connection for all
+				mandatory and selected protocol versions in the SFR (e.g., by enumeration of
+				protocol versions in a test client) and verify that the server denies the
+				connection. 
+			</Tests>
+		</aactivity>
+	</f-element>
+	<f-element>
+		<title>
+			The TSF shall generate key agreement parameters using RSA with key size 2048
+			bits and 
+			<selectables>
+				<selectable>3072 bits</selectable>
+				<selectable>4096 bits</selectable>
+				<selectable>no other size</selectable>
+			</selectables>
+			and 
+			<selectables>
+				<selectable>over NIST curves 
+					<selectables>
+						<selectable>secp256r1</selectable>
+						<selectable>secp384r1</selectable>
+						<selectable>secp521r1</selectable>
+					</selectables> and no other curves</selectable>
+				<selectable>DiffieHellman parameters of size 2048 bits and 
+					<selectables>
+						<selectable>3072 bits</selectable>
+						<selectable>no other size</selectable>
+					</selectables></selectable>
+				<selectable>no other</selectable>
+			</selectables>.
+		</title>
+		<note role="application">
+			If the ST lists a DHE or ECDHE ciphersuite in FCS_TLSS_EXT.1.1, the ST must include
+			the Diffie-Hellman or NIST curves selection in the requirement. FMT_SMF.1
+			requires the configuration of the key agreement parameters in order to establish
+			the security strength of the TLS connection.
+		</note>
+		<aactivity>
+			<TSS>
+				The evaluator shall verify that the TSS describes the key agreement parameters
+				of the server key exchange message.
+			</TSS>
+			<Guidance>
+				The evaluator shall verify that any configuration necessary to meet the
+				requirement is contained in the AGD guidance.
+			</Guidance>
+			<Tests>
+				If the second selection includes any choice other than “no other”, the evaluator
+				shall attempt a connection using an ECDHE ciphersuite and a configured curve
+				and, using a packet analyzer, verify that the key agreement parameters in the
+				Key Exchange message are the ones configured. (Determining that the size
+				matches the expected size for the configured curve is sufficient.) The evaluator
+				shall repeat this test for each supported NIST Elliptic Curve and each supported
+				Diffie-Hellman key size.
+			</Tests>
+		</aactivity>
+	</f-element>
+	<f-element>
+		<title>
+			The TSF shall present the Supported Elliptic Curves Extension in the Client Hello
+			with the following NIST curves: 
+			<selectables>
+				<selectable>secp256r1</selectable>
+				<selectable>secp384r1</selectable>
+				<selectable>secp521r1</selectable>
+			</selectables> and no other curves.
+		</title>
+		<note role="application">
+			If ciphersuites with elliptic curves were selected in FCS_TLSS_EXT.1.1, this
+			component is required. This requirement limits the elliptic curves allowed for
+			authentication and key agreement to the NIST curves from FCS_COP.1(2),
+			FCS_CKM.1, and FCS_CKM.2. This extension is required for clients supporting
+			Elliptic Curve ciphersuites.
+		</note>
+		<aactivity>
+			<TSS>
+				The evaluator shall verify that the TSS describes the Supported Elliptic Curves
+				Extension and whether the required behavior is performed by default or may
+				be configured.
+			</TSS>
+			<Tests>
+				The evaluator shall perform the following test:
+				<testlist>
+					<test>
+						The evaluator shall configure the server to perform an
+						ECDHE key exchange in the TLS connection using a non-supported
+						curve (for example P-192) and shall verify that the TOE disconnects
+						after receiving the server’s Key Exchange handshake message.
+					</test>
+				</testlist>
+			</Tests>
+		</aactivity>
+	</f-element>
+	<audit-event>
+		<audit-event-descr>Failure to establish a TLS session.</audit-event-descr>
+		<audit-event-info>Reason for failure.</audit-event-info>
+	</audit-event>
+	<audit-event>
+		<audit-event-descr>Establishment/termination of a TLS session.</audit-event-descr>
+	</audit-event>
+</f-component>
+
+		
 </subsection>
 		
-		
-		<!-- FSC_TLSS_EXT.1 will go here. It has same selection-depends as FIA_ESTS_EXT.1 
-				<selection-depends req="fco-nrr-ext-2e1" ids="sel-fco-ests-ext-1"/>
-        -->
 
         <!--                             -->
 	<!-- Class: FDP: User Data Protection  -->
