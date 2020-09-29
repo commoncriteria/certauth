@@ -2579,6 +2579,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
           </f-element>
 	  <audit-event/>
     </f-component>
+	   
+      
+    <!--                  -->     
+    <!-- FCS_CKM_EXT.1(2) -->
+    <!-- Selection-based  -->
+    <!--                  -->     
+<!--    <f-component cc-id="fcs_ckm_ext.1" iteration="2" name="Key Generation Key Encryption Keys" status="sel-based">
+	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-1i3"/>   TODO
+	<f-element>
+-->		
 	      
     <!--                  -->     
     <!-- FCS_CKM_EXT.1(3) -->
@@ -8553,6 +8563,73 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<audit-event-info>Indication that the TSF has failed with the type of failure that occurred</audit-event-info>
 		</audit-event>
 	</f-component>				
+	     
+	<!--               -->     
+        <!-- FPT_ITT.1 -->
+	<!--               -->     
+        <f-component cc-id="fpt_itt.1" name="Basic Internal TSF Data Transfer Protection" status="sel-based">
+		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/>    <!-- TODO: This is wrong -->
+		<f-element id="fpt-itt-1e1">
+			<title>
+				<refinement>Refinement:</refinement>: The TSF shall protect TSF data from [<h:i>disclosure, modification</h:i>]
+				when it is transmitted between separate parts of the TOE <refinement>through the use of (choose at least one of)
+				<selectables>
+					<selectable id="sel-itt-ipsec">IPsec</selectable>
+					<selectable id="sel-itt-ssh">SSH</selectable>
+					<selectable id="sel-itt-tls">TLS</selectable>
+					<selectable id="sel-itt-https">TLS/HTTPS</selectable>
+				</selectables>.</refinement>
+			</title>
+			<note role="application">
+				This SFR must be included in the ST if ...<h:br/><h:br/>
+				This requirement ensures all communications between components of a
+				distributed TOE is protected through the use of an encrypted communications
+				channel. The data passed in this trusted communication channel are encrypted as
+				defined the protocol chosen in the first selection. The ST author chooses the
+				mechanism(s) supported by the TOE, and then ensures the detailed requirements
+				in Annex B corresponding to their selection are copied to the ST if not already
+				present.<h:br/><h:br/>
+				If SSH is selected, the TOE is expected to conform to the Extended Package for
+				Secure Shell.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to determine that the methods and
+					protocols used to protect distributed TOE components are described. The
+					evaluator shall also confirm that all protocols listed in the TSS in support of TOE
+					administration are consistent with those specified in the requirement, and are
+					included in the requirements in the ST. 
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the operational guidance to ensure it contains
+					instructions for establishing the communication paths for each supported
+					method. 
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following tests:
+					<testlist>
+						<test>
+							The evaluators shall ensure that communications using each
+							specified (in the operational guidance) communications method is
+							tested during the course of the evaluation, setting up the
+							connections as described in the operational guidance and ensuring
+							that communication is successful.
+						</test>
+						<test>
+							The evaluator shall ensure, for each method of
+							communication, the channel data is not sent in plaintext.
+						</test>
+					</testlist>
+					Further assurance activities are associated with the specific protocols.<h:br/><h:br/>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>
+		<audit-event/>
+	</f-component>
 					
 	<!--               -->     
         <!-- FPT_KST_EXT.1 -->
