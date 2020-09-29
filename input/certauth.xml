@@ -2585,10 +2585,117 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- FCS_CKM_EXT.1(2) -->
     <!-- Selection-based  -->
     <!--                  -->     
-<!--    <f-component cc-id="fcs_ckm_ext.1" iteration="2" name="Key Generation Key Encryption Keys" status="sel-based">
-	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-1i3"/>   TODO
+    <f-component cc-id="fcs_ckm_ext.1" iteration="2" name="Key Generation Key Encryption Keys" status="sel-based">
+	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-1i3"/>  <!-- TODO -->
 	<f-element>
--->		
+		<title>
+			The TSF shall be able to 
+			<selectables>
+				<selectable>generate</selectable>
+				<selectable>invoke interfaces in the Operational Environment to generate</selectable>
+			</selectables>
+			<selectables>
+				<selectable>asymmetric KEKs of <assignable>security strength greater than or equal to 112 bits</assignable>
+					security strength in accordance with FCS_CKM.1</selectable>
+				<selectable>
+					<selectables>
+						<selectable>size 128-bit</selectable>
+						<selectable>256-bit</selectable>
+					</selectables> symmetric KEKs using
+					<selectables linebreak="yes">
+						<selectable>an RBG that meets this profile (as specified in FCS_RBG_EXT.1), a key
+							generation capability of the Operational Environment</selectable>
+						<selectable>a TSF-provided mechanism that combines KEKs in a way that preserves the
+							effective entropy of each factor by
+							<selectables linebreak="yes">
+								<selectable>using an XOR operation</selectable>
+								<selectable>concatenating the keys and using a key derivation function (KDF) in
+									accordance with SP 800-108</selectable>
+								<selectable>encrypting one key with another in accordance with FCS_COP.1(1) and
+									using modes 
+									<selectables>
+										<selectable>AES-CCM</selectable>
+										<selectable>AES-GCM</selectable>
+										<selectable>AES Key Wrap</selectable>
+										<selectable>AES Key Wrap with Padding</selectable>
+									</selectables>
+								</selectable>
+							</selectables>
+						</selectable>
+					</selectables>
+				</selectable>
+			</selectables>.
+		</title>
+		<note role="application">
+			This SFR must be included in the ST if ...TODO <h:br/><h:br/>
+			There are three major types of keys described in this PP: asymmetric keys used by
+			the TSF for signing, establishing secure channels, and TOE integrity; data
+			encryption keys (DEKs); and key encryption keys (KEKs). Additionally, the TSF may
+			optionally generate subscriber keys. KEKs are used to protect any of these keys.
+			When KEKs protect other keys, they form a key hierarchy. When key hierarchies
+			are used to protect keys generated via a mechanism other than a validated RGB
+			in accordance with FCS_RBG_EXT.1, FCS_CKM_EXT.7 in Annex B.8 must be
+			included. Additionally, FCS_CKM_EXT.8 must also be included in these cases to
+			ensure the consistency of the entire key hierarchy.<h:br/><h:br/>
+			This requirement addresses the generation of KEKs used to protect other keys
+			but not used to archive those keys; key archival is addressed by
+			FCS_CKM_EXT.1(3), FCS_CKM_EXT.1(4), and FCS_CKM_EXT.6.<h:br/><h:br/>
+			The ST author can select asymmetric or symmetric KEKs (or both). If asymmetric
+			KEKs are selected, the security strength corresponding to the modulus (per
+			FCS_CKM.1 will be in assigned in the requirement in the ST. If symmetric
+			generation is chosen, then the size of the symmetric key is as selected, and the 
+			method or methods of generating the symmetric KEKs also will need to be
+			selected.<h:br/><h:br/>
+			For the generation of symmetric KEKs, if any option but the RBG option is
+			selected, FCS_CKM_EXT.7 in Annex B.8 must be included.<h:br/><h:br/>
+			In the first selection, the ST author chooses whether the TOE performs the
+			operation, or whether it invokes interfaces in the Operational Environment for the
+			functionality.<h:br/><h:br/>
+			The second selection indicates if the KEK generated is asymmetric or symmetric,
+			and the requirements on each.<h:br/><h:br/>
+			If an asymmetric KEK is generated, then the ST author specifies the security
+			strength of the mechanism in terms of the number of bits, and also includes
+			FCS_CKM.1 in the ST.<h:br/><h:br/>
+			If a symmetric KEK is generated, the number of bits of the KEK is specified in the
+			third selection, and then the method of generating the DEK is selected in the fourth
+			(and subsequent) selection.<h:br/><h:br/>
+			For the fourth selection, if the TSF invokes an RBG that is implemented by the
+			TOE or implemented by the OE, the first item is selected and FCS_RBG_EXT.1 is
+			included in the ST. If the TSF invokes a key-generation mechanism in the OE
+			(that is not a direct invocation of an RBG), then the second item (“a key
+			generation capability of the Operational Environment”) is selected; in this case
+			the second item of the first selection ("invoke interfaces provided by the
+			Operational Environment to perform") should have also been chosen. If the TSF
+			uses a method to combine KEKs to produce a KEK, the third item is selected and
+			the method used to produce the KEK from the other KEKs is chosen in the fifth
+			selection. If the third item in the fifth selection statement is chosen (key wrap),
+			then FCS_COP.1(1) will be included in the ST and the appropriate key wrap
+			method will be chosen in the sixth selection.
+		</note>
+		<aactivity>
+			<TSS>
+				For KEKs generated using an RBG, the evaluator shall examine the TSS of the
+				TOE to verify that it describes how the functionality described by
+				FCS_RBG_EXT.1 is invoked. The evaluator shall review the TSS and other
+				evidence to determine that the key size being requested from the RBG is
+				identical to the key size used for the encryption/decryption of the data or key.<h:br/><h:br/>
+				For KEKs generated according to an asymmetric key scheme, the evaluator shall
+				review the TSS to determine that it describes how the functionality described
+				by FCS_CKM.1 is invoked. The evaluator uses the description of the key
+				generation functionality in FCS_CKM.1 or documentation available for the 
+				operational environment to determine that the key strength being requested
+				is greater than or equal to 112 bits.<h:br/><h:br/>
+				For each KEK that is formed from a combination, the evaluator shall verify that
+				the TSS describes the method of combination and contains a justification for
+				preserving the effective entropy.
+			</TSS>
+		</aactivity>
+	</f-element>
+	<audit-event/>
+</f-component>
+
+
+
 	      
     <!--                  -->     
     <!-- FCS_CKM_EXT.1(3) -->
