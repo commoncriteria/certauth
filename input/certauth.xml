@@ -7268,8 +7268,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						</selectables>;
 					</h:li>
 					<h:li>composed of any combination of upper and lower case letters, numbers, and
-						special characters (that include: “!”, “@”, “#”, “$”, “%”, “^”, “&amp”, “*”, “(“, and
-						“)”).
+						special characters (that include: &quot;!&quot;, &quot;@&quot;, &quot;#&quot;, 
+						&quot;$&quot;, &quot;%&quot;, &quot;^&quot;, &quot;&amp;&quot;, &quot;*&quot;, 
+						&quot;(&quot;, and &quot;)&quot;).
 					</h:li>
 				</h:ul>
 			</title>
