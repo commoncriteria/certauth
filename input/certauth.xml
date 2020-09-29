@@ -4910,7 +4910,69 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<audit-event-info>Non-TOE endpoint of connection attempt (IP address).</audit-event-info>
 	</audit-event>	
 </f-component>
-						
+
+<!--                  -->     
+<!-- FCS_KSH_EXT.1 -->
+<!-- Objective      -->
+<!--                  -->    	      
+<f-component name="Key Sharing" cc-id="fcs_ksh_ext.1" status="objective">
+	<f-element>
+		<title>
+			The TSF shall 
+			<selectables>
+				<selectable>support</selectable>
+				<selectable>interface with the operational environment to support</selectable>
+			</selectables>
+			split knowledge procedures to enforce two-party control for the export of CA signing keys 
+			<selectables>
+				<selectable>no other data</selectable>
+				<selectable><assignable>critical data or keys</assignable></selectable>
+			</selectables>
+			necessary to resume CA functionality after TSF failure using key sharing
+			mechanisms in accordance with FCS_CKM_EXT.1.1(3), FCS_CKM_EXT.1.2(3),
+			FCS_CKM_EXT.7.1 and FPT_SKY_EXT.1.1(2).
+		</title>
+		<note role="application">
+			This SFR, which mandates the use of key sharing to control the export of CA signing
+			keys, is intended to replace FPT_SKY_EXT.1 in future versions of this PP.
+		</note>
+		<aactivity>
+			<TSS>
+				The evaluator shall examine the TSS to ensure it describes the restrictions
+				placed on key shares generated in accordance with FCS_CKM_EXT.1(4) in
+				accordance with this requirement.
+			</TSS>
+			<Guidance>
+				The evaluator shall examine the AGD guidance to ensure it contains
+				instructions for configuring the TOE or Operational Environment to restrict
+				access to the shares and limit each one to a single privileged user.
+			</Guidance>
+			<Tests>
+				The evaluator shall perform the following test:
+				<testlist>
+					<test>
+						The evaluator shall generate key shares that require two
+						persons. The evaluator shall assume a single role and shall verify
+						that access to the assigned share is possible but reconstitution of
+						the original key is not. The evaluator shall then assume a second
+						role and assign a key share to them, then verify that their actions
+						together result in a reconstituted key. 
+					</test>
+				</testlist>
+				Note that in order to perform this testing, it is acceptable to violate the
+				operational guidance so that the same evaluator is simultaneously accessing 
+				the TSF as two separate identities. Alternatively, this test can be performed by
+				two testers.<h:br/><h:br/>
+				<h:i>Equivalency</h:i><h:br/><h:br/>
+				Testing of the TOE may be performed on a subset of the platforms listed in the
+				TOE’s ST. Justification must be provided for those platforms that were excluded
+				from testing.
+			</Tests>
+		</aactivity>
+	</f-element>
+	<audit-event/>
+</f-component>
+	 
 			
     <!--                  -->     
     <!-- FCS_RBG_EXT.1 -->
@@ -7147,6 +7209,47 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<audit-event-info>Any signed response.</audit-event-info>
 		</audit-event>
 	</f-component>		
+
+<!--               -->     
+<!-- FIA_ESTC_EXT.1 -->
+<!--               -->     
+<f-component cc-id="fia_enr_ext.1" name="Certificate Enrollment" status="objective">
+	<f-element>
+		<title>
+			The TSF shall be able to generate a certificate request to an external certification
+			authority to receive a CA certificate for a CA's signing key using 
+			<selectables linebreak="yes">
+				<selectable>PKCS#10 in accordance with FIA_X509_EXT.3</selectable>
+				<selectable>Enrollment over Secure Transport (EST) in accordance with FIA_ESTC_EXT.1</selectable>
+				<selectable>Certificate Management over CMM in accordance with FIA_CMCC_EXT.1</selectable>
+			</selectables>
+		</title>
+		<note role="application">
+			The external certification authority may be a root or intermediate certification
+			authority that is used to issue and manage the TOE’s embedded CA’s certificate.
+			It is not to be used to directly issue end entity certificates to requested servers
+			instead of the TOE’s embedded CA.
+		</note>
+		<aactivity>
+			<TSS>
+				The evaluator shall examine the TSS to ensure that it describes the certificate
+				enrollment function options.
+			</TSS>
+			<Guidance>
+				The evaluator shall examine the operational guidance documentation and
+				confirm that it contains instructions for obtaining a certificate for the
+				embedded CA using the options claimed in FIA_ENR_EXT.1.1.
+			</Guidance>
+			<Tests>
+				Testing is covered under the tests for the referenced SFR of the claimed
+				options.
+			</Tests>
+		</aactivity>
+	</f-element>
+	<audit-event/>
+</f-component>
+
+		
 		
 	<!--               -->     
     <!-- FIA_ESTC_EXT.1 -->
@@ -7300,7 +7403,55 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</audit-event>
 	</f-component>
 
+<!--               -->     
+<!-- FIA_ESTC_EXT.2 -->
+<!--               -->     
+<f-component cc-id="fia_estc_ext.2" name="EST Cient use of TLS-unique value" status="objective">
+	<f-element>
+		<title>
+			The TSF shall generate tls-unique values and integrate them into EST requests it
+			generates in accordance with RFC 7030 section 3.5.
+		</title>
+		<note role="application">
+			This SFR describes an optional element of RFC 7030 that strengthens the
+			authentication provided by EST. While RFC 7030 requires EST servers to validate
+			the tls-unique values when presented, this requirement is not implemented in
+			current EST servers. FIA_ESTC_EXT.2.1 will be integrated into FIA_ESTC_EXT.1 in a
+			subsequent release of this EP and should be claimed if the EST implementation
+			supports it. 
+		</note>
+		<aactivity>
+			<TSS>
+				The evaluator shall examine the TSS to ensure the description of EST includes
+				implementation of tls-unique values.
+			</TSS>
+			<Guidance>
+				The evaluator shall examine the operational guidance to ensure it contains
+				instructions on configuring the TOE so that EST conforms to the description in
+				the TSS, to include any configuration associated to the inclusion of tls-unique
+				values in certificate requests.
+			</Guidance>
+			<Tests>
+				The evaluator shall perform the following tests:
+				<testlist>
+					<test>
+						The evaluator shall follow guidance documentation to
+						implement the EST request function to include tls-unique values in
+						the certificate request. The evaluator shall establish trust with an
+						external EST server and associated CA and submit a simple
+						certificate request. The evaluator shall review the request received
+						by the EST server and observe that the request contains the tls-unique
+						value and that the it matches the tls-unique value
+						established under the TLS session. 
+					</test>
+				</testlist>
+			</Tests>
+		</aactivity>
+	</f-element>
+	<audit-event/>
+</f-component>
 		
+	
 	<!--               -->     
     <!-- FIA_ESTS_EXT.1 -->
 	<!--               -->     
@@ -7433,6 +7584,64 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</audit-event>
 	</f-component>
 
+<!--               -->     
+<!-- FIA_ESTS_EXT.2 -->
+<!--               -->     
+<f-component cc-id="fia_ests_ext.2" name="Enrollment over Secure Transport (EST) Server" status="objective">
+	<f-element>
+		<title>
+			The TSF shall verify tls-unique values offered by EST clients in accordance with
+			RFC 7030 section 3.5.
+		</title>
+		<note role="application">
+			The ability for EST servers to verify tls-unique values is required by RFC 7030, but
+			is not common in current EST libraries.
+		</note>
+		<aactivity>
+			<TSS>
+				The evaluator shall examine the TSS to ensure it describes the implementation
+				of tls-unique verification within the description of the EST protocol.
+			</TSS>
+			<Guidance>
+				The evaluator shall examine the operational guidance to ensure it contains
+				instructions on any configurable features of the TOE so that EST includes
+				validation of tls-unique values in EST requests.<h:br/><h:br/>
+				The evaluator shall examine the operational guidance to ensure it contains
+				instructions for obtaining or configuring the TA database (implicit or explicit)
+				and any required initial certificates.
+			</Guidance>
+			<Tests>
+				The evaluator shall perform the following tests:
+				<testlist>
+					<test>
+						The evaluator shall establish an external EST client with an
+						existing certificate issued from a CA implemented by the TOE, and
+						configured to perform EST re-enrollment requests using tls-unique
+						values in accordance with RFC 7030 section 3.5. The evaluator shall
+						configure the TOE to authorize EST services for the client and
+						configure the TOE to verifiy the tls-unique value. The evaluator
+						shall submit an EST re-enrollment request and confirm that the
+						TOE responds with a signed certificate issued to the subject
+						identified in the current request.
+					</test>
+					<test>
+						The evaluator shall use the same client established in Test
+						1, and generate a re-enrollment request in which at least one byte
+						of the tls-unique value within the HTTP layer of the re-enrollment
+						request is modified. The evaluator shall submit the request to the
+						TOE and observe that the TOE does not issue a certificate in
+						response to the request.
+					</test>
+				</testlist>
+				<h:i>Equivalency</h:i><h:br/><h:br/>
+				Testing of the TOE may be performed on a subset of the platforms listed in the
+				TOE’s ST. Justification must be provided for those platforms that were excluded
+				from testing.
+			</Tests>
+		</aactivity>
+	</f-element>
+	<audit-event/>
+</f-component>
 
 	<!--               -->     
         <!-- FIA_PMG_EXT.1 -->
@@ -7695,8 +7904,6 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<audit-event />
 	</f-component>
 		
-		
-
 
 	<!--               -->     
         <!-- FIA_UAU_EXT.1 -->
