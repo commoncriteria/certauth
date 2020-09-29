@@ -7268,7 +7268,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						</selectables>;
 					</h:li>
 					<h:li>composed of any combination of upper and lower case letters, numbers, and
-						special characters (that include: “!”, “@”, “#”, “$”, “%”, “^”, “&”, “*”, “(“, and
+						special characters (that include: “!”, “@”, “#”, “$”, “%”, “^”, “&amp”, “*”, “(“, and
 						“)”).
 					</h:li>
 				</h:ul>
@@ -7294,7 +7294,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				For the length of the text-based pre-shared keys, a common length (22 characters)
 				is required to help promote interoperability. If other lengths are supported they
 				should be listed in the assignment; this assignment can also specify a range of
-				values (e.g., "lengths from 5 to 55 characters") as well.<h:br/<h:br/>
+				values (e.g., "lengths from 5 to 55 characters") as well.<h:br/><h:br/>
 				In the second selection for FIA_PSK_EXT.1.3, the ST author fills in the method by
 				which the text string entered by the administrator is “conditioned” into the bit
 				string used as the key. This can be done by using one of the specified hash
