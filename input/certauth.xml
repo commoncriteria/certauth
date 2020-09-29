@@ -9271,6 +9271,55 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<audit-event/>
 	</f-component>
 
+	<!--               -->     
+        <!-- FPT_SKY_EXT.1 -->
+	<!--               -->     
+	
+	<f-component cc-id="fpt_sky_ext.1" name="Key Share Access" status="sel-based">
+		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/> <!-- TODO: This is wrong -->
+		<f-element>
+			<title>
+				The 
+				<selectables>
+					<selectable>TSF</selectable>
+					<selectable>Operational Environment</selectable>
+				</selectables> shall ensure that key shares
+				generated in accordance with FCS_CKM_EXT.1(4) are accessible only to privileged
+				users, and that each share is only accessible to a single privileged user as
+				configured by an Administrator.
+			</title>
+			<note role="application">
+				This SFR shall be included if “key sharing mechanisms in accordance with
+				FCS_CKM_EXT.1(3), FCS_CKM_EXT.1(4), FCS_CKM_EXT.6, and FPT_SKY_EXT.2” is
+				selected in FPT_SKY_EXT.1.1. It should be noted that this protection can be
+				accomplished via FCS_COP.1(5); if it is, then that SFR should be included in the ST.
+			</note>
+			<aactivity>
+				<TSS>
+					The Evaluator shall review the user guidance and observe that instructions on
+					how to establish key shares is provided.
+				</TSS>
+				<Guidance>
+					The evaluator shall ensure that the operational guidance contains any
+					instructions needed to ensure that the shares are protected and only accessible
+					by a single user.
+				</Guidance>
+				<Tests>
+					The evaluator shall assume the role of Administrator and attempt to establish
+					two key shares for the same user and observe that the operation fails. Note
+					that this is key shares for a single key as per FCS_CKM_EXT.1(4) and
+					FCS_CKM_EXT.1(3), in contrast to key shares that may be generated at
+					different times for different keys.<h:br/><h:br/>
+					The evaluator shall then establish two key shares for two different users as
+					instructed in user guidance. As one of the users, the evaluator shall attempt to
+					access the share of the other, and observe that the operation fails.
+				</Tests>
+			</aactivity>
+		</f-element>
+		<audit-event>
+			<audit-event-descr>Access control violations for users involved in key share establishment or control.</audit-event-descr>
+		</audit-event>
+	</f-component>	
 	
 	<!--               -->     
         <!-- FPT_STM.1 -->
