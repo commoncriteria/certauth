@@ -68,8 +68,18 @@ And maybe there should be a section of the PP that says all this. So maybe some 
  <include-pkg id="pkg-blueooth" type="impl-dep">
  	<depends on="feature">Select if the TOE implements the Bluetooth.</depends>
  </include-pkg>
--->
+--> 
+ <include-pkg id="pkg-tls" type="mandatory"/>   
+ <include-pkg id="pkg-ssh" type="sel-based">    
+	<selection-depends req="ftp-itc-1e1" id="ftp-itc-ssh"/>
+ </include-pkg>
+ <include-pkg id="pkg-blueooth" type="impl-dep">
+ 	Select if the TOE implements the Bluetooth.
+ </include-pkg>
 
+	
+	
+	
   <chapter title="Introduction" id="int">
     <section title="Overview" id="ppoverview">
       	Certification Authorities (CAs), and the infrastructure they support, form the basis for one of the primary
