@@ -49,10 +49,6 @@
     </entry>
   </RevisionHistory>
 	
-  <pp-preferences>
-	<pp-pref name="display-audit-with-sfrs">0</pp-pref>
-	<pp-pref name="audit-events-in-sfrs">1</pp-pref>
-  </pp-preferences>
 	
 <!-- Proposed Package Inclusion Section
     This could be stand-alone or part of a larger section that defines the relationship between this doc and 
@@ -69,18 +65,40 @@ And maybe there should be a section of the PP that says all this. So maybe some 
  	<depends on="feature">Select if the TOE implements the Bluetooth.</depends>
  </include-pkg>
 --> 
- <include-pkg id="pkg-tls" type="mandatory"/>   
- <include-pkg id="pkg-ssh" type="sel-based">    
-	<selection-depends req="ftp-itc-1e1" id="ftp-itc-ssh"/>
- </include-pkg>
- <include-pkg id="pkg-blueooth" type="impl-dep">
- 	Select if the TOE implements the Bluetooth.
+ <include-pkg name="Network Encryption" product="" short="TLS" version="1.1">
+	url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=439&amp;id=439">
+<!--	    <depends on="selection"><ref-id>sel-itc-tls</ref-id></depends>
+	    <depends on="selection"><ref-id>sel-itc-https</ref-id></depends>
+	    <depends on="selection"><ref-id>sel-x509-2-tls</ref-id></depends>   -->
  </include-pkg>
 
+ <include-pkg name="Secure Shell" product="" short="SSH"  version="1.0"
+	url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=389&amp;id=389">
+<!--	<depends on="selection"><ref-id>sel-itc-ssh</ref-id></depends>
+    	<depends on="selection"><ref-id>sel-x509-2-ssh</ref-id></depends>  -->
+ </include-pkg>	
+	
+	<!-- Rules - These are rules where selections in the base require selections in the Modules.
+			So, really these belong in a composition and not here. At worst they should be in the module.
+	<rule if="sel-uau-pwd" then="client:sel-mf-2"/>
+	<rule if="sel-uau-pwd" then="server:sel-mf-2"/>
+	<rule if="sel-uau-pwd" then="client:sel-mf-17"/>
+	<rule if="sel-uau-pwd" then="server:sel-mf-17"/>
+        <rule if="sel-uau-ssh-dirbased" then="client:sel-mf-17"/>
+        <rule if="sel-uau-ssh-dirbased" then="server:sel-mf-17"/>
+	<rule if="sel-uau-pwd-dirbased" then=="client:sel-mf-17"/>
+	<rule if="sel-uau-pwd-dirbased" then=="server:sel-mf-17"/>
+	<rule if="sel-uau-x509-dirbased" then="server:sel-mf-17"/> 
+	<rule if="sel-uau-x509-dirbased" then="client:sel-mf-17"/> 
+	<rule if="sel-x509-adminset" then="server:sel-mf-27"/>
+	<rule if="sel-x509-adminset" then="client:sel-mf-27"/>
+-->
+  <pp-preferences>
+	  <audit-events-in-sfrs/>
+  </pp-preferences>
 	
 	
-	
-  <chapter title="Introduction" id="int">
+  <chapter title="Introduction" id="ch-intro">
     <section title="Overview" id="ppoverview">
       	Certification Authorities (CAs), and the infrastructure they support, form the basis for one of the primary
      	 mechanisms for providing strong assurance of identity in online transactions. The widely placed trust in
@@ -326,7 +344,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
       	<term abbr='XOR' full="Exclusive Or"/>
     </tech-terms> 
 	  
-    <section title="Compliant Targets of Evaluation" id="TOEdescription">
+    <section title="Compliant Targets of Evaluation" id="complianttargets">
 	    A CA system is an entity that issues and manages public-key certificates. The CA is the primary component
 	of a public key infrastructure (PKI), which consists of programs, data formats, procedures, communication
 	protocols, security policies, and public key cryptographic mechanisms working together to enable people
