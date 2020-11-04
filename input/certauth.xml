@@ -1008,7 +1008,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
       </subsection>
 	      
         <!--                             -->
-	<!-- Class: FAU: Security Audit  -->
+	<!-- 5.1.2 Class: FAU: Security Audit  -->
         <!--                             -->
       <subsection title="Class: Security Audit (FAU)" id="fau">
 	       
@@ -1934,7 +1934,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
       <subsection title="Class: Communications (FCO)" id="fco">
 
 	<!--               -->     
-        <!-- FCO_NRO_EXT.2 -->
+        <!-- 5.1.3 FCO_NRO_EXT.2 -->
 	<!--               -->     
 	<f-component cc-id="fco_nro_ext.2" name="Certificate-Based Proof of Origin" status="mandatory">
 		<f-element>
@@ -10423,11 +10423,15 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</audit-event>
 	</f-component>
     </subsection>   
+	    
+<!-- 5.1.11 TOE Security Functional Requirements Rationale -->
+<!--   This is auto generated -->
+	    
    </section>
 
 <!--  ************************************************  -->
 <!--  ************************************************  -->
-<!--                SAR                                 -->
+<!--   5.2 Security Assurance Requirenents              -->
 <!--  ************************************************  -->
 <!--  ************************************************  -->		
 		
@@ -10849,11 +10853,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
   </chapter>
 
 	<!-- Appendixes  -->
-	<!-- These first two get eaten and replaced with whatever the xsl generates -->	
+	<!-- Appendix A: Optional Requirements (auto-generated) -->
 	<appendix title="Optional Requirements" id="optional"/> 
+	
+	<!-- Appendeix B: Selection-Based Requirements (auto-generated) -->
 	<appendix title="Selection-Based Requirements" id="sel-based"/> 
 
-
+	<!-- Appendix C: Entropy Documentation and Assessment --> 
   <appendix title="Entropy Documentation and Assessment" id="entropyappendix"> 
 	The documentation of the entropy source should be detailed enough that, after reading, the evaluator
 	will thoroughly understand the entropy source and why it can be relied upon to provide entropy. This
@@ -10891,6 +10897,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	why each test is believed to be appropriate for detecting one or more failures in the entropy source.<h:br/><h:br/>
   </appendix>
 
+	<!-- Does this product need an Equivalence section -->
+	
+	<!-- Appendix D: References --> 
   <appendix title="References" id="biblio">
     <bibliography>
       <entry id="bibCC">
