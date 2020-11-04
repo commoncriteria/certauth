@@ -97,8 +97,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	  <audit-events-in-sfrs/>
   </pp-preferences>
 	
+
+<!-- 1. Introduction  -->
 	
   <chapter title="Introduction" id="ch-intro">
+	  
+<!-- 1.1 Overview  -->
+	  
     <section title="Overview" id="ppoverview">
       	Certification Authorities (CAs), and the infrastructure they support, form the basis for one of the primary
      	 mechanisms for providing strong assurance of identity in online transactions. The widely placed trust in
@@ -124,13 +129,17 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	The following sections provide both Common Criteria and technology terms used in this PP.
     </section>
 
+<!-- 1.2 Terms -->
+<!-- 1.2.1 Common Criteria Terms -->
+<!-- 1.2.2 Technical Terms -->
+	  
     <tech-terms>
-	<term abbr='AES' full="Advanced Encryption Standard"/>
-      	<term abbr='API' full="Application Programming Interface"/>
       	<term full="Administrator">
 		The Administrator is responsible for management activities, including configuration of
 		the CA and its security functions.
       	</term>
+	<term abbr='AES' full="Advanced Encryption Standard"/>
+      	<term abbr='API' full="Application Programming Interface"/>
       	<term full="Authorized Organizational Representative" abbr="AOR">
 		An optional privileged user role which is delegated authority by the Certification
 		Authority Staff or RA Staff to manage a restricted set of certificates associated to
@@ -344,6 +353,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
       	<term abbr='XOR' full="Exclusive Or"/>
     </tech-terms> 
 	  
+<!-- 1.3 Compliant Targets of Evaluation -->
+	  
     <section title="Compliant Targets of Evaluation" id="complianttargets">
 	    A CA system is an entity that issues and manages public-key certificates. The CA is the primary component
 	of a public key infrastructure (PKI), which consists of programs, data formats, procedures, communication
@@ -406,6 +417,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	agreement and service, the organization may be fully or to some extent involved in subscriber registration,
 	certificate management, and revocation.	    
 	    
+<!-- 1.3.1 TOE Boundary -->
+	    
       <subsection title="TOE Boundary" id="TOEboundary">
 	Figure 1 below illustrates an example PKI architecture; this architecture is for illustration only and is not
 	meant to represent requirements for an actual deployment. Within a PKI, the CA is responsible for issuing
@@ -425,11 +438,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	contained in the certificate. This also allows the relying parties to use the public key in the certificate to
 	carry out encrypted communication with the subscriber.<h:br/><h:br/>
 	      
-	<figure entity="images/CertAuth-TOE.png" title="TOE Boundary in Example PKI Architecture" id="toe"/>
+	<figure entity="images/CertAuth-TOE.png" title="TOE Boundary in Example PKI Architecture" id="toe"/><h:br/><h:br/>
 	      
-	<h:br/><h:br/>This PP defines requirements only for CA system component(s) that issue and manage public key
+	This PP defines requirements only for CA system component(s) that issue and manage public key
 	certificates and certificate status information, to include interfaces to components not under the control
-	of the ST author that may be required to meet these requirements as shown in Figure 1. <h:br/><h:br/>
+	of the ST author that may be required to meet these requirements as shown in Figure 1 (above). <h:br/><h:br/>
 	      
 	While the functionality that the TOE is obligated to implement (in response to the described threat
 	environment) is discussed in detail in later sections, it is useful to give a brief description here. Compliant
@@ -480,6 +493,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
      </subsection>
     </section>
 
+<!-- 1.4 Use Cases -->
+	  
     <section title="Use Cases" id="usecases">
 	Requirements in this PP are designed to address the security problem for CA systems. The fundamental
 	usage of a CA system will not differ drastically based on the functionality it provides. Different TOEs may
@@ -489,17 +504,21 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     </section>
   </chapter>
 
-  <chapter title="Conformance Claims" id="cclaims"/>
+<!-- 2. Conformance Claims -->
+  <chapter title="Conformance Claims" id="ccl"/>
+
+<!-- 3. Secyruty Problem Description -->
 	
   <chapter title="Security Problem Description" id="spd">
 	  
   The security problem is described in terms of the threats that the OS is expected to address, assumptions
   about the operational environment, and any organizational security policies that the OS
   is expected to enforce.
+	  
+<!-- 3.1 Threats -->
 
   <section title="Threats" id="threats">
       <threats>
-
 	<threat name="T.PRIVILEGED_USER_ERROR">
           <description> A privileged user or non-person entity (NPE) improperly exercises or adversely affects
 		  the TOE, resulting in unauthorized services, ineffective security mechanisms, or unintended
@@ -627,6 +646,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
       </threats>
     </section>
 	  
+<!-- 3.2 Assumptions -->
+	  
     <section title="Assumptions" id="assumptions">
       <assumptions>
         <assumption name="A.NO_GENERAL_PURPOSE">
@@ -657,7 +678,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         </assumption>
       </assumptions>
     </section>
-	  
+
+  <!-- 3.3 Organizational Security Policies -->
+
     <section title="Organizational Security Policies" id="OSPs">
       <OSPs>
         <OSP name="P.ACCESS_BANNER">
@@ -671,7 +694,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     </section>
   </chapter>
 	
+<!-- 4. Security Objectives -->
+	
   <chapter title="Security Objectives" id="obj">
+	  
+<!-- 4.1 Security Objectives for the TOE -->
+	  
     <section title="Security Objectives for the TOE" id="SecurityObjectivesTOE">
 	In some cases, an objective is addressed only by requirements that are either selection-based or
 	optional. In these cases, if none of those requirements are included in the ST, the ST author does not
@@ -680,120 +708,146 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <SO name="O.AUDIT_LOSS_RESPONSE">
           <description> The TOE will respond to possible loss of audit records when audit trail storage is full 
 		  or nearly full by restricting auditable events.</description>
-          <addressed-by>FAU_ADP_EXT.1</addressed-by><rationale>X</rationale>
-          <addressed-by>FAU_STG.4</addressed-by><rationale>X</rationale>
+          <addressed-by>FAU_ADP_EXT.1</addressed-by><rationale>QQQQ</rationale>
+          <addressed-by>FAU_STG.4</addressed-by><rationale>QQQQ</rationale>
         </SO>
         <SO name="O.AUDIT_PROTECTION">
           <description>The TOE will protect audit records against unauthorized access, modification, or deletion
 		  to ensure accountability of user actions.</description>
-            <addressed-by>FAU_ADP_EXT.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FAU_STG.1(1) (selection-based)</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FAU_STG.1(2) (selection-based)</addressed-by><rationale>For reasons </rationale>
-            <addressed-by> FAU_STG.1(2) (selection-based)</addressed-by><rationale>For reasons </rationale>
+            <addressed-by>FAU_ADP_EXT.1</addressed-by><rationale>QQQQ</rationale>
+            <addressed-by>FAU_STG.1(1) (selection-based)</addressed-by><rationale>QQQQ</rationale>
+            <addressed-by>FAU_STG.1(2) (selection-based)</addressed-by><rationale>QQQQ</rationale>
+            <addressed-by> FAU_STG.1(2) (selection-based)</addressed-by><rationale>QQQQ</rationale>
         </SO>
         <SO name="O.CERTIFICATES">
           <description>The TSF must ensure that certificates, certificate revocation lists, and certificate status
 		  information are valid.</description>
-            <addressed-by>FDP_CER_EXT.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FDP_CER_EXT.2</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FDP_CER_EXT.3</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FDP_CER_EXT.4 (optional)</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FDP_CRL_EXT.1 (selection-based)</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FDP_CSI_EXT.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FDP_OCSPG_EXT.1 (selection-based)</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FDP_SDP_EXT.1 (selection-based)</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FDP_STG_EXT.1 (optional)</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FIA_CMCS_EXT.1 (selection-based)</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FIA_ESTS_EXT.1 (selection-based)</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FIA_X509_EXT.1</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FIA_X509_EXT.2</addressed-by><rationale>For reasons </rationale>
-            <addressed-by>FPT_NPE_EXT.1 (optional)</addressed-by><rationale>For reasons </rationale>
+            <addressed-by>FDP_CER_EXT.1</addressed-by><rationale>QQQQ</rationale>
+            <addressed-by>FDP_CER_EXT.2</addressed-by><rationale>QQQQ</rationale>
+            <addressed-by>FDP_CER_EXT.3</addressed-by><rationale>QQQQ</rationale>
+            <addressed-by>FDP_CER_EXT.4 (optional)</addressed-by><rationale>QQQQ</rationale>
+            <addressed-by>FDP_CRL_EXT.1 (selection-based)</addressed-by><rationale>QQQQ</rationale>
+            <addressed-by>FDP_CSI_EXT.1</addressed-by><rationale>QQQQ</rationale>
+            <addressed-by>FDP_OCSPG_EXT.1 (selection-based)</addressed-by><rationale>QQQQ</rationale>
+            <addressed-by>FDP_SDP_EXT.1 (selection-based)</addressed-by><rationale>QQQQ</rationale>
+            <addressed-by>FDP_STG_EXT.1 (optional)</addressed-by><rationale>QQQQ</rationale>
+            <addressed-by>FIA_CMCS_EXT.1 (selection-based)</addressed-by><rationale>QQQQ</rationale>
+            <addressed-by>FIA_ESTS_EXT.1 (selection-based)</addressed-by><rationale>QQQQ</rationale>
+            <addressed-by>FIA_X509_EXT.1</addressed-by><rationale>QQQQ</rationale>
+            <addressed-by>FIA_X509_EXT.2</addressed-by><rationale>QQQQ</rationale>
+            <addressed-by>FPT_NPE_EXT.1 (optional)</addressed-by><rationale>QQQQ</rationale>
         </SO>
         <SO name="O.CONFIGURATION_MANAGEMENT">
-          <description>The TOE will conduct configuration management to assure identification of system connectivity
-		(software, hardware, and firmware), and components (software, hardware, and firmware), auditing
-		of configuration data, and controlling changes to configuration items.
-          </description>
-          <addressed-by>FDP_CER_EXT.1, FDP_CER_EXT.4 (optional), FDP_CRL_EXT.1 (selection-based), FDP_OCSPG_EXT.1 (selection-based), FMT_MOF.1(1), FMT_MOF.1(2), FMT_MOF.1(3),
-		FMT_MOF.1(4), FMT_MOF.1(5), FMT_MTD.1, FPT_NPE_EXT.1 (optional)</addressed-by>
-          <rationale>Rationale for a big chunk</rationale>
+          	<description>The TOE will conduct configuration management to assure identification of system connectivity
+			(software, hardware, and firmware), and components (software, hardware, and firmware), auditing
+			of configuration data, and controlling changes to configuration items.
+          	</description>
+        	<addressed-by>FDP_CER_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FDP_CER_EXT.4</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FDP_CRL_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FDP_OCSPG_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FMT_MOF.1(1)</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FMT_MOF.1(2)</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FMT_MOF.1(3)</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FMT_MOF.1(4)</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FMT_MOF.1(5)</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FMT_MTD.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FPT_NPE_EXT.1</addressed-by><rationale>QQQQ</rationale>
         </SO>
         <SO name="O.DISPLAY_BANNER">
-          <description>The TOE will display an advisory warning regarding use of the TOE.</description>
-          <addressed-by>
-            FTA_TAB.1
-          </addressed-by>
-          <rationale>Rationale for a big chunk</rationale>
+          	<description>The TOE will display an advisory warning regarding use of the TOE.</description>
+          	<addressed-by>FTA_TAB.1</addressed-by><rationale>QQQQ</rationale>
         </SO>
         <SO name="O.INTEGRITY_PROTECTION">
-          <description>The TOE will provide appropriate integrity protection for TSF data and software and any user data
-		stored by the TOE.</description>
-          <addressed-by>
-            FCS_CDP_EXT.1, FCS_CKM_EXT.5 (selection-based), FDP_ITT.1 (selection-based),
-		FPT_ITT.1 (selection-based), FPT_TST_EXT.1 (optional), FPT_TST_EXT.2 (optional)
-          </addressed-by>
-          <rationale>Rationale for a big chunk</rationale>
+          	<description>The TOE will provide appropriate integrity protection for TSF data and software and any user data
+			stored by the TOE.</description>
+          	<addressed-by>FCS_CDP_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FCS_CKM_EXT.5</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FDP_ITT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FPT_ITT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FPT_TST_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FPT_TST_EXT.2</addressed-by><rationale>QQQQ</rationale>
         </SO>
         <SO name="O.NON_REPUDIATION">
-          <description>The TOE will prevent a subscriber from avoiding accountability for sending a message by providing
-		evidence that the subscriber sent the message; and control communications from unknown source.
+        	<description>The TOE will prevent a subscriber from avoiding accountability for sending a message by providing
+			evidence that the subscriber sent the message; and control communications from unknown source.
 		</description>
-          <addressed-by>
-            FCO_NRO_EXT.2, FCO_NRR_EXT.2 (selection-based), FIA_CMCC_EXT.1 (selectionbased), FIA_ESTC_EXT.1 (selection-based)
-          </addressed-by>
-          <rationale>Rationale for a big chunk</rationale>
+          	<addressed-by>FCO_NRO_EXT.2</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FCO_NRR_EXT.2</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FIA_CMCC_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FIA_ESTC_EXT.1</addressed-by><rationale>QQQQ</rationale>
         </SO>
         <SO name="O.PROTECTED_COMMUNICATIONS">
           <description>The TOE will provide protected communication channels for administrators, other parts of a
 		distributed TOE, and authorized IT entities. The TOE will protect data assets when they are being
 		transmitted to and from the TOE, including through intervening untrusted components.
 		</description>
-          <addressed-by>
-            FCS_CDP_EXT.1, FCS_CKM.1 (selection-based), FCS_CKM.2 (selection-based),
-		FCS_CKM_EXT.1(1) (selection-based), FCS_CKM_EXT.1(2) (selection-based), FCS_CKM_EXT.1(3)
-		(selection-based), FCS_CKM_EXT.1(4) (selection-based), FCS_CKM_EXT.4 (selection-based),
-		FCS_CKM_EXT.7 (selection-based), FCS_CKM_EXT.8 (selection-based), FCS_COP.1(1) (selectionbased), 
-		FCS_COP.1(2) (selection-based), FCS_COP.1(3) (selection-based), FCS_COP.1(4) (selectionbased), FCS_COP.1(5) (optional), FCS_HTTPS_EXT.1 (selection-based), FCS_IPSEC_EXT.1 (selectionbased), FCS_RBG_EXT.1 (selection-based), FCS_STG_EXT.1, FCS_TLSC_EXT.2 (selection-based),
-		FCS_TLSS_EXT.1 (selection-based), FDP_ITT.1 (selection-based), FIA_PSK_EXT.1 (selection-based),
-		FPT_ITT.1 (selection-based), FPT_KST_EXT.1, FPT_KST_EXT.2, FPT_SKP_EXT.1, FPT_SKY_EXT.1
-		(optional), FPT_SKY_EXT.2 (selection-based), FTP_ITC.1 (selection-based), FTP_TRP.1          </addressed-by>
-          <rationale>Rationale for a big chunk</rationale>
+          	<addressed-by>FCS_CDP_EXT.1</addressed-by><rationale>QQQQ</rationale>
+	  	<addressed-by>FCS_CKM.1</addressed-by><rationale>QQQQ</rationale>
+	  	<addressed-by>FCS_CKM.2</addressed-by><rationale>QQQQ</rationale>
+	  	<addressed-by>FCS_CKM_EXT.1(1)</addressed-by><rationale>QQQQ</rationale>
+	  	<addressed-by>FCS_CKM_EXT.1(2)</addressed-by><rationale>QQQQ</rationale>
+	  	<addressed-by>FCS_CKM_EXT.1(3)</addressed-by><rationale>QQQQ</rationale>
+	  	<addressed-by>FCS_CKM_EXT.1(4)</addressed-by><rationale>QQQQ</rationale>
+	  	<addressed-by>FCS_CKM_EXT.4</addressed-by><rationale>QQQQ</rationale>
+	  	<addressed-by>FCS_CKM_EXT.7</addressed-by><rationale>QQQQ</rationale>
+	  	<addressed-by>FCS_CKM_EXT.8</addressed-by><rationale>QQQQ</rationale>
+	  	<addressed-by>FCS_COP.1(1)</addressed-by><rationale>QQQQ</rationale>
+	  	<addressed-by>FCS_COP.1(2)</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FCS_COP.1(3)</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FCS_COP.1(4)</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FCS_COP.1(5)</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FCS_HTTPS_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FCS_IPSEC_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FCS_RBG_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FCS_STG_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FCS_TLSC_EXT.2</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FCS_TLSS_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FDP_ITT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FIA_PSK_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FPT_ITT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FPT_KST_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FPT_KST_EXT.2</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FPT_SKP_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FPT_SKY_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FPT_SKY_EXT.2</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FTP_ITC.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FTP_TRP.1</addressed-by><rationale>QQQQ</rationale>
         </SO>
         <SO name="O.RECOVERY">
           <description>The TOE will have the capability to store and recover to a previous state at the direction of the
 		administrator (e.g., provide support for archival and recovery capabilities).
 		</description>
-          <addressed-by>
-            FCS_CDP_EXT.1, FCS_CKM_EXT.6 (selection-based), FPT_FLS.1, FPT_RCV.1   </addressed-by>
-          <rationale>Rationale for a big chunk</rationale>
+		<addressed-by>FCS_CDP_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FCS_CKM_EXT.6</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FPT_FLS.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FPT_RCV.1</addressed-by><rationale>QQQQ</rationale>
         </SO>
         <SO name="O.RESIDUAL_INFORMATION_CLEARING">
           <description>The TOE will ensure that any data contained in a protected resource is not available when the resource
-		is reallocated.
-		</description>
-          <addressed-by>
-            FDP_RIP.1  
-	  </addressed-by>
-          <rationale>Rationale for a big chunk</rationale>
+		is reallocated. </description>
+          <addressed-by>FDP_RIP.1</addressed-by><rationale>QQQQ</rationale>
         </SO>
         <SO name="O.SESSION_LOCK">
           <description>The TOE will provide mechanisms that mitigate the risk of unattended sessions being hijacked.
 		</description>
-          <addressed-by>
-            FTA_SSL_EXT.1 (optional) 
-	  </addressed-by>
-          <rationale>Rationale for a big chunk</rationale>
+          <addressed-by>FTA_SSL_EXT.1</addressed-by><rationale>QQQQ</rationale>
         </SO>
         <SO name="O.SYSTEM_MONITORING">
           <description>The TOE will provide the capability to generate audit data. The TOE will record in audit records: date
 		and time of action and the entity responsible for the action.
 		</description>
-          <addressed-by>
-             FAU_ADP_EXT.1, FAU_GEN.1, FAU_GEN.2, FAU_SAR.1 (selection-based), FAU_SAR.3
-		(selection-based), FAU_GCR_EXT.1, FAU_SCR_EXT.1 (selection-based), FAU_SEL.1 (selection-based),
-		FAU_STG_EXT.1 (selection-based), FIA_UIA_EXT.1, FPT_STM.1
-	  </addressed-by>
-          <rationale>Rationale for a big chunk</rationale>
+		<addressed-by>FAU_ADP_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FAU_GEN.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FAU_GEN.2</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FAU_SAR.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FAU_SAR.3</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FAU_GCR_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FAU_SCR_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FAU_SEL.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FAU_STG_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FIA_UIA_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FPT_STM.1</addressed-by><rationale>QQQQ</rationale>
         </SO>
         <SO name="O.TOE_ADMINISTRATION">
           <description>The TOE will provide mechanisms to ensure that only privileged users are able to log in and configure
@@ -801,34 +855,45 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		responsibilities are separated across different roles in order to mitigate the impact of improper
 		administrative activities or unauthorized administrative access.
 		</description>
-          <addressed-by>
-             FIA_AFL.1 (selection-based), FIA_PMG_EXT.1 (selection-based), FIA_UAU.7 (selectionbased), FIA_UAU_EXT.1, FIA_UIA_EXT.1, FMT_MOF.1(1), FMT_MOF.1(2), FMT_MOF.1(3),
-		FMT_MOF.1(4), FMT_MOF.1(5), FMT_MTD.1, FMT_SMF.1, FMT_SMR.2, FPT_APW_EXT.1 (selectionbased), FTA_SSL_EXT.1 (optional), FTA_SSL.3 (optional), FTA_SSL.4
-	  </addressed-by>
-          <rationale>Rationale for a big chunk</rationale>
+		<addressed-by>FIA_AFL.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FIA_PMG_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FIA_UAU.7</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FIA_UAU_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FIA_UIA_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FMT_MOF.1(1)</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FMT_MOF.1(2)</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FMT_MOF.1(3)</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FMT_MOF.1(4)</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FMT_MOF.1(5)</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FMT_MTD.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FMT_SMF.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FMT_SMR.2</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FPT_APW_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FTA_SSL_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FTA_SSL.3</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FTA_SSL.4</addressed-by><rationale>QQQQ</rationale>
         </SO>
         <SO name="O.TSF_SELF_TEST">
           <description>The TOE will provide integrity protection to detect modifications to firmware, software, and archived
 		data. If this SFR is not claimed by the TOE, this functionality is expected to be satisfied by
-			the environmental objective OE.TRUSTED_PLATFORM.
-		</description>
-          <addressed-by>
-              FPT_TST_EXT.1 (optional), FPT_TST_EXT.2 (optional)
-	  </addressed-by>
-          <rationale>Rationale for a big chunk</rationale>
+			the environmental objective OE.TRUSTED_PLATFORM. </description>
+	          <addressed-by>FPT_TST_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		  <addressed-by>FPT_TST_EXT.2</addressed-by><rationale>QQQQ</rationale>
         </SO>
         <SO name="O.VERIFIABLE_UPDATES">
           <description>The TOE will provide the capability to help ensure that any updates to the TOE can be verified by the
 		administrator to be unaltered and from a trusted source.
 		</description>
-          <addressed-by>
-              FCS_CDP_EXT.1, FCS_COP.1(2) (selection-based), FIA_X509_EXT.2, FPT_TUD_EXT.1
-	  </addressed-by>
-          <rationale>Rationale for a big chunk</rationale>
+		<addressed-by>FCS_CDP_EXT.1</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FCS_COP.1(2)</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FIA_X509_EXT.2</addressed-by><rationale>QQQQ</rationale>
+		<addressed-by>FPT_TUD_EXT.1</addressed-by><rationale>QQQQ</rationale>
         </SO>
       </SOs>
     </section>
 	  
+<!-- 4.2 Security Objectives for the Operational Environment -->
+
     <section title="Security Objectives for the Operational Environment"
       id="SecurityObjectivesTOEorEnvironment">Note that PP allows the ST author in some cases to select if the TSF or Operational Environment is
 	invoked to perform some function. There are several Objectives for the Operational Environment that
@@ -903,14 +968,20 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         </SOE>
       </SOEs></section>
 	  
+<!-- 4.3 Security Objectives Rationale -->
+	  
     <section title="Security Objectives Rationale" id="SOR">
       <!-- This section is populated by boilerplates.xsl in transforms. -->
       </section>
   </chapter>
 
-  <chapter title="Security Requirements" id="req">
+<!-- 5. Security Requirements -->
+	
+  <chapter title="Security Requirements" id="ch-secreq">
     <!-- There is boilerplate here -->
 
+<!-- 5.1 Security Functional Requirements -->
+	  
     <section title="Security Functional Requirements" id="SFRs">
 	    The Security Functional Requirements (SFRs) included in this section are derived from Part 2 of the
 	Common Criteria for Information Technology Security Evaluation, Version 3.1, Revision 4, with
@@ -929,13 +1000,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	     The fourth field reports the retention requirement for the records. This seems like it should not be
 	     a PP requirement since it is operational and not really a product feature.  -->
 	    
+<!-- 5.1.1 Auditable Events for Mandatory SFRs -->
       <subsection title="Auditable Events for Mandatory SFRs" id="ss-audit-events">
            <audit-table table="mandatory">
- 	     <h:br/><h:b><ctr ctr-type="Table" id="atref-mandatory-ss">: Auditable Events for Mandatory SFRs</ctr></h:b>
+ 	     <h:br/><h:b><ctr ctr-type="Table" id="atref-mandatory">: Auditable Events for Mandatory SFRs</ctr></h:b>
         </audit-table>
-
-	    
-	    </subsection>
+      </subsection>
 	      
         <!--                             -->
 	<!-- Class: FAU: Security Audit  -->
