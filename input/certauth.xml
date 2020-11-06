@@ -1014,6 +1014,29 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	       
 	 <!--               -->     
  	 <!-- FAU_ADP_EXT.1 -->
+	 <!-- This SFR needs to be greatly expanded to cover all the selections that are mentioed in the AppNote, but  -->
+ 	 <!-- are not represented by selections in this SFR. Namely:
+	 <!-- QQQQ: If any audit functions (e.g. storage, review) are accomplished by the TOE
+		communicating over a network connection with a physically external audit server,
+		then the ST author must include FTP_ITC.1 with "audit server" selected.    -->
+	 <!-- QQQQ:  If any audit review is performed by an auditor through an interface provided by
+		the TSF, then FAU_SAR.1 and FAU_SAR.3 in Annex B.2 will be included...  -->
+	 <!-- QQQQ: If any audit pre-selection is performed by an auditor through an interface provided
+		by the TSF, then FAU_SEL.1 in Annex B.2 will be included...  -->
+	 <!-- QQQQ: Audit records stored within the TOE boundary that are generated due to audit
+		events marked “extended” in tables 4, 5, and 6 that are included in the ST, then
+		FAU_STG.1(2) will be included in the ST by the ST author.  Extended retention. 
+ 		Have to figure out how to deal with this. -->
+	 <!-- QQQQ: If the TSF initiates the storage of the audit data (that is, it generates audit data
+		that will be stored either by the TOE or the OE), then FAU_STG_EXT.1 will be
+		included in the ST by the ST Author.  -->
+	 <!-- QQQQ!: For the FDP_CER_EXT.2 audit event, the intent is that auditing is performed only
+		once incoming data are recognized by the TOE as a “request”. Cases where
+		incoming data are rejected before they are processed as “requests” by the TOE
+		(and thus the action “fails”) do not need to be audited by the FDP_CER_EXT.2
+		audit event. (Might not need to do anything about this. Repeating this in FDP_CER_EXT.2 -->
+	 <!-- QQQQ: Finally, the audit table is expected to have a 4th column indicating whether each the auditing
+		of each event is done by the TOE or the OE. Not sure how to deal with this. -->
 	 <!--               -->
          <f-component cc-id="fau_adp_ext.1" name="Audit Dependencies" status="mandatory">
           <f-element>
@@ -1094,9 +1117,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
 	 <!--               -->     
  	 <!-- FAU_GCR_EXT.1 -->
-	 <!-- If "store" is chosen in the first selection, then FAU_SCR_EXT.1 is included. This is not documented
-		clearly anywhere in the PP, but this is what we think is intended.
-	-->
+	 <!-- QQQQ:If "store" is chosen in the first selection, then FAU_SCR_EXT.1 is included. This is not documented
+		clearly anywhere in the PP, but this is what we think is intended.  -->
+	 <!-- QQQQ: If “CRLs (RFC 5280)” is chosen for FCO_NRO_EXT.2.2), then “CRLs” is selected in
+		the second selection; otherwise, “no other information is selected”.   -->	
 	<!--               -->     
         <f-component cc-id="fau_gcr_ext.1" name="Generation of Certificate Repository" status="mandatory">
           <f-element id="fau-gcr-ext-1e1">
@@ -1111,6 +1135,19 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			    <selectable>no other information</selectable>
 		    </selectables>
 		issued by the TSF. </title>
+	    <note role="application">
+		While there is a requirement that a certificate repository exists and the TOE stores
+		all certificates (and CRLs, if selected in FCO_NRO_EXT.2.2) it generates in that
+		repository, the repository can physically be within the TOE or within (and provided
+		by storage in) the OE. If the repository is provided by the TOE (that is, it is within
+		the TOE boundary), then the first item in the first selection is chosen. If the storage
+		is provided by the OE, then the second item in the first selection is chosen. It
+		should be noted that the physical implementation of the certificate repository is
+		left to the vendor; for instance, it can be a standalone store, or incorporated
+		within the audit trail. <h:br/><h:br/>
+		If “CRLs (RFC 5280)” is chosen for FCO_NRO_EXT.2.2), then “CRLs” is selected in
+		the second selection; otherwise, “no other information is selected”.
+	    </note>
             <aactivity>
 		<TSS>
 		The evaluator shall examine the TSS to determine that it describes the
@@ -1935,6 +1972,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
 	<!--               -->     
         <!-- 5.1.3 FCO_NRO_EXT.2 -->
+	<!-- QQQQ: If “CRLs (RFC 5280)” is chosen for FCO_NRO_EXT.2.2), then “CRLs” is selected in
+		the second selection; otherwise, “no other information is selected” in FAU_GCR_EXT.   -->
 	<!--               -->     
 	<f-component cc-id="fco_nro_ext.2" name="Certificate-Based Proof of Origin" status="mandatory">
 		<f-element>
@@ -6109,6 +6148,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	
 	<!--               -->     
         <!-- FDP_CER_EXT.4 -->
+	<!-- QQQQ: For the FDP_CER_EXT.2 audit event, the intent is that auditing is performed only
+		once incoming data are recognized by the TOE as a “request”. Cases where
+		incoming data are rejected before they are processed as “requests” by the TOE
+		(and thus the action “fails”) do not need to be audited by the FDP_CER_EXT.2
+		audit event.   -->
 	<!--               -->     
         <f-component cc-id="fdp_cer_ext.4" name="Certificate Status Information" status="optional">
 		<f-element>
