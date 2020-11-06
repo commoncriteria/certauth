@@ -1015,7 +1015,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	 <!--               -->     
  	 <!-- FAU_ADP_EXT.1 -->
 	 <!-- This SFR needs to be greatly expanded to cover all the selections that are mentioed in the AppNote, but  -->
- 	 <!-- are not represented by selections in this SFR. Namely:
+ 	 <!-- are not represented by selections in this SFR. Namely:  -->
 	 <!-- QQQQ: If any audit functions (e.g. storage, review) are accomplished by the TOE
 		communicating over a network connection with a physically external audit server,
 		then the ST author must include FTP_ITC.1 with "audit server" selected.    -->
@@ -1030,7 +1030,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	 <!-- QQQQ: If the TSF initiates the storage of the audit data (that is, it generates audit data
 		that will be stored either by the TOE or the OE), then FAU_STG_EXT.1 will be
 		included in the ST by the ST Author.  -->
-	 <!-- QQQQ!: For the FDP_CER_EXT.2 audit event, the intent is that auditing is performed only
+	 <!-- QQQQ: For the FDP_CER_EXT.2 audit event, the intent is that auditing is performed only
 		once incoming data are recognized by the TOE as a “request”. Cases where
 		incoming data are rejected before they are processed as “requests” by the TOE
 		(and thus the action “fails”) do not need to be audited by the FDP_CER_EXT.2
@@ -1178,6 +1178,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		
 	<!--               -->     
         <!-- FAU_GEN.1     -->
+	<<!-- QQQQ: Don't know how to deal with this from 1.2: "OE.AUDIT_GENERATION will be included in the ST if the OE is selected 
+	      in any of the FAU_GEN elements or listed in the last column in table 4."  -->
 	<!--               -->     
         <f-component cc-id="fau_gen.1" name="Audit Data Generation" status="mandatory">
            <f-element>
