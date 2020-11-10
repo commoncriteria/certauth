@@ -907,30 +907,41 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             hardware.</description>
         </SOE>
         <SOE name="OE.CERT_REPOSITORY">
+	<!-- QQQQ: Remove if Operational Environment is not selected in FAU_GCR_EXT.1 is included in the ST. -->
           <description>The Operational Environment provides a certificate repository for storage of certificates (and
 		optionally CRLs) issued by the TSF.
 		</description>
         </SOE>
         <SOE name="OE.CERT_REPOSITORY_SEARCH">
+	<!-- QQQQ: Remove if FAU_SCR_EXT.1 is included in the ST. -->
           <description>The Operational Environment provides the ability to search a certificate repository for specific
 		certificate fields in certificates issued by the TSF and return the certificate and an identifier for the
 		certificate that can be used to search the audit trail for events related to that certificate. </description>
         </SOE>
+        <SOE name="OE.AUDIT_GENERATION">
+	<!-- QQQQ: Remove if audit functionality is implemented by the TOE. -->
+          <description>The Operational Environment provides a mechanism for the generation of portions of the audit data.</description>
+        </SOE>
         <SOE name="OE.AUDIT_RETENTION">
+	<!-- QQQQ: Remove if FAU_STG_EXT.2 is included in the ST. -->
           <description>The Operational Environment provides mechanisms for retention of audit records for both normal
 	and extended retention periods.</description>
         </SOE>
         <SOE name="OE.AUDIT_REVIEW">
+	<!-- QQQQ: Remove if audit functionality is implemented by the TOE. -->
           <description>The Operational Environment provides a mechanism for the review of specified audit data.</description>
         </SOE>
         <SOE name="OE.AUDIT_STORAGE">
+	<!-- QQQQ: Remove if audit functionality is implemented by the TOE. -->
           <description>The Operational Environment provides a mechanism for the storage of specified audit data.</description>
         </SOE>
         <SOE name="OE.CRYPTOGRAPHY">
+	<!-- QQQQ: Remove if all cryptographic functionality id implemented by the TSF. -->
           <description>The Operational Environment provides cryptographic services that can be invoked by the TSF in order
 		to perform security functionality.</description>
         </SOE>
         <SOE name="OE.KEY_ARCHIVAL">
+	<!-- QQQQ: Remove if FPT_SKY_EXT.1 is included in the ST. -->
           <description>The Operational Environment provides the ability to use split knowledge procedures to enforce twoparty control to export keys necessary to resume CA functionality if the TSF should fail.
 		</description>
         </SOE>
@@ -944,16 +955,20 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		environment.</description>
         </SOE>
         <SOE name="OE.PUBLIC_KEY_PROTECTION">
+	<!-- QQQQ: Remove if FAU_STG_EXT.1 is included in the ST. -->
           <description>The Operational Environment provides protection for specified public keys associated with CA
 		functions.</description>
         </SOE>
         <SOE name="OE.SESSION_PROTECTION_LOCAL">
+	<!-- QQQQ: Remove if FAU_SSL_EXT.1 is included in the ST. -->
           <description>The Operational Environment provides the ability to lock or terminate local administrative sessions.</description>
         </SOE>
         <SOE name="OE.SESSION_PROTECTION_REMOTE">
+	<!-- QQQQ: Remove if FAU_SSL_EXT.1 is included in the ST. -->
           <description>The Operational Environment provides the ability to lock or terminate remote administrative sessions.</description>
         </SOE>
         <SOE name="OE.TOE_ADMINISTRATION">
+	<!-- QQQQ: Remove if all administrative actions from O.TOE_ADMINISTRATION requirements are performed directly by the TOE. -->
           <description>The Operational Environment provides specified management capabilities required for the overall
 		operation of a Certificate Authority, and the ability to restrict access to a subset of the capabilities as
 		specified in the ST. </description>
@@ -963,6 +978,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		software within compliance of the applied enterprise security policy.</description>
         </SOE>
         <SOE name="OE.TRUSTED_PLATFORM">
+	<!-- QQQQ: Remove if FPT_TST_EXT.1 and FPT_TST_EXT.2 are included in the ST. -->
           <description>The operating system on which the TOE has been installed is securely configured, regularly patched,
 		and not subject to unauthorized access.</description>
         </SOE>
@@ -1121,6 +1137,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		clearly anywhere in the PP, but this is what we think is intended.  -->
 	 <!-- QQQQ: If “CRLs (RFC 5280)” is chosen for FCO_NRO_EXT.2.2), then “CRLs” is selected in
 		the second selection; otherwise, “no other information is selected”.   -->	
+ 	 <!-- QQQQ: Remove OE.CERT_REPOSITORY if Operational Environment is not selected. -->
+	      
 	<!--               -->     
         <f-component cc-id="fau_gcr_ext.1" name="Generation of Certificate Repository" status="mandatory">
           <f-element id="fau-gcr-ext-1e1">
@@ -1179,7 +1197,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FAU_GEN.1     -->
 	<!-- QQQQ: Don't know how to deal with this from 1.2: "OE.AUDIT_GENERATION will be included in the ST if the OE is selected 
-	      in any of the FAU_GEN elements or listed in the last column in table 4."  -->
+	      in any of the FAU_GEN elements or listed in the last column in table 4."
+              Also, OE_AUDIT_REVIEW, and OE_AUDIT_STORAGE.  -->
 	<!--               -->     
         <f-component cc-id="fau_gen.1" name="Audit Data Generation" status="mandatory">
            <f-element>
@@ -1316,7 +1335,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
                      </Tests>   
                   </aactivity>
                 </f-element>
-				<audit-event />
+		<audit-event />
              </f-component>
 	
 	<!--               -->     
@@ -1976,6 +1995,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <!-- 5.1.3 FCO_NRO_EXT.2 -->
 	<!-- QQQQ: If “CRLs (RFC 5280)” is chosen for FCO_NRO_EXT.2.2), then “CRLs” is selected in
 		the second selection; otherwise, “no other information is selected” in FAU_GCR_EXT.   -->
+	<!-- QQQQ: "Based on what is chosen for the selection for FCO_NRO_EXT.2.2, the applicable requirements from
+	      Annex B (i.e., FDP_CRL_EXT.1, FDP_OCSPG_EXT.1) must be included." -->
+	<!-- QQQQ: Based on what is chosen in the selections for FCO_NRO_EXT.2.3-FCO_NRO_EXT.2.5, the applicable
+		requirements from Annex B (i.e., FIA_CMCS_EXT.1, FIA_ESTS_EXT.1) must be included."  --> 	      
 	<!--               -->     
 	<f-component cc-id="fco_nro_ext.2" name="Certificate-Based Proof of Origin" status="mandatory">
 		<f-element>
@@ -2184,6 +2207,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	      
 	<!--               -->     
     <!-- FCS_CDP_EXT.1 -->
+	<!-- QQQQ: If the functionality is provided by communicating over a network connection with
+		a physically external cryptographic device, then the ST author must include
+		FTP_ITC.1 with “external cryptographic module” selected.   -->
 	<!--               -->     
         <f-component cc-id="fcs_cdp_ext.1" name="Cryptographic Dependencies" status="mandatory">
           <f-element id="fcs-cdp-ext-1e1">
@@ -4068,7 +4094,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	      
     <!--                  -->     
     <!-- FCS_COP.1(5) -->
-    <!-- Mandatory  -->
+    <!-- Really Mandatory or selection-based   -->
+    <!-- QQQQ:  It will be claimed if the method of protecting key shares in FPT_SKY_EXT.2 or any other mechanism to enforce access by privileged
+	user depends on passwords. It may also be claimed if other mechanisms use password-based encryption.   -->
+    <!-- QQQQ: The cryptographic key sizes in the third selection should be made to correspond to
+		the KEK key sizes selected in FCS_CKM_EXT.1(3).    -->
     <!--                  -->    	      
 <f-component name="Cryptographic Operation (Password-based Key Derivation Function)" cc-id="fcs_cop.1" iteration="5" status="optional">
        	<f-element>
@@ -6155,6 +6185,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		incoming data are rejected before they are processed as “requests” by the TOE
 		(and thus the action “fails”) do not need to be audited by the FDP_CER_EXT.2
 		audit event.   -->
+	<!-- QQQQ: This optional requirement can be included if X.509 certificate formats other than
+		the mandated v3 are supported.  -->
 	<!--               -->     
         <f-component cc-id="fdp_cer_ext.4" name="Certificate Status Information" status="optional">
 		<f-element>
@@ -6287,6 +6319,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		  
 	<!--               -->     
         <!-- FDP_CSI_EXT.1 -->
+	<!-- QQQQ: Based on the selection, the ST author must choose the appropriate requirements
+		from Annex B.   -->
 	<!--               -->     
         <f-component cc-id="fdp_csi_ext.1" name="Certificate Status Information" status="mandatory">
 		<f-element>
@@ -6599,6 +6633,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		
 	<!--               -->     
         <!-- FDP_SDP_EXT.1 -->
+	<!-- QQQQ: The DEK referenced in FDP_SDP_EXT.1.1 is generated by FCS_CKM_EXT.1(1).  -->
 	<!--               -->     
         <f-component cc-id="fdp_sdp_ext.1" name="User Sensitive Data Protection" status="optional">
 		<f-element>
@@ -6709,7 +6744,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	</f-component> 
 
 	<!--             -->
-	<!-- FDP_STG_EXT.1  -->
+	<!-- FDP_STG_EXT.1  (Not really optional) -->
+	<!-- QQQQ: Public keys used to satisfy CA-related requirements in the ST must be protected.
+		If the TOE protects the keys or a subset of the keys, this SFR is included in the ST.  -->
+	<!-- QQQQ: It is acceptable if some or all of the public keys are stored in the OE and protected 
+		by OE-provided mechanisms. If this is the case, then the ST author includes OE.PUBLIC_KEY_PROTECTION in the ST.  --> 
+	<!-- QQQQ: If this method is used (the second selection is chosen), then the ST author include FCS_CKM_EXT.5 in
+ 		the ST as well as this SFR  -->
 	<!--             -->
 
     <f-component cc-id="fdp_stg_ext.1" name="User Sensitive Data Protection" status="optional">
@@ -8223,6 +8264,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		
 	<!--               -->     
         <!-- FIA_X509_EXT.1 -->
+	<!--  QQQQ: The ST author shall select whether revocation status is verified using OCSP or CRLs. Depending on this
+		selection, the appropriate CRL or OCSP requirements from Annex B must be included.  -->
 	<!--               -->     
         <f-component cc-id="fia_x509_ext.1" name="Certificate Validation" status="mandatory">
 		<f-element>
@@ -8356,6 +8399,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
 	<!--               -->     
         <!-- FIA_X509_EXT.2 -->
+	<!-- QQQQ: The ST author‘s selection of trusted communication channel is expected to match
+		the selections in FTP_TRP.1.1 and FTP_ITC.1.1 (if FTP_ITC.1 is included in the ST)  -->
 	<!--               -->     
         <f-component cc-id="fia_x509_ext.2" name="Certificate-based Authentication" status="mandatory">
 		<f-element>
@@ -9349,7 +9394,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
 	<!--               -->     
     <!-- FPT_NPE_EXT.1 -->
-	<!--               -->     
+    <!--               -->     
     <f-component cc-id="fpt_npe_ext.1" name="NPE Contraints" status="optional">
 		<f-element>
 			<title>
@@ -9554,6 +9599,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	
 	<!--               -->     
     <!-- FPT_SKY_EXT.1 -->
+    <!-- QQQQ: The ST author includes this SFR in the ST when the TOE is used to enforce split
+	knowledge procedures, either directly or via interfaces with the OE. If enforcement
+	of split knowledge procedures is performed entirely by the OE, then this SFR is not
+	included in the ST and OE.KEY_ARCHIVAL is included in the ST.   -->
 	<!--               -->     
     <f-component cc-id="fpt_sky_ext.1" name="Split Knowledge Procedures" status="optional">
 		<f-element>
@@ -9738,6 +9787,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
 	<!--               -->     
     <!-- FPT_TST_EXT.1 -->
+    <!-- QQQQ: The ST author includes this SFR when the TSF includes a mechanism that can
+	perform integrity tests on software/firmware, for instance, if the TSF includes an
+	operating system. -->
+    <!-- QQQQ: The ST author selects “integrity test failure” in FPT_FLS.1 if this component is
+	included in the ST.   -->
+    <!-- QQQQ: When FCS_CDP_EXT.1 indicates that FCS_COP.1(4), or FCS_COP.1(2) are
+	implemented by the OE, FPT_TST_EXT.1.1 is in accordance with those SFR if the
+	TSF interfaces with the OE to invoke the algorithms indicated.   -->
 	<!--               -->     
     <f-component cc-id="fpt_tst_ext.1" name="TOE Integrity Test" status="optional">
 		<f-element>
@@ -9812,6 +9869,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	
 	<!--               -->     
     <!-- FPT_TST_EXT.2 -->
+    <!-- QQQQ: The ST author includes this SFR when the TSF itself provides integrity protection
+	for any of the items listed in the second selection of FPT_TST_EXT.2.1.  -->
+    <!-- QQQQ: The ST author selects “integrity test failure” in FPT_FLS.1 if this component is
+	included in the ST.   -->
 	<!--               -->     
     <f-component cc-id="fpt_tst_ext.2" name="Integrity Test" status="optional">
 		<f-element>
@@ -10027,6 +10088,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
 	<!--               -->     
     <!-- FTA_SSL.3 -->
+    <!-- QQQQ: This requirement is included if the TSF is implementing the mechanism used to
+	terminate remote sessions after a defined time period.   -->
+    <!-- QQQQ:  If this requirement is not included in the ST, then OE.SESSION_PROTECTION_REMOTE will be 
+	included in the ST.   -->
 	<!--               -->     
     <f-component cc-id="fta_ssl.3" name="TSF-Initiated Termination" status="optional">
 		<f-element>
@@ -10129,7 +10194,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
 	<!--               -->     
     <!-- FTA_SSL_EXT.1 -->
-	<!--               -->     
+	<!--  XXXXXXXXXXXXXXXXXX I am here             -->     
     <f-component cc-id="fta_ssl_ext.1" name="TSF-Initiated Session Locking" status="optional">
 		<f-element>
 			<title>The TSF shall, for local interactive sessions, 
