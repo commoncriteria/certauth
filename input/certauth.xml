@@ -3,6 +3,10 @@
 
 <PP xmlns="https://niap-ccevs.org/cc/v1" name="Protection Profile for Certification Authorities"
     xmlns:h="http://www.w3.org/1999/xhtml" boilerplate="yes" type="pp">
+	
+	
+	
+	<!-- Am here: FAU_SCR_EXT.1 Certificate Repository Review -->
 
   <!-- <inline-comment color='green'> Hello World QQQQ </inline-comment> -->
   <!-- <inline-comment color='blue' linebreak='yes'> Hello World QQQQ </inline-comment> -->
@@ -2654,6 +2658,21 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <!-- FCS_CKM_EXT.1(1) -->
     <!-- Feat-based on protectSubscriberInfo feature -->
+    <!-- QQQQ: The selection criteria for this SFR are not clearly defined. The above feature is an attempt. -->
+    <!-- QQQQ: For the third selection, if the TSF invokes an RBG that is implemented by the TOE
+		or implemented by the OE, the first item is selected and FCS_RBG_EXT.1 is
+		included in the ST.    -->
+    <!-- QQQQ: If the TSF invokes a key-generation mechanism in the OE (that is not a direct invocation of an RBG), then the second item (“a key generation
+	capability of the Operational Environment”) is selected; in this case the second item of the first
+ 	selection ("invoke interfaces provided by the Operational Environment to generate") should have also been chosen.  -->
+    <!-- QQQQ:  If the TSF uses a method to combine KEKs to produce the DEK, the third item is selected and the method
+	used to produce the DEK from the KEKs is chosen in the fourth selection.
+	Additionally, if thisthird item is selected (TSF combining KEKs to produce the DEK),
+	then FCS_CKM_EXT.1(2) (to specify how the KEKs used are generated) and
+	FCS_CKM_EXT.7 (to specify how the REK that anchors the KEKs is generated and
+	protected) in Annex B.8 must be included. -->
+    <!-- QQQQ: Finally, if the third item in the fourth selection statement is chosen (key wrap), then FCS_COP.1(1) will be included in
+	the ST and the appropriate key wrap method will be chosen in the fifth selection.  -->
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.1" iteration="1" name="Symmetric Key Generation for DEKs" status="feat-based">
           <depends on="implements"><ref-id>protectSubscriberInfo</ref-id></depends>
@@ -4099,6 +4118,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	user depends on passwords. It may also be claimed if other mechanisms use password-based encryption.   -->
     <!-- QQQQ: The cryptographic key sizes in the third selection should be made to correspond to
 		the KEK key sizes selected in FCS_CKM_EXT.1(3).    -->
+    <!-- QQQQ:  The ST author selects the hash function used, also includes the appropriate requirements for
+	HMAC and the hash function.   -->
     <!--                  -->    	      
 <f-component name="Cryptographic Operation (Password-based Key Derivation Function)" cc-id="fcs_cop.1" iteration="5" status="optional">
        	<f-element>
@@ -6185,8 +6206,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		incoming data are rejected before they are processed as “requests” by the TOE
 		(and thus the action “fails”) do not need to be audited by the FDP_CER_EXT.2
 		audit event.   -->
-	<!-- QQQQ: This optional requirement can be included if X.509 certificate formats other than
-		the mandated v3 are supported.  -->
+	<!-- QQQQ: "This optional requirement can be included if X.509 certificate formats other than
+		the mandated v3 are supported."  -->
 	<!--               -->     
         <f-component cc-id="fdp_cer_ext.4" name="Certificate Status Information" status="optional">
 		<f-element>
@@ -10194,7 +10215,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
 	<!--               -->     
     <!-- FTA_SSL_EXT.1 -->
-	<!--  XXXXXXXXXXXXXXXXXX I am here             -->     
+    <!-- QQQQ:  This requirement is included if the TSF is implementing the mechanism used to
+		terminate or lock local sessions after a defined time period. If this requirement is
+		not included in the ST, then OE.SESSION_PROTECTION_LOCAL will be included in
+		the ST.            -->     
     <f-component cc-id="fta_ssl_ext.1" name="TSF-Initiated Session Locking" status="optional">
 		<f-element>
 			<title>The TSF shall, for local interactive sessions, 
@@ -10440,6 +10464,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
 	<!--               -->     
         <!-- FTP_TRP.1 -->
+	<!-- QQQQ: The ST author chooses the mechanism(s) supported by the TOE and ensures the detailed requirements in
+		Annex B corresponding to their selection are copied to the ST if not already present.
+		(This means HTTPS (), IPsec (), SSH (SSH Package), TLS (TLS Package))  -->
 	<!--               -->     
     <f-component cc-id="ftp_trp.1" name="Trusted Path" status="mandatory">
 		<f-element id="ftp-trp-1e1">
