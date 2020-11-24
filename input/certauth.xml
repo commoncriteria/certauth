@@ -5,9 +5,6 @@
     xmlns:h="http://www.w3.org/1999/xhtml" boilerplate="yes" type="pp">
 	
 	
-	
-	<!-- Am here: FAU_SCR_EXT.1 Certificate Repository Review -->
-
   <!-- <inline-comment color='green'> Hello World QQQQ </inline-comment> -->
   <!-- <inline-comment color='blue' linebreak='yes'> Hello World QQQQ </inline-comment> -->
   <PPReference>
@@ -1371,16 +1368,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	      
 	<!--               -->     
         <!-- FAU_SAR.1     -->
-	<!-- According to FAU_ADP_EXT.1, this SFR is included:
+	<!-- QQQQ: According to FAU_ADP_EXT.1, this SFR is included:
 		"If any audit review is performed by an auditor through an interface provided by
 		the TSF, then FAU_SAR.1 and FAU_SAR.3 in Annex B.2 will be included in the ST by
 		the ST author." 
-	     According to this very SFR, "This SFR is included in the ST by the ST author if the operations
+	     QQQQ: According to this very SFR, "This SFR is included in the ST by the ST author if the operations
  		provided by the TSF (as specified in FAU_ADP_EXT.1) include the review of audit records. If this
 		SFR is not selected, the ST author includes OE.AUDIT_REVIEW." 
 
 	     But there is no selection of operations in FAU_ADP_EXT.1. 
-		 So, I'm going to implement this as an implementation dependent requirement.
+		 So, I'm going to implement this as an implementation dependent requirement, for now.
 	-->
 	<!--               -->     
         <f-component cc-id="fau_sar.1" name="Audit Review" status="feat-based">
@@ -1412,11 +1409,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
     	<!--               -->     
         <!-- FAU_SAR.3     -->
-	<!-- According to FAU_ADP_EXT.1, this SFR is included:
+	<!-- QQQQ: According to FAU_ADP_EXT.1, this SFR is included:
 		"If any audit review is performed by an auditor through an interface provided by
 		the TSF, then FAU_SAR.1 and FAU_SAR.3 in Annex B.2 will be included in the ST by
 		the ST author." 
-	     According to this very SFR, "This SFR is included in the ST by the ST author if the operations
+	     QQQQ: According to this very SFR, "This SFR is included in the ST by the ST author if the operations
  		provided by the TSF (as specified in FAU_ADP_EXT.1) include the review of audit records." 
 
 	     When we figure out how to include FAU_SAR.1, we will know how to include this one.
@@ -1455,7 +1452,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				
 	<!--               -->     
         <!-- FAU_SCR_EXT.1     -->
-	<!-- After considerable analysis, we decided that this SFR should be included if "store" is selected
+	<!-- QQQQ: After considerable analysis, we decided that this SFR should be included if "store" is selected
 		in the first selection of FAU_GCR_EXT.1. The reasoning is that the TOE needs to do certificate
   		review if the TOE stores certificates (versus the OE storing certificates).  
 
@@ -1463,6 +1460,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		not be included if the OE provides the capability.
 
  		The app note below is original and has not been changed from the current PP version.   
+
+		"It is allowed that this function be provided entirely by the OE (when the repository is stored in the OE); if 
+		this is the case, then this requirement is not included in the ST, but instead the
+		OE.CERTIFICATE_REPOSITORY_SEARCH objective is included (this objective is omitted in the other two cases, when
+ 		this SFR is included in the ST).
 	-->
 	<!--               -->     
         <f-component cc-id="fau_scr_ext.1" name="Certificate Repository Review" status="sel-based">
@@ -1529,11 +1531,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
     	<!--               -->     
         <!-- FAU_SEL.1     -->
-	<!-- According to FAU_ADP_EXT.1, this SFR is included:
+	<!-- QQQQ: According to FAU_ADP_EXT.1, this SFR is included:
 		"If any audit pre-selection is performed by an auditor through an interface provided
 		by the TSF, then FAU_SEL.1 in Annex B.2 will be included in the ST by the ST author."
  
-	     According to this very SFR, "This SFR is included in the ST by the ST author if the operations
+	     QQQQ: According to this very SFR, "This SFR is included in the ST by the ST author if the operations
  		provided by the TSF (as specified in FAU_ADP_EXT.1) include the pre-selection of audit records." 
 		
 		We are dealing with this by using feat-based. It might make more sense for FAU_ADP_EXT to include a 
@@ -1610,12 +1612,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			
     	<!--               -->     
         <!-- FAU_STG.1(1)     -->
-	<!-- According to FAU_ADP_EXT.1, this SFR is included:
+	<!-- QQQQ: Should be renamed something like FAU_STG.1/PROT.   -->
+	<!-- QQQQ: According to FAU_ADP_EXT.1, this SFR is included:
 		"Audit records stored within the TOE boundary that are generated due to audit
 		events marked “extended” in tables 4, 5, and 6 that are included in the ST, then
 		FAU_STG.1(2) will be included in the ST by the ST author." But that is not this SFR.
  
-	     According to this very SFR, "This requirement applies when the audit data are stored by the TOE 
+	     QQQQ: According to this very SFR, "This requirement applies when the audit data are stored by the TOE 
 		itself. If the TSF does not store all (or any) of the audit data, OE.AUDIT_STORAGE is included
 		in the ST." 
 		
@@ -1681,16 +1684,20 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	    
     	<!--               -->     
         <!-- FAU_STG.1(2)     -->
-	<!-- According to FAU_ADP_EXT.1, this SFR is included:
+	<!-- QQQQ: Should be renamed something like FAU_STG.1/RET   -->
+	<!-- QQQQ: According to FAU_ADP_EXT.1, this SFR is included:
 		"Audit records stored within the TOE boundary that are generated due to audit
 		events marked “extended” in tables 4, 5, and 6 that are included in the ST, then
 		FAU_STG.1(2) will be included in the ST by the ST author." But that is not this SFR.
  
-	     According to this very SFR, "This requirement applies to audit data stored within the TOE boundary
+	     QQQQ: According to this very SFR, "This requirement applies to audit data stored within the TOE boundary
  		that is expected to persist intact beyond the validity of certificates issued by the CA, even
 		in the event of unexpected TSF failure. Refer to Table 4 through Table 6 for the
 		auditable events marked as requiring extended retention that are relevant to this
-		SFR." 
+		SFR.
+		If any audit storage provided by the TOE is used for audit events marked
+		“extended” in tables 4, 5, and 6 that are included in the ST, then this SFR will be
+		included in the ST by the ST author." 
 		
 		See FAU_STG.1(1)
 	-->
@@ -1832,7 +1839,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
     	<!--               -->     
         <!-- FAU_STG_EXT.1     -->
-		<!-- According to FAU_ADP_EXT.1, this SFR is included:
+	<!-- QQQQ: According to FAU_ADP_EXT.1, this SFR is included:
 		"If the TSF initiates the storage of the audit data (that is, it generates audit data
 		that will be stored either by the TOE or the OE), then FAU_STG_EXT.1 will be
 		included in the ST by the ST Author. "
@@ -1841,6 +1848,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		of the audit data. The last item in the selection (external audit server) should only be selected
 		(and this SFR included in the ST) if the TOE is responsible for connecting to the
 		external audit server to store the data." 
+
+	    QQQQ: "If the last item in the selection is chosen, the ST author must include FTP_ITC.1
+		with “audit server” selection, and ensures that the supporting protocol
+		requirement matches the selection is included in the ST."
 		
 		I don't understand why this is a selection-based requirement. I am making it mandatory for now.
 	-->
@@ -1941,11 +1952,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
     	<!--               -->     
         <!-- FAU_STG_EXT.2     -->
-	<!-- According to FAU_ADP_EXT.1, this SFR is included:
-		""
- 
-	     According to this very SFR, "This SFR is to be included if “locally on the TOE” is selected in FAU_STG_EXT.1, and
-		OE.AUDIT_RETENTION is not included in the ST. " 
+	<!-- QQQQ: "This SFR is to be included if “locally on the TOE” is selected in FAU_STG_EXT.1, and
+		OE.AUDIT_RETENTION is not included in the ST. ... If this SFR is not included in the ST, then 
+		OE.AUDIT_RETENTION is included in the ST." 
 	-->
 	<!--               -->     
         <f-component cc-id="fau_stg_ext.2" name="Audit Data Retention" status="sel-based">
@@ -2150,6 +2159,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <!-- FCO_NRR_EXT.2 -->
     <!-- Selection-based  -->
+    <!-- QQQQ: This SFR is claimed if “CMC full responses” is selected in FIA_CMCS_EXT.1.2.  -->
     <!--                  -->    	      
 <f-component name="Certificate-Based Proof of Receipt" cc-id="fco_nrr_ext.2" status="sel-based">
 	<selection-depends req="fia-cmcs-ext-1e2" ids="sel-cert-req-protocol"/>
@@ -2297,6 +2307,15 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <!-- FCS_CKM.1 -->
     <!-- Selection-based on FCS_CDP_EXT.1 -->
+    <!-- QQQQ: For keys used for authentication, only RSA- or ECC-based selections are allowed. 
+	The ST author will make clear in the ST which keys are used for what purpose.   -->
+    <!-- QQQQ: This component requires that the TSF or Operational Environment be able to
+	generate the public/private key pairs that are used for key establishment purposes
+	for the various cryptographic protocols (HTTPS, TLS, IPsec, SSH) used by the TOE.
+	If multiple schemes are supported, then the ST author should iterate this
+	requirement to capture this capability. The scheme used will be chosen by the ST
+	author from the selection.   -->
+	      
     <!--                  -->     
     <f-component cc-id="fcs_ckm.1" name="Cryptographic Key Generation" status="sel-based">
 	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-1"/>
@@ -2458,6 +2477,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <!-- FCS_CKM.2 -->
     <!-- Selection-based on FCS_CDP_EXT.1 -->
+    <!-- QQQQ: The elliptic curves used for the key establishment scheme correlate with the
+	curves specified in FCS_CKM.1.1.    -->
+    <!-- QQQQ: The domain parameters used for the finite field-based key establishment scheme
+	are specified by the key generation according to FCS_CKM.1.1   -->
     <!--                  -->     
     <f-component cc-id="fcs_ckm.2" name="Cryptographic Key Establishment" status="sel-based">
 	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-2"/>
@@ -2658,6 +2681,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <!-- FCS_CKM_EXT.1(1) -->
     <!-- Feat-based on protectSubscriberInfo feature -->
+    <!-- QQQQ: Should be renamed FCS_CKM_EXT.1/DEK  -->
     <!-- QQQQ: The selection criteria for this SFR are not clearly defined. The above feature is an attempt. -->
     <!-- QQQQ: For the third selection, if the TSF invokes an RBG that is implemented by the TOE
 		or implemented by the OE, the first item is selected and FCS_RBG_EXT.1 is
@@ -2768,6 +2792,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <!-- FCS_CKM_EXT.1(2) -->
     <!-- Selection-based  -->
+    <!-- QQQQ: Should be renamed FCS_CKM_EXT.1/KEK  -->
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.1" iteration="2" name="Key Generation Key Encryption Keys" status="sel-based">
 	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-1i3"/>  <!-- TODO -->
@@ -2884,6 +2909,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <!-- FCS_CKM_EXT.1(3) -->
     <!-- Selection-based  -->
+    <!-- QQQQ: Should be renamed FCS_CKM_EXT.1/KEKT.   -->
+    <!-- QQQQ: This SFR is included when the third selection in FPT_SKY_EXT.1 indicates that a
+	“key sharing mechanisms in accordance with…” is used.   -->
+    <!-- QQQQ: The generation of the shares themselves is specified in FCS_CKM_EXT.1(4), which the ST author includes
+ 	whenever this SFR is included in the ST. The key that is generated by this requirement is used by the
+	mechanisms specified in FCS_CKM_EXT.6 to protect the keys specified in FPT_SKY_EXT.1.   -->
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.1" iteration="3" name="Key Generation for Key Encryption Keys (TOE Key Archival)"
 		 status="sel-based">
@@ -2962,7 +2993,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
     <!--                  -->     
     <!-- FCS_CKM_EXT.1(4) -->
-    <!-- Selection-based  -->
+    <!-- Selection-based: Apparently included if FCS_CKM_EXT.1(3)  -->
+    <!-- QQQQ: Shuld be renamed FCS_CKM_EXT.1/SHARES  -->
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.1" iteration="4" name="Generation of Key Shares" status="sel-based">
 	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-1i4"/>
@@ -2991,6 +3023,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <!-- FCS_CKM_EXT.4 -->
     <!-- Selection-based  -->
+    <!-- QQQQ: What are the inclusion criteria?  -->
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.4" name="Cryptographic Key Destruction" status="sel-based">
 	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-ext-4"/>
@@ -3149,6 +3182,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <!-- FCS_CKM_EXT.5 -->
     <!-- Selection-based  -->
+    <!-- QQQQ: This SFR is included when the second selection in FDP_STG_EXT.1.1 is chosen, and
+	applies to the public keys listed in that SFR. If integrity protection is provided
+	entirely by the OE with no interaction from the TOE (and that is the only method
+	of protecting the public keys), then FDP_STG_EXT.1 should not be claimed in the
+	ST, and instead OE.PUBLIC_KEY_PROTECTION should be included in the ST.   -->
+    <!-- QQQQ: The ST author selects “integrity failure on Trust Anchor database” for FPT_FLS.1 if
+	this SFR is included in the ST.   -->
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.5" name="Public Key Integrity" status="sel-based">
 	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-ext-5"/>
@@ -3228,6 +3268,19 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <!-- FCS_CKM_EXT.6 -->
     <!-- Selection-based  -->
+    <!-- QQQQ: This requirement is required when ‘key sharing mechanisms…’ is selected in
+	FPT_SKY_EXT.1., and ensures that the archival of any keys required for continuity
+	of operations (e.g., signature keys used to sign CRLs) from the TOE involves
+	encryption of those keys using KEKs that were derived using key sharing
+	mechanisms as specified in FCS_CKM_EXT.1(3).    -->
+    <!-- QQQQ: The TSF shall [selection: encrypt, invoke interfaces in the Operational Environment
+	to encrypt] the keys specified in FCS_CKM_EXT.6.1 in accordance with [selection:
+	FCS_COP.1(1), FCS_CKM.1] using the KEK generated in accordance with
+	FCS_CKM_EXT.1(3).   -->
+    <!-- QQQQ: The TSF shall [selection: decrypt, invoke interfaces in the Operational Environment
+	to decrypt] the keys specified in FCS_CKM_EXT.6.1 in accordance with [selection:
+	FCS_COP.1(1), FCS_CKM.1] using the KEK generated in accordance with
+	FCS_CKM_EXT.1(3).     -->
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.6" name="Key Archival" status="sel-based">
 	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-ext-6"/>
@@ -3477,6 +3530,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <!-- FCS_COP.1(1) -->
     <!-- Selection-based  -->
+    <!-- QQQQ: Should be renamed FCS_COP.1/AES   -->
+    <!-- QQQQ: This SFR is in support of multiple TOE encryption requirements. AES-CBC is used
+	for encryption only, AES-CCM and AES-GCM for encryption and authentication,
+	AES-XTS for encryption only, and AES Key Wrap and AES Key Wrap with Padding
+	for key wrapping. It is necessary for the ST author to ensure that the selected AES
+	modes and key sizes are consistent with the claims made in any of the selectionbased cryptographic protocols (e.g. if FCS_IPSEC_EXT.1 is selected, CBC and/or
+	GCM must be selected depending on the selections made in FCS_IPSEC_EXT.1.4).  -->	      
     <!--                  -->    	      
 <f-component name="Cryptographic Operation (AES Encryption/Decryption)" cc-id="fcs_cop.1" iteration="1" status="sel-based">
 	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-cop-1i1"/>
@@ -3768,6 +3828,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <!-- FCS_COP.1(2) -->
     <!-- Selection-based  -->
+    <!-- QQQQ: Should be renamed FCS_COP.1/SIG -->
+    <!-- QQQQ: The ST author should choose the algorithm implemented to perform digital
+	signatures; if more than one algorithm is available, this requirement (and the
+	corresponding FCS_CKM.1 requirement) should be iterated to specify the
+	functionality. For the algorithm chosen, the ST author should make the
+	appropriate assignments/selections to specify the parameters that are
+	implemented for that algorithm.  -->
     <!--                  -->    	      
 <f-component name="Cryptographic Operation (Cryptographic Signature)" cc-id="fcs_cop.1" iteration="2" status="sel-based">
 	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-cop-1i2"/>
@@ -3932,6 +3999,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <!-- FCS_COP.1(3) -->
     <!-- Selection-based  -->
+    <!-- QQQQ: Inclusion criteria not specified -->
+    <!-- QQQQ: Should be renamed FCS_COP.1/HASH  -->
+    <!-- QQQQ: The selection of the hashing algorithm must correspond to the selection of the
+	message digest size; for example, if SHA-1 is chosen, then the only valid message
+	digest size selection would be 160 bits  -->
     <!--                  -->    	      
 <f-component name="Cryptographic Operation (Cryptographic Hashing)" cc-id="fcs_cop.1" iteration="3" status="sel-based">
 	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-cop-1i3"/>
@@ -4037,6 +4109,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <!-- FCS_COP.1(4) -->
     <!-- Selection-based  -->
+    <!-- QQQQ: Should be renamed FCS_COP.1/KHASH  -->
+    <!-- QQQQ: The hash selection should be consistent with the overall strength of the algorithm used for FCS_COP.1(1).  -->
     <!--                  -->    	      
 <f-component name="Cryptographic Operation (Keyed-Hash Message Authentication)" cc-id="fcs_cop.1" iteration="4" status="sel-based">
 	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-cop-1i4"/>
@@ -5157,6 +5231,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <!-- FCS_RBG_EXT.1 -->
     <!-- Selection-based  -->
+    <!-- QQQQ: Inclusion criteria not specified -->
+    <!-- QQQQ:  The ST author will select the function used, and include the
+	specific underlying cryptographic primitives used in the requirement or in the TSS.
+	While any of the identified hash functions (SHA- 224, SHA-256, SHA-384, SHA-512)
+	are allowed for Hash_DRBG or HMAC_DRBG, only AES-based implementations for
+	CTR_DRBG are allowed.   -->
+    <!-- QQQQ: The ST author must also ensure that any underlying functions are included in the
+	baseline requirements for the TOE.   -->      
     <!--                  -->    	      
 <f-component name="Cryptographic Random Bit Generation" cc-id="fcs_rbg_ext.1" status="sel-based">
 	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-rbg-ext-1"/>
@@ -6847,6 +6929,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
 	<!--               -->     
         <!-- FIA_AFL.1 -->
+	<!-- Selection-based -->
+	<!-- QQQQ: Included if “local password-based authentication mechanism” in FIA_UAU_EXT.1.1 is chosen  -->
 	<!--               -->     
         <f-component cc-id="fia_afl.1" name="Authentication Failure Handling" status="sel-based">
 		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/>
@@ -7075,6 +7159,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		
 	<!--               -->     
         <!-- FIA_CMCS_EXT.1 -->
+	<!-- Selection-based -->
 	<!--               -->     
         <f-component cc-id="fia_cmcs_ext.1" name="Certificate Management over CMS (CMC) Server" status="sel-based">
 		<selection-depends req="fco-nrr-ext-2e1" ids="sel-fco-cmcs-ext-1"/>
@@ -7841,6 +7926,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
 	<!--               -->     
         <!-- FIA_PMG_EXT.1 -->
+	<!-- Selection-based -->
+	<!-- QQQQ: Included if “local password-based authentication mechanism” in FIA_UAU_EXT.1.1 has been chosen.  -->
 	<!--               -->     
         <f-component cc-id="fia_pmg_ext.1" name="Password Management" status="sel-based">
 		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/>
@@ -8054,6 +8141,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		
 	<!--               -->     
         <!-- FIA_UAU.7 -->
+	<!-- Selection-based -->
+	<!-- QQQQ: Included if “local password-based authentication mechanism” in FIA_UAU_EXT.1.1 has been chosen. -->
 	<!--               -->     
         <f-component cc-id="fia_uau.7" name="Protected Authentication Feedback" status="sel-based">
 		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/>
@@ -9127,6 +9216,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
 	<!--               -->     
         <!-- FPT_APW_EXT.1 -->
+	<!-- Selection-based -->
+	<!-- QQQQ: Included if “local password-based authentication mechanism” in FIA_UAU_EXT.1.1 has been chosen.  -->
 	<!--               -->     
         <f-component cc-id="fpt_apw_ext.1" name="Protection of Privileged USer Password" status="sel-based">
 		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/>
