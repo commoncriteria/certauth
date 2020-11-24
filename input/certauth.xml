@@ -4,6 +4,7 @@
 <PP xmlns="https://niap-ccevs.org/cc/v1" name="Protection Profile for Certification Authorities"
     xmlns:h="http://www.w3.org/1999/xhtml" boilerplate="yes" type="pp">
 	
+	      <!-- FIA_PSK_EXT.1 -->
 	
   <!-- <inline-comment color='green'> Hello World QQQQ </inline-comment> -->
   <!-- <inline-comment color='blue' linebreak='yes'> Hello World QQQQ </inline-comment> -->
@@ -2160,6 +2161,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- FCO_NRR_EXT.2 -->
     <!-- Selection-based  -->
     <!-- QQQQ: This SFR is claimed if “CMC full responses” is selected in FIA_CMCS_EXT.1.2.  -->
+    <!-- QQQQ: Based on what is chosen in the selections, the applicable requirements from Annex
+	B (i.e., FIA_CMCS_EXT.1, FIA_ESTS_EXT.1) must be included.       -->
     <!--                  -->    	      
 <f-component name="Certificate-Based Proof of Receipt" cc-id="fco_nrr_ext.2" status="sel-based">
 	<selection-depends req="fia-cmcs-ext-1e2" ids="sel-cert-req-protocol"/>
@@ -4276,6 +4279,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <!-- FCS_HTTPS_EXT.1 -->
     <!-- Selection-based  -->
+    <!-- QQQQ: The TSF shall implement HTTPS using TLS.  -->
     <!--                  -->    	      
 <f-component name="HTTPS Protocol" cc-id="fcs_https_ext.1" status="sel-based">
 	<selection-depends req="ftp-itc-1e1" ids="ftp-itc-https"/>
@@ -4313,6 +4317,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <!-- FCS_IPSEC_EXT.1 -->
     <!-- Selection-based  -->
+    <!-- QQQQ: The TSF shall implement the IPsec protocol ESP as defined by RFC 4303 using the
+	cryptographic algorithms AES-CBC-128, AES-CBC-256 (both specified by RFC
+	3602) and [selection: AES-GCM-128 (specified in RFC 4106), AES-GCM-256
+	(specified in RFC 4106), no other algorithms] together with a Secure Hash
+	Algorithm (SHA)-based HMAC.    -->
+    <!-- QQQQ: FCS_RBG_EXT.1,  RSA, ECDSA] that use X.509v3 ,  -->
     <!--                  -->    	      
 <f-component name="IPsec Protocol" cc-id="fcs_ipsec_ext.1" status="sel-based">
 	<selection-depends req="ftp-itc-1e1" ids="ftp-itc-ipsec"/>
@@ -5451,6 +5461,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <!-- FCS_TLSC_EXT.1 -->
     <!-- Selection-based  -->
+    <!-- QQQQ: The ciphersuites to be tested in the evaluated configuration are limited by this
+	requirement. The ST author should select the ciphersuites that are supported.   -->
+    <!-- QQQQ: If any ciphersuites are selected using ECDHE, then FCS_TLSC_EXT.1.5 is required.   -->
+    <!-- QQQQ:  Certificate validity shall be tested in accordance with testing performed for FIA_X509_EXT.1.  -->
     <!--                  -->    	      
 <f-component name="TLS Client Protocol" cc-id="fcs_tlsc_ext.1" status="sel-based">
 	<selection-depends req="ftp-itc-1e1" ids="ftp-itc-tls"/>   <!-- Is this right? -->
@@ -5726,6 +5740,19 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <!-- FCS_TLSS_EXT.1 -->
     <!-- Selection-based  -->
+    <!-- QQQQ: The ciphersuites to be tested in the evaluated configuration are limited by this
+	requirement. The ST author should select the ciphersuites that are supported.  -->
+    <!-- QQQQ: All SSL versions and TLS v1.0 are denied. Any TLS versions not selected in
+	FCS_TLSS_EXT.1.1 should be selected here.   -->
+    <!-- QQQQ: If the ST lists a DHE or ECDHE ciphersuite in FCS_TLSS_EXT.1.1, the ST must include
+	the Diffie-Hellman or NIST curves selection in the requirement. FMT_SMF.1
+	requires the configuration of the key agreement parameters in order to establish
+	the security strength of the TLS connection.   -->
+    <!-- QQQQ: If ciphersuites with elliptic curves were selected in FCS_TLSS_EXT.1.1, this
+	component is required. This requirement limits the elliptic curves allowed for
+	authentication and key agreement to the NIST curves from FCS_COP.1(2),
+	FCS_CKM.1, and FCS_CKM.2. This extension is required for clients supporting
+	Elliptic Curve ciphersuites.   -->
     <!--                  -->    	      
 <f-component name="TLS Server Protocol" cc-id="fcs_tlss_ext.1" status="sel-based">
 	<selection-depends req="ftp-itc-1e1" ids="ftp-itc-tls"/>   <!-- Is this right? -->
@@ -6348,7 +6375,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	</f-component>
 	      
 	<!--               -->     
-    <!-- FDP_CRL_EXT.1 -->
+    	<!-- FDP_CRL_EXT.1 -->
+	<!-- Selection-based -->
+	<!-- QQQQ: Inclusion criteria not specified.  -->
 	<!--               -->     
 	<f-component cc-id="fdp_crl_ext.1" name="Certificate Revocation List Validation" status="sel-based">
 		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/> <!-- TODO: This is wrong -->
@@ -6532,6 +6561,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
       	<!--               -->     
 	<!-- FDP_ITT.1 -->
+	<!-- Selection-based -->
+	<!-- QQQQ: IPsec, SSH, TLS, TLS/HTTPS  -->
+	<!-- QQQQ: The ST author chooses the mechanism(s) supported by the TOE, and then ensures the detailed requirements
+		in Annex C corresponding to their selection are copied to the ST if not already present.  -->
+	<!-- QQQQ: If SSH is selected, the TOE is expected to conform to the Extended Package for Secure Shell. -->
 	<!--               -->     
 	<f-component cc-id="fdp_itt.1" name="Basic Internal Transfer Protection" status="sel-based">
 		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/> <!-- TODO: This is wrong -->
@@ -6607,6 +6641,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				
 	<!--               -->     
 	<!-- FDP_OCSPG_EXT.1 -->
+	<!-- Selection-based -->
+	<!-- QQQQ: Inclusion criteria not specified -->
+	<!-- QQQQ: If RFC 6960 is selected in FCO_NRO_EXT.2.2, the current version is 1 (value 0)
+		and the fields are as named above. If ‘other OCSP standard’ is selected, then the
+		equivalent fields for items a – e above should be identified and the current
+		version should match the specification.   -->
 	<!--               -->     
 	<f-component cc-id="fdp_ocspg_ext.1" name="OCSP Basic Response Generation" status="sel-based">
 		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/> <!-- TODO: This is wrong -->
@@ -7045,6 +7085,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
 	<!--               -->     
         <!-- FIA_CMCC_EXT.1 -->
+	<!-- Selection-based -->
+	<!-- QQQQ: Inclusion criteria not specified. Probably same as FCS_CMCC_EXT.1 -->
+	<!-- QQQQ: ... in accordance with FCS_HTTPS_EXT.1  -->
+	<!-- QQQQ: For CMC requests containing certificate requests other than initial certificate requests authenticated using
+		shared secrets in AuthenticatedData requests or in the Identity Proof Version 2
+		Control of SignedData requests, the TSF shall require HTTPS with client authentication.  -->	
 	<!--               -->     
         <f-component cc-id="fia_cmcc_ext.1" name="Certificate Management over CMS (CMC) Client" status="sel-based">
 		<selection-depends req="fco-nrr-ext-2e1" ids="sel-fco-cmcc-ext-1"/>
@@ -7160,6 +7206,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FIA_CMCS_EXT.1 -->
 	<!-- Selection-based -->
+	<!-- QQQQ: Inclusion criteria not specified -->
+	<!-- QQQQ: ...where the HTTPS is established in accordance with FCS_HTTPS_EXT.1.  -->
+	<!-- QQQQ: ...in accordance with FCS_COP.1(2)   -->
+	<!-- QQQQ: ...in accordance with FCS_COP.1(1)   -->
+	<!-- QQQQ: ...in accordance with FCS_COP.1(5)   -->
+	<!-- QQQQ: ...in accordance with FCS_COP.1(3)   -->
+	<!-- QQQQ: ...in accordance with FCS_COP.1(4)   -->
 	<!--               -->     
         <f-component cc-id="fia_cmcs_ext.1" name="Certificate Management over CMS (CMC) Server" status="sel-based">
 		<selection-depends req="fco-nrr-ext-2e1" ids="sel-fco-cmcs-ext-1"/>
@@ -7492,7 +7545,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	</f-component>		
 
 <!--               -->     
-<!-- FIA_ESTC_EXT.1 -->
+<!-- FIA_ENR_EXT.1 -->
 <!--               -->     
 <f-component cc-id="fia_enr_ext.1" name="Certificate Enrollment" status="objective">
 	<f-element>
@@ -7533,7 +7586,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		
 		
 	<!--               -->     
-    <!-- FIA_ESTC_EXT.1 -->
+    	<!-- FIA_ESTC_EXT.1 -->
+	<!-- Selection-based -->
+	<!-- Inclusion criteria not specified -->
+	<!-- QQQQ: in accordance with TLS, X509, FCS_TLSC_EXT.2, FCS_COP.1/HASH  -->
 	<!--               -->     
     <f-component cc-id="fia_estc_ext.1" name="Enrollment over Secure Transport (EST) Client" status="sel-based">
 		<selection-depends req="fco-nrr-ext-2e1" ids="sel-fco-ests-ext-1"/>  <!-- TODO This is probably wrong -->
@@ -7734,7 +7790,17 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		
 	
 	<!--               -->     
-    <!-- FIA_ESTS_EXT.1 -->
+    	<!-- FIA_ESTS_EXT.1 -->
+	<!-- Selection-based -->
+	<!-- QQQQ: EST also uses HTTPS as specified in FCS_HTTPS_EXT.1 to establish a secure connection with an EST client.	 -->
+	<!-- QQQQ: If this requirement is included in the ST, the ST author includes FCS_TLSS_EXT.1. -->
+	<!-- QQQQ: For FIA_ESTS_EXT.1.3, the ST author selects the method used to authenticate
+		clients for initial enrollment, or in cases where supplemental authentication is
+		required. If the second item is chosen in the selection, the ST author includes FCS_COP.1(3) in the ST  -->
+	<!-- QQQQ: If only the third item is chosen in the selection for FIA_ESTS_EXT.1.3, or if the first
+		item is chosen in the selection for FIA_ESTS_EXT.1.4, then support of an RA or AOR
+		is required for initial authentication and SFR selections associated to the support
+		for these optional roles must be claimed.   -->
 	<!--               -->     
     <f-component cc-id="fia_ests_ext.1" name="Enrollment over Secure Transport (EST) Server" status="sel-based">
 		<selection-depends req="fco-nrr-ext-2e1" ids="sel-fco-ests-ext-1"/>
@@ -8629,7 +8695,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
 		
 	<!--               -->     
-    <!-- FIA_X509_EXT.3 -->
+    	<!-- FIA_X509_EXT.3 -->
+	<!-- Selection-based -->
+	<!-- QQQQ: Inclusion criteria not specified. -->
+	<!-- 
 	<!--               -->     
     <f-component cc-id="fia_x509_ext.3" name="X509 Certificate Request" status="sel-based">
 		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/>  <!-- TODO This is wrong -->
@@ -10420,7 +10489,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
      <subsection title="Class: Trusted Path/Channels (FTP)" id="ftp">
 
 	<!--               -->     
-    <!-- FTP_ITC.1 -->
+    	<!-- FTP_ITC.1 -->
+	<!-- QQQQ: Inclusion criteria not specified -->
+	<!-- QQQQ:  HTTPS, IPsec, TLS, SSH   -->
+	<!-- QQQQ: If the ST author selects SSH, the TSF shall be validated against the Extended Package for Secure Shell  -->
 	<!--               -->     
 	<!-- Must be included if any the TOE talks to any "physically distinct IT entities"
 		to perform ST-mandated functions.  This needs to be related to specific 
