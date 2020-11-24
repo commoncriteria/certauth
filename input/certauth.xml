@@ -8698,7 +8698,6 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     	<!-- FIA_X509_EXT.3 -->
 	<!-- Selection-based -->
 	<!-- QQQQ: Inclusion criteria not specified. -->
-	<!-- 
 	<!--               -->     
     <f-component cc-id="fia_x509_ext.3" name="X509 Certificate Request" status="sel-based">
 		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/>  <!-- TODO This is wrong -->
