@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="../transforms/pp2html.xsl"?>
+<?xml-model href="../transforms/schemas/CCProtectionProfile.rng" type="application/xml"?>
 
-<PP xmlns="https://niap-ccevs.org/cc/v1" name="Protection Profile for Certification Authorities"
-    xmlns:h="http://www.w3.org/1999/xhtml" boilerplate="yes" type="pp">
+<PP xmlns="https://niap-ccevs.org/cc/v1" 
+    xmlns:h="http://www.w3.org/1999/xhtml" 
+	xmlns:sec="https://niap-ccevs.org/cc/v1/section"
+	target-product="Certification Authority"
+	target-products="Certification Authorities"
+	boilerplate="yes"
+	short="CA"
+	>
 	
 	      <!-- FIA_PSK_EXT.1 -->
 	
@@ -11,9 +18,9 @@
   <PPReference>
     <ReferenceTable>
       <PPTitle>Protection Profile for Certification Authorities</PPTitle>
-      <PPVersion>2.1</PPVersion>
+      <PPVersion>3.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2017-12-01</PPPubDate>
+      <PPPubDate>2025-06-13</PPPubDate>
       <Keywords>Certification Authority</Keywords>
     </ReferenceTable>
   </PPReference>
@@ -49,6 +56,11 @@
       <date>2020-07-10</date>
       <subject>Converted to XML</subject>
     </entry>
+	<entry>
+		<version>3.0</version>
+		<date>2025-06-13</date>
+		<subject>Conversion to CC:2022, Incorporation of NIAP TDs</subject>
+	</entry>
   </RevisionHistory>
 	
 	
@@ -67,18 +79,32 @@ And maybe there should be a section of the PP that says all this. So maybe some 
  	<depends on="feature">Select if the TOE implements the Bluetooth.</depends>
  </include-pkg>
 --> 
- <include-pkg name="Network Encryption" product="" short="TLS" version="1.1">
-	url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=439&amp;id=439">
-<!--	    <depends on="selection"><ref-id>sel-itc-tls</ref-id></depends>
+ <!--<include-pkg name="Network Encryption" product="" short="TLS" version="1.1">
+	<url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=439&amp;id=439</url>
+	    <depends on="selection"><ref-id>sel-itc-tls</ref-id></depends>
 	    <depends on="selection"><ref-id>sel-itc-https</ref-id></depends>
-	    <depends on="selection"><ref-id>sel-x509-2-tls</ref-id></depends>   -->
- </include-pkg>
+	    <depends on="selection"><ref-id>sel-x509-2-tls</ref-id></depends>   
+ </include-pkg>-->
+  <include-pkg id="pkgTLS">
+	<git>
+		<url>https://github.com/commoncriteria/tls</url>
+		<branch>release-2.0</branch>
+	</git>
+	<url>https://www.niap-ccevs.org/protectionprofiles/465</url>
+  </include-pkg>
 
- <include-pkg name="Secure Shell" product="" short="SSH"  version="1.0"
+ <!--<include-pkg name="Secure Shell" product="" short="SSH"  version="1.0"
 	url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=389&amp;id=389">
-<!--	<depends on="selection"><ref-id>sel-itc-ssh</ref-id></depends>
-    	<depends on="selection"><ref-id>sel-x509-2-ssh</ref-id></depends>  -->
- </include-pkg>	
+	<depends on="selection"><ref-id>sel-itc-ssh</ref-id></depends>
+    	<depends on="selection"><ref-id>sel-x509-2-ssh</ref-id></depends> 
+ </include-pkg>	-->
+ <include-pkg id="pkgSSH">
+	<git>
+		<url>https://github.com/commoncriteria/ssh</url>
+		<branch>release-2.0</branch>
+	</git>
+	<url>https://www.niap-ccevs.org/protectionprofiles/515</url>
+ </include-pkg>
 	
 	<!-- Rules - These are rules where selections in the base require selections in the Modules.
 			So, really these belong in a composition and not here. At worst they should be in the module.
@@ -102,7 +128,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
 <!-- 1. Introduction  -->
 	
-  <chapter title="Introduction" id="ch-intro">
+  <section title="Introduction" id="ch-intro">
 	  
 <!-- 1.1 Overview  -->
 	  
@@ -421,7 +447,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	    
 <!-- 1.3.1 TOE Boundary -->
 	    
-      <subsection title="TOE Boundary" id="TOEboundary">
+      <section title="TOE Boundary" id="TOEboundary">
 	Figure 1 below illustrates an example PKI architecture; this architecture is for illustration only and is not
 	meant to represent requirements for an actual deployment. Within a PKI, the CA is responsible for issuing
 	and managing public-key certificates for subjects to prove their identities; these subjects are typically
@@ -492,7 +518,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	      
 	It is intended that the set of requirements in this PP is limited in scope in order to promote quicker, less
 	costly evaluations that provide some value to end users.
-     </subsection>
+     </section>
     </section>
 
 <!-- 1.4 Use Cases -->
@@ -504,24 +530,38 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	requirements defined in the annexes of this PP but they are all expected to be used in the same general
 	manner for the same general purposes. 
     </section>
-  </chapter>
+</section>
 
 <!-- 2. Conformance Claims -->
-  <chapter title="Conformance Claims" id="ccl"/>
+  <sec:Conformance_Claims>
+	<CClaimsInfo
+		cc-version="cc-2022r1"
+		cc-approach="direct-rationale">
+		<cc-st-conf>exact</cc-st-conf>
+		<cc-pt2-conf>extended</cc-pt2-conf>
+		<cc-pt3-conf>conformant</cc-pt3-conf>
+		<cc-pp-conf/>
+		<cc-pp-config-with/>
+		<cc-pkg-claim>
+			<FP-cc-ref conf="conformant">Functional Package for TLS, version 2.0</FP-cc-ref>
+			<FP-cc-ref conf="conformant">Functional Package for Secure Shell, version 2.0</FP-cc-ref>
+		</cc-pkg-claim>
+	</CClaimsInfo>
+  </sec:Conformance_Claims>
 
 <!-- 3. Security Problem Description -->
 	
-  <chapter title="Security Problem Description" id="spd">
+  <section title="Security Problem Definition" id="sec-spd">
 	  
   The security problem is described in terms of the threats that the OS is expected to address, assumptions
   about the operational environment, and any organizational security policies that the OS
   is expected to enforce.
 	  
-<!-- 3.1 Threats -->
+	<!-- 3.1 Threats -->
 
-  <section title="Threats" id="threats">
+  <sec:Threats>
       <threats>
-	<threat name="T.PRIVILEGED_USER_ERROR">
+		<threat name="T.PRIVILEGED_USER_ERROR">
           <description> A privileged user or non-person entity (NPE) improperly exercises or adversely affects
 		  the TOE, resulting in unauthorized services, ineffective security mechanisms, or unintended
 		  circumvention of security mechanisms.</description>
@@ -646,7 +686,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
           </objective-refer>
         </threat>
       </threats>
-    </section>
+  </sec:Threats>
 	  
 <!-- 3.2 Assumptions -->
 	  
@@ -683,7 +723,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
   <!-- 3.3 Organizational Security Policies -->
 
-    <section title="Organizational Security Policies" id="OSPs">
+    <sec:Organizational_Security_Policies>
       <OSPs>
         <OSP name="P.ACCESS_BANNER">
           <description>The TOE shall display an initial banner describing restrictions of use, legal agreements,
@@ -693,12 +733,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
           </objective-refer>
         </OSP>
       </OSPs>
-    </section>
-  </chapter>
+    </sec:Organizational_Security_Policies>
+  </section>
 	
 <!-- 4. Security Objectives -->
 	
-  <chapter title="Security Objectives" id="obj">
+  <sec:Security_Objectives>
 	  
 <!-- 4.1 Security Objectives for the TOE -->
 	  
@@ -991,11 +1031,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <section title="Security Objectives Rationale" id="SOR">
       <!-- This section is populated by boilerplates.xsl in transforms. -->
       </section>
-  </chapter>
+	</sec:Security_Objectives>
 
 <!-- 5. Security Requirements -->
 	
-  <chapter title="Security Requirements" id="ch-secreq">
+  <sec:Security_Requirements>
     <!-- There is boilerplate here -->
 
 <!-- 5.1 Security Functional Requirements -->
@@ -1019,16 +1059,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	     a PP requirement since it is operational and not really a product feature.  -->
 	    
 <!-- 5.1.1 Auditable Events for Mandatory SFRs -->
-      <subsection title="Auditable Events for Mandatory SFRs" id="ss-audit-events">
-           <audit-table table="mandatory">
- 	     <h:br/><h:b><ctr ctr-type="Table" id="atref-mandatory">: Auditable Events for Mandatory SFRs</ctr></h:b>
-        </audit-table>
-      </subsection>
+      <section title="Auditable Events for Mandatory SFRs" id="ss-audit-events">
+           <audit-table table="mandatory" id="at-mandatory"/>
+      </section>
 	      
         <!--                             -->
 	<!-- 5.1.2 Class: FAU: Security Audit  -->
         <!--                             -->
-      <subsection title="Class: Security Audit (FAU)" id="fau">
+      <section title="Class: Security Audit (FAU)" id="fau">
 	       
 	 <!--               -->     
  	 <!-- FAU_ADP_EXT.1 -->
@@ -1056,7 +1094,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	 <!-- QQQQ: Finally, the audit table is expected to have a 4th column indicating whether each the auditing
 		of each event is done by the TOE or the OE. Not sure how to deal with this. -->
 	 <!--               -->
-         <f-component cc-id="fau_adp_ext.1" name="Audit Dependencies" status="mandatory">
+         <f-component cc-id="fau_adp_ext.1" name="Audit Dependencies">
           <f-element>
             <title> The TSF shall implement audit functionality and 
 		    <selectables>
@@ -1142,7 +1180,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
  	 <!-- QQQQ: Remove OE.CERT_REPOSITORY if Operational Environment is not selected. -->
 	      
 	<!--               -->     
-        <f-component cc-id="fau_gcr_ext.1" name="Generation of Certificate Repository" status="mandatory">
+        <f-component cc-id="fau_gcr_ext.1" name="Generation of Certificate Repository">
           <f-element id="fau-gcr-ext-1e1">
             <title>The TSF shall 
 		    <selectables>
@@ -1202,7 +1240,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	      in any of the FAU_GEN elements or listed in the last column in table 4."
               Also, OE_AUDIT_REVIEW, and OE_AUDIT_STORAGE.  -->
 	<!--               -->     
-        <f-component cc-id="fau_gen.1" name="Audit Data Generation" status="mandatory">
+        <f-component cc-id="fau_gen.1" name="Audit Data Generation">
            <f-element>
 		   <title><h:b>Refinement:</h:b>The TSF shall generate <refinement>and <selectables><selectable>invoke the Operational 
 		      Environment to generate</selectable><selectable>no other actions</selectable></selectables></refinement>
@@ -1212,10 +1250,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
                                 <h:li>All auditable events for the <refinement>not specified</refinement> level of audit; and </h:li>
                                 <h:li><refinement>All administrative actions invoked through the TSF interface</refinement>;</h:li>
                                 <h:li><refinement>Specifically defined auditable events listed in Table 4 through Table 6</refinement></h:li>
-                                <h:li><refinement>Specifically defined auditable events listed in <ctr-ref ref-id="atref-mandatory-ss"/></refinement></h:li>
-                                <h:li><refinement>Specifically defined auditable events listed in <ctr-ref ref-id="atref-optional"/></refinement></h:li>
-                                <h:li><refinement>Specifically defined auditable events listed in <ctr-ref ref-id="atref-sel-based"/></refinement></h:li>
-				<h:li><refinement>Specifically defined auditable events listed in <ctr-ref ref-id="atref-impl-dep"/></refinement></h:li>
+                                <h:li><refinement>Specifically defined auditable events listed in <xref to="at-mandatory"/></refinement></h:li>
+                                <h:li><refinement>Specifically defined auditable events listed in <xref g="t-audit-optional"/></refinement></h:li>
+                                <h:li><refinement>Specifically defined auditable events listed in <xref g="t-audit-sel-based"/></refinement></h:li>
+				<h:li><refinement>Specifically defined auditable events listed in <xref g="t-audit-impl-dep"/></refinement></h:li>
 
 			    </h:ol>
              </title>
@@ -1343,7 +1381,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FAU_GEN.2     -->
 	<!--               -->     		
-	<f-component cc-id="fau_gen.2" name="User Identity Association" status="mandatory">
+	<f-component cc-id="fau_gen.2" name="User Identity Association">
           <f-element>
 		  <title><h:b>Refinement:</h:b>For audit events resulting from actions of identified users, the TSF
 		    shall be able to <refinement><selectables><selectable>associate</selectable>
@@ -1998,12 +2036,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	</f-component>
 
 
-	</subsection>
+	</section>
 	    
         <!--                             -->
 	<!-- Class: FCO: Communications  -->
         <!--                             -->
-      <subsection title="Class: Communications (FCO)" id="fco">
+      <section title="Class: Communications (FCO)" id="fco">
 
 	<!--               -->     
         <!-- 5.1.3 FCO_NRO_EXT.2 -->
@@ -2212,14 +2250,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<audit-event />
 </f-component>
 		
-</subsection>
+</section>
 	
 	    
 	      
         <!--                             -->
 	<!-- Class: FCS: Cryptographic Support  -->
         <!--                             -->
-      <subsection title="Class: Cryptographic Support (FCS)" id="fcs">
+      <section title="Class: Cryptographic Support (FCS)" id="fcs">
 
 	      
 	<!--               -->     
@@ -6000,13 +6038,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 </f-component>
 
 		
-</subsection>
+</section>
 		
 
         <!--                             -->
 	<!-- Class: FDP: User Data Protection  -->
         <!--                             -->
-      <subsection title="Class: User Data Protection (FDP)" id="fdp">
+      <section title="Class: User Data Protection (FDP)" id="fdp">
 
 	<!--               -->     
         <!-- FDP_CER_EXT.1 -->
@@ -6960,12 +6998,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	</f-component>
 		
 	
-	</subsection>   <!-- FDP -->
+	</section>   <!-- FDP -->
 	      
 	<!--                             -->
 	<!-- Class: FIA: Identification and Authentication  -->
         <!--                             -->
-      	<subsection title="Class: Identification and Authentication (FIA)" id="fia">
+      	<section title="Class: Identification and Authentication (FIA)" id="fia">
 
 	<!--               -->     
         <!-- FIA_AFL.1 -->
@@ -8760,14 +8798,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<audit-event/>   <!-- TODO Make sure this is right. There is no entry for this SFR in any audit table -->
 	</f-component>
 
-</subsection>
+</section>
 
 
 		
  	<!--                             -->
 	<!-- Class: FMT: Security Management  -->
         <!--                             -->
-     <subsection title="Class: Security Management (FMT)" id="fmt">
+     <section title="Class: Security Management (FMT)" id="fmt">
 	<note role="application">
 		FMT_MOF.1 has been broken up into several iterations to define the specific
 		management functions that are available to each of the roles defined by
@@ -9274,13 +9312,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<audit-event-info>Modifications to the group of users that are part of the role</audit-event-info>
 		</audit-event>
 	</f-component>
-	</subsection>
+	</section>
 	     
 	     
  	<!--                             -->
 	<!-- Class: FPT: Protection of the TSF  -->
         <!--                             -->
-     <subsection title="Class: Protection of the TSF (FPT)" id="fpt">
+     <section title="Class: Protection of the TSF (FPT)" id="fpt">
 
 	<!--               -->     
         <!-- FPT_APW_EXT.1 -->
@@ -10259,12 +10297,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<audit-event-info>Version number</audit-event-info>
 		</audit-event>
 	</f-component>
-	</subsection>
+	</section>
 			
  	<!--                             -->
 	<!-- Class: FTA: TOE Access  -->
         <!--                             -->
-     <subsection title="Class: TOE Access (FTA)" id="fta">
+     <section title="Class: TOE Access (FTA)" id="fta">
 
 	<!--               -->     
     <!-- FTA_SSL.3 -->
@@ -10480,12 +10518,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</f-element>
 		<audit-event/>
 	</f-component>
-	</subsection>
+	</section>
 			
 	<!--                             -->
 	<!-- Class: FTP: Trusted Path/Channels  -->
         <!--                             -->
-     <subsection title="Class: Trusted Path/Channels (FTP)" id="ftp">
+     <section title="Class: Trusted Path/Channels (FTP)" id="ftp">
 
 	<!--               -->     
     	<!-- FTP_ITC.1 -->
@@ -10722,7 +10760,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<audit-event-info>Identification of the claimed user identity</audit-event-info>
 		</audit-event>
 	</f-component>
-    </subsection>   
+    </section>   
 	    
 <!-- 5.1.11 TOE Security Functional Requirements Rationale -->
 <!--   This is auto generated -->
@@ -10758,7 +10796,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	The TOE security assurance requirements defined in this section identify the management and evaluative
 	activities required to address the threats identified in Section 3.1 of this PP.<h:br/><h:br/>   
 	
-	<subsection title="Class ADV: Development" id="adv">
+	<section title="Class ADV: Development" id="adv">
 		The information about the TOE is contained in the guidance documentation available to the end user as
 		well as the TSS portion of the ST. The TOE developer must concur with the description of the product that
 		is contained in the TSS as it relates to the functional requirements. The Assurance Activities contained in
@@ -10820,9 +10858,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	      			</aactivity-sar>
 			</a-element>
         </a-component>
-     </subsection>
+     </section>
 
-	<subsection id="agd" title="Class AGD: Guidance Documentation">
+	<section id="agd" title="Class AGD: Guidance Documentation">
 		The guidance documents will be provided with the ST. Guidance must include a description of how the IT
 		personnel verifies that the Operational Environment can fulfill its role for the security functionality. The
 		documentation should be in an informal style and readable by the IT personnel. Guidance must be
@@ -10972,9 +11010,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity-sar>
             	</a-element>
       	</a-component>	
-	</subsection>
+	</section>
 
-	<subsection id="alc" title="Class ALC: Life-cycle Support"> 
+	<section id="alc" title="Class ALC: Life-cycle Support"> 
 	At the assurance level provided for TOEs conformant to this PP, life-cycle support is limited to end-uservisible aspects of the life-cycle, rather than an examination of the TOE vendor’s development and
 	configuration management process. This is not meant to diminish the critical role that a developer’s
 	practices play in contributing to the overall trustworthiness of a product; rather, it is a reflection on the
@@ -11030,13 +11068,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity-sar>
           	</a-element>
         </a-component>
-	</subsection>
+	</section>
 	
-	<subsection title="Class ASE: Security Target Evaluation" id="ase">
+	<section title="Class ASE: Security Target Evaluation" id="ase">
 		As per ASE activities defined in [CEM].
-	</subsection>
+	</section>
 
-	<subsection id="ate" title="Class ATE: Tests">
+	<section id="ate" title="Class ATE: Tests">
 	Testing is specified for functional aspects of the system as well as aspects that take advantage of design
 	or implementation weaknesses. The former is done through the ATE_IND family, while the latter is
 	through the AVA_VAN family. At the assurance level specified in this PP, testing is based on advertised
@@ -11097,9 +11135,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity-sar>
 		</a-element>
 	</a-component>
-	</subsection>
+	</section>
 	
-	<subsection id="ava" title="Class AVA: Vulnerability Assessment">
+	<section id="ava" title="Class AVA: Vulnerability Assessment">
 	For the current generation of this Protection Profile, the evaluation lab is expected to survey open sources
 	to discover what vulnerabilities have been discovered in these types of products. In most cases, these
 	vulnerabilities will require sophistication beyond that of a basic attacker. Until penetration tools are
@@ -11148,16 +11186,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity-sar>
           	</a-element>  
  	</a-component>
-    </subsection>      
+    </section>      
   </section>
-  </chapter>
+</sec:Security_Requirements>
 
 	<!-- Appendixes  -->
 	<!-- Appendix A: Optional Requirements (auto-generated) -->
-	<appendix title="Optional Requirements" id="optional"/> 
+	<!-- <appendix title="Optional Requirements" id="optional"/>  -->
 	
 	<!-- Appendeix B: Selection-Based Requirements (auto-generated) -->
-	<appendix title="Selection-Based Requirements" id="sel-based"/> 
+	<!-- <appendix title="Selection-Based Requirements" id="sel-based"/>  -->
 
 	<!-- Appendix C: Entropy Documentation and Assessment --> 
   <appendix title="Entropy Documentation and Assessment" id="entropyappendix"> 
@@ -11200,7 +11238,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- Does this product need an Equivalence section -->
 	
 	<!-- Appendix D: References --> 
-  <appendix title="References" id="biblio">
+  
     <bibliography>
       <entry id="bibCC">
         <tag>CC</tag>
@@ -11231,15 +11269,15 @@ And maybe there should be a section of the PP that says all this. So maybe some 
           </description>
       </entry>
     </bibliography>
-  </appendix>
+  
 
-  <appendix title="Acronyms" id="acronyms">
+  <!-- <appendix title="Acronyms" id="acronyms">
    <acronyms/>
-  </appendix>
+  </appendix> -->
 	
 	
 <!-- These might go away if I can turn all these into selections like they shoud be -->
-  <implements>
+  <!-- <implements>
     <feature id="protectSubscriberInfo" title="TOE Responsible for Protecting Subscriber Information">
       <description>If the TOE does not rely on an RA, or if the CA provides a centralized repository for
 	      subscriber information, the following SFRs must be claimed in order for the TOE to provide
@@ -11257,7 +11295,6 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<description>If any storage of audit records is performed by the TOE, then the following SFRs must be
 		included:</description>
 	</feature>
-  </implements>
+  </implements> -->
 	
 </PP>
-
