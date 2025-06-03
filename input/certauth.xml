@@ -530,6 +530,31 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	requirements defined in the annexes of this PP but they are all expected to be used in the same general
 	manner for the same general purposes. 
     </section>
+
+<!-- 1.5 Product Features Mapped to Implementation-Dependent Requirements -->
+	<section title="Product Features Mapped to Implementation-Dependent Requirements" id="features">
+		The feature(s) enumerated below, if implemented by the TOE, require that additional SFRs be claimed in the ST.<h:br/>
+	<!-- These might go away if I can turn all these into selections like they shoud be -->
+		<implements>
+			<feature id="protectSubscriberInfo" title="TOE Responsible for Protecting Subscriber Information">
+			<description>If the TOE does not rely on an RA, or if the CA provides a centralized repository for
+				subscriber information, the following SFRs must be claimed in order for the TOE to provide
+				assurance that subscriber data is protected.     </description>
+			</feature>
+			<feature id="auditReview" title="TOE supports Audit Review">
+				<description> If the TOE supports review of audit records, then the following SFRs must be included:
+				</description>
+			</feature>
+			<feature id="auditPreSelect" title="TSF Supports Audit Pre-Select">
+				<description>If any audit pre-selection is performed by an auditor through an interface provided
+					by the TSF, then the following SFRs muct be included:</description>
+			</feature>
+			<feature id="auditStorage" title="TSF Supports Storage of Audit Records">
+				<description>If any storage of audit records is performed by the TOE, then the following SFRs must be
+				included:</description>
+			</feature>
+		</implements>
+  </section>
 </section>
 
 <!-- 2. Conformance Claims -->
@@ -1420,7 +1445,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	-->
 	<!--               -->     
         <f-component cc-id="fau_sar.1" name="Audit Review" status="feat-based">
-          <depends on="implements"><ref-id>auditReview</ref-id></depends>
+          <depends on-feat="auditReview"/>
 		<f-element>
 			<title>The TSF shall provide [<h:i>Auditors</h:i>] with the capability to read all
 				information from the audit records.</title>
@@ -1459,7 +1484,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	-->
 	<!--               -->     
         <f-component cc-id="fau_sar.3" name="Selectable Audit Review" status="feat-based">
-          <depends on="implements"><ref-id>auditReview</ref-id></depends>
+          <depends on-feat="auditReview"/>
 		<f-element>
 			<title>
 				The TSF shall provide the ability to apply [<h:i>searches</h:i>] of audit data
@@ -1507,7 +1532,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	-->
 	<!--               -->     
         <f-component cc-id="fau_scr_ext.1" name="Certificate Repository Review" status="sel-based">
-		<selection-depends req="fau-gcr-ext-1e1" ids="store-certs"/>
+		<depends on-sel="store-certs"/>
 	      	<f-element>
 			<title>The TSF shall 
 				<selectables>   <!-- This should not be a selection, only "provide" makes sense here -->
@@ -1582,7 +1607,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	-->
 	<!--               -->     
         <f-component cc-id="fau_sel.1" name="Selective Audit" status="feat-based">
-          <depends on="implements"><ref-id>auditPreSelect</ref-id></depends>
+          <depends on-feat="auditPreSelect"/>
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement> The TSF shall be able to select the set of
@@ -1666,7 +1691,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	-->
 	<!--               -->     
         <f-component cc-id="fau_stg.1" name="Selective Audit" iteration="1" status="feat-based">
-          <depends on="implements"><ref-id>auditStorage</ref-id></depends>
+          <depends on-feat="auditStorage"/>
 		<f-element>
 			<title>
 				The TSF shall protect the stored audit records in the audit trail from unauthorized
@@ -1742,7 +1767,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	-->
 	<!--               -->     
         <f-component cc-id="fau_stg.1" name="Selective Audit" iteration="2" status="feat-based">
-          <depends on="implements"><ref-id>auditStorage</ref-id></depends>
+          <depends on-feat="auditStorage"/>
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement> The TSF shall protect the stored audit records
@@ -1821,7 +1846,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FAU_STG.4     -->
 	<!--               -->     
-        <f-component cc-id="fau_stg.4" name="Prevention of Audit Data Loss" status="mandatory">
+        <f-component cc-id="fau_stg.4" name="Prevention of Audit Data Loss">
         <f-element>
 		<title><h:b>Refinement:</h:b>The TSF shall <refinement>[prevent audited events, except those taken
 			by the Auditor]</refinement> and <assignable>other actions to be taken in case of audit storage
@@ -1895,8 +1920,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		I don't understand why this is a selection-based requirement. I am making it mandatory for now.
 	-->
 	<!--               -->     
-        <f-component cc-id="fau_stg_ext.1" name="External Audit Trail Storage" status="mandatory">
-<!--		<selection-depends req="fau_adp_ext.1" ids="XXXXXXXXXXXXXXXX"/></selection-depends>  -->
+        <f-component cc-id="fau_stg_ext.1" name="External Audit Trail Storage">
+<!--		<depends on-sel="XXXXXXXXXXXXXXXX"/></selection-depends>  -->
 		<f-element id="fau-stg-ext-1e1">
 			<title>
 				The TSF shall maintain availability and integrity of audit data by storing it
@@ -1997,7 +2022,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	-->
 	<!--               -->     
         <f-component cc-id="fau_stg_ext.2" name="Audit Data Retention" status="sel-based">
-		<selection-depends req="fau-stg-ext-1e1" ids="loc-TOE"/>
+		<depends on-sel="loc-TOE"/>
 		<f-element>
 			<title>
 				The TSF shall apply the following rules for retention of audit data: 
@@ -2052,7 +2077,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- QQQQ: Based on what is chosen in the selections for FCO_NRO_EXT.2.3-FCO_NRO_EXT.2.5, the applicable
 		requirements from Annex B (i.e., FIA_CMCS_EXT.1, FIA_ESTS_EXT.1) must be included."  --> 	      
 	<!--               -->     
-	<f-component cc-id="fco_nro_ext.2" name="Certificate-Based Proof of Origin" status="mandatory">
+	<f-component cc-id="fco_nro_ext.2" name="Certificate-Based Proof of Origin" >
 		<f-element>
                	<title>The TSF shall provide proof of origin for certificates it issues in accordance with
 			the digital signature requirements using a mechanism in accordance with RFC
@@ -2203,7 +2228,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	B (i.e., FIA_CMCS_EXT.1, FIA_ESTS_EXT.1) must be included.       -->
     <!--                  -->    	      
 <f-component name="Certificate-Based Proof of Receipt" cc-id="fco_nrr_ext.2" status="sel-based">
-	<selection-depends req="fia-cmcs-ext-1e2" ids="sel-cert-req-protocol"/>
+	<depends on-sel="sel-cert-req-protocol"/>
 	<f-element id="fco-nrr-ext-2e1">
 		<title>
 			The TSF shall provide proof of receipt for 
@@ -2266,7 +2291,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		a physically external cryptographic device, then the ST author must include
 		FTP_ITC.1 with “external cryptographic module” selected.   -->
 	<!--               -->     
-        <f-component cc-id="fcs_cdp_ext.1" name="Cryptographic Dependencies" status="mandatory">
+        <f-component cc-id="fcs_cdp_ext.1" name="Cryptographic Dependencies" >
           <f-element id="fcs-cdp-ext-1e1">
             <title> The TSF shall 
 		    <selectables>
@@ -2359,7 +2384,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	      
     <!--                  -->     
     <f-component cc-id="fcs_ckm.1" name="Cryptographic Key Generation" status="sel-based">
-	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-1"/>
+	<depends on-sel="crypto-sel-ckm-1"/>
 	<f-element>
 		<title><refinement>Refinement:</refinement> The TSF shall <refinement>
 			<selectables>
@@ -2524,7 +2549,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	are specified by the key generation according to FCS_CKM.1.1   -->
     <!--                  -->     
     <f-component cc-id="fcs_ckm.2" name="Cryptographic Key Establishment" status="sel-based">
-	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-2"/>
+	<depends on-sel="crypto-sel-ckm-2"/>
 	<f-element>
 		<title>
 			<refinement> Refinement:</refinement>The TSF shall <refinement>
@@ -2740,7 +2765,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	the ST and the appropriate key wrap method will be chosen in the fifth selection.  -->
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.1" iteration="1" name="Symmetric Key Generation for DEKs" status="feat-based">
-          <depends on="implements"><ref-id>protectSubscriberInfo</ref-id></depends>
+          <depends on-feat="protectSubscriberInfo"/>
           <f-element>
             <title>The TSF shall
 		    <selectables>
@@ -2836,7 +2861,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- QQQQ: Should be renamed FCS_CKM_EXT.1/KEK  -->
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.1" iteration="2" name="Key Generation Key Encryption Keys" status="sel-based">
-	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-1i3"/>  <!-- TODO -->
+	<depends on-sel="crypto-sel-ckm-1i3"/>  <!-- TODO -->
 	<f-element>
 		<title>
 			The TSF shall be able to 
@@ -2959,7 +2984,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.1" iteration="3" name="Key Generation for Key Encryption Keys (TOE Key Archival)"
 		 status="sel-based">
-	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-1i3"/>
+	<depends on-sel="crypto-sel-ckm-1i3"/>
 	<f-element>
 		<title>
 			The TSF shall be able to 
@@ -3038,7 +3063,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- QQQQ: Shuld be renamed FCS_CKM_EXT.1/SHARES  -->
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.1" iteration="4" name="Generation of Key Shares" status="sel-based">
-	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-1i4"/>
+	<depends on-sel="crypto-sel-ckm-1i4"/>
 	<f-element>
 		<title>The TSF shall be able to
 			<selectables>
@@ -3067,7 +3092,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- QQQQ: What are the inclusion criteria?  -->
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.4" name="Cryptographic Key Destruction" status="sel-based">
-	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-ext-4"/>
+	<depends on-sel="crypto-sel-ckm-ext-4"/>
 	<f-element>
 		<title>
 			The TSF shall 
@@ -3232,7 +3257,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	this SFR is included in the ST.   -->
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.5" name="Public Key Integrity" status="sel-based">
-	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-ext-5"/>
+	<depends on-sel="crypto-sel-ckm-ext-5"/>
 	<f-element>
 		<title>
 			The TSF shall 
@@ -3324,7 +3349,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	FCS_CKM_EXT.1(3).     -->
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.6" name="Key Archival" status="sel-based">
-	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-ext-6"/>
+	<depends on-sel="crypto-sel-ckm-ext-6"/>
 	<f-element>
 		<title>The TSF shall 
 			<selectables>
@@ -3416,7 +3441,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- Selection-based  -->
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.7" name="Key Generation for KEKs" status="sel-based">
-	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-ext-5"/>  <!-- TODO -->
+	<depends on-sel="crypto-sel-ckm-ext-5"/>  <!-- TODO -->
 	<f-element>
 		<title>
 			The 
@@ -3503,7 +3528,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- Selection-based  -->
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.8" name="Key Hierarchy Entropy" status="sel-based">
-	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-ckm-ext-5"/>  <!-- TODO -->
+	<depends on-sel="crypto-sel-ckm-ext-5"/>  <!-- TODO -->
 	<f-element>
 		<title>
 			The TSF shall provide a traceable hierarchy of keys (DEKs or KEKs) formed from
@@ -3580,7 +3605,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	GCM must be selected depending on the selections made in FCS_IPSEC_EXT.1.4).  -->	      
     <!--                  -->    	      
 <f-component name="Cryptographic Operation (AES Encryption/Decryption)" cc-id="fcs_cop.1" iteration="1" status="sel-based">
-	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-cop-1i1"/>
+	<depends on-sel="crypto-sel-cop-1i1"/>
 	<f-element>
 		<title>
 			<refinement>Refinement:</refinement> The TSF shall 
@@ -3878,7 +3903,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	implemented for that algorithm.  -->
     <!--                  -->    	      
 <f-component name="Cryptographic Operation (Cryptographic Signature)" cc-id="fcs_cop.1" iteration="2" status="sel-based">
-	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-cop-1i2"/>
+	<depends on-sel="crypto-sel-cop-1i2"/>
 	<f-element>
 		<title>
 			<refinement>Refinement:</refinement>
@@ -4047,7 +4072,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	digest size selection would be 160 bits  -->
     <!--                  -->    	      
 <f-component name="Cryptographic Operation (Cryptographic Hashing)" cc-id="fcs_cop.1" iteration="3" status="sel-based">
-	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-cop-1i3"/>
+	<depends on-sel="crypto-sel-cop-1i3"/>
 	<f-element>
 		<title>
 			<refinement>Refinement: </refinement>The TSF shall <refinement>
@@ -4154,7 +4179,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- QQQQ: The hash selection should be consistent with the overall strength of the algorithm used for FCS_COP.1(1).  -->
     <!--                  -->    	      
 <f-component name="Cryptographic Operation (Keyed-Hash Message Authentication)" cc-id="fcs_cop.1" iteration="4" status="sel-based">
-	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-cop-1i4"/>
+	<depends on-sel="crypto-sel-cop-1i4"/>
 	<f-element>
 		<title>
 			<refinement>Refinement: </refinement>The TSF shall 
@@ -4320,8 +4345,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- QQQQ: The TSF shall implement HTTPS using TLS.  -->
     <!--                  -->    	      
 <f-component name="HTTPS Protocol" cc-id="fcs_https_ext.1" status="sel-based">
-	<selection-depends req="ftp-itc-1e1" ids="ftp-itc-https"/>
-	<selection-depends req="ftp-trp-1e1" ids="ftp-trp-https"/>
+	<depends on-sel="ftp-itc-https"/>
+	<depends on-sel="ftp-trp-https"/>
 	<f-element>
 		<title>The TSF shall implement the HTTPS protocol that complies with RFC 2818.</title>
 		<note role="application">
@@ -4363,8 +4388,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- QQQQ: FCS_RBG_EXT.1,  RSA, ECDSA] that use X.509v3 ,  -->
     <!--                  -->    	      
 <f-component name="IPsec Protocol" cc-id="fcs_ipsec_ext.1" status="sel-based">
-	<selection-depends req="ftp-itc-1e1" ids="ftp-itc-ipsec"/>
-	<selection-depends req="ftp-trp-1e1" ids="ftp-trp-ipsec"/>
+	<depends on-sel="ftp-itc-ipsec"/>
+	<depends on-sel="ftp-trp-ipsec"/>
 	<f-element>
 		<title>
 			The TSF shall implement IPsec to protect communication among TSF components
@@ -4680,10 +4705,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<selectables linebreak="yes">
 				<selectable>IKEv1 Phase 1 SA lifetimes can be configured by an Administrator based on 
 					<selectables linebreak="yes">
-						<selectable>number of packets/bytes;</selectable>
+						<selectable>number of packets/bytes</selectable>
 						<selectable>length of time, where the time values can be configured
 							within <assignable>integer range including 24</assignable>
-							hours</selectable>;
+							hours</selectable>
 					</selectables>
 				</selectable>
 				<selectable>IKEv2 SA lifetimes can be configured by an Administrator based on 
@@ -4756,13 +4781,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<f-element>
 		<title>
 			The TSF shall ensure that 
-			<selectables type="linebreak">
+			<selectables linebreak="yes">
 				<selectable>IKEv1 Phase 2 SA lifetimes can be configured by an Administrator based on 
 					<selectables linebreak="yes">
-						<selectable>number of packets/bytes;</selectable>
+						<selectable>number of packets/bytes</selectable>
 						<selectable>length of time, where the time values can be configured 
 							within <assignable>integer range including 8</assignable> hours
-						</selectable>;
+						</selectable>
 					</selectables>
 				</selectable>
 				<selectable>IKEv2 Child SA lifetimes can be configured by an Administrator based on 
@@ -5087,7 +5112,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</selectables> and
 			<selectables>
 				<selectable>no other reference identifier type</selectable>
-				<selecatble><assignable>other supported reference identifier types</assignable></selecatble>
+				<selectable><assignable>other supported reference identifier types</assignable></selectable>
 			</selectables>.
 		</title>
 		<note role="application">
@@ -5289,7 +5314,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	baseline requirements for the TOE.   -->      
     <!--                  -->    	      
 <f-component name="Cryptographic Random Bit Generation" cc-id="fcs_rbg_ext.1" status="sel-based">
-	<selection-depends req="fcs-cdp-ext-1e1" ids="crypto-sel-rbg-ext-1"/>
+	<depends on-sel="crypto-sel-rbg-ext-1"/>
 	<f-element>
 		<title>
 			The TSF shall 
@@ -5439,7 +5464,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FCS_STG_EXT.1 -->
 	<!--               -->           
-        <f-component name="Cryptographic Key Storage" cc-id="fcs_stg_ext.1" status="mandatory">
+        <f-component name="Cryptographic Key Storage" cc-id="fcs_stg_ext.1" >
             <f-element>
               <title>Persistent private and secret keys shall be stored within the
 		<selectables>
@@ -5505,8 +5530,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- QQQQ:  Certificate validity shall be tested in accordance with testing performed for FIA_X509_EXT.1.  -->
     <!--                  -->    	      
 <f-component name="TLS Client Protocol" cc-id="fcs_tlsc_ext.1" status="sel-based">
-	<selection-depends req="ftp-itc-1e1" ids="ftp-itc-tls"/>   <!-- Is this right? -->
-	<selection-depends req="ftp-trp-1e1" ids="ftp-trp-tls"/>   <!-- Is this right? -->
+	<depends on-sel="ftp-itc-tls"/>   <!-- Is this right? -->
+	<depends on-sel="ftp-trp-tls"/>   <!-- Is this right? -->
 	<f-element>
 		<title>
 			The TSF shall implement 
@@ -5793,9 +5818,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	Elliptic Curve ciphersuites.   -->
     <!--                  -->    	      
 <f-component name="TLS Server Protocol" cc-id="fcs_tlss_ext.1" status="sel-based">
-	<selection-depends req="ftp-itc-1e1" ids="ftp-itc-tls"/>   <!-- Is this right? -->
-	<selection-depends req="ftp-trp-1e1" ids="ftp-trp-tls"/>   <!-- Is this right? -->
-	<selection-depends req="fco-nrr-ext-2e1" ids="sel-fco-ests-ext-1"/>
+	<depends on-sel="ftp-itc-tls"/>   <!-- Is this right? -->
+	<depends on-sel="ftp-trp-tls"/>   <!-- Is this right? -->
+	<depends on-sel="sel-fco-ests-ext-1"/>
 	<f-element>
 		<title>
 		      The TSF shall implement 
@@ -6049,7 +6074,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FDP_CER_EXT.1 -->
 	<!--               -->     
-        <f-component cc-id="fdp_cer_ext.1" name="Certificate Profiles" status="mandatory">
+        <f-component cc-id="fdp_cer_ext.1" name="Certificate Profiles" >
 		<f-element>
 			<title>
 				The TSF shall implement a certificate profile function and shall ensure that issued
@@ -6235,7 +6260,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FDP_CER_EXT.2 -->
 	<!--               -->     
-        <f-component cc-id="fdp_cer_ext.2" name="Certificate Request Matching" status="mandatory">
+        <f-component cc-id="fdp_cer_ext.2" name="Certificate Request Matching" >
 		<f-element>
 			<title>
 				The TSF shall establish a linkage from certificate requests to issued certificates.
@@ -6282,7 +6307,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FDP_CER_EXT.3 -->
 	<!--               -->     
-        <f-component cc-id="fdp_cer_ext.3" name="Certificate Issuance Approval" status="mandatory">
+        <f-component cc-id="fdp_cer_ext.3" name="Certificate Issuance Approval" >
 		<f-element>
 			<title>
 				The TSF shall support the approval of certificates by 
@@ -6418,7 +6443,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- QQQQ: Inclusion criteria not specified.  -->
 	<!--               -->     
 	<f-component cc-id="fdp_crl_ext.1" name="Certificate Revocation List Validation" status="sel-based">
-		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/> <!-- TODO: This is wrong -->
+		<depends on-sel="sel-pwd-auth"/> <!-- TODO: This is wrong -->
 		<f-element>
 			<title>
 				A TSF that issues CRLs shall verify that all mandatory fields in any CRL issued
@@ -6492,7 +6517,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- QQQQ: Based on the selection, the ST author must choose the appropriate requirements
 		from Annex B.   -->
 	<!--               -->     
-        <f-component cc-id="fdp_csi_ext.1" name="Certificate Status Information" status="mandatory">
+        <f-component cc-id="fdp_csi_ext.1" name="Certificate Status Information" >
 		<f-element>
 			<title>
 				The TSF shall provide certificate status information whose format complies with
@@ -6606,7 +6631,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- QQQQ: If SSH is selected, the TOE is expected to conform to the Extended Package for Secure Shell. -->
 	<!--               -->     
 	<f-component cc-id="fdp_itt.1" name="Basic Internal Transfer Protection" status="sel-based">
-		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/> <!-- TODO: This is wrong -->
+		<depends on-sel="sel-pwd-auth"/> <!-- TODO: This is wrong -->
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement> The TSF shall 
@@ -6687,7 +6712,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		version should match the specification.   -->
 	<!--               -->     
 	<f-component cc-id="fdp_ocspg_ext.1" name="OCSP Basic Response Generation" status="sel-based">
-		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/> <!-- TODO: This is wrong -->
+		<depends on-sel="sel-pwd-auth"/> <!-- TODO: This is wrong -->
 		<f-element>
 			<title>
 				The TSF shall ensure that all mandatory fields in the OCSP response contain values
@@ -6760,7 +6785,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FDP_RIP.1 -->
 	<!--               -->     
-        <f-component cc-id="fdp_rip.1" name="Subset Residual Information Protection" status="mandatory">
+        <f-component cc-id="fdp_rip.1" name="Subset Residual Information Protection" >
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement> The TSF <refinement>and 
@@ -7011,7 +7036,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- QQQQ: Included if “local password-based authentication mechanism” in FIA_UAU_EXT.1.1 is chosen  -->
 	<!--               -->     
         <f-component cc-id="fia_afl.1" name="Authentication Failure Handling" status="sel-based">
-		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/>
+		<depends on-sel="sel-pwd-auth"/>
 		<f-element>
 			<title>
 				<refinement>Refinement: </refinement>
@@ -7131,7 +7156,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		Control of SignedData requests, the TSF shall require HTTPS with client authentication.  -->	
 	<!--               -->     
         <f-component cc-id="fia_cmcc_ext.1" name="Certificate Management over CMS (CMC) Client" status="sel-based">
-		<selection-depends req="fco-nrr-ext-2e1" ids="sel-fco-cmcc-ext-1"/>
+		<depends on-sel="sel-fco-cmcc-ext-1"/>
 		<f-element>
 			<title>
 				The TSF shall be able to generate CMC full requests and 
@@ -7253,7 +7278,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- QQQQ: ...in accordance with FCS_COP.1(4)   -->
 	<!--               -->     
         <f-component cc-id="fia_cmcs_ext.1" name="Certificate Management over CMS (CMC) Server" status="sel-based">
-		<selection-depends req="fco-nrr-ext-2e1" ids="sel-fco-cmcs-ext-1"/>
+		<depends on-sel="sel-fco-cmcs-ext-1"/>
 		<f-element>
 			<title>
 				The TSF shall be able to accept and process CMC full requests and 
@@ -7630,7 +7655,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- QQQQ: in accordance with TLS, X509, FCS_TLSC_EXT.2, FCS_COP.1/HASH  -->
 	<!--               -->     
     <f-component cc-id="fia_estc_ext.1" name="Enrollment over Secure Transport (EST) Client" status="sel-based">
-		<selection-depends req="fco-nrr-ext-2e1" ids="sel-fco-ests-ext-1"/>  <!-- TODO This is probably wrong -->
+		<depends on-sel="sel-fco-ests-ext-1"/>  <!-- TODO This is probably wrong -->
 		<f-element>
 			<title>
 				The TSF shall use the Enrollment over Secure Transport (EST) as specified in RFC
@@ -7672,7 +7697,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				signing certificate for CA implemented by the TOE, and 
 				<assignable>other certificates required to authenticate the TOE</assignable>
 				, from an authorized EST server using 
-				<selectables linebreak="true">
+				<selectables linebreak="yes">
 					<selectable>HTTP basic authentication transported over TLS in accordance with RFC 7030
 						section 3.2.3 and FCS_TLSC_EXT.2.</selectable>
 					<selectable>HTTP digest authentication using a cryptographic hash algorithm in
@@ -7841,7 +7866,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		for these optional roles must be claimed.   -->
 	<!--               -->     
     <f-component cc-id="fia_ests_ext.1" name="Enrollment over Secure Transport (EST) Server" status="sel-based">
-		<selection-depends req="fco-nrr-ext-2e1" ids="sel-fco-ests-ext-1"/>
+		<depends on-sel="sel-fco-ests-ext-1"/>
 		<f-element>
 			<title>
 				The TSF shall use the Enrollment over Secure Transport (EST) protocol as specified
@@ -8034,7 +8059,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- QQQQ: Included if “local password-based authentication mechanism” in FIA_UAU_EXT.1.1 has been chosen.  -->
 	<!--               -->     
         <f-component cc-id="fia_pmg_ext.1" name="Password Management" status="sel-based">
-		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/>
+		<depends on-sel="sel-pwd-auth"/>
 		<f-element>
 			<title>
 				The TSF shall provide the following password management capabilities for
@@ -8105,7 +8130,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <!-- FIA_PSK_EXT.1 -->
 	<!--               -->     
         <f-component cc-id="fia_psk_ext.1" name="Pre-Shared Key Composition" status="sel-based">
-		<selection-depends req="fcs-ipsec-ext-1e13" ids="sel-pre-shared-keys"/>  
+		<depends on-sel="sel-pre-shared-keys"/>  
 		<f-element>
 			<title>
 				The TSF shall be able to use pre-shared keys for IPsec.
@@ -8249,7 +8274,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- QQQQ: Included if “local password-based authentication mechanism” in FIA_UAU_EXT.1.1 has been chosen. -->
 	<!--               -->     
         <f-component cc-id="fia_uau.7" name="Protected Authentication Feedback" status="sel-based">
-		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/>
+		<depends on-sel="sel-pwd-auth"/>
 		<f-element>
 			<title>
 				<refinement>Refinement: </refinement>The TSF shall provide only 
@@ -8297,7 +8322,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FIA_UAU_EXT.1 -->
 	<!--               -->     
-        <f-component cc-id="fia_uau_ext.1" name="Authentication Mechanism" status="mandatory">
+        <f-component cc-id="fia_uau_ext.1" name="Authentication Mechanism" >
 		<f-element id="fia-uau-ext-1e1">
 			<title>
 				The TSF shall 
@@ -8332,7 +8357,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FIA_UIA_EXT.1 -->
 	<!--               -->     
-        <f-component cc-id="fia_uia_ext.1" name="User Identification and Authentication" status="mandatory">
+        <f-component cc-id="fia_uia_ext.1" name="User Identification and Authentication" >
 		<f-element>
 			<title>
 				The TSF shall allow the following actions prior to requiring a non-TOE entity to
@@ -8481,7 +8506,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--  QQQQ: The ST author shall select whether revocation status is verified using OCSP or CRLs. Depending on this
 		selection, the appropriate CRL or OCSP requirements from Annex B must be included.  -->
 	<!--               -->     
-        <f-component cc-id="fia_x509_ext.1" name="Certificate Validation" status="mandatory">
+        <f-component cc-id="fia_x509_ext.1" name="Certificate Validation" >
 		<f-element>
 			<title>
 				The TSF shall 
@@ -8616,7 +8641,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- QQQQ: The ST author‘s selection of trusted communication channel is expected to match
 		the selections in FTP_TRP.1.1 and FTP_ITC.1.1 (if FTP_ITC.1 is included in the ST)  -->
 	<!--               -->     
-        <f-component cc-id="fia_x509_ext.2" name="Certificate-based Authentication" status="mandatory">
+        <f-component cc-id="fia_x509_ext.2" name="Certificate-based Authentication" >
 		<f-element>
 			<title>
 				The TSF shall 
@@ -8738,7 +8763,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- QQQQ: Inclusion criteria not specified. -->
 	<!--               -->     
     <f-component cc-id="fia_x509_ext.3" name="X509 Certificate Request" status="sel-based">
-		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/>  <!-- TODO This is wrong -->
+		<depends on-sel="sel-pwd-auth"/>  <!-- TODO This is wrong -->
 		<f-element>
 			<title>
 				The TSF shall generate a Certificate Request Message as specified by RFC
@@ -8806,7 +8831,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- Class: FMT: Security Management  -->
         <!--                             -->
      <section title="Class: Security Management (FMT)" id="fmt">
-	<note role="application">
+	<h:b>Application Note: </h:b>
 		FMT_MOF.1 has been broken up into several iterations to define the specific
 		management functions that are available to each of the roles defined by
 		FMT_SMR.2. The FMT_MOF.1 iterations restrict some functions to a particular
@@ -8815,13 +8840,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		those security management functions that belong to the roles supported by the
 		TOE. All TSF management functions need to be specified as being able to be
 		performed by at least one of the defined roles.
-	</note>
+	
 
 	<!--               -->     
         <!-- FMT_MOF.1(1) -->
 	<!--               -->     
         <f-component cc-id="fmt_mof.1" iteration="1" name="Management of Security Functions Behavior (Administrator Functions)"
-		status="mandatory">
+		>
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement>The 
@@ -8876,7 +8901,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FMT_MOF.1(2) -->
 	<!--               -->     
-        <f-component cc-id="fmt_mof.1" iteration="2" name="Management of Security Functions Behavior (CA/RA Functions)" status="mandatory">
+        <f-component cc-id="fmt_mof.1" iteration="2" name="Management of Security Functions Behavior (CA/RA Functions)" >
 		<f-element>	     
 			<title>
 				<refinement>Refinement:</refinement>The
@@ -8919,7 +8944,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FMT_MOF.1(3) -->
 	<!--               -->     
-        <f-component cc-id="fmt_mof.1" iteration="3" name="Management of Security Functions Behavior (CA Operations Functions)" status="mandatory">
+        <f-component cc-id="fmt_mof.1" iteration="3" name="Management of Security Functions Behavior (CA Operations Functions)" >
 		<f-element>
 			<title>
 				<refinement>:Refinement:</refinement>
@@ -8961,7 +8986,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FMT_MOF.1(4) -->
 	<!--               -->     
-        <f-component cc-id="fmt_mof.1" iteration="4" name="Management of Security Functions Behavior (Admin/Officer Functions)" status="mandatory">
+        <f-component cc-id="fmt_mof.1" iteration="4" name="Management of Security Functions Behavior (Admin/Officer Functions)" >
 		<f-element>	     
 			<title>
 				<refinement>Refinement:</refinement> The
@@ -9030,7 +9055,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FMT_MOF.1(5) -->
 	<!--               -->     
-        <f-component cc-id="fmt_mof.1" iteration="5" name="Management of Security Functions Behavior (Autitor Functions)" status="mandatory">
+        <f-component cc-id="fmt_mof.1" iteration="5" name="Management of Security Functions Behavior (Autitor Functions)" >
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement>The 
@@ -9068,7 +9093,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FMT_MTD.1 -->
 	<!--               -->     
-        <f-component cc-id="fmt_mtd.1" name="Management of TSF Data" status="mandatory">
+        <f-component cc-id="fmt_mtd.1" name="Management of TSF Data" >
 		<f-element>
 			<title>
 				The TSF shall restrict the ability to <h:b>manage the TSF data</h:b> to [<h:i>privileged users</h:i>].
@@ -9117,7 +9142,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FMT_SMF.1 -->
 	<!--               -->     
-        <f-component cc-id="fmt_smf.1" name="Specification of Management Functions" status="mandatory">
+        <f-component cc-id="fmt_smf.1" name="Specification of Management Functions" >
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement> The 
@@ -9210,7 +9235,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FMT_SMR.2 -->
 	<!--               -->     
-        <f-component cc-id="fmt_smr.2" name="Restrictions on Security Roles" status="mandatory">
+        <f-component cc-id="fmt_smr.2" name="Restrictions on Security Roles" >
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement>The TSF 
@@ -9326,7 +9351,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- QQQQ: Included if “local password-based authentication mechanism” in FIA_UAU_EXT.1.1 has been chosen.  -->
 	<!--               -->     
         <f-component cc-id="fpt_apw_ext.1" name="Protection of Privileged USer Password" status="sel-based">
-		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/>
+		<depends on-sel="sel-pwd-auth"/>
 		<f-element>
 			<title>The TSF shall store passwords in non-plaintext form.</title>
 		</f-element>
@@ -9377,7 +9402,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FPT_FLS.1 -->
 	<!--               -->     
-        <f-component cc-id="fpt_fls.1" name="Failure with Preservation of Secure State" status="mandatory">
+        <f-component cc-id="fpt_fls.1" name="Failure with Preservation of Secure State" >
 		<f-element>
 			<title>
 				The TSF shall preserve a secure state when the following types of failures occur:
@@ -9447,7 +9472,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <!-- FPT_ITT.1 -->
 	<!--               -->     
         <f-component cc-id="fpt_itt.1" name="Basic Internal TSF Data Transfer Protection" status="sel-based">
-		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/>    <!-- TODO: This is wrong -->
+		<depends on-sel="sel-pwd-auth"/>    <!-- TODO: This is wrong -->
 		<f-element id="fpt-itt-1e1">
 			<title>
 				<refinement>Refinement:</refinement>: The TSF shall protect TSF data from [<h:i>disclosure, modification</h:i>]
@@ -9513,7 +9538,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FPT_KST_EXT.1 -->
 	<!--               -->     
-        <f-component cc-id="fpt_kst_ext.1" name="No Plaintext Key Export" status="mandatory">
+        <f-component cc-id="fpt_kst_ext.1" name="No Plaintext Key Export" >
 		<f-element>
 			<title>
 				The TSF and 
@@ -9562,7 +9587,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FPT_KST_EXT.2 -->
 	<!--               -->     
-    <f-component cc-id="fpt_kst_ext.2" name="Key Protection" status="mandatory">
+    <f-component cc-id="fpt_kst_ext.2" name="Key Protection" >
 		<f-element>
 			<title>
 				The TSF and 
@@ -9699,7 +9724,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FPT_RCV.1 -->
 	<!--               -->     
-        <f-component cc-id="fpt_rcv.1" name="Manual Trusted Recovery" status="mandatory">
+        <f-component cc-id="fpt_rcv.1" name="Manual Trusted Recovery" >
 		<f-element>
 			<title>
 				After 
@@ -9760,7 +9785,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FPT_SKP_EXT.1 -->
 	<!--               -->     
-        <f-component cc-id="fpt_skp_ext.1" name="Protection of Keys" status="mandatory">
+        <f-component cc-id="fpt_skp_ext.1" name="Protection of Keys" >
 		<f-element>
 			<title>
 				The TSF shall 
@@ -9894,7 +9919,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
 	
 	<f-component cc-id="fpt_sky_ext.1" name="Key Share Access" status="sel-based">
-		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/> <!-- TODO: This is wrong -->
+		<depends on-sel="sel-pwd-auth"/> <!-- TODO: This is wrong -->
 		<f-element>
 			<title>
 				The 
@@ -9942,7 +9967,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FPT_STM.1 -->
 	<!--               -->     
-    <f-component cc-id="fpt_stm.1" name="Reliable Time Stamps" status="mandatory">
+    <f-component cc-id="fpt_stm.1" name="Reliable Time Stamps" >
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement> The TSF shall 
@@ -10169,7 +10194,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FPT_TUD_EXT.1 -->
 	<!--               -->     
-    <f-component cc-id="fpt_tud_ext.1" name="Trusted Update" status="mandatory">
+    <f-component cc-id="fpt_tud_ext.1" name="Trusted Update" >
 		<f-element>
 			<title>
 				The TSF shall
@@ -10315,7 +10340,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement>The TSF shall terminate <refinement> a remote</refinement>
-				session after a <assignable><refinement>admnistrator-configurable</refinement> time interval 
+				session after a <assignable><h:b>administrator-configurable</h:b> time interval 
 				of session activity</assignable>.
 			</title>
 			<note role="application">
@@ -10362,7 +10387,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
     <!-- FTA_SSL.4 -->
 	<!--               -->     
-    <f-component cc-id="fta_ssl.4" name="User-Initiated Termination" status="mandatory">
+    <f-component cc-id="fta_ssl.4" name="User-Initiated Termination" >
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement>The TSF shall 
@@ -10474,7 +10499,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
     <!-- FTA_TAB.1 -->
 	<!--               -->     
-    <f-component cc-id="fta_tab.1" name="Default TOE Access Banners" status="mandatory">
+    <f-component cc-id="fta_tab.1" name="Default TOE Access Banners" >
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement> Before establishing a <refinement>privileged</refinement>
@@ -10536,7 +10561,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		selections, otherwise it is not selection-based. -->
 	
 	<f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel" status="sel-based">
-		<selection-depends req="fia-uau-ext-1e1" ids="sel-pwd-auth"/> <!-- TODO: This is wrong -->
+		<depends on-sel="sel-pwd-auth"/> <!-- TODO: This is wrong -->
 		<f-element id="ftp-itc-1e1">
 			<title>
 				<refinement>Refinement:</refinement> 
@@ -10668,7 +10693,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		Annex B corresponding to their selection are copied to the ST if not already present.
 		(This means HTTPS (), IPsec (), SSH (SSH Package), TLS (TLS Package))  -->
 	<!--               -->     
-    <f-component cc-id="ftp_trp.1" name="Trusted Path" status="mandatory">
+    <f-component cc-id="ftp_trp.1" name="Trusted Path" >
 		<f-element id="ftp-trp-1e1">
 			<title>
 				<refinement>Refinement:</refinement> The TSF shall 
@@ -10846,16 +10871,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             <a-element type="E">
               			<title>The evaluator shall determine that the functional specification is an accurate
               				and complete instantiation of the SFRs.</title>
-              			<aactivity-sar>
+              			<aactivity>
 					There are no specific assurance activities associated with these SARs, except
               				ensuring the information is provided. The functional specification documentation is
-              				provided to support the evaluation activities described in <secref linkend="SFRs"/>, and
+              				provided to support the evaluation activities described in <xref to="SFRs"/>, and
               				other activities described for AGD, ATE, and AVA SARs. The requirements on the content
               				of the functional specification information is implicitly assessed by virtue of the
               				other assurance activities being performed; if the evaluator is unable to perform an
               				activity because there is insufficient interface information, then an adequate
               				functional specification has not been provided.
-	      			</aactivity-sar>
+	      			</aactivity>
 			</a-element>
         </a-component>
      </section>
@@ -10924,7 +10949,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             		<a-element type="E">
               			<title>The evaluator shall confirm that the information provided meets all requirements
               				for content and presentation of evidence. </title>
-              			<aactivity-sar>
+              			<aactivity>
 					Some of the contents of the operational guidance will be verified by the
 					assurance activities in Section 5.1 and evaluation of the TOE according to the
 					CEM. The following additional information is also required.<h:br/><h:br/>
@@ -10948,7 +10973,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					of evaluation under this PP. The operational guidance shall make it clear to an
 					administrator which security functionality is covered by the evaluation
 					activities.
-				</aactivity-sar>
+				</aactivity>
  		 	</a-element>
 		</a-component>
 		
@@ -10980,7 +11005,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
               			<title>The evaluator shall apply the preparative procedures to
 					confirm that the TOE can be prepared securely for
 					operation.</title>
-              		<aactivity-sar>
+              		<aactivity>
 				As indicated in the introduction above, there are significant expectations with
 				respect to the documentation—especially when configuring the operational
 				environment to support TOE functional requirements. The evaluator shall
@@ -11007,7 +11032,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						Operational Environment is configured to provide the portion of the
 						capability for which it is responsible.</h:li>
 				</h:ul>
-			</aactivity-sar>
+			</aactivity>
             	</a-element>
       	</a-component>	
 	</section>
@@ -11029,7 +11054,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
               		<title>The evaluator shall confirm that the information provided
 				meets all requirements for content and presentation of
 				evidence.</title>
-              		<aactivity-sar>
+              		<aactivity>
 				The evaluator shall check the ST to ensure that it contains an identifier (such as
 				a product name/version number) that specifically identifies the version that
 				meets the requirements of the ST. Further, the evaluator shall check the AGD
@@ -11038,7 +11063,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				advertising the TOE, the evaluator shall examine the information on the web
 				site to ensure that the information in the ST is sufficient to distinguish the
 				product.
-			</aactivity-sar>
+			</aactivity>
             	</a-element>
 	</a-component>
 	
@@ -11058,14 +11083,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
               		<title>The evaluator shall confirm that the information provided
 				meets all requirements for content and presentation of
 				evidence. </title>
-              		<aactivity-sar>
+              		<aactivity>
 				The “evaluation evidence required by the SARs” in this PP is limited to the
 				information in the ST coupled with the guidance provided to administrators
 				and users under the AGD requirements. By ensuring that the TOE is specifically
 				identified and that this identification is consistent in the ST and in the AGD
 				guidance (as done in the assurance activity for ALC_CMC.1), the evaluator
 				implicitly confirms the information required by this component.
-			</aactivity-sar>
+			</aactivity>
           	</a-element>
         </a-component>
 	</section>
@@ -11098,7 +11123,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
               		<note role="application"> 
 				If the ST author selects SSH, the TSF shall be validated against the
 				Extended Package for Secure Shell</note>
-              		<aactivity-sar>
+              		<aactivity>
 				The evaluator shall prepare a test plan and report documenting the testing
 				aspects of the system. The test plan covers all of the testing actions contained
 				in the CEM and the body of this PP’s Assurance Activities. While it is not
@@ -11132,7 +11157,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				account, so if there was a test run that resulted in a failure; a fix installed; and
 				then a successful re-run of the test, the report would show a “fail” and “pass”
 				result (and the supporting details), and not just the “pass” result.
-			</aactivity-sar>
+			</aactivity>
 		</a-element>
 	</a-component>
 	</section>
@@ -11166,7 +11191,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				the identified potential vulnerabilities, to determine that
 				the TOE is resistant to attacks performed by an attacker
 				possessing Basic attack potential.</title>
-            		<aactivity-sar>
+            		<aactivity>
 				As with ATE_IND, the evaluator shall generate a report to document their
 				findings with respect to this requirement. This report could physically be part
 				of the overall test report mentioned in ATE_IND, or a separate document. The
@@ -11183,7 +11208,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				suitable at the assurance level of this PP. If exploiting the vulnerability requires 
 				expert skills and an electron microscope, for instance, then a test would not be
 				suitable and an appropriate justification would be formulated.
-			</aactivity-sar>
+			</aactivity>
           	</a-element>  
  	</a-component>
     </section>      
@@ -11276,25 +11301,6 @@ And maybe there should be a section of the PP that says all this. So maybe some 
   </appendix> -->
 	
 	
-<!-- These might go away if I can turn all these into selections like they shoud be -->
-  <!-- <implements>
-    <feature id="protectSubscriberInfo" title="TOE Responsible for Protecting Subscriber Information">
-      <description>If the TOE does not rely on an RA, or if the CA provides a centralized repository for
-	      subscriber information, the following SFRs must be claimed in order for the TOE to provide
-	      assurance that subscriber data is protected.     </description>
-    </feature>
-	<feature id="auditReview" title="TOE supports Audit Review">
-		<description> If the TOE supports review of audit records, then the following SFRs must be included:
-		</description>
-	</feature>
-	<feature id="auditPreSelect" title="TSF Supports Audit Pre-Select">
-		<description>If any audit pre-selection is performed by an auditor through an interface provided
-			by the TSF, then the following SFRs muct be included:</description>
-	</feature>
-	<feature id="auditStorage" title="TSF Supports Storage of Audit Records">
-		<description>If any storage of audit records is performed by the TOE, then the following SFRs must be
-		included:</description>
-	</feature>
-  </implements> -->
+
 	
 </PP>
