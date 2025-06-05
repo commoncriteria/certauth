@@ -1854,32 +1854,48 @@ And maybe there should be a section of the PP that says all this. So maybe some 
                 </title>
 		<note role="application">
 			This requirement applies to the TOE regardless of whether the audit trail is stored
-			within the TOE boundary (e.g. the audit trail is full) or on an external system in the
-			Operational Environment (e.g. the connection to a remote audit repository is
-			broken). In either case, the ST author is expected to describe how the TSF is made
-			aware of any such failures and how it behaves in response.
+			within the TOE boundary or on an external system in the
+			Operational Environment. If the audit trail (in whole or in part) is stored locally 
+			(either within the TOE boundary or on the TOE platform), then the requirement applies 
+			when the audit trail cannot be written to when it is full.  If the audit trail (in whole 
+			or in part) is stored on a system external to the TOE platform, then the requirement 
+			applies when the connection between the TOE platform and the external audit server 
+			becomes disconnected and the audit trail cannot be written to. In the case where the 
+			audit trail is external to the TOE and cannot be written to because it is full (and 
+			the TOE has some way of detecting that), then the requirement applies in that case 
+			as well. In all cases, the ST author is expected to describe (in the TSS) how the 
+			TSF is made aware of any such failures and how it behaves in response.
 		</note>
 		<aactivity>
 			<TSS>
-				The evaluator shall examine the TSS to ensure it describes the behavior of the
-				TSF and what actions can be performed by the Auditor, if any, when the audit
-				trail is full. 
+				The evaluator shall examine the TSS to ensure it describes the behavior of the TSF 
+				when the audit trail cannot be written to.  The evaluator shall ensure the TSS 
+				describes where the audit trail is stored (locally, remotely, or both); how the 
+				TSF detects audit full conditions if the audit trail is stored locally; whether 
+				and how the TSF detects audit full conditions for remote audit repositories; and 
+				how the TSF detects loss of communication with external audit repositories (if 
+				using an external audit server).  The evaluator shall also ensure the TSS describes 
+				what actions can be performed by the Auditor, if any, in each case where the audit 
+				trail cannot be written.
 			</TSS>
 			<Guidance>
-				The evaluator shall examine the operational guidance to ensure it describes
-				what having a full audit trail means and how an Auditor recognizes that this has
-				occurred. The evaluator shall also examine the operational guidance to ensure
-				it includes remedial steps for correcting the issue. 
+				The evaluator shall examine the operational guidance to ensure it describes what 
+				conditions result in the audit trail not being able to be written to, and how an 
+				Auditor recognizes that such a condition has occurred. The evaluator shall also 
+				examine the operational guidance to ensure it includes remedial steps for correcting such issues.
 			</Guidance>
 			<Tests>
-				The evaluator shall perform the following tests. Test 1 is performed regardless
-				of where the audit repository is stored, since it is testing the capability of the
-				TOE to react to an indication that the repository is full. Test 2 is only executed
-				in cases where an external repository is supported, and tests the ability of the
-				TOE to detect when the connection to the repository becomes unavailable.<h:br/><h:br/>
+				The evaluator shall perform the following tests.  The tests are conditional on 
+				where the audit data are being stored.  Test 1 demonstrates the capability of 
+				the TOE to react to an indication that the repository is full; this is always 
+				applicable if the audit data are stored locally (either within the TOE boundary 
+				or on the TOE platform).  If the TOE has a means to detect that a remote audit 
+				repository is full, then this test will be run for those types of TOEs as well. 
+				Test 2 is only executed in cases where an external repository is supported, and 
+				tests the ability of the TOE to detect when the connection to the repository becomes unavailable.
 				<testlist>
 					<test>
-					        The evaluator shall cause the audit trail to become full, verify
+					    (conditional) The evaluator shall cause the audit trail to become full, verify
 						that the TSF behaves as documented in the TSS, and verify that a
 						privileged user can perform the documented remedial steps.
 					</test>
@@ -8872,6 +8888,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							<selectable>configure OCSP function;</selectable>
 							<selectable>disable deprecated algorithms;</selectable>
 							<selectable>accept certificates whose validity cannot be determined;</selectable>
+							<selectable>export PKCS#10 certificate request;</selectable>
+							<selectable>import CA certificate;</selectable>
 							<selectable><assignable>other security management functions</assignable></selectable>
 						</selectables></h:li>
 					</h:ul>
@@ -8882,7 +8900,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				It is likely that some combination of the TOE and its Operational Environment are
 				collectively responsible for implementing these management functions. In such
 				cases, the ST author should specify, for each function, the component that
-				enforces it.
+				enforces it. <h:p/>
+				If items 13 &amp; 14 are selected for FMT_MOF.1.1(1), items 5 &amp; 6 cannot be selected in FMT_MOF.1.1(3).
+				If items 5 &amp; 6 are selected for FMT_MOF.1.1(3), items 13 &amp; 14 cannot be selected in FMT_MOF.1.1(1).
 			</note>
 			<aactivity>
 				<Tests>
@@ -8969,6 +8989,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					</h:ul>
 				</refinement> to <refinement>[CA Operations Staff]</refinement>.
 			</title>
+			<note role="application">
+				If items 5 &amp; 6 are selected for FMT_MOF.1.1(3), items 13 &amp; 14 cannot be selected in FMT_MOF.1.1(1).
+				If items 13 &amp; 14 are selected for FMT_MOF.1.1(1), items 5 &amp; 6 cannot be selected in FMT_MOF.1.1(3).
+			</note>
 			<aactivity>
 				<Tests>
 					Testing for this requirement is defined under FMT_MOF.1(4). The only
@@ -9775,10 +9799,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</f-element>
 		<audit-event>
 			<audit-event-descr>The fact that a faiure of service discontinuity occurred.</audit-event-descr>
+			<audit-event-info>The type of failure or service discontinuity.</audit-event-info>
 		</audit-event>
 		<audit-event>
 			<audit-event-descr>Resumption of the regular operation.</audit-event-descr>
-			<audit-event-info>TSF failure types that are available on recovery.</audit-event-info>
+			<audit-event-info>The type of failure or service discontinuity.</audit-event-info>
 		</audit-event>
 	</f-component>
 					
@@ -9847,7 +9872,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	of split knowledge procedures is performed entirely by the OE, then this SFR is not
 	included in the ST and OE.KEY_ARCHIVAL is included in the ST.   -->
 	<!--               -->     
-    <f-component cc-id="fpt_sky_ext.1" name="Split Knowledge Procedures" status="optional">
+    <f-component cc-id="fpt_sky_ext.1" iteration="CA" name="Split Knowledge Procedures" status="optional">
 		<f-element>
 			<title>
 				The TSF shall 
@@ -9858,7 +9883,6 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				split knowledge procedures to enforce two-party control for the export of CA signing keys and 
 				<selectables>
 					<selectable>no other data</selectable>
-					<selectable>user private keys</selectable>
 					<selectable><assignable>critical data or keys</assignable></selectable>
 				</selectables>
 				necessary to resume CA functionality after TSF failure using
@@ -9870,19 +9894,18 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</title>
 			<note role="application">
 				The intent of this requirement is to limit access to critical keys that are necessary
-				to maintain operations after a failure.<h:br/><h:br/>
+				to maintain operations after a failure.
 				Key sharing mechanisms are also referred to as secret sharing mechanisms, or
 				threshold schemes and are commonly used by hardware security modules to clone
 				keys between devices.<h:br/><h:br/>
-				The ST author includes this SFR in the ST when the TOE is used to enforce split
-				knowledge procedures, either directly or via interfaces with the OE. If enforcement
-				of split knowledge procedures is performed entirely by the OE, then this SFR is not
-				included in the ST and OE.KEY_ARCHIVAL is included in the ST.
+				If enforcement of split knowledge procedures to provide controlled access to critical 
+				keys and data required to restore CA functionality is performed entirely by the OE, 
+				then this SFR is not included in the ST and OE.KEY_ARCHIVAL is included in the ST.
 			</note>
 			<aactivity>
 				<TSS>
 					If the TSF implements a key sharing mechanism, this SFR is satisfied through
-					the referenced SFRs in Appendices B.3 and B.8 of the PP. FCS_CKM_EXT.1(3)
+					the referenced SFRs in Appendices B.3 and B.8 of the PP. Note: FCS_CKM_EXT.1(3)
 					specifies how the key shares generated in accordance with FCS_CKM_EXT.1(4)
 					are used to produce a KEK to protect the keys listed in this requirement. The
 					protection of those keys with the KEK is done by mechanism required in 
@@ -9895,19 +9918,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					If the TSF implements another split knowledge procedure, the evaluator shall
 					examine the TSS to ensure the procedure is adequately described, and assess
 					the procedure to ensure that it is effective in restricting access to the CA signing
-					key and all other selected data and keys. The evaluator shall attempt to devise
-					tests to validate that the TSF implements the described mechanism. The
-					evaluator shall review the AGD to ensure it contains clear instructions to
-					privileged users on how to conduct the procedures.<h:br/><h:br/>
-					If the TSF interfaces with the OE to implement other split knowledge
-					procedures, the evaluator shall examine the TSS to ensure the procedure is
-					adequately described, and assess the procedure to ensure that it is effective in
-					restricting access to the CA signing key and all other selected data and keys.
-					The evaluator shall ensure that the TSS describes the dependence on the OE
-					and identifies any cryptographic providers within the OE used to support the
-					procedures. The evaluator shall also examine the AGD guidance to ensure it
-					contains instructions for configuring the OE to restrict access to the CA signing
-					key and all other selected data and keys.
+					key and all other selected data and keys. The evaluator shall ensure that the TSS 
+					describes the dependence on the OE and identifies any cryptographic providers within 
+					the OE used to support the procedures. The evaluator shall also examine the AGD guidance 
+					to ensure it contains instructions for configuring the OE to restrict access to the CA 
+					signing key and all other selected data and keys.
 				</TSS>
 			</aactivity>
 		</f-element>
