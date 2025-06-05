@@ -20,3 +20,4 @@
         on-sel/PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[6]""/f-component[7]""/depends[1]""/on-sel[1]""
 * Error: Detected multiple elements with an id of 'ftp-itc-https'.
 * Error: Detected multiple elements with an id of 'ftp-itc-https'.
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[7]""/f-component[1]""/f-element[1]""/note[1]"It is lik"/h:p[1]""
