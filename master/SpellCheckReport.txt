@@ -27,6 +27,7 @@ output/certauth-release-linkable.html: Autitor
 output/certauth-release-linkable.html: Blakely
 output/certauth-release-linkable.html: CA1
 output/certauth-release-linkable.html: CBCDecrypt
+output/certauth-release-linkable.html: CCL
 output/certauth-release-linkable.html: CMM
 output/certauth-release-linkable.html: COPbased
 output/certauth-release-linkable.html: CSPs
@@ -36,6 +37,7 @@ output/certauth-release-linkable.html: DEKs
 output/certauth-release-linkable.html: DHPOP
 output/certauth-release-linkable.html: DNs
 output/certauth-release-linkable.html: DiffieHellman
+output/certauth-release-linkable.html: ECD
 output/certauth-release-linkable.html: ECP
 output/certauth-release-linkable.html: EKU
 output/certauth-release-linkable.html: Eash
@@ -114,6 +116,7 @@ output/certauth-release-linkable.html: impl
 output/certauth-release-linkable.html: inthe
 output/certauth-release-linkable.html: issuerAltName
 output/certauth-release-linkable.html: issuerUniqueID
+output/certauth-release-linkable.html: iterfaces
 output/certauth-release-linkable.html: jittered
 output/certauth-release-linkable.html: keyGenAlgorithm
 output/certauth-release-linkable.html: kpcmcRA
@@ -192,6 +195,7 @@ output/certauth-release.html: Autitor
 output/certauth-release.html: Blakely’s
 output/certauth-release.html: CA1
 output/certauth-release.html: CBCDecrypt
+output/certauth-release.html: CCL
 output/certauth-release.html: CMM
 output/certauth-release.html: COPbased
 output/certauth-release.html: CSPs
@@ -201,6 +205,7 @@ output/certauth-release.html: DEKs
 output/certauth-release.html: DHPOP
 output/certauth-release.html: DNs
 output/certauth-release.html: DiffieHellman
+output/certauth-release.html: ECD
 output/certauth-release.html: ECP
 output/certauth-release.html: EKU
 output/certauth-release.html: Eash
@@ -285,6 +290,7 @@ output/certauth-release.html: individuals’
 output/certauth-release.html: inthe
 output/certauth-release.html: issuerAltName
 output/certauth-release.html: issuerUniqueID
+output/certauth-release.html: iterfaces
 output/certauth-release.html: jittered
 output/certauth-release.html: keyGenAlgorithm
 output/certauth-release.html: kpcmcRA
@@ -372,6 +378,7 @@ output/certauth.html: Autitor
 output/certauth.html: Blakely’s
 output/certauth.html: CA1
 output/certauth.html: CBCDecrypt
+output/certauth.html: CCL
 output/certauth.html: CMM
 output/certauth.html: COPbased
 output/certauth.html: CSPs
@@ -381,6 +388,7 @@ output/certauth.html: DEKs
 output/certauth.html: DHPOP
 output/certauth.html: DNs
 output/certauth.html: DiffieHellman
+output/certauth.html: ECD
 output/certauth.html: ECP
 output/certauth.html: EKU
 output/certauth.html: Eash
@@ -462,6 +470,7 @@ output/certauth.html: individuals’
 output/certauth.html: inthe
 output/certauth.html: issuerAltName
 output/certauth.html: issuerUniqueID
+output/certauth.html: iterfaces
 output/certauth.html: jittered
 output/certauth.html: keyGenAlgorithm
 output/certauth.html: kpcmcRA

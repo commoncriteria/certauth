@@ -21,3 +21,8 @@
 * Error: Detected multiple elements with an id of 'ftp-itc-https'.
 * Error: Detected multiple elements with an id of 'ftp-itc-https'.
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[7]""/f-component[1]""/f-element[1]""/note[1]"It is lik"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[8]""/f-component[10]""/f-element[1]""/note[1]"The inten"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[8]""/f-component[10]""/f-element[1]""/aactivity[1]"If the TS"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[8]""/f-component[10]""/f-element[1]""/aactivity[1]"If the TS"/TSS[1]"The evalu"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[8]""/f-component[10]""/f-element[1]""/aactivity[1]"If the TS"/TSS[1]"The evalu"/h:p[2]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[8]""/f-component[10]""/f-element[1]""/aactivity[1]"If the TS"/Guidance[1]"The evalu"/h:p[1]""
