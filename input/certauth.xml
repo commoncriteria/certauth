@@ -9025,6 +9025,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						<selectable>participate as a second party for archival and recovery;</selectable>
 						<selectable>import a key share to support recovery of a CA signing key;</selectable>
 						<selectable>perform encrypted export of private or secret key or critical data</selectable>
+						<selectable>no other function</selectable>
 					</selectables></h:li>
 					</h:ul>
 				</refinement>
@@ -9866,13 +9867,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	</f-component>
 	
 	<!--               -->     
-    <!-- FPT_SKY_EXT.1 -->
+    <!-- FPT_SKY_EXT.1/CA -->
     <!-- QQQQ: The ST author includes this SFR in the ST when the TOE is used to enforce split
 	knowledge procedures, either directly or via interfaces with the OE. If enforcement
 	of split knowledge procedures is performed entirely by the OE, then this SFR is not
 	included in the ST and OE.KEY_ARCHIVAL is included in the ST.   -->
 	<!--               -->     
-    <f-component cc-id="fpt_sky_ext.1" iteration="CA" name="Split Knowledge Procedures" status="optional">
+    <f-component cc-id="fpt_sky_ext.1" iteration="CA" name="Split Knowledge Procedures (CA Functionality)" status="optional">
 		<f-element>
 			<title>
 				The TSF shall 
@@ -9930,10 +9931,77 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	</f-component>
 
 	<!--               -->     
-        <!-- FPT_SKY_EXT.1 -->
+    <!-- FPT_SKY_EXT.1/OTH -->
+	
+	<f-component cc-id="fpt_sky_ext.1" iteration="OTH" name="Split Knowledge Procedures (Other Functionality)" status="optional">
+		<f-element>
+			<title>
+				The TSF shall 
+				<selectables>
+					<selectable>support</selectable>
+					<selectable>interface with the operational environment to support</selectable>
+				</selectables>
+				split knowledge procedures to enforce two-party control for the export of CA signing keys and 
+				<selectables>
+					<selectable>no other data</selectable>
+					<selectable>user private keys</selectable>
+					<selectable><assignable>critical data or keys</assignable></selectable>
+				</selectables>
+				using
+				<selectables>
+					<selectable>key sharing mechanisms in accordance with FCS_CKM_EXT.1(3), 
+					FCS_CKM_EXT.1(4), FCS_CKM_EXT.6, and FPT_SKY_EXT.2</selectable>
+					<selectable><assignable>other mechanism</assignable></selectable>
+				</selectables>.
+			</title>
+			<note role="application">
+				The intent of this requirement is to limit access to other critical keys or data 
+				that are archived when the TSF provides, or iterfaces with the OE to provide, a 
+				split knowledge mechanism different than what is provided to archive and recover 
+				the CA signing key and other critical keys and data required to restore CA 
+				functionality. This requirement may include protection mechanisms for critical keys 
+				and data that are archived to restore optional CA functionality, which are not 
+				required to restore basic CA functionality. However, if the TSF provides, or 
+				interfaces with the OE to provide, the same mechanism to protect access to all 
+				archived keys and data used for both basic and any optional CA functionality, 
+				the common mechanism can be described in FPT_SKY_EXT.1/CA and it is not necessary 
+				to also include this requirement in the ST. <h:p/>
+				If enforcement of split knowledge procedures to provide controlled access to critical 
+				keys and data not included in FPT_SKY_EXT.1/CA is performed entirely by the OE, then 
+				this SFR is not included in the ST and OE.KEY_ARCHIVAL is included in the ST.
+			</note>
+			<aactivity>
+				If the TSF implements a key sharing mechanism, this SFR is satisfied through the referenced SFRs 
+				in Appendices B.3 and B.8 of the PP. <h:p/>
+				Note: FCS_CKM_EXT.1(3) specifies how the key shares generated in accordance with FCS_CKM_EXT.1(4) 
+				are used to produce a KEK to protect the keys listed in this requirement. The protection of those 
+				keys with the KEK is done by mechanism required in FCS_CKM_EXT.6. FPT_SKY_EXT.2 specifies access 
+				control for the key shares themselves.
+				<TSS>
+					The evaluator shall ensure that the TSS describes the dependence on the OE and identifies any 
+					cryptographic providers within the OE used to support the procedures. <h:p/>
+					If the TSF interfaces with a cryptographic module in the Operational Environment to implement 
+					a key sharing mechanism, the evaluator shall examine the TSS to ensure that the interface to 
+					the OE, and cryptographic provider for the key sharing mechanism is described.<h:p/>
+					If the TSF implements another split knowledge procedure, the evaluator shall examine the TSS 
+					to ensure the procedure is adequately described, and assess the procedure to ensure that it is 
+					effective in restricting access to the selected data and keys. 
+				</TSS>
+				<Guidance>
+					The evaluator shall review the AGD to ensure it contains clear instructions to privileged users on 
+					how to conduct the procedures.<h:p/>
+					The evaluator shall also examine the AGD guidance to ensure it contains instructions for configuring 
+					the OE to restrict access to the selected data and keys.
+				</Guidance>
+			</aactivity>
+		</f-element>
+	</f-component>
+
+	<!--               -->     
+        <!-- FPT_SKY_EXT.2 -->
 	<!--               -->     
 	
-	<f-component cc-id="fpt_sky_ext.1" name="Key Share Access" status="sel-based">
+	<f-component cc-id="fpt_sky_ext.2" name="Key Share Access" status="sel-based">
 		<depends on-sel="sel-pwd-auth"/> <!-- TODO: This is wrong -->
 		<f-element>
 			<title>
@@ -10311,7 +10379,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							any other actions specified in the TSS.
 						</test>
 						<test>
-							The evaluator shall digitally sign the update with a
+							[conditional] If the TOE supports use of X509 certificates for code signing, 
+							the evaluator shall digitally sign the update with a
 							certificate that does not have the Code Signing purpose and verify
 							that application installation fails. The evaluator shall repeat the
 							test using a valid certificate and a certificate that contains the Code
@@ -10833,8 +10902,44 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	content/presentation and evaluator activity elements, additional assurance activities are described as a
 	whole for the family, rather than for each element. Additionally, the assurance activities described in this
 	section are complementary to those specified in Section 5.1.<h:br/><h:br/>
-	The TOE security assurance requirements defined in this section identify the management and evaluative
-	activities required to address the threats identified in Section 3.1 of this PP.<h:br/><h:br/>   
+	The TOE Security Assurance Requirements are identified in <xref to="sartable"/>.<h:br/><h:br/> 
+      <ctr id="sartable" ctr-type="Table">: TOE Security Assurance Requirements</ctr>
+      <h:table>
+        <h:tr class="header">
+          <h:td>Assurance Class</h:td><h:td>Assurance Components</h:td>
+        </h:tr>
+        <h:tr>
+          <h:td>Development (ADV)</h:td>
+          <h:td>Basic Functional Specification (ADV_FSP.1)</h:td>
+        </h:tr>
+		<h:tr>
+          <h:td rowspan="2">Guidance Documents (AGD)</h:td>
+          <h:td>Operational User Guidance (AGD_OPE.1)</h:td>
+        </h:tr>
+        <h:tr><h:td>Preparative Procedures (AGD_PRE.1)</h:td></h:tr>
+		<h:tr>
+          <h:td rowspan="2">Life Cycle Support (ALC)</h:td>
+          <h:td>Labeling of the TOE (ALC_CMC.1)</h:td>
+        </h:tr>
+        <h:tr><h:td>TOE CM Coverage (ALC_CMS.1)</h:td></h:tr>
+		<h:tr>
+          <h:td rowspan="5">Security Target (ASE)</h:td>
+		  <h:td>ST Introduction (ASE_INT.1)</h:td>
+        </h:tr>
+		<h:tr><h:td>Conformance Claims (ASE_CCL.1)</h:td></h:tr>
+		<h:tr><h:td>Security Objectives for the Operational Environment
+          (ASE_OBJ.1)</h:td></h:tr>
+        <h:tr><h:td>Extended Components Definition (ASE_ECD.1)</h:td></h:tr>
+        <h:tr><h:td>Stated Security Requirements (ASE_REQ.1)</h:td></h:tr>
+        <h:tr>
+          <h:td>Tests (ATE)</h:td>
+          <h:td>Independent Testing – Conformance (ATE_IND.1)</h:td>
+        </h:tr>
+        <h:tr>
+          <h:td>Vulnerability Assessment (AVA)</h:td>
+          <h:td>Vulnerability Survey (AVA_VAN.1)</h:td>
+        </h:tr>
+      </h:table>   
 	
 	<section title="Class ADV: Development" id="adv">
 		The information about the TOE is contained in the guidance documentation available to the end user as
@@ -11111,7 +11216,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	</section>
 	
 	<section title="Class ASE: Security Target Evaluation" id="ase">
-		As per ASE activities defined in [CEM].
+		As per ASE activities defined in [CEM]. In addition, there may be Evaluation Activities 
+		specified within Section 5.1 and relevant appendices that call for necessary descriptions 
+		to be included in the TSS that are specific to the TOE technology type.
 	</section>
 
 	<section id="ate" title="Class ATE: Tests">
