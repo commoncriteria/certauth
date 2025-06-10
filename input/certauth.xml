@@ -162,6 +162,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 <!-- 1.2.2 Technical Terms -->
 	  
     <tech-terms>
+		<suppress>Extended Package</suppress>
       	<term full="Administrator">
 		The Administrator is responsible for management activities, including configuration of
 		the CA and its security functions.
@@ -570,6 +571,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<cc-pkg-claim>
 			<FP-cc-ref conf="conformant">Functional Package for TLS, version 2.0</FP-cc-ref>
 			<FP-cc-ref conf="conformant">Functional Package for Secure Shell, version 2.0</FP-cc-ref>
+			<AP-cc-ref conf="conformant">Assurance Package for Flaw Remediation, version 1.0</AP-cc-ref>
 		</cc-pkg-claim>
 	</CClaimsInfo>
   </sec:Conformance_Claims>
@@ -2409,17 +2411,20 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</selectables> asymmetric </refinement>cryptographic keys in accordance with the specified key generation algorithm:
 			<selectables linebreak="yes">
 				<selectable>RSA schemes using cryptographic key sizes of 2048-bit or
-					greater that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.3;</selectable>
+					greater that meet the following: FIPS PUB 186-5, “Digital Signature Standard (DSS)”, Appendix B.3;</selectable>
 				<selectable>ECC schemes using “NIST curves”
 					<selectables>
 						<selectable>P-256</selectable>
 						<selectable>P-384</selectable>
 						<selectable>P-521</selectable>
 					</selectables>
-					that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”, Appendix B.4;</selectable>
+					that meet the following: FIPS PUB 186-5, “Digital Signature Standard (DSS)”, Appendix B.4;</selectable>
 				<selectable>FFC schemes using cryptographic key sizes of 2048-bit or
-					greater that meet the following: FIPS PUB 186-4, “Digital Signature Standard (DSS)”,
+					greater that meet the following: FIPS PUB 186-5, “Digital Signature Standard (DSS)”,
 					Appendix B.1</selectable>
+				<selectable>FFC Schemes using “safe-prime” groups that meet the following: ‘NIST Special Publication 800-56A 
+					Revision 3, “Recommendation for Pair-Wise Key Establishment Schemes Using Discrete Logarithm Cryptography,”</selectable>
+				<selectable>FFC Schemes using Diffie-Hellman group 14 that meets the following:  RFC 3526</selectable>
 			</selectables>
 			and specified cryptographic key sizes 
 				<assignable>equivalent to or greater than a symmetric key strength of 112 bits</assignable>
@@ -2433,9 +2438,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			This component requires that the TSF or Operational Environment be able to
 			generate the public/private key pairs that are used for key establishment purposes
 			for the various cryptographic protocols (HTTPS, TLS, IPsec, SSH) used by the TOE.
-			If multiple schemes are supported, then the ST author should iterate this
-			requirement to capture this capability. The scheme used will be chosen by the ST
-			author from the selection.<h:br/><h:br/>
+			he ST author selects all key establishment schemes used for the selected cryptographic 
+			protocols. For Diffie-Hellman group 14, ST authors should make the corresponding 
+			selection from the SFR instead of using the Finite field-based key establishment 
+			selection.<h:br/><h:br/>
 			Since the domain parameters to be used are specified by the requirements of the
 			protocol in this PP, it is not expected that the TOE will generate domain
 			parameters, and therefore there is no additional domain parameter validation
@@ -2460,7 +2466,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				If this requirement is met by the TOE, the evaluator shall verify the
 				implementation of the key generation routines of the supported schemes using
 				the following tests:<h:br/><h:br/>
-				<h:h4>Key Generation for FIPS PUB 186-4 RSA Schemes</h:h4><h:br/><h:br/>
+				<h:h4>Key Generation for FIPS PUB 186-5 RSA Schemes</h:h4><h:br/><h:br/>
 				The evaluator shall verify the implementation of RSA Key Generation by the
 				TOE using the Key Generation test. This test verifies the ability of the TSF to
 				correctly produce values for the key components including the public
@@ -2489,14 +2495,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				the correctness of the TSF’s implementation by comparing values generated
 				by the TSF with those generated from a known good implementation.<h:br/><h:br/>
 				<h:h4>Key Generation for Elliptic Curve Cryptography (ECC)</h:h4>
-				<h:h5>FIPS 186-4 ECC Key Generation Test</h:h5>
+				<h:h5>FIPS 186-5 ECC Key Generation Test</h:h5>
 				For each supported NIST curve, i.e., P-256, P-384 and P-521, the evaluator
 				shall require the implementation under test (IUT) to generate 10 private/public
 				key pairs. The private key shall be generated using an approved random bit
 				generator (RBG). To determine correctness, the evaluator shall submit the
 				generated key pairs to the public key verification (PKV) function of a known
 				good implementation.
-				<h:h5>FIPS 186-4 Public Key Verification (PKV) Test</h:h5>
+				<h:h5>FIPS 186-5 Public Key Verification (PKV) Test</h:h5>
 				For each supported NIST curve, i.e., P-256, P-384 and P-521, the evaluator
 				shall generate 10 private/public key pairs using the key generation function of
 				a known good implementation and modify five of the public key values so that
@@ -2539,6 +2545,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<h:li>g^x mod p = y</h:li>
 				</h:ul>
 				for each FFC parameter set and key pair.<h:br/><h:br/>
+				<h:h4>Diffie-Hellman Group 14 and FFC Schemes using "safe-prime" groups</h:h4>
+				Testing for FFC Schemes using Diffie-Hellman group 14 and/or "safe-prime" groups 
+				is done as part of testing in FCS_CKM.2.1.<h:br/><h:br/>
 				<h:i>Equivalency</h:i>
 				Testing of the TOE may be performed on a subset of the platforms listed in the
 				TOE’s ST. Justification must be provided for those platforms that were excluded
@@ -2575,18 +2584,18 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</selectables> key establishment </refinement>in accordance with a
 			specified cryptographic key <refinement>establishment</refinement> algorithm
 			<refinement><selectables linebreak="yes">
-				<selectable>RSA-based key establishment schemes that meet the following: NIST
-					Special Publication 800-56B Revision 1, “Recommendation for Pair-Wise
-					Key Establishment Schemes Using Integer Factorization Cryptography”;</selectable>
+				<selectable>RSA-based key establishment schemes that meet the following: RSAES-PKCS1-v1_5 
+					as specified in Section 7.2 of RFC 8017, “Public-Key Cryptography Standards (PKCS) #1: 
+					RSA Cryptography Specifications Version 2.2;</selectable>
 	      			<selectable>Elliptic curve-based key establishment schemes that meet the following:
-					NIST Special Publication 800-56A Revision 2, “Recommendation for 
-					PairWise Key Establishment Schemes Using Discrete Logarithm 
+					NIST Special Publication 800-56A Revision 3, “Recommendation for 
+					Pair-Wise Key Establishment Schemes Using Discrete Logarithm 
 					Cryptography”;</selectable>
 				<selectable>Finite field-based key establishment schemes that meet the following: NIST
-					Special Publication 800-56A Revision 2, “Recommendation for Pair-Wise
+					Special Publication 800-56A Revision 3, “Recommendation for Pair-Wise
 					Key Establishment Schemes Using Discrete Logarithm Cryptography”;</selectable>
 				<selectable>Key establishment scheme using Diffie-Hellman group 14 that meetsthe
-					following: RFC 3526, Section 3;</selectable>
+					following: RFC 3526, Section 3</selectable>
 			</selectables></refinement>
 			<h:s>that meet the following: [assignment: list of standards]</h:s>.
 		</title>
@@ -2598,9 +2607,6 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			cryptographic protocols. For Diffie-Hellman group 14, ST authors should make the
 			corresponding selection from the SFR instead of using the Finite field-based key
 			establishment selection.<h:br/><h:br/>
-			The RSA-based key establishment schemes are described in Section 9 of NIST SP
-			800-56B Revision 1; however, Section 9 relies on implementation of other
-			sections in SP 800-56B Revision 1. <h:br/><h:br/>
 			The elliptic curves used for the key establishment scheme correlate with the
 			curves specified in FCS_CKM.1.1.<h:br/><h:br/>
 			The domain parameters used for the finite field-based key establishment scheme
@@ -2682,65 +2688,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				scheme using the corresponding parameters. The evaluator shall compare the 
 				TOE’s results with the results using a known good implementation verifying
 				that the TOE detects these errors. <h:br/><h:br/>
-				<h:h4>SP800-56B Key Establishment Schemes </h:h4>
-				If the TOE acts as a sender, the following assurance activity shall be performed
-				to ensure the proper operation of every TOE supported combination of RSAbased key establishment scheme: <h:br/><h:br/>
-				<h:ol type="a"><h:li>
-				To conduct this test the evaluator shall generate or obtain test vectors
-				from a known good implementation of the TOE supported schemes.
-				For each combination of supported key establishment scheme and its
-				options (with or without key confirmation if supported, for each
-				supported key confirmation MAC function if key confirmation is
-				supported, and for each supported mask generation function if
-				KTSOAEP is supported), the tester shall generate 10 sets of test vectors.
-				Each test vector shall include the RSA public key, the plaintext keying
-				material, any additional input parameters if applicable, the MacKey
-				and MacTag if key confirmation is incorporated, and the outputted
-				ciphertext. For each test vector, the evaluator shall perform a key
-				establishment encryption operation on the TOE with the same inputs
-				(in cases where key confirmation is incorporated, the test shall use the
-				MacKey from the test vector instead of the randomly generated
-				MacKey used in normal operation) and ensure that the outputted
-				ciphertext is equivalent to the ciphertext in the test vector. 
-				</h:li></h:ol>
-				If the TOE acts as a receiver, the following assurance activities shall be
-				performed to ensure the proper operation of every TOE supported
-				combination of RSA-based key establishment scheme: 
-				<h:ol type="a"><h:li>
-				 To conduct this test the evaluator shall generate or obtain test vectors
-				from a known good implementation of the TOE supported schemes. For
-				each combination of supported key establishment scheme and its options
-				(with our without key confirmation if supported, for each supported key
-				confirmation MAC function if key confirmation is supported, and for each
-				supported mask generation function if KTSOAEP is supported), the tester
-				shall generate 10 sets of test vectors. Each test vector shall include the RSA
-				private key, the plaintext keying material (KeyData), any additional input
-				parameters if applicable, the MacTag in cases where key confirmation is
-				incorporated, and the outputted ciphertext. For each test vector, the
-				evaluator shall perform the key establishment decryption operation on the
-				TOE and ensure that the outputted plaintext keying material (KeyData) is
-				equivalent to the plaintext keying material in the test vector. In cases
-				where key confirmation is incorporated, the evaluator shall perform the
-				key confirmation steps and ensure that the outputted MacTag is equivalent
-				to the MacTag in the test vector. </h:li>
-				<h:li> The evaluator shall ensure that the TSS describes how the TOE handles
-				decryption errors. In accordance with NIST Special Publication 800- 56B,
-				the TOE must not reveal the particular error that occurred, either through
-				the contents of any outputted or logged error message or through timing
-				variations. If KTS-OAEP is supported, the evaluator shall create separate
-				contrived ciphertext values that trigger each of the three decryption error
-				checks described in NIST Special Publication 800-56B section 7.2.2.3,
-				ensure that each decryption attempt results in an error, and ensure that
-				any outputted or logged error message is identical for each. If KTS-KEMKWS is supported, the evaluator shall create separate contrived ciphertext
-				values that trigger each of the three decryption error checks described in
-				NIST Special Publication 800- 56B section 7.2.3.3, ensure that each
-				decryption attempt results in an error, and ensure that any outputted or
-				logged error message is identical for each. </h:li>
-				</h:ol>
+				<h:h4>RSAES-PKCS1-v1_5 Key Establishment Schemes </h:h4>
+				The evaluator shall verify the correctness of the TSF’s implementation of 
+				RSAES-PKCS1-v1_5 by using a known good implementation for each protocol 
+				selected in FTP_ITC, FTP_TRP, and FPT_ITT.
 				<h:h4>Diffie-Hellman Group 14 </h:h4>
 				The evaluator shall verify the correctness of the TSF’s implementation of
 				Diffie-Hellman group 14 by using a known good implementation for each
-				protocol selected in FTP_TRP.1/Admin, FTP_TRP.1/Join, FTP_ITC.1 and
+				protocol selected in FTP_TRP.1, FTP_ITC.1 and
 				FPT_ITT.1 that uses Diffie-Hellman group 14.<h:br/><h:br/>
 				<h:i>Equivalency</h:i>
 				Testing of the TOE may be performed on a subset of the platforms listed in the
@@ -3932,16 +3887,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<refinement><selectables linebreak="yes">
 				<selectable>RSA Digital Signature Algorithm (rDSA) with a key size (modulus) of
 					<assignable>2048 bits or greater</assignable>
-					that meets FIPS-PUB 186-4, “Digital Signature Standard”</selectable>
+					that meets FIPS-PUB 186-5, “Digital Signature Standard”</selectable>
 				<selectable>Elliptic Curve Digital Signature Algorithm (ECDSA) with a key size 
-					of 256 bits or greater that meets FIPS PUB 186-4, “Digital Signature
+					of 256 bits or greater that meets FIPS PUB 186-5, “Digital Signature
 					Standard” with “NIST curves” P-256, P-384 and 
 					<selectables>
 						<selectable>P-521</selectable><selectable>no other curves</selectable>
 					</selectables>
-					(as defined in FIPS PUB 186-4, “Digital Signature Standard”)</selectable>
+					(as defined in FIPS PUB 186-5, “Digital Signature Standard”)</selectable>
 				<selectable>Digital Signature Algorithm (DSA) with a key size (modulus) of 2048
-					bits or greater, that meets FIPS-PUB 186-4, “Digital Signature Standard”]</selectable>
+					bits or greater, that meets FIPS-PUB 186-5, “Digital Signature Standard”]</selectable>
 			</selectables></refinement>
 			<h:s><h:i>and cryptographic key sizes 
 				<assignable>cryptographic key sizes</assignable> that meet the
@@ -4010,7 +3965,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				TSF’s implementation by comparing values generated by the TSF with
 				those generated from a known good implementation.<h:br/><h:br/>
 				<h:b>ECDSA Key Generation Tests</h:b><h:br/><h:br/>
-				<h:u>FIPS 186-4 ECDSA Key Generation Test</h:u><h:br/><h:br/>
+				<h:u>FIPS 186-5 ECDSA Key Generation Test</h:u><h:br/><h:br/>
 				For each supported NIST curve, i.e., P-256, P-384 and P-521, the
 				evaluator shall require the implementation under test (IUT) to
 				generate 10 private/public key pairs. The private key shall be
@@ -4018,7 +3973,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				determine correctness, the evaluator shall submit the generated key
 				pairs to the public key verification (PKV) function of a known good
 				implementation.<h:br/><h:br/>
-				<h:u>FIPS 186-4 Public Key Verification (PKV) Test</h:u><h:br/><h:br/>
+				<h:u>FIPS 186-5 Public Key Verification (PKV) Test</h:u><h:br/><h:br/>
 				For each supported NIST curve, i.e., P-256, P-384 and P-521, the
 				evaluator shall generate 10 private/public key pairs using the key
 				generation function of a known good implementation and modify five
@@ -4026,13 +3981,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				unchanged (i.e., correct). The evaluator shall obtain in response a set
 				of 10 PASS/FAIL values.<h:br/><h:br/>
 				<h:b>ECDSA Algorithm Tests</h:b><h:br/><h:br/>
-				<h:u>ECDSA FIPS 186-4 Signature Generation Test</h:u><h:br/><h:br/>
+				<h:u>ECDSA FIPS 186-5 Signature Generation Test</h:u><h:br/><h:br/>
 				For each supported NIST curve (i.e., P-256, P-384 and P-521) and SHA
 				function pair, the evaluator shall generate 10 1024-bit long messages
 				and obtain for each message a public key and the resulting signature
 				values R and S. To determine correctness, the evaluator shall use the
 				signature verification function of a known good implementation.<h:br/><h:br/>
-				<h:u>ECDSA FIPS 186-4 Signature Verification Test</h:u><h:br/><h:br/>
+				<h:u>ECDSA FIPS 186-5 Signature Verification Test</h:u><h:br/><h:br/>
 				For each supported NIST curve (i.e., P-256, P-384 and P-521) and SHA
 				function pair, the evaluator shall generate a set of 10 1024-bit
 				message, public key and signature tuples and modify one of the values
@@ -4098,13 +4053,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</selectables></refinement> [<h:i>cryptographic hashing services</h:i>] in
 			accordance with a specified cryptographic algorithm 
 			<refinement><selectables>
-				<selectable>SHA-1</selectable>
 				<selectable>SHA-256</selectable>
 				<selectable>SHA-384</selectable>
 				<selectable>SHA-512</selectable>
 			</selectables> and message digest sizes 
 			<selectables>
-				<selectable>160</selectable>
 				<selectable>256</selectable>
 				<selectable>384</selectable>
 				<selectable>512</selectable>
@@ -4112,12 +4065,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			that meet the following: [<h:i>FIPS Pub 180-4, “Secure Hash Standard”</h:i>].
 		</title>
 		<note role="application">
-			In future versions of this document, SHA-1 may be removed as an option. SHA-1
-			for generating digital signatures was disallowed after December 2013, and SHA1 for verification of digital signatures is strongly discouraged as there may be risk
-			in accepting these signatures.<h:br/><h:br/>
+			
 			The selection of the hashing algorithm must correspond to the selection of the
-			message digest size; for example, if SHA-1 is chosen, then the only valid message
-			digest size selection would be 160 bits.<h:br/><h:br/>
+			message digest size; for example, if SHA-256 is chosen, then the only valid message
+			digest size selection would be 256 bits.<h:br/><h:br/>
 			The TSF hashing functions can be implemented in one of two modes. The first
 			mode is the byte-oriented mode. In this mode the TSF only hashes messages that
 			are an integral number of bytes in length; i.e., the length (in bits) of the message
@@ -4206,14 +4157,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			[<h:i>keyed hash message authentication</h:i>] in
 			accordance with a specified cryptographic algorithm <refinement>HMAC-
 			<selectables>
-				<selectable>SHA-1</selectable>
 				<selectable>SHA-256</selectable>
 				<selectable>SHA-384</selectable>
 				<selectable>SHA-512</selectable>
 			</selectables> key size <assignable>key size (in bits) used in HMAC</assignable>, 
 			and message digest sizes 
 			<selectables>
-				<selectable>160</selectable>
 				<selectable>256</selectable>
 				<selectable>384</selectable>
 				<selectable>512</selectable>
@@ -4228,9 +4177,6 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			selection must support the message digest size selection. The hash selection
 			should be consistent with the overall strength of the algorithm used for
 			FCS_COP.1(1).<h:br/><h:br/>
-			In future versions of this document, SHA-1 may be removed as an option. SHA-1
-			for generating digital signatures was disallowed after December 2013, and SHA1 for verification of digital signatures is strongly discouraged as there may be risk
-			in accepting these signatures. <h:br/><h:br/>
 		</note>
 		<aactivity>
 			<TSS>
@@ -4289,17 +4235,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				[<h:i>Password-based Key Derivation Functions</h:i>]
 				in accordance with a specified cryptographic algorithm
 				<refinement><selectables>
-					<selectable>HMAC-SHA-1</selectable>
 					<selectable>HMAC-SHA-256</selectable>
 					<selectable>HMAC-SHA-384</selectable>
 					<selectable>HMAC-SHA-512</selectable>
 					</selectables>
 				</refinement>					
-				and <refinement>output</refinement> cryptographic key sizes
-				<selectables>
-					<selectable>128-bit</selectable>
-					<selectable>256-bit</selectable>
-				</selectables> that meet the following: [<h:i>NIST SP 800-32</h:i>].
+				and <refinement>output</refinement> cryptographic key sizes 
+				[<h:i>256-bit</h:i>] that meet the following: [<h:i>NIST SP 800-32</h:i>].
 			</title>
 			<note role="application">
 				This requirement is optional. It will be claimed if the method of protecting key
@@ -6675,7 +6617,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				mechanism(s) supported by the TOE, and then ensures the detailed requirements
 				in Annex C corresponding to their selection are copied to the ST if not already
 				present.<h:br/><h:br/>
-				If SSH is selected, the TOE is expected to conform to the Extended Package for
+				If SSH is selected, the TOE is expected to conform to the Functional Package for
 				Secure Shell.
 			</note>
 			<aactivity>
@@ -8701,7 +8643,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The TSF may rely on the Operational Environment to perform certificate handling
 				functionality in cases where the TOE relies on an environmental component to 
 				provide trusted remote communications. If the ST author selects SSH, the TSF shall
-				be validated against the Extended Package for Secure Shell.<h:br/><h:br/>
+				be validated against the Functional Package for Secure Shell.<h:br/><h:br/>
 				Often a connection must be established to perform a verification of the revocation
 				status of a certificate - either to download a CRL or to perform OCSP. The selection
 				is used to describe the behavior in the event that such a connection cannot be
@@ -9518,7 +9460,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				mechanism(s) supported by the TOE, and then ensures the detailed requirements
 				in Annex B corresponding to their selection are copied to the ST if not already
 				present.<h:br/><h:br/>
-				If SSH is selected, the TOE is expected to conform to the Extended Package for
+				If SSH is selected, the TOE is expected to conform to the Functional Package for
 				Secure Shell.
 			</note>
 			<aactivity>
@@ -10694,7 +10636,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				entity (it is acceptable to assign “no services” for FTP_ITC.1.3 if the TOE does not
 				initiate any of the covered connections). Note that SSH is not included because
 				this protocol is not used by the TSF to connect to other components. If the ST
-				author selects SSH, the TSF shall be validated against the Extended Package for
+				author selects SSH, the TSF shall be validated against the Functional Package for
 				Secure Shell. <h:br/><h:br/>
 				The requirement implies that not only are communications protected when they
 				are initially established, but also on resumption after an interruption. It may be
@@ -11244,7 +11186,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				the TSF operates as specified.</title>
               		<note role="application"> 
 				If the ST author selects SSH, the TSF shall be validated against the
-				Extended Package for Secure Shell</note>
+				Functional Package for Secure Shell</note>
               		<aactivity>
 				The evaluator shall prepare a test plan and report documenting the testing
 				aspects of the system. The test plan covers all of the testing actions contained
