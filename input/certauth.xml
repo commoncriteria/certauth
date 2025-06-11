@@ -878,7 +878,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<addressed-by>FPT_KST_EXT.1</addressed-by><rationale>Requires that the TSF prevent export of plaintext keys.</rationale>
 		<addressed-by>FPT_KST_EXT.2</addressed-by><rationale>Requires that the TSF prevent unauthorized use of provate and secret keys.</rationale>
 		<addressed-by>FPT_SKP_EXT.1</addressed-by><rationale>Requires that the TSF be able to prevent reading of pre-shared, private and secret keys.</rationale>
-		<addressed-by>FPT_SKY_EXT.1</addressed-by><rationale>(Optional) Requires two-party control for certain specified actions.</rationale>
+		<addressed-by>FPT_SKY_EXT.1/CA</addressed-by><rationale>(Optional) Requires two-party control for the export of CA signing keys.</rationale>
+		<addressed-by>FPT_SKY_EXT.1/OTH</addressed-by><rationale>(Optional) Requires two-party control for the export of other sensitive data or keys.</rationale>
 		<addressed-by>FPT_SKY_EXT.2</addressed-by><rationale>Requires that key shares be accessible only by priviledged users.</rationale>
 		<addressed-by>FTP_ITC.1</addressed-by><rationale>Requires secure communications between the TOE and external IT entities.</rationale>
 		<addressed-by>FTP_TRP.1</addressed-by><rationale>Requires the TSF to provide a trusted path to remote entities.</rationale>
@@ -1336,8 +1337,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			mandated by the PP and that the description of the fields contains the
 			information required in FAU_GEN.1.2, and the additional information specified
 			in Tables 4 through 6, depending on the characterization of the SFR associated
-			with the particular event as mandatory, optional, or selection-based.
-			<h:br></h:br><h:br></h:br>
+			with the particular event as mandatory, optional, or selection-based. For each applicable audit 
+			event, the evaluator shall additionally ensure that the TSS describes whether the TSF or the OE 
+			is responsible for storing records of the event. If multiple OE components are used for audit 
+			storage, the specific ones used in each case shall be identified.
+			<h:br/><h:br/>
 			The evaluator shall also ensure that the TSS describes all cases where the
 			generation of ephemeral key pairs is not audited for FCS_CKM.1.    
                     </TSS>
@@ -1672,7 +1676,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</f-element>
 		<audit-event>
 			<audit-event-descr>All modifications to the audit configuration that occur while the audit
-				collection functions are operating.</audit-event-descr>
+				collection functions are operating.<h:br/>(Retention: Normal)</audit-event-descr>
 		</audit-event>
 	</f-component>		
 			
@@ -1850,8 +1854,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <f-component cc-id="fau_stg.4" name="Prevention of Audit Data Loss">
         <f-element>
-		<title><h:b>Refinement:</h:b>The TSF shall <refinement>[prevent audited events, except those taken
-			by the Auditor]</refinement> and <assignable>other actions to be taken in case of audit storage
+		<title><h:b>Refinement:</h:b>The TSF shall [prevent audited events, except those taken
+			by the <refinement>Auditor]</refinement> and <assignable>other actions to be taken in case of audit storage
 			failure</assignable> if the audit trail <h:b>cannot be written to.</h:b>
                 </title>
 		<note role="application">
@@ -2556,11 +2560,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</aactivity>
 	</f-element>
         <audit-event>
-		<audit-event-descr>Generation of non-ephemeral key for TOE-related funtions.</audit-event-descr>
+		<audit-event-descr>Generation of non-ephemeral key for TOE-related funtions.<h:br/>(Retention: Normal)</audit-event-descr>
 		<audit-event-info>Public key generated if successful</audit-event-info>
 	</audit-event>
 	<audit-event type="optional">
-		<audit-event-descr>Generation of ephemeral key for TOE-related functions.</audit-event-descr>
+		<audit-event-descr>Generation of ephemeral key for TOE-related functions.<h:br/>(Retention: Normal)</audit-event-descr>
 		<audit-event-info>Public key generated if successful.</audit-event-info>
 	</audit-event>
     </f-component>
@@ -2594,8 +2598,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<selectable>Finite field-based key establishment schemes that meet the following: NIST
 					Special Publication 800-56A Revision 3, “Recommendation for Pair-Wise
 					Key Establishment Schemes Using Discrete Logarithm Cryptography”;</selectable>
-				<selectable>Key establishment scheme using Diffie-Hellman group 14 that meetsthe
-					following: RFC 3526, Section 3</selectable>
+				<selectable>Key establishment scheme using Diffie-Hellman group 14 that meets the
+					following: RFC 3526</selectable>
 			</selectables></refinement>
 			<h:s>that meet the following: [assignment: list of standards]</h:s>.
 		</title>
@@ -2705,11 +2709,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</aactivity>
 	</f-element>
         <audit-event>
-		<audit-event-descr>Establishment of non-ephemeral key for TOE-related funtions.</audit-event-descr>
+		<audit-event-descr>Establishment of non-ephemeral key for TOE-related funtions.<h:br/>(Retention: Normal)</audit-event-descr>
 		<audit-event-info>Key established if successful</audit-event-info>
 	</audit-event>
 	<audit-event type="optional">
-		<audit-event-descr>Establishment of ephemeral key for TOE-related functions.</audit-event-descr>
+		<audit-event-descr>Establishment of ephemeral key for TOE-related functions.<h:br/>(Retention: Normal)</audit-event-descr>
 		<audit-event-info>Key established if successful.</audit-event-info>
 	</audit-event>
     </f-component>	
@@ -2997,9 +3001,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			a key sharing mechanism.
 		</title>
 	    	<note role="application">
-			This SFR is included when the third selection in FPT_SKY_EXT.1 indicates that a
+			This SFR is included when the third selection in FPT_SKY_EXT.1/CA or FPT_SKY_EXT.1/OTH indicates that a
 			“key sharing mechanisms in accordance with…” is used. This requirement
-			specifies how the KEK that will be used to protect the keys listed in FPT_SKY_EXT.1
+			specifies how the KEK that will be used to protect the keys listed in FPT_SKY_EXT.1/CA or FPT_SKY_EXT.1/OTH
 			is generated from two or more shares. The generation of the shares themselves
 			is specified in FCS_CKM_EXT.1(4), which the ST author includes whenever this SFR
 			is included in the ST. The key that is generated by this requirement is used by the
@@ -3210,7 +3214,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</aactivity>
 	</f-element>
 	<audit-event>
-	    <audit-event-descr>Failure of the key destruction process for TOE keys</audit-event-descr>
+	    <audit-event-descr>Failure of the key destruction process for TOE keys<h:br/>(Retention: Normal)</audit-event-descr>
 	    <audit-event-info>Identity of object or entity being cleared.</audit-event-info>
 	</audit-event>
     </f-component>
@@ -3298,7 +3302,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</aactivity>
 	</f-element>
 	<audit-event>
-		<audit-event-descr>Failure of the key destruction process for TOE related keys.</audit-event-descr>
+		<audit-event-descr>Failure of the key destruction process for TOE related keys.<h:br/>(Retention: Normal)</audit-event-descr>
 	</audit-event>
     </f-component>
 	      
@@ -3382,7 +3386,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</title>
 		<note role="application">
 			This requirement is required when ‘key sharing mechanisms…’ is selected in
-			FPT_SKY_EXT.1., and ensures that the archival of any keys required for continuity
+			FPT_SKY_EXT.1/CA or FPT_SKY_EXT.1/OTH, and ensures that the archival of any keys required for continuity
 			of operations (e.g., signature keys used to sign CRLs) from the TOE involves
 			encryption of those keys using KEKs that were derived using key sharing
 			mechanisms as specified in FCS_CKM_EXT.1(3). 
@@ -3403,7 +3407,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</aactivity>
 	</f-element>
 	<audit-event>
-		<audit-event-descr>All key archival actions.</audit-event-descr>
+		<audit-event-descr>All key archival actions.<h:br/>(Retention: Extended)</audit-event-descr>
 	</audit-event>
     </f-component>
 
@@ -4023,12 +4027,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</aactivity>
 	</f-element>
 	<audit-event>
-		<audit-event-descr>All occurrences of signature generation using a CA signing key.</audit-event-descr>
+		<audit-event-descr>All occurrences of signature generation using a CA signing key.<h:br/>(Retention: Extended)</audit-event-descr>
 		<audit-event-info>Name/identifier of object being signed.</audit-event-info>
 		<audit-event-info>Identifier of key used for signing.</audit-event-info>
 	</audit-event>
 	<audit-event>
-		<audit-event-descr>Failure in signature generation.</audit-event-descr>
+		<audit-event-descr>Failure in signature generation.<h:br/>(Retention: Normal)</audit-event-descr>
 	</audit-event>
     </f-component>
 				
@@ -4325,12 +4329,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</aactivity>
 	</f-element>
 	<audit-event>
-		<audit-event-descr>Failure to establish an HTTPS session.</audit-event-descr>
+		<audit-event-descr>Failure to establish an HTTPS session.<h:br/>(Retention: Normal)</audit-event-descr>
 		<audit-event-info>Reason for failure.</audit-event-info>
 		<audit-event-info>Non-TOE endpoint of attempted connection (IP address).</audit-event-info>
 	</audit-event>
 	<audit-event>
-		<audit-event-descr>Establishment/Termination of an HTTPS session.</audit-event-descr>
+		<audit-event-descr>Establishment/Termination of an HTTPS session.<h:br/>(Retention: Normal)</audit-event-descr>
 		<audit-event-info>Non-TOE enpoint of connection (IP address).</audit-event-info>
 	</audit-event>
 </f-component>
@@ -5186,12 +5190,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</aactivity>
 	</f-element>
 	<audit-event>
-		<audit-event-descr>Failure to establish an IPsec SA.</audit-event-descr>
+		<audit-event-descr>Failure to establish an IPsec SA.<h:br/>(Retention: Normal)</audit-event-descr>
 		<audit-event-info>Reason for failure.</audit-event-info>
 		<audit-event-info>Non-TOE endpoint of connection attempt (IP address).</audit-event-info>
 	</audit-event>
 	<audit-event>
-		<audit-event-descr>Establishment/Termination of an IPsec SA.</audit-event-descr>
+		<audit-event-descr>Establishment/Termination of an IPsec SA.<h:br/>(Retention: Normal)</audit-event-descr>
 		<audit-event-info>Non-TOE endpoint of connection attempt (IP address).</audit-event-info>
 	</audit-event>	
 </f-component>
@@ -5203,6 +5207,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 <f-component name="Key Sharing" cc-id="fcs_ksh_ext.1" status="objective">
 	<f-element>
 		<title>
+			<comment>This objective SFR should be reviewed to determine if it should change status with the next release of this PP. Per the App Note, this SFR is intended to replace FPT_SKY_EXT.1.</comment>
 			The TSF shall 
 			<selectables>
 				<selectable>support</selectable>
@@ -5215,7 +5220,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</selectables>
 			necessary to resume CA functionality after TSF failure using key sharing
 			mechanisms in accordance with FCS_CKM_EXT.1.1(3), FCS_CKM_EXT.1.2(3),
-			FCS_CKM_EXT.7.1 and FPT_SKY_EXT.1.1(2).
+			FCS_CKM_EXT.7.1 and FPT_SKY_EXT.1.1/CA.
 		</title>
 		<note role="application">
 			This SFR, which mandates the use of key sharing to control the export of CA signing
@@ -6012,11 +6017,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</aactivity>
 	</f-element>
 	<audit-event>
-		<audit-event-descr>Failure to establish a TLS session.</audit-event-descr>
+		<audit-event-descr>Failure to establish a TLS session.<h:br/>(Retention: Normal)</audit-event-descr>
 		<audit-event-info>Reason for failure.</audit-event-info>
 	</audit-event>
 	<audit-event>
-		<audit-event-descr>Establishment/termination of a TLS session.</audit-event-descr>
+		<audit-event-descr>Establishment/termination of a TLS session.<h:br/>(Retention: Normal)</audit-event-descr>
 	</audit-event>
 </f-component>
 
@@ -6210,7 +6215,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>	
 		<audit-event>
-			<audit-event-descr>Certificate generation: Success.</audit-event-descr>
+			<audit-event-descr>Certificate generation: Success.<h:br/>(Retention: Extended)</audit-event-descr>
 			<audit-event-info>Certificate value or object identifier.</audit-event-info>
 		</audit-event>
 	</f-component>
@@ -6251,12 +6256,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>Linking of certificate to certificate request: Success</audit-event-descr>
+			<audit-event-descr>Linking of certificate to certificate request: Success<h:br/>(Retention: Extended)</audit-event-descr>
 			<audit-event-info>Certificate value or object identifier</audit-event-info>
 			<audit-event-info>Certificate request or link to certificate request object identifier</audit-event-info>
 		</audit-event>
 		<audit-event>
-			<audit-event-descr>Linking of certificate to certificate request: Failure</audit-event-descr>
+			<audit-event-descr>Linking of certificate to certificate request: Failure<h:br/>(Retention: Extended)</audit-event-descr>
 			<audit-event-info>Reason for failure</audit-event-info>
 			<audit-event-info>Certificate request or link to certificate request object identifier</audit-event-info>
 		</audit-event>
@@ -6323,7 +6328,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>Failed certificate approvals</audit-event-descr>
+			<audit-event-descr>Failed certificate approvals<h:br/>(Retention: Normal)</audit-event-descr>
 			<audit-event-info>Reason for failure</audit-event-info>
 			<audit-event-info>Certificate request or link to certificate request object identifier</audit-event-info>
 		</audit-event>
@@ -6389,7 +6394,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>Certificate generation</audit-event-descr>
+			<audit-event-descr>Certificate generation<h:br/>(Retention: Extended)</audit-event-descr>
 			<audit-event-info>Name/identifier of the certificate.</audit-event-info>
 			<audit-event-info>Value of the certificate generated</audit-event-info>
 		</audit-event>
@@ -6465,7 +6470,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>Failure to generate CRL.</audit-event-descr>
+			<audit-event-descr>Failure to generate CRL.<h:br/>(Retention: Normal)</audit-event-descr>
 		</audit-event>
 	</f-component>
 
@@ -6735,7 +6740,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>Failure to generate cerficate statuws information.</audit-event-descr>
+			<audit-event-descr>Failure to generate cerficate status information.<h:br/>(Retention: Normal)</audit-event-descr>
 		</audit-event>
 	</f-component>
 
@@ -6975,7 +6980,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</f-element>
 		<audit-event>
 			<audit-event-descr>Changes to the trusted public keys and certificates relevant to TOE
-				functions, including additions and deletions.</audit-event-descr>
+				functions, including additions and deletions.<h:br/>(Retention: Normal)</audit-event-descr>
 			<audit-event-info>The public key and all context information associated with the key.</audit-event-info>
 		</audit-event>
 	</f-component>
@@ -7094,13 +7099,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>The reaching of the threshold for the unsuccessful authentication attempts.</audit-event-descr>
+			<audit-event-descr>The reaching of the threshold for the unsuccessful authentication attempts.<h:br/>(Retention: Normal)</audit-event-descr>
 		</audit-event>
 		<audit-event>
 			<audit-event-descr>The action taken. </audit-event-descr>
 		</audit-event>
 		<audit-event>
-			<audit-event-descr>The reenablement of disabled nonadministrative accounts. </audit-event-descr>
+			<audit-event-descr>The reenablement of disabled nonadministrative accounts.<h:br/>(Retention: Normal) </audit-event-descr>
 		</audit-event>
 	</f-component>							
 
@@ -7213,13 +7218,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>CMC requests (generated or received) containing certificate requests or revocation requests.</audit-event-descr>
+			<audit-event-descr>CMC requests (generated or received) containing certificate requests or revocation requests.<h:br/>(Retention: Extended)</audit-event-descr>
 			<audit-event-info>Identifiers for all entities authenticating the request, including the entity providing client authentication for the
 				CMC transport (if any).</audit-event-info>
 			<audit-event-info>The submitted request</audit-event-info>
 		</audit-event>
 		<audit-event>
-			<audit-event-descr>CMC responses issued.</audit-event-descr>
+			<audit-event-descr>CMC responses issued.<h:br/>(Retention: Extended)</audit-event-descr>
 			<audit-event-info>Any signed response.</audit-event-info>
 		</audit-event>
 	</f-component>
@@ -7554,13 +7559,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</f-element>
 		<audit-event>
 			<audit-event-descr>CMC requests (generated or received) containing certificate requests or revocation
-				requests.</audit-event-descr>
+				requests.<h:br/>(Retention: Extended)</audit-event-descr>
 			<audit-event-info>Identifiers for all entities authenticating the request, including the
 				entity providing client authentication for the CMC transport (if any).</audit-event-info>
 			<audit-event-info>The submitted request</audit-event-info>
 		</audit-event>
 		<audit-event>
-			<audit-event-descr>CMC responses issued.</audit-event-descr>
+			<audit-event-descr>CMC responses issued.<h:br/>(Retention: Extended)</audit-event-descr>
 			<audit-event-info>Any signed response.</audit-event-info>
 		</audit-event>
 	</f-component>		
@@ -7767,6 +7772,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 <f-component cc-id="fia_estc_ext.2" name="EST Cient use of TLS-unique value" status="objective">
 	<f-element>
 		<title>
+			<!-- Was a similar objective SFR in STIP? This exact language may not be present in X.509 FP. -->
 			The TSF shall generate tls-unique values and integrate them into EST requests it
 			generates in accordance with RFC 7030 section 3.5.
 		</title>
@@ -8307,7 +8313,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>All uses of the authentication mechanism used for access to TOE related functions</audit-event-descr>
+			<audit-event-descr>All uses of the authentication mechanism used for access to TOE related functions<h:br/>(Retention: Normal)</audit-event-descr>
 			<audit-event-info>Origin of the attempt (e.g., IP address)</audit-event-info>
 		</audit-event>
 	</f-component>
@@ -8452,7 +8458,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>All use of the identification and authentication mechanism used for TOE-related roles</audit-event-descr>
+			<audit-event-descr>All use of the identification and authentication mechanism used for TOE-related roles<h:br/>(Retention: Normal)</audit-event-descr>
 			<audit-event-info>Provided user identity.</audit-event-info>
 			<audit-event-info>Origin of the attempt (e.g., IP address)</audit-event-info>
 		</audit-event>
@@ -9300,7 +9306,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>Modifications to the group of users that are part of a role</audit-event-descr>
+			<audit-event-descr>Modifications to the group of users that are part of a role<h:br/>(Retention: Extended)</audit-event-descr>
 			<audit-event-info>Modifications to the group of users that are part of the role</audit-event-info>
 		</audit-event>
 	</f-component>
@@ -9430,7 +9436,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>	
 		<audit-event>
-			<audit-event-descr>Invocation of failures under the requirement</audit-event-descr>
+			<audit-event-descr>Invocation of failures under the requirement<h:br/>(Retention: Normal)</audit-event-descr>
 			<audit-event-info>Indication that the TSF has failed with the type of failure that occurred</audit-event-info>
 		</audit-event>
 	</f-component>				
@@ -9597,7 +9603,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>All unauthorized attempts to use the TOE secret abnd private keys.</audit-event-descr>
+			<audit-event-descr>All unauthorized attempts to use the TOE secret abnd private keys.<h:br/>(Retention: Normal)</audit-event-descr>
 			<audit-event-info>Identifier of user or process that attempted access.</audit-event-info>
 		</audit-event>
 	</f-component>
@@ -9683,7 +9689,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>All changes to NPE rule sets and NPE.</audit-event-descr>
+			<audit-event-descr>All changes to NPE rule sets and NPE.<h:br/>(Retention: Extended)</audit-event-descr>
 			<audit-event-info>The changes made to the NPE rule sets and associations</audit-event-info>
 		</audit-event>
 	</f-component>
@@ -9741,11 +9747,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>The fact that a faiure of service discontinuity occurred.</audit-event-descr>
+			<audit-event-descr>The fact that a faiure of service discontinuity occurred.<h:br/>(Retention: Extended)</audit-event-descr>
 			<audit-event-info>The type of failure or service discontinuity.</audit-event-info>
 		</audit-event>
 		<audit-event>
-			<audit-event-descr>Resumption of the regular operation.</audit-event-descr>
+			<audit-event-descr>Resumption of the regular operation.<h:br/>(Retention: Extended)</audit-event-descr>
 			<audit-event-info>The type of failure or service discontinuity.</audit-event-info>
 		</audit-event>
 	</f-component>
@@ -9937,6 +9943,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</Guidance>
 			</aactivity>
 		</f-element>
+		<audit-event/>
 	</f-component>
 
 	<!--               -->     
@@ -9959,7 +9966,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<note role="application">
 				This SFR shall be included if “key sharing mechanisms in accordance with
 				FCS_CKM_EXT.1(3), FCS_CKM_EXT.1(4), FCS_CKM_EXT.6, and FPT_SKY_EXT.2” is
-				selected in FPT_SKY_EXT.1.1. It should be noted that this protection can be
+				selected in FPT_SKY_EXT.1.1/CA or FPT_SKY_EXT.1.1/OTH. It should be noted that this protection can be
 				accomplished via FCS_COP.1(5); if it is, then that SFR should be included in the ST.
 			</note>
 			<aactivity>
@@ -10048,7 +10055,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>Changes to the time</audit-event-descr>
+			<audit-event-descr>Changes to the time<h:br/>(Retention: Normal)</audit-event-descr>
 			<audit-event-info>The new and old values for the time.</audit-event-info>
 		</audit-event>
 	</f-component>
@@ -10127,10 +10134,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>Execution of this set of TSF integrity tests</audit-event-descr>
+			<audit-event-descr>Execution of this set of TSF integrity tests<h:br/>(Retention: Normal)</audit-event-descr>
 		</audit-event>
 		<audit-event>
-			<audit-event-descr>Detected integrity violations</audit-event-descr>
+			<audit-event-descr>Detected integrity violations<h:br/>(Retention: Normal)</audit-event-descr>
 			<audit-event-info>The identity of the object that caused the integrity violation</audit-event-info>
 		</audit-event>
 	</f-component>
@@ -10207,7 +10214,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>Execution of this set of TSF integrity tests</audit-event-descr>
+			<audit-event-descr>Execution of this set of TSF integrity tests<h:br/>(Retention: Normal)</audit-event-descr>
 		</audit-event>
 		<audit-event>
 			<audit-event-descr>Detected integrity violations</audit-event-descr>
@@ -10344,7 +10351,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>Initiation of update.</audit-event-descr>
+			<audit-event-descr>Initiation of update.<h:br/>(Retention: Extended)</audit-event-descr>
 			<audit-event-info>Version number</audit-event-info>
 		</audit-event>
 	</f-component>
@@ -10405,7 +10412,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>The termination of a remote session by the session termination mechanism</audit-event-descr>
+			<audit-event-descr>The termination of a remote session by the session termination mechanism<h:br/>(Retention: Normal)</audit-event-descr>
 		</audit-event>
 	</f-component>
 
@@ -10456,7 +10463,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>The termination of an interactive section.</audit-event-descr>
+			<audit-event-descr>The termination of an interactive section.<h:br/>(Retention: Normal)</audit-event-descr>
 		</audit-event>
 	</f-component>
 
@@ -10516,7 +10523,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>Any attempts at unlocking or termination of an interactive session.</audit-event-descr>
+			<audit-event-descr>Any attempts at unlocking or termination of an interactive session.<h:br/>(Retention: Normal)</audit-event-descr>
 		</audit-event>
 	</f-component>
 						
@@ -10799,15 +10806,15 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>Initiation of the trusted channel.</audit-event-descr>
+			<audit-event-descr>Initiation of the trusted channel.<h:br/>(Retention: Normal)</audit-event-descr>
 			<audit-event-info>Identification of the claimed user identity</audit-event-info>
 		</audit-event>
 		<audit-event>
-			<audit-event-descr>Termination of the trusted channel.</audit-event-descr>
+			<audit-event-descr>Termination of the trusted channel.<h:br/>(Retention: Normal)</audit-event-descr>
 			<audit-event-info>Identification of the claimed user identity</audit-event-info>
 		</audit-event>
 		<audit-event>
-			<audit-event-descr>Failures of the trusted path functions.</audit-event-descr>
+			<audit-event-descr>Failures of the trusted path functions.<h:br/>(Retention: Normal)</audit-event-descr>
 			<audit-event-info>Identification of the claimed user identity</audit-event-info>
 		</audit-event>
 	</f-component>
