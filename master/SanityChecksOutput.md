@@ -2,6 +2,7 @@
         /PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[4]""/f-component[14]""/f-element[1]""/title[1]""/h:s[1]""/h:i[1]"and crypt"/assignable[1]"cryptogra"
 * Error: Found a "assignable" element that is buried under stricken text:
         /PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[4]""/f-component[14]""/f-element[1]""/title[1]""/h:s[1]""/h:i[1]"and crypt"/assignable[2]"list of s"
+* Warning: This document still has at least one comment.
 * Error: Detected dangling id-reference to crypto-sel-ckm-1i3 from attribute
         on-sel/PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[4]""/f-component[5]""/depends[1]""/on-sel[1]""
 * Error: Detected dangling id-reference to crypto-sel-ckm-1i3 from attribute

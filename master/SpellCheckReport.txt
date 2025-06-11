@@ -116,7 +116,6 @@ output/certauth-release-linkable.html: kpcmcRA
 output/certauth-release-linkable.html: log2
 output/certauth-release-linkable.html: macAlgId
 output/certauth-release-linkable.html: macAlgorithm
-output/certauth-release-linkable.html: meetsthe
 output/certauth-release-linkable.html: muct
 output/certauth-release-linkable.html: nextUpdate
 output/certauth-release-linkable.html: nonauthenticated
@@ -142,7 +141,6 @@ output/certauth-release-linkable.html: semiblocks
 output/certauth-release-linkable.html: serialNumber
 output/certauth-release-linkable.html: signatureAlgorithm
 output/certauth-release-linkable.html: specificallyidentified
-output/certauth-release-linkable.html: statuws
 output/certauth-release-linkable.html: subcommands
 output/certauth-release-linkable.html: subjectAltName
 output/certauth-release-linkable.html: subjectKeyIdentifier
@@ -283,7 +281,6 @@ output/certauth-release.html: kpcmcRA
 output/certauth-release.html: log2
 output/certauth-release.html: macAlgId
 output/certauth-release.html: macAlgorithm
-output/certauth-release.html: meetsthe
 output/certauth-release.html: muct
 output/certauth-release.html: nextUpdate
 output/certauth-release.html: nonauthenticated
@@ -315,7 +312,6 @@ output/certauth-release.html: serialNumber
 output/certauth-release.html: signatureAlgorithm
 output/certauth-release.html: specificallyidentified
 output/certauth-release.html: standard’
-output/certauth-release.html: statuws
 output/certauth-release.html: subcommands
 output/certauth-release.html: subjectAltName
 output/certauth-release.html: subjectKeyIdentifier
@@ -456,7 +452,6 @@ output/certauth.html: kpcmcRA
 output/certauth.html: log2
 output/certauth.html: macAlgId
 output/certauth.html: macAlgorithm
-output/certauth.html: meetsthe
 output/certauth.html: muct
 output/certauth.html: nextUpdate
 output/certauth.html: nonauthenticated
