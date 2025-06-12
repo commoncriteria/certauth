@@ -1122,7 +1122,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	 <!-- QQQQ: Finally, the audit table is expected to have a 4th column indicating whether each the auditing
 		of each event is done by the TOE or the OE. Not sure how to deal with this. -->
 	 <!--               -->
+		 <ext-comp-def fam-id="FAU_ADP_EXT" title="Audit Dependencies">
+			<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		 </ext-comp-def>
          <f-component cc-id="fau_adp_ext.1" name="Audit Dependencies">
+			<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+			<management>TODO: QQQQQ</management>
+			<audit>TODO: QQQQQ</audit>
+			<dependencies>
+				TODO: QQQQQ
+			</dependencies>
           <f-element>
             <title> The TSF shall implement audit functionality and 
 		    <selectables>
@@ -1208,7 +1217,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
  	 <!-- QQQQ: Remove OE.CERT_REPOSITORY if Operational Environment is not selected. -->
 	      
 	<!--               -->     
-        <f-component cc-id="fau_gcr_ext.1" name="Generation of Certificate Repository">
+        <ext-comp-def fam-id="FAU_GCR_EXT" title="Generation of Certificate Repository">
+			<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		 </ext-comp-def>
+		<f-component cc-id="fau_gcr_ext.1" name="Generation of Certificate Repository">
           <f-element id="fau-gcr-ext-1e1">
             <title>The TSF shall 
 		    <selectables>
@@ -1537,6 +1549,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
  		this SFR is included in the ST).
 	-->
 	<!--               -->     
+		<ext-comp-def fam-id="FAU_SCR_EXT" title="Certificate Repository Review">
+			<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		 </ext-comp-def>
         <f-component cc-id="fau_scr_ext.1" name="Certificate Repository Review" status="sel-based">
 		<depends on-sel="store-certs"/>
 	      	<f-element>
@@ -1942,6 +1957,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		I don't understand why this is a selection-based requirement. I am making it mandatory for now.
 	-->
 	<!--               -->     
+		<ext-comp-def fam-id="FAU_STG_EXT" title="External Audit Trail Storage">
+			<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		 </ext-comp-def>
         <f-component cc-id="fau_stg_ext.1" name="External Audit Trail Storage">
 <!--		<depends on-sel="XXXXXXXXXXXXXXXX"/></selection-depends>  -->
 		<f-element id="fau-stg-ext-1e1">
@@ -2099,6 +2117,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- QQQQ: Based on what is chosen in the selections for FCO_NRO_EXT.2.3-FCO_NRO_EXT.2.5, the applicable
 		requirements from Annex B (i.e., FIA_CMCS_EXT.1, FIA_ESTS_EXT.1) must be included."  --> 	      
 	<!--               -->     
+	<ext-comp-def fam-id="FCO_NRO_EXT" title="Certificate-Based Proof of Origin">
+			<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		 </ext-comp-def>
 	<f-component cc-id="fco_nro_ext.2" name="Certificate-Based Proof of Origin" >
 		<f-element>
                	<title>The TSF shall provide proof of origin for certificates it issues in accordance with
@@ -2249,6 +2270,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- QQQQ: Based on what is chosen in the selections, the applicable requirements from Annex
 	B (i.e., FIA_CMCS_EXT.1, FIA_ESTS_EXT.1) must be included.       -->
     <!--                  -->    	      
+	<ext-comp-def fam-id="FCO_NRR_EXT" title="Certificate-Based Proof of Receipt">
+			<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		 </ext-comp-def>
 <f-component name="Certificate-Based Proof of Receipt" cc-id="fco_nrr_ext.2" status="sel-based">
 	<depends on-sel="sel-cert-req-protocol"/>
 	<f-element id="fco-nrr-ext-2e1">
@@ -2313,7 +2337,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		a physically external cryptographic device, then the ST author must include
 		FTP_ITC.1 with “external cryptographic module” selected.   -->
 	<!--               -->     
-        <f-component cc-id="fcs_cdp_ext.1" name="Cryptographic Dependencies" >
+        <ext-comp-def fam-id="FCS_CDP_EXT" title="Cryptographic Dependencies">
+			<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		 </ext-comp-def>
+		<f-component cc-id="fcs_cdp_ext.1" name="Cryptographic Dependencies" >
           <f-element id="fcs-cdp-ext-1e1">
             <title> The TSF shall 
 		    <selectables>
@@ -2739,7 +2766,18 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- QQQQ: Finally, if the third item in the fourth selection statement is chosen (key wrap), then FCS_COP.1(1) will be included in
 	the ST and the appropriate key wrap method will be chosen in the fifth selection.  -->
     <!--                  -->     
-    <f-component cc-id="fcs_ckm_ext.1" iteration="1" name="Symmetric Key Generation for DEKs" status="feat-based">
+		<ext-comp-def fam-id="FCS_CKM_EXT" title="Cryptographic Key Management">
+			<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		 </ext-comp-def>
+		<f-component cc-id="fcs_ckm_ext.1" name="Symmetric Key Generation" status="invisible">
+			<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+			<management>TODO: QQQQQ</management>
+			<audit>TODO: QQQQQ</audit>
+			<dependencies>
+				TODO: QQQQQ
+			</dependencies>
+		</f-component>
+	<f-component cc-id="fcs_ckm_ext.1" iteration="DEK" name="Symmetric Key Generation (DEKs)" status="feat-based">
           <depends on-feat="protectSubscriberInfo"/>
           <f-element>
             <title>The TSF shall
@@ -2835,7 +2873,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- Selection-based  -->
     <!-- QQQQ: Should be renamed FCS_CKM_EXT.1/KEK  -->
     <!--                  -->     
-    <f-component cc-id="fcs_ckm_ext.1" iteration="2" name="Key Generation Key Encryption Keys" status="sel-based">
+    <f-component cc-id="fcs_ckm_ext.1" iteration="KEK" name="Symmetric Key Generation (KEKs)" status="sel-based">
 	<depends on-sel="crypto-sel-ckm-1i3"/>  <!-- TODO -->
 	<f-element>
 		<title>
@@ -2957,7 +2995,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
  	whenever this SFR is included in the ST. The key that is generated by this requirement is used by the
 	mechanisms specified in FCS_CKM_EXT.6 to protect the keys specified in FPT_SKY_EXT.1.   -->
     <!--                  -->     
-    <f-component cc-id="fcs_ckm_ext.1" iteration="3" name="Key Generation for Key Encryption Keys (TOE Key Archival)"
+    <f-component cc-id="fcs_ckm_ext.1" iteration="KEKT" name="Symmetric Key Generation (KEKs for TOE Key Archival)"
 		 status="sel-based">
 	<depends on-sel="crypto-sel-ckm-1i3"/>
 	<f-element>
@@ -3008,7 +3046,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			is specified in FCS_CKM_EXT.1(4), which the ST author includes whenever this SFR
 			is included in the ST. The key that is generated by this requirement is used by the
 			mechanisms specified in FCS_CKM_EXT.6 to protect the keys specified in
-			FPT_SKY_EXT.1.<h:br/><h:br/>
+			FPT_SKY_EXT.1/CA or FPT_SKY_EXT.1/OTH.<h:br/><h:br/>
 			In the first selection, the ST author chooses whether the TOE performs the
 			operation, or whether it invokes interfaces in the Operational Environment for the
 			functionality.<h:br/><h:br/>
@@ -3037,7 +3075,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- Selection-based: Apparently included if FCS_CKM_EXT.1(3)  -->
     <!-- QQQQ: Shuld be renamed FCS_CKM_EXT.1/SHARES  -->
     <!--                  -->     
-    <f-component cc-id="fcs_ckm_ext.1" iteration="4" name="Generation of Key Shares" status="sel-based">
+    <f-component cc-id="fcs_ckm_ext.1" iteration="SHARES" name="Symmetric Key Generation (Key Shares)" status="sel-based">
 	<depends on-sel="crypto-sel-ckm-1i4"/>
 	<f-element>
 		<title>The TSF shall be able to
@@ -3579,7 +3617,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	modes and key sizes are consistent with the claims made in any of the selectionbased cryptographic protocols (e.g. if FCS_IPSEC_EXT.1 is selected, CBC and/or
 	GCM must be selected depending on the selections made in FCS_IPSEC_EXT.1.4).  -->	      
     <!--                  -->    	      
-<f-component name="Cryptographic Operation (AES Encryption/Decryption)" cc-id="fcs_cop.1" iteration="1" status="sel-based">
+<f-component name="Cryptographic Operation (AES Encryption/Decryption)" cc-id="fcs_cop.1" iteration="SKC" status="sel-based">
 	<depends on-sel="crypto-sel-cop-1i1"/>
 	<f-element>
 		<title>
@@ -3877,7 +3915,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	appropriate assignments/selections to specify the parameters that are
 	implemented for that algorithm.  -->
     <!--                  -->    	      
-<f-component name="Cryptographic Operation (Cryptographic Signature)" cc-id="fcs_cop.1" iteration="2" status="sel-based">
+<f-component name="Cryptographic Operation (Cryptographic Signature)" cc-id="fcs_cop.1" iteration="Sig" status="sel-based">
 	<depends on-sel="crypto-sel-cop-1i2"/>
 	<f-element>
 		<title>
@@ -4046,7 +4084,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	message digest size; for example, if SHA-1 is chosen, then the only valid message
 	digest size selection would be 160 bits  -->
     <!--                  -->    	      
-<f-component name="Cryptographic Operation (Cryptographic Hashing)" cc-id="fcs_cop.1" iteration="3" status="sel-based">
+<f-component name="Cryptographic Operation (Cryptographic Hashing)" cc-id="fcs_cop.1" iteration="Hash" status="sel-based">
 	<depends on-sel="crypto-sel-cop-1i3"/>
 	<f-element>
 		<title>
@@ -4149,7 +4187,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- QQQQ: Should be renamed FCS_COP.1/KHASH  -->
     <!-- QQQQ: The hash selection should be consistent with the overall strength of the algorithm used for FCS_COP.1(1).  -->
     <!--                  -->    	      
-<f-component name="Cryptographic Operation (Keyed-Hash Message Authentication)" cc-id="fcs_cop.1" iteration="4" status="sel-based">
+<f-component name="Cryptographic Operation (Keyed-Hash Message Authentication)" cc-id="fcs_cop.1" iteration="KeyedHash" status="sel-based">
 	<depends on-sel="crypto-sel-cop-1i4"/>
 	<f-element>
 		<title>
@@ -4227,7 +4265,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- QQQQ:  The ST author selects the hash function used, also includes the appropriate requirements for
 	HMAC and the hash function.   -->
     <!--                  -->    	      
-<f-component name="Cryptographic Operation (Password-based Key Derivation Function)" cc-id="fcs_cop.1" iteration="5" status="optional">
+<f-component name="Cryptographic Operation (Password-based Key Derivation Function)" cc-id="fcs_cop.1" iteration="PBKDF" status="optional">
        	<f-element>
 		<title>
 				<refinement>Refinement:</refinement> The TSF shall
@@ -4305,7 +4343,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- FCS_HTTPS_EXT.1 -->
     <!-- Selection-based  -->
     <!-- QQQQ: The TSF shall implement HTTPS using TLS.  -->
-    <!--                  -->    	      
+    <!--                  -->    	
+	<ext-comp-def fam-id="FCS_HTTPS_EXT" title="HTTPS Protocol">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		</ext-comp-def>    
 <f-component name="HTTPS Protocol" cc-id="fcs_https_ext.1" status="sel-based">
 	<depends on-sel="ftp-itc-https"/>
 	<depends on-sel="ftp-trp-https"/>
@@ -4348,7 +4389,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	(specified in RFC 4106), no other algorithms] together with a Secure Hash
 	Algorithm (SHA)-based HMAC.    -->
     <!-- QQQQ: FCS_RBG_EXT.1,  RSA, ECDSA] that use X.509v3 ,  -->
-    <!--                  -->    	      
+    <!--                  -->    	 
+	<ext-comp-def fam-id="FCS_IPSEC_EXT" title="IPsec Protocol">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		</ext-comp-def>      
 <f-component name="IPsec Protocol" cc-id="fcs_ipsec_ext.1" status="sel-based">
 	<depends on-sel="ftp-itc-ipsec"/>
 	<depends on-sel="ftp-trp-ipsec"/>
@@ -5203,7 +5247,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 <!--                  -->     
 <!-- FCS_KSH_EXT.1 -->
 <!-- Objective      -->
-<!--                  -->    	      
+<!--                  -->    	
+<ext-comp-def fam-id="FCS_KSH_EXT" title="Key Sharing">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		</ext-comp-def>       
 <f-component name="Key Sharing" cc-id="fcs_ksh_ext.1" status="objective">
 	<f-element>
 		<title>
@@ -5224,7 +5271,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</title>
 		<note role="application">
 			This SFR, which mandates the use of key sharing to control the export of CA signing
-			keys, is intended to replace FPT_SKY_EXT.1 in future versions of this PP.
+			keys, is intended to replace FPT_SKY_EXT.1/CA in future versions of this PP.
 		</note>
 		<aactivity>
 			<TSS>
@@ -5275,7 +5322,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	CTR_DRBG are allowed.   -->
     <!-- QQQQ: The ST author must also ensure that any underlying functions are included in the
 	baseline requirements for the TOE.   -->      
-    <!--                  -->    	      
+    <!--                  -->    
+	<ext-comp-def fam-id="FCS_RBG_EXT" title="Random Bit Generation">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		</ext-comp-def> 	      
 <f-component name="Cryptographic Random Bit Generation" cc-id="fcs_rbg_ext.1" status="sel-based">
 	<depends on-sel="crypto-sel-rbg-ext-1"/>
 	<f-element>
@@ -5427,6 +5477,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FCS_STG_EXT.1 -->
 	<!--               -->           
+		<ext-comp-def fam-id="FCS_STG_EXT" title="Cryptographic Key Storage">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		</ext-comp-def> 
         <f-component name="Cryptographic Key Storage" cc-id="fcs_stg_ext.1" >
             <f-element>
               <title>Persistent private and secret keys shall be stored within the
@@ -6037,6 +6090,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FDP_CER_EXT.1 -->
 	<!--               -->     
+		<ext-comp-def fam-id="FDP_CER_EXT" title="Certificate Generation">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		</ext-comp-def> 
         <f-component cc-id="fdp_cer_ext.1" name="Certificate Profiles" >
 		<f-element>
 			<title>
@@ -6405,6 +6461,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- Selection-based -->
 	<!-- QQQQ: Inclusion criteria not specified.  -->
 	<!--               -->     
+	<ext-comp-def fam-id="FDP_CRL_EXT" title="Certificate Revocation Lists">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		</ext-comp-def> 
 	<f-component cc-id="fdp_crl_ext.1" name="Certificate Revocation List Validation" status="sel-based">
 		<depends on-sel="sel-pwd-auth"/> <!-- TODO: This is wrong -->
 		<f-element>
@@ -6479,7 +6538,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <!-- FDP_CSI_EXT.1 -->
 	<!-- QQQQ: Based on the selection, the ST author must choose the appropriate requirements
 		from Annex B.   -->
-	<!--               -->     
+	<!--               -->   
+		<ext-comp-def fam-id="FDP_CSI_EXT" title="Certificate Status Information">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		</ext-comp-def>   
         <f-component cc-id="fdp_csi_ext.1" name="Certificate Status Information" >
 		<f-element>
 			<title>
@@ -6674,6 +6736,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		equivalent fields for items a – e above should be identified and the current
 		version should match the specification.   -->
 	<!--               -->     
+	<ext-comp-def fam-id="FDP_OCSPG_EXT" title="OCSP Response Generation">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+	</ext-comp-def> 
 	<f-component cc-id="fdp_ocspg_ext.1" name="OCSP Basic Response Generation" status="sel-based">
 		<depends on-sel="sel-pwd-auth"/> <!-- TODO: This is wrong -->
 		<f-element>
@@ -6804,7 +6869,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <!-- FDP_SDP_EXT.1 -->
 	<!-- QQQQ: The DEK referenced in FDP_SDP_EXT.1.1 is generated by FCS_CKM_EXT.1(1).  -->
 	<!--               -->     
-        <f-component cc-id="fdp_sdp_ext.1" name="User Sensitive Data Protection" status="optional">
+    <ext-comp-def fam-id="FDP_SDP_EXT" title="Sensitive Data Protection">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		</ext-comp-def>     
+	<f-component cc-id="fdp_sdp_ext.1" name="User Sensitive Data Protection" status="optional">
 		<f-element>
 			<title>
 				The TSF shall 
@@ -6921,7 +6989,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- QQQQ: If this method is used (the second selection is chosen), then the ST author include FCS_CKM_EXT.5 in
  		the ST as well as this SFR  -->
 	<!--             -->
-
+	<ext-comp-def fam-id="FDP_STG_EXT" title="Sensitive Data Storage">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		</ext-comp-def> 
     <f-component cc-id="fdp_stg_ext.1" name="User Sensitive Data Protection" status="optional">
 		<f-element>
 			<title>
@@ -7118,7 +7188,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		shared secrets in AuthenticatedData requests or in the Identity Proof Version 2
 		Control of SignedData requests, the TSF shall require HTTPS with client authentication.  -->	
 	<!--               -->     
-        <f-component cc-id="fia_cmcc_ext.1" name="Certificate Management over CMS (CMC) Client" status="sel-based">
+    <ext-comp-def fam-id="FIA_CMCC_EXT" title="Certificate Management over CMS Client">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		</ext-comp-def>     
+	<f-component cc-id="fia_cmcc_ext.1" name="Certificate Management over CMS (CMC) Client" status="sel-based">
 		<depends on-sel="sel-fco-cmcc-ext-1"/>
 		<f-element>
 			<title>
@@ -7755,13 +7828,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</f-element>
 		<audit-event>
 			<audit-event-descr>EST requests (generated or received) containing certificate requests
-				or revocation requests.</audit-event-descr>
+				or revocation requests.<h:br/>(Retention: Extended)</audit-event-descr>
 			<audit-event-info>Identifiers for all entities authenticating the request, including the
 				entity providing client authentication for the EST transport (if any).</audit-event-info>
 			<audit-event-info>The submitted request.</audit-event-info>
 		</audit-event>
 		<audit-event>
-			<audit-event-descr>EST responses issued.</audit-event-descr>
+			<audit-event-descr>EST responses issued.<h:br/>(Retention: Extended)</audit-event-descr>
 			<audit-event-info>Any signed response.</audit-event-info>
 		</audit-event>
 	</f-component>
@@ -7947,13 +8020,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</f-element>
 		<audit-event>
 			<audit-event-descr>EST requests (generated or received) containing certificate
-				requests or revocation requests.</audit-event-descr>
+				requests or revocation requests.<h:br/>(Retention: Extended)</audit-event-descr>
 			<audit-event-info>Identifiers for all entities authenticating the request, including the
 				entity providing client authentication for the EST transport (if any).</audit-event-info>
 			<audit-event-info>The submitted request.</audit-event-info>
 		</audit-event>
 		<audit-event>
-			<audit-event-descr>EST responses issued.</audit-event-descr>
+			<audit-event-descr>EST responses issued.<h:br/>(Retention: Extended)</audit-event-descr>
 			<audit-event-info>Any signed response.</audit-event-info>
 		</audit-event>
 	</f-component>
@@ -8596,7 +8669,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>Failed certificate validations</audit-event-descr>
+			<audit-event-descr>Failed certificate validations<h:br/>(Retention: Normal)</audit-event-descr>
 		</audit-event>
 	</f-component>
 
@@ -8715,7 +8788,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>Failed authentications</audit-event-descr>
+			<audit-event-descr>Failed authentications<h:br/>(Retention: Normal)</audit-event-descr>
 		</audit-event>
 	</f-component>
 	
@@ -9933,7 +10006,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					the OE, and cryptographic provider for the key sharing mechanism is described.<h:p/>
 					If the TSF implements another split knowledge procedure, the evaluator shall examine the TSS 
 					to ensure the procedure is adequately described, and assess the procedure to ensure that it is 
-					effective in restricting access to the selected data and keys. 
+					effective in restricting access to the selected data and keys. <h:p/>
+					If the TSF interfaces with the OE to implement other split knowledge procedures, the evaluator 
+					shall examine the TSS to ensure the procedure is adequately described, and assess the procedure 
+					to ensure that it is effective in restricting access to the selected data and keys.
 				</TSS>
 				<Guidance>
 					The evaluator shall review the AGD to ensure it contains clear instructions to privileged users on 
@@ -9992,7 +10068,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>Access control violations for users involved in key share establishment or control.</audit-event-descr>
+			-<audit-event-descr>Access control violations for users involved in key share establishment or control.<h:br/>(Retention: Extended)</audit-event-descr>
 		</audit-event>
 	</f-component>	
 	
@@ -10707,13 +10783,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>Initiation of the trusted channel.</audit-event-descr>
+			<audit-event-descr>Initiation of the trusted channel.<h:br/>(Retention: Normal)</audit-event-descr>
 		</audit-event>
 		<audit-event>
-			<audit-event-descr>Termination of the trusted channel.</audit-event-descr>
+			<audit-event-descr>Termination of the trusted channel.<h:br/>(Retention: Normal)</audit-event-descr>
 		</audit-event>					
 		<audit-event>
-			<audit-event-descr>Failure of the trusted channel functions.</audit-event-descr>
+			<audit-event-descr>Failure of the trusted channel functions.<h:br/>(Retention: Normal)</audit-event-descr>
 			<audit-event-info>Identification of the initiator and target of failed trusted channels
 				establishment attempt.</audit-event-info>
 		</audit-event>
