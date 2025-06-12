@@ -10068,7 +10068,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			-<audit-event-descr>Access control violations for users involved in key share establishment or control.<h:br/>(Retention: Extended)</audit-event-descr>
+			<audit-event-descr>Access control violations for users involved in key share establishment or control.<h:br/>(Retention: Extended)</audit-event-descr>
 		</audit-event>
 	</f-component>	
 	
