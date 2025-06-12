@@ -1,1 +1,0 @@
-/home/runner/work/certauth/certauth/input/certauth.xml:10071:5: error: text not allowed here; expected the element end-tag or element "audit-event-descr" or "audit-event-info"
