@@ -1,16 +1,16 @@
 * Error: Found a "assignable" element that is buried under stricken text:
-        /PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[4]""/f-component[14]""/f-element[1]""/title[1]""/h:s[1]""/h:i[1]"and crypt"/assignable[1]"cryptogra"
+        /PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[4]""/f-component[15]""/f-element[1]""/title[1]""/h:s[1]""/h:i[1]"and crypt"/assignable[1]"cryptogra"
 * Error: Found a "assignable" element that is buried under stricken text:
-        /PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[4]""/f-component[14]""/f-element[1]""/title[1]""/h:s[1]""/h:i[1]"and crypt"/assignable[2]"list of s"
+        /PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[4]""/f-component[15]""/f-element[1]""/title[1]""/h:s[1]""/h:i[1]"and crypt"/assignable[2]"list of s"
 * Warning: This document still has at least one comment.
 * Error: Detected dangling id-reference to crypto-sel-ckm-1i3 from attribute
-        on-sel/PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[4]""/f-component[5]""/depends[1]""/on-sel[1]""
-* Error: Detected dangling id-reference to crypto-sel-ckm-1i3 from attribute
         on-sel/PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[4]""/f-component[6]""/depends[1]""/on-sel[1]""
-* Error: Detected dangling id-reference to crypto-sel-ckm-1i4 from attribute
+* Error: Detected dangling id-reference to crypto-sel-ckm-1i3 from attribute
         on-sel/PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[4]""/f-component[7]""/depends[1]""/on-sel[1]""
+* Error: Detected dangling id-reference to crypto-sel-ckm-1i4 from attribute
+        on-sel/PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[4]""/f-component[8]""/depends[1]""/on-sel[1]""
 * Error: Detected dangling id-reference to sel-fco-ests-ext-1 from attribute
-        on-sel/PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[4]""/f-component[24]""/depends[3]""/on-sel[1]""
+        on-sel/PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[4]""/f-component[25]""/depends[3]""/on-sel[1]""
 * Error: Detected dangling id-reference to sel-fco-cmcc-ext-1 from attribute
         on-sel/PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[6]""/f-component[2]""/depends[1]""/on-sel[1]""
 * Error: Detected dangling id-reference to sel-fco-cmcs-ext-1 from attribute
@@ -26,4 +26,5 @@
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[8]""/f-component[10]""/f-element[1]""/aactivity[1]"If the TS"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[8]""/f-component[10]""/f-element[1]""/aactivity[1]"If the TS"/TSS[1]"The evalu"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[8]""/f-component[10]""/f-element[1]""/aactivity[1]"If the TS"/TSS[1]"The evalu"/h:p[2]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[8]""/f-component[10]""/f-element[1]""/aactivity[1]"If the TS"/TSS[1]"The evalu"/h:p[3]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The Secur"/section[8]""/f-component[10]""/f-element[1]""/aactivity[1]"If the TS"/Guidance[1]"The evalu"/h:p[1]""

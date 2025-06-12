@@ -637,7 +637,7 @@ function showTarget(id){
 <tr><td>2.1</td><td>2017-12-01</td><td>Updates based on first use in evaluation</td></tr>
 <tr><td>2.1x</td><td>2020-07-10</td><td>Converted to XML</td></tr>
 <tr><td>3.0</td><td>2025-06-13</td><td>Conversion to <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Incorporation of <abbr class="dyn-abbr"><a href="#abbr_NIAP">NIAP</a></abbr> TDs</td></tr>
-</table><h2>Contents</h2><div class="toc" id="toc"><a href="#ch-intro" style="text-indent:0px">1<span>Introduction</span></a><a href="#ppoverview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#complianttargets" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOEboundary" style="text-indent:20px">1.3.1<span>TOE Boundary</span></a><a href="#usecases" style="text-indent:10px">1.4<span>Use Cases</span></a><a href="#features" style="text-indent:10px">1.5<span>Product Features Mapped to Implementation-Dependent Requirements</span></a><a href="#protectSubscriberInfo" style="text-indent:20px">1.5.1<span>TOE Responsible for Protecting Subscriber Information</span></a><a href="#auditReview" style="text-indent:20px">1.5.2<span>TOE supports Audit Review</span></a><a href="#auditPreSelect" style="text-indent:20px">1.5.3<span>TSF Supports Audit Pre-Select</span></a><a href="#auditStorage" style="text-indent:20px">1.5.4<span>TSF Supports Storage of Audit Records</span></a><a href="#Conformance_Claims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#sec-spd" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#Threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#SecurityObjectivesTOE" style="text-indent:10px">4.1<span>Security Objectives for the TOE</span></a><a href="#SecurityObjectivesTOEorEnvironment" style="text-indent:10px">4.2<span>Security Objectives for the Operational Environment</span></a><a href="#SOR" style="text-indent:10px">4.3<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#SFRs" style="text-indent:10px">5.1<span>Security Functional Requirements</span></a><a href="#ss-audit-events" style="text-indent:20px">5.1.1<span>Auditable Events for Mandatory SFRs</span></a><a href="#fau" style="text-indent:20px">5.1.2<span>Class: Security Audit (FAU)</span></a><a href="#fco" style="text-indent:20px">5.1.3<span>Class: Communications (FCO)</span></a><a href="#fcs" style="text-indent:20px">5.1.4<span>Class: Cryptographic Support (FCS)</span></a><a href="#fdp" style="text-indent:20px">5.1.5<span>Class: User Data Protection (FDP)</span></a><a href="#fia" style="text-indent:20px">5.1.6<span>Class: Identification and Authentication (FIA)</span></a><a href="#fmt" style="text-indent:20px">5.1.7<span>Class: Security Management (FMT)</span></a><a href="#fpt" style="text-indent:20px">5.1.8<span>Class: Protection of the TSF (FPT)</span></a><a href="#fta" style="text-indent:20px">5.1.9<span>Class: TOE Access (FTA)</span></a><a href="#ftp" style="text-indent:20px">5.1.10<span>Class: Trusted Path/Channels (FTP)</span></a><a href="#obj-req-map" style="text-indent:20px">5.1.11<span>TOE Security Functional Requirements Rationale</span></a><a href="#SARs" style="text-indent:10px">5.2<span>Security Assurance Requirements</span></a><a href="#adv" style="text-indent:20px">5.2.1<span>Class ADV: Development</span></a><a href="#agd" style="text-indent:20px">5.2.2<span>Class AGD: Guidance Documentation</span></a><a href="#alc" style="text-indent:20px">5.2.3<span>Class ALC: Life-cycle Support</span></a><a href="#ase" style="text-indent:20px">5.2.4<span>Class ASE: Security Target Evaluation</span></a><a href="#ate" style="text-indent:20px">5.2.5<span>Class ATE: Tests</span></a><a href="#ava" style="text-indent:20px">5.2.6<span>Class AVA: Vulnerability Assessment</span></a><a href="#impl-reqs" style="text-indent:0px">Appendix A - <span>Implementation-dependent Requirements</span></a><a href="#protectSubscriberInfo" style="text-indent:20px">A.0.1<span>TOE Responsible for Protecting Subscriber Information</span></a><a href="#auditReview" style="text-indent:20px">A.0.2<span>TOE supports Audit Review</span></a><a href="#auditPreSelect" style="text-indent:20px">A.0.3<span>TSF Supports Audit Pre-Select</span></a><a href="#auditStorage" style="text-indent:20px">A.0.4<span>TSF Supports Storage of Audit Records</span></a><a href="#entropyappendix" style="text-indent:0px">Appendix B - <span>Entropy Documentation and Assessment</span></a><a href="#acronyms" style="text-indent:0px">Appendix C - <span>Acronyms</span></a><a href="#appendix-bibliography" style="text-indent:0px">Appendix D - <span>Bibliography</span></a></div><h1 class="indexable" data-level="1" id="ch-intro">1 Introduction</h1>
+</table><h2>Contents</h2><div class="toc" id="toc"><a href="#ch-intro" style="text-indent:0px">1<span>Introduction</span></a><a href="#ppoverview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#complianttargets" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOEboundary" style="text-indent:20px">1.3.1<span>TOE Boundary</span></a><a href="#usecases" style="text-indent:10px">1.4<span>Use Cases</span></a><a href="#features" style="text-indent:10px">1.5<span>Product Features Mapped to Implementation-Dependent Requirements</span></a><a href="#protectSubscriberInfo" style="text-indent:20px">1.5.1<span>TOE Responsible for Protecting Subscriber Information</span></a><a href="#auditReview" style="text-indent:20px">1.5.2<span>TOE supports Audit Review</span></a><a href="#auditPreSelect" style="text-indent:20px">1.5.3<span>TSF Supports Audit Pre-Select</span></a><a href="#auditStorage" style="text-indent:20px">1.5.4<span>TSF Supports Storage of Audit Records</span></a><a href="#Conformance_Claims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#sec-spd" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#Threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#SecurityObjectivesTOE" style="text-indent:10px">4.1<span>Security Objectives for the TOE</span></a><a href="#SecurityObjectivesTOEorEnvironment" style="text-indent:10px">4.2<span>Security Objectives for the Operational Environment</span></a><a href="#SOR" style="text-indent:10px">4.3<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#SFRs" style="text-indent:10px">5.1<span>Security Functional Requirements</span></a><a href="#ss-audit-events" style="text-indent:20px">5.1.1<span>Auditable Events for Mandatory SFRs</span></a><a href="#fau" style="text-indent:20px">5.1.2<span>Class: Security Audit (FAU)</span></a><a href="#fco" style="text-indent:20px">5.1.3<span>Class: Communications (FCO)</span></a><a href="#fcs" style="text-indent:20px">5.1.4<span>Class: Cryptographic Support (FCS)</span></a><a href="#fdp" style="text-indent:20px">5.1.5<span>Class: User Data Protection (FDP)</span></a><a href="#fia" style="text-indent:20px">5.1.6<span>Class: Identification and Authentication (FIA)</span></a><a href="#fmt" style="text-indent:20px">5.1.7<span>Class: Security Management (FMT)</span></a><a href="#fpt" style="text-indent:20px">5.1.8<span>Class: Protection of the TSF (FPT)</span></a><a href="#fta" style="text-indent:20px">5.1.9<span>Class: TOE Access (FTA)</span></a><a href="#ftp" style="text-indent:20px">5.1.10<span>Class: Trusted Path/Channels (FTP)</span></a><a href="#obj-req-map" style="text-indent:20px">5.1.11<span>TOE Security Functional Requirements Rationale</span></a><a href="#SARs" style="text-indent:10px">5.2<span>Security Assurance Requirements</span></a><a href="#adv" style="text-indent:20px">5.2.1<span>Class ADV: Development</span></a><a href="#agd" style="text-indent:20px">5.2.2<span>Class AGD: Guidance Documentation</span></a><a href="#alc" style="text-indent:20px">5.2.3<span>Class ALC: Life-cycle Support</span></a><a href="#ase" style="text-indent:20px">5.2.4<span>Class ASE: Security Target Evaluation</span></a><a href="#ate" style="text-indent:20px">5.2.5<span>Class ATE: Tests</span></a><a href="#ava" style="text-indent:20px">5.2.6<span>Class AVA: Vulnerability Assessment</span></a><a href="#impl-reqs" style="text-indent:0px">Appendix A - <span>Implementation-dependent Requirements</span></a><a href="#protectSubscriberInfo" style="text-indent:20px">A.0.1<span>TOE Responsible for Protecting Subscriber Information</span></a><a href="#auditReview" style="text-indent:20px">A.0.2<span>TOE supports Audit Review</span></a><a href="#auditPreSelect" style="text-indent:20px">A.0.3<span>TSF Supports Audit Pre-Select</span></a><a href="#auditStorage" style="text-indent:20px">A.0.4<span>TSF Supports Storage of Audit Records</span></a><a href="#ext-comp-defs" style="text-indent:0px">Appendix B - <span>Extended Component Definitions</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">B.1<span>Extended Components Table</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">B.2<span>Extended Component Definitions</span></a><a href="#ext-comp-FCO" style="text-indent:20px">B.2.1<span>Class: Communications (FCO)</span></a><a href="#ext-comp-FCO_NRO_EXT" style="text-indent:30px">B.2.1.1<span>FCO_NRO_EXT Certificate-Based Proof of Origin</span></a><a href="#ext-comp-FCO_NRR_EXT" style="text-indent:30px">B.2.1.2<span>FCO_NRR_EXT Certificate-Based Proof of Receipt</span></a><a href="#ext-comp-FCS" style="text-indent:20px">B.2.2<span>Class: Cryptographic Support (FCS)</span></a><a href="#ext-comp-FCS_CDP_EXT" style="text-indent:30px">B.2.2.1<span>FCS_CDP_EXT Cryptographic Dependencies</span></a><a href="#ext-comp-FCS_CKM_EXT" style="text-indent:30px">B.2.2.2<span>FCS_CKM_EXT Cryptographic Key Management</span></a><a href="#ext-comp-FCS_HTTPS_EXT" style="text-indent:30px">B.2.2.3<span>FCS_HTTPS_EXT HTTPS Protocol</span></a><a href="#ext-comp-FCS_IPSEC_EXT" style="text-indent:30px">B.2.2.4<span>FCS_IPSEC_EXT IPsec Protocol</span></a><a href="#ext-comp-FCS_KSH_EXT" style="text-indent:30px">B.2.2.5<span>FCS_KSH_EXT Key Sharing</span></a><a href="#ext-comp-FCS_RBG_EXT" style="text-indent:30px">B.2.2.6<span>FCS_RBG_EXT Random Bit Generation</span></a><a href="#ext-comp-FCS_STG_EXT" style="text-indent:30px">B.2.2.7<span>FCS_STG_EXT Cryptographic Key Storage</span></a><a href="#ext-comp-FIA" style="text-indent:20px">B.2.3<span>Class: Identification and Authentication (FIA)</span></a><a href="#ext-comp-FIA_CMCC_EXT" style="text-indent:30px">B.2.3.1<span>FIA_CMCC_EXT Certificate Management over CMS Client</span></a><a href="#ext-comp-FAU" style="text-indent:20px">B.2.4<span>Class: Security Audit (FAU)</span></a><a href="#ext-comp-FAU_ADP_EXT" style="text-indent:30px">B.2.4.1<span>FAU_ADP_EXT Audit Dependencies</span></a><a href="#ext-comp-FAU_GCR_EXT" style="text-indent:30px">B.2.4.2<span>FAU_GCR_EXT Generation of Certificate Repository</span></a><a href="#ext-comp-FAU_SCR_EXT" style="text-indent:30px">B.2.4.3<span>FAU_SCR_EXT Certificate Repository Review</span></a><a href="#ext-comp-FAU_STG_EXT" style="text-indent:30px">B.2.4.4<span>FAU_STG_EXT External Audit Trail Storage</span></a><a href="#ext-comp-FDP" style="text-indent:20px">B.2.5<span>Class: User Data Protection (FDP)</span></a><a href="#ext-comp-FDP_CER_EXT" style="text-indent:30px">B.2.5.1<span>FDP_CER_EXT Certificate Generation</span></a><a href="#ext-comp-FDP_CRL_EXT" style="text-indent:30px">B.2.5.2<span>FDP_CRL_EXT Certificate Revocation Lists</span></a><a href="#ext-comp-FDP_CSI_EXT" style="text-indent:30px">B.2.5.3<span>FDP_CSI_EXT Certificate Status Information</span></a><a href="#ext-comp-FDP_OCSPG_EXT" style="text-indent:30px">B.2.5.4<span>FDP_OCSPG_EXT OCSP Response Generation</span></a><a href="#ext-comp-FDP_SDP_EXT" style="text-indent:30px">B.2.5.5<span>FDP_SDP_EXT Sensitive Data Protection</span></a><a href="#ext-comp-FDP_STG_EXT" style="text-indent:30px">B.2.5.6<span>FDP_STG_EXT Sensitive Data Storage</span></a><a href="#entropyappendix" style="text-indent:0px">Appendix C - <span>Entropy Documentation and Assessment</span></a><a href="#acronyms" style="text-indent:0px">Appendix D - <span>Acronyms</span></a><a href="#appendix-bibliography" style="text-indent:0px">Appendix E - <span>Bibliography</span></a></div><h1 class="indexable" data-level="1" id="ch-intro">1 Introduction</h1>
 	  
 
 	  
@@ -984,7 +984,7 @@ The following sections list Common Criteria and technology terms used in this do
 				subscriber information, the following <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> must be claimed in order for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to provide
 				assurance that subscriber data is protected.     </span><br/><p>
 	  If this feature is implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, the following requirements must be claimed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:
-            <ul><li><b><a href="#FCS_CKM_EXT.1/1">FCS_CKM_EXT.1/1</a></b></li></ul></p><h3 class="indexable" data-level="3" id="auditReview">1.5.2 TOE supports Audit Review</h3><span class="description"> If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports review of audit records, then the following <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> must be included:
+            <ul><li><b><a href="#FCS_CKM_EXT.1/DEK">FCS_CKM_EXT.1/DEK</a></b></li></ul></p><h3 class="indexable" data-level="3" id="auditReview">1.5.2 TOE supports Audit Review</h3><span class="description"> If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports review of audit records, then the following <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> must be included:
 				</span><br/><p>
 	  If this feature is implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, the following requirements must be claimed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:
             <ul><li><b><a href="#FAU_SAR.1">FAU_SAR.1</a></b></li><li><b><a href="#FAU_SAR.3">FAU_SAR.3</a></b></li></ul></p><h3 class="indexable" data-level="3" id="auditPreSelect">1.5.3 TSF Supports Audit Pre-Select</h3><span class="description">If any audit pre-selection is performed by an auditor through an interface provided
@@ -1215,9 +1215,9 @@ The following sections list Common Criteria and technology terms used in this do
 	    
 
       <h3 class="indexable" data-level="3" id="ss-audit-events">5.1.1 Auditable Events for Mandatory SFRs</h3>
-           <table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="at-mandatory" data-counter-type="ct-Table" id="at-mandatory">Table <span class="counter">2</span></span>: Auditable Events for Mandatory Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FAU_ADP_EXT.1"><td rowspan="2"><a href="#FAU_ADP_EXT.1">FAU_ADP_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_ADP_EXT.1#"><td></td></tr><tr data-sortkey="FAU_ADP_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FAU_GCR_EXT.1"><td rowspan="2"><a href="#FAU_GCR_EXT.1">FAU_GCR_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_GCR_EXT.1#"><td></td></tr><tr data-sortkey="FAU_GCR_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FAU_GEN.1"><td rowspan="2"><a href="#FAU_GEN.1">FAU_GEN.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_GEN.1#"><td></td></tr><tr data-sortkey="FAU_GEN.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FAU_GEN.2"><td rowspan="2"><a href="#FAU_GEN.2">FAU_GEN.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_GEN.2#"><td></td></tr><tr data-sortkey="FAU_GEN.2.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FAU_STG.4"><td rowspan="2"><a href="#FAU_STG.4">FAU_STG.4</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_STG.4#"><td></td></tr><tr data-sortkey="FAU_STG.4.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FAU_STG_EXT.1"><td rowspan="2"><a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_STG_EXT.1#"><td></td></tr><tr data-sortkey="FAU_STG_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FCO_NRO_EXT.2"><td rowspan="2"><a href="#FCO_NRO_EXT.2">FCO_NRO_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCO_NRO_EXT.2#"><td></td></tr><tr data-sortkey="FCO_NRO_EXT.2.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FCS_CDP_EXT.1"><td rowspan="2"><a href="#FCS_CDP_EXT.1">FCS_CDP_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_CDP_EXT.1#"><td></td></tr><tr data-sortkey="FCS_CDP_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FCS_STG_EXT.1"><td rowspan="2"><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_STG_EXT.1#"><td></td></tr><tr data-sortkey="FCS_STG_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_CER_EXT.1"><td rowspan="2"><a href="#FDP_CER_EXT.1">FDP_CER_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CER_EXT.1#"><td></td></tr><tr data-sortkey="FDP_CER_EXT.1.3"><td>Certificate generation: Success.<br/>(Retention: Extended)</td><td>Certificate value or object identifier.</td></tr><tr data-sortkey="FDP_CER_EXT.2"><td rowspan="3"><a href="#FDP_CER_EXT.2">FDP_CER_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CER_EXT.2#"><td></td></tr><tr data-sortkey="FDP_CER_EXT.2.1"><td>Linking of certificate to certificate request: Success<br/>(Retention: Extended)</td><td><ul><li>Certificate value or object identifier</li><li>Certificate request or link to certificate request object identifier</li></ul></td></tr><tr data-sortkey="FDP_CER_EXT.2.2"><td>Linking of certificate to certificate request: Failure<br/>(Retention: Extended)</td><td><ul><li>Reason for failure</li><li>Certificate request or link to certificate request object identifier</li></ul></td></tr><tr data-sortkey="FDP_CER_EXT.3"><td rowspan="2"><a href="#FDP_CER_EXT.3">FDP_CER_EXT.3</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CER_EXT.3#"><td></td></tr><tr data-sortkey="FDP_CER_EXT.3.1"><td>Failed certificate approvals<br/>(Retention: Normal)</td><td><ul><li>Reason for failure</li><li>Certificate request or link to certificate request object identifier</li></ul></td></tr><tr data-sortkey="FDP_CSI_EXT.1"><td rowspan="2"><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CSI_EXT.1#"><td></td></tr><tr data-sortkey="FDP_CSI_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_RIP.1"><td rowspan="2"><a href="#FDP_RIP.1">FDP_RIP.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_RIP.1#"><td></td></tr><tr data-sortkey="FDP_RIP.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FIA_UAU_EXT.1"><td rowspan="2"><a href="#FIA_UAU_EXT.1">FIA_UAU_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_UAU_EXT.1#"><td></td></tr><tr data-sortkey="FIA_UAU_EXT.1.1"><td>All uses of the authentication mechanism used for access to <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> related functions<br/>(Retention: Normal)</td><td>Origin of the attempt (e.g., <abbr class="dyn-abbr"><a href="#abbr_IP">IP</a></abbr> address)</td></tr><tr data-sortkey="FIA_UIA_EXT.1"><td rowspan="2"><a href="#FIA_UIA_EXT.1">FIA_UIA_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_UIA_EXT.1#"><td></td></tr><tr data-sortkey="FIA_UIA_EXT.1.3"><td>All use of the identification and authentication mechanism used for <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>-related roles<br/>(Retention: Normal)</td><td><ul><li>Provided user identity.</li><li>Origin of the attempt (e.g., <abbr class="dyn-abbr"><a href="#abbr_IP">IP</a></abbr> address)</li></ul></td></tr><tr data-sortkey="FIA_X509_EXT.1"><td rowspan="2"><a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_X509_EXT.1#"><td></td></tr><tr data-sortkey="FIA_X509_EXT.1.2"><td>Failed certificate validations</td><td>
+           <table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="at-mandatory" data-counter-type="ct-Table" id="at-mandatory">Table <span class="counter">2</span></span>: Auditable Events for Mandatory Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FAU_ADP_EXT.1"><td rowspan="2"><a href="#FAU_ADP_EXT.1">FAU_ADP_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_ADP_EXT.1#"><td></td></tr><tr data-sortkey="FAU_ADP_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FAU_GCR_EXT.1"><td rowspan="2"><a href="#FAU_GCR_EXT.1">FAU_GCR_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_GCR_EXT.1#"><td></td></tr><tr data-sortkey="FAU_GCR_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FAU_GEN.1"><td rowspan="2"><a href="#FAU_GEN.1">FAU_GEN.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_GEN.1#"><td></td></tr><tr data-sortkey="FAU_GEN.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FAU_GEN.2"><td rowspan="2"><a href="#FAU_GEN.2">FAU_GEN.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_GEN.2#"><td></td></tr><tr data-sortkey="FAU_GEN.2.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FAU_STG.4"><td rowspan="2"><a href="#FAU_STG.4">FAU_STG.4</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_STG.4#"><td></td></tr><tr data-sortkey="FAU_STG.4.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FAU_STG_EXT.1"><td rowspan="2"><a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_STG_EXT.1#"><td></td></tr><tr data-sortkey="FAU_STG_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FCO_NRO_EXT.2"><td rowspan="2"><a href="#FCO_NRO_EXT.2">FCO_NRO_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCO_NRO_EXT.2#"><td></td></tr><tr data-sortkey="FCO_NRO_EXT.2.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FCS_CDP_EXT.1"><td rowspan="2"><a href="#FCS_CDP_EXT.1">FCS_CDP_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_CDP_EXT.1#"><td></td></tr><tr data-sortkey="FCS_CDP_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FCS_STG_EXT.1"><td rowspan="2"><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_STG_EXT.1#"><td></td></tr><tr data-sortkey="FCS_STG_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_CER_EXT.1"><td rowspan="2"><a href="#FDP_CER_EXT.1">FDP_CER_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CER_EXT.1#"><td></td></tr><tr data-sortkey="FDP_CER_EXT.1.3"><td>Certificate generation: Success.<br/>(Retention: Extended)</td><td>Certificate value or object identifier.</td></tr><tr data-sortkey="FDP_CER_EXT.2"><td rowspan="3"><a href="#FDP_CER_EXT.2">FDP_CER_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CER_EXT.2#"><td></td></tr><tr data-sortkey="FDP_CER_EXT.2.1"><td>Linking of certificate to certificate request: Success<br/>(Retention: Extended)</td><td><ul><li>Certificate value or object identifier</li><li>Certificate request or link to certificate request object identifier</li></ul></td></tr><tr data-sortkey="FDP_CER_EXT.2.2"><td>Linking of certificate to certificate request: Failure<br/>(Retention: Extended)</td><td><ul><li>Reason for failure</li><li>Certificate request or link to certificate request object identifier</li></ul></td></tr><tr data-sortkey="FDP_CER_EXT.3"><td rowspan="2"><a href="#FDP_CER_EXT.3">FDP_CER_EXT.3</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CER_EXT.3#"><td></td></tr><tr data-sortkey="FDP_CER_EXT.3.1"><td>Failed certificate approvals<br/>(Retention: Normal)</td><td><ul><li>Reason for failure</li><li>Certificate request or link to certificate request object identifier</li></ul></td></tr><tr data-sortkey="FDP_CSI_EXT.1"><td rowspan="2"><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CSI_EXT.1#"><td></td></tr><tr data-sortkey="FDP_CSI_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_RIP.1"><td rowspan="2"><a href="#FDP_RIP.1">FDP_RIP.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_RIP.1#"><td></td></tr><tr data-sortkey="FDP_RIP.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FIA_UAU_EXT.1"><td rowspan="2"><a href="#FIA_UAU_EXT.1">FIA_UAU_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_UAU_EXT.1#"><td></td></tr><tr data-sortkey="FIA_UAU_EXT.1.1"><td>All uses of the authentication mechanism used for access to <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> related functions<br/>(Retention: Normal)</td><td>Origin of the attempt (e.g., <abbr class="dyn-abbr"><a href="#abbr_IP">IP</a></abbr> address)</td></tr><tr data-sortkey="FIA_UIA_EXT.1"><td rowspan="2"><a href="#FIA_UIA_EXT.1">FIA_UIA_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_UIA_EXT.1#"><td></td></tr><tr data-sortkey="FIA_UIA_EXT.1.3"><td>All use of the identification and authentication mechanism used for <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>-related roles<br/>(Retention: Normal)</td><td><ul><li>Provided user identity.</li><li>Origin of the attempt (e.g., <abbr class="dyn-abbr"><a href="#abbr_IP">IP</a></abbr> address)</li></ul></td></tr><tr data-sortkey="FIA_X509_EXT.1"><td rowspan="2"><a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_X509_EXT.1#"><td></td></tr><tr data-sortkey="FIA_X509_EXT.1.2"><td>Failed certificate validations<br/>(Retention: Normal)</td><td>
     No additional information
-  </td></tr><tr data-sortkey="FIA_X509_EXT.2"><td rowspan="2"><a href="#FIA_X509_EXT.2">FIA_X509_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_X509_EXT.2#"><td></td></tr><tr data-sortkey="FIA_X509_EXT.2.3"><td>Failed authentications</td><td>
+  </td></tr><tr data-sortkey="FIA_X509_EXT.2"><td rowspan="2"><a href="#FIA_X509_EXT.2">FIA_X509_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_X509_EXT.2#"><td></td></tr><tr data-sortkey="FIA_X509_EXT.2.3"><td>Failed authentications<br/>(Retention: Normal)</td><td>
     No additional information
   </td></tr><tr data-sortkey="FMT_MOF.1/1"><td rowspan="2"><a href="#FMT_MOF.1/1">FMT_MOF.1/1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FMT_MOF.1/1#"><td></td></tr><tr data-sortkey="FMT_MOF.1/1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FMT_MOF.1/2"><td rowspan="2"><a href="#FMT_MOF.1/2">FMT_MOF.1/2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FMT_MOF.1/2#"><td></td></tr><tr data-sortkey="FMT_MOF.1/2.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FMT_MOF.1/3"><td rowspan="2"><a href="#FMT_MOF.1/3">FMT_MOF.1/3</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FMT_MOF.1/3#"><td></td></tr><tr data-sortkey="FMT_MOF.1/3.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FMT_MOF.1/4"><td rowspan="2"><a href="#FMT_MOF.1/4">FMT_MOF.1/4</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FMT_MOF.1/4#"><td></td></tr><tr data-sortkey="FMT_MOF.1/4.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FMT_MOF.1/5"><td rowspan="2"><a href="#FMT_MOF.1/5">FMT_MOF.1/5</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FMT_MOF.1/5#"><td></td></tr><tr data-sortkey="FMT_MOF.1/5.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FMT_MTD.1"><td rowspan="2"><a href="#FMT_MTD.1">FMT_MTD.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FMT_MTD.1#"><td></td></tr><tr data-sortkey="FMT_MTD.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FMT_SMF.1"><td rowspan="2"><a href="#FMT_SMF.1">FMT_SMF.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FMT_SMF.1#"><td></td></tr><tr data-sortkey="FMT_SMF.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FMT_SMR.2"><td rowspan="2"><a href="#FMT_SMR.2">FMT_SMR.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FMT_SMR.2#"><td></td></tr><tr data-sortkey="FMT_SMR.2.3"><td>Modifications to the group of users that are part of a role<br/>(Retention: Extended)</td><td>Modifications to the group of users that are part of the role</td></tr><tr data-sortkey="FPT_FLS.1"><td rowspan="2"><a href="#FPT_FLS.1">FPT_FLS.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FPT_FLS.1#"><td></td></tr><tr data-sortkey="FPT_FLS.1.1"><td>Invocation of failures under the requirement<br/>(Retention: Normal)</td><td>Indication that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> has failed with the type of failure that occurred</td></tr><tr data-sortkey="FPT_KST_EXT.1"><td rowspan="2"><a href="#FPT_KST_EXT.1">FPT_KST_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FPT_KST_EXT.1#"><td></td></tr><tr data-sortkey="FPT_KST_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FPT_KST_EXT.2"><td rowspan="2"><a href="#FPT_KST_EXT.2">FPT_KST_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FPT_KST_EXT.2#"><td></td></tr><tr data-sortkey="FPT_KST_EXT.2.1"><td>All unauthorized attempts to use the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> secret abnd private keys.<br/>(Retention: Normal)</td><td>Identifier of user or process that attempted access.</td></tr><tr data-sortkey="FPT_RCV.1"><td rowspan="3"><a href="#FPT_RCV.1">FPT_RCV.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FPT_RCV.1#"><td></td></tr><tr data-sortkey="FPT_RCV.1.1"><td>The fact that a faiure of service discontinuity occurred.<br/>(Retention: Extended)</td><td>The type of failure or service discontinuity.</td></tr><tr data-sortkey="FPT_RCV.1.2"><td>Resumption of the regular operation.<br/>(Retention: Extended)</td><td>The type of failure or service discontinuity.</td></tr><tr data-sortkey="FPT_SKP_EXT.1"><td rowspan="2"><a href="#FPT_SKP_EXT.1">FPT_SKP_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FPT_SKP_EXT.1#"><td></td></tr><tr data-sortkey="FPT_SKP_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FPT_STM.1"><td rowspan="2"><a href="#FPT_STM.1">FPT_STM.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FPT_STM.1#"><td></td></tr><tr data-sortkey="FPT_STM.1.1"><td>Changes to the time<br/>(Retention: Normal)</td><td>The new and old values for the time.</td></tr><tr data-sortkey="FPT_TUD_EXT.1"><td rowspan="2"><a href="#FPT_TUD_EXT.1">FPT_TUD_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FPT_TUD_EXT.1#"><td></td></tr><tr data-sortkey="FPT_TUD_EXT.1.4"><td>Initiation of update.<br/>(Retention: Extended)</td><td>Version number</td></tr><tr data-sortkey="FTA_SSL.4"><td rowspan="2"><a href="#FTA_SSL.4">FTA_SSL.4</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FTA_SSL.4#"><td></td></tr><tr data-sortkey="FTA_SSL.4.1"><td>The termination of an interactive section.<br/>(Retention: Normal)</td><td>
     No additional information
@@ -1241,7 +1241,12 @@ The following sections list Common Criteria and technology terms used in this do
 	 
 	 
 	 
+		 
          <div class="comp" id="FAU_ADP_EXT.1"><h4>FAU_ADP_EXT.1 Audit Dependencies</h4>
+			
+			
+			
+			
           <div class="element"><div class="reqid" id="FAU_ADP_EXT.1.1"><a href="#FAU_ADP_EXT.1.1" class="abbr">FAU_ADP_EXT.1.1</a></div><div class="reqdesc"> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement audit functionality and 
 		    [<b>selection</b>: <span class="selectable-content" id="_s_1">interface with auditing function(s) in the Operational Environment</span>, <span class="selectable-content" id="_s_2">no additional audit functionality</span>]
 		    in order to perform audit operations on the following audit data: 
@@ -1321,7 +1326,8 @@ The following sections list Common Criteria and technology terms used in this do
  	 
 	      
 	     
-        <div class="comp" id="FAU_GCR_EXT.1"><h4>FAU_GCR_EXT.1 Generation of Certificate Repository</h4>
+        
+		<div class="comp" id="FAU_GCR_EXT.1"><h4>FAU_GCR_EXT.1 Generation of Certificate Repository</h4>
           <div class="element"><div class="reqid" id="FAU_GCR_EXT.1.1"><a href="#FAU_GCR_EXT.1.1" class="abbr">FAU_GCR_EXT.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
 		    [<b>selection</b>: <span class="selectable-content" id="store-certs">store</span>, <span class="selectable-content" id="_s_4">invoke the Operational Environment to store</span>]
 		certificates and 
@@ -1606,6 +1612,7 @@ The following sections list Common Criteria and technology terms used in this do
         
 	
 	     
+		
         <div class="comp" id="FAU_SCR_EXT.1"><h4>FAU_SCR_EXT.1 Certificate Repository Review</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
 	  <a href="#FAU_GCR_EXT.1.1">FAU_GCR_EXT.1.1</a>.
       </i></b></div>
@@ -1950,6 +1957,7 @@ The following sections list Common Criteria and technology terms used in this do
         
 	
 	     
+		
         <div class="comp" id="FAU_STG_EXT.1"><h4>FAU_STG_EXT.1 External Audit Trail Storage</h4>
 
 		<div class="element"><div class="reqid" id="FAU_STG_EXT.1.1"><a href="#FAU_STG_EXT.1.1" class="abbr">FAU_STG_EXT.1.1</a></div><div class="reqdesc">
@@ -2098,6 +2106,7 @@ The following sections list Common Criteria and technology terms used in this do
 	
 	 	      
 	     
+	
 	<div class="comp" id="FCO_NRO_EXT.2"><h4>FCO_NRO_EXT.2 Certificate-Based Proof of Origin</h4>
 		<div class="element"><div class="reqid" id="FCO_NRO_EXT.2.1"><a href="#FCO_NRO_EXT.2.1" class="abbr">FCO_NRO_EXT.2.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide proof of origin for certificates it issues in accordance with
 			the digital signature requirements using a mechanism in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr>
@@ -2235,6 +2244,7 @@ The following sections list Common Criteria and technology terms used in this do
     
     
         	      
+	
 <div class="comp" id="FCO_NRR_EXT.2"><h4>FCO_NRR_EXT.2 Certificate-Based Proof of Receipt</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
 	  <a href="#FIA_CMCS_EXT.1.2">FIA_CMCS_EXT.1.2</a>.
       </i></b></div>
@@ -2292,7 +2302,8 @@ The following sections list Common Criteria and technology terms used in this do
     
 	
 	     
-        <div class="comp" id="FCS_CDP_EXT.1"><h4>FCS_CDP_EXT.1 Cryptographic Dependencies</h4>
+        
+		<div class="comp" id="FCS_CDP_EXT.1"><h4>FCS_CDP_EXT.1 Cryptographic Dependencies</h4>
           <div class="element"><div class="reqid" id="FCS_CDP_EXT.1.1"><a href="#FCS_CDP_EXT.1.1" class="abbr">FCS_CDP_EXT.1.1</a></div><div class="reqdesc"> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
 		    [<b>selection</b>: <span class="selectable-content" id="_s_48">implement cryptographic functionality</span>, <span class="selectable-content" id="_s_49">invoke interfaces provided by the Operational Environment</span>]
 		    in order to perform 
@@ -2645,13 +2656,15 @@ The following sections list Common Criteria and technology terms used in this do
     
     
          
-    <div class="comp" id="FCS_CKM_EXT.1/1"><h4>FCS_CKM_EXT.1/1 Symmetric Key Generation for DEKs</h4><div class="statustag"><i><b>This is an implementation-based component.
+		
+		
+	<div class="comp" id="FCS_CKM_EXT.1/DEK"><h4>FCS_CKM_EXT.1/DEK Symmetric Key Generation (DEKs)</h4><div class="statustag"><i><b>This is an implementation-based component.
                 Its inclusion in depends on whether the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements one or more of the following features:
                 <ul><li><a href="#protectSubscriberInfo">TOE Responsible for Protecting Subscriber Information</a></li></ul>
                 as described in Appendix A.3: Implementation-based Requirements.
                </b></i></div>
           
-          <div class="element"><div class="reqid" id="FCS_CKM_EXT.1.1/1"><a href="#FCS_CKM_EXT.1.1/1" class="abbr">FCS_CKM_EXT.1.1/1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
+          <div class="element"><div class="reqid" id="FCS_CKM_EXT.1.1/DEK"><a href="#FCS_CKM_EXT.1.1/DEK" class="abbr">FCS_CKM_EXT.1.1/DEK</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
 		    [<b>selection</b>: <span class="selectable-content" id="_s_83">generate</span>, <span class="selectable-content" id="_s_84">invoke interfaces provided by the Operational Environment to generate</span>] 
 		    data encryption keys (DEKs) of size 
 		    [<b>selection</b>: <span class="selectable-content" id="_s_85">128-bit</span>, <span class="selectable-content" id="_s_86">256-bit</span>] using
@@ -2691,7 +2704,7 @@ The following sections list Common Criteria and technology terms used in this do
 		the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> and the appropriate key wrap method will be chosen in the fifth selection.
 	  </span></div></div></div>
 	  
-    <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_CKM_EXT.1/1">FCS_CKM_EXT.1/1</a></div>
+    <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_CKM_EXT.1/DEK">FCS_CKM_EXT.1/DEK</a></div>
           	
 		
 		
@@ -2724,11 +2737,11 @@ The following sections list Common Criteria and technology terms used in this do
     
     
          
-    <div class="comp" id="FCS_CKM_EXT.1/2"><h4>FCS_CKM_EXT.1/2 Key Generation Key Encryption Keys</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
+    <div class="comp" id="FCS_CKM_EXT.1/KEK"><h4>FCS_CKM_EXT.1/KEK Symmetric Key Generation (KEKs)</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
 	  .
       </i></b></div>
 	  
-	<div class="element"><div class="reqid" id="FCS_CKM_EXT.1.1/2"><a href="#FCS_CKM_EXT.1.1/2" class="abbr">FCS_CKM_EXT.1.1/2</a></div><div class="reqdesc">
+	<div class="element"><div class="reqid" id="FCS_CKM_EXT.1.1/KEK"><a href="#FCS_CKM_EXT.1.1/KEK" class="abbr">FCS_CKM_EXT.1.1/KEK</a></div><div class="reqdesc">
 			The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to 
 			[<b>selection</b>: <span class="selectable-content" id="_s_97">generate</span>, <span class="selectable-content" id="_s_98">invoke interfaces in the Operational Environment to generate</span>]
 			[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_99">asymmetric KEKs of [<b>assignment</b>: 
@@ -2794,7 +2807,7 @@ The following sections list Common Criteria and technology terms used in this do
 			method will be chosen in the sixth selection.
 		</span></div></div></div>
 	
-<div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_CKM_EXT.1/2">FCS_CKM_EXT.1/2</a></div>
+<div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_CKM_EXT.1/KEK">FCS_CKM_EXT.1/KEK</a></div>
 			
 		<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
 				For KEKs generated using an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr>, the evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> of the
@@ -2823,11 +2836,11 @@ The following sections list Common Criteria and technology terms used in this do
     
     
          
-    <div class="comp" id="FCS_CKM_EXT.1/3"><h4>FCS_CKM_EXT.1/3 Key Generation for Key Encryption Keys (TOE Key Archival)</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
+    <div class="comp" id="FCS_CKM_EXT.1/KEKT"><h4>FCS_CKM_EXT.1/KEKT Symmetric Key Generation (KEKs for TOE Key Archival)</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
 	  .
       </i></b></div>
 	
-	<div class="element"><div class="reqid" id="FCS_CKM_EXT.1.1/3"><a href="#FCS_CKM_EXT.1.1/3" class="abbr">FCS_CKM_EXT.1.1/3</a></div><div class="reqdesc">
+	<div class="element"><div class="reqid" id="FCS_CKM_EXT.1.1/KEKT"><a href="#FCS_CKM_EXT.1.1/KEKT" class="abbr">FCS_CKM_EXT.1.1/KEKT</a></div><div class="reqdesc">
 			The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to 
 			[<b>selection</b>: <span class="selectable-content" id="_s_112">generate</span>, <span class="selectable-content" id="_s_113">invoke interfaces provided by the Operational Environment to generate</span>]
 			[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_114">asymmetric KEKs of 
@@ -2859,7 +2872,7 @@ The following sections list Common Criteria and technology terms used in this do
 			is specified in FCS_CKM_EXT.1(4), which the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author includes whenever this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
 			is included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. The key that is generated by this requirement is used by the
 			mechanisms specified in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a> to protect the keys specified in
-			FPT_SKY_EXT.1.<br/><br/>
+			<a href="#FPT_SKY_EXT.1/CA">FPT_SKY_EXT.1/CA</a> or <a href="#FPT_SKY_EXT.1/OTH">FPT_SKY_EXT.1/OTH</a>.<br/><br/>
 			In the first selection, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author chooses whether the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> performs the
 			operation, or whether it invokes interfaces in the Operational Environment for the
 			functionality.<br/><br/>
@@ -2872,7 +2885,7 @@ The following sections list Common Criteria and technology terms used in this do
 			analysis that documents the basis for the security and entropy preservations. <br/><br/>
 		</span></div></div></div>
 	
-    <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_CKM_EXT.1/3">FCS_CKM_EXT.1/3</a></div>
+    <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_CKM_EXT.1/KEKT">FCS_CKM_EXT.1/KEKT</a></div>
 			
 		<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
 				The evaluator shall ensure the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes the mechanism used to generate
@@ -2886,17 +2899,17 @@ The following sections list Common Criteria and technology terms used in this do
     
     
          
-    <div class="comp" id="FCS_CKM_EXT.1/4"><h4>FCS_CKM_EXT.1/4 Generation of Key Shares</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
+    <div class="comp" id="FCS_CKM_EXT.1/SHARES"><h4>FCS_CKM_EXT.1/SHARES Symmetric Key Generation (Key Shares)</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
 	  .
       </i></b></div>
 	
-	<div class="element"><div class="reqid" id="FCS_CKM_EXT.1.1/4"><a href="#FCS_CKM_EXT.1.1/4" class="abbr">FCS_CKM_EXT.1.1/4</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to
+	<div class="element"><div class="reqid" id="FCS_CKM_EXT.1.1/SHARES"><a href="#FCS_CKM_EXT.1.1/SHARES" class="abbr">FCS_CKM_EXT.1.1/SHARES</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to
 			[<b>selection</b>: <span class="selectable-content" id="_s_125">generate</span>, <span class="selectable-content" id="_s_126">invoke interfaces provided by the Operational Environment to generate</span>] key shares of strength [<i>greater than or
 			equal to the security strength of the <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> defined in FCS_CKM_EXT.1(3)</i>]
 			for the key sharing mechanism indicated in FCS_CKM_EXT.1(3).
 		</div></div>
 	
-    <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_CKM_EXT.1/4">FCS_CKM_EXT.1/4</a></div>
+    <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_CKM_EXT.1/SHARES">FCS_CKM_EXT.1/SHARES</a></div>
 			
 		<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
 				The evaluator shall review the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to confirm that the key share mechanism is
@@ -3307,11 +3320,11 @@ The following sections list Common Criteria and technology terms used in this do
     
     	      
         	      
-<div class="comp" id="FCS_COP.1/1"><h4>FCS_COP.1/1 Cryptographic Operation (AES Encryption/Decryption)</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
+<div class="comp" id="FCS_COP.1/SKC"><h4>FCS_COP.1/SKC Cryptographic Operation (AES Encryption/Decryption)</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
 	  <a href="#FCS_CDP_EXT.1.1">FCS_CDP_EXT.1.1</a>.
       </i></b></div>
 	
-	<div class="element"><div class="reqid" id="FCS_COP.1.1/1"><a href="#FCS_COP.1.1/1" class="abbr">FCS_COP.1.1/1</a></div><div class="reqdesc">
+	<div class="element"><div class="reqid" id="FCS_COP.1.1/SKC"><a href="#FCS_COP.1.1/SKC" class="abbr">FCS_COP.1.1/SKC</a></div><div class="reqdesc">
 			<span class="refinement">Refinement:</span> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
 			<span class="refinement">[<b>selection</b>: <span class="selectable-content" id="_s_179">perform</span>, <span class="selectable-content" id="_s_180">invoke interfaces in the operational environment to perform</span>]</span> [<i>encryption and decryption</i>] in accordance
 			with a specified cryptographic algorithm: <br/><br/>
@@ -3332,7 +3345,7 @@ The following sections list Common Criteria and technology terms used in this do
 			<abbr class="dyn-abbr"><a href="#abbr_GCM">GCM</a></abbr> must be selected depending on the selections made in <a href="#FCS_IPSEC_EXT.1.4">FCS_IPSEC_EXT.1.4</a>).<br/><br/>
 		</span></div></div></div>
 	
-    <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_COP.1/1">FCS_COP.1/1</a></div>
+    <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_COP.1/SKC">FCS_COP.1/SKC</a></div>
 			
 			
 			
@@ -3469,22 +3482,22 @@ The following sections list Common Criteria and technology terms used in this do
 				To test the generation-encryption functionality of <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CCMP, the evaluator
 				shall perform the following four tests: <br/><br/>
 				<span class="testlist-"><ul>
-					<li class="test-"><a id="_t_25" class="defined" href="#_t_25">Test FCS_COP.1/1:1</a>:
+					<li class="test-"><a id="_t_25" class="defined" href="#_t_25">Test FCS_COP.1/SKC:1</a>:
       For EACH supported key and associated data length and ANY
 					supported payload, nonce and tag length, the evaluator shall supply
 					one key value, one nonce value and 10 pairs of associated data and
 						payload values and obtain the resulting ciphertext. </li>
-					<li class="test-"><a id="_t_26" class="defined" href="#_t_26">Test FCS_COP.1/1:2</a>:
+					<li class="test-"><a id="_t_26" class="defined" href="#_t_26">Test FCS_COP.1/SKC:2</a>:
       . For EACH supported key and payload length and ANY supported
 					associated data, nonce and tag length, the evaluator shall supply one
 					key value, one nonce value and 10 pairs of associated data and payload
 						values and obtain the resulting ciphertext. </li>
-					<li class="test-"><a id="_t_27" class="defined" href="#_t_27">Test FCS_COP.1/1:3</a>:
+					<li class="test-"><a id="_t_27" class="defined" href="#_t_27">Test FCS_COP.1/SKC:3</a>:
       For EACH supported key and nonce length and ANY supported
 					associated data, payload and tag length, the evaluator shall supply one
 					key value and 10 associated data, payload and nonce value 3-tuples
 						and obtain the resulting ciphertext. </li>
-					<li class="test-"><a id="_t_28" class="defined" href="#_t_28">Test FCS_COP.1/1:4</a>:
+					<li class="test-"><a id="_t_28" class="defined" href="#_t_28">Test FCS_COP.1/SKC:4</a>:
       For EACH supported key and tag length and ANY supported
 					associated data, payload and nonce length, the evaluator shall supply
 					one key value, one nonce value and 10 pairs of associated data and
@@ -3591,11 +3604,11 @@ The following sections list Common Criteria and technology terms used in this do
     
     
         	      
-<div class="comp" id="FCS_COP.1/2"><h4>FCS_COP.1/2 Cryptographic Operation (Cryptographic Signature)</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
+<div class="comp" id="FCS_COP.1/Sig"><h4>FCS_COP.1/Sig Cryptographic Operation (Cryptographic Signature)</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
 	  <a href="#FCS_CDP_EXT.1.1">FCS_CDP_EXT.1.1</a>.
       </i></b></div>
 	
-	<div class="element"><div class="reqid" id="FCS_COP.1.1/2"><a href="#FCS_COP.1.1/2" class="abbr">FCS_COP.1.1/2</a></div><div class="reqdesc">
+	<div class="element"><div class="reqid" id="FCS_COP.1.1/Sig"><a href="#FCS_COP.1.1/Sig" class="abbr">FCS_COP.1.1/Sig</a></div><div class="reqdesc">
 			<span class="refinement">Refinement:</span>
 			The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <span class="refinement">
 			[<b>selection</b>: <span class="selectable-content" id="_s_189">perform</span>, <span class="selectable-content" id="_s_190">invoke interfaces in the operational environment to perform</span>]</span> [<i>cryptographic signature services</i>] in
@@ -3631,7 +3644,7 @@ The following sections list Common Criteria and technology terms used in this do
 		</span></div></div></div>
 	
 	
-    <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_COP.1/2">FCS_COP.1/2</a></div>
+    <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_COP.1/Sig">FCS_COP.1/Sig</a></div>
 			
 			
 			
@@ -3746,11 +3759,11 @@ The following sections list Common Criteria and technology terms used in this do
     
     
         	      
-<div class="comp" id="FCS_COP.1/3"><h4>FCS_COP.1/3 Cryptographic Operation (Cryptographic Hashing)</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
+<div class="comp" id="FCS_COP.1/Hash"><h4>FCS_COP.1/Hash Cryptographic Operation (Cryptographic Hashing)</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
 	  <a href="#FCS_CDP_EXT.1.1">FCS_CDP_EXT.1.1</a>.
       </i></b></div>
 	
-	<div class="element"><div class="reqid" id="FCS_COP.1.1/3"><a href="#FCS_COP.1.1/3" class="abbr">FCS_COP.1.1/3</a></div><div class="reqdesc">
+	<div class="element"><div class="reqid" id="FCS_COP.1.1/Hash"><a href="#FCS_COP.1.1/Hash" class="abbr">FCS_COP.1.1/Hash</a></div><div class="reqdesc">
 			<span class="refinement">Refinement: </span>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <span class="refinement">
 			[<b>selection</b>: <span class="selectable-content" id="_s_196">perform</span>, <span class="selectable-content" id="_s_197">invoke interfaces in the operational environment to perform</span>]</span> [<i>cryptographic hashing services</i>] in
 			accordance with a specified cryptographic algorithm 
@@ -3773,7 +3786,7 @@ The following sections list Common Criteria and technology terms used in this do
 			the byte-oriented test modes.<br/><br/>
 		</span></div></div></div>
 	
-    <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_COP.1/3">FCS_COP.1/3</a></div>
+    <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_COP.1/Hash">FCS_COP.1/Hash</a></div>
 			
 			
 			
@@ -3838,11 +3851,11 @@ The following sections list Common Criteria and technology terms used in this do
     
     
         	      
-<div class="comp" id="FCS_COP.1/4"><h4>FCS_COP.1/4 Cryptographic Operation (Keyed-Hash Message Authentication)</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
+<div class="comp" id="FCS_COP.1/KeyedHash"><h4>FCS_COP.1/KeyedHash Cryptographic Operation (Keyed-Hash Message Authentication)</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
 	  <a href="#FCS_CDP_EXT.1.1">FCS_CDP_EXT.1.1</a>.
       </i></b></div>
 	
-	<div class="element"><div class="reqid" id="FCS_COP.1.1/4"><a href="#FCS_COP.1.1/4" class="abbr">FCS_COP.1.1/4</a></div><div class="reqdesc">
+	<div class="element"><div class="reqid" id="FCS_COP.1.1/KeyedHash"><a href="#FCS_COP.1.1/KeyedHash" class="abbr">FCS_COP.1.1/KeyedHash</a></div><div class="reqdesc">
 			<span class="refinement">Refinement: </span>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
 			<span class="refinement">[<b>selection</b>: <span class="selectable-content" id="_s_204">perform</span>, <span class="selectable-content" id="_s_205">invoke interfaces in the operational environment to perform</span>]</span>
 			[<i>keyed hash message authentication</i>] in
@@ -3864,7 +3877,7 @@ The following sections list Common Criteria and technology terms used in this do
 			FCS_COP.1(1).<br/><br/>
 		</span></div></div></div>
 	
-    <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_COP.1/4">FCS_COP.1/4</a></div>
+    <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_COP.1/KeyedHash">FCS_COP.1/KeyedHash</a></div>
 			
 			
 			
@@ -3880,7 +3893,7 @@ The following sections list Common Criteria and technology terms used in this do
 				If this requirement is met by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, the evaluator shall perform the following
 				test:<br/><br/>
 				<span class="testlist-"><ul>
-					<li class="test-"><a id="_t_29" class="defined" href="#_t_29">Test FCS_COP.1/4:1</a>:
+					<li class="test-"><a id="_t_29" class="defined" href="#_t_29">Test FCS_COP.1/KeyedHash:1</a>:
       
 						For each of the supported parameter sets, the evaluator shall
 						compose 15 sets of test data. Each set shall consist of a key and
@@ -3904,8 +3917,8 @@ The following sections list Common Criteria and technology terms used in this do
     
     
         	      
-<div class="comp" id="FCS_COP.1/5"><h4>FCS_COP.1/5 Cryptographic Operation (Password-based Key Derivation Function)</h4><div class="statustag"><i><b>This is an optional component. However, applied modules or packages might redefine it as mandatory.</b></i></div>
-       	<div class="element"><div class="reqid" id="FCS_COP.1.1/5"><a href="#FCS_COP.1.1/5" class="abbr">FCS_COP.1.1/5</a></div><div class="reqdesc">
+<div class="comp" id="FCS_COP.1/PBKDF"><h4>FCS_COP.1/PBKDF Cryptographic Operation (Password-based Key Derivation Function)</h4><div class="statustag"><i><b>This is an optional component. However, applied modules or packages might redefine it as mandatory.</b></i></div>
+       	<div class="element"><div class="reqid" id="FCS_COP.1.1/PBKDF"><a href="#FCS_COP.1.1/PBKDF" class="abbr">FCS_COP.1.1/PBKDF</a></div><div class="reqdesc">
 				<span class="refinement">Refinement:</span> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
 			    	<span class="refinement">[<b>selection</b>: <span class="selectable-content" id="_s_212">perform</span>, <span class="selectable-content" id="_s_213">invoke interfaces in the Operational Environment to perform</span>]
 			    	</span>
@@ -3937,7 +3950,7 @@ The following sections list Common Criteria and technology terms used in this do
 				<abbr class="dyn-abbr"><a href="#abbr_HMAC">HMAC</a></abbr> and the hash function.
 			</span></div></div></div>
 		
-	<div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_COP.1/5">FCS_COP.1/5</a></div>
+	<div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_COP.1/PBKDF">FCS_COP.1/PBKDF</a></div>
 				
 				
 				
@@ -3973,7 +3986,8 @@ The following sections list Common Criteria and technology terms used in this do
     
     
     
-        	      
+        	
+	    
 <div class="comp" id="FCS_HTTPS_EXT.1"><h4>FCS_HTTPS_EXT.1 HTTPS Protocol</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
 	  <a href="#FTP_ITC.1.1">FTP_ITC.1.1</a>, <a href="#FTP_TRP.1.1">FTP_TRP.1.1</a>.
       </i></b></div>
@@ -4003,7 +4017,8 @@ The following sections list Common Criteria and technology terms used in this do
     
     
     
-        	      
+        	 
+	      
 <div class="comp" id="FCS_IPSEC_EXT.1"><h4>FCS_IPSEC_EXT.1 IPsec Protocol</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
 	  <a href="#FTP_ITC.1.1">FTP_ITC.1.1</a>, <a href="#FTP_TRP.1.1">FTP_TRP.1.1</a>.
       </i></b></div>
@@ -4773,7 +4788,8 @@ The following sections list Common Criteria and technology terms used in this do
      
 
 
-    	      
+    	
+       
 <div class="comp" id="FCS_KSH_EXT.1"><h4>FCS_KSH_EXT.1 Key Sharing</h4><div class="statustag"><i><b> This is an objective component.
           </b></i></div>
 	<div class="element"><div class="reqid" id="FCS_KSH_EXT.1.1"><a href="#FCS_KSH_EXT.1.1" class="abbr">FCS_KSH_EXT.1.1</a></div><div class="reqdesc">
@@ -4790,7 +4806,7 @@ The following sections list Common Criteria and technology terms used in this do
       Note:
     </span><span class="note">
 			This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>, which mandates the use of key sharing to control the export of <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> signing
-			keys, is intended to replace FPT_SKY_EXT.1 in future versions of this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.
+			keys, is intended to replace <a href="#FPT_SKY_EXT.1/CA">FPT_SKY_EXT.1/CA</a> in future versions of this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.
 		</span></div></div></div>
 	
 <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_KSH_EXT.1">FCS_KSH_EXT.1</a></div>
@@ -4835,7 +4851,8 @@ The following sections list Common Criteria and technology terms used in this do
     
     
           
-        	      
+        
+	 	      
 <div class="comp" id="FCS_RBG_EXT.1"><h4>FCS_RBG_EXT.1 Cryptographic Random Bit Generation</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
 	  <a href="#FCS_CDP_EXT.1.1">FCS_CDP_EXT.1.1</a>.
       </i></b></div>
@@ -4971,6 +4988,7 @@ The following sections list Common Criteria and technology terms used in this do
 	     
         
 	           
+		 
         <div class="comp" id="FCS_STG_EXT.1"><h4>FCS_STG_EXT.1 Cryptographic Key Storage</h4>
             <div class="element"><div class="reqid" id="FCS_STG_EXT.1.1"><a href="#FCS_STG_EXT.1.1" class="abbr">FCS_STG_EXT.1.1</a></div><div class="reqdesc">Persistent private and secret keys shall be stored within the
 		[<b>selection</b>: <span class="selectable-content" id="_s_286"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_287">Operational environment</span>]
@@ -5477,6 +5495,7 @@ The following sections list Common Criteria and technology terms used in this do
 	     
         
 	     
+		 
         <div class="comp" id="FDP_CER_EXT.1"><h4>FDP_CER_EXT.1 Certificate Profiles</h4>
 		<div class="element"><div class="reqid" id="FDP_CER_EXT.1.1"><a href="#FDP_CER_EXT.1.1" class="abbr">FDP_CER_EXT.1.1</a></div><div class="reqdesc">
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement a certificate profile function and shall ensure that issued
@@ -5808,6 +5827,7 @@ The following sections list Common Criteria and technology terms used in this do
 	
 	
 	     
+	 
 	<div class="comp" id="FDP_CRL_EXT.1"><h4>FDP_CRL_EXT.1 Certificate Revocation List Validation</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
 	  <a href="#FIA_UAU_EXT.1.1">FIA_UAU_EXT.1.1</a>.
       </i></b></div>
@@ -5882,7 +5902,8 @@ The following sections list Common Criteria and technology terms used in this do
 	     
         
 	
-	     
+	   
+		   
         <div class="comp" id="FDP_CSI_EXT.1"><h4>FDP_CSI_EXT.1 Certificate Status Information</h4>
 		<div class="element"><div class="reqid" id="FDP_CSI_EXT.1.1"><a href="#FDP_CSI_EXT.1.1" class="abbr">FDP_CSI_EXT.1.1</a></div><div class="reqdesc">
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide certificate status information whose format complies with
@@ -6059,6 +6080,7 @@ The following sections list Common Criteria and technology terms used in this do
 	
 	
 	     
+	 
 	<div class="comp" id="FDP_OCSPG_EXT.1"><h4>FDP_OCSPG_EXT.1 OCSP Basic Response Generation</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
 	  <a href="#FIA_UAU_EXT.1.1">FIA_UAU_EXT.1.1</a>.
       </i></b></div>
@@ -6182,7 +6204,8 @@ The following sections list Common Criteria and technology terms used in this do
         
 	
 	     
-        <div class="comp" id="FDP_SDP_EXT.1"><h4>FDP_SDP_EXT.1 User Sensitive Data Protection</h4><div class="statustag"><i><b>This is an optional component. However, applied modules or packages might redefine it as mandatory.</b></i></div>
+         
+	<div class="comp" id="FDP_SDP_EXT.1"><h4>FDP_SDP_EXT.1 User Sensitive Data Protection</h4><div class="statustag"><i><b>This is an optional component. However, applied modules or packages might redefine it as mandatory.</b></i></div>
 		<div class="element"><div class="reqid" id="FDP_SDP_EXT.1.1"><a href="#FDP_SDP_EXT.1.1" class="abbr">FDP_SDP_EXT.1.1</a></div><div class="reqdesc">
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
 				[<b>selection</b>: <span class="selectable-content" id="_s_382">protect</span>, <span class="selectable-content" id="_s_383">invoke interfaces to the Operational Environment to protect</span>]
@@ -6272,7 +6295,7 @@ The following sections list Common Criteria and technology terms used in this do
 	 
 	
 	
-
+	 
     <div class="comp" id="FDP_STG_EXT.1"><h4>FDP_STG_EXT.1 User Sensitive Data Protection</h4><div class="statustag"><i><b>This is an optional component. However, applied modules or packages might redefine it as mandatory.</b></i></div>
 		<div class="element"><div class="reqid" id="FDP_STG_EXT.1.1"><a href="#FDP_STG_EXT.1.1" class="abbr">FDP_STG_EXT.1.1</a></div><div class="reqdesc">
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use [selection: access controlled storage, an integrity mechanism] to
@@ -6452,7 +6475,8 @@ The following sections list Common Criteria and technology terms used in this do
 	
 		
 	     
-        <div class="comp" id="FIA_CMCC_EXT.1"><h4>FIA_CMCC_EXT.1 Certificate Management over CMS (CMC) Client</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
+         
+	<div class="comp" id="FIA_CMCC_EXT.1"><h4>FIA_CMCC_EXT.1 Certificate Management over CMS (CMC) Client</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
 	  .
       </i></b></div>
 		
@@ -8975,7 +8999,10 @@ The following sections list Common Criteria and technology terms used in this do
 					the <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>, and cryptographic provider for the key sharing mechanism is described.<p></p>
 					If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> implements another split knowledge procedure, the evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> 
 					to ensure the procedure is adequately described, and assess the procedure to ensure that it is 
-					effective in restricting access to the selected data and keys. 
+					effective in restricting access to the selected data and keys. <p></p>
+					If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> interfaces with the <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> to implement other split knowledge procedures, the evaluator 
+					shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to ensure the procedure is adequately described, and assess the procedure 
+					to ensure that it is effective in restricting access to the selected data and keys.
 				</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
 					The evaluator shall review the AGD to ensure it contains clear instructions to privileged users on 
 					how to conduct the procedures.<p></p>
@@ -10122,7 +10149,7 @@ The following sections list Common Criteria and technology terms used in this do
 				subscriber information, the following <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> must be claimed in order for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to provide
 				assurance that subscriber data is protected.     </span><br/><p>
 	  If this feature is implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, the following requirements must be claimed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:
-            <ul><li><b><a href="#FCS_CKM_EXT.1/1">FCS_CKM_EXT.1/1</a></b></li></ul></p><h3 class="indexable" data-level="3" id="auditReview">A.0.2 TOE supports Audit Review</h3><span class="description"> If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports review of audit records, then the following <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> must be included:
+            <ul><li><b><a href="#FCS_CKM_EXT.1/DEK">FCS_CKM_EXT.1/DEK</a></b></li></ul></p><h3 class="indexable" data-level="3" id="auditReview">A.0.2 TOE supports Audit Review</h3><span class="description"> If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports review of audit records, then the following <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> must be included:
 				</span><br/><p>
 	  If this feature is implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, the following requirements must be claimed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:
             <ul><li><b><a href="#FAU_SAR.1">FAU_SAR.1</a></b></li><li><b><a href="#FAU_SAR.3">FAU_SAR.3</a></b></li></ul></p><h3 class="indexable" data-level="3" id="auditPreSelect">A.0.3 TSF Supports Audit Pre-Select</h3><span class="description">If any audit pre-selection is performed by an auditor through an interface provided
@@ -10131,7 +10158,37 @@ The following sections list Common Criteria and technology terms used in this do
             <ul><li><b><a href="#FAU_SEL.1">FAU_SEL.1</a></b></li></ul></p><h3 class="indexable" data-level="3" id="auditStorage">A.0.4 TSF Supports Storage of Audit Records</h3><span class="description">If any storage of audit records is performed by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, then the following <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> must be
 				included:</span><br/><p>
 	  If this feature is implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, the following requirements must be claimed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:
-            <ul><li><b><a href="#FAU_STG.1/1">FAU_STG.1/1</a></b></li><li><b><a href="#FAU_STG.1/2">FAU_STG.1/2</a></b></li></ul></p><h1 id="entropyappendix" class="indexable" data-level="A">Appendix B -  Entropy Documentation and Assessment</h1> 
+            <ul><li><b><a href="#FAU_STG.1/1">FAU_STG.1/1</a></b></li><li><b><a href="#FAU_STG.1/2">FAU_STG.1/2</a></b></li></ul></p><h1 id="ext-comp-defs" class="indexable" data-level="A">Appendix B -  Extended Component Definitions</h1>
+	This appendix contains the definitions for all extended requirements specified in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.
+
+    <h2 id="ext-comp-defs-bg" class="indexable" data-level="2">B.1 Extended Components Table</h2>
+
+	All extended components specified in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> are listed in this table:
+
+<table class="sort_kids_"><caption data-sortkey="#0"><b><span class="ctr" data-myid="" data-counter-type="ct-Table" id="">Table <span class="counter">5</span></span>: Extended Component Definitions</b></caption><tr data-sortkey="#1"><th>Functional Class</th><th>Functional Components</th></tr><tr data-sortkey="Class: Communications (FCO)"><td>Class: Communications (FCO)</td><td>FCO_NRO_EXT Certificate-Based Proof of Origin<br/>FCO_NRR_EXT Certificate-Based Proof of Receipt<br/></td></tr><tr data-sortkey="Class: Cryptographic Support (FCS)"><td>Class: Cryptographic Support (FCS)</td><td>FCS_CDP_EXT Cryptographic Dependencies<br/>FCS_CKM_EXT Cryptographic Key Management<br/>FCS_HTTPS_EXT <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> Protocol<br/>FCS_IPSEC_EXT <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr> Protocol<br/>FCS_KSH_EXT Key Sharing<br/>FCS_RBG_EXT Random Bit Generation<br/>FCS_STG_EXT Cryptographic Key Storage<br/></td></tr><tr data-sortkey="Class: Identification and Authentication (FIA)"><td>Class: Identification and Authentication (FIA)</td><td>FIA_CMCC_EXT Certificate Management over <abbr class="dyn-abbr"><a href="#abbr_CMS">CMS</a></abbr> Client<br/></td></tr><tr data-sortkey="Class: Security Audit (FAU)"><td>Class: Security Audit (FAU)</td><td>FAU_ADP_EXT Audit Dependencies<br/>FAU_GCR_EXT Generation of Certificate Repository<br/>FAU_SCR_EXT Certificate Repository Review<br/>FAU_STG_EXT External Audit Trail Storage<br/></td></tr><tr data-sortkey="Class: User Data Protection (FDP)"><td>Class: User Data Protection (FDP)</td><td>FDP_CER_EXT Certificate Generation<br/>FDP_CRL_EXT Certificate Revocation Lists<br/>FDP_CSI_EXT Certificate Status Information<br/>FDP_OCSPG_EXT <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> Response Generation<br/>FDP_SDP_EXT Sensitive Data Protection<br/>FDP_STG_EXT Sensitive Data Storage<br/></td></tr></table><h2 id="ext-comp-defs-bg" class="indexable" data-level="2">B.2 Extended Component Definitions</h2><span class="sort_kids_"><span data-sortkey="Class: Communications (FCO)"><h3 id="ext-comp-FCO" class="indexable" data-level="3">B.2.1 Class: Communications (FCO)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> defines the following extended components as part of the
+	 FCO class originally defined by <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2:
+	<h3 id="ext-comp-FCO_NRO_EXT" class="indexable" data-level="4">B.2.1.1 FCO_NRO_EXT Certificate-Based Proof of Origin</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 10px;"><text x="4" fill="black" font-size="15" y="24">FCO_NRO_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect></svg></div><h3 id="ext-comp-FCO_NRR_EXT" class="indexable" data-level="4">B.2.1.2 FCO_NRR_EXT Certificate-Based Proof of Receipt</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 10px;"><text x="4" fill="black" font-size="15" y="24">FCO_NRR_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect></svg></div></span><span data-sortkey="Class: Cryptographic Support (FCS)"><h3 id="ext-comp-FCS" class="indexable" data-level="3">B.2.2 Class: Cryptographic Support (FCS)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> defines the following extended components as part of the
+	 FCS class originally defined by <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2:
+	<h3 id="ext-comp-FCS_CDP_EXT" class="indexable" data-level="4">B.2.2.1 FCS_CDP_EXT Cryptographic Dependencies</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 10px;"><text x="4" fill="black" font-size="15" y="24">FCS_CDP_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect></svg></div><h3 id="ext-comp-FCS_CKM_EXT" class="indexable" data-level="4">B.2.2.2 FCS_CKM_EXT Cryptographic Key Management</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FCS_CKM_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p>FCS_CKM_EXT.1,
+             Symmetric Key Generation,
+             requires a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to TODO: QQQQQ</p><h4>Management: FCS_CKM_EXT.1</h4><p>TODO: QQQQQ</p><h4>Audit: FCS_CKM_EXT.1</h4><p>TODO: QQQQQ</p><h4>FCS_CKM_EXT.1 Symmetric Key Generation</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
+				TODO: QQQQQ
+			</td></tr></table></div></div><h3 id="ext-comp-FCS_HTTPS_EXT" class="indexable" data-level="4">B.2.2.3 FCS_HTTPS_EXT HTTPS Protocol</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 10px;"><text x="4" fill="black" font-size="15" y="24">FCS_HTTPS_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect></svg></div><h3 id="ext-comp-FCS_IPSEC_EXT" class="indexable" data-level="4">B.2.2.4 FCS_IPSEC_EXT IPsec Protocol</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 10px;"><text x="4" fill="black" font-size="15" y="24">FCS_IPSEC_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect></svg></div><h3 id="ext-comp-FCS_KSH_EXT" class="indexable" data-level="4">B.2.2.5 FCS_KSH_EXT Key Sharing</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 10px;"><text x="4" fill="black" font-size="15" y="24">FCS_KSH_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect></svg></div><h3 id="ext-comp-FCS_RBG_EXT" class="indexable" data-level="4">B.2.2.6 FCS_RBG_EXT Random Bit Generation</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 10px;"><text x="4" fill="black" font-size="15" y="24">FCS_RBG_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect></svg></div><h3 id="ext-comp-FCS_STG_EXT" class="indexable" data-level="4">B.2.2.7 FCS_STG_EXT Cryptographic Key Storage</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 10px;"><text x="4" fill="black" font-size="15" y="24">FCS_STG_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect></svg></div></span><span data-sortkey="Class: Identification and Authentication (FIA)"><h3 id="ext-comp-FIA" class="indexable" data-level="3">B.2.3 Class: Identification and Authentication (FIA)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> defines the following extended components as part of the
+	 FIA class originally defined by <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2:
+	<h3 id="ext-comp-FIA_CMCC_EXT" class="indexable" data-level="4">B.2.3.1 FIA_CMCC_EXT Certificate Management over CMS Client</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 10px;"><text x="4" fill="black" font-size="15" y="24">FIA_CMCC_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect></svg></div></span><span data-sortkey="Class: Security Audit (FAU)"><h3 id="ext-comp-FAU" class="indexable" data-level="3">B.2.4 Class: Security Audit (FAU)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> defines the following extended components as part of the
+	 FAU class originally defined by <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2:
+	<h3 id="ext-comp-FAU_ADP_EXT" class="indexable" data-level="4">B.2.4.1 FAU_ADP_EXT Audit Dependencies</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FAU_ADP_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FAU_ADP_EXT.1">FAU_ADP_EXT.1</a>,
+             Audit Dependencies,
+             requires a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to TODO: QQQQQ</p><h4>Management: FAU_ADP_EXT.1</h4><p>TODO: QQQQQ</p><h4>Audit: FAU_ADP_EXT.1</h4><p>TODO: QQQQQ</p><h4>FAU_ADP_EXT.1 Audit Dependencies</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
+				TODO: QQQQQ
+			</td></tr></table><h4 id="ext-comp-FAU_ADP_EXT.1.1">FAU_ADP_EXT.1.1</h4> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement audit functionality and 
+		    [<b>selection</b>: <span class="selectable-content" id="_s_1">interface with auditing function(s) in the Operational Environment</span>, <span class="selectable-content" id="_s_2">no additional audit functionality</span>]
+		    in order to perform audit operations on the following audit data: 
+		    [<b>assignment</b>: 
+     <span class="assignable-content">Auditable events in Table 4 through Table 6 that require persistent storage</span>]. 
+            </div></div><h3 id="ext-comp-FAU_GCR_EXT" class="indexable" data-level="4">B.2.4.2 FAU_GCR_EXT Generation of Certificate Repository</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 10px;"><text x="4" fill="black" font-size="15" y="24">FAU_GCR_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect></svg></div><h3 id="ext-comp-FAU_SCR_EXT" class="indexable" data-level="4">B.2.4.3 FAU_SCR_EXT Certificate Repository Review</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 10px;"><text x="4" fill="black" font-size="15" y="24">FAU_SCR_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect></svg></div><h3 id="ext-comp-FAU_STG_EXT" class="indexable" data-level="4">B.2.4.4 FAU_STG_EXT External Audit Trail Storage</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 10px;"><text x="4" fill="black" font-size="15" y="24">FAU_STG_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect></svg></div></span><span data-sortkey="Class: User Data Protection (FDP)"><h3 id="ext-comp-FDP" class="indexable" data-level="3">B.2.5 Class: User Data Protection (FDP)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> defines the following extended components as part of the
+	 FDP class originally defined by <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2:
+	<h3 id="ext-comp-FDP_CER_EXT" class="indexable" data-level="4">B.2.5.1 FDP_CER_EXT Certificate Generation</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 10px;"><text x="4" fill="black" font-size="15" y="24">FDP_CER_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect></svg></div><h3 id="ext-comp-FDP_CRL_EXT" class="indexable" data-level="4">B.2.5.2 FDP_CRL_EXT Certificate Revocation Lists</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 10px;"><text x="4" fill="black" font-size="15" y="24">FDP_CRL_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect></svg></div><h3 id="ext-comp-FDP_CSI_EXT" class="indexable" data-level="4">B.2.5.3 FDP_CSI_EXT Certificate Status Information</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 10px;"><text x="4" fill="black" font-size="15" y="24">FDP_CSI_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect></svg></div><h3 id="ext-comp-FDP_OCSPG_EXT" class="indexable" data-level="4">B.2.5.4 FDP_OCSPG_EXT OCSP Response Generation</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 10px;"><text x="4" fill="black" font-size="15" y="24">FDP_OCSPG_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect></svg></div><h3 id="ext-comp-FDP_SDP_EXT" class="indexable" data-level="4">B.2.5.5 FDP_SDP_EXT Sensitive Data Protection</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 10px;"><text x="4" fill="black" font-size="15" y="24">FDP_SDP_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect></svg></div><h3 id="ext-comp-FDP_STG_EXT" class="indexable" data-level="4">B.2.5.6 FDP_STG_EXT Sensitive Data Storage</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 10px;"><text x="4" fill="black" font-size="15" y="24">FDP_STG_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect></svg></div></span></span><h1 id="entropyappendix" class="indexable" data-level="A">Appendix C -  Entropy Documentation and Assessment</h1> 
 	The documentation of the entropy source should be detailed enough that, after reading, the evaluator
 	will thoroughly understand the entropy source and why it can be relied upon to provide entropy. This
 	documentation should include multiple detailed sections: design description, entropy justification,
@@ -10166,7 +10223,7 @@ The following sections list Common Criteria and technology terms used in this do
 	a description of the health tests, the rate and conditions under which each health test is performed (e.g.,
 	at startup, continuously, or on-demand), the expected results for each health test, and rationale indicating
 	why each test is believed to be appropriate for detecting one or more failures in the entropy source.<br/><br/>
-  <h1 id="acronyms" class="indexable" data-level="A">Appendix C -  Acronyms</h1><table><caption><span class="ctr" data-myid="t-acronyms" data-counter-type="ct-Table" id="t-acronyms">Table <span class="counter">5</span></span>: Acronyms
+  <h1 id="acronyms" class="indexable" data-level="A">Appendix D -  Acronyms</h1><table><caption><span class="ctr" data-myid="t-acronyms" data-counter-type="ct-Table" id="t-acronyms">Table <span class="counter">6</span></span>: Acronyms
 		</caption><tr class="header"><th>Acronym</th><th>Meaning</th></tr><tr><td><span class="term" id="abbr_AES"><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr></span></td><td><span id="long_abbr_AES">Advanced Encryption Standard</span></td></tr>
 <tr><td><span class="term" id="abbr_AOR"><abbr class="dyn-abbr"><a href="#abbr_AOR">AOR</a></abbr></span></td><td><span id="long_abbr_AOR">Authorized Organizational Representative</span></td></tr>
 <tr><td><span class="term" id="abbr_API"><abbr class="dyn-abbr"><a href="#abbr_API">API</a></abbr></span></td><td><span id="long_abbr_API">Application Programming Interface</span></td></tr>
@@ -10287,7 +10344,7 @@ The following sections list Common Criteria and technology terms used in this do
 <tr><td><span class="term" id="abbr_USB"><abbr class="dyn-abbr"><a href="#abbr_USB">USB</a></abbr></span></td><td><span id="long_abbr_USB">Universal Serial Bus</span></td></tr>
 <tr><td><span class="term" id="abbr_XCCDF"><abbr class="dyn-abbr"><a href="#abbr_XCCDF">XCCDF</a></abbr></span></td><td><span id="long_abbr_XCCDF">eXtensible Configuration Checklist Description Format</span></td></tr>
 <tr><td><span class="term" id="abbr_XOR"><abbr class="dyn-abbr"><a href="#abbr_XOR">XOR</a></abbr></span></td><td><span id="long_abbr_XOR">Exclusive Or</span></td></tr>
-</table><h1 id="appendix-bibliography" class="indexable" data-level="A">Appendix D -  Bibliography</h1><table><caption><span class="ctr" data-myid="t-biblio" data-counter-type="ct-Table" id="t-biblio">Table <span class="counter">6</span></span>: Bibliography</caption><tr class="header"><th>Identifier</th><th>Title</th></tr><tr><td><span id="bibCC">[<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]</span></td><td><span class="description">Common Criteria for Information Technology Security Evaluation - <ul>
+</table><h1 id="appendix-bibliography" class="indexable" data-level="A">Appendix E -  Bibliography</h1><table><caption><span class="ctr" data-myid="t-biblio" data-counter-type="ct-Table" id="t-biblio">Table <span class="counter">7</span></span>: Bibliography</caption><tr class="header"><th>Identifier</th><th>Title</th></tr><tr><td><span id="bibCC">[<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]</span></td><td><span class="description">Common Criteria for Information Technology Security Evaluation - <ul>
             <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R4.pdf">Part
                 1: Introduction and General Model</a>, CCMB-2012-09-001, Version 3.1 Revision 5,
               April 2017.</li>
