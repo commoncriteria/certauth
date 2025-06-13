@@ -105,6 +105,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	</git>
 	<url>https://www.niap-ccevs.org/protectionprofiles/515</url>
  </include-pkg>
+ <include-pkg id="pkgX509">
+    <git>
+      <url>https://github.com/commoncriteria/X509</url>
+      <branch>release-1.0</branch>
+    </git>
+    <url>https://www.niap-ccevs.org/protectionprofiles/511</url>
+  </include-pkg>
 	
 	<!-- Rules - These are rules where selections in the base require selections in the Modules.
 			So, really these belong in a composition and not here. At worst they should be in the module.
@@ -571,6 +578,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<cc-pkg-claim>
 			<FP-cc-ref conf="conformant">Functional Package for TLS, version 2.0</FP-cc-ref>
 			<FP-cc-ref conf="conformant">Functional Package for Secure Shell, version 2.0</FP-cc-ref>
+			<FP-cc-ref conf="conformant">Functional package for X.509, version 1.0</FP-cc-ref>
 			<AP-cc-ref conf="conformant">Assurance Package for Flaw Remediation, version 1.0</AP-cc-ref>
 		</cc-pkg-claim>
 	</CClaimsInfo>
@@ -1069,17 +1077,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 <!-- 5.1 Security Functional Requirements -->
 	  
     <section title="Security Functional Requirements" id="SFRs">
-	    The Security Functional Requirements (SFRs) included in this section are derived from Part 2 of the
-	Common Criteria for Information Technology Security Evaluation, Version 3.1, Revision 4, with
-	additional extended functional components. The following table lists the SFRs that are defined in this
+	The following table lists the SFRs that are defined in this
 	section as well as any auditable events associated with their enforcement. The following table presents
-	the baseline (mandatory) requirements for compliant TOEs, and also used to specify whether the TSF or
-	OE is responsible for actions pertaining to a particular audit event associated with the SFRs (this is done
-	in FAU_ADP_EXT.1 below). If the TOE relies on the Operational Environment to provide some of the
+	the baseline (mandatory) requirements for compliant TOEs. If the TOE relies on the Operational Environment to provide some of the
 	TOE’s auditing functionality, the ST author is expected to identify whether each of the auditable events
 	for the claimed SFRs are implemented by the TSF or by the Operational Environment, along with the
-	specific environmental component that provides the auditing functionality if applicable. The ST author
-	should refer to the right-most column of Table 4 through Table 6 and complete these fields accordingly.<h:br/><h:br/>
+	specific environmental component that provides the auditing functionality if applicable.<h:br/><h:br/>
 
 	<!-- For some reason, the audit table is here. But why not? -->
 	<!-- The CA audit table actually has 5 fields, but the fifth one is not used.
@@ -1221,7 +1224,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
 		 </ext-comp-def>
 		<f-component cc-id="fau_gcr_ext.1" name="Generation of Certificate Repository">
-          <f-element id="fau-gcr-ext-1e1">
+          <comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+		  <management>TODO: QQQQQ</management>
+		  <audit>TODO: QQQQQ</audit>
+		  <dependencies>
+			TODO: QQQQQ
+		  </dependencies>
+		  <f-element id="fau-gcr-ext-1e1">
             <title>The TSF shall 
 		    <selectables>
 			    <selectable id="store-certs">store</selectable> <!-- causes inclusion of FAU_SCR_EXT.1 -->
@@ -1243,7 +1252,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		should be noted that the physical implementation of the certificate repository is
 		left to the vendor; for instance, it can be a standalone store, or incorporated
 		within the audit trail. <h:br/><h:br/>
-		If “CRLs (RFC 5280)” is chosen for FCO_NRO_EXT.2.2), then “CRLs” is selected in
+		If “CRLs (RFC 5280)” is chosen for FCO_NRO_EXT.2.2, then “CRLs” is selected in
 		the second selection; otherwise, “no other information is selected”.
 	    </note>
             <aactivity>
@@ -1439,9 +1448,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		associate” for this SFR. 
 	    </note>
             <aactivity>
+				<TSS/>
+				<Guidance/>
               	<Tests>
-			This activity should be accomplished in conjunction with the testing of FAU_GEN.1. 
-		</Tests>
+					This activity should be accomplished in conjunction with the testing of FAU_GEN.1. 
+				</Tests>
 	    </aactivity>
           </f-element>
 	<audit-event/>
@@ -1479,11 +1490,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				SFR is not selected, the ST author includes OE.AUDIT_REVIEW.
 			</note>
 			<aactivity>
-				<Tests>
+				<no-tests>
 					This activity should be accomplished in conjunction with the testing of
 					FAU_GEN.1. Review of each of each of the generated audit records
 					demonstrates that these records are reviewable. 
-				</Tests>
+				</no-tests>
 			</aactivity>
 		</f-element>
 		<audit-event/>
@@ -1523,10 +1534,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				identical by the ST author.
 			</note>
 			<aactivity>
-				<Tests>
+				<no-tests>
 					This activity should be accomplished in conjunction with the testing of
 					FAU_GEN.1.
-				</Tests>
+				</no-tests>
 			</aactivity>
 		</f-element>
 		<audit-event/>
@@ -1553,8 +1564,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
 		 </ext-comp-def>
         <f-component cc-id="fau_scr_ext.1" name="Certificate Repository Review" status="sel-based">
-		<depends on-sel="store-certs"/>
-	      	<f-element>
+			<depends on-sel="store-certs"/>
+			<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+			<management>TODO: QQQQQ</management>
+			<audit>TODO: QQQQQ</audit>
+			<dependencies>
+				TODO: QQQQQ
+			</dependencies>  	
+			<f-element>
 			<title>The TSF shall 
 				<selectables>   <!-- This should not be a selection, only "provide" makes sense here -->
 					<selectable>provide</selectable>
@@ -1591,6 +1608,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				selected.
 			</note>
 			<aactivity>
+				<TSS/>
 				<Guidance>
 					The following activities apply regardless of the selection made in the first
 					selection in the SFR. <h:br/><h:br/>
@@ -1962,7 +1980,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		 </ext-comp-def>
         <f-component cc-id="fau_stg_ext.1" name="External Audit Trail Storage">
 <!--		<depends on-sel="XXXXXXXXXXXXXXXX"/></selection-depends>  -->
-		<f-element id="fau-stg-ext-1e1">
+			<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+			<management>TODO: QQQQQ</management>
+			<audit>TODO: QQQQQ</audit>
+			<dependencies>
+				TODO: QQQQQ
+			</dependencies>
+			<f-element id="fau-stg-ext-1e1">
 			<title>
 				The TSF shall maintain availability and integrity of audit data by storing it
 				<selectables>
@@ -2063,6 +2087,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <f-component cc-id="fau_stg_ext.2" name="Audit Data Retention" status="sel-based">
 		<depends on-sel="loc-TOE"/>
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+		<management>TODO: QQQQQ</management>
+		<audit>TODO: QQQQQ</audit>
+		<dependencies>
+			TODO: QQQQQ
+		</dependencies>
 		<f-element>
 			<title>
 				The TSF shall apply the following rules for retention of audit data: 
@@ -2084,17 +2114,20 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<aactivity>
 				<TSS>
 					The evaluator shall review the TSS to ensure the rules specified are adequate
-					for the retention of audit records as indicated in Tables 4 through 6.<h:br/><h:br/>
+					for the retention of audit records as indicated in Tables 4 through 6. 
+				</TSS>
+				<Guidance/>
+				<Tests>
 					The evaluator shall assume the role of an auditor and establish an extension
 					period for the retention of certificate-related audit records. The evaluator shall
 					cause the TSF to issue a certificate of short validity period. Prior to the
 					retention period (not-after-date+extension), and prior to transferring the audit
-					record to an external archive, the evaluator shall attempt to delete he audit
+					record to an external archive, the evaluator shall attempt to delete the audit
 					record of an event marked ‘extended’, and observe that the audit record was
 					not deleted. Also during this time, the evaluator shall attempt to modify the
 					audit record of an event marked ‘extended’, and observe that the audit record
-					was not modified. 
-				</TSS>
+					was not modified.
+				</Tests>
 			</aactivity>
 		</f-element>
 		<audit-event/>
@@ -2121,6 +2154,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
 		 </ext-comp-def>
 	<f-component cc-id="fco_nro_ext.2" name="Certificate-Based Proof of Origin" >
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+		<management>TODO: QQQQQ</management>
+		<audit>TODO: QQQQQ</audit>
+		<dependencies>
+			TODO: QQQQQ
+		</dependencies>
 		<f-element>
                	<title>The TSF shall provide proof of origin for certificates it issues in accordance with
 			the digital signature requirements using a mechanism in accordance with RFC
@@ -2275,6 +2314,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		 </ext-comp-def>
 <f-component name="Certificate-Based Proof of Receipt" cc-id="fco_nrr_ext.2" status="sel-based">
 	<depends on-sel="sel-cert-req-protocol"/>
+	<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+	<management>TODO: QQQQQ</management>
+	<audit>TODO: QQQQQ</audit>
+	<dependencies>
+		TODO: QQQQQ
+	</dependencies>
 	<f-element id="fco-nrr-ext-2e1">
 		<title>
 			The TSF shall provide proof of receipt for 
@@ -2296,10 +2341,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<TSS>
 				The evaluator shall examine the TSS to ensure it describes the mechanisms
 				used for generating proof of origin for certificate request response.<h:br/><h:br/>
+				
+			</TSS>
+			<Guidance>
 				If configurable, evaluator shall examine the operational guidance to ensure it
 				defines how to configure the applicable algorithms used for providing proof of
 				origin as defined in FCS_COP.1(2).
-			</TSS>
+			</Guidance>
 			<Tests>
 				The evaluator shall perform the following test for each selection:
 				<testlist>
@@ -2341,7 +2389,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
 		 </ext-comp-def>
 		<f-component cc-id="fcs_cdp_ext.1" name="Cryptographic Dependencies" >
-          <f-element id="fcs-cdp-ext-1e1">
+          	<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+			<management>TODO: QQQQQ</management>
+			<audit>TODO: QQQQQ</audit>
+			<dependencies>
+				TODO: QQQQQ
+			</dependencies>
+			<f-element id="fcs-cdp-ext-1e1">
             <title> The TSF shall 
 		    <selectables>
 			    <selectable>implement cryptographic functionality</selectable>
@@ -2769,7 +2823,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<ext-comp-def fam-id="FCS_CKM_EXT" title="Cryptographic Key Management">
 			<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
 		 </ext-comp-def>
-		<f-component cc-id="fcs_ckm_ext.1" name="Symmetric Key Generation" status="invisible">
+		<!-- invisible un-iterated FCS_CKM_EXT.1 for ECD purposes -->
+		 <f-component cc-id="fcs_ckm_ext.1" name="Symmetric Key Generation" status="invisible">
 			<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
 			<management>TODO: QQQQQ</management>
 			<audit>TODO: QQQQQ</audit>
@@ -2855,7 +2910,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			necessary to satisfy the requirements in [CEM].
 		</Guidance>
 		<Tests>
-			There are no ATE assurance activities for this requirement beyond what is
+			There are no test assurance activities for this requirement beyond what is
 			necessary to satisfy the requirements in [CEM].<h:br/><h:br/>
 			<h:i>Equivalency</h:i><h:br/><h:br/>
 			Testing of the TOE may be performed on a subset of the platforms listed in the
@@ -2977,6 +3032,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				the TSS describes the method of combination and contains a justification for
 				preserving the effective entropy.
 			</TSS>
+			<Guidance/>
+			<Tests/>
 		</aactivity>
 	</f-element>
 	<audit-event/>
@@ -3065,6 +3122,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				If this requirement is met by the TOE, then the evaluator shall ensure the TSS
 				identifies analysis to prove that the entropy of the KEK.<h:br/><h:br/>
 			</TSS>
+			<Guidance/>
+			<Tests/>
 		</aactivity>
 	</f-element>
 	<audit-event />
@@ -3094,6 +3153,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				shares are greater than or equal to the security strength of the KEK defined in
 				FCS_CKM_EXT.1(3).
 			</TSS>
+			<Guidance/>
+			<Tests/>
 		</aactivity>
 	</f-element>
 	<audit-event />
@@ -3106,6 +3167,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.4" name="Cryptographic Key Destruction" status="sel-based">
 	<depends on-sel="crypto-sel-ckm-ext-4"/>
+	<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+	<management>TODO: QQQQQ</management>
+	<audit>TODO: QQQQQ</audit>
+	<dependencies>
+		TODO: QQQQQ
+	</dependencies>
 	<f-element>
 		<title>
 			The TSF shall 
@@ -3271,6 +3338,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.5" name="Public Key Integrity" status="sel-based">
 	<depends on-sel="crypto-sel-ckm-ext-5"/>
+	<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+	<management>TODO: QQQQQ</management>
+	<audit>TODO: QQQQQ</audit>
+	<dependencies>
+		TODO: QQQQQ
+	</dependencies>
 	<f-element>
 		<title>
 			The TSF shall 
@@ -3363,6 +3436,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.6" name="Key Archival" status="sel-based">
 	<depends on-sel="crypto-sel-ckm-ext-6"/>
+	<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+	<management>TODO: QQQQQ</management>
+	<audit>TODO: QQQQQ</audit>
+	<dependencies>
+		TODO: QQQQQ
+	</dependencies>
 	<f-element>
 		<title>The TSF shall 
 			<selectables>
@@ -3442,6 +3521,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				of the archive function are configurable, the evaluator shall confirm that the
 				operational guidance describes the various configuration options.
 			</Guidance>
+			<Tests/>
 		</aactivity>
 	</f-element>
 	<audit-event>
@@ -3455,6 +3535,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.7" name="Key Generation for KEKs" status="sel-based">
 	<depends on-sel="crypto-sel-ckm-ext-5"/>  <!-- TODO -->
+	<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+	<management>TODO: QQQQQ</management>
+	<audit>TODO: QQQQQ</audit>
+	<dependencies>
+		TODO: QQQQQ
+	</dependencies>
 	<f-element>
 		<title>
 			The 
@@ -3530,6 +3616,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				considered by the authors of the CA PP. An asymmetric encryption scheme can
 				provide similar protection of keys as a symmetric encryption scheme.
 			</TSS>
+			<Guidance/>
+			<Tests/>
 		</aactivity>
 	</f-element>
 	<audit-event />
@@ -3592,7 +3680,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				necessary to satisfy the requirements in [CEM].
 			</Guidance>
 			<Tests>
-				There are no ATE assurance activities for this requirement beyond what is
+				There are no test assurance activities for this requirement beyond what is
 				necessary to satisfy the requirements in [CEM].<h:br/><h:br/>
 				<h:i>Equivalency</h:i><h:br/><h:br/>
 				Testing of the TOE may be performed on a subset of the platforms listed in the
@@ -4322,12 +4410,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					is performed in forming the submask that will be used to form the KEK, that
 					process shall be described in the TSS.
 				</TSS>
-				<Guidance>
-					There are no AGD assurance activities for this requirement beyond what is
-					necessary to satisfy the requirements in [CEM].
-				</Guidance>
+				<Guidance/>
 				<Tests>
-					There are no ATE assurance activities for this requirement beyond what is
+					There are no test assurance activities for this requirement beyond what is
 					necessary to satisfy the requirements in [CEM].
 				      	<h:i>Equivalency</h:i><h:br/><h:br/>
 				      	Testing of the TOE may be performed on a subset of the platforms listed in the
@@ -4350,6 +4435,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 <f-component name="HTTPS Protocol" cc-id="fcs_https_ext.1" status="sel-based">
 	<depends on-sel="ftp-itc-https"/>
 	<depends on-sel="ftp-trp-https"/>
+	<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+	<management>TODO: QQQQQ</management>
+	<audit>TODO: QQQQQ</audit>
+	<dependencies>
+		TODO: QQQQQ
+	</dependencies>
 	<f-element>
 		<title>The TSF shall implement the HTTPS protocol that complies with RFC 2818.</title>
 		<note role="application">
@@ -4364,9 +4455,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<TSS>
 				The evaluator shall check the TSS to ensure that it is clear on how HTTPS uses
 				TLS to establish protected communications with remote IT entities, focusing on
-				when client authentication is required Testing for this activity is done as part
-				of the TLS testing.
+				when client authentication is required. 
 			</TSS>
+			<Guidance/>
+			<Tests>
+				Testing for this requirement is done as part
+				of the TLS testing.
+			</Tests>
 		</aactivity>
 	</f-element>
 	<audit-event>
@@ -4396,6 +4491,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 <f-component name="IPsec Protocol" cc-id="fcs_ipsec_ext.1" status="sel-based">
 	<depends on-sel="ftp-itc-ipsec"/>
 	<depends on-sel="ftp-trp-ipsec"/>
+	<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+	<management>TODO: QQQQQ</management>
+	<audit>TODO: QQQQQ</audit>
+	<dependencies>
+		TODO: QQQQQ
+	</dependencies>
 	<f-element>
 		<title>
 			The TSF shall implement IPsec to protect communication among TSF components
@@ -5251,62 +5352,68 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 <ext-comp-def fam-id="FCS_KSH_EXT" title="Key Sharing">
 		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
 		</ext-comp-def>       
-<f-component name="Key Sharing" cc-id="fcs_ksh_ext.1" status="objective">
-	<f-element>
-		<title>
-			<comment>This objective SFR should be reviewed to determine if it should change status with the next release of this PP. Per the App Note, this SFR is intended to replace FPT_SKY_EXT.1.</comment>
-			The TSF shall 
-			<selectables>
-				<selectable>support</selectable>
-				<selectable>interface with the operational environment to support</selectable>
-			</selectables>
-			split knowledge procedures to enforce two-party control for the export of CA signing keys 
-			<selectables>
-				<selectable>no other data</selectable>
-				<selectable><assignable>critical data or keys</assignable></selectable>
-			</selectables>
-			necessary to resume CA functionality after TSF failure using key sharing
-			mechanisms in accordance with FCS_CKM_EXT.1.1(3), FCS_CKM_EXT.1.2(3),
-			FCS_CKM_EXT.7.1 and FPT_SKY_EXT.1.1/CA.
-		</title>
-		<note role="application">
-			This SFR, which mandates the use of key sharing to control the export of CA signing
-			keys, is intended to replace FPT_SKY_EXT.1/CA in future versions of this PP.
-		</note>
-		<aactivity>
-			<TSS>
-				The evaluator shall examine the TSS to ensure it describes the restrictions
-				placed on key shares generated in accordance with FCS_CKM_EXT.1(4) in
-				accordance with this requirement.
-			</TSS>
-			<Guidance>
-				The evaluator shall examine the AGD guidance to ensure it contains
-				instructions for configuring the TOE or Operational Environment to restrict
-				access to the shares and limit each one to a single privileged user.
-			</Guidance>
-			<Tests>
-				The evaluator shall perform the following test:
-				<testlist>
-					<test>
-						The evaluator shall generate key shares that require two
-						persons. The evaluator shall assume a single role and shall verify
-						that access to the assigned share is possible but reconstitution of
-						the original key is not. The evaluator shall then assume a second
-						role and assign a key share to them, then verify that their actions
-						together result in a reconstituted key. 
-					</test>
-				</testlist>
-				Note that in order to perform this testing, it is acceptable to violate the
-				operational guidance so that the same evaluator is simultaneously accessing 
-				the TSF as two separate identities. Alternatively, this test can be performed by
-				two testers.<h:br/><h:br/>
-				<h:i>Equivalency</h:i><h:br/><h:br/>
-				Testing of the TOE may be performed on a subset of the platforms listed in the
-				TOE’s ST. Justification must be provided for those platforms that were excluded
-				from testing.
-			</Tests>
-		</aactivity>
-	</f-element>
+	<f-component name="Key Sharing" cc-id="fcs_ksh_ext.1" status="objective">
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+		<management>TODO: QQQQQ</management>
+		<audit>TODO: QQQQQ</audit>
+		<dependencies>
+			TODO: QQQQQ
+		</dependencies>
+		<f-element>
+			<title>
+				<comment>This objective SFR should be reviewed to determine if it should change status with the next release of this PP. Per the App Note, this SFR is intended to replace FPT_SKY_EXT.1.</comment>
+				The TSF shall 
+				<selectables>
+					<selectable>support</selectable>
+					<selectable>interface with the operational environment to support</selectable>
+				</selectables>
+				split knowledge procedures to enforce two-party control for the export of CA signing keys 
+				<selectables>
+					<selectable>no other data</selectable>
+					<selectable><assignable>critical data or keys</assignable></selectable>
+				</selectables>
+				necessary to resume CA functionality after TSF failure using key sharing
+				mechanisms in accordance with FCS_CKM_EXT.1.1(3), FCS_CKM_EXT.1.2(3),
+				FCS_CKM_EXT.7.1 and FPT_SKY_EXT.1.1/CA.
+			</title>
+			<note role="application">
+				This SFR, which mandates the use of key sharing to control the export of CA signing
+				keys, is intended to replace FPT_SKY_EXT.1/CA in future versions of this PP.
+			</note>
+			<aactivity>
+				<TSS>
+					The evaluator shall examine the TSS to ensure it describes the restrictions
+					placed on key shares generated in accordance with FCS_CKM_EXT.1(4) in
+					accordance with this requirement.
+				</TSS>
+				<Guidance>
+					The evaluator shall examine the AGD guidance to ensure it contains
+					instructions for configuring the TOE or Operational Environment to restrict
+					access to the shares and limit each one to a single privileged user.
+				</Guidance>
+				<Tests>
+					The evaluator shall perform the following test:
+					<testlist>
+						<test>
+							The evaluator shall generate key shares that require two
+							persons. The evaluator shall assume a single role and shall verify
+							that access to the assigned share is possible but reconstitution of
+							the original key is not. The evaluator shall then assume a second
+							role and assign a key share to them, then verify that their actions
+							together result in a reconstituted key. 
+						</test>
+					</testlist>
+					Note that in order to perform this testing, it is acceptable to violate the
+					operational guidance so that the same evaluator is simultaneously accessing 
+					the TSF as two separate identities. Alternatively, this test can be performed by
+					two testers.<h:br/><h:br/>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+				</Tests>
+			</aactivity>
+		</f-element>
 	<audit-event/>
 </f-component>
 	 
@@ -5328,6 +5435,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</ext-comp-def> 	      
 <f-component name="Cryptographic Random Bit Generation" cc-id="fcs_rbg_ext.1" status="sel-based">
 	<depends on-sel="crypto-sel-rbg-ext-1"/>
+	<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 	<f-element>
 		<title>
 			The TSF shall 
@@ -5481,7 +5594,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
 		</ext-comp-def> 
         <f-component name="Cryptographic Key Storage" cc-id="fcs_stg_ext.1" >
-            <f-element>
+            <comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
+			<f-element>
               <title>Persistent private and secret keys shall be stored within the
 		<selectables>
 			<selectable>TSF</selectable>
@@ -5524,7 +5643,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			necessary to satisfy the requirements in [CEM].   
 		      </Guidance>
 		      <Tests>
-			There are no ATE assurance activities for this requirement beyond what is
+			There are no test assurance activities for this requirement beyond what is
 			necessary to satisfy the requirements in [CEM]. 
 		      <h:i>Equivalency</h:i><h:br/><h:br/>
 		      	Testing of the TOE may be performed on a subset of the platforms listed in the
@@ -5601,6 +5720,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				evaluator shall check the TSS to ensure that the ciphersuites specified include
 				those listed for this component. 
 			</TSS>
+			<Guidance/>
 			<Tests>
 				<testlist>
 					<test>
@@ -6094,7 +6214,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
 		</ext-comp-def> 
         <f-component cc-id="fdp_cer_ext.1" name="Certificate Profiles" >
-		<f-element>
+			<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
+			<f-element>
 			<title>
 				The TSF shall implement a certificate profile function and shall ensure that issued
 				certificates are consistent with configured profiles.
@@ -6280,7 +6406,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <!-- FDP_CER_EXT.2 -->
 	<!--               -->     
         <f-component cc-id="fdp_cer_ext.2" name="Certificate Request Matching" >
-		<f-element>
+			<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
+			<f-element>
 			<title>
 				The TSF shall establish a linkage from certificate requests to issued certificates.
 			</title>
@@ -6327,7 +6459,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <!-- FDP_CER_EXT.3 -->
 	<!--               -->     
         <f-component cc-id="fdp_cer_ext.3" name="Certificate Issuance Approval" >
-		<f-element>
+			<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
+			<f-element>
 			<title>
 				The TSF shall support the approval of certificates by 
 				<selectables>
@@ -6348,6 +6486,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					instructions for any configuration aspects of the certificate issuance approval
 					function and the steps needed to perform an approval.
 				</TSS>
+				<Guidance/>
 				<Tests>
 					The evaluator shall perform the following test:
 					<testlist>
@@ -6401,7 +6540,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		the mandated v3 are supported."  -->
 	<!--               -->     
         <f-component cc-id="fdp_cer_ext.4" name="Certificate Status Information" status="optional">
-		<f-element>
+			<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
+			<f-element>
 			<title>
 				For X.509 certificate formats other than v3, the TSF shall ensure that these
 				certificate formats contain the following general characteristics:
@@ -6466,6 +6611,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</ext-comp-def> 
 	<f-component cc-id="fdp_crl_ext.1" name="Certificate Revocation List Validation" status="sel-based">
 		<depends on-sel="sel-pwd-auth"/> <!-- TODO: This is wrong -->
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 		<f-element>
 			<title>
 				A TSF that issues CRLs shall verify that all mandatory fields in any CRL issued
@@ -6495,6 +6646,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					the evaluator shall ensure that the TSS identifies which of the values identified
 					in FDP_CRL_EXT.1.1 can be included in CRLs.	
 				</TSS>
+				<Guidance/>
 				<Tests>
 					If the TOE supports configuration of the CRL issuing function, the evaluator
 					shall examine the operational guidance to ensure that instructions are
@@ -6543,7 +6695,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
 		</ext-comp-def>   
         <f-component cc-id="fdp_csi_ext.1" name="Certificate Status Information" >
-		<f-element>
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
+			<f-element>
 			<title>
 				The TSF shall provide certificate status information whose format complies with
 				<selectables>
@@ -6684,8 +6842,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				mechanism(s) supported by the TOE, and then ensures the detailed requirements
 				in Annex C corresponding to their selection are copied to the ST if not already
 				present.<h:br/><h:br/>
-				If SSH is selected, the TOE is expected to conform to the Functional Package for
-				Secure Shell.
+				If SSH is selected, the TOE is expected to conform to the <xref to="pkgSSH"/>.
 			</note>
 			<aactivity>
 				<TSS>
@@ -6741,6 +6898,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	</ext-comp-def> 
 	<f-component cc-id="fdp_ocspg_ext.1" name="OCSP Basic Response Generation" status="sel-based">
 		<depends on-sel="sel-pwd-auth"/> <!-- TODO: This is wrong -->
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 		<f-element>
 			<title>
 				The TSF shall ensure that all mandatory fields in the OCSP response contain values
@@ -6773,6 +6936,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					evaluator shall ensure that the TSS identifies which of the values identified in
 					FDP_OCSPG_EXT.1.1 can be included in OCSP responses.
 				</TSS>
+				<Guidance/>
 				<Tests>
 					If the TOE supports configuration of the OCSP function, the evaluator shall
 					examine the operational guidance to ensure that instructions are available to
@@ -6853,7 +7017,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					necessary to satisfy the requirements in [CEM].
 				</Guidance>
 				<Tests>
-					There are no ATE assurance activities for this requirement beyond what is
+					There are no test assurance activities for this requirement beyond what is
 					necessary to satisfy the requirements in [CEM].
 					<h:i>Equivalency</h:i><h:br/><h:br/>		
 					Testing of the TOE may be performed on a subset of the platforms listed in the
@@ -6873,6 +7037,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
 		</ext-comp-def>     
 	<f-component cc-id="fdp_sdp_ext.1" name="User Sensitive Data Protection" status="optional">
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 		<f-element>
 			<title>
 				The TSF shall 
@@ -6993,6 +7163,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
 		</ext-comp-def> 
     <f-component cc-id="fdp_stg_ext.1" name="User Sensitive Data Protection" status="optional">
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 		<f-element>
 			<title>
 				The TSF shall use [selection: access controlled storage, an integrity mechanism] to
@@ -7193,6 +7369,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</ext-comp-def>     
 	<f-component cc-id="fia_cmcc_ext.1" name="Certificate Management over CMS (CMC) Client" status="sel-based">
 		<depends on-sel="sel-fco-cmcc-ext-1"/>
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 		<f-element>
 			<title>
 				The TSF shall be able to generate CMC full requests and 
@@ -7313,8 +7495,17 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- QQQQ: ...in accordance with FCS_COP.1(3)   -->
 	<!-- QQQQ: ...in accordance with FCS_COP.1(4)   -->
 	<!--               -->     
-        <f-component cc-id="fia_cmcs_ext.1" name="Certificate Management over CMS (CMC) Server" status="sel-based">
+	<ext-comp-def fam-id="FIA_CMCS_EXT" title="Certificate Management over CMS Server">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+	</ext-comp-def>
+	<f-component cc-id="fia_cmcs_ext.1" name="Certificate Management over CMS (CMC) Server" status="sel-based">
 		<depends on-sel="sel-fco-cmcs-ext-1"/>
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 		<f-element>
 			<title>
 				The TSF shall be able to accept and process CMC full requests and 
@@ -7646,7 +7837,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 <!--               -->     
 <!-- FIA_ENR_EXT.1 -->
 <!--               -->     
+<ext-comp-def fam-id="FIA_ENR_EXT" title="Certificate Enrollment">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+	</ext-comp-def>
 <f-component cc-id="fia_enr_ext.1" name="Certificate Enrollment" status="objective">
+	<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 	<f-element>
 		<title>
 			The TSF shall be able to generate a certificate request to an external certification
@@ -7690,8 +7890,17 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- Inclusion criteria not specified -->
 	<!-- QQQQ: in accordance with TLS, X509, FCS_TLSC_EXT.2, FCS_COP.1/HASH  -->
 	<!--               -->     
-    <f-component cc-id="fia_estc_ext.1" name="Enrollment over Secure Transport (EST) Client" status="sel-based">
+    <ext-comp-def fam-id="FIA_ESTC_EXT" title="Enrollment over Secure Transport Client">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+	</ext-comp-def>
+	<f-component cc-id="fia_estc_ext.1" name="Enrollment over Secure Transport (EST) Client" status="sel-based">
 		<depends on-sel="sel-fco-ests-ext-1"/>  <!-- TODO This is probably wrong -->
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 		<f-element>
 			<title>
 				The TSF shall use the Enrollment over Secure Transport (EST) as specified in RFC
@@ -7843,6 +8052,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 <!-- FIA_ESTC_EXT.2 -->
 <!--               -->     
 <f-component cc-id="fia_estc_ext.2" name="EST Cient use of TLS-unique value" status="objective">
+	<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 	<f-element>
 		<title>
 			<!-- Was a similar objective SFR in STIP? This exact language may not be present in X.509 FP. -->
@@ -7902,8 +8117,17 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		is required for initial authentication and SFR selections associated to the support
 		for these optional roles must be claimed.   -->
 	<!--               -->     
-    <f-component cc-id="fia_ests_ext.1" name="Enrollment over Secure Transport (EST) Server" status="sel-based">
+    <ext-comp-def fam-id="FIA_ESTS_EXT" title="Enrollment over Secure Transport Server">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+	</ext-comp-def>
+	<f-component cc-id="fia_ests_ext.1" name="Enrollment over Secure Transport (EST) Server" status="sel-based">
 		<depends on-sel="sel-fco-ests-ext-1"/>
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 		<f-element>
 			<title>
 				The TSF shall use the Enrollment over Secure Transport (EST) protocol as specified
@@ -8035,6 +8259,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 <!-- FIA_ESTS_EXT.2 -->
 <!--               -->     
 <f-component cc-id="fia_ests_ext.2" name="Enrollment over Secure Transport (EST) Server" status="objective">
+	<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 	<f-element>
 		<title>
 			The TSF shall verify tls-unique values offered by EST clients in accordance with
@@ -8095,8 +8325,17 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- Selection-based -->
 	<!-- QQQQ: Included if “local password-based authentication mechanism” in FIA_UAU_EXT.1.1 has been chosen.  -->
 	<!--               -->     
-        <f-component cc-id="fia_pmg_ext.1" name="Password Management" status="sel-based">
+    <ext-comp-def fam-id="FIA_PMG_EXT" title="Password Management">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+	</ext-comp-def>    
+	<f-component cc-id="fia_pmg_ext.1" name="Password Management" status="sel-based">
 		<depends on-sel="sel-pwd-auth"/>
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 		<f-element>
 			<title>
 				The TSF shall provide the following password management capabilities for
@@ -8166,8 +8405,17 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FIA_PSK_EXT.1 -->
 	<!--               -->     
-        <f-component cc-id="fia_psk_ext.1" name="Pre-Shared Key Composition" status="sel-based">
-		<depends on-sel="sel-pre-shared-keys"/>  
+    <ext-comp-def fam-id="FIA_PSK_EXT" title="Pre-Shared Key Composition">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+	</ext-comp-def>    
+	<f-component cc-id="fia_psk_ext.1" name="Pre-Shared Key Composition" status="sel-based">
+		<depends on-sel="sel-pre-shared-keys"/>
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 		<f-element>
 			<title>
 				The TSF shall be able to use pre-shared keys for IPsec.
@@ -8359,7 +8607,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FIA_UAU_EXT.1 -->
 	<!--               -->     
-        <f-component cc-id="fia_uau_ext.1" name="Authentication Mechanism" >
+    <ext-comp-def fam-id="FIA_UAU_EXT" title="Authentication Mechanism">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+	</ext-comp-def>    
+	<f-component cc-id="fia_uau_ext.1" name="Authentication Mechanism" >
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 		<f-element id="fia-uau-ext-1e1">
 			<title>
 				The TSF shall 
@@ -8383,6 +8640,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					FIA_UIA_EXT.1. If other authentication mechanisms are specified, the
 					evaluator shall include those methods in the activities for FIA_UIA_EXT.1.
 				</TSS>
+				<Guidance/>
+				<Tests/>
 			</aactivity>
 		</f-element>
 		<audit-event>
@@ -8394,7 +8653,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FIA_UIA_EXT.1 -->
 	<!--               -->     
-        <f-component cc-id="fia_uia_ext.1" name="User Identification and Authentication" >
+    <ext-comp-def fam-id="FIA_UIA_EXT" title="User Identification and Authentication">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+	</ext-comp-def>    
+	<f-component cc-id="fia_uia_ext.1" name="User Identification and Authentication" >
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 		<f-element>
 			<title>
 				The TSF shall allow the following actions prior to requiring a non-TOE entity to
@@ -8722,7 +8990,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The TSF may rely on the Operational Environment to perform certificate handling
 				functionality in cases where the TOE relies on an environmental component to 
 				provide trusted remote communications. If the ST author selects SSH, the TSF shall
-				be validated against the Functional Package for Secure Shell.<h:br/><h:br/>
+				be validated against the <xref to="pkgSSH"/>.<h:br/><h:br/>
 				Often a connection must be established to perform a verification of the revocation
 				status of a certificate - either to download a CRL or to perform OCSP. The selection
 				is used to describe the behavior in the event that such a connection cannot be
@@ -8882,7 +9150,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FMT_MOF.1(1) -->
 	<!--               -->     
-        <f-component cc-id="fmt_mof.1" iteration="1" name="Management of Security Functions Behavior (Administrator Functions)"
+        <f-component cc-id="fmt_mof.1" iteration="Admin" name="Management of Security Functions Behavior (Administrator Functions)"
 		>
 		<f-element>
 			<title>
@@ -8926,6 +9194,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				If items 5 &amp; 6 are selected for FMT_MOF.1.1(3), items 13 &amp; 14 cannot be selected in FMT_MOF.1.1(1).
 			</note>
 			<aactivity>
+				<TSS/>
+				<Guidance/>
 				<Tests>
 					Testing for this requirement is defined under FMT_MOF.1(4). The only
 					difference between the iterations of FMT_MOF.1 is the specific set of
@@ -8942,7 +9212,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FMT_MOF.1(2) -->
 	<!--               -->     
-        <f-component cc-id="fmt_mof.1" iteration="2" name="Management of Security Functions Behavior (CA/RA Functions)" >
+        <f-component cc-id="fmt_mof.1" iteration="RA" name="Management of Security Functions Behavior (CA/RA Functions)" >
 		<f-element>	     
 			<title>
 				<refinement>Refinement:</refinement>The
@@ -8969,6 +9239,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</selectables></refinement>
 			</title>
 			<aactivity>
+				<TSS/>
+				<Guidance/>
 				<Tests>
 					Testing for this requirement is defined under FMT_MOF.1(4). The only
 					difference between the iterations of FMT_MOF.1 is the specific set of
@@ -8985,7 +9257,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FMT_MOF.1(3) -->
 	<!--               -->     
-        <f-component cc-id="fmt_mof.1" iteration="3" name="Management of Security Functions Behavior (CA Operations Functions)" >
+        <f-component cc-id="fmt_mof.1" iteration="CA" name="Management of Security Functions Behavior (CA Operations Functions)" >
 		<f-element>
 			<title>
 				<refinement>:Refinement:</refinement>
@@ -9015,6 +9287,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				If items 13 &amp; 14 are selected for FMT_MOF.1.1(1), items 5 &amp; 6 cannot be selected in FMT_MOF.1.1(3).
 			</note>
 			<aactivity>
+				<TSS/>
+				<Guidance/>
 				<Tests>
 					Testing for this requirement is defined under FMT_MOF.1(4). The only
 					difference between the iterations of FMT_MOF.1 is the specific set of
@@ -9031,7 +9305,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FMT_MOF.1(4) -->
 	<!--               -->     
-        <f-component cc-id="fmt_mof.1" iteration="4" name="Management of Security Functions Behavior (Admin/Officer Functions)" >
+        <f-component cc-id="fmt_mof.1" iteration="CO" name="Management of Security Functions Behavior (Admin/Officer Functions)" >
 		<f-element>	     
 			<title>
 				<refinement>Refinement:</refinement> The
@@ -9101,7 +9375,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FMT_MOF.1(5) -->
 	<!--               -->     
-        <f-component cc-id="fmt_mof.1" iteration="5" name="Management of Security Functions Behavior (Autitor Functions)" >
+        <f-component cc-id="fmt_mof.1" iteration="Auditor" name="Management of Security Functions Behavior (Autitor Functions)" >
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement>The 
@@ -9122,6 +9396,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				to [<h:i>auditors</h:i>].
 			</title>
 			<aactivity>
+				<TSS/>
+				<Guidance/>
 				<Tests>
 					Testing for this requirement is defined under FMT_MOF.1(4). The only
 					difference between the iterations of FMT_MOF.1 is the specific set of
@@ -9396,8 +9672,17 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- Selection-based -->
 	<!-- QQQQ: Included if “local password-based authentication mechanism” in FIA_UAU_EXT.1.1 has been chosen.  -->
 	<!--               -->     
-        <f-component cc-id="fpt_apw_ext.1" name="Protection of Privileged USer Password" status="sel-based">
+    <ext-comp-def fam-id="FPT_APW_EXT" title="Protection of User Password">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+	</ext-comp-def>    
+	<f-component cc-id="fpt_apw_ext.1" name="Protection of Privileged User Password" status="sel-based">
 		<depends on-sel="sel-pwd-auth"/>
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 		<f-element>
 			<title>The TSF shall store passwords in non-plaintext form.</title>
 		</f-element>
@@ -9427,6 +9712,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					There are no AGD assurance activities for this requirement beyond what is
 					necessary to satisfy the requirements in [CEM].
 				</TSS>
+				<Guidance/>
 				<Tests>
 					The evaluator shall perform the following test:<h:br/><h:br/>
 					<testlist>
@@ -9539,8 +9825,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				mechanism(s) supported by the TOE, and then ensures the detailed requirements
 				in Annex B corresponding to their selection are copied to the ST if not already
 				present.<h:br/><h:br/>
-				If SSH is selected, the TOE is expected to conform to the Functional Package for
-				Secure Shell.
+				If SSH is selected, the TOE is expected to conform to the <xref to="pkgSSH"/>.
 			</note>
 			<aactivity>
 				<TSS>
@@ -9584,7 +9869,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FPT_KST_EXT.1 -->
 	<!--               -->     
-        <f-component cc-id="fpt_kst_ext.1" name="No Plaintext Key Export" >
+    <ext-comp-def fam-id="FPT_KST_EXT" title="No Plaintext Key Export">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+	</ext-comp-def>    
+	<f-component cc-id="fpt_kst_ext.1" name="No Plaintext Key Export" >
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 		<f-element>
 			<title>
 				The TSF and 
@@ -9684,7 +9978,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
     <!-- FPT_NPE_EXT.1 -->
     <!--               -->     
-    <f-component cc-id="fpt_npe_ext.1" name="NPE Contraints" status="optional">
+    <ext-comp-def fam-id="FPT_NPE_EXT" title="NPE Constraints">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+	</ext-comp-def>
+	<f-component cc-id="fpt_npe_ext.1" name="NPE Contraints" status="optional">
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 		<f-element>
 			<title>
 				The TSF shall enforce an Administrator-configurable ruleset that specifies
@@ -9832,7 +10135,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FPT_SKP_EXT.1 -->
 	<!--               -->     
-        <f-component cc-id="fpt_skp_ext.1" name="Protection of Keys" >
+    <ext-comp-def fam-id="FPT_SKP_EXT" title="Protection of Keys">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+	</ext-comp-def>    
+	<f-component cc-id="fpt_skp_ext.1" name="Protection of Keys" >
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 		<f-element>
 			<title>
 				The TSF shall 
@@ -9894,7 +10206,19 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	of split knowledge procedures is performed entirely by the OE, then this SFR is not
 	included in the ST and OE.KEY_ARCHIVAL is included in the ST.   -->
 	<!--               -->     
-    <f-component cc-id="fpt_sky_ext.1" iteration="CA" name="Split Knowledge Procedures (CA Functionality)" status="optional">
+    <ext-comp-def fam-id="FPT_SKY_EXT" title="Split Knowledge Procedures">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+	</ext-comp-def>
+	<!-- invisible non-iterated FPT_SKY_EXT.1 for ECD purposes -->
+	<f-component cc-id="fpt_sky_ext.1" name="Split Knowledge Procedures" status="invisible">
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
+	</f-component>
+	<f-component cc-id="fpt_sky_ext.1" iteration="CA" name="Split Knowledge Procedures (CA Functionality)" status="optional">
 		<f-element>
 			<title>
 				The TSF shall 
@@ -9925,14 +10249,15 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				then this SFR is not included in the ST and OE.KEY_ARCHIVAL is included in the ST.
 			</note>
 			<aactivity>
+				If the TSF implements a key sharing mechanism, this SFR is satisfied through
+				the referenced SFRs in Appendices B.3 and B.8 of the PP.<h:br/><h:br/>
+				Note: FCS_CKM_EXT.1(3)
+				specifies how the key shares generated in accordance with FCS_CKM_EXT.1(4)
+				are used to produce a KEK to protect the keys listed in this requirement. The
+				protection of those keys with the KEK is done by mechanism required in 
+				FCS_CKM_EXT.6. FPT_SKY_EXT.2 specifies access control for the key shares
+				themselves.
 				<TSS>
-					If the TSF implements a key sharing mechanism, this SFR is satisfied through
-					the referenced SFRs in Appendices B.3 and B.8 of the PP. Note: FCS_CKM_EXT.1(3)
-					specifies how the key shares generated in accordance with FCS_CKM_EXT.1(4)
-					are used to produce a KEK to protect the keys listed in this requirement. The
-					protection of those keys with the KEK is done by mechanism required in 
-					FCS_CKM_EXT.6. FPT_SKY_EXT.2 specifies access control for the key shares
-					themselves.<h:br/><h:br/>
 					If the TSF interfaces with a cryptographic module in the Operational
 					Environment to implement a key sharing mechanism, the evaluator shall
 					examine the TSS to ensure that the interface to the OE, and cryptographic
@@ -9940,12 +10265,24 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					If the TSF implements another split knowledge procedure, the evaluator shall
 					examine the TSS to ensure the procedure is adequately described, and assess
 					the procedure to ensure that it is effective in restricting access to the CA signing
-					key and all other selected data and keys. The evaluator shall ensure that the TSS 
+					key and all other selected data and keys. <h:br/><h:br/>
+					If the TSF interfaces with the OE to implement other split knowledge procedures, 
+					the evaluator shall examine the TSS to ensure the procedure is adequately described, 
+					and assess the procedure to ensure that it is effective in restricting access to the 
+					CA signing key and all other selected data and keys.<h:br/><h:br/>
+					The evaluator shall ensure that the TSS 
 					describes the dependence on the OE and identifies any cryptographic providers within 
-					the OE used to support the procedures. The evaluator shall also examine the AGD guidance 
-					to ensure it contains instructions for configuring the OE to restrict access to the CA 
-					signing key and all other selected data and keys.
+					the OE used to support the procedures. 
 				</TSS>
+				<Guidance>
+					The evaluator shall examine the AGD guidance 
+					to ensure it contains instructions for configuring the OE to restrict access to the CA 
+					signing key and all other selected data and keys.<h:p/>
+					If the TSF implements another split knowledge procedure, the evaluator shall review the 
+					AGD to ensure it contains clear instructions to privileged users on how to conduct the 
+					procedures.
+				</Guidance>
+				<Tests/>
 			</aactivity>
 		</f-element>
 		<audit-event/>
@@ -9955,6 +10292,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- FPT_SKY_EXT.1/OTH -->
 	
 	<f-component cc-id="fpt_sky_ext.1" iteration="OTH" name="Split Knowledge Procedures (Other Functionality)" status="optional">
+		
 		<f-element>
 			<title>
 				The TSF shall 
@@ -9962,7 +10300,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>support</selectable>
 					<selectable>interface with the operational environment to support</selectable>
 				</selectables>
-				split knowledge procedures to enforce two-party control for the export of CA signing keys and 
+				split knowledge procedures to enforce two-party control for the export of
 				<selectables>
 					<selectable>no other data</selectable>
 					<selectable>user private keys</selectable>
@@ -10012,11 +10350,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					to ensure that it is effective in restricting access to the selected data and keys.
 				</TSS>
 				<Guidance>
-					The evaluator shall review the AGD to ensure it contains clear instructions to privileged users on 
-					how to conduct the procedures.<h:p/>
-					The evaluator shall also examine the AGD guidance to ensure it contains instructions for configuring 
-					the OE to restrict access to the selected data and keys.
+					The evaluator shall examine the AGD guidance to ensure it contains instructions for configuring 
+					the OE to restrict access to the selected data and keys.<h:p/>
+					If the TSF implements another split knowledge procedure, the evaluator shall review the AGD to 
+					ensure it contains clear instructions to privileged users on how to conduct the procedures.
 				</Guidance>
+				<Tests/>
 			</aactivity>
 		</f-element>
 		<audit-event/>
@@ -10028,6 +10367,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	
 	<f-component cc-id="fpt_sky_ext.2" name="Key Share Access" status="sel-based">
 		<depends on-sel="sel-pwd-auth"/> <!-- TODO: This is wrong -->
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 		<f-element>
 			<title>
 				The 
@@ -10147,7 +10492,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	implemented by the OE, FPT_TST_EXT.1.1 is in accordance with those SFR if the
 	TSF interfaces with the OE to invoke the algorithms indicated.   -->
 	<!--               -->     
-    <f-component cc-id="fpt_tst_ext.1" name="TOE Integrity Test" status="optional">
+    <ext-comp-def fam-id="FPT_TST_EXT" title="TOE Testing">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+	</ext-comp-def>
+	<f-component cc-id="fpt_tst_ext.1" name="TOE Integrity Test" status="optional">
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 		<f-element>
 			<title>
 				The TSF shall apply a 
@@ -10226,6 +10580,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	included in the ST.   -->
 	<!--               -->     
     <f-component cc-id="fpt_tst_ext.2" name="Integrity Test" status="optional">
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 		<f-element>
 			<title>
 				The TSF shall apply a 
@@ -10302,7 +10662,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FPT_TUD_EXT.1 -->
 	<!--               -->     
-    <f-component cc-id="fpt_tud_ext.1" name="Trusted Update" >
+    <ext-comp-def fam-id="FPT_TUD_EXT" title="Trusted Update">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+	</ext-comp-def>
+	<f-component cc-id="fpt_tud_ext.1" name="Trusted Update" >
+		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
 		<f-element>
 			<title>
 				The TSF shall
@@ -10550,8 +10919,17 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		terminate or lock local sessions after a defined time period. If this requirement is
 		not included in the ST, then OE.SESSION_PROTECTION_LOCAL will be included in
 		the ST.            -->     
-    <f-component cc-id="fta_ssl_ext.1" name="TSF-Initiated Session Locking" status="optional">
-		<f-element>
+    <ext-comp-def fam-id="FTA_SSL_EXT" title="TSF-Initiated Session Locking">
+		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+	</ext-comp-def>
+		<f-component cc-id="fta_ssl_ext.1" name="TSF-Initiated Session Locking" status="optional">
+			<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
+            <management>TODO: QQQQQ</management>
+            <audit>TODO: QQQQQ</audit>
+            <dependencies>
+                TODO: QQQQQ
+            </dependencies>
+			<f-element>
 			<title>The TSF shall, for local interactive sessions, 
 				<selectables linebreak="yes">
 					<selectable>lock the session–- disable any activity of the user’s data access/display
@@ -10719,8 +11097,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				entity (it is acceptable to assign “no services” for FTP_ITC.1.3 if the TOE does not
 				initiate any of the covered connections). Note that SSH is not included because
 				this protocol is not used by the TSF to connect to other components. If the ST
-				author selects SSH, the TSF shall be validated against the Functional Package for
-				Secure Shell. <h:br/><h:br/>
+				author selects SSH, the TSF shall be validated against the <xref to="pkgSSH"/>. <h:br/><h:br/>
 				The requirement implies that not only are communications protected when they
 				are initially established, but also on resumption after an interruption. It may be
 				the case that some part of the TOE setup involves manually setting up tunnels to
@@ -11269,7 +11646,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				the TSF operates as specified.</title>
               		<note role="application"> 
 				If the ST author selects SSH, the TSF shall be validated against the
-				Functional Package for Secure Shell</note>
+				<xref to="pkgSSH"/>.</note>
               		<aactivity>
 				The evaluator shall prepare a test plan and report documenting the testing
 				aspects of the system. The test plan covers all of the testing actions contained
@@ -11412,27 +11789,6 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- Appendix D: References --> 
   
     <bibliography>
-      <entry id="bibCC">
-        <tag>CC</tag>
-        <description>Common Criteria for Information Technology Security Evaluation - <h:ul>
-            <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R4.pdf">Part
-                1: Introduction and General Model</h:a>, CCMB-2012-09-001, Version 3.1 Revision 5,
-              April 2017.</h:li>
-            <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R4.pdf">Part
-                2: Security Functional Components</h:a>, CCMB-2012-09-002, Version 3.1 Revision 5,
-              April 2017.</h:li>
-            <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R4.pdf">Part
-                3: Security Assurance Components</h:a>, CCMB-2012-09-003, Version 3.1 Revision 5,
-              April 2017.</h:li>
-          </h:ul></description>
-      </entry>
-      <entry id="bibCEM">
-        <tag>CEM</tag>
-        <description>
-          <h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CEMV3.1R4.pdf">Common
-            Evaluation Methodology for Information Technology Security - Evaluation Methodology</h:a>,
-          CCMB-2012-09-004, Version 3.1, Revision 5, April 2017. </description>
-      </entry>
       <entry id="bibIR7924">
         <tag>IR7924</tag>
         <description>
