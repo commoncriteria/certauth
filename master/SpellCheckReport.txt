@@ -22,7 +22,6 @@ output/certauth-release-linkable.html: AORs
 output/certauth-release-linkable.html: Adleman
 output/certauth-release-linkable.html: Asmuth
 output/certauth-release-linkable.html: AuthenticatedData
-output/certauth-release-linkable.html: Autitor
 output/certauth-release-linkable.html: Blakely
 output/certauth-release-linkable.html: CA1
 output/certauth-release-linkable.html: CBCDecrypt
@@ -81,7 +80,6 @@ output/certauth-release-linkable.html: TDs
 output/certauth-release-linkable.html: TG
 output/certauth-release-linkable.html: TLSauthenticated
 output/certauth-release-linkable.html: TODO
-output/certauth-release-linkable.html: TOEimplemented
 output/certauth-release-linkable.html: TSL
 output/certauth-release-linkable.html: abiulity
 output/certauth-release-linkable.html: abnd
@@ -181,7 +179,6 @@ output/certauth-release.html: AORs
 output/certauth-release.html: Adleman
 output/certauth-release.html: Asmuth
 output/certauth-release.html: AuthenticatedData
-output/certauth-release.html: Autitor
 output/certauth-release.html: Blakely’s
 output/certauth-release.html: CA1
 output/certauth-release.html: CBCDecrypt
@@ -242,7 +239,6 @@ output/certauth-release.html: TDs
 output/certauth-release.html: TG
 output/certauth-release.html: TLSauthenticated
 output/certauth-release.html: TODO
-output/certauth-release.html: TOEimplemented
 output/certauth-release.html: TSL
 output/certauth-release.html: abiulity
 output/certauth-release.html: abnd
@@ -355,7 +351,6 @@ output/certauth.html: AORs
 output/certauth.html: Adleman
 output/certauth.html: Asmuth
 output/certauth.html: AuthenticatedData
-output/certauth.html: Autitor
 output/certauth.html: Blakely’s
 output/certauth.html: CA1
 output/certauth.html: CBCDecrypt
@@ -416,7 +411,6 @@ output/certauth.html: TDs
 output/certauth.html: TG
 output/certauth.html: TLSauthenticated
 output/certauth.html: TODO
-output/certauth.html: TOEimplemented
 output/certauth.html: TSL
 output/certauth.html: abiulity
 output/certauth.html: abnd
