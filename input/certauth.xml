@@ -792,8 +792,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
           <description>The TOE will protect audit records against unauthorized access, modification, or deletion
 		  to ensure accountability of user actions.</description>
             <addressed-by>FAU_ADP_EXT.1</addressed-by><rationale>Requires the TSF to implement or support audit functionality.</rationale>
-            <addressed-by>FAU_STG.1(1)</addressed-by><rationale>Requires the TSF protect audit records from unauthorized deletion.</rationale>
-            <addressed-by>FAU_STG.1(2)</addressed-by><rationale>Requires that audit records with retentaion requirements be retained for the appropriate period.</rationale>
+            <addressed-by>FAU_STG.2/STA</addressed-by><rationale>Requires the TSF protect audit records from unauthorized deletion.</rationale>
+            <addressed-by>FAU_STG.2/EXT</addressed-by><rationale>Requires that audit records with retentaion requirements be retained for the appropriate period.</rationale>
             <addressed-by>FAU_STG_EXT.2</addressed-by><rationale>Specifies rules for the retention of audit data.</rationale>
         </SO>
         <SO name="O.CERTIFICATES">
@@ -823,11 +823,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             	<addressed-by>FDP_CER_EXT.4</addressed-by><rationale>(Optional) Requires that non-v3 certificates have certain characteristics.</rationale>
 		<addressed-by>FDP_CRL_EXT.1</addressed-by><rationale>Specifies contents for certificate revocation lists.</rationale>
 		<addressed-by>FDP_OCSPG_EXT.1</addressed-by><rationale>Specifies the contents of OCSP response messages.</rationale>
-		<addressed-by>FMT_MOF.1(1)</addressed-by><rationale>Defines management functions to be performed exclusively by Administrators.</rationale>
-		<addressed-by>FMT_MOF.1(2)</addressed-by><rationale>Defines management functions to be performed by CA or RA Staff.</rationale>
-		<addressed-by>FMT_MOF.1(3)</addressed-by><rationale>Defines management functions to be performed by CA Staff.</rationale>
-		<addressed-by>FMT_MOF.1(4)</addressed-by><rationale>Defines management functions to be performed by Administrators, Auditr, or CA Staff.</rationale>
-		<addressed-by>FMT_MOF.1(5)</addressed-by><rationale>Defines management functions to be performed by auditors.</rationale>
+		<addressed-by>FMT_MOF.1/Admin</addressed-by><rationale>Defines management functions to be performed exclusively by Administrators.</rationale>
+		<addressed-by>FMT_MOF.1/RA</addressed-by><rationale>Defines management functions to be performed by CA or RA Staff.</rationale>
+		<addressed-by>FMT_MOF.1/CA</addressed-by><rationale>Defines management functions to be performed by CA Staff.</rationale>
+		<addressed-by>FMT_MOF.1/CO</addressed-by><rationale>Defines management functions to be performed by Administrators, Auditr, or CA Staff.</rationale>
+		<addressed-by>FMT_MOF.1/Auditor</addressed-by><rationale>Defines management functions to be performed by auditors.</rationale>
 		<addressed-by>FMT_MTD.1</addressed-by><rationale>Requires that only priviledged users manage TSF data.</rationale>
             	<addressed-by>FPT_NPE_EXT.1</addressed-by><rationale>(Optional) Requires the TSF enforce rules for submitting NPE certificate requests.</rationale>
         </SO>
@@ -862,18 +862,18 @@ And maybe there should be a section of the PP that says all this. So maybe some 
           	<addressed-by>FCS_CDP_EXT.1</addressed-by><rationale>Requires that the TSF implements or invokes cryptographic functionality.</rationale>
 	  	<addressed-by>FCS_CKM.1</addressed-by><rationale>Specifies allowable algorithms for generation of assymmetric keys.</rationale>
 	  	<addressed-by>FCS_CKM.2</addressed-by><rationale>Specifies allowable algorithms for key establishment.</rationale>
-	  	<addressed-by>FCS_CKM_EXT.1(1)</addressed-by><rationale>Specifies requirements for assymmetric key generation.</rationale>
-	  	<addressed-by>FCS_CKM_EXT.1(2)</addressed-by><rationale>Specifies requirements for generation of KEKs.</rationale>
-	  	<addressed-by>FCS_CKM_EXT.1(3)</addressed-by><rationale>Specifies requirements for assymmetric KEKs.</rationale>
-	  	<addressed-by>FCS_CKM_EXT.1(4)</addressed-by><rationale>Specifies requirements for key shares.</rationale>
+	  	<addressed-by>FCS_CKM_EXT.1/DEK</addressed-by><rationale>Specifies requirements for assymmetric key generation.</rationale>
+	  	<addressed-by>FCS_CKM_EXT.1/KEK</addressed-by><rationale>Specifies requirements for generation of KEKs.</rationale>
+	  	<addressed-by>FCS_CKM_EXT.1/KEKT</addressed-by><rationale>Specifies requirements for assymmetric KEKs.</rationale>
+	  	<addressed-by>FCS_CKM_EXT.1/SHARE</addressed-by><rationale>Specifies requirements for key shares.</rationale>
 	  	<addressed-by>FCS_CKM_EXT.4</addressed-by><rationale>Specifies requirements for cryptographic key destruction.</rationale>
 	  	<addressed-by>FCS_CKM_EXT.7</addressed-by><rationale>Requires support for a hardware-protected REK.</rationale>
 	  	<addressed-by>FCS_CKM_EXT.8</addressed-by><rationale>Requires that the TSF provide a traceable hierarchy of keys.</rationale>
-	  	<addressed-by>FCS_COP.1(1)</addressed-by><rationale>Defines permissible AES encryption algorithms and key sizes.</rationale>
-	  	<addressed-by>FCS_COP.1(2)</addressed-by><rationale>Defines permissible cryptographic signature algorithms.</rationale>
-		<addressed-by>FCS_COP.1(3)</addressed-by><rationale>Defines permissible cryptographic hash algorthms and sizes.</rationale>
-		<addressed-by>FCS_COP.1(4)</addressed-by><rationale>Defines permissible keyed-hash message authentication algorithms.</rationale>
-		<addressed-by>FCS_COP.1(5)</addressed-by><rationale>(Optional) Requires the TSF to support password-based key derivation.</rationale>
+	  	<addressed-by>FCS_COP.1/SKC</addressed-by><rationale>Defines permissible AES encryption algorithms and key sizes.</rationale>
+	  	<addressed-by>FCS_COP.1/Sig</addressed-by><rationale>Defines permissible cryptographic signature algorithms.</rationale>
+		<addressed-by>FCS_COP.1/Hash</addressed-by><rationale>Defines permissible cryptographic hash algorthms and sizes.</rationale>
+		<addressed-by>FCS_COP.1/KeyedHash</addressed-by><rationale>Defines permissible keyed-hash message authentication algorithms.</rationale>
+		<addressed-by>FCS_COP.1/PBKDF</addressed-by><rationale>(Optional) Requires the TSF to support password-based key derivation.</rationale>
 		<addressed-by>FCS_HTTPS_EXT.1</addressed-by><rationale>Requires that the TSF implement HTTPS over TLS.</rationale>
 		<addressed-by>FCS_IPSEC_EXT.1</addressed-by><rationale>Specifies requirements for the TSF implementation of IPsec.</rationale>
 		<addressed-by>FCS_RBG_EXT.1</addressed-by><rationale>Requires that the TSF have access to DRBG services.</rationale>
@@ -938,11 +938,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<addressed-by>FIA_UAU.7</addressed-by><rationale>Defines feedback permitted to the user during authentication.</rationale>
 		<addressed-by>FIA_UAU_EXT.1</addressed-by><rationale>Requires that he TSF provide a mechanism for authenticating privileged users.</rationale>
 		<addressed-by>FIA_UIA_EXT.1</addressed-by><rationale>Defines the actions permitted prior to authentication of a user.</rationale>
-		<addressed-by>FMT_MOF.1(1)</addressed-by><rationale>Defines management functions to be performed exclusively by Administrators.</rationale>
-		<addressed-by>FMT_MOF.1(2)</addressed-by><rationale>Defines management functions to be performed by CA or RA Staff.</rationale>
-		<addressed-by>FMT_MOF.1(3)</addressed-by><rationale>Defines management functions to be performed by CA Staff.</rationale>
-		<addressed-by>FMT_MOF.1(4)</addressed-by><rationale>Defines management functions to be performed by Administrators, Auditr, or CA Staff.</rationale>
-		<addressed-by>FMT_MOF.1(5)</addressed-by><rationale>Defines management functions to be performed by auditors.</rationale>
+		<addressed-by>FMT_MOF.1/Admin</addressed-by><rationale>Defines management functions to be performed exclusively by Administrators.</rationale>
+		<addressed-by>FMT_MOF.1/RA</addressed-by><rationale>Defines management functions to be performed by CA or RA Staff.</rationale>
+		<addressed-by>FMT_MOF.1/CA</addressed-by><rationale>Defines management functions to be performed by CA Staff.</rationale>
+		<addressed-by>FMT_MOF.1/CO</addressed-by><rationale>Defines management functions to be performed by Administrators, Auditr, or CA Staff.</rationale>
+		<addressed-by>FMT_MOF.1/Auditor</addressed-by><rationale>Defines management functions to be performed by auditors.</rationale>
 		<addressed-by>FMT_MTD.1</addressed-by><rationale>Requires that only priviledged users manage TSF data.</rationale>
 		<addressed-by>FMT_SMF.1</addressed-by><rationale>Defines management functions implemented or supported by the TOE.</rationale>
 		<addressed-by>FMT_SMR.2</addressed-by><rationale>Defines user roles maintained or supported by the TSF.</rationale>
@@ -963,7 +963,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		administrator to be unaltered and from a trusted source.
 		</description>
 		<addressed-by>FCS_CDP_EXT.1</addressed-by><rationale>Requires that the TSF implements or invokes cryptographic functionality.</rationale>
-		<addressed-by>FCS_COP.1(2)</addressed-by><rationale>Defines permissible cryptographic signature algorithms.</rationale>
+		<addressed-by>FCS_COP.1/Sig</addressed-by><rationale>Defines permissible cryptographic signature algorithms.</rationale>
 		<addressed-by>FIA_X509_EXT.3</addressed-by><rationale>Specifies the contents of Certificate Request Messages generated by the TSF.</rationale>
 		<addressed-by>FPT_TUD_EXT.1</addressed-by><rationale>Requires that the TSF support a secure TOE update process.</rationale>
         </SO>
@@ -1164,7 +1164,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		    
 		Audit records stored within the TOE boundary that are generated due to audit
 		events marked “extended” in tables 4, 5, and 6 that are included in the ST, then
-		FAU_STG.1(2) will be included in the ST by the ST author.<h:br/><h:br/>   
+		FAU_STG.2/EXT will be included in the ST by the ST author.<h:br/><h:br/>   
 
 		If the TSF initiates the storage of the audit data (that is, it generates audit data
 		that will be stored either by the TOE or the OE), then FAU_STG_EXT.1 will be
@@ -1729,7 +1729,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		So, we're going to use the feature feature until it gets fixed. If that is possible.
 	-->
 	<!--               -->     
-        <f-component cc-id="fau_stg.1" name="Selective Audit" iteration="1" status="feat-based">
+        <f-component cc-id="fau_stg.2" name="Protected Audit Data Storage (Standard Audit Data)" iteration="STA" status="feat-based">
           <depends on-feat="auditStorage"/>
 		<f-element>
 			<title>
@@ -1805,18 +1805,18 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		See FAU_STG.1(1)
 	-->
 	<!--               -->     
-        <f-component cc-id="fau_stg.1" name="Selective Audit" iteration="2" status="feat-based">
+        <f-component cc-id="fau_stg.2" name="Protected Audit Data Storage (Extended Audit Data)" iteration="EXT" status="feat-based">
           <depends on-feat="auditStorage"/>
 		<f-element>
 			<title>
-				<refinement>Refinement:</refinement> The TSF shall protect the stored audit records
+				The TSF shall protect the stored audit records
 				<refinement>with extended retention requirements</refinement> in the audit trail
 				from deletion prior to their retention period by an auditor.
 			</title>
 		</f-element>
 		<f-element>
 			<title>
-				<refinement>Refinement:</refinement> The TSF shall be able to [<h:i>prevent</h:i>] 
+				The TSF shall be able to [<h:i>prevent</h:i>] 
 				modifications to the stored audit records <refinement>with extended retention
 				requirements</refinement> in the audit trail.
 			</title>
@@ -1854,7 +1854,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					necessary to satisfy the requirements in [CEM].
 				</Guidance>
 				<Tests>
-					The testing may be accomplished with the testing performed by FAU_STG.1(1).<h:br/><h:br/>
+					The testing may be accomplished with the testing performed by FAU_STG.2/STA.<h:br/><h:br/>
 					The evaluator shall perform the following tests for each role other than the
 					Auditor role:
 					<testlist>
@@ -1885,11 +1885,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FAU_STG.4     -->
 	<!--               -->     
-        <f-component cc-id="fau_stg.4" name="Prevention of Audit Data Loss">
+        <f-component cc-id="fau_stg.5" name="Prevention of Audit Data Loss">
         <f-element>
-		<title><h:b>Refinement:</h:b>The TSF shall [prevent audited events, except those taken
-			by the <refinement>Auditor]</refinement> and <assignable>other actions to be taken in case of audit storage
-			failure</assignable> if the audit trail <h:b>cannot be written to.</h:b>
+		<title>The TSF shall [prevent audited events, except those taken
+			by the <refinement>Auditor</refinement>, <assignable>other actions to be taken in case of audit storage
+			failure and conditions for the actions</assignable>] if the audit trail <h:b>cannot be written to</h:b>.
                 </title>
 		<note role="application">
 			This requirement applies to the TOE regardless of whether the audit trail is stored
@@ -1975,25 +1975,17 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		I don't understand why this is a selection-based requirement. I am making it mandatory for now.
 	-->
 	<!--               -->     
-		<ext-comp-def fam-id="FAU_STG_EXT" title="External Audit Trail Storage">
-			<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
-		 </ext-comp-def>
-        <f-component cc-id="fau_stg_ext.1" name="External Audit Trail Storage">
-<!--		<depends on-sel="XXXXXXXXXXXXXXXX"/></selection-depends>  -->
-			<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-			<management>TODO: QQQQQ</management>
-			<audit>TODO: QQQQQ</audit>
-			<dependencies>
-				TODO: QQQQQ
-			</dependencies>
-			<f-element id="fau-stg-ext-1e1">
+        <f-component cc-id="fau_stg.1" name="Audit Data Storage Location">
+			<f-element id="fau-stg-1e1">
 			<title>
-				The TSF shall maintain availability and integrity of audit data by storing it
+				The TSF shall be able to store generated audit data on the
 				<selectables>
-					<selectable id="loc-TOE">locally on the TOE</selectable>
+					<selectable id="loc-TOE">TOE itself</selectable>
+					<selectable id="tchannel"> transmit the generated audit data 
+						to an external IT entity using a trusted channel according to
+						FTP_ITC</selectable>
 					<selectable>locally on the TOE platform</selectable>
-					<selectable id="tchannel">on an external IT entity using a trusted channel protocol
-						defined in FTP_ITC.1</selectable>
+					
 				</selectables>.
 			</title>
 			<note role="application">
@@ -2085,7 +2077,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		OE.AUDIT_RETENTION is included in the ST." 
 	-->
 	<!--               -->     
-        <f-component cc-id="fau_stg_ext.2" name="Audit Data Retention" status="sel-based">
+        <f-component cc-id="fau_stg_ext.1" name="Audit Data Retention" status="sel-based">
 		<depends on-sel="loc-TOE"/>
 		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
 		<management>TODO: QQQQQ</management>
@@ -2163,7 +2155,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<f-element>
                	<title>The TSF shall provide proof of origin for certificates it issues in accordance with
 			the digital signature requirements using a mechanism in accordance with RFC
-			5280 and FCS_COP.1(2).
+			5280 and FCS_COP.1/Sig.
                 </title>
 		</f-element>
 		<f-element>
@@ -2172,7 +2164,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<selectables><selectable>CRLs (RFC 5280)</selectable>
 				<selectable>OCSP (RFC 6960)</selectable>
 				<selectable><assignable>other OCSP standards</assignable></selectable>
-			</selectables> and FCS_COP.1(2).
+			</selectables> and FCS_COP.1/Sig.
                 </title>
 		</f-element>
 		<f-element>
@@ -2216,11 +2208,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			one of the protocols would be in compliance with FCO_NRO_EXT.2.5. Manual
 			process to support revocation requests and responses are claimed and described
 			if EST does not support full CMC requests and CMC is not claimed.<h:br/><h:br/>
-			This SFR references FCS_COP.1(2) which, according to FCS_CDP_EXT.1, may be
-			implemented by the TOE or the OE. If FCS_CDP_EXT.1 indicates that FCS_COP.1(2)
+			This SFR references FCS_COP.1/Sig which, according to FCS_CDP_EXT.1, may be
+			implemented by the TOE or the OE. If FCS_CDP_EXT.1 indicates that FCS_COP.1/Sig
 			is implemented by the OE, then FCO_NRO_EXT.2.1 and FCO_NRO_EXT.2.2 are in
-			accordance with FCS_COP.1(2) if they interface with the OE to invoke the
-			signature algorithms indicated in FCS_COP.1(2). 
+			accordance with FCS_COP.1/Sig if they interface with the OE to invoke the
+			signature algorithms indicated in FCS_COP.1/Sig. 
 		</note>
 		<aactivity>
 			<TSS>
@@ -2241,7 +2233,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<Guidance>
 				If configurable, evaluator shall examine the operational guidance to ensure it
 				defines how to configure the applicable algorithms used for providing and
-				verifying proof of origin as defined in FCS_COP.1(2).<h:br/><h:br/>
+				verifying proof of origin as defined in FCS_COP.1/Sig.<h:br/><h:br/>
 				For TOEs that only support EST, and do not support revocation requests under
 				either CMC or EST, the evaluator shall examine the guidance to ensure it
 				describes support for privileged user functionality as part of this mechanism.<h:br/><h:br/>
@@ -2346,7 +2338,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<Guidance>
 				If configurable, evaluator shall examine the operational guidance to ensure it
 				defines how to configure the applicable algorithms used for providing proof of
-				origin as defined in FCS_COP.1(2).
+				origin as defined in FCS_COP.1/Sig.
 			</Guidance>
 			<Tests>
 				The evaluator shall perform the following test for each selection:
@@ -2405,19 +2397,19 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		    <selectables>
 			    <selectable id="crypto-sel-ckm-1">FCS_CKM.1</selectable>
 			    <selectable id="crypto-sel-ckm-2">FCS_CKM.2</selectable>
-			    <selectable id="crypto-sel-ckm-ext-1i1">FCS_CKM_EXT.1(1)</selectable>
-                            <selectable id="crypto-sel-ckm-ext-1i2">FCS_CKM_EXT.1(2)</selectable>  <!-- Is this here? -->
-			    <selectable id="crypto-sel-ckm-ext-1i3">FCS_CKM_EXT.1(3)</selectable>
-			    <selectable id="crypto-sel-ckm-ext-1i4">FCS_CKM_EXT.1(4)</selectable>
+			    <selectable id="crypto-sel-ckm-ext-1i1">FCS_CKM_EXT.1/DEK</selectable>
+                <selectable id="crypto-sel-ckm-ext-1i2">FCS_CKM_EXT.1/KEK</selectable>  <!-- Is this here? -->
+			    <selectable id="crypto-sel-ckm-ext-1i3">FCS_CKM_EXT.1/KEKT</selectable>
+			    <selectable id="crypto-sel-ckm-ext-1i4">FCS_CKM_EXT.1/SHARE</selectable>
 			    <selectable id="crypto-sel-ckm-ext-4">FCS_CKM_EXT.4</selectable>
 			    <selectable id="crypto-sel-ckm-ext-5">FCS_CKM_EXT.5</selectable>
 			    <selectable id="crypto-sel-ckm-ext-6">FCS_CKM_EXT.6</selectable>
 		            <selectable id="crypto-sel-ckm-ext-7">FCS_CKM_EXT.7</selectable>
 			    <selectable id="crypto-sel-ckm-ext-8">FCS_CKM_EXT.8</selectable>
-			    <selectable id="crypto-sel-cop-1i1">FCS_COP.1(1)</selectable>
-			    <selectable id="crypto-sel-cop-1i2">FCS_COP.1(2)</selectable>
-			    <selectable id="crypto-sel-cop-1i3">FCS_COP.1(3)</selectable>
-			    <selectable id="crypto-sel-cop-1i4">FCS_COP.1(4)</selectable>
+			    <selectable id="crypto-sel-cop-1i1">FCS_COP.1/SKC</selectable>
+			    <selectable id="crypto-sel-cop-1i2">FCS_COP.1/Sig</selectable>
+			    <selectable id="crypto-sel-cop-1i3">FCS_COP.1/Hash</selectable>
+			    <selectable id="crypto-sel-cop-1i4">FCS_COP.1/KeyedHash</selectable>
 			    <selectable id="crypto-sel-rbg-ext-1">FCS_RBG_EXT.1</selectable>
 			    <selectable id="crypto-sel-ksh-ext-1">FCS_KSH_EXT.1</selectable>
 		    </selectables>
@@ -2855,7 +2847,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>concatenating the keys and using a key derivation
 						function (KDF) in accordance with SP 800-108</selectable>
 					<selectable>encrypting one key with another in accordance with
-						FCS_COP.1(1) and using modes 
+						FCS_COP.1/SKC and using modes 
 						<selectables>
 							<selectable>AES-CCM</selectable>
 							<selectable>AES-GCM</selectable>
@@ -2869,7 +2861,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <note role="application">
 		Data encryption keys (DEKs) are used to protect data at rest (e.g., subscriber PII
 		of security critical parameters) that needs to be encrypted. These are
-		distinguished from KEKs (whose generation is described in FCS_CKM_EXT.1(2))
+		distinguished from KEKs (whose generation is described in FCS_CKM_EXT.1/KEK)
 		that are used to protect other keys – DEKs, other KEKs, and other types of keys
 		stored by the user or applications.<h:br/><h:br/>
 		The first selection must match the selection for this component in FCS_CDP_EXT.1
@@ -2886,10 +2878,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		to combine KEKs to produce the DEK, the third item is selected and the method
 		used to produce the DEK from the KEKs is chosen in the fourth selection.
 		Additionally, if thisthird item is selected (TSF combining KEKs to produce the DEK),
-		then FCS_CKM_EXT.1(2) (to specify how the KEKs used are generated) and
+		then FCS_CKM_EXT.1/KEK (to specify how the KEKs used are generated) and
 		FCS_CKM_EXT.7 (to specify how the REK that anchors the KEKs is generated and
 		protected) in Annex B.8 must be included. Finally, if the third item in the fourth
-		selection statement is chosen (key wrap), then FCS_COP.1(1) will be included in
+		selection statement is chosen (key wrap), then FCS_COP.1/SKC will be included in
 		the ST and the appropriate key wrap method will be chosen in the fifth selection.
 	  </note>
           <aactivity>
@@ -2954,7 +2946,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 								<selectable>using an XOR operation</selectable>
 								<selectable>concatenating the keys and using a key derivation function (KDF) in
 									accordance with SP 800-108</selectable>
-								<selectable>encrypting one key with another in accordance with FCS_COP.1(1) and
+								<selectable>encrypting one key with another in accordance with FCS_COP.1/SKC and
 									using modes 
 									<selectables>
 										<selectable>AES-CCM</selectable>
@@ -2982,7 +2974,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			ensure the consistency of the entire key hierarchy.<h:br/><h:br/>
 			This requirement addresses the generation of KEKs used to protect other keys
 			but not used to archive those keys; key archival is addressed by
-			FCS_CKM_EXT.1(3), FCS_CKM_EXT.1(4), and FCS_CKM_EXT.6.<h:br/><h:br/>
+			FCS_CKM_EXT.1/KEKT, FCS_CKM_EXT.1/SHARE, and FCS_CKM_EXT.6.<h:br/><h:br/>
 			The ST author can select asymmetric or symmetric KEKs (or both). If asymmetric
 			KEKs are selected, the security strength corresponding to the modulus (per
 			FCS_CKM.1 will be in assigned in the requirement in the ST. If symmetric
@@ -3012,7 +3004,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			uses a method to combine KEKs to produce a KEK, the third item is selected and
 			the method used to produce the KEK from the other KEKs is chosen in the fifth
 			selection. If the third item in the fifth selection statement is chosen (key wrap),
-			then FCS_COP.1(1) will be included in the ST and the appropriate key wrap
+			then FCS_COP.1/SKC will be included in the ST and the appropriate key wrap
 			method will be chosen in the sixth selection.
 		</note>
 		<aactivity>
@@ -3100,7 +3092,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			“key sharing mechanisms in accordance with…” is used. This requirement
 			specifies how the KEK that will be used to protect the keys listed in FPT_SKY_EXT.1/CA or FPT_SKY_EXT.1/OTH
 			is generated from two or more shares. The generation of the shares themselves
-			is specified in FCS_CKM_EXT.1(4), which the ST author includes whenever this SFR
+			is specified in FCS_CKM_EXT.1/SHARE, which the ST author includes whenever this SFR
 			is included in the ST. The key that is generated by this requirement is used by the
 			mechanisms specified in FCS_CKM_EXT.6 to protect the keys specified in
 			FPT_SKY_EXT.1/CA or FPT_SKY_EXT.1/OTH.<h:br/><h:br/>
@@ -3134,7 +3126,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- Selection-based: Apparently included if FCS_CKM_EXT.1(3)  -->
     <!-- QQQQ: Shuld be renamed FCS_CKM_EXT.1/SHARES  -->
     <!--                  -->     
-    <f-component cc-id="fcs_ckm_ext.1" iteration="SHARES" name="Symmetric Key Generation (Key Shares)" status="sel-based">
+    <f-component cc-id="fcs_ckm_ext.1" iteration="SHARE" name="Symmetric Key Generation (Key Shares)" status="sel-based">
 	<depends on-sel="crypto-sel-ckm-1i4"/>
 	<f-element>
 		<title>The TSF shall be able to
@@ -3142,8 +3134,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<selectable>generate</selectable>
 				<selectable>invoke interfaces provided by the Operational Environment to generate</selectable>
 			</selectables> key shares of strength [<h:i>greater than or
-			equal to the security strength of the KEK defined in FCS_CKM_EXT.1(3)</h:i>]
-			for the key sharing mechanism indicated in FCS_CKM_EXT.1(3).
+			equal to the security strength of the KEK defined in FCS_CKM_EXT.1/KEKT</h:i>]
+			for the key sharing mechanism indicated in FCS_CKM_EXT.1/KEKT.
 		</title>
 		<aactivity>
 			<TSS>
@@ -3151,7 +3143,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				described. If the TSF generates the key shares (the first item in the selection is
 				chosen), the evaluator shall review the TSS to confirm that the generated 
 				shares are greater than or equal to the security strength of the KEK defined in
-				FCS_CKM_EXT.1(3).
+				FCS_CKM_EXT.1/KEKT.
 			</TSS>
 			<Guidance/>
 			<Tests/>
@@ -3165,24 +3157,41 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- Selection-based  -->
     <!-- QQQQ: What are the inclusion criteria?  -->
     <!--                  -->     
-    <f-component cc-id="fcs_ckm_ext.4" name="Cryptographic Key Destruction" status="sel-based">
+    <f-component cc-id="fcs_ckm.6" name="Timing and Event of Cryptographic Key Destruction" status="sel-based">
 	<depends on-sel="crypto-sel-ckm-ext-4"/>
-	<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-	<management>TODO: QQQQQ</management>
-	<audit>TODO: QQQQQ</audit>
-	<dependencies>
-		TODO: QQQQQ
-	</dependencies>
 	<f-element>
 		<title>
-			The TSF shall 
+			The TSF shall <h:b>
 			<selectables>
 				<selectable>destroy</selectable>
 				<selectable>invoke interfaces provided by the Operational Environment to destroy</selectable>
-			</selectables>
-			all cryptographic keys and critical security parameters
-			which are not permanently protected from export by hardware when no longer
-			required, in accordance with the specified cryptographic key destruction method
+			</selectables></h:b> [<h:i>all plaintext keying material and cryptographic security
+				parameters</h:i>] when [<h:i>no longer needed</h:i>]. 
+		</title>	
+		<note role="application">
+			The interface referenced in the requirement could take different forms, the most
+			likely of which is an application programming interface to an OS kernel. There may
+			be various levels of abstraction visible. For instance, in a given implementation
+			the application may have access to the file system details and may be able to
+			logically address specific memory locations. In another implementation, the
+			application may simply have a handle to a resource and can only ask the platform
+			to delete the resource. The level of detail to which the TOE has access will be
+			reflected in the TSS section of the ST.<h:br/><h:br/>
+			Several selections allow assignment of a ‘value that does not contain any CSP’.
+			This means that the TOE uses some other specified data not drawn from an RBG
+			meeting FCS_RBG_EXT requirements, and not being any of the particular values
+			listed as other selection options. The point of the phrase ‘does not contain any
+			CSP’ is to ensure that the overwritten data is carefully selected, and not taken
+			from a general ‘pool’ that might contain current or residual data that itself
+			requires confidentiality protection.<h:br/><h:br/>
+			Key destruction does not apply to the public component of asymmetric key pairs.
+	 	</note>
+	</f-element>
+	<f-element>
+		<title>
+			The TSF shall destroy cryptographic keys <h:b>and critical security parameters
+			which are not permanently protected from export by hardware</h:b> specified by FCS_CKM.6.1 
+			in accordance with a specified cryptographic key destruction method
 			<selectables linebreak="yes">
 				<selectable>by clearing the KEK encrypting the target key</selectable>
 				<selectable>for volatile memory, the destruction shall be executed by a
@@ -3221,36 +3230,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							represents the key</selectable>
 					</selectables>
 				</selectable>
-			</selectables>
+			</selectables> that meets the following: [<h:i>no standard</h:i>].
 		</title>
-	</f-element>
-	<f-element>
-		<title>
-			The TSF shall 
-			<selectables>
-				<selectable>destroy</selectable>
-				<selectable>invoke interfaces provided by the Operational Environment to destroy</selectable>
-			</selectables> all plaintext keying material cryptographic security
-				parameters when no longer needed. 
-		</title>	
-		<note role="application">
-			The interface referenced in the requirement could take different forms, the most
-			likely of which is an application programming interface to an OS kernel. There may
-			be various levels of abstraction visible. For instance, in a given implementation
-			the application may have access to the file system details and may be able to
-			logically address specific memory locations. In another implementation, the
-			application may simply have a handle to a resource and can only ask the platform
-			to delete the resource. The level of detail to which the TOE has access will be
-			reflected in the TSS section of the ST.<h:br/><h:br/>
-			Several selections allow assignment of a ‘value that does not contain any CSP’.
-			This means that the TOE uses some other specified data not drawn from an RBG
-			meeting FCS_RBG_EXT requirements, and not being any of the particular values
-			listed as other selection options. The point of the phrase ‘does not contain any
-			CSP’ is to ensure that the overwritten data is carefully selected, and not taken
-			from a general ‘pool’ that might contain current or residual data that itself
-			requires confidentiality protection.<h:br/><h:br/>
-			Key destruction does not apply to the public component of asymmetric key pairs.<h:br/><h:br/>
-	 	</note>
+	
 		<aactivity>
 			<TSS>
 				The evaluator shall examine the TSS to ensure it describes each of the secret
@@ -3353,8 +3335,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</selectables> public keys used to meet CA requirements against undetected
 			modification through the use of
 			<selectables>
-				<selectable>digital signatures (in accordance with FCS_COP.1(2))</selectable>
-				<selectable>keyed hashes (in accordance with FCS_COP.1(4))</selectable>
+				<selectable>digital signatures (in accordance with FCS_COP.1/Sig)</selectable>
+				<selectable>keyed hashes (in accordance with FCS_COP.1/KeyedHash)</selectable>
 			</selectables>.
 		</title>
 	</f-element>
@@ -3483,10 +3465,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<selectable>invoke interfaces in the Operational Environment to encrypt</selectable>
 			</selectables> the keys specified in FCS_CKM_EXT.6.1 in accordance with 
 			<selectables>
-				<selectable>FCS_COP.1(1)</selectable>
+				<selectable>FCS_COP.1/SKC</selectable>
 				<selectable>FCS_CKM.1</selectable>
 			</selectables> using the KEK generated in accordance with
-			FCS_CKM_EXT.1(3).
+			FCS_CKM_EXT.1/KEKT.
 		</title>
 	</f-element>
 	<f-element>
@@ -3497,16 +3479,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<selectable>invoke interfaces in the Operational Environment to decrypt</selectable>
 			</selectables> the keys specified in FCS_CKM_EXT.6.1 in accordance with 
 			<selectables>
-				<selectable>FCS_COP.1(1)</selectable>
+				<selectable>FCS_COP.1/SKC</selectable>
 				<selectable>FCS_CKM.1</selectable>
-			</selectables> using the KEK generated in accordance with FCS_CKM_EXT.1(3).
+			</selectables> using the KEK generated in accordance with FCS_CKM_EXT.1/KEKT.
 		</title>
 		<note role="application">
 			This requirement is required when ‘key sharing mechanisms…’ is selected in
 			FPT_SKY_EXT.1/CA or FPT_SKY_EXT.1/OTH, and ensures that the archival of any keys required for continuity
 			of operations (e.g., signature keys used to sign CRLs) from the TOE involves
 			encryption of those keys using KEKs that were derived using key sharing
-			mechanisms as specified in FCS_CKM_EXT.1(3). 
+			mechanisms as specified in FCS_CKM_EXT.1/KEKT. 
 		</note>
 		<aactivity>
 			<TSS>
@@ -3573,7 +3555,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			This SFR must be included in the ST if..TODO.<h:br/><h:br/>
 			Either asymmetric or symmetric keys are allowed; the ST author makes the
 			selection appropriate for the device. Symmetric keys must be of size 128 or 256
-			bits in order to correspond with FCS_COP.1(1). Asymmetric keys may be of any
+			bits in order to correspond with FCS_COP.1/SKC. Asymmetric keys may be of any
 			strength corresponding to FCS_CKM.1.<h:br/><h:br/>
 			The lack of a public/documented API for importing or exporting, when a
 			private/undocumented API exists, is not sufficient to meet this requirement.<h:br/><h:br/>
@@ -3585,7 +3567,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			hardware component in the Operational Environment stores the REK, the RBG
 			may be resident in the component where the REK is stored, or in a separate
 			component. The assurance activities for these cases differ.<h:br/><h:br/>
-			This SFR is included when FCS_CKM_EXT.1(2) is included and selects generation of
+			This SFR is included when FCS_CKM_EXT.1/KEK is included and selects generation of
 			symmetric KEKs that are not generated by an RBG. Additionally, FCS_CKM_EXT.8
 			must also be included when this SFR is included to ensure the consistency of the
 			entire key hierarchy. 
@@ -3652,7 +3634,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</selectables> bits in accordance with the sensitivity of the data encrypted.
 		</title>
 		<note role="application">
-			This SFR is included whenever both FCS_CKM_EXT.1(2) and FCS_CKM_EXT.7 are
+			This SFR is included whenever both FCS_CKM_EXT.1/KEK and FCS_CKM_EXT.7 are
 			included in the ST. TODO TODO !!!!<h:br/><h:br/>
 			KEKs may form key hierarchies, each rooted in a root encryption key (REK); a REK
 			is considered a KEK. DEKs are used to protect data (e.g., subscriber PII). KEKs are
@@ -4306,7 +4288,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			cryptographic protocols used by the TOE (e.g., trusted channel). The hash
 			selection must support the message digest size selection. The hash selection
 			should be consistent with the overall strength of the algorithm used for
-			FCS_COP.1(1).<h:br/><h:br/>
+			FCS_COP.1/SKC.<h:br/><h:br/>
 		</note>
 		<aactivity>
 			<TSS>
@@ -4383,7 +4365,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				Environment for the functionality.<h:br/><h:br/>
 				The ST author selects the appropriate hash algorithm used in the second selection.<h:br/><h:br/>
 				The cryptographic key sizes in the third selection should be made to correspond to
-				the KEK key sizes selected in FCS_CKM_EXT.1(3). A future requirement will add a
+				the KEK key sizes selected in FCS_CKM_EXT.1/KEKT. A future requirement will add a
 				refinement to require a PBKDF iteration count of at least 1000.<h:br/><h:br/>
 				This password must be conditioned into a string of bits that forms the submask to
 				be used as input into the KEK. Conditioning is be performed using one of the
@@ -4676,7 +4658,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<TSS>
 				The evaluator shall examine the TSS to verify that the algorithms AES-CBC-128
 				and AES-CBC-256 are implemented. If the ST author has selected either AESGCM-128 or AES-GCM-256 in the requirement, then the evaluator verifies the
-				TSS describes these as well. In addition, the evaluator ensures that the SHAbased HMAC algorithm conforms to the algorithms specified in FCS_COP.1(4)
+				TSS describes these as well. In addition, the evaluator ensures that the SHAbased HMAC algorithm conforms to the algorithms specified in FCS_COP.1/KeyedHash
 				Cryptographic Operations (for keyed-hash message authentication).
 			</TSS>
 			<Guidance>
@@ -5171,7 +5153,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<TSS>
 				The evaluator ensures that the TSS identifies RSA and/or ECDSA as being used
 				to perform peer authentication. The description shall be consistent with the
-				algorithms as specified in FCS_COP.1(2) Cryptographic Operations (for
+				algorithms as specified in FCS_COP.1/Sig Cryptographic Operations (for
 				cryptographic signature).<h:br/><h:br/>
 				If pre-shared keys are chosen in the selection, the evaluator shall check to
 				ensure that the TSS describes how pre-shared keys are established and used in
@@ -5383,7 +5365,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<aactivity>
 				<TSS>
 					The evaluator shall examine the TSS to ensure it describes the restrictions
-					placed on key shares generated in accordance with FCS_CKM_EXT.1(4) in
+					placed on key shares generated in accordance with FCS_CKM_EXT.1/SHARE in
 					accordance with this requirement.
 				</TSS>
 				<Guidance>
@@ -5430,36 +5412,27 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- QQQQ: The ST author must also ensure that any underlying functions are included in the
 	baseline requirements for the TOE.   -->      
     <!--                  -->    
-	<ext-comp-def fam-id="FCS_RBG_EXT" title="Random Bit Generation">
-		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
-		</ext-comp-def> 	      
-<f-component name="Cryptographic Random Bit Generation" cc-id="fcs_rbg_ext.1" status="sel-based">
+	      
+<f-component name="Cryptographic Random Bit Generation" cc-id="fcs_rbg.1" status="sel-based">
 	<depends on-sel="crypto-sel-rbg-ext-1"/>
-	<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-            <management>TODO: QQQQQ</management>
-            <audit>TODO: QQQQQ</audit>
-            <dependencies>
-                TODO: QQQQQ
-            </dependencies>
 	<f-element>
 		<title>
-			The TSF shall 
+			The TSF shall <h:b>
 			<selectables>
 				<selectable>perform</selectable>
 				<selectable>invoke interfaces in the operational environment to perform</selectable>
-			</selectables> all deterministic random bit generation (RBG) services in accordance
-			with NIST Special Publication 800-90A using 
+			</selectables></h:b>deterministic random bit generation services using 
 			<selectables>
 				<selectable>Hash_DRBG (any)</selectable>
 				<selectable>HMAC_DRBG (any)</selectable>
 				<selectable>CTR_DRBG (AES)</selectable>
-			</selectables>.
+			</selectables>
+			in accordance with [<h:i>NIST Special Publication 800-90A</h:i> after initialization with a seed.
 		</title>
 	</f-element>
 	<f-element>
 		<title>
-			The deterministic RBG shall be seeded by an entropy source that accumulates
-			entropy from
+			The TSF shall use a
 			<selectables>
 				<selectable>a software-based noise source</selectable>
 				<selectable>TSF hardware-based noise source</selectable>
@@ -5468,9 +5441,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<selectables>
 				<selectable>128 bits</selectable>
 				<selectable>256 bits</selectable>
-			</selectables> of entropy at least equal to the greatest security
-			strength (according to NIST SP 800-57) of the keys and authorization factors that
-			it will generate.
+			</selectables> for initialized seeding.
 		</title>
 		<note role="application">
 			SP 800-90A contains three different methods of generating random numbers;
@@ -5488,7 +5459,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			SP 800-57A. For example, if the implementation includes 2048-bit RSA (security
 			strength of 112 bits), AES 128 (security strength 128 bits), and HMAC-SHA-256
 			(security strength 256 bits), then the ST author would select 256 bits.<h:br/><h:br/>
-			The ST author may select either software or hardware noise sources for a TOEimplemented noise source, or an Operational Environment noise source. A
+			The ST author may select either software or hardware noise sources for a TOE-implemented noise source, or an Operational Environment noise source. A
 			hardware noise source is a component that produces data that cannot be
 			explained by a deterministic rule, due to its physical nature. In other words, a
 			hardware based noise source generates sequences of random numbers from a
@@ -5610,8 +5581,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<selectable>encrypted within a hardware rooted key hierarchy established in
 				accordance with
 				<selectables>
-					<selectable>FCS_CKM_EXT.1(2)</selectable>
-					<selectable>FCS_CKM_EXT.1(3)</selectable>
+					<selectable>FCS_CKM_EXT.1/KEK</selectable>
+					<selectable>FCS_CKM_EXT.1/KEKT</selectable>
 				</selectables>,
 				FCS_CKM_EXT.7, and FCS_CKM_EXT.8
 				</selectable>
@@ -5911,7 +5882,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			If ciphersuites with elliptic curves were selected in FCS_TLSC_EXT.1.1, this
 			component is required.<h:br/><h:br/>
 			This requirement limits the elliptic curves allowed for authentication and key
-			agreement to the NIST curves from FCS_COP.1(2) and FCS_CKM.1 and FCS_CKM.2.
+			agreement to the NIST curves from FCS_COP.1/Sig and FCS_CKM.1 and FCS_CKM.2.
 			This extension is required for clients supporting Elliptic Curve ciphersuites.
 		</note>
 		<aactivity>
@@ -6166,7 +6137,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<note role="application">
 			If ciphersuites with elliptic curves were selected in FCS_TLSS_EXT.1.1, this
 			component is required. This requirement limits the elliptic curves allowed for
-			authentication and key agreement to the NIST curves from FCS_COP.1(2),
+			authentication and key agreement to the NIST curves from FCS_COP.1/Sig,
 			FCS_CKM.1, and FCS_CKM.2. This extension is required for clients supporting
 			Elliptic Curve ciphersuites.
 		</note>
@@ -6242,7 +6213,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						in notBefore.</h:li>
 					<h:li>The issuer field is not empty.</h:li>
 					<h:li>The signature field and the algorithm in the subjectPublicKeyInfo field shall
-						contain the OID for a signature algorithm specified in FCS_COP.1(2).</h:li>
+						contain the OID for a signature algorithm specified in FCS_COP.1/Sig.</h:li>
 					<h:li>The following extensions are supported:
 						<h:ol type="a">
 							<h:li>subjectKeyIdentifier</h:li>
@@ -6556,7 +6527,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<h:li>keyUsage;</h:li>
 					<h:li>Unique identifier of the certificate</h:li>
 					<h:li>Validity period</h:li>
-					<h:li>Signature field in accordance with FCS_COP.1(2)</h:li>
+					<h:li>Signature field in accordance with FCS_COP.1/Sig</h:li>
 				</h:ul>
 			</title>
 			<note role="application">
@@ -6630,7 +6601,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						distinguished names), then the CRL shall contain a critical issuerAltName
 						extension.</h:li>
 					<h:li>The signature and signatureAlgorithm fields shall contain the OID for a digital
-						signature algorithm in accordance with FCS_COP.1(2).</h:li>
+						signature algorithm in accordance with FCS_COP.1/Sig.</h:li>
 					<h:li>The thisUpdate field shall indicate the issue date of the CRL.</h:li>
 					<h:li>The time specified in the nextUpdate field (if populated) shall not precede the
 						time specified in the thisUpdate field.</h:li>
@@ -6913,7 +6884,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<h:li>The version field shall indicate a current version.</h:li>
 					<h:li>The signatureAlgorithm field shall contain the object 
 						identifier (OID) for a digital signature algorithm in accordance with 
-						FCS_COP.1(2).</h:li>
+						FCS_COP.1/Sig.</h:li>
 					<h:li>The thisUpdate field shall indicate the time at which the status being
 							indicated is known to be correct.</h:li>
 					<h:li>The producedAt field shall indicate the time at which the OCSP responder
@@ -7059,7 +7030,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>copies of legal documents</selectable>
 					<selectable>captured biometrics</selectable>
 					<selectable><assignable>other personally identifiable information</assignable></selectable>
-				</selectables> through encryption in accordance with FCS_COP.1(1) using a DEK.
+				</selectables> through encryption in accordance with FCS_COP.1/SKC using a DEK.
 			</title>
 		</f-element>
 		<f-element>
@@ -7093,7 +7064,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				In the first selection for each element, the ST author chooses whether the TOE
 				performs the protection/destruction, or whether it invokes interfaces in the
 				Operational Environment for the functionality.<h:br/><h:br/>
-				The DEK referenced in FDP_SDP_EXT.1.1 is generated by FCS_CKM_EXT.1(1).<h:br/><h:br/>
+				The DEK referenced in FDP_SDP_EXT.1.1 is generated by FCS_CKM_EXT.1/DEK.<h:br/><h:br/>
 				In the second selection in FDP_SDP_EXT.1.1, the ST author should indicate all
 				protected data (e.g., subscriber PII) that is protected by the TOE or Operational
 				Environment and specify how that protection is accomplished. Information
@@ -7199,7 +7170,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					contain information pertaining to how certificates are loaded into the store,
 					and (if the first selection in the requirement is chosen) how the store is
 					protected from unauthorized access in accordance with the permissions
-					established in FMT_SMF.1 and FMT_MOF.1(1) through FMT_MOF.1(5).
+					established in FMT_SMF.1 and FMT_MOF.1's iterations.
 				</TSS>
 				<Guidance>
 					The evaluator shall examine the operational guidance to ensure it contains
@@ -7551,17 +7522,17 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				accordance with this profile. At a minimum the TSF shall ensure:<h:br/><h:br/>
 				<h:ul>
 					<h:li>Signature generation and verification for SignedData are performed in
-						accordance with FCS_COP.1(2)</h:li>
-					<h:li>Encryption for EnvelopedData is performed in accordance with FCS_COP.1(1)</h:li>
+						accordance with FCS_COP.1/Sig</h:li>
+					<h:li>Encryption for EnvelopedData is performed in accordance with FCS_COP.1/SKC</h:li>
 					<h:li>PasswordRecipientInfo for EnvelopedData or AuthenticatedData is derived in
-						accordance with FCS_COP.1(5)</h:li>
+						accordance with FCS_COP.1/PBKDF</h:li>
 					<h:li>hashAlgId in Identity Proof Version 2 control, keyGenAlgorithm in Pop Link
 						Witness Version 2 control, witnessAlgID in Encrypted POP and Decrypted POP
 						controls, hashAlgorithm in Publish Trust Anchors control are in accordance
-						with FCS_COP.1(3)</h:li>
+						with FCS_COP.1/Hash</h:li>
 					<h:li>macAlgId in Identity Proof Version 2 control, macAlgorithm in POP Link
 						Witness Version 2 Control, and the POPAlgID in Encrypted POP and Decrypted
-						POP controls, are in accordance with FCS_COP.1(4)</h:li>
+						POP controls, are in accordance with FCS_COP.1/KeyedHash</h:li>
 					<h:li>DHPOP mechanisms shall be as specified in RFC 6955 with cryptographic
 						support in accordance with this Protection Profile</h:li>
 				</h:ul>
@@ -8142,7 +8113,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<selectables>
 					<selectable>HTTP basic authentication in accordance with RFC7030 section 3.2.3;</selectable>
 					<selectable>HTTP digest authentication using a cryptographic hash algorithm in
-						accordance with FCS_COP.1(3) and RFC 7030 section 3.2.3;</selectable>
+						accordance with FCS_COP.1/Hash and RFC 7030 section 3.2.3;</selectable>
 					<selectable>TLS certificate-based mutual authentication in accordance with
 						RFC 7030 section 3.3.2 and FCS_TLSS_EXT.1</selectable>
 				</selectables>.
@@ -8164,7 +8135,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				For FIA_ESTS_EXT.1.3, the ST author selects the method used to authenticate
 				clients for initial enrollment, or in cases where supplemental authentication is
 				required. If the second item is chosen in the selection, the ST author includes
-				FCS_COP.1(3) in the ST.<h:br/><h:br/>
+				FCS_COP.1/Hash in the ST.<h:br/><h:br/>
 				For FIA_ESTS_EXT.1.4, the ST author should specify how the TOE determines a
 				client is authorized if the request does not have the id-kp-cmcRA EKU included in
 				its certificate. The assignment requires that this method be compliant with the
@@ -9197,7 +9168,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<TSS/>
 				<Guidance/>
 				<Tests>
-					Testing for this requirement is defined under FMT_MOF.1(4). The only
+					Testing for this requirement is defined under FMT_MOF.1/CO. The only
 					difference between the iterations of FMT_MOF.1 is the specific set of
 					management functions that are available to each administrative role. Testing
 					for this SFR is conducted sufficiently thoroughly if the evaluator can
@@ -9242,7 +9213,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<TSS/>
 				<Guidance/>
 				<Tests>
-					Testing for this requirement is defined under FMT_MOF.1(4). The only
+					Testing for this requirement is defined under FMT_MOF.1/CO. The only
 					difference between the iterations of FMT_MOF.1 is the specific set of
 					management functions that are available to each administrative role. Testing
 					for this SFR is conducted sufficiently thoroughly if the evaluator can
@@ -9290,7 +9261,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<TSS/>
 				<Guidance/>
 				<Tests>
-					Testing for this requirement is defined under FMT_MOF.1(4). The only
+					Testing for this requirement is defined under FMT_MOF.1/CO. The only
 					difference between the iterations of FMT_MOF.1 is the specific set of
 					management functions that are available to each administrative role. Testing
 					for this SFR is conducted sufficiently thoroughly if the evaluator can
@@ -9375,7 +9346,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FMT_MOF.1(5) -->
 	<!--               -->     
-        <f-component cc-id="fmt_mof.1" iteration="Auditor" name="Management of Security Functions Behavior (Autitor Functions)" >
+        <f-component cc-id="fmt_mof.1" iteration="Auditor" name="Management of Security Functions Behavior (Auditor Functions)" >
 		<f-element>
 			<title>
 				<refinement>Refinement:</refinement>The 
@@ -9399,7 +9370,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<TSS/>
 				<Guidance/>
 				<Tests>
-					Testing for this requirement is defined under FMT_MOF.1(4). The only
+					Testing for this requirement is defined under FMT_MOF.1/CO. The only
 					difference between the iterations of FMT_MOF.1 is the specific set of
 					management functions that are available to each administrative role. Testing
 					for this SFR is conducted sufficiently thoroughly if the evaluator can
@@ -10233,8 +10204,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</selectables>
 				necessary to resume CA functionality after TSF failure using
 				<selectables>
-					<selectable>key sharing mechanisms in accordance with FCS_CKM_EXT.1(3), 
-					FCS_CKM_EXT.1(4), FCS_CKM_EXT.6, and FPT_SKY_EXT.2</selectable>
+					<selectable>key sharing mechanisms in accordance with FCS_CKM_EXT.1/KEKT, 
+					FCS_CKM_EXT.1/SHARE, FCS_CKM_EXT.6, and FPT_SKY_EXT.2</selectable>
 					<selectable><assignable>other mechanism</assignable></selectable>
 				</selectables>.
 			</title>
@@ -10251,8 +10222,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<aactivity>
 				If the TSF implements a key sharing mechanism, this SFR is satisfied through
 				the referenced SFRs in Appendices B.3 and B.8 of the PP.<h:br/><h:br/>
-				Note: FCS_CKM_EXT.1(3)
-				specifies how the key shares generated in accordance with FCS_CKM_EXT.1(4)
+				Note: FCS_CKM_EXT.1/KEKT
+				specifies how the key shares generated in accordance with FCS_CKM_EXT.1/SHARE
 				are used to produce a KEK to protect the keys listed in this requirement. The
 				protection of those keys with the KEK is done by mechanism required in 
 				FCS_CKM_EXT.6. FPT_SKY_EXT.2 specifies access control for the key shares
@@ -10308,8 +10279,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</selectables>
 				using
 				<selectables>
-					<selectable>key sharing mechanisms in accordance with FCS_CKM_EXT.1(3), 
-					FCS_CKM_EXT.1(4), FCS_CKM_EXT.6, and FPT_SKY_EXT.2</selectable>
+					<selectable>key sharing mechanisms in accordance with FCS_CKM_EXT.1/KEKT, 
+					FCS_CKM_EXT.1/SHARE, FCS_CKM_EXT.6, and FPT_SKY_EXT.2</selectable>
 					<selectable><assignable>other mechanism</assignable></selectable>
 				</selectables>.
 			</title>
@@ -10332,7 +10303,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<aactivity>
 				If the TSF implements a key sharing mechanism, this SFR is satisfied through the referenced SFRs 
 				in Appendices B.3 and B.8 of the PP. <h:p/>
-				Note: FCS_CKM_EXT.1(3) specifies how the key shares generated in accordance with FCS_CKM_EXT.1(4) 
+				Note: FCS_CKM_EXT.1/KEKT specifies how the key shares generated in accordance with FCS_CKM_EXT.1/SHARE 
 				are used to produce a KEK to protect the keys listed in this requirement. The protection of those 
 				keys with the KEK is done by mechanism required in FCS_CKM_EXT.6. FPT_SKY_EXT.2 specifies access 
 				control for the key shares themselves.
@@ -10380,15 +10351,15 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>TSF</selectable>
 					<selectable>Operational Environment</selectable>
 				</selectables> shall ensure that key shares
-				generated in accordance with FCS_CKM_EXT.1(4) are accessible only to privileged
+				generated in accordance with FCS_CKM_EXT.1/SHARE are accessible only to privileged
 				users, and that each share is only accessible to a single privileged user as
 				configured by an Administrator.
 			</title>
 			<note role="application">
 				This SFR shall be included if “key sharing mechanisms in accordance with
-				FCS_CKM_EXT.1(3), FCS_CKM_EXT.1(4), FCS_CKM_EXT.6, and FPT_SKY_EXT.2” is
+				FCS_CKM_EXT.1/KEKT, FCS_CKM_EXT.1/SHARE, FCS_CKM_EXT.6, and FPT_SKY_EXT.2” is
 				selected in FPT_SKY_EXT.1.1/CA or FPT_SKY_EXT.1.1/OTH. It should be noted that this protection can be
-				accomplished via FCS_COP.1(5); if it is, then that SFR should be included in the ST.
+				accomplished via FCS_COP.1/PBKDF; if it is, then that SFR should be included in the ST.
 			</note>
 			<aactivity>
 				<TSS>
@@ -10403,8 +10374,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<Tests>
 					The evaluator shall assume the role of Administrator and attempt to establish
 					two key shares for the same user and observe that the operation fails. Note
-					that this is key shares for a single key as per FCS_CKM_EXT.1(4) and
-					FCS_CKM_EXT.1(3), in contrast to key shares that may be generated at
+					that this is key shares for a single key as per FCS_CKM_EXT.1/SHARE and
+					FCS_CKM_EXT.1/KEKT, in contrast to key shares that may be generated at
 					different times for different keys.<h:br/><h:br/>
 					The evaluator shall then establish two key shares for two different users as
 					instructed in user guidance. As one of the users, the evaluator shall attempt to
@@ -10506,8 +10477,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<title>
 				The TSF shall apply a 
 				<selectables>
-					<selectable>keyed hash according to FCS_COP.1(4)</selectable>
-					<selectable>digital signature algorithm according to FCS_COP.1(2)</selectable>
+					<selectable>keyed hash according to FCS_COP.1/KeyedHash</selectable>
+					<selectable>digital signature algorithm according to FCS_COP.1/Sig</selectable>
 				</selectables>
 				to the TOE software and firmware.
 			</title>
@@ -10532,7 +10503,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				operating system.<h:br/><h:br/>
 				The ST author selects “integrity test failure” in FPT_FLS.1 if this component is
 				included in the ST.<h:br/><h:br/>
-				When FCS_CDP_EXT.1 indicates that FCS_COP.1(4), or FCS_COP.1(2) are
+				When FCS_CDP_EXT.1 indicates that FCS_COP.1/KeyedHash, or FCS_COP.1/Sig are
 				implemented by the OE, FPT_TST_EXT.1.1 is in accordance with those SFR if the
 				TSF interfaces with the OE to invoke the algorithms indicated.
 			</note>
@@ -10590,8 +10561,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<title>
 				The TSF shall apply a 
 				<selectables>
-					<selectable>keyed hash according to FCS_COP.1(4)</selectable>
-					<selectable>digital signature algorithm according to FCS_COP.1(2)</selectable>
+					<selectable>keyed hash according to FCS_COP.1/KeyedHash</selectable>
+					<selectable>digital signature algorithm according to FCS_COP.1/Sig</selectable>
 				</selectables>
 				to the 
 				<selectables>
@@ -10717,7 +10688,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</title>
 			<note role="application">
 				The digital signature mechanism referenced in the third element is the one
-				specified in FCS_COP.1(2).
+				specified in FCS_COP.1/Sig.
 			</note>
 			<aactivity>
 				<TSS>
