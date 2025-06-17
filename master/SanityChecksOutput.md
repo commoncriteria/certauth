@@ -10,7 +10,7 @@
 * Error: Detected dangling id-reference to crypto-sel-ckm-1i4 from attribute
         on-sel/PP[1]""/sec:Security_Requirements[1]""/section[1]"The follo"/section[4]""/f-component[8]""/depends[1]""/on-sel[1]""
 * Error: Detected dangling id-reference to sel-fco-ests-ext-1 from attribute
-        on-sel/PP[1]""/sec:Security_Requirements[1]""/section[1]"The follo"/section[4]""/f-component[25]""/depends[3]""/on-sel[1]""
+        on-sel/PP[1]""/sec:Security_Requirements[1]""/section[1]"The follo"/section[4]""/f-component[29]""/depends[3]""/on-sel[1]""
 * Error: Detected dangling id-reference to sel-fco-cmcc-ext-1 from attribute
         on-sel/PP[1]""/sec:Security_Requirements[1]""/section[1]"The follo"/section[6]""/f-component[2]""/depends[1]""/on-sel[1]""
 * Error: Detected dangling id-reference to sel-fco-cmcs-ext-1 from attribute
