@@ -1291,17 +1291,18 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <f-component cc-id="fau_gen.1" name="Audit Data Generation">
            <f-element>
-		   <title><h:b>Refinement:</h:b>The TSF shall generate <refinement>and <selectables><selectable>invoke the Operational 
+		   <title>The TSF shall generate <refinement>and <selectables><selectable>invoke the Operational 
 		      Environment to generate</selectable><selectable>no other actions</selectable></selectables></refinement>
 		      audit data of the following auditable events:
                             <h:ol type="a">
                                 <h:li>Start-up and shutdown of the audit functions</h:li>
                                 <h:li>All auditable events for the [<h:i>not specified</h:i>] level of audit;</h:li>
-                                [<h:i><h:li>All administrative actions invoked through the TSF interface;</h:li>
-                                <h:li>Specifically defined auditable events listed in <xref to="at-mandatory"/></h:li>
-                                <h:li>Specifically defined auditable events listed in <xref g="t-audit-optional"/></h:li>
-                                <h:li>Specifically defined auditable events listed in <xref g="t-audit-sel-based"/></h:li>
-								<h:li>Specifically defined auditable events listed in <xref g="t-audit-impl-dep"/></h:li></h:i>].
+                                <h:li>[<h:i>
+									<h:li>All administrative actions invoked through the TSF interface;</h:li>
+                                	<h:li>Specifically defined auditable events listed in <xref to="at-mandatory"/></h:li>
+                                	<h:li>Specifically defined auditable events listed in <xref g="t-audit-optional"/></h:li>
+                                	<h:li>Specifically defined auditable events listed in <xref g="t-audit-sel-based"/></h:li>
+									<h:li>Specifically defined auditable events listed in <xref g="t-audit-impl-dep"/></h:li></h:i>]</h:li>.
 
 			    </h:ol>
              </title>
@@ -1325,7 +1326,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	    </note>	     
         </f-element>
         <f-element>
-		<title><h:b>Refinement:</h:b>The TSF shall <refinement>
+		<title>The TSF shall <refinement>
 			<selectables><selectable>include</selectable>
 				<selectable> invoke the Operational Environment to include</selectable>
 			</selectables></refinement>
@@ -1434,7 +1435,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     		
 	<f-component cc-id="fau_gen.2" name="User Identity Association">
           <f-element>
-		  <title><h:b>Refinement:</h:b>For audit events resulting from actions of identified users, the TSF
+		  <title>For audit events resulting from actions of identified users, the TSF
 		    shall be able to <refinement><selectables><selectable>associate</selectable>
 		    <selectable>invoke the Operational Environment to associate</selectable></selectables>
 		    </refinement>
@@ -1475,13 +1476,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <f-component cc-id="fau_sar.1" name="Audit Review" status="feat-based">
           <depends on-feat="auditReview"/>
 		<f-element>
-			<title>The TSF shall provide [<h:i>Auditors</h:i>] with the capability to read all
-				information from the audit records.</title>
+			<title>The TSF shall provide [<h:i>Auditors</h:i>] with the capability to read [<h:i>all
+				information</h:i>] from the audit data.</title>
 		</f-element>
 		<f-element>
 			<title>
-				<refinement>Refinement:</refinement>The TSF shall provide the audit records in
-				a manner suitable for the Auditor to interpret the information.
+				The TSF shall provide the audit data in
+				a manner suitable for the <h:b>Auditor</h:b> to interpret the information.
 			</title>
 			<note role="application">
 	      			This SFR is included in the ST by the ST author if the operations provided by the
@@ -1516,8 +1517,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<f-element>
 			<title>
 				The TSF shall provide the ability to apply [<h:i>searches</h:i>] of audit data
-				based on <assignable>object identifier of certificate</assignable> associated with
-				the event.
+				based on <assignable>object identifier of certificate associated with
+				the event</assignable>.
 			</title>
 			<note role="application">
 	    			This SFR is included in the ST by the ST author if the operations provided by the
@@ -1648,8 +1649,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
           <depends on-feat="auditPreSelect"/>
 		<f-element>
 			<title>
-				<refinement>Refinement:</refinement> The TSF shall be able to select the set of
-				events to be audited by <refinement>specific mechanisms</refinement> from the set of all auditable events
+				The TSF shall be able to select the set of
+				events to be audited <refinement>by specific mechanisms</refinement> from the set of all auditable events
 				based on the following attributes:
 				<h:ol type="a"><h:li><selectables>
 					<selectable>object identity</selectable>
@@ -1738,12 +1739,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<title>
 				The TSF shall protect the stored audit data
 				<refinement>with extended retention requirements</refinement> in the audit trail
-				from deletion prior to their retention period by an auditor.
+				from unauthorized deletion <refinement>prior to their retention period by an auditor</refinement>.
 			</title>
 		</f-element>
 		<f-element>
 			<title>
-				The TSF shall be able to [<h:i>prevent</h:i>] 
+				The TSF shall be able to [<h:i>prevent</h:i>] unauthorized
 				modifications to the stored audit data <refinement>with extended retention
 				requirements</refinement> in the audit trail.
 			</title>
@@ -1888,9 +1889,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <f-component cc-id="fau_stg.5" name="Prevention of Audit Data Loss">
         <f-element>
-		<title>The TSF shall [prevent audited events, except those taken
-			by the <refinement>Auditor</refinement>, <assignable>other actions to be taken in case of audit storage
-			failure and conditions for the actions</assignable>] if the audit data storage <h:b>cannot be written to</h:b>.
+		<title>The TSF shall [<h:i>prevent audited events, except those taken
+			by the <refinement>Auditor</refinement></h:i>], <assignable>other actions to be taken in case of audit storage
+			failure and conditions for the actions</assignable> if the audit data storage <h:b>cannot be written to</h:b>.
                 </title>
 		<note role="application">
 			This requirement applies to the TOE regardless of whether the audit trail is stored
@@ -2482,11 +2483,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <f-component cc-id="fcs_ckm.1" name="Cryptographic Key Generation" status="sel-based">
 	<depends on-sel="crypto-sel-ckm-1"/>
 	<f-element>
-		<title><refinement>Refinement:</refinement> The TSF shall <refinement>
+		<title>The TSF shall <refinement>
 			<selectables>
 				<selectable>generate</selectable>
 				<selectable>invoke interfaces provided by the Operational Environment to generate</selectable>
-			</selectables> asymmetric </refinement>cryptographic keys in accordance with the specified key generation algorithm:
+			</selectables> asymmetric </refinement>cryptographic keys in accordance with a specified cryptographic key generation algorithm
 			<selectables linebreak="yes">
 				<selectable>RSA schemes using cryptographic key sizes of 2048-bit or
 					greater that meet the following: FIPS PUB 186-5, “Digital Signature Standard (DSS)”, Appendix B.3;</selectable>
@@ -2655,13 +2656,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<depends on-sel="crypto-sel-ckm-2"/>
 	<f-element>
 		<title>
-			<refinement> Refinement:</refinement>The TSF shall <refinement>
+			The TSF shall <refinement>
 			<selectables>
 				<selectable>perform</selectable>
 				<selectable>invoke interfaces provided by the Operational Environment to perform</selectable>
 			</selectables> key establishment </refinement>in accordance with a
 			specified cryptographic key <refinement>establishment</refinement> algorithm
-			<refinement><selectables linebreak="yes">
+			<selectables linebreak="yes">
 				<selectable>RSA-based key establishment schemes that meet the following: RSAES-PKCS1-v1_5 
 					as specified in Section 7.2 of RFC 8017, “Public-Key Cryptography Standards (PKCS) #1: 
 					RSA Cryptography Specifications Version 2.2;</selectable>
@@ -2674,7 +2675,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					Key Establishment Schemes Using Discrete Logarithm Cryptography”;</selectable>
 				<selectable>Key establishment scheme using Diffie-Hellman group 14 that meets the
 					following: RFC 3526</selectable>
-			</selectables></refinement>
+			</selectables>
 			<h:s>that meet the following: [assignment: list of standards]</h:s>.
 		</title>
 		<note role="application">
@@ -3692,7 +3693,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<depends on-sel="crypto-sel-cop-1i1"/>
 	<f-element>
 		<title>
-			<refinement>Refinement:</refinement> The TSF shall 
+			The TSF shall 
 			<refinement><selectables>
 				<selectable>perform</selectable>
 				<selectable>invoke interfaces in the operational environment to perform</selectable>
@@ -3990,14 +3991,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<depends on-sel="crypto-sel-cop-1i2"/>
 	<f-element>
 		<title>
-			<refinement>Refinement:</refinement>
+			
 			The TSF shall <refinement>
 			<selectables>
 				<selectable>perform</selectable>
 				<selectable>invoke interfaces in the operational environment to perform</selectable>
 			</selectables></refinement> [<h:i>cryptographic signature services</h:i>] in
-			accordance with the following specified cryptographic algorithms 
-			<refinement><selectables linebreak="yes">
+			accordance with a specified cryptographic algorithms 
+			<selectables linebreak="yes">
 				<selectable>RSA Digital Signature Algorithm (rDSA) with a key size (modulus) of
 					<assignable>2048 bits or greater</assignable>
 					that meets FIPS-PUB 186-5, “Digital Signature Standard”</selectable>
@@ -4010,7 +4011,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					(as defined in FIPS PUB 186-5, “Digital Signature Standard”)</selectable>
 				<selectable>Digital Signature Algorithm (DSA) with a key size (modulus) of 2048
 					bits or greater, that meets FIPS-PUB 186-5, “Digital Signature Standard”]</selectable>
-			</selectables></refinement>
+			</selectables>
 			<h:s><h:i>and cryptographic key sizes 
 				<assignable>cryptographic key sizes</assignable> that meet the
 				following: <assignable>list of standards</assignable>.</h:i></h:s>
@@ -4159,22 +4160,22 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<depends on-sel="crypto-sel-cop-1i3"/>
 	<f-element>
 		<title>
-			<refinement>Refinement: </refinement>The TSF shall <refinement>
+			The TSF shall <refinement>
 			<selectables>
 				<selectable>perform</selectable>
 				<selectable>invoke interfaces in the operational environment to perform</selectable>
 			</selectables></refinement> [<h:i>cryptographic hashing services</h:i>] in
-			accordance with a specified cryptographic algorithm 
-			<refinement><selectables>
+			accordance with a specified cryptographic algorithm
+			<selectables>
 				<selectable>SHA-256</selectable>
 				<selectable>SHA-384</selectable>
 				<selectable>SHA-512</selectable>
-			</selectables> and message digest sizes 
+			</selectables> and <refinement>message digest</refinement> sizes 
 			<selectables>
 				<selectable>256</selectable>
 				<selectable>384</selectable>
 				<selectable>512</selectable>
-			</selectables> bits</refinement>
+			</selectables> bits
 			that meet the following: [<h:i>FIPS Pub 180-4, “Secure Hash Standard”</h:i>].
 		</title>
 		<note role="application">
@@ -4262,24 +4263,24 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<depends on-sel="crypto-sel-cop-1i4"/>
 	<f-element>
 		<title>
-			<refinement>Refinement: </refinement>The TSF shall 
+			The TSF shall 
 			<refinement><selectables>
 				<selectable>perform</selectable>
 				<selectable>invoke interfaces in the operational environment to perform</selectable>
 			</selectables></refinement>
 			[<h:i>keyed hash message authentication</h:i>] in
-			accordance with a specified cryptographic algorithm <refinement>HMAC-
+			accordance with a specified cryptographic algorithm [<h:i>HMAC-
 			<selectables>
 				<selectable>SHA-256</selectable>
 				<selectable>SHA-384</selectable>
 				<selectable>SHA-512</selectable>
-			</selectables> key size <assignable>key size (in bits) used in HMAC</assignable>, 
-			and message digest sizes 
+			</selectables> with key size <assignable>key size (in bits) used in HMAC</assignable></h:i>] 
+			and <refinement>message digest</refinement> sizes 
 			<selectables>
 				<selectable>256</selectable>
 				<selectable>384</selectable>
 				<selectable>512</selectable>
-			</selectables> bits</refinement> that meet the following: 
+			</selectables> bits that meet the following: 
 			[<h:i>FIPS Pub 198-1,“The Keyed Hash Message Authentication Code”;
 			FIPS Pub 180-4, “Secure Hash Standard”</h:i>].
 		</title>
@@ -4339,7 +4340,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 <f-component name="Cryptographic Operation (Password-based Key Derivation Function)" cc-id="fcs_cop.1" iteration="PBKDF" status="optional">
        	<f-element>
 		<title>
-				<refinement>Refinement:</refinement> The TSF shall
+				The TSF shall
 			    	<refinement><selectables>
 				    	<selectable>perform</selectable>
 				    	<selectable>invoke interfaces in the Operational Environment to perform</selectable>
@@ -4347,12 +4348,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			    	</refinement>
 				[<h:i>Password-based Key Derivation Functions</h:i>]
 				in accordance with a specified cryptographic algorithm
-				<refinement><selectables>
+				<selectables>
 					<selectable>HMAC-SHA-256</selectable>
 					<selectable>HMAC-SHA-384</selectable>
 					<selectable>HMAC-SHA-512</selectable>
-					</selectables>
-				</refinement>					
+					</selectables>					
 				and <refinement>output</refinement> cryptographic key sizes 
 				[<h:i>256-bit</h:i>] that meet the following: [<h:i>NIST SP 800-32</h:i>].
 			</title>
@@ -5436,7 +5436,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
               each of these, in turn, depends on underlying cryptographic primitives (hash functions/ciphers).
               The ST author will select the function used and include the specific underlying cryptographic primitives used in the requirement or in the TSS.
               While any of the identified hash functions (SHA-224, SHA-256, SHA-384, SHA-512) are allowed for Hash_DRBG or HMAC_DRBG,
-              only AES-based implementations for CTR_DRBG are allowed.
+              only AES-based implementations for CTR_DRBG are allowed.<h:p/>
+			  The ST author selects "TSF RBG failure" in FPT_FLS.1 if this component is included in the ST.
             </note>
             <aactivity level="element">
               <TSS>The evaluator shall verify that the TSS identifies the DRBGs used by the TOE.</TSS>
@@ -5556,6 +5557,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
               <Tests/>
             </aactivity>
           </f-element>
+		  <audit-event/>
         </f-component>
 
 	<!--               -->     
@@ -5585,6 +5587,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<Tests/>
 			</aactivity>
 			</f-element>
+			<audit-event/>
 		</f-component>
 
 		<!--               -->     
@@ -5608,7 +5611,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             <Guidance/>
             <Tests/>
           </aactivity>
-                </f-element>
+        </f-element>
+		<audit-event/>
         </f-component>
 
 		<!--               -->     
@@ -5634,6 +5638,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             <Tests/>
           </aactivity>
           </f-element>
+		  <audit-event/>
         </f-component>
 
 		<!--               -->     
@@ -5662,6 +5667,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             <Tests/>
           </aactivity>
           </f-element>
+		  <audit-event/>
         </f-component>  
 		
 	      
@@ -6895,11 +6901,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<depends on-sel="sel-pwd-auth"/> <!-- TODO: This is wrong -->
 		<f-element>
 			<title>
-				<refinement>Refinement:</refinement> The TSF shall 
+				The TSF shall 
 				<h:s>enforce the [assignment: access control SFP(s) and/or information flow control SFP(s)] to </h:s>
 				prevent the [<h:i>disclosure, modification</h:i>] of user data when it is transmitted between 
-				physically separated parts of the TOE
-				<refinement>through the use of (choose at least one) 
+				physically-separated parts of the TOE
+				<refinement>through the use of
 					<selectables>
 						<selectable>IPsec</selectable>
 						<selectable>SSH</selectable>
@@ -7058,7 +7064,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <f-component cc-id="fdp_rip.1" name="Subset Residual Information Protection" >
 		<f-element>
 			<title>
-				<refinement>Refinement:</refinement> The TSF <refinement>and 
+				The TSF <refinement>and 
 				<selectables>
 					<selectable>Operational Environment</selectable>
 					<selectable>no other component</selectable>
@@ -7326,7 +7332,6 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<depends on-sel="sel-pwd-auth"/>
 		<f-element>
 			<title>
-				<refinement>Refinement: </refinement>
 				The TSF shall 
 				<refinement><selectables>
 					<selectable>implement</selectable>
@@ -8640,9 +8645,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<depends on-sel="sel-pwd-auth"/>
 		<f-element>
 			<title>
-				<refinement>Refinement: </refinement>The TSF shall provide only 
-				<refinement>[<h:i>obscured feedback and <assignable> list
-					of other feedback</assignable></h:i>]</refinement>
+				The TSF shall provide only 
+				[<h:i>obscured feedback and <assignable>list
+					of other feedback</assignable></h:i>]
 					to the <refinement>privileged</refinement> user while the 
 					authentication is in progress.
 			</title>
@@ -9232,7 +9237,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		>
 		<f-element>
 			<title>
-				<refinement>Refinement:</refinement>The 
+				The 
 				<refinement><selectables>
 					<selectable>TSF</selectable>
 					<selectable>Operational Environment</selectable>
@@ -9293,7 +9298,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <f-component cc-id="fmt_mof.1" iteration="RA" name="Management of Security Functions Behavior (CA/RA Functions)" >
 		<f-element>	     
 			<title>
-				<refinement>Refinement:</refinement>The
+				The
 				<refinement><selectables>
 					<selectable>TSF</selectable>
 					<selectable>Operational Environment</selectable>
@@ -9338,7 +9343,6 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <f-component cc-id="fmt_mof.1" iteration="CA" name="Management of Security Functions Behavior (CA Operations Functions)" >
 		<f-element>
 			<title>
-				<refinement>:Refinement:</refinement>
 				The <refinement>
 				<selectables>
 					<selectable>TSF</selectable>
@@ -9386,7 +9390,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <f-component cc-id="fmt_mof.1" iteration="CO" name="Management of Security Functions Behavior (Admin/Officer Functions)" >
 		<f-element>	     
 			<title>
-				<refinement>Refinement:</refinement> The
+				The
 				<refinement><selectables>
 					<selectable>TSF</selectable>
 					<selectable>Operational Environment</selectable>
@@ -9456,7 +9460,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <f-component cc-id="fmt_mof.1" iteration="Auditor" name="Management of Security Functions Behavior (Auditor Functions)" >
 		<f-element>
 			<title>
-				<refinement>Refinement:</refinement>The 
+				The 
 				<refinement><selectables>
 					<selectable>TSF</selectable>
 					<selectable>Operational Environment</selectable>
@@ -9545,7 +9549,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <f-component cc-id="fmt_smf.1" name="Specification of Management Functions" >
 		<f-element>
 			<title>
-				<refinement>Refinement:</refinement> The 
+				The 
 				<refinement><selectables>
 					<selectable>TSF</selectable>
 					<selectable>Operational Environment</selectable>
@@ -9638,7 +9642,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <f-component cc-id="fmt_smr.2" name="Restrictions on Security Roles" >
 		<f-element>
 			<title>
-				<refinement>Refinement:</refinement>The TSF 
+				The TSF 
 				<refinement>and 
 					<selectables>
 						<selectable>Operational Environment</selectable>
@@ -9659,7 +9663,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</title>
 		</f-element>
 		<f-element>
-			<title><refinement>Refinement:</refinement>The TSF 
+			<title>The TSF 
 				<refinement> and
 					<selectables>
 						<selectable>Operational Environment</selectable>
@@ -9671,7 +9675,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</f-element>
 		<f-element>
 			<title>
-				<refinement>Refinement:</refinement>The TSF
+				The TSF
 				<refinement>and<selectables>
 					<selectable>Operational Environment</selectable>
 					<selectable>no other component</selectable>
@@ -9807,6 +9811,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</Tests>
 			</aactivity>
 		</f-element>
+		<audit-event/>
 	</f-component>
 	     
 	<!--               -->     
@@ -9815,15 +9820,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <f-component cc-id="fpt_fls.1" name="Failure with Preservation of Secure State" >
 		<f-element>
 			<title>
-				The TSF shall preserve a secure state when the following types of failures occur: [<h:i>TSF RBG failure,  
+				The TSF shall preserve a secure state when the following types of failures occur:
 				<selectables>
+					<selectable>TSF RBG failure</selectable>
 					<selectable>signature verification failure</selectable>
 					<selectable>integrity test failure</selectable>
 					<selectable>integrity failure on audit</selectable>
 					<selectable>integrity failure on Trust Anchor database</selectable>
 					<selectable><assignable>other potential TSF failures</assignable></selectable>
 					<selectable><assignable>other potential Operational Environment failures</assignable></selectable>
-				</selectables></h:i>].
+				</selectables>.
 			</title>
 			<note role="application">
 				The intent of this requirement is to prevent the use of failed randomization and
@@ -9884,8 +9890,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<depends on-sel="sel-pwd-auth"/>    <!-- TODO: This is wrong -->
 		<f-element id="fpt-itt-1e1">
 			<title>
-				<refinement>Refinement:</refinement>: The TSF shall protect TSF data from [<h:i>disclosure, modification</h:i>]
-				when it is transmitted between separate parts of the TOE <refinement>through the use of (choose at least one of)
+				The TSF shall protect TSF data from [<h:i>disclosure, modification</h:i>]
+				when it is transmitted between separate parts of the TOE <refinement>through the use of
 				<selectables>
 					<selectable id="sel-itt-ipsec">IPsec</selectable>
 					<selectable id="sel-itt-ssh">SSH</selectable>
@@ -10500,11 +10506,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <f-component cc-id="fpt_stm.1" name="Reliable Time Stamps" >
 		<f-element>
 			<title>
-				<refinement>Refinement:</refinement> The TSF shall 
+				The TSF shall be able to <refinement>
 				<selectables>
 					<selectable>provide</selectable>
 					<selectable>interface with the Operational Environment to provide</selectable>
-				</selectables> reliable time stamps. 
+				</selectables></refinement> reliable time stamps. 
 			</title>
 			<note role="application">
 				The TSF is expected to use time data for accuracy in signing and verification
@@ -10607,7 +10613,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     				</h:p>
     			</Tests>
     		</aactivity>
-    		</f-element>    		
+    		</f-element>
+			<audit-event>
+				<audit-event-descr><comment>The appropriate audit event(s) for this new SFR should be determined and added. CC:2022 part 2 suggests either "Indication that the TSF self-tests were completed and any failures of the tests." or "Execution of the TSF self-tests and the results of the tests."</comment></audit-event-descr>    	
+			</audit-event>	
     	</f-component>
 
 
@@ -10640,6 +10649,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>digital signature algorithm according to FCS_COP.1/Sig</selectable>
 				</selectables>
 				to the TOE software and firmware.
+				<comment>This requirement is similar to the requirements laid out in FPT_TST.1.3, which has been added as a required dependency for FCS_RBG.1. Should this requirement be folded into that one?</comment>
 			</title>
 		</f-element>
 		<f-element>
@@ -10730,6 +10740,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>certificate database</selectable>
 					<selectable><assignable>other data relevant to TSF security</assignable></selectable>
 				</selectables>.
+				<comment>This requirement is similar to the requirements laid out in FPT_TST.1.2, which has been added as a required dependency for FCS_RBG.1. Should this requirement be folded into that one?</comment>
 			</title>
 		</f-element>
 		<f-element>
@@ -10947,9 +10958,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <f-component cc-id="fta_ssl.3" name="TSF-Initiated Termination" status="optional">
 		<f-element>
 			<title>
-				<refinement>Refinement:</refinement>The TSF shall terminate <refinement> a remote</refinement>
+				The TSF shall terminate <refinement> a remote</refinement>
 				session after a <assignable><h:b>administrator-configurable</h:b> time interval 
-				of session activity</assignable>.
+				of user activity</assignable>.
 			</title>
 			<note role="application">
 				This requirement is included if the TSF is implementing the mechanism used to
@@ -10998,7 +11009,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <f-component cc-id="fta_ssl.4" name="User-Initiated Termination" >
 		<f-element>
 			<title>
-				<refinement>Refinement:</refinement>The TSF shall 
+				The TSF shall 
 				<refinement><selectables>
 					<selectable>implement</selectable>
 					<selectable>interface with the Operational Environment to implement</selectable>
@@ -11119,10 +11130,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <f-component cc-id="fta_tab.1" name="Default TOE Access Banners" >
 		<f-element>
 			<title>
-				<refinement>Refinement:</refinement> Before establishing a <refinement>privileged</refinement>
-				user session the TSF shall display <refinement>an Administrator-configured</refinement>
-				advisory <refinement>notice and consent</refinement> warning message
-				regarding unauthorized use of the TOE. 
+				Before establishing a <refinement>privileged</refinement>
+				user session the 
+				<selectables>
+					<selectable>TSF</selectable>
+					<selectable>TOE platform</selectable>
+				</selectables> 
+				shall display an [<h:i>Administrator-configured advisory notice and consent warning
+				regarding unauthorized use of the TOE</h:i>] message. 
 			</title>
 			<note role="application">
 				This requirement is intended to apply to interactive sessions between a human
@@ -11181,7 +11196,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<depends on-sel="sel-pwd-auth"/> <!-- TODO: This is wrong -->
 		<f-element id="ftp-itc-1e1">
 			<title>
-				<refinement>Refinement:</refinement> 
+				
 				The TSF shall <refinement>use 
 				<selectables>
 					<selectable id="ftp-itc-https">HTTPS</selectable>
@@ -11189,8 +11204,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable id="ftp-itc-tls">TLS</selectable>
 					<selectable id="ftp-itc-ssh">SSH</selectable>
 					<selectable id="ftp-itc-https">HTTPS</selectable>
-				</selectables></refinement>
-				to provide a <refinement>trusted</refinement>
+				</selectables> to</refinement>
+				 provide a <refinement>trusted</refinement>
 				communication channel between itself and 
 				<refinement>authorized external network
 				based IT entities supporting the following capabilities: 
@@ -11208,14 +11223,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</f-element>
 		<f-element>
 			<title>
-				The TSF shall permit [<h:i>the TSF, the authorized IT entities</h:i>] to initiate communication
+				The TSF shall permit [<h:i>the TSF, <refinement>the authorized IT entities</refinement></h:i>] to initiate communication
 				via the trusted channel.
 			</title>
 		</f-element>
 		<f-element>
 			<title>
 				The TSF shall initiate communication via the trusted channel for <assignable>
-					list of services for which the TSF is able to initiate communications</assignable>
+					list of services for which the TSF is able to initiate communications</assignable>.
 			</title>
 			<note role="application">
 				This SFR must be included in the SFR if TODO.<h:br/><h:br/>
@@ -11312,15 +11327,15 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <f-component cc-id="ftp_trp.1" name="Trusted Path" >
 		<f-element id="ftp-trp-1e1">
 			<title>
-				<refinement>Refinement:</refinement> The TSF shall 
+				The TSF shall 
 				<refinement>use <selectables>
 					<selectable id="ftp-trp-https">HTTPS</selectable>
 					<selectable id="ftp-trp-ipsec">IPsec</selectable>
 					<selectable id="ftp-trp-ssh">SSH</selectable>
 					<selectable id="ftp-trp-tls">TLS</selectable>
 					</selectables> to </refinement>
-				provide <refinement>a trusted</refinement> communication path between itself and 
-				<refinement>remote subscribers and privileged users</refinement>
+				provide a <refinement>trusted</refinement> communication path between itself and 
+				[<h:i>remote <refinement>subscribers and privileged</refinement></h:i>] users 
 				that is logically distinct from other
 				communication paths and provides assured identification of its end points and
 				protection of the communicated data from [<h:i>modification, disclosure</h:i>].
@@ -11328,8 +11343,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</f-element>
 		<f-element>
 			<title>
-				<refinement>Refinement:</refinement> The TSF shall permit <refinement>remote subscribers</refinement>
-				and privileged users to initiate communication via the trusted path.
+				The TSF shall permit [<h:i>remote <refinement>subscribers and privileged</refinement></h:i> users]
+				to initiate communication via the trusted path.
 			</title>
 		</f-element>
 		<f-element>
