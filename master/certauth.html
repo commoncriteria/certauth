@@ -629,7 +629,7 @@ function showTarget(id){
 	            img[src="images/collapsed.png"] { display:none;}
 
           }
-    </style></head><body onLoad="init()"><div id="commmentbox-"><a href="#Comment-1-">Comment: Comment-1-</a><br/></div><h1 class="title" style="page-break-before:auto;">Protection Profile for Certification Authorities</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
+    </style></head><body onLoad="init()"><div id="commmentbox-"><a href="#Comment-1-">Comment: Comment-1-</a><br/><a href="#Comment-2-">Comment: Comment-2-</a><br/><a href="#Comment-3-">Comment: Comment-3-</a><br/><a href="#Comment-4-">Comment: Comment-4-</a><br/></div><h1 class="title" style="page-break-before:auto;">Protection Profile for Certification Authorities</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
       Version: 3.0<br/>2025-06-13<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>1.0</td><td>2014-05-16</td><td>Initial draft</td></tr>
 <tr><td>1.1</td><td>2016-07-07</td><td>Formatting updates and changes based on TC feedback</td></tr>
 <tr><td>1.2</td><td>2016-10-26</td><td>Updates based on additional TC feedback and internal review</td></tr>
@@ -1380,17 +1380,18 @@ The following sections list Common Criteria and technology terms used in this do
 	
 	     
         <div class="comp" id="FAU_GEN.1"><h4>FAU_GEN.1 Audit Data Generation</h4>
-           <div class="element"><div class="reqid" id="FAU_GEN.1.1"><a href="#FAU_GEN.1.1" class="abbr">FAU_GEN.1.1</a></div><div class="reqdesc"><b>Refinement:</b>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate <span class="refinement">and [<b>selection</b>: <span class="selectable-content" id="_s_7">invoke the Operational 
+           <div class="element"><div class="reqid" id="FAU_GEN.1.1"><a href="#FAU_GEN.1.1" class="abbr">FAU_GEN.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate <span class="refinement">and [<b>selection</b>: <span class="selectable-content" id="_s_7">invoke the Operational 
 		      Environment to generate</span>, <span class="selectable-content" id="_s_8">no other actions</span>]</span>
 		      audit data of the following auditable events:
                             <ol type="a">
                                 <li>Start-up and shutdown of the audit functions</li>
                                 <li>All auditable events for the [<i>not specified</i>] level of audit;</li>
-                                [<i><li>All administrative actions invoked through the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> interface;</li>
-                                <li>Specifically defined auditable events listed in <a onclick="showTarget('at-mandatory')" href="#at-mandatory" class="at-mandatory-ref">Table  <span class="counter">2</span></a></li>
-                                <li>Specifically defined auditable events listed in <a onclick="showTarget('t-audit-optional')" href="#t-audit-optional" class="t-audit-optional-ref">Table  <span class="counter">t-audit-optional</span></a></li>
-                                <li>Specifically defined auditable events listed in <a onclick="showTarget('t-audit-sel-based')" href="#t-audit-sel-based" class="t-audit-sel-based-ref">Table  <span class="counter">t-audit-sel-based</span></a></li>
-								<li>Specifically defined auditable events listed in <a onclick="showTarget('t-audit-impl-dep')" href="#t-audit-impl-dep" class="t-audit-impl-dep-ref">Table  <span class="counter">t-audit-impl-dep</span></a></li></i>].
+                                <li>[<i>
+									<li>All administrative actions invoked through the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> interface;</li>
+                                	<li>Specifically defined auditable events listed in <a onclick="showTarget('at-mandatory')" href="#at-mandatory" class="at-mandatory-ref">Table  <span class="counter">2</span></a></li>
+                                	<li>Specifically defined auditable events listed in <a onclick="showTarget('t-audit-optional')" href="#t-audit-optional" class="t-audit-optional-ref">Table  <span class="counter">t-audit-optional</span></a></li>
+                                	<li>Specifically defined auditable events listed in <a onclick="showTarget('t-audit-sel-based')" href="#t-audit-sel-based" class="t-audit-sel-based-ref">Table  <span class="counter">t-audit-sel-based</span></a></li>
+									<li>Specifically defined auditable events listed in <a onclick="showTarget('t-audit-impl-dep')" href="#t-audit-impl-dep" class="t-audit-impl-dep-ref">Table  <span class="counter">t-audit-impl-dep</span></a></li></i>]</li>.
 
 			    </ol>
              <div class="appnote"><span class="note-header">Application
@@ -1413,7 +1414,7 @@ The following sections list Common Criteria and technology terms used in this do
 		produced by <a href="#FAU_ADP_EXT.1">FAU_ADP_EXT.1</a> that indicate they are generated in whole or part of
 		the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.
 	    </span></div></div></div>
-        <div class="element"><div class="reqid" id="FAU_GEN.1.2"><a href="#FAU_GEN.1.2" class="abbr">FAU_GEN.1.2</a></div><div class="reqdesc"><b>Refinement:</b>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <span class="refinement">
+        <div class="element"><div class="reqid" id="FAU_GEN.1.2"><a href="#FAU_GEN.1.2" class="abbr">FAU_GEN.1.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <span class="refinement">
 			[<b>selection</b>: <span class="selectable-content" id="_s_9">include</span>, <span class="selectable-content" id="_s_10"> invoke the Operational Environment to include</span>]</span>
 			within each audit record at least the following information:
                         <ol type="a">
@@ -1518,7 +1519,7 @@ The following sections list Common Criteria and technology terms used in this do
         
 	     		
 	<div class="comp" id="FAU_GEN.2"><h4>FAU_GEN.2 User Identity Association</h4>
-          <div class="element"><div class="reqid" id="FAU_GEN.2.1"><a href="#FAU_GEN.2.1" class="abbr">FAU_GEN.2.1</a></div><div class="reqdesc"><b>Refinement:</b>For audit events resulting from actions of identified users, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>
+          <div class="element"><div class="reqid" id="FAU_GEN.2.1"><a href="#FAU_GEN.2.1" class="abbr">FAU_GEN.2.1</a></div><div class="reqdesc">For audit events resulting from actions of identified users, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>
 		    shall be able to <span class="refinement">[<b>selection</b>: <span class="selectable-content" id="_s_11">associate</span>, <span class="selectable-content" id="_s_12">invoke the Operational Environment to associate</span>]
 		    </span>
 		    each auditable event with the identity of the user that caused the event.
@@ -1552,11 +1553,11 @@ The following sections list Common Criteria and technology terms used in this do
                 as described in Appendix A.3: Implementation-based Requirements.
                </b></i></div>
           
-		<div class="element"><div class="reqid" id="FAU_SAR.1.1"><a href="#FAU_SAR.1.1" class="abbr">FAU_SAR.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide [<i>Auditors</i>] with the capability to read all
-				information from the audit records.</div></div>
+		<div class="element"><div class="reqid" id="FAU_SAR.1.1"><a href="#FAU_SAR.1.1" class="abbr">FAU_SAR.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide [<i>Auditors</i>] with the capability to read [<i>all
+				information</i>] from the audit data.</div></div>
 		<div class="element"><div class="reqid" id="FAU_SAR.1.2"><a href="#FAU_SAR.1.2" class="abbr">FAU_SAR.1.2</a></div><div class="reqdesc">
-				<span class="refinement">Refinement:</span>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide the audit records in
-				a manner suitable for the Auditor to interpret the information.
+				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide the audit data in
+				a manner suitable for the <b>Auditor</b> to interpret the information.
 			<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -1586,8 +1587,8 @@ The following sections list Common Criteria and technology terms used in this do
 		<div class="element"><div class="reqid" id="FAU_SAR.3.1"><a href="#FAU_SAR.3.1" class="abbr">FAU_SAR.3.1</a></div><div class="reqdesc">
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide the ability to apply [<i>searches</i>] of audit data
 				based on [<b>assignment</b>: 
-     <span class="assignable-content">object identifier of certificate</span>] associated with
-				the event.
+     <span class="assignable-content">object identifier of certificate associated with
+				the event</span>].
 			<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -1683,8 +1684,8 @@ The following sections list Common Criteria and technology terms used in this do
                </b></i></div>
           
 		<div class="element"><div class="reqid" id="FAU_SEL.1.1"><a href="#FAU_SEL.1.1" class="abbr">FAU_SEL.1.1</a></div><div class="reqdesc">
-				<span class="refinement">Refinement:</span> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to select the set of
-				events to be audited by <span class="refinement">specific mechanisms</span> from the set of all auditable events
+				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to select the set of
+				events to be audited <span class="refinement">by specific mechanisms</span> from the set of all auditable events
 				based on the following attributes:
 				<ol type="a"><li>[<b>selection</b>: <span class="selectable-content" id="_s_25">object identity</span>, <span class="selectable-content" id="_s_26">user identity</span>, <span class="selectable-content" id="_s_27">subject identity</span>, <span class="selectable-content" id="_s_28">host identity</span>, <span class="selectable-content" id="_s_29">event type</span>]</li>
 				<li>[<b>assignment</b>: 
@@ -1754,10 +1755,10 @@ The following sections list Common Criteria and technology terms used in this do
 		<div class="element"><div class="reqid" id="FAU_STG.2.1/EXT"><a href="#FAU_STG.2.1/EXT" class="abbr">FAU_STG.2.1/EXT</a></div><div class="reqdesc">
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall protect the stored audit data
 				<span class="refinement">with extended retention requirements</span> in the audit trail
-				from deletion prior to their retention period by an auditor.
+				from unauthorized deletion <span class="refinement">prior to their retention period by an auditor</span>.
 			</div></div>
 		<div class="element"><div class="reqid" id="FAU_STG.2.2/EXT"><a href="#FAU_STG.2.2/EXT" class="abbr">FAU_STG.2.2/EXT</a></div><div class="reqdesc">
-				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to [<i>prevent</i>] 
+				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to [<i>prevent</i>] unauthorized
 				modifications to the stored audit data <span class="refinement">with extended retention
 				requirements</span> in the audit trail.
 			<div class="appnote"><span class="note-header">Application
@@ -1893,10 +1894,10 @@ The following sections list Common Criteria and technology terms used in this do
         
 	     
         <div class="comp" id="FAU_STG.5"><h4>FAU_STG.5 Prevention of Audit Data Loss</h4>
-        <div class="element"><div class="reqid" id="FAU_STG.5.1"><a href="#FAU_STG.5.1" class="abbr">FAU_STG.5.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [prevent audited events, except those taken
-			by the <span class="refinement">Auditor</span>, [<b>assignment</b>: 
+        <div class="element"><div class="reqid" id="FAU_STG.5.1"><a href="#FAU_STG.5.1" class="abbr">FAU_STG.5.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<i>prevent audited events, except those taken
+			by the <span class="refinement">Auditor</span></i>], [<b>assignment</b>: 
      <span class="assignable-content">other actions to be taken in case of audit storage
-			failure and conditions for the actions</span>]] if the audit data storage <b>cannot be written to</b>.
+			failure and conditions for the actions</span>] if the audit data storage <b>cannot be written to</b>.
                 <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -2403,8 +2404,8 @@ The following sections list Common Criteria and technology terms used in this do
 	  <a href="#FCS_CDP_EXT.1.1">FCS_CDP_EXT.1.1</a>.
       </i></b></div>
 	
-	<div class="element"><div class="reqid" id="FCS_CKM.1.1"><a href="#FCS_CKM.1.1" class="abbr">FCS_CKM.1.1</a></div><div class="reqdesc"><span class="refinement">Refinement:</span> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <span class="refinement">
-			[<b>selection</b>: <span class="selectable-content" id="_s_67">generate</span>, <span class="selectable-content" id="_s_68">invoke interfaces provided by the Operational Environment to generate</span>] asymmetric </span>cryptographic keys in accordance with the specified key generation algorithm:
+	<div class="element"><div class="reqid" id="FCS_CKM.1.1"><a href="#FCS_CKM.1.1" class="abbr">FCS_CKM.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <span class="refinement">
+			[<b>selection</b>: <span class="selectable-content" id="_s_67">generate</span>, <span class="selectable-content" id="_s_68">invoke interfaces provided by the Operational Environment to generate</span>] asymmetric </span>cryptographic keys in accordance with a specified cryptographic key generation algorithm
 			[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_69"><abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> schemes using cryptographic key sizes of 2048-bit or
 					greater that meet the following: <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-5, “Digital Signature Standard (<abbr class="dyn-abbr"><a href="#abbr_DSS">DSS</a></abbr>)”, Appendix B.3;</span></li><li style=""><span class="selectable-content" id="_s_70"><abbr class="dyn-abbr"><a href="#abbr_ECC">ECC</a></abbr> schemes using “<abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> curves”
 					[<b>selection</b>: <span class="selectable-content" id="_s_71">P-256</span>, <span class="selectable-content" id="_s_72">P-384</span>, <span class="selectable-content" id="_s_73">P-521</span>]
@@ -2556,10 +2557,10 @@ The following sections list Common Criteria and technology terms used in this do
       </i></b></div>
 	
 	<div class="element"><div class="reqid" id="FCS_CKM.2.1"><a href="#FCS_CKM.2.1" class="abbr">FCS_CKM.2.1</a></div><div class="reqdesc">
-			<span class="refinement"> Refinement:</span>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <span class="refinement">
+			The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <span class="refinement">
 			[<b>selection</b>: <span class="selectable-content" id="_s_77">perform</span>, <span class="selectable-content" id="_s_78">invoke interfaces provided by the Operational Environment to perform</span>] key establishment </span>in accordance with a
 			specified cryptographic key <span class="refinement">establishment</span> algorithm
-			<span class="refinement">[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_79"><abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr>-based key establishment schemes that meet the following: RSAES-PKCS1-v1_5 
+			[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_79"><abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr>-based key establishment schemes that meet the following: RSAES-PKCS1-v1_5 
 					as specified in Section 7.2 of <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8017, “Public-Key Cryptography Standards (PKCS) #1: 
 					<abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> Cryptography Specifications Version 2.2;</span></li><li style=""><span class="selectable-content" id="_s_80">Elliptic curve-based key establishment schemes that meet the following:
 					<abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> Special Publication 800-56A Revision 3, “Recommendation for 
@@ -2567,7 +2568,7 @@ The following sections list Common Criteria and technology terms used in this do
 					Cryptography”;</span></li><li style=""><span class="selectable-content" id="_s_81">Finite field-based key establishment schemes that meet the following: <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr>
 					Special Publication 800-56A Revision 3, “Recommendation for Pair-Wise
 					Key Establishment Schemes Using Discrete Logarithm Cryptography”;</span></li><li style=""><span class="selectable-content" id="_s_82">Key establishment scheme using Diffie-Hellman group 14 that meets the
-					following: <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 3526</span></li></ul>]</span>
+					following: <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 3526</span></li></ul>]
 			<s>that meet the following: [assignment: list of standards]</s>.
 		<div class="appnote"><span class="note-header">Application
       Note:
@@ -3387,7 +3388,7 @@ The following sections list Common Criteria and technology terms used in this do
       </i></b></div>
 	
 	<div class="element"><div class="reqid" id="FCS_COP.1.1/SKC"><a href="#FCS_COP.1.1/SKC" class="abbr">FCS_COP.1.1/SKC</a></div><div class="reqdesc">
-			<span class="refinement">Refinement:</span> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
+			The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
 			<span class="refinement">[<b>selection</b>: <span class="selectable-content" id="_s_177">perform</span>, <span class="selectable-content" id="_s_178">invoke interfaces in the operational environment to perform</span>]</span> [<i>encryption and decryption</i>] in accordance
 			with a specified cryptographic algorithm: <br/><br/>
 			<span class="refinement">[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_179"><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CBC (as defined in <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> SP 800-38A) mode</span></li><li style=""><span class="selectable-content" id="_s_180"><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CCM (as defined in <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> SP 800-38C) mode</span></li><li style=""><span class="selectable-content" id="_s_181"><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-GCM (as defined in <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> SP 800-38D) mode</span></li><li style=""><span class="selectable-content" id="_s_182"><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-XTS (as defined in <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> SP 800-38E) mode</span></li><li style=""><span class="selectable-content" id="_s_183"><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> Key Wrap (<abbr class="dyn-abbr"><a href="#abbr_KW">KW</a></abbr>) (as defined in <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> SP 800-38F) mode</span></li><li style=""><span class="selectable-content" id="_s_184"><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> Key Wrap with Padding (<abbr class="dyn-abbr"><a href="#abbr_KWP">KWP</a></abbr>) (as defined in <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> SP 800-38F) mode</span></li></ul>]</span>
@@ -3671,11 +3672,11 @@ The following sections list Common Criteria and technology terms used in this do
       </i></b></div>
 	
 	<div class="element"><div class="reqid" id="FCS_COP.1.1/Sig"><a href="#FCS_COP.1.1/Sig" class="abbr">FCS_COP.1.1/Sig</a></div><div class="reqdesc">
-			<span class="refinement">Refinement:</span>
+			
 			The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <span class="refinement">
 			[<b>selection</b>: <span class="selectable-content" id="_s_187">perform</span>, <span class="selectable-content" id="_s_188">invoke interfaces in the operational environment to perform</span>]</span> [<i>cryptographic signature services</i>] in
-			accordance with the following specified cryptographic algorithms 
-			<span class="refinement">[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_189"><abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> Digital Signature Algorithm (<abbr class="dyn-abbr"><a href="#abbr_rDSA">rDSA</a></abbr>) with a key size (modulus) of
+			accordance with a specified cryptographic algorithms 
+			[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_189"><abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> Digital Signature Algorithm (<abbr class="dyn-abbr"><a href="#abbr_rDSA">rDSA</a></abbr>) with a key size (modulus) of
 					[<b>assignment</b>: 
      <span class="assignable-content">2048 bits or greater</span>]
 					that meets <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr>-PUB 186-5, “Digital Signature Standard”</span></li><li style=""><span class="selectable-content" id="_s_190">Elliptic Curve Digital Signature Algorithm (<abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr>) with a key size 
@@ -3683,7 +3684,7 @@ The following sections list Common Criteria and technology terms used in this do
 					Standard” with “<abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> curves” P-256, P-384 and 
 					[<b>selection</b>: <span class="selectable-content" id="_s_191">P-521</span>, <span class="selectable-content" id="_s_192">no other curves</span>]
 					(as defined in <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-5, “Digital Signature Standard”)</span></li><li style=""><span class="selectable-content" id="_s_193">Digital Signature Algorithm (<abbr class="dyn-abbr"><a href="#abbr_DSA">DSA</a></abbr>) with a key size (modulus) of 2048
-					bits or greater, that meets <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr>-PUB 186-5, “Digital Signature Standard”]</span></li></ul>]</span>
+					bits or greater, that meets <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr>-PUB 186-5, “Digital Signature Standard”]</span></li></ul>]
 			<s><i>and cryptographic key sizes 
 				[<b>assignment</b>: 
      <span class="assignable-content">cryptographic key sizes</span>] that meet the
@@ -3826,11 +3827,11 @@ The following sections list Common Criteria and technology terms used in this do
       </i></b></div>
 	
 	<div class="element"><div class="reqid" id="FCS_COP.1.1/Hash"><a href="#FCS_COP.1.1/Hash" class="abbr">FCS_COP.1.1/Hash</a></div><div class="reqdesc">
-			<span class="refinement">Refinement: </span>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <span class="refinement">
+			The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <span class="refinement">
 			[<b>selection</b>: <span class="selectable-content" id="_s_194">perform</span>, <span class="selectable-content" id="_s_195">invoke interfaces in the operational environment to perform</span>]</span> [<i>cryptographic hashing services</i>] in
-			accordance with a specified cryptographic algorithm 
-			<span class="refinement">[<b>selection</b>: <span class="selectable-content" id="_s_196"><abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-256</span>, <span class="selectable-content" id="_s_197"><abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-384</span>, <span class="selectable-content" id="_s_198"><abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-512</span>] and message digest sizes 
-			[<b>selection</b>: <span class="selectable-content" id="_s_199">256</span>, <span class="selectable-content" id="_s_200">384</span>, <span class="selectable-content" id="_s_201">512</span>] bits</span>
+			accordance with a specified cryptographic algorithm
+			[<b>selection</b>: <span class="selectable-content" id="_s_196"><abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-256</span>, <span class="selectable-content" id="_s_197"><abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-384</span>, <span class="selectable-content" id="_s_198"><abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-512</span>] and <span class="refinement">message digest</span> sizes 
+			[<b>selection</b>: <span class="selectable-content" id="_s_199">256</span>, <span class="selectable-content" id="_s_200">384</span>, <span class="selectable-content" id="_s_201">512</span>] bits
 			that meet the following: [<i><abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> Pub 180-4, “Secure Hash Standard”</i>].
 		<div class="appnote"><span class="note-header">Application
       Note:
@@ -3918,14 +3919,14 @@ The following sections list Common Criteria and technology terms used in this do
       </i></b></div>
 	
 	<div class="element"><div class="reqid" id="FCS_COP.1.1/KeyedHash"><a href="#FCS_COP.1.1/KeyedHash" class="abbr">FCS_COP.1.1/KeyedHash</a></div><div class="reqdesc">
-			<span class="refinement">Refinement: </span>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
+			The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
 			<span class="refinement">[<b>selection</b>: <span class="selectable-content" id="_s_202">perform</span>, <span class="selectable-content" id="_s_203">invoke interfaces in the operational environment to perform</span>]</span>
 			[<i>keyed hash message authentication</i>] in
-			accordance with a specified cryptographic algorithm <span class="refinement"><abbr class="dyn-abbr"><a href="#abbr_HMAC">HMAC</a></abbr>-
-			[<b>selection</b>: <span class="selectable-content" id="_s_204"><abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-256</span>, <span class="selectable-content" id="_s_205"><abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-384</span>, <span class="selectable-content" id="_s_206"><abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-512</span>] key size [<b>assignment</b>: 
-     <span class="assignable-content">key size (in bits) used in <abbr class="dyn-abbr"><a href="#abbr_HMAC">HMAC</a></abbr></span>], 
-			and message digest sizes 
-			[<b>selection</b>: <span class="selectable-content" id="_s_207">256</span>, <span class="selectable-content" id="_s_208">384</span>, <span class="selectable-content" id="_s_209">512</span>] bits</span> that meet the following: 
+			accordance with a specified cryptographic algorithm [<i><abbr class="dyn-abbr"><a href="#abbr_HMAC">HMAC</a></abbr>-
+			[<b>selection</b>: <span class="selectable-content" id="_s_204"><abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-256</span>, <span class="selectable-content" id="_s_205"><abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-384</span>, <span class="selectable-content" id="_s_206"><abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-512</span>] with key size [<b>assignment</b>: 
+     <span class="assignable-content">key size (in bits) used in <abbr class="dyn-abbr"><a href="#abbr_HMAC">HMAC</a></abbr></span>]</i>] 
+			and <span class="refinement">message digest</span> sizes 
+			[<b>selection</b>: <span class="selectable-content" id="_s_207">256</span>, <span class="selectable-content" id="_s_208">384</span>, <span class="selectable-content" id="_s_209">512</span>] bits that meet the following: 
 			[<i><abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> Pub 198-1,“The Keyed Hash Message Authentication Code”;
 			<abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> Pub 180-4, “Secure Hash Standard”</i>].
 		<div class="appnote"><span class="note-header">Application
@@ -3981,13 +3982,12 @@ The following sections list Common Criteria and technology terms used in this do
         	      
 <div class="comp" id="FCS_COP.1/PBKDF"><h4>FCS_COP.1/PBKDF Cryptographic Operation (Password-based Key Derivation Function)</h4><div class="statustag"><i><b>This is an optional component. However, applied modules or packages might redefine it as mandatory.</b></i></div>
        	<div class="element"><div class="reqid" id="FCS_COP.1.1/PBKDF"><a href="#FCS_COP.1.1/PBKDF" class="abbr">FCS_COP.1.1/PBKDF</a></div><div class="reqdesc">
-				<span class="refinement">Refinement:</span> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
+				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
 			    	<span class="refinement">[<b>selection</b>: <span class="selectable-content" id="_s_210">perform</span>, <span class="selectable-content" id="_s_211">invoke interfaces in the Operational Environment to perform</span>]
 			    	</span>
 				[<i>Password-based Key Derivation Functions</i>]
 				in accordance with a specified cryptographic algorithm
-				<span class="refinement">[<b>selection</b>: <span class="selectable-content" id="_s_212"><abbr class="dyn-abbr"><a href="#abbr_HMAC">HMAC</a></abbr>-SHA-256</span>, <span class="selectable-content" id="_s_213"><abbr class="dyn-abbr"><a href="#abbr_HMAC">HMAC</a></abbr>-SHA-384</span>, <span class="selectable-content" id="_s_214"><abbr class="dyn-abbr"><a href="#abbr_HMAC">HMAC</a></abbr>-SHA-512</span>]
-				</span>					
+				[<b>selection</b>: <span class="selectable-content" id="_s_212"><abbr class="dyn-abbr"><a href="#abbr_HMAC">HMAC</a></abbr>-SHA-256</span>, <span class="selectable-content" id="_s_213"><abbr class="dyn-abbr"><a href="#abbr_HMAC">HMAC</a></abbr>-SHA-384</span>, <span class="selectable-content" id="_s_214"><abbr class="dyn-abbr"><a href="#abbr_HMAC">HMAC</a></abbr>-SHA-512</span>]					
 				and <span class="refinement">output</span> cryptographic key sizes 
 				[<i>256-bit</i>] that meet the following: [<i><abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> SP 800-32</i>].
 			<div class="appnote"><span class="note-header">Application
@@ -4947,7 +4947,8 @@ The following sections list Common Criteria and technology terms used in this do
               each of these, in turn, depends on underlying cryptographic primitives (hash functions/ciphers).
               The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author will select the function used and include the specific underlying cryptographic primitives used in the requirement or in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>.
               While any of the identified hash functions (<abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-224, <abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-256, <abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-384, <abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-512) are allowed for Hash_DRBG or HMAC_DRBG,
-              only <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-based implementations for CTR_DRBG are allowed.
+              only <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-based implementations for CTR_DRBG are allowed.<p></p>
+			  The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author selects "<abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> failure" in <a href="#FPT_FLS.1">FPT_FLS.1</a> if this component is included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>.
             </span></div></div></div>
           <div class="element"><div class="reqid" id="FCS_RBG.1.2"><a href="#FCS_RBG.1.2" class="abbr">FCS_RBG.1.2</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use a [<b>selection</b>: <span class="selectable-content" id="internal-seed"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> noise source [<b>assignment</b>: 
@@ -4982,6 +4983,7 @@ The following sections list Common Criteria and technology terms used in this do
               in accordance with [<b>assignment</b>: 
      <span class="assignable-content">list of standards</span>].
             </div></div>
+		  
         <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="element-activity-header"><a href="#FCS_RBG.1.1">FCS_RBG.1.1</a></div>
               <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> identifies the DRBGs used by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</div>
               <div class="eacategory">Guidance</div><div class="ea">If the <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> functionality is configurable, the evaluator shall verify that the operational guidance includes instructions on how to configure this behavior.</div>
@@ -5079,6 +5081,7 @@ The following sections list Common Criteria and technology terms used in this do
 					entropy rate of the noise source is so that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> can collect a sufficiently large sample of noise data to be
 					conditioned into a seed value.
 				</span></div></div></div>
+			
 		<div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_RBG.2">FCS_RBG.2</a></div>
 				<p>
 				The evaluator shall examine the entropy documentation required by <a href="#FCS_RBG.1.2">FCS_RBG.1.2</a> to verify that it identifies, for each <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> function implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> external interface used to seed the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr>. The evaluator shall verify that this includes the amount of sampled data and the min-entropy rate of the sampled data such that it can be determined that sufficient entropy can be made available for the highest strength keys that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> can generate (e.g., 256 bits). If the seed data cannot be assumed to have full entropy (e.g., the min-entropy of the sampled bits is less than 1), the evaluator shall ensure that the entropy documentation describes the method by which the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> estimates the amount of entropy that has been accumulated to ensure that sufficient data is collected and any conditioning that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> applies to the output data to create a seed of sufficient size with full entropy.
@@ -5106,6 +5109,7 @@ The following sections list Common Criteria and technology terms used in this do
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">This requirement is claimed when a <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> is seeded with entropy from a single noise source that is within the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> boundary. Min-entropy should be expressed as a ratio of entropy bits to sampled bits so that the total amount of data needed to ensure full entropy is known, as well as the conditioning function by which that data is reduced in size to the seed.</span></div></div></div>
+		
         <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_RBG.3">FCS_RBG.3</a></div>
           <p>
             The evaluator shall examine the entropy documentation required by <a href="#FCS_RBG.1.2">FCS_RBG.1.2</a> to verify that it identifies, for each <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> function implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> noise source used to seed the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr>. The evaluator shall verify that this includes the amount of sampled data and the min-entropy rate of the sampled data such that it can be determined that sufficient entropy can be made available for the highest strength keys that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> can generate (e.g., 256 bits). If the seed data cannot be assumed to have full entropy (e.g., the min-entropy of the sampled bits is less than 1), the evaluator shall ensure that the entropy documentation describes the method by which the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> estimates the amount of entropy that has been accumulated to ensure that sufficient data is collected and any conditioning that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> applies to the output data to create a seed of sufficient size with full entropy.
@@ -5135,6 +5139,7 @@ The following sections list Common Criteria and technology terms used in this do
               This requirement is claimed when a <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> is seeded with entropy from multiple noise sources that are within the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> boundary. 
               <a href="#FCS_RBG.5">FCS_RBG.5</a> defines the mechanism by which these sources are combined to ensure sufficient minimum entropy.
             </span></div></div></div>
+		  
         <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_RBG.4">FCS_RBG.4</a></div>
           <p>
             The evaluator shall examine the entropy documentation required by <a href="#FCS_RBG.1.2">FCS_RBG.1.2</a> to verify that it identifies, for each <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> function implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, each <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> noise source used to seed the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr>. The evaluator shall verify that this includes the amount of sampled data and the min-entropy rate of the sampled data from each data source.
@@ -5167,6 +5172,7 @@ The following sections list Common Criteria and technology terms used in this do
     </span><span class="note">
               Examples of typical combining operations include, but are not limited to, XORing or hashing.
             </span></div></div></div>
+		  
         <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_RBG.5">FCS_RBG.5</a></div>
           	<p>
             Using the entropy sources specified in <a href="#FCS_RBG.4">FCS_RBG.4</a>, the evaluator shall examine the entropy documentation required by <a href="#FCS_RBG.1.2">FCS_RBG.1.2</a> to verify that it describes the method by which the various entropy sources are combined into a single seed. This should include an estimation of the rate at which each noise source outputs data and whether this is dependent on any system-specific factors so that each source's relative contribution to the overall entropy is understood. The evaluator shall verify that the resulting combination of sampled data and the min-entropy rate of the sampled data is described in sufficient detail to determine that sufficient entropy can be made available for the highest strength keys that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> can generate (e.g., 256 bits). If the seed data cannot be assumed to have full entropy (e.g., the min-entropy of the sampled bits is less than 1), the evaluator shall ensure that the entropy documentation describes the method by which the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> estimates the amount of entropy that has been accumulated to ensure that sufficient data is collected and any conditioning that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> applies to the output data to create a seed of sufficient size with full entropy.
@@ -6239,11 +6245,11 @@ The following sections list Common Criteria and technology terms used in this do
       </i></b></div>
 		 
 		<div class="element"><div class="reqid" id="FDP_ITT.1.1"><a href="#FDP_ITT.1.1" class="abbr">FDP_ITT.1.1</a></div><div class="reqdesc">
-				<span class="refinement">Refinement:</span> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
+				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
 				<s>enforce the [assignment: access control SFP(s) and/or information flow control SFP(s)] to </s>
 				prevent the [<i>disclosure, modification</i>] of user data when it is transmitted between 
-				physically separated parts of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
-				<span class="refinement">through the use of (choose at least one) 
+				physically-separated parts of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
+				<span class="refinement">through the use of
 					[<b>selection</b>: <span class="selectable-content" id="_s_379"><abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr></span>, <span class="selectable-content" id="_s_380"><abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr></span>, <span class="selectable-content" id="_s_381"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>, <span class="selectable-content" id="_s_382"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr></span>].
 				</span>
 			<div class="appnote"><span class="note-header">Application
@@ -6393,7 +6399,7 @@ The following sections list Common Criteria and technology terms used in this do
 	     
         <div class="comp" id="FDP_RIP.1"><h4>FDP_RIP.1 Subset Residual Information Protection</h4>
 		<div class="element"><div class="reqid" id="FDP_RIP.1.1"><a href="#FDP_RIP.1.1" class="abbr">FDP_RIP.1.1</a></div><div class="reqdesc">
-				<span class="refinement">Refinement:</span> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> <span class="refinement">and 
+				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> <span class="refinement">and 
 				[<b>selection</b>: <span class="selectable-content" id="_s_383">Operational Environment</span>, <span class="selectable-content" id="_s_384">no other component</span>]</span>
 				shall ensure that any previous information content of a resource is
 				made unavailable upon the 
@@ -6616,7 +6622,6 @@ The following sections list Common Criteria and technology terms used in this do
       </i></b></div>
 		
 		<div class="element"><div class="reqid" id="FIA_AFL.1.1"><a href="#FIA_AFL.1.1" class="abbr">FIA_AFL.1.1</a></div><div class="reqdesc">
-				<span class="refinement">Refinement: </span>
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
 				<span class="refinement">[<b>selection</b>: <span class="selectable-content" id="_s_404">implement</span>, <span class="selectable-content" id="_s_405">interface with the Operational Environment to implement</span>] 
 				the ability </span>to detect when [<i>an administrator
@@ -7794,10 +7799,10 @@ The following sections list Common Criteria and technology terms used in this do
       </i></b></div>
 		
 		<div class="element"><div class="reqid" id="FIA_UAU.7.1"><a href="#FIA_UAU.7.1" class="abbr">FIA_UAU.7.1</a></div><div class="reqdesc">
-				<span class="refinement">Refinement: </span>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide only 
-				<span class="refinement">[<i>obscured feedback and [<b>assignment</b>: 
-     <span class="assignable-content"> list
-					of other feedback</span>]</i>]</span>
+				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide only 
+				[<i>obscured feedback and [<b>assignment</b>: 
+     <span class="assignable-content">list
+					of other feedback</span>]</i>]
 					to the <span class="refinement">privileged</span> user while the 
 					authentication is in progress.
 			<div class="appnote"><span class="note-header">Application
@@ -8337,7 +8342,7 @@ The following sections list Common Criteria and technology terms used in this do
 	     
         <div class="comp" id="FMT_MOF.1/Admin"><h4>FMT_MOF.1/Admin Management of Security Functions Behavior (Administrator Functions)</h4>
 		<div class="element"><div class="reqid" id="FMT_MOF.1.1/Admin"><a href="#FMT_MOF.1.1/Admin" class="abbr">FMT_MOF.1.1/Admin</a></div><div class="reqdesc">
-				<span class="refinement">Refinement:</span>The 
+				The 
 				<span class="refinement">[<b>selection</b>: <span class="selectable-content" id="_s_480"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_481">Operational Environment</span>]</span>
 				shall restrict the abiulity to
 				<span class="refinement">
@@ -8388,7 +8393,7 @@ The following sections list Common Criteria and technology terms used in this do
 	     
         <div class="comp" id="FMT_MOF.1/RA"><h4>FMT_MOF.1/RA Management of Security Functions Behavior (CA/RA Functions)</h4>
 		<div class="element"><div class="reqid" id="FMT_MOF.1.1/RA"><a href="#FMT_MOF.1.1/RA" class="abbr">FMT_MOF.1.1/RA</a></div><div class="reqdesc">
-				<span class="refinement">Refinement:</span>The
+				The
 				<span class="refinement">[<b>selection</b>: <span class="selectable-content" id="_s_490"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_491">Operational Environment</span>]</span>
 				shall restrict the ability to<br/><br/>
 				<span class="refinement"><ul>
@@ -8421,7 +8426,6 @@ The following sections list Common Criteria and technology terms used in this do
 	     
         <div class="comp" id="FMT_MOF.1/CA"><h4>FMT_MOF.1/CA Management of Security Functions Behavior (CA Operations Functions)</h4>
 		<div class="element"><div class="reqid" id="FMT_MOF.1.1/CA"><a href="#FMT_MOF.1.1/CA" class="abbr">FMT_MOF.1.1/CA</a></div><div class="reqdesc">
-				<span class="refinement">:Refinement:</span>
 				The <span class="refinement">
 				[<b>selection</b>: <span class="selectable-content" id="_s_498"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_499">Operational Environment</span>]</span>
 				shall restict the ability to
@@ -8459,7 +8463,7 @@ The following sections list Common Criteria and technology terms used in this do
 	     
         <div class="comp" id="FMT_MOF.1/CO"><h4>FMT_MOF.1/CO Management of Security Functions Behavior (Admin/Officer Functions)</h4>
 		<div class="element"><div class="reqid" id="FMT_MOF.1.1/CO"><a href="#FMT_MOF.1.1/CO" class="abbr">FMT_MOF.1.1/CO</a></div><div class="reqdesc">
-				<span class="refinement">Refinement:</span> The
+				The
 				<span class="refinement">[<b>selection</b>: <span class="selectable-content" id="_s_506"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_507">Operational Environment</span>]</span>
 				shall restrict the ability to
 				<span class="refinement"><ul>
@@ -8515,7 +8519,7 @@ The following sections list Common Criteria and technology terms used in this do
 	     
         <div class="comp" id="FMT_MOF.1/Auditor"><h4>FMT_MOF.1/Auditor Management of Security Functions Behavior (Auditor Functions)</h4>
 		<div class="element"><div class="reqid" id="FMT_MOF.1.1/Auditor"><a href="#FMT_MOF.1.1/Auditor" class="abbr">FMT_MOF.1.1/Auditor</a></div><div class="reqdesc">
-				<span class="refinement">Refinement:</span>The 
+				The 
 				<span class="refinement">[<b>selection</b>: <span class="selectable-content" id="_s_515"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_516">Operational Environment</span>]
 				</span>
 				shall restrict the ability to
@@ -8595,7 +8599,7 @@ The following sections list Common Criteria and technology terms used in this do
 	     
         <div class="comp" id="FMT_SMF.1"><h4>FMT_SMF.1 Specification of Management Functions</h4>
 		<div class="element"><div class="reqid" id="FMT_SMF.1.1"><a href="#FMT_SMF.1.1" class="abbr">FMT_SMF.1.1</a></div><div class="reqdesc">
-				<span class="refinement">Refinement:</span> The 
+				The 
 				<span class="refinement">[<b>selection</b>: <span class="selectable-content" id="_s_519"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_520">Operational Environment</span>]
 				</span>
 				shall be capable of performing the following management functions: [
@@ -8667,7 +8671,7 @@ The following sections list Common Criteria and technology terms used in this do
 	     
         <div class="comp" id="FMT_SMR.2"><h4>FMT_SMR.2 Restrictions on Security Roles</h4>
 		<div class="element"><div class="reqid" id="FMT_SMR.2.1"><a href="#FMT_SMR.2.1" class="abbr">FMT_SMR.2.1</a></div><div class="reqdesc">
-				<span class="refinement">Refinement:</span>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> 
+				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> 
 				<span class="refinement">and 
 					[<b>selection</b>: <span class="selectable-content" id="_s_535">Operational Environment</span>, <span class="selectable-content" id="_s_536">no other component</span>]
 				</span> shall maintain the roles: [<br/>
@@ -8679,14 +8683,14 @@ The following sections list Common Criteria and technology terms used in this do
 					</li>
 				</ul>
 			</div></div>
-		<div class="element"><div class="reqid" id="FMT_SMR.2.2"><a href="#FMT_SMR.2.2" class="abbr">FMT_SMR.2.2</a></div><div class="reqdesc"><span class="refinement">Refinement:</span>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> 
+		<div class="element"><div class="reqid" id="FMT_SMR.2.2"><a href="#FMT_SMR.2.2" class="abbr">FMT_SMR.2.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> 
 				<span class="refinement"> and
 					[<b>selection</b>: <span class="selectable-content" id="_s_540">Operational Environment</span>, <span class="selectable-content" id="_s_541">no other component</span>]
 				</span>
 				shall be able to associate users with roles.
 			</div></div>
 		<div class="element"><div class="reqid" id="FMT_SMR.2.3"><a href="#FMT_SMR.2.3" class="abbr">FMT_SMR.2.3</a></div><div class="reqdesc">
-				<span class="refinement">Refinement:</span>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>
+				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>
 				<span class="refinement">and[<b>selection</b>: <span class="selectable-content" id="_s_542">Operational Environment</span>, <span class="selectable-content" id="_s_543">no other component</span>]
 				</span>shall ensure that the conditions [
 				<ul><i>
@@ -8786,6 +8790,7 @@ The following sections list Common Criteria and technology terms used in this do
 				requirements in FCS_COP are preferred. In future versions of this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, FCS_COPbased cryptographic methods that conform to the Level 2 Credential Storage
 				requirements from <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> SP 800-63 will be required.
 			</span></div></div></div>
+		
 	<div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FPT_APW_EXT.1">FPT_APW_EXT.1</a></div>
 				
 				
@@ -8821,10 +8826,10 @@ The following sections list Common Criteria and technology terms used in this do
 	     
         <div class="comp" id="FPT_FLS.1"><h4>FPT_FLS.1 Failure with Preservation of Secure State</h4>
 		<div class="element"><div class="reqid" id="FPT_FLS.1.1"><a href="#FPT_FLS.1.1" class="abbr">FPT_FLS.1.1</a></div><div class="reqdesc">
-				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall preserve a secure state when the following types of failures occur: [<i><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> failure,  
-				[<b>selection</b>: <span class="selectable-content" id="_s_544">signature verification failure</span>, <span class="selectable-content" id="_s_545">integrity test failure</span>, <span class="selectable-content" id="_s_546">integrity failure on audit</span>, <span class="selectable-content" id="_s_547">integrity failure on Trust Anchor database</span>, <span class="selectable-content" id="_s_548">[<b>assignment</b>: 
-     <span class="assignable-content">other potential <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> failures</span>]</span>, <span class="selectable-content" id="_s_549">[<b>assignment</b>: 
-     <span class="assignable-content">other potential Operational Environment failures</span>]</span>]</i>].
+				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall preserve a secure state when the following types of failures occur:
+				[<b>selection</b>: <span class="selectable-content" id="_s_544"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> failure</span>, <span class="selectable-content" id="_s_545">signature verification failure</span>, <span class="selectable-content" id="_s_546">integrity test failure</span>, <span class="selectable-content" id="_s_547">integrity failure on audit</span>, <span class="selectable-content" id="_s_548">integrity failure on Trust Anchor database</span>, <span class="selectable-content" id="_s_549">[<b>assignment</b>: 
+     <span class="assignable-content">other potential <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> failures</span>]</span>, <span class="selectable-content" id="_s_550">[<b>assignment</b>: 
+     <span class="assignable-content">other potential Operational Environment failures</span>]</span>].
 			<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -8883,8 +8888,8 @@ The following sections list Common Criteria and technology terms used in this do
       </i></b></div>
 		    
 		<div class="element"><div class="reqid" id="FPT_ITT.1.1"><a href="#FPT_ITT.1.1" class="abbr">FPT_ITT.1.1</a></div><div class="reqdesc">
-				<span class="refinement">Refinement:</span>: The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall protect <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> data from [<i>disclosure, modification</i>]
-				when it is transmitted between separate parts of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> <span class="refinement">through the use of (choose at least one of)
+				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall protect <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> data from [<i>disclosure, modification</i>]
+				when it is transmitted between separate parts of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> <span class="refinement">through the use of
 				[<b>selection</b>: <span class="selectable-content" id="sel-itt-ipsec"><abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr></span>, <span class="selectable-content" id="sel-itt-ssh"><abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr></span>, <span class="selectable-content" id="sel-itt-tls"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>, <span class="selectable-content" id="sel-itt-https"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr></span>].</span>
 			<div class="appnote"><span class="note-header">Application
       Note:
@@ -8951,7 +8956,7 @@ The following sections list Common Criteria and technology terms used in this do
             
 		<div class="element"><div class="reqid" id="FPT_KST_EXT.1.1"><a href="#FPT_KST_EXT.1.1" class="abbr">FPT_KST_EXT.1.1</a></div><div class="reqdesc">
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> and 
-				[<b>selection</b>: <span class="selectable-content" id="_s_554">Operational Environment</span>, <span class="selectable-content" id="_s_555">no other component</span>] shall prevent the plaintext export of
+				[<b>selection</b>: <span class="selectable-content" id="_s_555">Operational Environment</span>, <span class="selectable-content" id="_s_556">no other component</span>] shall prevent the plaintext export of
 				[<b>assignment</b>: 
      <span class="assignable-content">list of all keys used by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>].
 			<div class="appnote"><span class="note-header">Application
@@ -8997,7 +9002,7 @@ The following sections list Common Criteria and technology terms used in this do
     <div class="comp" id="FPT_KST_EXT.2"><h4>FPT_KST_EXT.2 Key Protection</h4>
 		<div class="element"><div class="reqid" id="FPT_KST_EXT.2.1"><a href="#FPT_KST_EXT.2.1" class="abbr">FPT_KST_EXT.2.1</a></div><div class="reqdesc">
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> and 
-				[<b>selection</b>: <span class="selectable-content" id="_s_556">Operational Environment</span>, <span class="selectable-content" id="_s_557">no other components</span>]
+				[<b>selection</b>: <span class="selectable-content" id="_s_557">Operational Environment</span>, <span class="selectable-content" id="_s_558">no other components</span>]
 				shall prevent unauthorized use of all <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> private and secret keys.
 			<div class="appnote"><span class="note-header">Application
       Note:
@@ -9190,7 +9195,7 @@ The following sections list Common Criteria and technology terms used in this do
             
 		<div class="element"><div class="reqid" id="FPT_SKP_EXT.1.1"><a href="#FPT_SKP_EXT.1.1" class="abbr">FPT_SKP_EXT.1.1</a></div><div class="reqdesc">
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
-				[<b>selection</b>: <span class="selectable-content" id="_s_558">implement</span>, <span class="selectable-content" id="_s_559">interface with the Operational Environment to implement</span>]
+				[<b>selection</b>: <span class="selectable-content" id="_s_559">implement</span>, <span class="selectable-content" id="_s_560">interface with the Operational Environment to implement</span>]
 				the ability to prevent reading of all pre-shared keys, private, and
 				secret keys (e.g., KEKs, DEKs, session keys).
 			<div class="appnote"><span class="note-header">Application
@@ -9248,13 +9253,13 @@ The following sections list Common Criteria and technology terms used in this do
 	<div class="comp" id="FPT_SKY_EXT.1/CA"><h4>FPT_SKY_EXT.1/CA Split Knowledge Procedures (CA Functionality)</h4><div class="statustag"><i><b>This is an optional component. However, applied modules or packages might redefine it as mandatory.</b></i></div>
 		<div class="element"><div class="reqid" id="FPT_SKY_EXT.1.1/CA"><a href="#FPT_SKY_EXT.1.1/CA" class="abbr">FPT_SKY_EXT.1.1/CA</a></div><div class="reqdesc">
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
-				[<b>selection</b>: <span class="selectable-content" id="_s_560">support</span>, <span class="selectable-content" id="_s_561">interface with the operational environment to support</span>]
+				[<b>selection</b>: <span class="selectable-content" id="_s_561">support</span>, <span class="selectable-content" id="_s_562">interface with the operational environment to support</span>]
 				split knowledge procedures to enforce two-party control for the export of <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> signing keys and 
-				[<b>selection</b>: <span class="selectable-content" id="_s_562">no other data</span>, <span class="selectable-content" id="_s_563">[<b>assignment</b>: 
+				[<b>selection</b>: <span class="selectable-content" id="_s_563">no other data</span>, <span class="selectable-content" id="_s_564">[<b>assignment</b>: 
      <span class="assignable-content">critical data or keys</span>]</span>]
 				necessary to resume <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> functionality after <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> failure using
-				[<b>selection</b>: <span class="selectable-content" id="_s_564">key sharing mechanisms in accordance with <a href="#FCS_CKM_EXT.1/KEKT">FCS_CKM_EXT.1/KEKT</a>, 
-					<a href="#FCS_CKM_EXT.1/SHARE">FCS_CKM_EXT.1/SHARE</a>, <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a>, and <a href="#FPT_SKY_EXT.2">FPT_SKY_EXT.2</a></span>, <span class="selectable-content" id="_s_565">[<b>assignment</b>: 
+				[<b>selection</b>: <span class="selectable-content" id="_s_565">key sharing mechanisms in accordance with <a href="#FCS_CKM_EXT.1/KEKT">FCS_CKM_EXT.1/KEKT</a>, 
+					<a href="#FCS_CKM_EXT.1/SHARE">FCS_CKM_EXT.1/SHARE</a>, <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a>, and <a href="#FPT_SKY_EXT.2">FPT_SKY_EXT.2</a></span>, <span class="selectable-content" id="_s_566">[<b>assignment</b>: 
      <span class="assignable-content">other mechanism</span>]</span>].
 			<div class="appnote"><span class="note-header">Application
       Note:
@@ -9314,13 +9319,13 @@ The following sections list Common Criteria and technology terms used in this do
 		
 		<div class="element"><div class="reqid" id="FPT_SKY_EXT.1.1/OTH"><a href="#FPT_SKY_EXT.1.1/OTH" class="abbr">FPT_SKY_EXT.1.1/OTH</a></div><div class="reqdesc">
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
-				[<b>selection</b>: <span class="selectable-content" id="_s_566">support</span>, <span class="selectable-content" id="_s_567">interface with the operational environment to support</span>]
+				[<b>selection</b>: <span class="selectable-content" id="_s_567">support</span>, <span class="selectable-content" id="_s_568">interface with the operational environment to support</span>]
 				split knowledge procedures to enforce two-party control for the export of
-				[<b>selection</b>: <span class="selectable-content" id="_s_568">no other data</span>, <span class="selectable-content" id="_s_569">user private keys</span>, <span class="selectable-content" id="_s_570">[<b>assignment</b>: 
+				[<b>selection</b>: <span class="selectable-content" id="_s_569">no other data</span>, <span class="selectable-content" id="_s_570">user private keys</span>, <span class="selectable-content" id="_s_571">[<b>assignment</b>: 
      <span class="assignable-content">critical data or keys</span>]</span>]
 				using
-				[<b>selection</b>: <span class="selectable-content" id="_s_571">key sharing mechanisms in accordance with <a href="#FCS_CKM_EXT.1/KEKT">FCS_CKM_EXT.1/KEKT</a>, 
-					<a href="#FCS_CKM_EXT.1/SHARE">FCS_CKM_EXT.1/SHARE</a>, <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a>, and <a href="#FPT_SKY_EXT.2">FPT_SKY_EXT.2</a></span>, <span class="selectable-content" id="_s_572">[<b>assignment</b>: 
+				[<b>selection</b>: <span class="selectable-content" id="_s_572">key sharing mechanisms in accordance with <a href="#FCS_CKM_EXT.1/KEKT">FCS_CKM_EXT.1/KEKT</a>, 
+					<a href="#FCS_CKM_EXT.1/SHARE">FCS_CKM_EXT.1/SHARE</a>, <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a>, and <a href="#FPT_SKY_EXT.2">FPT_SKY_EXT.2</a></span>, <span class="selectable-content" id="_s_573">[<b>assignment</b>: 
      <span class="assignable-content">other mechanism</span>]</span>].
 			<div class="appnote"><span class="note-header">Application
       Note:
@@ -9385,7 +9390,7 @@ The following sections list Common Criteria and technology terms used in this do
             
 		<div class="element"><div class="reqid" id="FPT_SKY_EXT.2.1"><a href="#FPT_SKY_EXT.2.1" class="abbr">FPT_SKY_EXT.2.1</a></div><div class="reqdesc">
 				The 
-				[<b>selection</b>: <span class="selectable-content" id="_s_573"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_574">Operational Environment</span>] shall ensure that key shares
+				[<b>selection</b>: <span class="selectable-content" id="_s_574"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_575">Operational Environment</span>] shall ensure that key shares
 				generated in accordance with <a href="#FCS_CKM_EXT.1/SHARE">FCS_CKM_EXT.1/SHARE</a> are accessible only to privileged
 				users, and that each share is only accessible to a single privileged user as
 				configured by an Administrator.
@@ -9425,8 +9430,8 @@ The following sections list Common Criteria and technology terms used in this do
 	     
     <div class="comp" id="FPT_STM.1"><h4>FPT_STM.1 Reliable Time Stamps</h4>
 		<div class="element"><div class="reqid" id="FPT_STM.1.1"><a href="#FPT_STM.1.1" class="abbr">FPT_STM.1.1</a></div><div class="reqdesc">
-				<span class="refinement">Refinement:</span> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
-				[<b>selection</b>: <span class="selectable-content" id="_s_575">provide</span>, <span class="selectable-content" id="_s_576">interface with the Operational Environment to provide</span>] reliable time stamps. 
+				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to <span class="refinement">
+				[<b>selection</b>: <span class="selectable-content" id="_s_576">provide</span>, <span class="selectable-content" id="_s_577">interface with the Operational Environment to provide</span>]</span> reliable time stamps. 
 			<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -9486,7 +9491,7 @@ The following sections list Common Criteria and technology terms used in this do
       </i></b></div>
     		
     		<div class="element"><div class="reqid" id="FPT_TST.1.1"><a href="#FPT_TST.1.1" class="abbr">FPT_TST.1.1</a></div><div class="reqdesc">
-    				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall run a suite of the following self-tests [<b>selection</b>: <span class="selectable-content" id="_s_577">during initial start-up</span>, <span class="selectable-content" id="_s_578">periodically during normal operation</span>, <span class="selectable-content" id="_s_579">at the request of the authorized user</span>, <span class="selectable-content" id="_s_580">at the conditions [<b>assignment</b>: 
+    				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall run a suite of the following self-tests [<b>selection</b>: <span class="selectable-content" id="_s_578">during initial start-up</span>, <span class="selectable-content" id="_s_579">periodically during normal operation</span>, <span class="selectable-content" id="_s_580">at the request of the authorized user</span>, <span class="selectable-content" id="_s_581">at the conditions [<b>assignment</b>: 
      <span class="assignable-content">conditions under which self-test should occur</span>]</span>]
     				to demonstrate the correct operation of [<i><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> specified in <a href="#FCS_RBG.1">FCS_RBG.1</a></i>].              
     			</div></div>
@@ -9499,7 +9504,8 @@ The following sections list Common Criteria and technology terms used in this do
     				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide authorized users with the capability to verify the integrity of [<i>[<abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> specified in <a href="#FCS_RBG.1">FCS_RBG.1</a>]</i>].
     			<div class="appnote"><span class="note-header">Application
       Note:
-    </span><span class="note">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is a required dependency of <a href="#FCS_RBG.1">FCS_RBG.1</a>. It is intended to require that any <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> undergo health testing to ensure that the random bit generation functionality has not been degraded. If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports multiple DRBGs, this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> should be iterated to describe the self-test behavior for each.</span></div></div></div>    		
+    </span><span class="note">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is a required dependency of <a href="#FCS_RBG.1">FCS_RBG.1</a>. It is intended to require that any <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> undergo health testing to ensure that the random bit generation functionality has not been degraded. If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports multiple DRBGs, this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> should be iterated to describe the self-test behavior for each.</span></div></div></div>
+				
     	<div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FPT_TST.1">FPT_TST.1</a></div>
     			
     			
@@ -9537,14 +9543,15 @@ The following sections list Common Criteria and technology terms used in this do
             
 		<div class="element"><div class="reqid" id="FPT_TST_EXT.1.1"><a href="#FPT_TST_EXT.1.1" class="abbr">FPT_TST_EXT.1.1</a></div><div class="reqdesc">
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall apply a 
-				[<b>selection</b>: <span class="selectable-content" id="_s_581">keyed hash according to <a href="#FCS_COP.1/KeyedHash">FCS_COP.1/KeyedHash</a></span>, <span class="selectable-content" id="_s_582">digital signature algorithm according to <a href="#FCS_COP.1/Sig">FCS_COP.1/Sig</a></span>]
+				[<b>selection</b>: <span class="selectable-content" id="_s_582">keyed hash according to <a href="#FCS_COP.1/KeyedHash">FCS_COP.1/KeyedHash</a></span>, <span class="selectable-content" id="_s_583">digital signature algorithm according to <a href="#FCS_COP.1/Sig">FCS_COP.1/Sig</a></span>]
 				to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> software and firmware.
+				<span style="" class="comment " id="Comment-3-">This requirement is similar to the requirements laid out in <a href="#FPT_TST.1.3">FPT_TST.1.3</a>, which has been added as a required dependency for <a href="#FCS_RBG.1">FCS_RBG.1</a>. Should this requirement be folded into that one?</span>
 			</div></div>
 		<div class="element"><div class="reqid" id="FPT_TST_EXT.1.2"><a href="#FPT_TST_EXT.1.2" class="abbr">FPT_TST_EXT.1.2</a></div><div class="reqdesc">
 				The 
-				[<b>selection</b>: <span class="selectable-content" id="_s_583"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_584">Operational Environment</span>] 
+				[<b>selection</b>: <span class="selectable-content" id="_s_584"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_585">Operational Environment</span>] 
 				shall verify the integrity of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> software and firmware 
-				[<b>selection</b>: <span class="selectable-content" id="_s_585">at power-up</span>, <span class="selectable-content" id="_s_586">at initialization</span>, <span class="selectable-content" id="_s_587">on-demand by a privileged user</span>].
+				[<b>selection</b>: <span class="selectable-content" id="_s_586">at power-up</span>, <span class="selectable-content" id="_s_587">at initialization</span>, <span class="selectable-content" id="_s_588">on-demand by a privileged user</span>].
 			<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -9599,14 +9606,15 @@ The following sections list Common Criteria and technology terms used in this do
             
 		<div class="element"><div class="reqid" id="FPT_TST_EXT.2.1"><a href="#FPT_TST_EXT.2.1" class="abbr">FPT_TST_EXT.2.1</a></div><div class="reqdesc">
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall apply a 
-				[<b>selection</b>: <span class="selectable-content" id="_s_588">keyed hash according to <a href="#FCS_COP.1/KeyedHash">FCS_COP.1/KeyedHash</a></span>, <span class="selectable-content" id="_s_589">digital signature algorithm according to <a href="#FCS_COP.1/Sig">FCS_COP.1/Sig</a></span>]
+				[<b>selection</b>: <span class="selectable-content" id="_s_589">keyed hash according to <a href="#FCS_COP.1/KeyedHash">FCS_COP.1/KeyedHash</a></span>, <span class="selectable-content" id="_s_590">digital signature algorithm according to <a href="#FCS_COP.1/Sig">FCS_COP.1/Sig</a></span>]
 				to the 
-				[<b>selection</b>: <span class="selectable-content" id="_s_590">Trust Anchor Database element(s)</span>, <span class="selectable-content" id="_s_591"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> keys used to manage certificates</span>, <span class="selectable-content" id="_s_592">certificate database</span>, <span class="selectable-content" id="_s_593">[<b>assignment</b>: 
+				[<b>selection</b>: <span class="selectable-content" id="_s_591">Trust Anchor Database element(s)</span>, <span class="selectable-content" id="_s_592"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> keys used to manage certificates</span>, <span class="selectable-content" id="_s_593">certificate database</span>, <span class="selectable-content" id="_s_594">[<b>assignment</b>: 
      <span class="assignable-content">other data relevant to <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> security</span>]</span>].
+				<span style="" class="comment " id="Comment-4-">This requirement is similar to the requirements laid out in <a href="#FPT_TST.1.2">FPT_TST.1.2</a>, which has been added as a required dependency for <a href="#FCS_RBG.1">FCS_RBG.1</a>. Should this requirement be folded into that one?</span>
 			</div></div>
 		<div class="element"><div class="reqid" id="FPT_TST_EXT.2.2"><a href="#FPT_TST_EXT.2.2" class="abbr">FPT_TST_EXT.2.2</a></div><div class="reqdesc">
 				Integrity shall be verified at 
-				[<b>selection</b>: <span class="selectable-content" id="_s_594">power-up</span>, <span class="selectable-content" id="_s_595">initialization</span>, <span class="selectable-content" id="_s_596">on-demand by a privileged user</span>].
+				[<b>selection</b>: <span class="selectable-content" id="_s_595">power-up</span>, <span class="selectable-content" id="_s_596">initialization</span>, <span class="selectable-content" id="_s_597">on-demand by a privileged user</span>].
 			<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -9663,24 +9671,24 @@ The following sections list Common Criteria and technology terms used in this do
             
 		<div class="element"><div class="reqid" id="FPT_TUD_EXT.1.1"><a href="#FPT_TUD_EXT.1.1" class="abbr">FPT_TUD_EXT.1.1</a></div><div class="reqdesc">
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
-				[<b>selection</b>: <span class="selectable-content" id="_s_597">implement</span>, <span class="selectable-content" id="_s_598">interface with the Operational Environment to implement</span>]
+				[<b>selection</b>: <span class="selectable-content" id="_s_598">implement</span>, <span class="selectable-content" id="_s_599">interface with the Operational Environment to implement</span>]
 				the ability to check for updates and patches to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
 			</div></div>
 		<div class="element"><div class="reqid" id="FPT_TUD_EXT.1.2"><a href="#FPT_TUD_EXT.1.2" class="abbr">FPT_TUD_EXT.1.2</a></div><div class="reqdesc">
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
-				[<b>selection</b>: <span class="selectable-content" id="_s_599">implement</span>, <span class="selectable-content" id="_s_600">interface with the Operational Environment to implement</span>]
+				[<b>selection</b>: <span class="selectable-content" id="_s_600">implement</span>, <span class="selectable-content" id="_s_601">interface with the Operational Environment to implement</span>]
 				the ability to provide Administrators the ability to initiate updates
 				to <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware/software.
 			</div></div>
 		<div class="element"><div class="reqid" id="FPT_TUD_EXT.1.3"><a href="#FPT_TUD_EXT.1.3" class="abbr">FPT_TUD_EXT.1.3</a></div><div class="reqdesc">
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
-				[<b>selection</b>: <span class="selectable-content" id="_s_601">implement</span>, <span class="selectable-content" id="_s_602">interface with the Operational Environment to implement</span>]
+				[<b>selection</b>: <span class="selectable-content" id="_s_602">implement</span>, <span class="selectable-content" id="_s_603">interface with the Operational Environment to implement</span>]
 				the ability to verify firmware/software updates to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> using a
 				digital signature prior to installing those updates.
 			</div></div>
 		<div class="element"><div class="reqid" id="FPT_TUD_EXT.1.4"><a href="#FPT_TUD_EXT.1.4" class="abbr">FPT_TUD_EXT.1.4</a></div><div class="reqdesc">
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
-				[<b>selection</b>: <span class="selectable-content" id="_s_603">implement</span>, <span class="selectable-content" id="_s_604">interface with the Operational Environment to implement</span>]
+				[<b>selection</b>: <span class="selectable-content" id="_s_604">implement</span>, <span class="selectable-content" id="_s_605">interface with the Operational Environment to implement</span>]
 				 the ability to verify the digital signature whenever the software or
 				firmware is externally loaded into the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and if verification fails, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
 				[<b>assignment</b>: 
@@ -9786,10 +9794,10 @@ The following sections list Common Criteria and technology terms used in this do
 	     
     <div class="comp" id="FTA_SSL.3"><h4>FTA_SSL.3 TSF-Initiated Termination</h4><div class="statustag"><i><b>This is an optional component. However, applied modules or packages might redefine it as mandatory.</b></i></div>
 		<div class="element"><div class="reqid" id="FTA_SSL.3.1"><a href="#FTA_SSL.3.1" class="abbr">FTA_SSL.3.1</a></div><div class="reqdesc">
-				<span class="refinement">Refinement:</span>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall terminate <span class="refinement"> a remote</span>
+				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall terminate <span class="refinement"> a remote</span>
 				session after a [<b>assignment</b>: 
      <span class="assignable-content"><b>administrator-configurable</b> time interval 
-				of session activity</span>].
+				of user activity</span>].
 			<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -9835,8 +9843,8 @@ The following sections list Common Criteria and technology terms used in this do
 	     
     <div class="comp" id="FTA_SSL.4"><h4>FTA_SSL.4 User-Initiated Termination</h4>
 		<div class="element"><div class="reqid" id="FTA_SSL.4.1"><a href="#FTA_SSL.4.1" class="abbr">FTA_SSL.4.1</a></div><div class="reqdesc">
-				<span class="refinement">Refinement:</span>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
-				<span class="refinement">[<b>selection</b>: <span class="selectable-content" id="_s_605">implement</span>, <span class="selectable-content" id="_s_606">interface with the Operational Environment to implement</span>] the ability to </span> allow <span class="refinement">privileged </span>
+				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
+				<span class="refinement">[<b>selection</b>: <span class="selectable-content" id="_s_606">implement</span>, <span class="selectable-content" id="_s_607">interface with the Operational Environment to implement</span>] the ability to </span> allow <span class="refinement">privileged </span>
 				user-initiated termination of the <span class="refinement">privileged</span> user’s own interactive session.
 			</div></div>
 		
@@ -9885,9 +9893,9 @@ The following sections list Common Criteria and technology terms used in this do
             
             
 			<div class="element"><div class="reqid" id="FTA_SSL_EXT.1.1"><a href="#FTA_SSL_EXT.1.1" class="abbr">FTA_SSL_EXT.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall, for local interactive sessions, 
-				[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_607">lock the session–- disable any activity of the user’s data access/display
+				[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_608">lock the session–- disable any activity of the user’s data access/display
 					devices other than unlocking the session, and requiring that the privileged user
-					reauthenticate to the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> prior to unlocking the session;</span></li><li style=""><span class="selectable-content" id="_s_608">terminate the session</span></li></ul>]
+					reauthenticate to the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> prior to unlocking the session;</span></li><li style=""><span class="selectable-content" id="_s_609">terminate the session</span></li></ul>]
 				after an Administrator-configured time period of inactivity.
 			<div class="appnote"><span class="note-header">Application
       Note:
@@ -9937,10 +9945,11 @@ The following sections list Common Criteria and technology terms used in this do
 	     
     <div class="comp" id="FTA_TAB.1"><h4>FTA_TAB.1 Default TOE Access Banners</h4>
 		<div class="element"><div class="reqid" id="FTA_TAB.1.1"><a href="#FTA_TAB.1.1" class="abbr">FTA_TAB.1.1</a></div><div class="reqdesc">
-				<span class="refinement">Refinement:</span> Before establishing a <span class="refinement">privileged</span>
-				user session the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall display <span class="refinement">an Administrator-configured</span>
-				advisory <span class="refinement">notice and consent</span> warning message
-				regarding unauthorized use of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
+				Before establishing a <span class="refinement">privileged</span>
+				user session the 
+				[<b>selection</b>: <span class="selectable-content" id="_s_610"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_611"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span>] 
+				shall display an [<i>Administrator-configured advisory notice and consent warning
+				regarding unauthorized use of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></i>] message. 
 			<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -9998,27 +10007,27 @@ The following sections list Common Criteria and technology terms used in this do
       </i></b></div>
 		 
 		<div class="element"><div class="reqid" id="FTP_ITC.1.1"><a href="#FTP_ITC.1.1" class="abbr">FTP_ITC.1.1</a></div><div class="reqdesc">
-				<span class="refinement">Refinement:</span> 
+				
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <span class="refinement">use 
-				[<b>selection</b>: <span class="selectable-content" id="ftp-itc-https"><abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr></span>, <span class="selectable-content" id="ftp-itc-ipsec"><abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr></span>, <span class="selectable-content" id="ftp-itc-tls"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>, <span class="selectable-content" id="ftp-itc-ssh"><abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr></span>, <span class="selectable-content" id="ftp-itc-https"><abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr></span>]</span>
-				to provide a <span class="refinement">trusted</span>
+				[<b>selection</b>: <span class="selectable-content" id="ftp-itc-https"><abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr></span>, <span class="selectable-content" id="ftp-itc-ipsec"><abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr></span>, <span class="selectable-content" id="ftp-itc-tls"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>, <span class="selectable-content" id="ftp-itc-ssh"><abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr></span>, <span class="selectable-content" id="ftp-itc-https"><abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr></span>] to</span>
+				 provide a <span class="refinement">trusted</span>
 				communication channel between itself and 
 				<span class="refinement">authorized external network
 				based <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entities supporting the following capabilities: 
-				[<b>selection</b>: <span class="selectable-content" id="_s_614">audit server</span>, <span class="selectable-content" id="_s_615">external cryptographic module</span>, <span class="selectable-content" id="_s_616">directory services</span>, <span class="selectable-content" id="_s_617"><abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr></span>, <span class="selectable-content" id="_s_618">[<b>assignment</b>: 
+				[<b>selection</b>: <span class="selectable-content" id="_s_617">audit server</span>, <span class="selectable-content" id="_s_618">external cryptographic module</span>, <span class="selectable-content" id="_s_619">directory services</span>, <span class="selectable-content" id="_s_620"><abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr></span>, <span class="selectable-content" id="_s_621">[<b>assignment</b>: 
      <span class="assignable-content">other components</span>]</span>]</span>
 				that is logically distinct from other communication channels and
 				provides assured identification of its end points and protection of the channel
 				data from modification or disclosure.
 			</div></div>
 		<div class="element"><div class="reqid" id="FTP_ITC.1.2"><a href="#FTP_ITC.1.2" class="abbr">FTP_ITC.1.2</a></div><div class="reqdesc">
-				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit [<i>the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>, the authorized <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entities</i>] to initiate communication
+				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit [<i>the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>, <span class="refinement">the authorized <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entities</span></i>] to initiate communication
 				via the trusted channel.
 			</div></div>
 		<div class="element"><div class="reqid" id="FTP_ITC.1.3"><a href="#FTP_ITC.1.3" class="abbr">FTP_ITC.1.3</a></div><div class="reqdesc">
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall initiate communication via the trusted channel for [<b>assignment</b>: 
      <span class="assignable-content">
-					list of services for which the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> is able to initiate communications</span>]
+					list of services for which the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> is able to initiate communications</span>].
 			<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -10109,17 +10118,17 @@ The following sections list Common Criteria and technology terms used in this do
 	     
     <div class="comp" id="FTP_TRP.1"><h4>FTP_TRP.1 Trusted Path</h4>
 		<div class="element"><div class="reqid" id="FTP_TRP.1.1"><a href="#FTP_TRP.1.1" class="abbr">FTP_TRP.1.1</a></div><div class="reqdesc">
-				<span class="refinement">Refinement:</span> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
+				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
 				<span class="refinement">use [<b>selection</b>: <span class="selectable-content" id="ftp-trp-https"><abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr></span>, <span class="selectable-content" id="ftp-trp-ipsec"><abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr></span>, <span class="selectable-content" id="ftp-trp-ssh"><abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr></span>, <span class="selectable-content" id="ftp-trp-tls"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr></span>] to </span>
-				provide <span class="refinement">a trusted</span> communication path between itself and 
-				<span class="refinement">remote subscribers and privileged users</span>
+				provide a <span class="refinement">trusted</span> communication path between itself and 
+				[<i>remote <span class="refinement">subscribers and privileged</span></i>] users 
 				that is logically distinct from other
 				communication paths and provides assured identification of its end points and
 				protection of the communicated data from [<i>modification, disclosure</i>].
 			</div></div>
 		<div class="element"><div class="reqid" id="FTP_TRP.1.2"><a href="#FTP_TRP.1.2" class="abbr">FTP_TRP.1.2</a></div><div class="reqdesc">
-				<span class="refinement">Refinement:</span> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit <span class="refinement">remote subscribers</span>
-				and privileged users to initiate communication via the trusted path.
+				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit [<i>remote <span class="refinement">subscribers and privileged</span></i> users]
+				to initiate communication via the trusted path.
 			</div></div>
 		<div class="element"><div class="reqid" id="FTP_TRP.1.3"><a href="#FTP_TRP.1.3" class="abbr">FTP_TRP.1.3</a></div><div class="reqdesc">
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall require the use of the trusted path for [<i>initial subscriber and
@@ -11063,7 +11072,7 @@ The following sections list Common Criteria and technology terms used in this do
                 TODO: QQQQQ
             </td></tr></table><h4 id="ext-comp-FPT_KST_EXT.1.1">FPT_KST_EXT.1.1</h4>
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> and 
-				[<b>selection</b>: <span class="selectable-content" id="_s_554">Operational Environment</span>, <span class="selectable-content" id="_s_555">no other component</span>] shall prevent the plaintext export of
+				[<b>selection</b>: <span class="selectable-content" id="_s_555">Operational Environment</span>, <span class="selectable-content" id="_s_556">no other component</span>] shall prevent the plaintext export of
 				[<b>assignment</b>: 
      <span class="assignable-content">list of all keys used by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>].
 			</div></div><h3 id="ext-comp-FPT_NPE_EXT" class="indexable" data-level="4">B.2.4.3 FPT_NPE_EXT NPE Constraints</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FPT_NPE_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FPT_NPE_EXT.1">FPT_NPE_EXT.1</a>,
@@ -11084,7 +11093,7 @@ The following sections list Common Criteria and technology terms used in this do
                 TODO: QQQQQ
             </td></tr></table><h4 id="ext-comp-FPT_SKP_EXT.1.1">FPT_SKP_EXT.1.1</h4>
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
-				[<b>selection</b>: <span class="selectable-content" id="_s_558">implement</span>, <span class="selectable-content" id="_s_559">interface with the Operational Environment to implement</span>]
+				[<b>selection</b>: <span class="selectable-content" id="_s_559">implement</span>, <span class="selectable-content" id="_s_560">interface with the Operational Environment to implement</span>]
 				the ability to prevent reading of all pre-shared keys, private, and
 				secret keys (e.g., KEKs, DEKs, session keys).
 			</div></div><h3 id="ext-comp-FPT_SKY_EXT" class="indexable" data-level="4">B.2.4.5 FPT_SKY_EXT Split Knowledge Procedures</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 50px;"><text x="4" fill="black" font-size="15" y="44">FPT_SKY_EXT</text><rect x="2" y="31" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="37" x2="231" y2="17" stroke="black"></line><text x="234" fill="black" font-size="15" y="44">2</text><rect x="232" y="31" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="37" x2="231" y2="37" stroke="black"></line></svg><p>FPT_SKY_EXT.1,
@@ -11097,7 +11106,7 @@ The following sections list Common Criteria and technology terms used in this do
                 TODO: QQQQQ
             </td></tr></table><h4 id="ext-comp-FPT_SKY_EXT.2.1">FPT_SKY_EXT.2.1</h4>
 				The 
-				[<b>selection</b>: <span class="selectable-content" id="_s_573"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_574">Operational Environment</span>] shall ensure that key shares
+				[<b>selection</b>: <span class="selectable-content" id="_s_574"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_575">Operational Environment</span>] shall ensure that key shares
 				generated in accordance with <a href="#FCS_CKM_EXT.1/SHARE">FCS_CKM_EXT.1/SHARE</a> are accessible only to privileged
 				users, and that each share is only accessible to a single privileged user as
 				configured by an Administrator.
@@ -11109,45 +11118,47 @@ The following sections list Common Criteria and technology terms used in this do
                 TODO: QQQQQ
             </td></tr></table><h4 id="ext-comp-FPT_TST_EXT.1.1">FPT_TST_EXT.1.1</h4>
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall apply a 
-				[<b>selection</b>: <span class="selectable-content" id="_s_581">keyed hash according to <a href="#FCS_COP.1/KeyedHash">FCS_COP.1/KeyedHash</a></span>, <span class="selectable-content" id="_s_582">digital signature algorithm according to <a href="#FCS_COP.1/Sig">FCS_COP.1/Sig</a></span>]
+				[<b>selection</b>: <span class="selectable-content" id="_s_582">keyed hash according to <a href="#FCS_COP.1/KeyedHash">FCS_COP.1/KeyedHash</a></span>, <span class="selectable-content" id="_s_583">digital signature algorithm according to <a href="#FCS_COP.1/Sig">FCS_COP.1/Sig</a></span>]
 				to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> software and firmware.
+				<span style="" class="comment " id="Comment-3-">This requirement is similar to the requirements laid out in <a href="#FPT_TST.1.3">FPT_TST.1.3</a>, which has been added as a required dependency for <a href="#FCS_RBG.1">FCS_RBG.1</a>. Should this requirement be folded into that one?</span>
 			<h4 id="ext-comp-FPT_TST_EXT.1.2">FPT_TST_EXT.1.2</h4>
 				The 
-				[<b>selection</b>: <span class="selectable-content" id="_s_583"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_584">Operational Environment</span>] 
+				[<b>selection</b>: <span class="selectable-content" id="_s_584"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_585">Operational Environment</span>] 
 				shall verify the integrity of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> software and firmware 
-				[<b>selection</b>: <span class="selectable-content" id="_s_585">at power-up</span>, <span class="selectable-content" id="_s_586">at initialization</span>, <span class="selectable-content" id="_s_587">on-demand by a privileged user</span>].
+				[<b>selection</b>: <span class="selectable-content" id="_s_586">at power-up</span>, <span class="selectable-content" id="_s_587">at initialization</span>, <span class="selectable-content" id="_s_588">on-demand by a privileged user</span>].
 			</div><h4>Management: FPT_TST_EXT.2</h4><p>TODO: QQQQQ</p><h4>Audit: FPT_TST_EXT.2</h4><p>TODO: QQQQQ</p><h4>FPT_TST_EXT.2 Integrity Test</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
                 TODO: QQQQQ
             </td></tr></table><h4 id="ext-comp-FPT_TST_EXT.2.1">FPT_TST_EXT.2.1</h4>
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall apply a 
-				[<b>selection</b>: <span class="selectable-content" id="_s_588">keyed hash according to <a href="#FCS_COP.1/KeyedHash">FCS_COP.1/KeyedHash</a></span>, <span class="selectable-content" id="_s_589">digital signature algorithm according to <a href="#FCS_COP.1/Sig">FCS_COP.1/Sig</a></span>]
+				[<b>selection</b>: <span class="selectable-content" id="_s_589">keyed hash according to <a href="#FCS_COP.1/KeyedHash">FCS_COP.1/KeyedHash</a></span>, <span class="selectable-content" id="_s_590">digital signature algorithm according to <a href="#FCS_COP.1/Sig">FCS_COP.1/Sig</a></span>]
 				to the 
-				[<b>selection</b>: <span class="selectable-content" id="_s_590">Trust Anchor Database element(s)</span>, <span class="selectable-content" id="_s_591"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> keys used to manage certificates</span>, <span class="selectable-content" id="_s_592">certificate database</span>, <span class="selectable-content" id="_s_593">[<b>assignment</b>: 
+				[<b>selection</b>: <span class="selectable-content" id="_s_591">Trust Anchor Database element(s)</span>, <span class="selectable-content" id="_s_592"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> keys used to manage certificates</span>, <span class="selectable-content" id="_s_593">certificate database</span>, <span class="selectable-content" id="_s_594">[<b>assignment</b>: 
      <span class="assignable-content">other data relevant to <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> security</span>]</span>].
+				<span style="" class="comment " id="Comment-4-">This requirement is similar to the requirements laid out in <a href="#FPT_TST.1.2">FPT_TST.1.2</a>, which has been added as a required dependency for <a href="#FCS_RBG.1">FCS_RBG.1</a>. Should this requirement be folded into that one?</span>
 			<h4 id="ext-comp-FPT_TST_EXT.2.2">FPT_TST_EXT.2.2</h4>
 				Integrity shall be verified at 
-				[<b>selection</b>: <span class="selectable-content" id="_s_594">power-up</span>, <span class="selectable-content" id="_s_595">initialization</span>, <span class="selectable-content" id="_s_596">on-demand by a privileged user</span>].
+				[<b>selection</b>: <span class="selectable-content" id="_s_595">power-up</span>, <span class="selectable-content" id="_s_596">initialization</span>, <span class="selectable-content" id="_s_597">on-demand by a privileged user</span>].
 			</div></div><h3 id="ext-comp-FPT_TUD_EXT" class="indexable" data-level="4">B.2.4.7 FPT_TUD_EXT Trusted Update</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family TODO: QQQQQ</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FPT_TUD_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FPT_TUD_EXT.1">FPT_TUD_EXT.1</a>,
              Trusted Update,
              requires a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to TODO: QQQQQ</p><h4>Management: FPT_TUD_EXT.1</h4><p>TODO: QQQQQ</p><h4>Audit: FPT_TUD_EXT.1</h4><p>TODO: QQQQQ</p><h4>FPT_TUD_EXT.1 Trusted Update</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
                 TODO: QQQQQ
             </td></tr></table><h4 id="ext-comp-FPT_TUD_EXT.1.1">FPT_TUD_EXT.1.1</h4>
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
-				[<b>selection</b>: <span class="selectable-content" id="_s_597">implement</span>, <span class="selectable-content" id="_s_598">interface with the Operational Environment to implement</span>]
+				[<b>selection</b>: <span class="selectable-content" id="_s_598">implement</span>, <span class="selectable-content" id="_s_599">interface with the Operational Environment to implement</span>]
 				the ability to check for updates and patches to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
 			<h4 id="ext-comp-FPT_TUD_EXT.1.2">FPT_TUD_EXT.1.2</h4>
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
-				[<b>selection</b>: <span class="selectable-content" id="_s_599">implement</span>, <span class="selectable-content" id="_s_600">interface with the Operational Environment to implement</span>]
+				[<b>selection</b>: <span class="selectable-content" id="_s_600">implement</span>, <span class="selectable-content" id="_s_601">interface with the Operational Environment to implement</span>]
 				the ability to provide Administrators the ability to initiate updates
 				to <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware/software.
 			<h4 id="ext-comp-FPT_TUD_EXT.1.3">FPT_TUD_EXT.1.3</h4>
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
-				[<b>selection</b>: <span class="selectable-content" id="_s_601">implement</span>, <span class="selectable-content" id="_s_602">interface with the Operational Environment to implement</span>]
+				[<b>selection</b>: <span class="selectable-content" id="_s_602">implement</span>, <span class="selectable-content" id="_s_603">interface with the Operational Environment to implement</span>]
 				the ability to verify firmware/software updates to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> using a
 				digital signature prior to installing those updates.
 			<h4 id="ext-comp-FPT_TUD_EXT.1.4">FPT_TUD_EXT.1.4</h4>
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
-				[<b>selection</b>: <span class="selectable-content" id="_s_603">implement</span>, <span class="selectable-content" id="_s_604">interface with the Operational Environment to implement</span>]
+				[<b>selection</b>: <span class="selectable-content" id="_s_604">implement</span>, <span class="selectable-content" id="_s_605">interface with the Operational Environment to implement</span>]
 				 the ability to verify the digital signature whenever the software or
 				firmware is externally loaded into the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and if verification fails, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
 				[<b>assignment</b>: 
@@ -11190,9 +11201,9 @@ The following sections list Common Criteria and technology terms used in this do
              requires a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to TODO: QQQQQ</p><h4>Management: FTA_SSL_EXT.1</h4><p>TODO: QQQQQ</p><h4>Audit: FTA_SSL_EXT.1</h4><p>TODO: QQQQQ</p><h4>FTA_SSL_EXT.1 TSF-Initiated Session Locking</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
                 TODO: QQQQQ
             </td></tr></table><h4 id="ext-comp-FTA_SSL_EXT.1.1">FTA_SSL_EXT.1.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall, for local interactive sessions, 
-				[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_607">lock the session–- disable any activity of the user’s data access/display
+				[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_608">lock the session–- disable any activity of the user’s data access/display
 					devices other than unlocking the session, and requiring that the privileged user
-					reauthenticate to the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> prior to unlocking the session;</span></li><li style=""><span class="selectable-content" id="_s_608">terminate the session</span></li></ul>]
+					reauthenticate to the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> prior to unlocking the session;</span></li><li style=""><span class="selectable-content" id="_s_609">terminate the session</span></li></ul>]
 				after an Administrator-configured time period of inactivity.
 			</div></div></span><span data-sortkey="Class: User Data Protection (FDP)"><h3 id="ext-comp-FDP" class="indexable" data-level="3">B.2.7 Class: User Data Protection (FDP)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> defines the following extended components as part of the
 	 FDP class originally defined by <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2:
