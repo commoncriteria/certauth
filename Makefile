@@ -1,7 +1,6 @@
-# Include if it exists (so people could do set their own settings
 -include User.make
 -include ~/commoncriteria/User.make
+DIFF_USER_MAKE=User.make
+DIFF_TAGS=pre-pub-initial
 TRANS?=transforms
-ESR_XML=input/certauth-esr.xml
 include $(TRANS)/Helper.make
-
