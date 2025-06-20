@@ -98,6 +98,7 @@ output/certauth-release-linkable.html: enpoint
 output/certauth-release-linkable.html: enrollement
 output/certauth-release-linkable.html: enrolment
 output/certauth-release-linkable.html: evaluatorshall
+output/certauth-release-linkable.html: exceessive
 output/certauth-release-linkable.html: faiure
 output/certauth-release-linkable.html: forgeable
 output/certauth-release-linkable.html: funtions
@@ -123,6 +124,7 @@ output/certauth-release-linkable.html: notBefore
 output/certauth-release-linkable.html: offTOE
 output/certauth-release-linkable.html: preservations
 output/certauth-release-linkable.html: preshared
+output/certauth-release-linkable.html: priviledged
 output/certauth-release-linkable.html: producedAt
 output/certauth-release-linkable.html: reauthenticate
 output/certauth-release-linkable.html: reauthentication
@@ -130,6 +132,7 @@ output/certauth-release-linkable.html: reenablement
 output/certauth-release-linkable.html: reinstantiating
 output/certauth-release-linkable.html: rekeying
 output/certauth-release-linkable.html: restict
+output/certauth-release-linkable.html: retentaion
 output/certauth-release-linkable.html: ruleset
 output/certauth-release-linkable.html: rulesets
 output/certauth-release-linkable.html: secp256r1
@@ -260,6 +263,7 @@ output/certauth-release.html: enrollement
 output/certauth-release.html: enrolment
 output/certauth-release.html: evaluatorshall
 output/certauth-release.html: evaluator’s
+output/certauth-release.html: exceessive
 output/certauth-release.html: extended’
 output/certauth-release.html: faiure
 output/certauth-release.html: forgeable
@@ -291,6 +295,7 @@ output/certauth-release.html: parties’
 output/certauth-release.html: pool’
 output/certauth-release.html: preservations
 output/certauth-release.html: preshared
+output/certauth-release.html: priviledged
 output/certauth-release.html: producedAt
 output/certauth-release.html: reauthenticate
 output/certauth-release.html: reauthentication
@@ -299,6 +304,7 @@ output/certauth-release.html: reinstantiating
 output/certauth-release.html: rekeying
 output/certauth-release.html: requester’s
 output/certauth-release.html: restict
+output/certauth-release.html: retentaion
 output/certauth-release.html: ruleset
 output/certauth-release.html: rulesets
 output/certauth-release.html: rules’
@@ -432,6 +438,7 @@ output/certauth.html: enrollement
 output/certauth.html: enrolment
 output/certauth.html: evaluatorshall
 output/certauth.html: evaluator’s
+output/certauth.html: exceessive
 output/certauth.html: extended’
 output/certauth.html: faiure
 output/certauth.html: forgeable
@@ -462,6 +469,7 @@ output/certauth.html: parties’
 output/certauth.html: pool’
 output/certauth.html: preservations
 output/certauth.html: preshared
+output/certauth.html: priviledged
 output/certauth.html: producedAt
 output/certauth.html: reauthenticate
 output/certauth.html: reauthentication
@@ -469,6 +477,7 @@ output/certauth.html: reinstantiating
 output/certauth.html: rekeying
 output/certauth.html: requester’s
 output/certauth.html: restict
+output/certauth.html: retentaion
 output/certauth.html: ruleset
 output/certauth.html: rulesets
 output/certauth.html: rules’
