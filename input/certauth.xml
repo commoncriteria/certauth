@@ -600,33 +600,34 @@ And maybe there should be a section of the PP that says all this. So maybe some 
           <description> A privileged user or non-person entity (NPE) improperly exercises or adversely affects
 		  the TOE, resulting in unauthorized services, ineffective security mechanisms, or unintended
 		  circumvention of security mechanisms.</description>
-          <objective-refer ref="O.AUDIT_LOSS_RESPONSE">
-            <rationale>The TOE will respond to possible loss of audit records when audit trail storage is full
-		or nearly full by restricting auditable events.</rationale>
-          </objective-refer>
-          <objective-refer ref="O.AUDIT_PROTECTION">
-            <rationale>The TOE will protect audit records against unauthorized access, modification, or
-		deletion to ensure accountability of user actions.</rationale>
-          </objective-refer>
-          <objective-refer ref="O.SESSION_LOCK">
-            <rationale>The TOE will provide mechanisms that mitigate the risk of unattended sessions
-		being hijacked.</rationale>
-          </objective-refer>
-          <objective-refer ref="O.TOE_ADMINISTRATION">
-            <rationale>The TOE will provide mechanisms to ensure that only privileged users are able to log in
-		and configure the TOE, and provide protections for logged-in users. The TOE will
-		ensure that administrative responsibilities are separated across different roles in order
-		to mitigate the impact of improper administrative activities or unauthorized
-		administrative access.</rationale>
-          </objective-refer>
+		  	<addressed-by>FAU_ADP_EXT.1</addressed-by><rationale>Requires the TSF to implement or support audit functionality.</rationale>
+			<addressed-by>FAU_STG.5</addressed-by><rationale>Prevents audited events if the audit trail cannot be written to.</rationale>
+			<addressed-by>FIA_UAU_EXT.1</addressed-by><rationale>Requires that he TSF provide a mechanism for authenticating privileged users.</rationale>
+			<addressed-by>FIA_UIA_EXT.1</addressed-by><rationale>Defines the actions permitted prior to authentication of a user.</rationale>
+			<addressed-by>FMT_MOF.1/Admin</addressed-by><rationale>Defines management functions to be performed exclusively by Administrators.</rationale>
+			<addressed-by>FMT_MOF.1/Auditor</addressed-by><rationale>Defines management functions to be performed by auditors.</rationale>
+			<addressed-by>FMT_MOF.1/CA</addressed-by><rationale>Defines management functions to be performed by CA Staff.</rationale>
+			<addressed-by>FMT_MOF.1/CO</addressed-by><rationale>Defines management functions to be performed by Administrators, Auditor, or CA Staff.</rationale>
+			<addressed-by>FMT_MOF.1/RA</addressed-by><rationale>Defines management functions to be performed by CA or RA Staff.</rationale>
+			<addressed-by>FMT_MTD.1</addressed-by><rationale>Requires that only priviledged users manage TSF data.</rationale>
+			<addressed-by>FMT_SMF.1</addressed-by><rationale>Defines management functions implemented or supported by the TOE.</rationale>
+			<addressed-by>FMT_SMR.2</addressed-by><rationale>Defines user roles maintained or supported by the TSF.</rationale>
+			<addressed-by>FTA_SSL.4</addressed-by><rationale>Requires that the TSF support user-initiated termination of their own SSL sessions.</rationale>
+			<addressed-by>FTA_SSL_EXT.1 (optional)</addressed-by><rationale>(Optional) Requires an inactivity timeout on local user sessions.</rationale>
+			<addressed-by>FTA_SSL.3 (optional)</addressed-by><rationale>(Optional) Requires an inactivity timeout on remote user sessions.</rationale>
+			<addressed-by>FTA_SSL_EXT.1 (optional)</addressed-by><rationale>(Optional) Requires an inactivity timeout on local user sessions.</rationale>
+			<addressed-by>FAU_STG.1/EXT (selection-based)</addressed-by><rationale>Requires the TSF protect audit records from unauthorized deletion.</rationale>
+			<addressed-by>FAU_STG.1/STA (selection-based)</addressed-by><rationale>Requires that audit records with retentaion requirements be retained for the appropriate period.</rationale>
+			<addressed-by>FAU_STG_EXT.1 (selection-based)</addressed-by><rationale>Specifies rules for the retention of audit data.</rationale>
+			<addressed-by>FIA_AFL.1 (selection-based)</addressed-by><rationale>Requires that the TSF detect exceessive unsuccessful login attempts from a remote user.</rationale>
+			<addressed-by>FIA_PMG_EXT.1 (selection-based)</addressed-by><rationale>Specifies password composition rules.</rationale>
+			<addressed-by>FIA_UAU.7 (selection-based)</addressed-by><rationale>Defines feedback permitted to the user during authentication.</rationale>
+			<addressed-by>FPT_APW_EXT.1 (selection-based)</addressed-by><rationale>Defines protections for plaintext passwords.</rationale>
         </threat>
         <threat name="T.TSF_FAILURE">
           <description> Security mechanisms of the TOE may fail, leading to a compromise of the TSF.</description>
-          <objective-refer ref="O.TSF_SELF_TEST">
-            <rationale>The TOE will provide the capability to test some subset of its security functionality to
-		ensure it is operating properly. The TOE will provide integrity protection to detect
-		modifications to firmware, software, and archived data.</rationale>
-          </objective-refer>
+          	<addressed-by>FPT_TST_EXT.1 (optional)</addressed-by><rationale>(Optional) Requires the TSF ensure the integrity of TOE software and firmware.</rationale>
+			<addressed-by> FPT_TST_EXT.2 (optional)</addressed-by><rationale>(Optional) Requires the TSF ensure the integrity of certain data relevant to TOE security.</rationale>
         </threat>
         <threat name="T.UNAUTHENTICATED_TRANSACTIONS">
           <description> Relying parties within an information system depend on the TOE to accurately bind subjects
@@ -777,7 +778,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	  
 <!-- 4.1 Security Objectives for the TOE -->
 	  
-    <section title="Security Objectives for the TOE" id="SecurityObjectivesTOE">
+    <!-- <section title="Security Objectives for the TOE" id="SecurityObjectivesTOE">
 	In some cases, an objective is addressed only by requirements that are either selection-based or
 	optional. In these cases, if none of those requirements are included in the ST, the ST author does not
 	include that objective in the ST.
@@ -968,7 +969,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<addressed-by>FPT_TUD_EXT.1</addressed-by><rationale>Requires that the TSF support a secure TOE update process.</rationale>
         </SO>
       </SOs>
-    </section>
+    </section> -->
 	  
 <!-- 4.2 Security Objectives for the Operational Environment -->
 
@@ -1298,11 +1299,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
                                 <h:li>Start-up and shutdown of the audit functions</h:li>
                                 <h:li>All auditable events for the [<h:i>not specified</h:i>] level of audit;</h:li>
                                 <h:li>[<h:i>
+									<h:ul>
 									<h:li>All administrative actions invoked through the TSF interface;</h:li>
                                 	<h:li>Specifically defined auditable events listed in <xref to="at-mandatory"/></h:li>
                                 	<h:li>Specifically defined auditable events listed in <xref g="t-audit-optional"/></h:li>
                                 	<h:li>Specifically defined auditable events listed in <xref g="t-audit-sel-based"/></h:li>
-									<h:li>Specifically defined auditable events listed in <xref g="t-audit-impl-dep"/></h:li></h:i>]</h:li>.
+									<h:li>Specifically defined auditable events listed in <xref g="t-audit-impl-dep"/></h:li>
+								</h:ul></h:i>]</h:li>.
 
 			    </h:ol>
              </title>
@@ -1327,16 +1330,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         </f-element>
         <f-element>
 		<title>The TSF shall <refinement>
-			<selectables><selectable>include</selectable>
-				<selectable> invoke the Operational Environment to include</selectable>
+			<selectables><selectable>record</selectable>
+				<selectable> invoke the Operational Environment to record</selectable>
 			</selectables></refinement>
-			within each audit record at least the following information:
+			within the audit data at least the following information:
                         <h:ol type="a">
-                             <h:li>Date and time of the event, type of event, subject identity, and the outcome
-				(success or failure) of the event; and</h:li>
+                             <h:li>Date and time of the auditable event, type of event, subject identity (if applicable), and the outcome
+				(success or failure) of the event;</h:li>
                              <h:li>For each audit event type, based on the auditable event definitions of the
-				functional components included in the PP/ST, <refinement>information specified in
-				     column three of Table 4 through Table 6</refinement>. </h:li>
+				functional components included in the PP, PP-Module, functional package or ST, [<h:i>information specified in
+				     column three of the Auditable Events table in which the auditable event was defined</h:i>. </h:li>
                         </h:ol>
                 </title>
                 <note role="application">
@@ -1350,7 +1353,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			information listed in the SFR are actually put into the audit record by the OE. In
 			these cases, “invoke the Operational Environment to record” should be selected.
 			OE.AUDIT_GENERATION will be included in the ST if the OE is selected in any of
-			the FAU_GEN elements or listed in the last column in table 4.
+			the FAU_GEN elements.
                  </note>
 		<aactivity>
                     <TSS>
@@ -1884,82 +1887,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     	
 
 
-	<!--               -->     
-        <!-- FAU_STG.4     -->
-	<!--               -->     
-        <f-component cc-id="fau_stg.5" name="Prevention of Audit Data Loss">
-        <f-element>
-		<title>The TSF shall [<h:i>prevent audited events, except those taken
-			by the <refinement>Auditor</refinement></h:i>], <assignable>other actions to be taken in case of audit storage
-			failure and conditions for the actions</assignable> if the audit data storage <h:b>cannot be written to</h:b>.
-                </title>
-		<note role="application">
-			This requirement applies to the TOE regardless of whether the audit trail is stored
-			within the TOE boundary or on an external system in the
-			Operational Environment. If the audit trail (in whole or in part) is stored locally 
-			(either within the TOE boundary or on the TOE platform), then the requirement applies 
-			when the audit trail cannot be written to when it is full.  If the audit trail (in whole 
-			or in part) is stored on a system external to the TOE platform, then the requirement 
-			applies when the connection between the TOE platform and the external audit server 
-			becomes disconnected and the audit trail cannot be written to. In the case where the 
-			audit trail is external to the TOE and cannot be written to because it is full (and 
-			the TOE has some way of detecting that), then the requirement applies in that case 
-			as well. In all cases, the ST author is expected to describe (in the TSS) how the 
-			TSF is made aware of any such failures and how it behaves in response.
-		</note>
-		<aactivity>
-			<TSS>
-				The evaluator shall examine the TSS to ensure it describes the behavior of the TSF 
-				when the audit trail cannot be written to.  The evaluator shall ensure the TSS 
-				describes where the audit trail is stored (locally, remotely, or both); how the 
-				TSF detects audit full conditions if the audit trail is stored locally; whether 
-				and how the TSF detects audit full conditions for remote audit repositories; and 
-				how the TSF detects loss of communication with external audit repositories (if 
-				using an external audit server).  The evaluator shall also ensure the TSS describes 
-				what actions can be performed by the Auditor, if any, in each case where the audit 
-				trail cannot be written.
-			</TSS>
-			<Guidance>
-				The evaluator shall examine the operational guidance to ensure it describes what 
-				conditions result in the audit trail not being able to be written to, and how an 
-				Auditor recognizes that such a condition has occurred. The evaluator shall also 
-				examine the operational guidance to ensure it includes remedial steps for correcting such issues.
-			</Guidance>
-			<Tests>
-				The evaluator shall perform the following tests.  The tests are conditional on 
-				where the audit data are being stored.  Test 1 demonstrates the capability of 
-				the TOE to react to an indication that the repository is full; this is always 
-				applicable if the audit data are stored locally (either within the TOE boundary 
-				or on the TOE platform).  If the TOE has a means to detect that a remote audit 
-				repository is full, then this test will be run for those types of TOEs as well. 
-				Test 2 is only executed in cases where an external repository is supported, and 
-				tests the ability of the TOE to detect when the connection to the repository becomes unavailable.
-				<testlist>
-					<test>
-					    (conditional) The evaluator shall cause the audit trail to become full, verify
-						that the TSF behaves as documented in the TSS, and verify that a
-						privileged user can perform the documented remedial steps.
-					</test>
-					<test> (conditional) If the TOE uses a remote repository in the
-						Operational Environment to store audit data, the evaluator shall cause
-						the audit trail to become unavailable, verify that the TSF behaves as
-						documented in the TSS, and verify that a privileged user can perform
-						the documented remedial steps.
-					</test>
-				</testlist>
-				<h:br/><h:br/>
-				<h:i>Equivalency</h:i><h:br/><h:br/>
-				Testing of the TOE may be performed on a subset of the platforms listed in the
-				TOE's ST. Justification must be provided for those platforms that were excluded
-				from testing.
-			</Tests>
-		</aactivity>
-        </f-element>
-	<audit-event/>
-	</f-component>
+	
 
-    	<!--               -->     
-        <!-- FAU_STG_EXT.1     -->
+    	<!--	 FAU_STG.1   	     -->     
+        <!-- Formally FAU_STG_EXT.1  -->
 	<!-- QQQQ: According to FAU_ADP_EXT.1, this SFR is included:
 		"If the TSF initiates the storage of the audit data (that is, it generates audit data
 		that will be stored either by the TOE or the OE), then FAU_STG_EXT.1 will be
@@ -2072,8 +2003,82 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<audit-event/>
 	</f-component>
 
-    	<!--               -->     
-        <!-- FAU_STG_EXT.2     -->
+	<!-- 	FAU_STG.5        -->     
+    <!-- Formally FAU_STG.4  -->
+	<!--                     -->     
+        <f-component cc-id="fau_stg.5" name="Prevention of Audit Data Loss">
+        <f-element>
+		<title>The TSF shall [<h:i>prevent audited events, except those taken
+			by the <refinement>Auditor</refinement></h:i>], <assignable>other actions to be taken in case of audit storage
+			failure and conditions for the actions</assignable> if the audit data storage <h:b>cannot be written to</h:b>.
+                </title>
+		<note role="application">
+			This requirement applies to the TOE regardless of whether the audit trail is stored
+			within the TOE boundary or on an external system in the
+			Operational Environment. If the audit trail (in whole or in part) is stored locally 
+			(either within the TOE boundary or on the TOE platform), then the requirement applies 
+			when the audit trail cannot be written to when it is full.  If the audit trail (in whole 
+			or in part) is stored on a system external to the TOE platform, then the requirement 
+			applies when the connection between the TOE platform and the external audit server 
+			becomes disconnected and the audit trail cannot be written to. In the case where the 
+			audit trail is external to the TOE and cannot be written to because it is full (and 
+			the TOE has some way of detecting that), then the requirement applies in that case 
+			as well. In all cases, the ST author is expected to describe (in the TSS) how the 
+			TSF is made aware of any such failures and how it behaves in response.
+		</note>
+		<aactivity>
+			<TSS>
+				The evaluator shall examine the TSS to ensure it describes the behavior of the TSF 
+				when the audit trail cannot be written to.  The evaluator shall ensure the TSS 
+				describes where the audit trail is stored (locally, remotely, or both); how the 
+				TSF detects audit full conditions if the audit trail is stored locally; whether 
+				and how the TSF detects audit full conditions for remote audit repositories; and 
+				how the TSF detects loss of communication with external audit repositories (if 
+				using an external audit server).  The evaluator shall also ensure the TSS describes 
+				what actions can be performed by the Auditor, if any, in each case where the audit 
+				trail cannot be written.
+			</TSS>
+			<Guidance>
+				The evaluator shall examine the operational guidance to ensure it describes what 
+				conditions result in the audit trail not being able to be written to, and how an 
+				Auditor recognizes that such a condition has occurred. The evaluator shall also 
+				examine the operational guidance to ensure it includes remedial steps for correcting such issues.
+			</Guidance>
+			<Tests>
+				The evaluator shall perform the following tests.  The tests are conditional on 
+				where the audit data are being stored.  Test 1 demonstrates the capability of 
+				the TOE to react to an indication that the repository is full; this is always 
+				applicable if the audit data are stored locally (either within the TOE boundary 
+				or on the TOE platform).  If the TOE has a means to detect that a remote audit 
+				repository is full, then this test will be run for those types of TOEs as well. 
+				Test 2 is only executed in cases where an external repository is supported, and 
+				tests the ability of the TOE to detect when the connection to the repository becomes unavailable.
+				<testlist>
+					<test>
+					    (conditional) The evaluator shall cause the audit trail to become full, verify
+						that the TSF behaves as documented in the TSS, and verify that a
+						privileged user can perform the documented remedial steps.
+					</test>
+					<test> (conditional) If the TOE uses a remote repository in the
+						Operational Environment to store audit data, the evaluator shall cause
+						the audit trail to become unavailable, verify that the TSF behaves as
+						documented in the TSS, and verify that a privileged user can perform
+						the documented remedial steps.
+					</test>
+				</testlist>
+				<h:br/><h:br/>
+				<h:i>Equivalency</h:i><h:br/><h:br/>
+				Testing of the TOE may be performed on a subset of the platforms listed in the
+				TOE's ST. Justification must be provided for those platforms that were excluded
+				from testing.
+			</Tests>
+		</aactivity>
+        </f-element>
+	<audit-event/>
+	</f-component>
+
+    	<!-- FAU_STG_EXT.1              -->     
+        <!-- Formally FAU_STG_EXT.2     -->
 	<!-- QQQQ: "This SFR is to be included if “locally on the TOE” is selected in FAU_STG_EXT.1, and
 		OE.AUDIT_RETENTION is not included in the ST. ... If this SFR is not included in the ST, then 
 		OE.AUDIT_RETENTION is included in the ST." 
@@ -2661,7 +2666,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<selectable>perform</selectable>
 				<selectable>invoke interfaces provided by the Operational Environment to perform</selectable>
 			</selectables> key establishment </refinement>in accordance with a
-			specified cryptographic key <refinement>establishment</refinement> algorithm
+			specified cryptographic key <refinement>establishment algorithm</refinement>
 			<selectables linebreak="yes">
 				<selectable>RSA-based key establishment schemes that meet the following: RSAES-PKCS1-v1_5 
 					as specified in Section 7.2 of RFC 8017, “Public-Key Cryptography Standards (PKCS) #1: 
@@ -2791,7 +2796,161 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<audit-event-descr>Establishment of ephemeral key for TOE-related functions.<h:br/>(Retention: Normal)</audit-event-descr>
 		<audit-event-info>Key established if successful.</audit-event-info>
 	</audit-event>
-    </f-component>	
+    </f-component>
+	
+	<!-- FCS_CKM.6                 -->     
+    <!-- Formally FCS_CKM_EXT.4 -->
+    <!-- Selection-based  -->
+    <!-- QQQQ: What are the inclusion criteria?  -->
+    <!--                  -->     
+    <f-component cc-id="fcs_ckm.6" name="Timing and Event of Cryptographic Key Destruction" status="sel-based">
+	<depends on-sel="crypto-sel-ckm-ext-4"/>
+	<f-element>
+		<title>
+			The TSF shall <h:b>
+			<selectables>
+				<selectable>destroy</selectable>
+				<selectable>invoke interfaces provided by the Operational Environment to destroy</selectable>
+			</selectables></h:b> [<h:i>all plaintext keying material and cryptographic security
+				parameters</h:i>] when [<h:i>no longer needed</h:i>]. 
+		</title>	
+		<note role="application">
+			The interface referenced in the requirement could take different forms, the most
+			likely of which is an application programming interface to an OS kernel. There may
+			be various levels of abstraction visible. For instance, in a given implementation
+			the application may have access to the file system details and may be able to
+			logically address specific memory locations. In another implementation, the
+			application may simply have a handle to a resource and can only ask the platform
+			to delete the resource. The level of detail to which the TOE has access will be
+			reflected in the TSS section of the ST.<h:br/><h:br/>
+			Several selections allow assignment of a ‘value that does not contain any CSP’.
+			This means that the TOE uses some other specified data not drawn from an RBG
+			meeting FCS_RBG_EXT requirements, and not being any of the particular values
+			listed as other selection options. The point of the phrase ‘does not contain any
+			CSP’ is to ensure that the overwritten data is carefully selected, and not taken
+			from a general ‘pool’ that might contain current or residual data that itself
+			requires confidentiality protection.<h:br/><h:br/>
+			Key destruction does not apply to the public component of asymmetric key pairs.
+	 	</note>
+	</f-element>
+	<f-element>
+		<title>
+			The TSF shall destroy cryptographic keys <h:b>and critical security parameters
+			which are not permanently protected from export by hardware</h:b> specified by FCS_CKM.6.1 
+			in accordance with a specified cryptographic key destruction method
+			<selectables linebreak="yes">
+				<selectable>by clearing the KEK encrypting the target key</selectable>
+				<selectable>for volatile memory, the destruction shall be executed by a
+					<selectables linebreak = "yes">
+						<selectable>single direct overwrite consisting of 
+							<selectables linebreak = "yes">
+								<selectable>a pseudo-random pattern using the TSF’s RBG</selectable>
+								<selectable>zeroes</selectable>
+								<selectable>ones</selectable>
+								<selectable>a new value of a key</selectable>
+								<selectable><assignable>some value that does not contain any CSP</assignable></selectable>
+							</selectables>
+						</selectable>
+						<selectable>removal of power to the memory</selectable>
+						<selectable>destruction of reference to the key directly followed by a request for 
+							garbage collection</selectable>
+					</selectables>
+				</selectable>
+				<selectable>for non-volatile memory that consists of the invocation of an interface
+					provided by the underlying platform that
+					<selectables linebreak="yes">
+						<selectable>logically addresses the storage location of the key and performs a
+							<selectables>
+								<selectable>single</selectable>
+								<selectable><assignable>ST author-defined multi-pass</assignable></selectable>
+							</selectables> direct overwrite consisting of
+							<selectables linebreak = "yes">
+								<selectable>a pseudo-random pattern using the TSF’s RBG</selectable>
+								<selectable>zeroes</selectable>
+								<selectable>ones</selectable>
+								<selectable>a new value of a key</selectable>
+								<selectable><assignable>some value that does not contain any CSP</assignable></selectable>
+							</selectables>
+						</selectable>
+						<selectable>instructs the underlying platform to destroy the abstraction that
+							represents the key</selectable>
+					</selectables>
+				</selectable>
+			</selectables> that meets the following: [<h:i>no standard</h:i>].
+		</title>
+	
+		<aactivity>
+			<TSS>
+				The evaluator shall examine the TSS to ensure it describes each of the secret
+				keys (keys used for symmetric encryption), private keys, and critical security
+				parameters; when they are destroyed (for example, immediately after use, on
+				system shutdown, etc.); and the type of destruction procedure that is
+				performed (overwrite with zeros, overwrite three times with random pattern,
+				etc.). If different types of memory are used to store the materials to be
+				protected, the evaluator shall examine the TSS to ensure it describes the
+				destruction procedure in terms of the memory in which the data are stored.
+			</TSS>
+			<Guidance>
+			    	The evaluator shall examine the AGD guidance to ensure it contains
+				instructions for configuring the TOE to support the required key destruction
+				functionality.
+		    	</Guidance>
+			<Tests>
+				If this requirement is met by volatile memory in the TOE boundary (the second
+				item in the second selection of FCS_CKM_EXT.4.1), the evaluator shall attempt
+				to perform the following tests:
+				<testlist>
+			    		<test>The evaluator shall utilize appropriate combinations of
+						specialized operational environment and development tools
+						(debuggers, simulators, etc.) for the TOE and instrumented TOE builds
+						to test that keys are cleared correctly, including all intermediate copies
+						of the key that may have been created internally by the TOE during
+						normal cryptographic processing with that key.<h:br/><h:br/>
+						Cryptographic TOE implementations in software shall be loaded and
+						exercised under a debugger to perform such tests. The evaluator shall
+						perform the following test for each key subject to clearing, including
+						intermediate plaintext copies of keys that are subsequently encrypted
+						for storage by the TOE:
+			    			<h:ol type="1">
+							<h:li>Load the instrumented TOE build in a debugger.</h:li>
+							<h:li>Record the value of the key in the TOE subject to clearing. </h:li>
+							<h:li>Cause the TOE to perform a normal cryptographic processing with
+							      the key from #1.</h:li>
+							<h:li>Cause the TOE to clear the key.</h:li>
+							<h:li>Cause the TOE to stop the execution but not exit.</h:li>
+							<h:li>Cause the TOE to dump the entire memory footprint of the TOE
+								into a binary file.</h:li>
+							<h:li>Search the content of the binary file created in #4 for instances of
+							      the known key value from #1.</h:li>
+					      </h:ol>
+						The test succeeds if no copies of the key from #1 are found in step #7 above
+						and fails otherwise.<h:br/><h:br/>
+						The evaluator shall perform this test on all keys, including those subsequently
+						encrypted for storage, to ensure plaintext intermediate copies are cleared.<h:br/><h:br/>
+				      </test>
+				      <test>
+					(Conditional) In cases where the TOE is implemented in
+					firmware and operates in a limited operating environment that does
+					not allow the use of debuggers, the evaluator shall utilize a simulator
+					for the TOE on a general purpose operating system. The evaluator shall
+					confirm that keys can be tracked and that destruction occurs. The
+					evaluator shall provide a rationale explaining the instrumentation of
+					the simulated test environment and justifying the obtained test
+					results.<h:br/><h:br/>
+					<h:i>Equivalency</h:i>
+					Testing of the TOE may be performed on a subset of the platforms listed in the
+					TOE’s ST. Justification must be provided for those platforms that were excluded
+					from testing.
+					</test>
+				</testlist>
+			</Tests>
+		</aactivity>
+	</f-element>
+	<audit-event>
+	    <audit-event-descr>Failure of the key destruction process for TOE keys<h:br/>(Retention: Normal)</audit-event-descr>
+	    <audit-event-info>Identity of object or entity being cleared.</audit-event-info>
+	</audit-event>
+    </f-component>
 
 				
     <!--                  -->     
@@ -3154,159 +3313,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<audit-event />
     </f-component>
 
-    <!--                  -->     
-    <!-- FCS_CKM_EXT.4 -->
-    <!-- Selection-based  -->
-    <!-- QQQQ: What are the inclusion criteria?  -->
-    <!--                  -->     
-    <f-component cc-id="fcs_ckm.6" name="Timing and Event of Cryptographic Key Destruction" status="sel-based">
-	<depends on-sel="crypto-sel-ckm-ext-4"/>
-	<f-element>
-		<title>
-			The TSF shall <h:b>
-			<selectables>
-				<selectable>destroy</selectable>
-				<selectable>invoke interfaces provided by the Operational Environment to destroy</selectable>
-			</selectables></h:b> [<h:i>all plaintext keying material and cryptographic security
-				parameters</h:i>] when [<h:i>no longer needed</h:i>]. 
-		</title>	
-		<note role="application">
-			The interface referenced in the requirement could take different forms, the most
-			likely of which is an application programming interface to an OS kernel. There may
-			be various levels of abstraction visible. For instance, in a given implementation
-			the application may have access to the file system details and may be able to
-			logically address specific memory locations. In another implementation, the
-			application may simply have a handle to a resource and can only ask the platform
-			to delete the resource. The level of detail to which the TOE has access will be
-			reflected in the TSS section of the ST.<h:br/><h:br/>
-			Several selections allow assignment of a ‘value that does not contain any CSP’.
-			This means that the TOE uses some other specified data not drawn from an RBG
-			meeting FCS_RBG_EXT requirements, and not being any of the particular values
-			listed as other selection options. The point of the phrase ‘does not contain any
-			CSP’ is to ensure that the overwritten data is carefully selected, and not taken
-			from a general ‘pool’ that might contain current or residual data that itself
-			requires confidentiality protection.<h:br/><h:br/>
-			Key destruction does not apply to the public component of asymmetric key pairs.
-	 	</note>
-	</f-element>
-	<f-element>
-		<title>
-			The TSF shall destroy cryptographic keys <h:b>and critical security parameters
-			which are not permanently protected from export by hardware</h:b> specified by FCS_CKM.6.1 
-			in accordance with a specified cryptographic key destruction method
-			<selectables linebreak="yes">
-				<selectable>by clearing the KEK encrypting the target key</selectable>
-				<selectable>for volatile memory, the destruction shall be executed by a
-					<selectables linebreak = "yes">
-						<selectable>single direct overwrite consisting of 
-							<selectables linebreak = "yes">
-								<selectable>a pseudo-random pattern using the TSF’s RBG</selectable>
-								<selectable>zeroes</selectable>
-								<selectable>ones</selectable>
-								<selectable>a new value of a key</selectable>
-								<selectable><assignable>some value that does not contain any CSP</assignable></selectable>
-							</selectables>
-						</selectable>
-						<selectable>removal of power to the memory</selectable>
-						<selectable>destruction of reference to the key directly followed by a request for 
-							garbage collection</selectable>
-					</selectables>
-				</selectable>
-				<selectable>for non-volatile memory that consists of the invocation of an interface
-					provided by the underlying platform that
-					<selectables linebreak="yes">
-						<selectable>logically addresses the storage location of the key and performs a
-							<selectables>
-								<selectable>single</selectable>
-								<selectable><assignable>ST author-defined multi-pass</assignable></selectable>
-							</selectables> direct overwrite consisting of
-							<selectables linebreak = "yes">
-								<selectable>a pseudo-random pattern using the TSF’s RBG</selectable>
-								<selectable>zeroes</selectable>
-								<selectable>ones</selectable>
-								<selectable>a new value of a key</selectable>
-								<selectable><assignable>some value that does not contain any CSP</assignable></selectable>
-							</selectables>
-						</selectable>
-						<selectable>instructs the underlying platform to destroy the abstraction that
-							represents the key</selectable>
-					</selectables>
-				</selectable>
-			</selectables> that meets the following: [<h:i>no standard</h:i>].
-		</title>
-	
-		<aactivity>
-			<TSS>
-				The evaluator shall examine the TSS to ensure it describes each of the secret
-				keys (keys used for symmetric encryption), private keys, and critical security
-				parameters; when they are destroyed (for example, immediately after use, on
-				system shutdown, etc.); and the type of destruction procedure that is
-				performed (overwrite with zeros, overwrite three times with random pattern,
-				etc.). If different types of memory are used to store the materials to be
-				protected, the evaluator shall examine the TSS to ensure it describes the
-				destruction procedure in terms of the memory in which the data are stored.
-			</TSS>
-			<Guidance>
-			    	The evaluator shall examine the AGD guidance to ensure it contains
-				instructions for configuring the TOE to support the required key destruction
-				functionality.
-		    	</Guidance>
-			<Tests>
-				If this requirement is met by volatile memory in the TOE boundary (the second
-				item in the second selection of FCS_CKM_EXT.4.1), the evaluator shall attempt
-				to perform the following tests:
-				<testlist>
-			    		<test>The evaluator shall utilize appropriate combinations of
-						specialized operational environment and development tools
-						(debuggers, simulators, etc.) for the TOE and instrumented TOE builds
-						to test that keys are cleared correctly, including all intermediate copies
-						of the key that may have been created internally by the TOE during
-						normal cryptographic processing with that key.<h:br/><h:br/>
-						Cryptographic TOE implementations in software shall be loaded and
-						exercised under a debugger to perform such tests. The evaluator shall
-						perform the following test for each key subject to clearing, including
-						intermediate plaintext copies of keys that are subsequently encrypted
-						for storage by the TOE:
-			    			<h:ol type="1">
-							<h:li>Load the instrumented TOE build in a debugger.</h:li>
-							<h:li>Record the value of the key in the TOE subject to clearing. </h:li>
-							<h:li>Cause the TOE to perform a normal cryptographic processing with
-							      the key from #1.</h:li>
-							<h:li>Cause the TOE to clear the key.</h:li>
-							<h:li>Cause the TOE to stop the execution but not exit.</h:li>
-							<h:li>Cause the TOE to dump the entire memory footprint of the TOE
-								into a binary file.</h:li>
-							<h:li>Search the content of the binary file created in #4 for instances of
-							      the known key value from #1.</h:li>
-					      </h:ol>
-						The test succeeds if no copies of the key from #1 are found in step #7 above
-						and fails otherwise.<h:br/><h:br/>
-						The evaluator shall perform this test on all keys, including those subsequently
-						encrypted for storage, to ensure plaintext intermediate copies are cleared.<h:br/><h:br/>
-				      </test>
-				      <test>
-					(Conditional) In cases where the TOE is implemented in
-					firmware and operates in a limited operating environment that does
-					not allow the use of debuggers, the evaluator shall utilize a simulator
-					for the TOE on a general purpose operating system. The evaluator shall
-					confirm that keys can be tracked and that destruction occurs. The
-					evaluator shall provide a rationale explaining the instrumentation of
-					the simulated test environment and justifying the obtained test
-					results.<h:br/><h:br/>
-					<h:i>Equivalency</h:i>
-					Testing of the TOE may be performed on a subset of the platforms listed in the
-					TOE’s ST. Justification must be provided for those platforms that were excluded
-					from testing.
-					</test>
-				</testlist>
-			</Tests>
-		</aactivity>
-	</f-element>
-	<audit-event>
-	    <audit-event-descr>Failure of the key destruction process for TOE keys<h:br/>(Retention: Normal)</audit-event-descr>
-	    <audit-event-info>Identity of object or entity being cleared.</audit-event-info>
-	</audit-event>
-    </f-component>
+    
 
 	      
     <!--                  -->     
@@ -3678,10 +3685,190 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
 
 			
-    <!--                  -->     
-    <!-- FCS_COP.1(1) -->
+    
+				
+			
+    <!-- FCS_COP.1/Hash        -->     
+    <!-- Formally FCS_COP.1(3) -->
     <!-- Selection-based  -->
-    <!-- QQQQ: Should be renamed FCS_COP.1/AES   -->
+    <!-- QQQQ: Inclusion criteria not specified -->
+    <!-- QQQQ: The selection of the hashing algorithm must correspond to the selection of the
+	message digest size; for example, if SHA-1 is chosen, then the only valid message
+	digest size selection would be 160 bits  -->
+    <!--                  -->    	      
+<f-component name="Cryptographic Operation (Cryptographic Hashing)" cc-id="fcs_cop.1" iteration="Hash" status="sel-based">
+	<depends on-sel="crypto-sel-cop-1i3"/>
+	<f-element>
+		<title>
+			The TSF shall <refinement>
+			<selectables>
+				<selectable>perform</selectable>
+				<selectable>invoke interfaces in the operational environment to perform</selectable>
+			</selectables></refinement> [<h:i>cryptographic hashing services</h:i>] in
+			accordance with a specified cryptographic algorithm
+			<selectables>
+				<selectable>SHA-256</selectable>
+				<selectable>SHA-384</selectable>
+				<selectable>SHA-512</selectable>
+			</selectables> and <refinement>message digest</refinement> sizes 
+			<selectables>
+				<selectable>256</selectable>
+				<selectable>384</selectable>
+				<selectable>512</selectable>
+			</selectables> bits
+			that meet the following: [<h:i>FIPS Pub 180-4, “Secure Hash Standard”</h:i>].
+		</title>
+		<note role="application">
+			
+			The selection of the hashing algorithm must correspond to the selection of the
+			message digest size; for example, if SHA-256 is chosen, then the only valid message
+			digest size selection would be 256 bits.<h:br/><h:br/>
+			The TSF hashing functions can be implemented in one of two modes. The first
+			mode is the byte-oriented mode. In this mode the TSF only hashes messages that
+			are an integral number of bytes in length; i.e., the length (in bits) of the message
+			to be hashed is divisible by 8. The second mode is the bit-oriented mode. In this
+			mode the TSF hashes messages of arbitrary length. As there are different tests for
+			each mode, an indication is given in the following sections for the bit-oriented vs.
+			the byte-oriented test modes.<h:br/><h:br/>
+		</note>
+		<aactivity>
+			<TSS>
+				Regardless of whether the requirement is met by the TSF or TOE platform, the
+				evaluator shall examine the TSS to ensure that all hash functions use the
+				approved algorithms, modes and key sizes.
+			</TSS>
+			<Guidance>
+				The evaluator shall examine the AGD guidance to ensure it documents how to
+				configure the TOE or the TOE in conjunction with the Operational Environment
+				for the required hash sizes. The AGD guidance shall also include instructions
+				for disabling deprecated algorithms.
+			</Guidance>
+			<Tests>
+				If this requirement is met by the TOE, the evaluator shall perform all of the
+				following tests for each hash algorithm implemented by the TSF and used to
+				satisfy the requirements of this PP.<h:br/><h:br/>
+				<h:b>Short Messages Test -- Bit-Oriented Mode</h:b><h:br/><h:br/>
+				The evaluator shall devise an input set consisting of m+1 messages, where m is
+				the block length of the hash algorithm. The length of the messages range
+				sequentially from 0 to m bits. The message text shall be pseudorandomly
+				generated. The evaluator shall compute the message digest for each of the
+				messages and ensure that the correct result is produced when the messages
+				are provided to the TSF.<h:br/><h:br/>
+				<h:b>Short Messages Test -- Byte-Oriented Mode</h:b><h:br/><h:br/>
+				The evaluator shall devise an input set consisting of m/8+1 messages, where m
+				is the block length of the hash algorithm. The length of the messages range
+				sequentially from 0 to m/8 bytes, with each message being an integral number
+				of bytes. The message text shall be pseudorandomly generated. The evaluator
+				shall compute the message digest for each of the messages and ensure that
+				the correct result is produced when the messages are provided to the TSF.<h:br/><h:br/>
+				<h:b>Selected Long Messages Test -- Bit-Oriented Mode</h:b><h:br/><h:br/>
+				The evaluator shall devise an input set consisting of m messages, where m is
+				the block length of the hash algorithm. The length of the ith message is 512 +
+				99*i, where 1 ≤ i ≤ m. The message text shall be pseudorandomly generated.
+				The evaluator shall compute the message digest for each of the messages and
+				ensure that the correct result is produced when the messages are provided to
+				the TSF.<h:br/><h:br/>
+				<h:b>Selected Long Messages Test -- Byte-Oriented Mode</h:b><h:br/><h:br/>
+				The evaluator shall devise an input set consisting of m/8 messages, where m is
+				the block length of the hash algorithm. The length of the ith message is 512 +
+				8*99*i, where 1 ≤ i ≤ m/8. The message text shall be pseudorandomly
+				generated. The evaluator shall compute the message digest for each of the
+				messages and ensure that the correct result is produced when the messages
+				are provided to the TSF.<h:br/><h:br/>
+				<h:b>Pseudorandomly Generated Messages Test</h:b><h:br/><h:br/>
+				This test is for byte-oriented implementations only. The evaluator shall
+				randomly generate a seed that is n bits long, where n is the length of
+				the message digest produced by the hash function to be tested. The
+				evaluator shall then formulate a set of 100 messages and associated
+				digests by following the algorithm provided in Figure 1 of [SHAVS]. The
+				evaluator shall then ensure that the correct result is produced when
+				the messages are provided to the TSF.<h:br/><h:br/>
+				<h:i>Equivalency</h:i><h:br/><h:br/>
+				Testing of the TOE may be performed on a subset of the platforms listed in the
+				TOE’s ST. Justification must be provided for those platforms that were excluded
+				from testing.
+			</Tests>
+		</aactivity>
+	</f-element>
+	<audit-event/>
+    </f-component>
+			
+    <!-- FCS_COP.1/KeyedHash  -->     
+    <!-- Formally FCS_COP.1(4) -->
+    <!-- Selection-based  -->
+    <!-- QQQQ: Should be renamed FCS_COP.1/KHASH  -->
+    <!-- QQQQ: The hash selection should be consistent with the overall strength of the algorithm used for FCS_COP.1(1).  -->
+    <!--                  -->    	      
+<f-component name="Cryptographic Operation (Keyed-Hash Message Authentication)" cc-id="fcs_cop.1" iteration="KeyedHash" status="sel-based">
+	<depends on-sel="crypto-sel-cop-1i4"/>
+	<f-element>
+		<title>
+			The TSF shall 
+			<refinement><selectables>
+				<selectable>perform</selectable>
+				<selectable>invoke interfaces in the operational environment to perform</selectable>
+			</selectables></refinement>
+			[<h:i>keyed hash message authentication</h:i>] in
+			accordance with a specified cryptographic algorithm [<h:i>HMAC-
+			<selectables>
+				<selectable>SHA-256</selectable>
+				<selectable>SHA-384</selectable>
+				<selectable>SHA-512</selectable>
+			</selectables> with key size <assignable>key size (in bits) used in HMAC</assignable></h:i>] 
+			and <refinement>message digest</refinement> sizes 
+			<selectables>
+				<selectable>256</selectable>
+				<selectable>384</selectable>
+				<selectable>512</selectable>
+			</selectables> bits that meet the following: 
+			[<h:i>FIPS Pub 198-1,“The Keyed Hash Message Authentication Code”;
+			FIPS Pub 180-4, “Secure Hash Standard”</h:i>].
+		</title>
+		<note role="application">
+			The intent of this requirement is to specify the keyed hash message authentication
+			function used when used for key establishment purposes for the various
+			cryptographic protocols used by the TOE (e.g., trusted channel). The hash
+			selection must support the message digest size selection. The hash selection
+			should be consistent with the overall strength of the algorithm used for
+			FCS_COP.1/SKC.<h:br/><h:br/>
+		</note>
+		<aactivity>
+			<TSS>
+				Regardless of whether the requirement is met by the TSF or TOE platform, the
+				evaluator shall examine the TSS to ensure that all keyed hash functions use the
+				approved algorithms and key sizes.
+			</TSS>
+			<Guidance>
+				The evaluator shall examine the AGD guidance to ensure it contains
+				instructions for configuring the TOE or the TOE in conjunction with the
+				Operational Environment for the required hash sizes and message digest sizes.
+			</Guidance>
+			<Tests>
+				If this requirement is met by the TOE, the evaluator shall perform the following
+				test:<h:br/><h:br/>
+				<testlist>
+					<test>
+						For each of the supported parameter sets, the evaluator shall
+						compose 15 sets of test data. Each set shall consist of a key and
+						message data. The evaluator shall have the TSF generate HMAC tags
+						for these sets of test data. The resulting MAC tags shall be compared
+						to the result of generating HMAC tags with the same key and IV using
+						a known good implementation.
+					</test>
+				</testlist>
+				<h:i>Equivalency</h:i><h:br/><h:br/>
+				Testing of the TOE may be performed on a subset of the platforms listed in the
+				TOE’s ST. Justification must be provided for those platforms that were excluded
+				from testing.
+			</Tests>
+		</aactivity>
+	</f-element>
+	<audit-event/>
+    </f-component>
+	
+	<!-- FCS_COP.1/SKC         -->     
+    <!-- Formally FCS_COP.1(1) -->
+    <!-- Selection-based  -->
     <!-- QQQQ: This SFR is in support of multiple TOE encryption requirements. AES-CBC is used
 	for encryption only, AES-CCM and AES-GCM for encryption and authentication,
 	AES-XTS for encryption only, and AES Key Wrap and AES Key Wrap with Padding
@@ -3976,10 +4163,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<audit-event />
     </f-component>
 								
-    <!--                  -->     
-    <!-- FCS_COP.1(2) -->
+    <!-- FCS_COP.1/Sig         -->     
+    <!-- Formally FCS_COP.1(2) -->
     <!-- Selection-based  -->
-    <!-- QQQQ: Should be renamed FCS_COP.1/SIG -->
     <!-- QQQQ: The ST author should choose the algorithm implemented to perform digital
 	signatures; if more than one algorithm is available, this requirement (and the
 	corresponding FCS_CKM.1 requirement) should be iterated to specify the
@@ -4145,190 +4331,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<audit-event-descr>Failure in signature generation.<h:br/>(Retention: Normal)</audit-event-descr>
 	</audit-event>
     </f-component>
-				
-			
-    <!--                  -->     
-    <!-- FCS_COP.1(3) -->
-    <!-- Selection-based  -->
-    <!-- QQQQ: Inclusion criteria not specified -->
-    <!-- QQQQ: Should be renamed FCS_COP.1/HASH  -->
-    <!-- QQQQ: The selection of the hashing algorithm must correspond to the selection of the
-	message digest size; for example, if SHA-1 is chosen, then the only valid message
-	digest size selection would be 160 bits  -->
-    <!--                  -->    	      
-<f-component name="Cryptographic Operation (Cryptographic Hashing)" cc-id="fcs_cop.1" iteration="Hash" status="sel-based">
-	<depends on-sel="crypto-sel-cop-1i3"/>
-	<f-element>
-		<title>
-			The TSF shall <refinement>
-			<selectables>
-				<selectable>perform</selectable>
-				<selectable>invoke interfaces in the operational environment to perform</selectable>
-			</selectables></refinement> [<h:i>cryptographic hashing services</h:i>] in
-			accordance with a specified cryptographic algorithm
-			<selectables>
-				<selectable>SHA-256</selectable>
-				<selectable>SHA-384</selectable>
-				<selectable>SHA-512</selectable>
-			</selectables> and <refinement>message digest</refinement> sizes 
-			<selectables>
-				<selectable>256</selectable>
-				<selectable>384</selectable>
-				<selectable>512</selectable>
-			</selectables> bits
-			that meet the following: [<h:i>FIPS Pub 180-4, “Secure Hash Standard”</h:i>].
-		</title>
-		<note role="application">
-			
-			The selection of the hashing algorithm must correspond to the selection of the
-			message digest size; for example, if SHA-256 is chosen, then the only valid message
-			digest size selection would be 256 bits.<h:br/><h:br/>
-			The TSF hashing functions can be implemented in one of two modes. The first
-			mode is the byte-oriented mode. In this mode the TSF only hashes messages that
-			are an integral number of bytes in length; i.e., the length (in bits) of the message
-			to be hashed is divisible by 8. The second mode is the bit-oriented mode. In this
-			mode the TSF hashes messages of arbitrary length. As there are different tests for
-			each mode, an indication is given in the following sections for the bit-oriented vs.
-			the byte-oriented test modes.<h:br/><h:br/>
-		</note>
-		<aactivity>
-			<TSS>
-				Regardless of whether the requirement is met by the TSF or TOE platform, the
-				evaluator shall examine the TSS to ensure that all hash functions use the
-				approved algorithms, modes and key sizes.
-			</TSS>
-			<Guidance>
-				The evaluator shall examine the AGD guidance to ensure it documents how to
-				configure the TOE or the TOE in conjunction with the Operational Environment
-				for the required hash sizes. The AGD guidance shall also include instructions
-				for disabling deprecated algorithms.
-			</Guidance>
-			<Tests>
-				If this requirement is met by the TOE, the evaluator shall perform all of the
-				following tests for each hash algorithm implemented by the TSF and used to
-				satisfy the requirements of this PP.<h:br/><h:br/>
-				<h:b>Short Messages Test -- Bit-Oriented Mode</h:b><h:br/><h:br/>
-				The evaluator shall devise an input set consisting of m+1 messages, where m is
-				the block length of the hash algorithm. The length of the messages range
-				sequentially from 0 to m bits. The message text shall be pseudorandomly
-				generated. The evaluator shall compute the message digest for each of the
-				messages and ensure that the correct result is produced when the messages
-				are provided to the TSF.<h:br/><h:br/>
-				<h:b>Short Messages Test -- Byte-Oriented Mode</h:b><h:br/><h:br/>
-				The evaluator shall devise an input set consisting of m/8+1 messages, where m
-				is the block length of the hash algorithm. The length of the messages range
-				sequentially from 0 to m/8 bytes, with each message being an integral number
-				of bytes. The message text shall be pseudorandomly generated. The evaluator
-				shall compute the message digest for each of the messages and ensure that
-				the correct result is produced when the messages are provided to the TSF.<h:br/><h:br/>
-				<h:b>Selected Long Messages Test -- Bit-Oriented Mode</h:b><h:br/><h:br/>
-				The evaluator shall devise an input set consisting of m messages, where m is
-				the block length of the hash algorithm. The length of the ith message is 512 +
-				99*i, where 1 ≤ i ≤ m. The message text shall be pseudorandomly generated.
-				The evaluator shall compute the message digest for each of the messages and
-				ensure that the correct result is produced when the messages are provided to
-				the TSF.<h:br/><h:br/>
-				<h:b>Selected Long Messages Test -- Byte-Oriented Mode</h:b><h:br/><h:br/>
-				The evaluator shall devise an input set consisting of m/8 messages, where m is
-				the block length of the hash algorithm. The length of the ith message is 512 +
-				8*99*i, where 1 ≤ i ≤ m/8. The message text shall be pseudorandomly
-				generated. The evaluator shall compute the message digest for each of the
-				messages and ensure that the correct result is produced when the messages
-				are provided to the TSF.<h:br/><h:br/>
-				<h:b>Pseudorandomly Generated Messages Test</h:b><h:br/><h:br/>
-				This test is for byte-oriented implementations only. The evaluator shall
-				randomly generate a seed that is n bits long, where n is the length of
-				the message digest produced by the hash function to be tested. The
-				evaluator shall then formulate a set of 100 messages and associated
-				digests by following the algorithm provided in Figure 1 of [SHAVS]. The
-				evaluator shall then ensure that the correct result is produced when
-				the messages are provided to the TSF.<h:br/><h:br/>
-				<h:i>Equivalency</h:i><h:br/><h:br/>
-				Testing of the TOE may be performed on a subset of the platforms listed in the
-				TOE’s ST. Justification must be provided for those platforms that were excluded
-				from testing.
-			</Tests>
-		</aactivity>
-	</f-element>
-	<audit-event/>
-    </f-component>
-			
-    <!--                  -->     
-    <!-- FCS_COP.1(4) -->
-    <!-- Selection-based  -->
-    <!-- QQQQ: Should be renamed FCS_COP.1/KHASH  -->
-    <!-- QQQQ: The hash selection should be consistent with the overall strength of the algorithm used for FCS_COP.1(1).  -->
-    <!--                  -->    	      
-<f-component name="Cryptographic Operation (Keyed-Hash Message Authentication)" cc-id="fcs_cop.1" iteration="KeyedHash" status="sel-based">
-	<depends on-sel="crypto-sel-cop-1i4"/>
-	<f-element>
-		<title>
-			The TSF shall 
-			<refinement><selectables>
-				<selectable>perform</selectable>
-				<selectable>invoke interfaces in the operational environment to perform</selectable>
-			</selectables></refinement>
-			[<h:i>keyed hash message authentication</h:i>] in
-			accordance with a specified cryptographic algorithm [<h:i>HMAC-
-			<selectables>
-				<selectable>SHA-256</selectable>
-				<selectable>SHA-384</selectable>
-				<selectable>SHA-512</selectable>
-			</selectables> with key size <assignable>key size (in bits) used in HMAC</assignable></h:i>] 
-			and <refinement>message digest</refinement> sizes 
-			<selectables>
-				<selectable>256</selectable>
-				<selectable>384</selectable>
-				<selectable>512</selectable>
-			</selectables> bits that meet the following: 
-			[<h:i>FIPS Pub 198-1,“The Keyed Hash Message Authentication Code”;
-			FIPS Pub 180-4, “Secure Hash Standard”</h:i>].
-		</title>
-		<note role="application">
-			The intent of this requirement is to specify the keyed hash message authentication
-			function used when used for key establishment purposes for the various
-			cryptographic protocols used by the TOE (e.g., trusted channel). The hash
-			selection must support the message digest size selection. The hash selection
-			should be consistent with the overall strength of the algorithm used for
-			FCS_COP.1/SKC.<h:br/><h:br/>
-		</note>
-		<aactivity>
-			<TSS>
-				Regardless of whether the requirement is met by the TSF or TOE platform, the
-				evaluator shall examine the TSS to ensure that all keyed hash functions use the
-				approved algorithms and key sizes.
-			</TSS>
-			<Guidance>
-				The evaluator shall examine the AGD guidance to ensure it contains
-				instructions for configuring the TOE or the TOE in conjunction with the
-				Operational Environment for the required hash sizes and message digest sizes.
-			</Guidance>
-			<Tests>
-				If this requirement is met by the TOE, the evaluator shall perform the following
-				test:<h:br/><h:br/>
-				<testlist>
-					<test>
-						For each of the supported parameter sets, the evaluator shall
-						compose 15 sets of test data. Each set shall consist of a key and
-						message data. The evaluator shall have the TSF generate HMAC tags
-						for these sets of test data. The resulting MAC tags shall be compared
-						to the result of generating HMAC tags with the same key and IV using
-						a known good implementation.
-					</test>
-				</testlist>
-				<h:i>Equivalency</h:i><h:br/><h:br/>
-				Testing of the TOE may be performed on a subset of the platforms listed in the
-				TOE’s ST. Justification must be provided for those platforms that were excluded
-				from testing.
-			</Tests>
-		</aactivity>
-	</f-element>
-	<audit-event/>
-    </f-component>			
 	
 	      
-    <!--                  -->     
-    <!-- FCS_COP.1(5) -->
+    <!-- FCS_COP.1/PBKDF       -->     
+    <!-- Formally FCS_COP.1(5) -->
     <!-- Really Mandatory or selection-based   -->
     <!-- QQQQ:  It will be claimed if the method of protecting key shares in FPT_SKY_EXT.2 or any other mechanism to enforce access by privileged
 	user depends on passwords. It may also be claimed if other mechanisms use password-based encryption.   -->
@@ -5568,7 +5574,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<depends on="external-seed"/>
 			<f-element id="fe1-rbg-seed">
 				<title>
-					The TSF shall be able to accept a minimum input of <assignable>minimum input length, in bits, greater than zero</assignable>
+					The TSF shall be able to accept a minimum input of <assignable>minimum input length greater than zero</assignable>
 					from a TSF interface for the purpose of seeding.
 				</title>
 				<note role="application">
@@ -5598,7 +5604,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
           <depends on="internal-seed"/>
           <f-element id="fel-rbg-seed-int-sing">
             <title>
-              The TSF shall be able to seed the RBG using a TSF software-based noise source
+              The TSF shall be able to seed the RBG using a 
+			  <selectables>
+				<selectable>TSF software-based noise source</selectable>
+				<selectable>TSF hardware-based noise source</selectable>
+			  </selectables>
+			  <assignable>name of noise source</assignable>
                 with a minimum of <assignable>number of bits</assignable> bits of min-entropy.
             </title>        
             <note role="application">This requirement is claimed when a DRBG is seeded with entropy from a single noise source that is within the TOE boundary. Min-entropy should be expressed as a ratio of entropy bits to sampled bits so that the total amount of data needed to ensure full entropy is known, as well as the conditioning function by which that data is reduced in size to the seed.</note>
@@ -5623,7 +5634,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
           <depends on="internal-seeds"/>
           <f-element id="fel-rbg-seed-int-mult">
             <title>
-              The TSF shall be able to seed the RBG using <assignable>number</assignable> TSF software-based noise source(s).
+              The TSF shall be able to seed the RBG using 
+			  <selectables>
+				<selectable><assignable>number</assignable> TSF software-based noise source(s)</selectable>
+				<selectable><assignable>number</assignable> TSF hardware-based noise source(s)</selectable>
+			  </selectables>.
             </title>
             <note role="application">
               This requirement is claimed when a DRBG is seeded with entropy from multiple noise sources that are within the TOE boundary. 
@@ -6915,6 +6930,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</refinement>
 			</title>
 			<note role="application">
+				<comment>It is unclear what the inclusion criteria for this selection-based SFR are. The encoding of this SFR in the XML points to a dummy location in FIA_UAU_EXT.1 but is commented as being wrong.</comment>
 				This requirement must be included in the ST if...<h:br/><h:br/>
 				To refine this requirement, the phrase “[assignment: access control SFP(s) and/or information flow control SFP(s)]
 				to” was removed and the phrase “through the use of [selection, choose at least one of: IPsec, SSH, TLS,
@@ -9230,8 +9246,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		performed by at least one of the defined roles.
 	
 
-	<!--               -->     
-        <!-- FMT_MOF.1(1) -->
+	<!-- FMT_MOF.1/Admin              -->     
+        <!-- Formally FMT_MOF.1(1) -->
 	<!--               -->     
         <f-component cc-id="fmt_mof.1" iteration="Admin" name="Management of Security Functions Behavior (Administrator Functions)"
 		>
@@ -9243,6 +9259,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>Operational Environment</selectable>
 					</selectables></refinement>
 				shall restrict the abiulity to
+				[<h:i>
 				<refinement>
 					<h:ul>
 						<h:li>manage the TOE locally and remotely;</h:li>
@@ -9265,7 +9282,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							<selectable><assignable>other security management functions</assignable></selectable>
 						</selectables></h:li>
 					</h:ul>
-				</refinement>
+				</refinement></h:i>]
 				to [<h:i>Administrators</h:i>].	
 			</title>
 			<note role="application">
@@ -9290,36 +9307,30 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event/>
-	</f-component>			
-		
+	</f-component>		
+	
+	<!-- FMT_MOF.1/Auditor     -->     
+	<!-- Formally FMT_MOF.1(5) -->
 	<!--               -->     
-        <!-- FMT_MOF.1(2) -->
-	<!--               -->     
-        <f-component cc-id="fmt_mof.1" iteration="RA" name="Management of Security Functions Behavior (CA/RA Functions)" >
-		<f-element>	     
+        <f-component cc-id="fmt_mof.1" iteration="Auditor" name="Management of Security Functions Behavior (Auditor Functions)" >
+		<f-element>
 			<title>
-				The
+				The 
 				<refinement><selectables>
 					<selectable>TSF</selectable>
 					<selectable>Operational Environment</selectable>
-					</selectables></refinement>
-				shall restrict the ability to<h:br/><h:br/>
-				<refinement><h:ul>
-					<h:li>approve and execute the issuance of certificates;</h:li>
-					<h:li>configure subscriber self-service request constraints;</h:li>
-					<h:li><selectables linebreak="yes">
-						<selectable>configure automated certificate approval management;</selectable>
-						<selectable>approve rulesets that govern the authorizations of AORs to manage
-							particular certificates on behalf of an organization;</selectable>
-						<selectable>accept, process and export CMC messages;</selectable>
-						<selectable>no other function</selectable>
-					</selectables></h:li></h:ul></refinement>
-					to 
-				<refinement>
-					<selectables>
-						<selectable>CA Operations Staff</selectable>
-						<selectable>RA Staff</selectable>
-				</selectables></refinement>
+					</selectables>
+				</refinement>
+				shall restrict the ability to
+				[<h:i><refinement><h:ul>
+					<h:li>Delete entries from the audit trail</h:li>
+					<h:li><selectables>
+						<selectable>Search the audit trail</selectable>
+						<selectable>Set or change the retention period parameter for audit records requiring
+							extended retention</selectable>
+					</selectables></h:li></h:ul>
+				</refinement></h:i>]
+				to [<h:i>auditors</h:i>].
 			</title>
 			<aactivity>
 				<TSS/>
@@ -9334,11 +9345,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</Tests>
 			</aactivity>
 		</f-element>
-		<audit-event/>		
-	</f-component>				
-	     
-	<!--               -->     
-        <!-- FMT_MOF.1(3) -->
+		<audit-event/>
+	</f-component>
+
+	<!-- FMT_MOF.1/CA          -->     
+	<!-- Formally FMT_MOF.1(3) -->
 	<!--               -->     
         <f-component cc-id="fmt_mof.1" iteration="CA" name="Management of Security Functions Behavior (CA Operations Functions)" >
 		<f-element>
@@ -9349,6 +9360,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>Operational Environment</selectable>
 				</selectables></refinement>
 				shall restict the ability to
+				[<h:i>
 				<refinement>
 					<h:ul>
 						<h:li>approve certificate revocation;</h:li>
@@ -9362,7 +9374,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							<selectable>no other function</selectable>
 						</selectables></h:li>
 					</h:ul>
-				</refinement> to <refinement>[CA Operations Staff]</refinement>.
+				</refinement></h:i>] to [<h:i>CA Operations Staff</h:i>].
 			</title>
 			<note role="application">
 				If items 5 &amp; 6 are selected for FMT_MOF.1.1/CA, items 13 &amp; 14 cannot be selected in FMT_MOF.1.1/Admin.
@@ -9383,9 +9395,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</f-element>
 		<audit-event/>
 	</f-component>
-	
-	<!--               -->     
-        <!-- FMT_MOF.1(4) -->
+
+	<!-- FMT_MOF.1/CO          -->     
+	<!-- Formally FMT_MOF.1(4) -->
 	<!--               -->     
         <f-component cc-id="fmt_mof.1" iteration="CO" name="Management of Security Functions Behavior (Admin/Officer Functions)" >
 		<f-element>	     
@@ -9396,7 +9408,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>Operational Environment</selectable>
 					</selectables></refinement>
 				shall restrict the ability to
-				<refinement><h:ul>
+				[<h:i><refinement><h:ul>
 					<h:li>perform destruction of sensitive data when no longer needed;</h:li>
 					<h:li><selectables linebreak="yes">
 						<selectable>participate as a second party for archival and recovery;</selectable>
@@ -9405,14 +9417,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						<selectable>no other function</selectable>
 					</selectables></h:li>
 					</h:ul>
-				</refinement>
+				</refinement></h:i>]
 				to 
-				<refinement><selectables>
+				[<h:i><selectables>
 					<selectable>Administrators</selectable>
 					<selectable>Auditor</selectable>
 					<selectable>CA Operations Staff</selectable>
 					</selectables>
-				</refinement>.
+				</h:i>].
 			</title>
 			<note role="application">
 				It is acceptable to have the auditor participate in archive and recovery of the key
@@ -9453,29 +9465,35 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</f-element>
 		<audit-event/>
 	</f-component>
-				
+		
+	<!-- FMT_MOF.1/RA          -->     
+	<!-- Formally FMT_MOF.1(2) -->
 	<!--               -->     
-        <!-- FMT_MOF.1(5) -->
-	<!--               -->     
-        <f-component cc-id="fmt_mof.1" iteration="Auditor" name="Management of Security Functions Behavior (Auditor Functions)" >
-		<f-element>
+        <f-component cc-id="fmt_mof.1" iteration="RA" name="Management of Security Functions Behavior (CA/RA Functions)" >
+		<f-element>	     
 			<title>
-				The 
+				The
 				<refinement><selectables>
 					<selectable>TSF</selectable>
 					<selectable>Operational Environment</selectable>
-					</selectables>
-				</refinement>
-				shall restrict the ability to
+					</selectables></refinement>
+				shall restrict the ability to<h:br/><h:br/>
+				[<h:i>
 				<refinement><h:ul>
-					<h:li>Delete entries from the audit trail</h:li>
-					<h:li><selectables>
-						<selectable>Search the audit trail</selectable>
-						<selectable>Set or change the retention period parameter for audit records requiring
-							extended retention</selectable>
-					</selectables></h:li></h:ul>
-				</refinement>
-				to [<h:i>auditors</h:i>].
+					<h:li>approve and execute the issuance of certificates;</h:li>
+					<h:li>configure subscriber self-service request constraints;</h:li>
+					<h:li><selectables linebreak="yes">
+						<selectable>configure automated certificate approval management;</selectable>
+						<selectable>approve rulesets that govern the authorizations of AORs to manage
+							particular certificates on behalf of an organization;</selectable>
+						<selectable>accept, process and export CMC messages;</selectable>
+						<selectable>no other function</selectable>
+					</selectables></h:li></h:ul></refinement></h:i>]
+					to [<h:i>
+					<selectables>
+						<selectable>CA Operations Staff</selectable>
+						<selectable>RA Staff</selectable>
+				</selectables></h:i>]
 			</title>
 			<aactivity>
 				<TSS/>
@@ -9490,9 +9508,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</Tests>
 			</aactivity>
 		</f-element>
-		<audit-event/>
-	</f-component>
-
+		<audit-event/>		
+	</f-component>				
 	     
 	<!--               -->     
         <!-- FMT_MTD.1 -->
@@ -9900,6 +9917,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</selectables>.</refinement>
 			</title>
 			<note role="application">
+				<comment>It is unclear what the inclusion criteria for this selection-based SFR are. The encoding of this SFR in the XML points to a dummy location in FIA_UAU_EXT.1 but is commented as being wrong.</comment>
 				This SFR must be included in the ST if ...<h:br/><h:br/>
 				This requirement ensures all communications between components of a
 				distributed TOE is protected through the use of an encrypted communications
@@ -11233,6 +11251,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					list of services for which the TSF is able to initiate communications</assignable>.
 			</title>
 			<note role="application">
+				<comment>It is unclear what the inclusion criteria for this selection-based SFR are. The encoding of this SFR in the XML points to a dummy location in FIA_UAU_EXT.1 but is commented as being wrong.</comment>
 				This SFR must be included in the SFR if TODO.<h:br/><h:br/>
 				The intent of the above requirement is to use a cryptographic protocol to protect
 				external communications with authorized IT entities that the TOE interacts with
