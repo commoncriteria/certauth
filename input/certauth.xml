@@ -549,7 +549,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				subscriber information, the following SFRs must be claimed in order for the TOE to provide
 				assurance that subscriber data is protected.     </description>
 			</feature>
-			<feature id="auditReview" title="TOE supports Audit Review">
+			<feature id="Auditoreview" title="TOE supports Audit Review">
 				<description> If the TOE supports review of audit records, then the following SFRs must be included:
 				</description>
 			</feature>
@@ -597,9 +597,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
   <sec:Threats>
       <threats>
 		<threat name="T.PRIVILEGED_USER_ERROR">
-          <description> A privileged user or non-person entity (NPE) improperly exercises or adversely affects
-		  the TOE, resulting in unauthorized services, ineffective security mechanisms, or unintended
-		  circumvention of security mechanisms.</description>
+          	<description> A privileged user or non-person entity (NPE) improperly exercises or adversely affects
+				the TOE, resulting in unauthorized services, ineffective security mechanisms, or unintended
+				circumvention of security mechanisms.</description>
 		  	<addressed-by>FAU_ADP_EXT.1</addressed-by><rationale>Requires the TSF to implement or support audit functionality.</rationale>
 			<addressed-by>FAU_STG.5</addressed-by><rationale>Prevents audited events if the audit trail cannot be written to.</rationale>
 			<addressed-by>FIA_UAU_EXT.1</addressed-by><rationale>Requires that he TSF provide a mechanism for authenticating privileged users.</rationale>
@@ -626,100 +626,176 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         </threat>
         <threat name="T.TSF_FAILURE">
           <description> Security mechanisms of the TOE may fail, leading to a compromise of the TSF.</description>
+		  	<addressed-by>FPT_TST.1 (selection-based)</addressed-by><rationale>Requires that the TSF test the health of the DRBG.</rationale>	
           	<addressed-by>FPT_TST_EXT.1 (optional)</addressed-by><rationale>(Optional) Requires the TSF ensure the integrity of TOE software and firmware.</rationale>
 			<addressed-by> FPT_TST_EXT.2 (optional)</addressed-by><rationale>(Optional) Requires the TSF ensure the integrity of certain data relevant to TOE security.</rationale>
         </threat>
         <threat name="T.UNAUTHENTICATED_TRANSACTIONS">
-          <description> Relying parties within an information system depend on the TOE to accurately bind subjects
-		  to their credentials for use in authenticating and providing privacy for transactions. Without 
-		  the proper binding provided by the TOE, relying parties cannot ensure adequate access controls
-		  on sensitive information, ensure transactional integrity, ensure proper accountability, and/or
-		  enforce nonrepudiation. </description>
-          <objective-refer ref="O.CERTIFICATES">
-            <rationale>The TSF must ensure that certificates, certificate revocation lists, and certificate
-		status information are valid.</rationale>
-          </objective-refer>
-          <objective-refer ref="O.CONFIGURATION_MANAGEMENT">
-            <rationale>The TOE will conduct configuration management to assure identification of
-		system connectivity (software, hardware, and firmware), and components (software,
-		hardware, and firmware), auditing of configuration data, and controlling changes
-		to configuration items.</rationale>
-          </objective-refer>
-          <objective-refer ref="O.INTEGRITY_PROTECTION">
-            <rationale>The TOE will provide appropriate integrity protection for TSF data and software and
-		any user data stored by the TOE. </rationale>
-          </objective-refer>
-          <objective-refer ref="O.NON_REPUDIATION">
-            <rationale>The TOE will prevent a subscriber from avoiding accountability for sending a
-		message by providing evidence that the subscriber sent the message; and control
-		communications from unknown source. </rationale>
-          </objective-refer>
+          	<description> Relying parties within an information system depend on the TOE to accurately bind subjects
+				to their credentials for use in authenticating and providing privacy for transactions. Without 
+				the proper binding provided by the TOE, relying parties cannot ensure adequate access controls
+				on sensitive information, ensure transactional integrity, ensure proper accountability, and/or
+				enforce nonrepudiation. </description>
+				<addressed-by>FCO_NRO_EXT.2</addressed-by><rationale>Requires that the TSF provide proof of origin for certificates it issues.</rationale>
+				<addressed-by>FCS_CDP_EXT.1</addressed-by><rationale>Requires that the TSF implements or invokes cryptographic functionality.</rationale>
+				<addressed-by>FDP_CER_EXT.1</addressed-by><rationale>Requires that the TSF support configured certifcate profiles.</rationale>
+				<addressed-by>FDP_CER_EXT.2</addressed-by><rationale>Requires that TSF associate certificate requests with certificates.</rationale>
+				<addressed-by>FDP_CER_EXT.3</addressed-by><rationale>Requires that the TSF support approval of certificates against profiles.</rationale>
+				<addressed-by>FDP_CSI_EXT.1</addressed-by><rationale>Requires that the TSF provide formatted certificatee status information.</rationale>
+				<addressed-by>FIA_X509_EXT.1</addressed-by><rationale>Requires the TSF support validation of cerficates according to a set of rules.</rationale>
+				<addressed-by>FIA_X509_EXT.2</addressed-by><rationale>Requires that the TOE use X.509 certificates for code signing and other purposes.</rationale>
+				<addressed-by>FMT_MOF.1/Admin</addressed-by><rationale>Defines management functions to be performed exclusively by Administrators.</rationale>
+				<addressed-by>FMT_MOF.1/Auditor</addressed-by><rationale>Defines management functions to be performed by auditors.</rationale>
+				<addressed-by>FMT_MOF.1/CA</addressed-by><rationale>Defines management functions to be performed by CA Staff.</rationale>
+				<addressed-by>FMT_MOF.1/CO</addressed-by><rationale>Defines management functions to be performed by Administrators, Auditor, or CA Staff.</rationale>
+				<addressed-by>FMT_MOF.1/RA</addressed-by><rationale>Defines management functions to be performed by CA or RA Staff.</rationale>
+				<addressed-by>FMT_MTD.1</addressed-by><rationale>Requires that only priviledged users manage TSF data.</rationale>
+				<addressed-by>FDP_CER_EXT.4 (optional)</addressed-by><rationale>(Optional) Requires that non-v3 certificates have certain characteristics.</rationale>
+				<addressed-by>FDP_STG_EXT.1(optional)</addressed-by><rationale>(OPtional) Requires that the TSF protect trusted public keys and certificates.</rationale>
+				<addressed-by>FPT_NPE_EXT.1 (optional)</addressed-by><rationale>(Optional) Requires the TSF enforce rules for submitting NPE certificate requests.</rationale>
+				<addressed-by>FPT_TST_EXT.1 (optional)</addressed-by><rationale>(Optional) Requires the TSF ensure the integrity of TOE software and firmware.</rationale>
+				<addressed-by>FPT_TST_EXT.2 (optional)</addressed-by><rationale>(Optional) Requires the TSF ensure the integrity of certain data relevant to TOE security.</rationale>
+				<addressed-by> FCO_NRR_EXT.2 (selection-based)</addressed-by><rationale>Requires that the TSF provide certificate-based proof of receipt.</rationale>
+				<addressed-by> FCS_CKM_EXT.5 (selection-based)</addressed-by><rationale>Requires that the TSF protect public keys from modification.</rationale>
+				<addressed-by> FIA_CMCC_EXT.1(selection-based)</addressed-by><rationale>Specifies requirements for CMC requests and responses.</rationale>
+				<addressed-by> FIA_CMCS_EXT.1 (selection-based)</addressed-by><rationale>Defines the types of CMC reuests handled by the TSF.</rationale>
+				<addressed-by> FIA_ESTC_EXT.1 (selection-based)</addressed-by><rationale>Specifies requirements for client-side EST enrollment requests.</rationale>
+				<addressed-by> FIA_ESTS_EXT.1 (selection-based)</addressed-by><rationale>Specifies requirements for EST enrollment requests.</rationale>
+				<addressed-by>FDP_CRL_EXT.1 (selection-based)</addressed-by><rationale>Specifies contents for certificate revocation lists.</rationale>
+				<addressed-by> FDP_OCSPG_EXT.1 (selection-based)</addressed-by><rationale>Specifies the contents of OCSP response messages.</rationale>
+				<addressed-by> FDP_SDP_EXT.1 (selection-based)</addressed-by><rationale>(Optional) Requires that the TSF protect certain information through encryption.</rationale>
+				<addressed-by> FDP_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect user data during transmission between physically separate parts of the TOE.</rationale>
+				<addressed-by>FPT_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect data transmissed between different parts of the TOE.</rationale>
+				<addressed-by>FPT_TST.1 (selection-based)</addressed-by><rationale>Requires that the TSF test the health of the DRBG.</rationale>		
         </threat>
         <threat name="T.UNAUTHORIZED_ACCESS">
-          <description> A malicious user, process, or external IT entity intentionally circumvents TOE security
-		  mechanisms. </description>
-          <objective-refer ref="O.PROTECTED_COMMUNICATIONS">
-            <rationale>The TOE will provide protected communication channels for administrators,
-		other parts of a distributed TOE, and authorized IT entities. The TOE will protect
-		data assets when they are being transmitted to and from the TOE, including through
-		intervening untrusted components. </rationale>
-          </objective-refer>
-          <objective-refer ref="O.SESSION_LOCK">
-            <rationale>The TOE will provide mechanisms that mitigate the risk of unattended sessions
-		being hijacked. </rationale>
-          </objective-refer>
-          <objective-refer ref="O.TOE_ADMINISTRATION">
-            <rationale>The TOE will provide mechanisms to ensure that only privileged users are able to log in
-		and configure the TOE, and provide protections for logged-in users. The TOE will
-		ensure that administrative responsibilities are separated across different roles in order
-		to mitigate the impact of improper administrative activities or unauthorized
-		administrative access. </rationale>
-          </objective-refer>
+          	<description> A malicious user, process, or external IT entity intentionally circumvents TOE security
+		  		mechanisms. </description>
+			<addressed-by>FCS_CDP_EXT.1</addressed-by><rationale>Requires that the TSF implements or invokes cryptographic functionality.</rationale>
+			<addressed-by>FCS_STG_EXT.1</addressed-by><rationale>Requires secure storage of private and secret keys.</rationale>
+			<addressed-by>FIA_UAU_EXT.1</addressed-by><rationale>Requires that he TSF provide a mechanism for authenticating privileged users.</rationale>
+			<addressed-by>FIA_UIA_EXT.1</addressed-by><rationale>Defines the actions permitted prior to authentication of a user.</rationale>
+			<addressed-by>FMT_MOF.1/Admin</addressed-by><rationale>Defines management functions to be performed exclusively by Administrators.</rationale>
+			<addressed-by>FMT_MOF.1/Auditor</addressed-by><rationale>Defines management functions to be performed by auditors.</rationale>
+			<addressed-by>FMT_MOF.1/CA</addressed-by><rationale>Defines management functions to be performed by CA Staff.</rationale>
+			<addressed-by>FMT_MOF.1/CO</addressed-by><rationale>Defines management functions to be performed by Administrators, Auditor, or CA Staff.</rationale>
+			<addressed-by>FMT_MOF.1/RA</addressed-by><rationale>Defines management functions to be performed by CA or RA Staff.</rationale>
+			<addressed-by>FMT_MTD.1</addressed-by><rationale>Requires that only priviledged users manage TSF data.</rationale>
+			<addressed-by>FMT_SMF.1</addressed-by><rationale>Defines management functions implemented or supported by the TOE.</rationale>
+			<addressed-by>FMT_SMR.2</addressed-by><rationale>Defines user roles maintained or supported by the TSF.</rationale>
+			<addressed-by>FPT_KST_EXT.1</addressed-by><rationale>Requires that the TSF prevent export of plaintext keys.</rationale>
+			<addressed-by>FPT_KST_EXT.2</addressed-by><rationale>Requires that the TSF prevent unauthorized use of provate and secret keys.</rationale>
+			<addressed-by>FPT_SKP_EXT.1</addressed-by><rationale>Requires that the TSF be able to prevent reading of pre-shared, private and secret keys.</rationale>
+			<addressed-by>FTA_SSL.4</addressed-by><rationale>Requires that the TSF support user-initiated termination of their own SSL sessions.</rationale>
+			<addressed-by>FTP_TRP.1</addressed-by><rationale>Requires the TSF to provide a trusted path to remote entities.</rationale>
+			<addressed-by>FCS_COP.1/PBKDF (optional)</addressed-by><rationale>(Optional) Requires the TSF to support password-based key derivation.</rationale>
+			<addressed-by>FPT_SKY_EXT.1/CA (optional)</addressed-by><rationale>(Optional) Requires two-party control for the export of CA signing keys.</rationale>
+			<addressed-by>FPT_SKY_EXT.1/OTH (optional)</addressed-by><rationale>(Optional) Requires two-party control for the export of other sensitive data or keys.</rationale>
+			<addressed-by>FTA_SSL.3 (optional)</addressed-by><rationale>(Optional) Requires an inactivity timeout on remote user sessions.</rationale>
+			<addressed-by>FTA_SSL_EXT.1 (optional)</addressed-by><rationale>(Optional) Requires an inactivity timeout on local user sessions.</rationale>
+			<addressed-by>FCS_COP.1/Hash (selection-based)</addressed-by><rationale>Defines permissible cryptographic hash algorthms and sizes.</rationale>
+			<addressed-by>FCS_COP.1/KeyedHash (selection-based)</addressed-by><rationale>Defines permissible keyed-hash message authentication algorithms.</rationale>
+			<addressed-by>FCS_COP.1/Sig (selection-based)</addressed-by><rationale>Defines permissible cryptographic signature algorithms.</rationale>
+			<addressed-by>FCS_COP.1/SKC (selection-based)</addressed-by><rationale>Defines permissible AES encryption algorithms and key sizes.</rationale>
+			<addressed-by>FCS_CKM.1 (selection-based)</addressed-by><rationale>Specifies allowable algorithms for generation of assymmetric keys.</rationale>
+			<addressed-by>FCS_CKM.2 (selection-based)</addressed-by><rationale>Specifies allowable algorithms for key establishment.</rationale>
+			<addressed-by>FCS_CKM_EXT.1/DEK (selection-based)</addressed-by><rationale>Specifies requirements for assymmetric key generation.</rationale>
+			<addressed-by>FCS_CKM_EXT.1/KEK (selection-based)</addressed-by><rationale>Specifies requirements for generation of KEKs.</rationale>
+			<addressed-by>FCS_CKM_EXT.1/KEKT (selection-based)</addressed-by><rationale>Specifies requirements for assymmetric KEKs.</rationale>
+			<addressed-by>FCS_CKM_EXT.1/SHARE (selection-based)</addressed-by><rationale>Specifies requirements for key shares.</rationale>
+			<addressed-by>FCS_CKM_EXT.4 (selection-based)</addressed-by><rationale>Specifies requirements for cryptographic key destruction.</rationale>
+			<addressed-by>FCS_CKM_EXT.7 (selection-based)</addressed-by><rationale>Requires support for a hardware-protected REK.</rationale>
+			<addressed-by>FCS_CKM_EXT.8 (selection-based)</addressed-by><rationale>Requires that the TSF provide a traceable hierarchy of keys.</rationale>
+			<addressed-by>FCS_HTTPS_EXT.1 (selection-based)</addressed-by><rationale>Requires that the TSF implement HTTPS over TLS.</rationale>
+			<addressed-by>FCS_IPSEC_EXT.1 (selection-based)</addressed-by><rationale>Specifies requirements for the TSF implementation of IPsec.</rationale>
+			<addressed-by>FCS_RBG.1 (selection-based)</addressed-by><rationale>Requires that the TSF have access to DRBG services.</rationale>
+			<addressed-by>FCS_RBG.2 (selection-based)</addressed-by><rationale>Allows the DRBG to be seeded by an external source.</rationale>
+			<addressed-by>FCS_RBG.3 (selection-based)</addressed-by><rationale>Allows the DRBG to be seeded by a single internal source.</rationale>
+			<addressed-by>FCS_RBG.4 (selection-based)</addressed-by><rationale>Allows the DRBG to be seeded by multiple internal sources.</rationale>
+			<addressed-by>FCS_RBG.5 (selection-based)</addressed-by><rationale>Allows the DRBG to combine noise from multiple sources.</rationale>
+			<addressed-by>FCS_TLSC_EXT.1 (selection-based)</addressed-by><rationale>Specifies requirements for the client-side implementation of TLS.</rationale>
+			<addressed-by>FCS_TLSS_EXT.1 (selection-based)</addressed-by><rationale>Specifies requirements for the server-side implementation of TLS.</rationale>
+			<addressed-by>FIA_AFL.1 (selection-based)</addressed-by><rationale>Requires that the TSF detect exceessive unsuccessful login attempts from a remote user.</rationale>
+			<addressed-by>FIA_PMG_EXT.1 (selection-based)</addressed-by><rationale>Specifies password composition rules.</rationale>
+			<addressed-by>FIA_PSK_EXT.1 (selection-based)</addressed-by><rationale>Defines requiremetns for pre-shared keys used by the TSF.</rationale>
+			<addressed-by>FIA_UAU.7 (selection-based)</addressed-by><rationale>Defines feedback permitted to the user during authentication.</rationale>
+			<addressed-by>FDP_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect user data during transmission between physically separate parts of the TOE.</rationale>
+			<addressed-by>FPT_APW_EXT.1 (selection-based)</addressed-by><rationale>Defines protections for plaintext passwords.</rationale>
+			<addressed-by>FPT_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect data transmissed between different parts of the TOE.</rationale>
+			<addressed-by>FPT_SKY_EXT.2 (selection-based)</addressed-by><rationale>Requires that key shares be accessible only by priviledged users.</rationale>
+			<addressed-by>FTP_ITC.1 (selection-based)</addressed-by><rationale>Requires secure communications between the TOE and external IT entities.</rationale>
         </threat>
         <threat name="T.UNAUTHORIZED_UPDATE">
-          <description> A malicious party attempts to supply the end user with an update to the product that
-		  may compromise the security features of the TOE.</description>
-          <objective-refer ref="O.VERIFIABLE_UPDATES">
-            <rationale>The TOE will provide the capability to help ensure that any updates to the TOE can be
-		verified by the administrator to be unaltered and from a trusted source.</rationale>
-          </objective-refer>
+          	<description> A malicious party attempts to supply the end user with an update to the product that
+		  		may compromise the security features of the TOE.</description>
+          	<addressed-by>FCS_CDP_EXT.1</addressed-by><rationale>Requires that the TSF implements or invokes cryptographic functionality.</rationale>
+			<addressed-by> FCS_COP.1/Sig (selection-based)</addressed-by><rationale>Defines permissible cryptographic signature algorithms.</rationale>
+			<addressed-by> FIA_X509_EXT.2</addressed-by><rationale>Specifies the contents of Certificate Request Messages generated by the TSF.</rationale>
+			<addressed-by> FPT_TUD_EXT.1</addressed-by><rationale>Requires that the TSF support a secure TOE update process.</rationale>
         </threat>
         <threat name="T.UNDETECTED_ACTIONS">
-          <description> Remote users or external IT entities may take actions that adversely affect the security of the TOE.</description>
-          <objective-refer ref="O.AUDIT_LOSS_RESPONSE">
-            <rationale>The TOE will respond to possible loss of audit records when audit trail storage is full
-		or nearly full by restricting auditable events</rationale>
-          </objective-refer>
-          <objective-refer ref="O.AUDIT_PROTECTION">
-            <rationale>The TOE will protect audit records against unauthorized access, modification, or
-		deletion to ensure accountability of user actions.</rationale>
-          </objective-refer>
-          <objective-refer ref="O.SYSTEM_MONITORING">
-            <rationale>The TOE will provide the capability to generate audit data and send those data to
-		an external IT entity. The TOE will record in audit records: date and time of action and
-		the entity responsible for the action.</rationale>
-          </objective-refer>
+          	<description> Remote users or external IT entities may take actions that adversely affect the security of the TOE.</description>
+          	<addressed-by>FAU_ADP_EXT.1</addressed-by><rationale>Requires the TSF to implement or support audit functionality.</rationale>
+			<addressed-by>FAU_GCR_EXT.1</addressed-by><rationale>Requires that the TSF store certificates that it issues.</rationale>
+			<addressed-by>FAU_GEN.1</addressed-by><rationale>Requires that the TSF an audit record for defined auditable events.</rationale>
+			<addressed-by>FAU_GEN.2</addressed-by><rationale>Requires that the TSF be able to associate audit events with user actions.</rationale>
+			<addressed-by>FAU_STG.5</addressed-by><rationale>Prevents audited events if the audit trail cannot be written to.</rationale>
+			<addressed-by>FIA_UIA_EXT.1</addressed-by><rationale>Defines the actions permitted prior to authentication of a user.</rationale>
+			<addressed-by>FPT_STM.1</addressed-by><rationale>Requires thet the TSF provide or support reliable time stamps.</rationale>
+			<addressed-by> FAU_SAR.1 (selection-based)</addressed-by><rationale>Requires that auditors be able to read all audit records.</rationale>
+			<addressed-by>FAU_SAR.3 (selection-based)</addressed-by><rationale>Requires support for searches of audit data based on certificate identifier.</rationale>
+			<addressed-by> FAU_SCR_EXT.1 (selection-based)</addressed-by><rationale>Requires the TSF support review of certificates in a repository.</rationale>
+			<addressed-by> FAU_SEL.1 (selection-based)</addressed-by><rationale>Requires support for selelection of audit events based on specified attributes.</rationale>
+			<addressed-by> FAU_STG.1/EXT (selection-based)</addressed-by><rationale>Requires the TSF protect audit records from unauthorized deletion.</rationale>
+			<addressed-by> FAU_STG.1/STA (selection-based)</addressed-by><rationale>Requires that audit records with retentaion requirements be retained for the appropriate period.</rationale>
+			<addressed-by>FAU_STG_EXT.1 (selection-based)</addressed-by><rationale>Requires that the TSF ensure the integrity of audit data.</rationale>
         </threat>
         <threat name="T.USER_DATA_REUSE">
           <description>A malicious user, process, or external IT entity may gain access to user data that is not cleared
 		  when resources are reallocated.</description>
-          <objective-refer ref="O.RESIDUAL_INFORMATION_CLEARING">
-            <rationale>The TOE will ensure that any data contained in a protected resource is not available
-		when the resource is reallocated.</rationale>
-          </objective-refer>
+          <addressed-by>FDP_RIP.1</addressed-by><rationale>Requires that the TSF ensure that residual information is not perpetuated.</rationale>
         </threat>
         <threat name="T.WEAK_CRYPTO">
-          <description>A weak hash or signature scheme may be compromised by an attacker and used to apply
-		  integrity checks to malicious content so that it appears legitimate.</description>
-          <objective-refer ref="O.PROTECTED_COMMUNICATIONS">
-            <rationale>The TOE will provide protected communication channels for administrators, other parts of
-		a distributed TOE, and authorized IT entities. The TOE will protect data assets when they are
-		being transmitted to and from the TOE, including through intervening untrusted components.</rationale>
-          </objective-refer>
-          <objective-refer ref="O.VERIFIABLE_UPDATES">
-            <rationale>The TOE will provide the capability to help ensure that any updates to the TOE can be
-		verified by the administrator to be unaltered and from a trusted source.</rationale>
-          </objective-refer>
+          	<description>A weak hash or signature scheme may be compromised by an attacker and used to apply
+		  		integrity checks to malicious content so that it appears legitimate.</description>
+          	<addressed-by>FCS_CDP_EXT.1</addressed-by><rationale>Requires that the TSF implements or invokes cryptographic functionality.</rationale>
+			<addressed-by>FCS_STG_EXT.1</addressed-by><rationale>Requires secure storage of private and secret keys.</rationale>
+			<addressed-by>FIA_X509_EXT.2</addressed-by><rationale>Specifies the contents of Certificate Request Messages generated by the TSF.</rationale>
+			<addressed-by>FPT_KST_EXT.1</addressed-by><rationale>Requires that the TSF prevent export of plaintext keys.</rationale>
+			<addressed-by>FPT_KST_EXT.2</addressed-by><rationale>Requires that the TSF prevent unauthorized use of provate and secret keys.</rationale>
+			<addressed-by>FPT_SKP_EXT.1</addressed-by><rationale>Requires that the TSF be able to prevent reading of pre-shared, private and secret keys.</rationale>
+			<addressed-by>FPT_TUD_EXT.1</addressed-by><rationale>Requires that the TSF support a secure TOE update process.</rationale>
+			<addressed-by>FTP_TRP.1</addressed-by><rationale>Requires the TSF to provide a trusted path to remote entities.</rationale>
+			<addressed-by>FCS_COP.1/PBKDF (optional)</addressed-by><rationale>(Optional) Requires the TSF to support password-based key derivation.</rationale>
+			<addressed-by>FPT_SKY_EXT.1/CA (optional)</addressed-by><rationale>(Optional) Requires two-party control for the export of CA signing keys.</rationale>
+			<addressed-by>FPT_SKY_EXT.1/OTH (optional)</addressed-by><rationale>(Optional) Requires two-party control for the export of other sensitive data or keys.</rationale>
+			<addressed-by>FCS_COP.1/Hash (selection-based)</addressed-by><rationale>Defines permissible cryptographic hash algorthms and sizes.</rationale>
+			<addressed-by>FCS_COP.1/KeyedHash (selection-based)</addressed-by><rationale>Defines permissible keyed-hash message authentication algorithms.</rationale>
+			<addressed-by>FCS_COP.1/Sig (selection-based)</addressed-by><rationale>Defines permissible cryptographic signature algorithms.</rationale>
+			<addressed-by>FCS_COP.1/SKC (selection-based)</addressed-by><rationale>Defines permissible AES encryption algorithms and key sizes.</rationale>
+			<addressed-by>FCS_CKM.1 (selection-based)</addressed-by><rationale>Specifies allowable algorithms for generation of assymmetric keys.</rationale>
+			<addressed-by>FCS_CKM.2 (selection-based)</addressed-by><rationale>Specifies allowable algorithms for key establishment.</rationale>
+			<addressed-by>FCS_CKM_EXT.1/DEK (selection-based)</addressed-by><rationale>Specifies requirements for assymmetric key generation.</rationale>
+			<addressed-by>FCS_CKM_EXT.1/KEK (selection-based)</addressed-by><rationale>Specifies requirements for generation of KEKs.</rationale>
+			<addressed-by>FCS_CKM_EXT.1/KEKT (selection-based)</addressed-by><rationale>Specifies requirements for assymmetric KEKs.</rationale>
+			<addressed-by>FCS_CKM_EXT.1/SHARE (selection-based)</addressed-by><rationale>Specifies requirements for key shares.</rationale>
+			<addressed-by>FCS_CKM_EXT.4 (selection-based)</addressed-by><rationale>Specifies requirements for cryptographic key destruction.</rationale>
+			<addressed-by>FCS_CKM_EXT.7 (selection-based)</addressed-by><rationale>Requires support for a hardware-protected REK.</rationale>
+			<addressed-by>FCS_CKM_EXT.8 (selection-based)</addressed-by><rationale>Requires that the TSF provide a traceable hierarchy of keys.</rationale>
+			<addressed-by>FCS_HTTPS_EXT.1 (selection-based)</addressed-by><rationale>Requires that the TSF implement HTTPS over TLS.</rationale>
+			<addressed-by>FCS_IPSEC_EXT.1 (selection-based)</addressed-by><rationale>Specifies requirements for the TSF implementation of IPsec.</rationale>
+			<addressed-by>FCS_RBG.1 (selection-based)</addressed-by><rationale>Requires that the TSF have access to DRBG services.</rationale>
+			<addressed-by>FCS_RBG.2 (selection-based)</addressed-by><rationale>Allows the DRBG to be seeded by an external source.</rationale>
+			<addressed-by>FCS_RBG.3 (selection-based)</addressed-by><rationale>Allows the DRBG to be seeded by a single internal source.</rationale>
+			<addressed-by>FCS_RBG.4 (selection-based)</addressed-by><rationale>Allows the DRBG to be seeded by multiple internal sources.</rationale>
+			<addressed-by>FCS_RBG.5 (selection-based)</addressed-by><rationale>Allows the DRBG to combine noise from multiple sources.</rationale>
+			<addressed-by>FCS_TLSC_EXT.2 (selection-based)</addressed-by><rationale>Specifies requirements for the client-side implementation of TLS.</rationale>
+			<addressed-by>FCS_TLSS_EXT.1 (selection-based)</addressed-by><rationale>Specifies requirements for the server-side implementation of TLS.</rationale>
+			<addressed-by>FDP_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect user data during transmission between physically separate parts of the TOE.</rationale>
+			<addressed-by>FIA_PSK_EXT.1 (selection-based)</addressed-by><rationale>Defines requiremetns for pre-shared keys used by the TSF.</rationale>
+			<addressed-by>FPT_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect data transmissed between different parts of the TOE.</rationale>
+			<addressed-by>FPT_SKY_EXT.2 (selection-based)</addressed-by><rationale>Requires that key shares be accessible only by priviledged users.</rationale>
+			<addressed-by>FTP_ITC.1 (selection-based)</addressed-by><rationale>Requires secure communications between the TOE and external IT entities.</rationale>
         </threat>
       </threats>
   </sec:Threats>
@@ -827,7 +903,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<addressed-by>FMT_MOF.1/Admin</addressed-by><rationale>Defines management functions to be performed exclusively by Administrators.</rationale>
 		<addressed-by>FMT_MOF.1/RA</addressed-by><rationale>Defines management functions to be performed by CA or RA Staff.</rationale>
 		<addressed-by>FMT_MOF.1/CA</addressed-by><rationale>Defines management functions to be performed by CA Staff.</rationale>
-		<addressed-by>FMT_MOF.1/CO</addressed-by><rationale>Defines management functions to be performed by Administrators, Auditr, or CA Staff.</rationale>
+		<addressed-by>FMT_MOF.1/CO</addressed-by><rationale>Defines management functions to be performed by Administrators, Auditor, or CA Staff.</rationale>
 		<addressed-by>FMT_MOF.1/Auditor</addressed-by><rationale>Defines management functions to be performed by auditors.</rationale>
 		<addressed-by>FMT_MTD.1</addressed-by><rationale>Requires that only priviledged users manage TSF data.</rationale>
             	<addressed-by>FPT_NPE_EXT.1</addressed-by><rationale>(Optional) Requires the TSF enforce rules for submitting NPE certificate requests.</rationale>
@@ -942,7 +1018,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<addressed-by>FMT_MOF.1/Admin</addressed-by><rationale>Defines management functions to be performed exclusively by Administrators.</rationale>
 		<addressed-by>FMT_MOF.1/RA</addressed-by><rationale>Defines management functions to be performed by CA or RA Staff.</rationale>
 		<addressed-by>FMT_MOF.1/CA</addressed-by><rationale>Defines management functions to be performed by CA Staff.</rationale>
-		<addressed-by>FMT_MOF.1/CO</addressed-by><rationale>Defines management functions to be performed by Administrators, Auditr, or CA Staff.</rationale>
+		<addressed-by>FMT_MOF.1/CO</addressed-by><rationale>Defines management functions to be performed by Administrators, Auditor, or CA Staff.</rationale>
 		<addressed-by>FMT_MOF.1/Auditor</addressed-by><rationale>Defines management functions to be performed by auditors.</rationale>
 		<addressed-by>FMT_MTD.1</addressed-by><rationale>Requires that only priviledged users manage TSF data.</rationale>
 		<addressed-by>FMT_SMF.1</addressed-by><rationale>Defines management functions implemented or supported by the TOE.</rationale>
@@ -1305,7 +1381,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
                                 	<h:li>Specifically defined auditable events listed in <xref g="t-audit-optional"/></h:li>
                                 	<h:li>Specifically defined auditable events listed in <xref g="t-audit-sel-based"/></h:li>
 									<h:li>Specifically defined auditable events listed in <xref g="t-audit-impl-dep"/></h:li>
-								</h:ul></h:i>]</h:li>.
+								</h:ul></h:i>].</h:li>
 
 			    </h:ol>
              </title>
@@ -1477,7 +1553,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	-->
 	<!--               -->     
         <f-component cc-id="fau_sar.1" name="Audit Review" status="feat-based">
-          <depends on-feat="auditReview"/>
+          <depends on-feat="Auditoreview"/>
 		<f-element>
 			<title>The TSF shall provide [<h:i>Auditors</h:i>] with the capability to read [<h:i>all
 				information</h:i>] from the audit data.</title>
@@ -1516,7 +1592,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	-->
 	<!--               -->     
         <f-component cc-id="fau_sar.3" name="Selectable Audit Review" status="feat-based">
-          <depends on-feat="auditReview"/>
+          <depends on-feat="Auditoreview"/>
 		<f-element>
 			<title>
 				The TSF shall provide the ability to apply [<h:i>searches</h:i>] of audit data
@@ -9258,7 +9334,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>TSF</selectable>
 					<selectable>Operational Environment</selectable>
 					</selectables></refinement>
-				shall restrict the abiulity to
+				shall restrict the ability to
 				[<h:i>
 				<refinement>
 					<h:ul>
@@ -9419,12 +9495,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					</h:ul>
 				</refinement></h:i>]
 				to 
-				[<h:i><selectables>
+				<selectables>
 					<selectable>Administrators</selectable>
 					<selectable>Auditor</selectable>
 					<selectable>CA Operations Staff</selectable>
-					</selectables>
-				</h:i>].
+					</selectables>.
 			</title>
 			<note role="application">
 				It is acceptable to have the auditor participate in archive and recovery of the key
@@ -9489,11 +9564,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						<selectable>accept, process and export CMC messages;</selectable>
 						<selectable>no other function</selectable>
 					</selectables></h:li></h:ul></refinement></h:i>]
-					to [<h:i>
+					to
 					<selectables>
 						<selectable>CA Operations Staff</selectable>
 						<selectable>RA Staff</selectable>
-				</selectables></h:i>]
+				</selectables>.
 			</title>
 			<aactivity>
 				<TSS/>
