@@ -7369,7 +7369,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             </dependencies>
 	<f-element>
 		<title>
-			<comment>This objective SFR should be reviewed to determine if it should change status with the next release of this PP.</comment>
+			<comment>This SFR appears to be covered by the X.509 FP requirement FIA_X509_EXT.3. It may be appropriate to remove this objective SFR. </comment>
 			The TSF shall be able to generate a certificate request to an external certification
 			authority to receive a CA certificate for a CA's signing key using 
 			<selectables linebreak="yes">
@@ -7658,6 +7658,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             </dependencies>
 		<f-element>
 			<title>
+				<comment>This SFR is defined in the X.509 FP. A review of these two versions of the SFRs is needed to determine the 
+					appropriate assignments/selections such that the configuration is comparable to its old 
+					definitions. Note that the X.509 version of this SFR adds a requirement to authenticate EST clients for re-enrollment via TLS mutual authentication.</comment>
 				The TSF shall use the Enrollment over Secure Transport (EST) protocol as specified
 				in RFC 7030 to receive, process, and respond to certificate simple enrollment
 				requests from authorized clients. 
@@ -7667,7 +7670,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<title>
 				The TSF shall authenticate EST clients for initial enrollment and for supplemental
 				authentication via 
-				<selectables>
+				<selectables linebreak="yes">
 					<selectable>HTTP basic authentication in accordance with RFC7030 section 3.2.3;</selectable>
 					<selectable>HTTP digest authentication using a cryptographic hash algorithm in
 						accordance with FCS_COP.1/Hash and RFC 7030 section 3.2.3;</selectable>
@@ -8346,6 +8349,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <f-component cc-id="fia_x509_ext.1" name="Certificate Validation" >
 		<f-element>
 			<title>
+				<comment>This SFR is defined in the X.509 FP. A review of these two versions of the SFRs is needed to determine the 
+					appropriate assignments/selections such that the configuration is comparable to its old 
+					definitions. Note that the X.509 version of this SFR has been refactored significantly and is substantially more open-ended than this SFR.</comment>
 				The TSF shall 
 				<selectables>
 					<selectable>validate</selectable>
