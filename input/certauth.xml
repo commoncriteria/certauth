@@ -722,8 +722,6 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<addressed-by>FCS_RBG.3 (selection-based)</addressed-by><rationale>Allows the DRBG to be seeded by a single internal source.</rationale>
 			<addressed-by>FCS_RBG.4 (selection-based)</addressed-by><rationale>Allows the DRBG to be seeded by multiple internal sources.</rationale>
 			<addressed-by>FCS_RBG.5 (selection-based)</addressed-by><rationale>Allows the DRBG to combine noise from multiple sources.</rationale>
-			<addressed-by>FCS_TLSC_EXT.1 (selection-based)</addressed-by><rationale>Specifies requirements for the client-side implementation of TLS.</rationale>
-			<addressed-by>FCS_TLSS_EXT.1 (selection-based)</addressed-by><rationale>Specifies requirements for the server-side implementation of TLS.</rationale>
 			<addressed-by>FIA_AFL.1 (selection-based)</addressed-by><rationale>Requires that the TSF detect exceessive unsuccessful login attempts from a remote user.</rationale>
 			<addressed-by>FIA_PMG_EXT.1 (selection-based)</addressed-by><rationale>Specifies password composition rules.</rationale>
 			<addressed-by>FIA_PSK_EXT.1 (selection-based)</addressed-by><rationale>Defines requiremetns for pre-shared keys used by the TSF.</rationale>
@@ -799,8 +797,6 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<addressed-by>FCS_RBG.3 (selection-based)</addressed-by><rationale>Allows the DRBG to be seeded by a single internal source.</rationale>
 			<addressed-by>FCS_RBG.4 (selection-based)</addressed-by><rationale>Allows the DRBG to be seeded by multiple internal sources.</rationale>
 			<addressed-by>FCS_RBG.5 (selection-based)</addressed-by><rationale>Allows the DRBG to combine noise from multiple sources.</rationale>
-			<addressed-by>FCS_TLSC_EXT.2 (selection-based)</addressed-by><rationale>Specifies requirements for the client-side implementation of TLS.</rationale>
-			<addressed-by>FCS_TLSS_EXT.1 (selection-based)</addressed-by><rationale>Specifies requirements for the server-side implementation of TLS.</rationale>
 			<addressed-by>FDP_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect user data during transmission between physically separate parts of the TOE.</rationale>
 			<addressed-by>FIA_PSK_EXT.1 (selection-based)</addressed-by><rationale>Defines requiremetns for pre-shared keys used by the TSF.</rationale>
 			<addressed-by>FPT_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect data transmissed between different parts of the TOE.</rationale>
@@ -881,41 +877,74 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         </SOE>
         <SOE name="OE.CERT_REPOSITORY">
 	<!-- QQQQ: Remove if Operational Environment is not selected in FAU_GCR_EXT.1 is included in the ST. -->
-          <description>The Operational Environment provides a certificate repository for storage of certificates (and
+          <description>
+			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
+				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
+			</comment>
+			The Operational Environment provides a certificate repository for storage of certificates (and
 		optionally CRLs) issued by the TSF.
 		</description>
         </SOE>
         <SOE name="OE.CERT_REPOSITORY_SEARCH">
 	<!-- QQQQ: Remove if FAU_SCR_EXT.1 is included in the ST. -->
-          <description>The Operational Environment provides the ability to search a certificate repository for specific
+          <description>
+			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
+				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
+			</comment>
+			The Operational Environment provides the ability to search a certificate repository for specific
 		certificate fields in certificates issued by the TSF and return the certificate and an identifier for the
 		certificate that can be used to search the audit trail for events related to that certificate. </description>
         </SOE>
         <SOE name="OE.AUDIT_GENERATION">
 	<!-- QQQQ: Remove if audit functionality is implemented by the TOE. -->
-          <description>The Operational Environment provides a mechanism for the generation of portions of the audit data.</description>
+			
+          <description>
+			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
+				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
+			</comment>
+			The Operational Environment provides a mechanism for the generation of portions of the audit data.</description>
         </SOE>
         <SOE name="OE.AUDIT_RETENTION">
 	<!-- QQQQ: Remove if FAU_STG_EXT.2 is included in the ST. -->
-          <description>The Operational Environment provides mechanisms for retention of audit records for both normal
+          <description>
+			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
+				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
+			</comment>
+			The Operational Environment provides mechanisms for retention of audit records for both normal
 	and extended retention periods.</description>
         </SOE>
         <SOE name="OE.AUDIT_REVIEW">
 	<!-- QQQQ: Remove if audit functionality is implemented by the TOE. -->
-          <description>The Operational Environment provides a mechanism for the review of specified audit data.</description>
+          <description>
+			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
+				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
+			</comment>
+			The Operational Environment provides a mechanism for the review of specified audit data.</description>
         </SOE>
         <SOE name="OE.AUDIT_STORAGE">
 	<!-- QQQQ: Remove if audit functionality is implemented by the TOE. -->
-          <description>The Operational Environment provides a mechanism for the storage of specified audit data.</description>
+          <description>
+			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
+				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
+			</comment>
+			The Operational Environment provides a mechanism for the storage of specified audit data.</description>
         </SOE>
         <SOE name="OE.CRYPTOGRAPHY">
 	<!-- QQQQ: Remove if all cryptographic functionality id implemented by the TSF. -->
-          <description>The Operational Environment provides cryptographic services that can be invoked by the TSF in order
+          <description>
+			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
+				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
+			</comment>
+			The Operational Environment provides cryptographic services that can be invoked by the TSF in order
 		to perform security functionality.</description>
         </SOE>
         <SOE name="OE.KEY_ARCHIVAL">
 	<!-- QQQQ: Remove if FPT_SKY_EXT.1 is included in the ST. -->
-          <description>The Operational Environment provides the ability to use split knowledge procedures to enforce twoparty control to export keys necessary to resume CA functionality if the TSF should fail.
+          <description>
+			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
+				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
+			</comment>
+			The Operational Environment provides the ability to use split knowledge procedures to enforce twoparty control to export keys necessary to resume CA functionality if the TSF should fail.
 		</description>
         </SOE>
         <SOE name="OE.NO_GENERAL_PURPOSE">
@@ -929,20 +958,36 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         </SOE>
         <SOE name="OE.PUBLIC_KEY_PROTECTION">
 	<!-- QQQQ: Remove if FAU_STG_EXT.1 is included in the ST. -->
-          <description>The Operational Environment provides protection for specified public keys associated with CA
+          <description>
+			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
+				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
+			</comment>
+			The Operational Environment provides protection for specified public keys associated with CA
 		functions.</description>
         </SOE>
         <SOE name="OE.SESSION_PROTECTION_LOCAL">
 	<!-- QQQQ: Remove if FAU_SSL_EXT.1 is included in the ST. -->
-          <description>The Operational Environment provides the ability to lock or terminate local administrative sessions.</description>
+          <description>
+			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
+				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
+			</comment>
+			The Operational Environment provides the ability to lock or terminate local administrative sessions.</description>
         </SOE>
         <SOE name="OE.SESSION_PROTECTION_REMOTE">
 	<!-- QQQQ: Remove if FAU_SSL_EXT.1 is included in the ST. -->
-          <description>The Operational Environment provides the ability to lock or terminate remote administrative sessions.</description>
+          <description>
+			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
+				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
+			</comment>
+			The Operational Environment provides the ability to lock or terminate remote administrative sessions.</description>
         </SOE>
         <SOE name="OE.TOE_ADMINISTRATION">
 	<!-- QQQQ: Remove if all administrative actions from O.TOE_ADMINISTRATION requirements are performed directly by the TOE. -->
-          <description>The Operational Environment provides specified management capabilities required for the overall
+          <description>
+			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
+				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
+			</comment>
+			The Operational Environment provides specified management capabilities required for the overall
 		operation of a Certificate Authority, and the ability to restrict access to a subset of the capabilities as
 		specified in the ST. </description>
         </SOE>
@@ -952,7 +997,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         </SOE>
         <SOE name="OE.TRUSTED_PLATFORM">
 	<!-- QQQQ: Remove if FPT_TST_EXT.1 and FPT_TST_EXT.2 are included in the ST. -->
-          <description>The operating system on which the TOE has been installed is securely configured, regularly patched,
+          <description>
+			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
+				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
+			</comment>
+			The operating system on which the TOE has been installed is securely configured, regularly patched,
 		and not subject to unauthorized access.</description>
         </SOE>
       </SOEs></section>
@@ -5647,550 +5696,6 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	    </f-element>
 	<audit-event/>
 	</f-component>
-	      
-	      
-    <!--                  -->     
-    <!-- FCS_TLSC_EXT.1 -->
-    <!-- Selection-based  -->
-    <!-- QQQQ: The ciphersuites to be tested in the evaluated configuration are limited by this
-	requirement. The ST author should select the ciphersuites that are supported.   -->
-    <!-- QQQQ: If any ciphersuites are selected using ECDHE, then FCS_TLSC_EXT.1.5 is required.   -->
-    <!-- QQQQ:  Certificate validity shall be tested in accordance with testing performed for FIA_X509_EXT.1.  -->
-    <!--                  -->    	      
-<f-component name="TLS Client Protocol" cc-id="fcs_tlsc_ext.1" status="sel-based">
-	<depends on-sel="ftp-itc-tls"/>   <!-- Is this right? -->
-	<depends on-sel="ftp-trp-tls"/>   <!-- Is this right? -->
-	<f-element>
-		<title>
-			The TSF shall implement 
-			<selectables>
-				<selectable>TLS 1.2 (RFC 5246)</selectable>
-				<selectable>TLS 1.1 (RFC 4346)</selectable> 
-			</selectables> supporting the following ciphersuites: 
-			<selectables linebreak="yes">
-				<selectable>TLS_RSA_WITH_AES_128_CBC_SHA as defined in RFC 3268</selectable>
-				<selectable>TLS_RSA_WITH_AES_256_CBC_SHA as defined in RFC 3268</selectable>
-				<selectable>TLS_DHE_RSA_WITH_AES_128_CBC_SHA as defined in RFC 3268</selectable>
-				<selectable>TLS_DHE_RSA_WITH_AES_256_CBC_SHA as defined in RFC 3268</selectable>
-				<selectable>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA as defined in RFC 4492</selectable>
-				<selectable>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA as defined in RFC 4492</selectable>
-				<selectable>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA as defined in RFC 4492</selectable>
-				<selectable> TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA as defined in RFC 4492</selectable>
-				<selectable>TLS_RSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5246</selectable>
-				<selectable> TLS_RSA_WITH_AES_256_CBC_ SHA256 as defined in RFC 5246</selectable>
-				<selectable>TLS_DHE_RSA_WITH_AES_128_CBC_ SHA256 as defined in RFC 5246</selectable>
-				<selectable>TLS_DHE_RSA_WITH_AES_256_CBC_ SHA256 as defined in RFC 5246</selectable>
-				<selectable>TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5288</selectable>
-				<selectable>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5289</selectable>
-				<selectable>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 as defined in RFC 5289</selectable>
-				<selectable>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5289</selectable>
-				<selectable>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</selectable>
-				<selectable>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5289</selectable>
-				<selectable>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5289</selectable>
-				<selectable> TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 as defined in RFC 5289</selectable>
-				<selectable>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</selectable>
-			</selectables> and no other ciphersuite.
-		</title>
-		<note role="application">
-			The ciphersuites to be tested in the evaluated configuration are limited by this
-			requirement. The ST author should select the ciphersuites that are supported. It is
-			necessary to limit the ciphersuites that can be used in an evaluated configuration
-			administratively on the server in the test environment. The Suite B algorithms
-			listed above (RFC 6460) are the preferred algorithms for implementation.<h:br/><h:br/>
-			These requirements will be revisited as new TLS versions are standardized by the
-			IETF.<h:br/><h:br/>
-			If any ciphersuites are selected using ECDHE, then FCS_TLSC_EXT.1.5 is required.<h:br/><h:br/>
-			In a future version of this PP TLS v1.2 will be required for all TOEs.<h:br/><h:br/>
-			It is recognized that RFC 5246 mandates the cipher suite
-			TLS_RSA_WITH_AES_128_CBC_SHA, but use of SHA-1 for digital signature
-			generation is no longer recommended (see NIST SP 800-131A rev-1 and SP 800-
-			78-4). Subsequent revisions of the PP will not include SHA-1.
-		</note>
-		<aactivity>
-			<TSS>
-				The evaluator shall check the description of the implementation of this
-				protocol in the TSS to ensure that the ciphersuites supported are specified. The 
-				evaluator shall check the TSS to ensure that the ciphersuites specified include
-				those listed for this component. 
-			</TSS>
-			<Guidance/>
-			<Tests>
-				<testlist>
-					<test>
-						The evaluator shall establish a TLS connection using each of the
-						ciphersuites specified by the requirement. This connection may be established
-						as part of the establishment of a higher-level protocol, e.g., as part of an EAP
-						session. It is sufficient to observe the successful negotiation of a ciphersuite to
-						satisfy the intent of the test; it is not necessary to examine the characteristics
-						of the encrypted traffic in an attempt to discern the ciphersuite being used (for
-						example, that the cryptographic algorithm is 128-bit AES and not 256-bit AES).
-					</test>
-					<test>
-						The evaluator shall attempt to establish the connection using a server
-						with a server certificate that contains the Server Authentication purpose in the
-						extendedKeyUsage field and verify that a connection is established. The
-						evaluator will then verify that the client rejects an otherwise valid server
-						certificate that lacks the Server Authentication purpose in the
-						extendedKeyUsage field and a connection is not established. Ideally, the two
-						certificates should be identical except for the extendedKeyUsage field.
-					</test>
-					<test>
-						The evaluator shall send a server certificate in the TLS connection that
-						the does not match the server-selected ciphersuite (for example, send a ECDSA
-						certificate while using the TLS_RSA_WITH_AES_128_CBC_SHA ciphersuite or
-						send a RSA certificate while using one of the ECDSA ciphersuites.) The
-						evaluator shall verify that the TOE disconnects after receiving the server’s
-						Certificate handshake message.
-					</test>
-					<test>
-						The evaluator performs the following modifications to the traffic:
-	      					<h:ol type="a">
-							<h:li>Change the TLS version selected by the server in the Server Hello to a
-								non-supported TLS version (for example 1.3 represented by the two
-								bytes 03 04) and verify that the client rejects the connection.</h:li>
-							<h:li>Modify at least one byte in the server’s nonce in the Server Hello
-								handshake message, and verify that the client rejects the Server Key
-								Exchange handshake message (if using a DHE or ECDHE ciphersuite) or
-								that the server denies the client’s Finished handshake message.</h:li>
-							<h:li>Modify the server’s selected ciphersuite in the Server Hello handshake
-								message to be a ciphersuite not presented in the Client Hello
-								handshake message. The evaluator shall verify that the client rejects
-								the connection after receiving the Server Hello.</h:li>
-							<h:li>[<h:i>conditional</h:i>] If an ECDHE or DHE ciphersuite is selected, modify the
-								signature block in the Server’s Key Exchange handshake message, and
-								verify that the client rejects the connection after receiving the Server
-								Key Exchange message.</h:li>
-							<h:li>Modify a byte in the Server Finished handshake message, and verify
-								that the client sends a fatal alert upon receipt and does not send any
-								application data.</h:li>
-							<h:li>Send a garbled message from the Server after the Server has issued the
-								ChangeCipherSpec message and verify that the client denies the
-								connection.</h:li>
-						</h:ol>
-					</test>
-				</testlist>
-			</Tests>
-		</aactivity>
-	</f-element>
-	<f-element>
-		<title>
-			The TSF shall verify that the presented identifier matches the reference identifier
-			according to RFC 6125.
-		</title>
-		<note role="application">
-			The rules for verification of identity are described in Section 6 of RFC 6125. The
-			reference identifier is established by an authorized user, by configuration (e.g.,
-			configuring the name of an authentication server), or by an application (e.g., a
-			parameter of an API) as described in the TSS. . Based on a singular reference
-			identifier’s source domain and application service type (e.g., HTTP, SIP, LDAP), the
-			client establishes all reference identifiers which are acceptable, such as a Common
-			Name for the Subject Name field of the certificate and a (case-insensitive) DNS
-			name, URI name, and Service Name for the Subject Alternative Name field. The
-			client then compares this list of all acceptable reference identifiers to the
-			presented identifiers in the TLS server’s certificate.<h:br/><h:br/>
-			The preferred method for verification is the Subject Alternative Name using DNS
-			names, URI names, or Service Names. Verification using the Common Name is
-			required for the purposes of backwards compatibility. Additionally, support for
-			use of IP addresses in the Subject Name or Subject Alternative name is
-			discouraged as against best practices but may be implemented. Finally, the client
-			should avoid constructing reference identifiers using wildcards. However, if the
-			presented identifiers include wildcards, the client must follow the best practices
-			regarding matching; these best practices are captured in the assurance activity.
-		</note>
-		<aactivity>
-			<TSS>
-				The evaluator shall ensure that the TSS describes the client’s method of
-				establishing all reference identifiers from the administrator/applicationconfigured reference identifier, including which types of reference identifiers
-				are supported (e.g., Common Name, DNS Name, URI Name, Service Name, or
-				other application-specific Subject Alternative Names) and whether IP
-				addresses and wildcards are supported. The evaluator shall ensure that this
-				description identifies whether and the manner in which certificate pinning is
-				supported or used by the TOE. 
-			</TSS>
-			<Tests>
-				The evaluator shall configure the reference identifier according to the AGD
-				guidance and perform the following tests during a TLS connection:<h:br/><h:br/>
-				<testlist>
-					<test>
-						The evaluator shall present a server certificate that does not contain an
-						identifier in either the Subject Alternative Name (SAN) or Common Name (CN) 
-						that matches the reference identifier. The evaluator shall verify that the
-						connection fails.
-					</test>
-					<test>
-						The evaluator shall present a server certificate that contains a CN that
-						matches the reference identifier, contains the SAN extension, but does not
-						contain an identifier in the SAN that matches the reference identifier. The
-						evaluator shall verify that the connection fails. The evaluator shall repeat this
-						test for each supported SAN type.
-					</test>
-					<test>
-						The evaluator shall present a server certificate that contains a CN that
-						matches the reference identifier and does not contain the SAN extension. The
-						evaluator shall verify that the connection succeeds.
-					</test>
-					<test>
-						The evaluator shall present a server certificate that contains a CN that
-						does not match the reference identifier but does contain an identifier in the
-						SAN that matches. The evaluator shall verify that the connection succeeds.
-					</test>
-					<test>
-						The evaluator shall perform the following wildcard tests with each
-						supported type of reference identifier:<h:br/><h:br/>
-						<h:ul>
-							<h:li>The evaluator shall present a server certificate containing a wildcard
-								that is not in the left-most label of the presented identifier (e.g.,
-								foo.*.example.com) and verify that the connection fails.</h:li>
-							<h:li>The evaluator shall present a server certificate containing a wildcard in
-								the left-most label (e.g., *.example.com). The evaluator shall configure
-								the reference identifier with a single left-most label (e.g.,
-								foo.example.com) and verify that the connection succeeds. The
-								evaluator shall configure the reference identifier without a left-most
-								label as in the certificate (e.g., example.com) and verify that the
-								connection fails. The evaluator shall configure the reference identifier
-								with two left-most labels (e.g., bar.foo.example.come) and verify that
-								the connection fails.</h:li>
-						</h:ul>
-					</test>
-					<test>
-						[conditional] If URI or Service name reference identifiers are supported,
-						the evaluator shall configure the DNS name and the service identifier. The
-						evaluator shall present a server certificate containing the correct DNS name
-						and service identifier in the URIName or SRVName fields of the SAN and verify
-						that the connection succeeds. The evaluator shall repeat this test with the
-						wrong service identifier (but correct DNS name) and verify that the connection
-						fails.
-					</test>
-					<test>
-						[conditional] If pinned certificates are supported the evaluator shall
-						present a certificate that does not match the pinned certificate and verify that
-						the connection fails.
-					</test>
-				</testlist>
-			</Tests>
-		</aactivity>
-	</f-element>
-	<f-element>
-		<title>
-			The TSF shall establish a trusted channel only if the peer certificate is valid.
-		</title>
-		<note role="application">
-			Validity is determined by the identifier verification, certificate path, the expiration
-			date, and the revocation status in accordance with RFC 5280. Certificate validity
-			shall be tested in accordance with testing performed for FIA_X509_EXT.1.
-		</note>
-		<aactivity>
-			<Tests>
-				The evaluator shall demonstrate that using a certificate without a valid
-				certification path results in the function failing. Using the administrative
-				guidance, the evaluator shall then load a certificate or certificates needed to
-				validate the certificate to be used in the function, and demonstrate that the
-				function succeeds. The evaluator then shall delete one of the certificates, and
-				show that the function fails.
-			</Tests>
-		</aactivity>
-	</f-element>
-	<f-element>
-		<title>
-			The TSF shall present the Supported Elliptic Curves Extension in the Client Hello
-			with the following NIST curves: 
-			<selectables>
-				<selectable>secp256r1</selectable>
-				<selectable>secp384r1</selectable>
-				<selectable>secp521r1</selectable>
-			</selectables> and no other curves.
-		</title>
-		<note role="application">
-			If ciphersuites with elliptic curves were selected in FCS_TLSC_EXT.1.1, this
-			component is required.<h:br/><h:br/>
-			This requirement limits the elliptic curves allowed for authentication and key
-			agreement to the NIST curves from FCS_COP.1/Sig and FCS_CKM.1 and FCS_CKM.2.
-			This extension is required for clients supporting Elliptic Curve ciphersuites.
-		</note>
-		<aactivity>
-			<TSS>
-				The evaluator shall verify that TSS describes the Supported Elliptic Curves
-				Extension and whether the required behavior is performed by default or may
-				be configured. 
-			</TSS>
-			<Tests>
-				The evaluator shall configure the server to perform an ECDHE key
-				exchange in the TLS connection using a non-supported curve (for example P192) and shall verify that the TOE disconnects after receiving the server’s Key
-				Exchange handshake message.
-			</Tests>
-		</aactivity>
-	</f-element>
-	<audit-event>
-		<audit-event-descr>Failure establish a TLS session.</audit-event-descr>
-		<audit-event-info>Reason for failure.</audit-event-info>
-	</audit-event>
-	<audit-event>
-		<audit-event-descr>Establishment/Termination of a TLS session.</audit-event-descr>
-	</audit-event>							
-</f-component>	     
-
-    <!--                  -->     
-    <!-- FCS_TLSS_EXT.1 -->
-    <!-- Selection-based  -->
-    <!-- QQQQ: The ciphersuites to be tested in the evaluated configuration are limited by this
-	requirement. The ST author should select the ciphersuites that are supported.  -->
-    <!-- QQQQ: All SSL versions and TLS v1.0 are denied. Any TLS versions not selected in
-	FCS_TLSS_EXT.1.1 should be selected here.   -->
-    <!-- QQQQ: If the ST lists a DHE or ECDHE ciphersuite in FCS_TLSS_EXT.1.1, the ST must include
-	the Diffie-Hellman or NIST curves selection in the requirement. FMT_SMF.1
-	requires the configuration of the key agreement parameters in order to establish
-	the security strength of the TLS connection.   -->
-    <!-- QQQQ: If ciphersuites with elliptic curves were selected in FCS_TLSS_EXT.1.1, this
-	component is required. This requirement limits the elliptic curves allowed for
-	authentication and key agreement to the NIST curves from FCS_COP.1(2),
-	FCS_CKM.1, and FCS_CKM.2. This extension is required for clients supporting
-	Elliptic Curve ciphersuites.   -->
-    <!--                  -->    	      
-<f-component name="TLS Server Protocol" cc-id="fcs_tlss_ext.1" status="sel-based">
-	<depends on-sel="ftp-itc-tls"/>   <!-- Is this right? -->
-	<depends on-sel="ftp-trp-tls"/>   <!-- Is this right? -->
-	<depends on-sel="sel-fco-ests-ext-1"/>
-	<f-element>
-		<title>
-		      The TSF shall implement 
-			<selectables>
-				<selectable>TLS 1.2 (RFC 5246)</selectable>
-				<selectable>TLS 1.1 (RFC 4346)</selectable>
-			</selectables>
-			supporting the following ciphersuites: 
-			<selectables linebreak="yes">
-				<selectable>TLS_RSA_WITH_AES_128_CBC_SHA as defined in RFC 3268</selectable>
-				<selectable>TLS_RSA_WITH_AES_256_CBC_SHA as defined in RFC 3268</selectable>
-				<selectable>TLS_DHE_RSA_WITH_AES_128_CBC_SHA as defined in RFC 3268</selectable>
-				<selectable>TLS_DHE_RSA_WITH_AES_256_CBC_SHA as defined in RFC 3268</selectable>
-				<selectable>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA as defined in RFC 4492</selectable>
-				<selectable>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA as defined in RFC 4492</selectable>
-				<selectable>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA as defined in RFC 4492</selectable>
-				<selectable>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA as defined in RFC 4492</selectable>
-				<selectable>TLS_RSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5246</selectable>
-				<selectable>TLS_RSA_WITH_AES_256_CBC_ SHA256 as defined in RFC 5246</selectable>
-				<selectable>TLS_DHE_RSA_WITH_AES_128_CBC_ SHA256 as defined in RFC 5246</selectable>
-				<selectable>TLS_DHE_RSA_WITH_AES_256_CBC_ SHA256 as defined in RFC 5246</selectable>
-				<selectable>TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5288</selectable>
-				<selectable>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5289</selectable>
-				<selectable>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 as defined in RFC 5289</selectable>
-				<selectable>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5289</selectable>
-				<selectable>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</selectable>
-				<selectable>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5289</selectable>
-				<selectable>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5289</selectable>
-				<selectable>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 as defined in RFC 5289</selectable>
-				<selectable>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</selectable>
-			</selectables>
-			and no other ciphersuite.
-		</title>
-		<note role="application">
-			The ciphersuites to be tested in the evaluated configuration are limited by this
-			requirement. The ST author should select the ciphersuites that are supported. It is
-			necessary to limit the ciphersuites that can be used in an evaluated configuration
-			administratively on the server in the test environment. The Suite B algorithms
-			listed above (RFC 6460) are the preferred algorithms for implementation.<h:br/><h:br/>
-			These requirements will be revisited as new TLS versions are standardized by the
-			IETF.<h:br/><h:br/>
-			It is recognized that RFC 5246 mandates the cipher suite
-			TLS_RSA_WITH_AES_128_CBC_SHA, but use of SHA-1 for digital signature
-			generation is no longer recommended (see NIST SP 800-131A rev-1 and SP 800-
-			78-4). Subsequent revisions of the PP will not include SHA-1.
-		</note>
-		<aactivity>
-			<TSS>
-				The evaluator shall check the description of the implementation of this
-				protocol in the TSS to ensure that the ciphersuites supported are specified. The
-				evaluator shall check the TSS to ensure that the ciphersuites specified are
-				identical to those listed for this component. 
-			</TSS>
-			<Guidance>
-				The evaluator shall also check the operational guidance to ensure that it
-				contains instructions on configuring the TOE so that TLS conforms to the
-				description in the TSS (for instance, the set of ciphersuites advertised by the
-				TOE may have to be restricted to meet the requirements).
-			</Guidance>
-			<Tests>
-				<testlist>
-					<test>
-						The evaluator shall establish a TLS connection using each of the
-						ciphersuites specified by the requirement. This connection may be established
-						as part of the establishment of a higher-level protocol, e.g., as part of an EAP
-						session. It is sufficient to observe the successful negotiation of a ciphersuite to
-						satisfy the intent of the test; it is not necessary to examine the characteristics
-						of the encrypted traffic in an attempt to discern the ciphersuite being used (for
-						example, that the cryptographic algorithm is 128-bit AES and not 256-bit AES).
-					</test>
-					<test>
-						The evaluator shall send a Client Hello to the server with a list of
-						ciphersuites that does not contain any of the ciphersuites in the server’s ST and
-						verify that the server denies the connection. Additionally, the evaluator shall
-						send a Client Hello to the server containing only the
-						TLS_NULL_WITH_NULL_NULL ciphersuite and verify that the server denies the
-						connection.
-					</test>
-					<test>
-						The evaluator shall use a client to send a key exchange message in the
-						TLS connection that the does not match the server-selected ciphersuite (for
-						example, send an ECDHE key exchange while using the
-						TLS_RSA_WITH_AES_128_CBC_SHA ciphersuite or send a RSA key exchange
-						while using one of the ECDSA ciphersuites.) The evaluator shall verify that the
-						TOE disconnects after the receiving the key exchange message.
-					</test>
-					<test>
-						The evaluator shall perform the following modifications to the traffic:<h:br/><h:br/>
-						<h:ol type="a">
-							<h:li>Modify at a byte in the client’s nonce in the Client Hello handshake
-								message, and verify that the server rejects the client’s Certificate
-								Verify handshake message (if using mutual authentication) or that the
-								server denies the client’s Finished handshake message.</h:li>
-							<h:li>[conditional] If an ECDHE or DHE ciphersuite is selected, modify the
-								signature block in the Client’s Key Exchange handshake message, and
-								verify that the server rejects the client’s Certificate Verify handshake
-								message (if using mutual authentication) or that the server denies the
-								client’s Finished handshake message.</h:li>
-							<h:li>Modify a byte in the Client Finished handshake message, and verify
-								that the server rejects the connection and does not send any
-								application data.</h:li>
-							<h:li>After generating a fatal alert by sending a Finished message from the
-								client before the client sends a ChangeCipherSpec message, send a
-								Client Hello with the session identifier from the previous test, and
-								verify that the server denies the connection. </h:li>
-							<h:li>Send a garbled message from the client after the client has issued the
-								ChangeCipherSpec message and verify that the Server denies the
-								connection.</h:li>
-						</h:ol>
-					</test>
-				</testlist>
-			</Tests>
-		</aactivity>
-	</f-element>
-	<f-element>
-		<title>
-			The TSF shall deny connections from clients requesting SSL 2.0, SSL 3.0, TLS 1.0
-			and 
-			<selectables>
-				<selectable>TLS 1.1</selectable>
-				<selectable>TLS 1.2</selectable>
-				<selectable>no other TLS versions</selectable>
-			</selectables>.
-		</title>
-		<note role="application">
-			All SSL versions and TLS v1.0 are denied. Any TLS versions not selected in
-			FCS_TLSS_EXT.1.1 should be selected here.
-		</note>
-		<aactivity>
-			<TSS>
-				The evaluator shall verify that the TSS contains a description of the denial of
-				old SSL and TLS versions.
-			</TSS>
-			<Guidance>
-				The evaluator shall verify that any configuration necessary to meet the
-				requirement are contained in the AGD guidance.
-			</Guidance>
-			<Tests>
-				The evaluator shall send a Client Hello requesting a connection for all
-				mandatory and selected protocol versions in the SFR (e.g., by enumeration of
-				protocol versions in a test client) and verify that the server denies the
-				connection. 
-			</Tests>
-		</aactivity>
-	</f-element>
-	<f-element>
-		<title>
-			The TSF shall generate key agreement parameters using RSA with key size 2048
-			bits and 
-			<selectables>
-				<selectable>3072 bits</selectable>
-				<selectable>4096 bits</selectable>
-				<selectable>no other size</selectable>
-			</selectables>
-			and 
-			<selectables>
-				<selectable>over NIST curves 
-					<selectables>
-						<selectable>secp256r1</selectable>
-						<selectable>secp384r1</selectable>
-						<selectable>secp521r1</selectable>
-					</selectables> and no other curves</selectable>
-				<selectable>DiffieHellman parameters of size 2048 bits and 
-					<selectables>
-						<selectable>3072 bits</selectable>
-						<selectable>no other size</selectable>
-					</selectables></selectable>
-				<selectable>no other</selectable>
-			</selectables>.
-		</title>
-		<note role="application">
-			If the ST lists a DHE or ECDHE ciphersuite in FCS_TLSS_EXT.1.1, the ST must include
-			the Diffie-Hellman or NIST curves selection in the requirement. FMT_SMF.1
-			requires the configuration of the key agreement parameters in order to establish
-			the security strength of the TLS connection.
-		</note>
-		<aactivity>
-			<TSS>
-				The evaluator shall verify that the TSS describes the key agreement parameters
-				of the server key exchange message.
-			</TSS>
-			<Guidance>
-				The evaluator shall verify that any configuration necessary to meet the
-				requirement is contained in the AGD guidance.
-			</Guidance>
-			<Tests>
-				If the second selection includes any choice other than “no other”, the evaluator
-				shall attempt a connection using an ECDHE ciphersuite and a configured curve
-				and, using a packet analyzer, verify that the key agreement parameters in the
-				Key Exchange message are the ones configured. (Determining that the size
-				matches the expected size for the configured curve is sufficient.) The evaluator
-				shall repeat this test for each supported NIST Elliptic Curve and each supported
-				Diffie-Hellman key size.
-			</Tests>
-		</aactivity>
-	</f-element>
-	<f-element>
-		<title>
-			The TSF shall present the Supported Elliptic Curves Extension in the Client Hello
-			with the following NIST curves: 
-			<selectables>
-				<selectable>secp256r1</selectable>
-				<selectable>secp384r1</selectable>
-				<selectable>secp521r1</selectable>
-			</selectables> and no other curves.
-		</title>
-		<note role="application">
-			If ciphersuites with elliptic curves were selected in FCS_TLSS_EXT.1.1, this
-			component is required. This requirement limits the elliptic curves allowed for
-			authentication and key agreement to the NIST curves from FCS_COP.1/Sig,
-			FCS_CKM.1, and FCS_CKM.2. This extension is required for clients supporting
-			Elliptic Curve ciphersuites.
-		</note>
-		<aactivity>
-			<TSS>
-				The evaluator shall verify that the TSS describes the Supported Elliptic Curves
-				Extension and whether the required behavior is performed by default or may
-				be configured.
-			</TSS>
-			<Tests>
-				The evaluator shall perform the following test:
-				<testlist>
-					<test>
-						The evaluator shall configure the server to perform an
-						ECDHE key exchange in the TLS connection using a non-supported
-						curve (for example P-192) and shall verify that the TOE disconnects
-						after receiving the server’s Key Exchange handshake message.
-					</test>
-				</testlist>
-			</Tests>
-		</aactivity>
-	</f-element>
-	<audit-event>
-		<audit-event-descr>Failure to establish a TLS session.<h:br/>(Retention: Normal)</audit-event-descr>
-		<audit-event-info>Reason for failure.</audit-event-info>
-	</audit-event>
-	<audit-event>
-		<audit-event-descr>Establishment/termination of a TLS session.<h:br/>(Retention: Normal)</audit-event-descr>
-	</audit-event>
-</f-component>
-
 		
 </section>
 		
@@ -6221,6 +5726,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</f-element>
 		<f-element>
 			<title>
+				<comment>This SFR is defined in the X.509 FP. A review of these two versions of the SFRs is needed to determine the 
+					appropriate assignments/selections such that the configuration is comparable to its old 
+					definitions.</comment>
 				The TSF shall generate certificates using profiles that comply with requirements
 				for certificates as specified in IETF RFC 5280, “Internet X.509 Public Key
 				Infrastructure Certificate and Certificate Revocation List (CRL) Profile”, while
@@ -6407,6 +5915,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             </dependencies>
 			<f-element>
 			<title>
+				<comment>This SFR is defined in the X.509 FP. A review of these two versions of the SFRs is needed to determine the 
+					appropriate assignments/selections such that the configuration is comparable to its old 
+					definitions. Note that the X.509 FP version of this SFR goes into substantially more detail than this version.</comment>
 				The TSF shall establish a linkage from certificate requests to issued certificates.
 			</title>
 			<aactivity>
@@ -6612,6 +6123,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             </dependencies>
 		<f-element>
 			<title>
+				<comment>This SFR is defined in the X.509 FP. A review of these two versions of the SFRs is needed to determine the 
+					appropriate assignments/selections such that the configuration is comparable to its old 
+					definitions. Note that the X.509 FP version of this SFR does not contain the third item in the list as defined in this PP 
+					("If the issuer field contains a null Name...").</comment>
 				A TSF that issues CRLs shall verify that all mandatory fields in any CRL issued
 				contain values in accordance with ITU-T Recommendation X.509. At a minimum,
 				the following items shall be validated:<h:br/><h:br/>
@@ -6696,6 +6211,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             </dependencies>
 			<f-element>
 			<title>
+				<comment>This SFR is defined in the X.509 FP. A review of these two versions of the SFRs is needed to determine the 
+					appropriate assignments/selections such that the configuration is comparable to its old 
+					definitions. Note that the X.509 FP version of this SFR contains an additional element compared to this version.</comment>
 				The TSF shall provide certificate status information whose format complies with
 				<selectables>
 					<selectable>ITU-T Recommendation X.509v1 CRL</selectable>
@@ -6900,6 +6418,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             </dependencies>
 		<f-element>
 			<title>
+				<comment>This SFR is defined in the X.509 FP (FDP_OCSP_EXT.1). A review of these two versions of the SFRs is needed to determine the 
+					appropriate assignments/selections such that the configuration is comparable to its old 
+					definitions. Note that the X.509 FP version of the SFR contains more granular requirements for the signature algorithms used to sign responses.</comment>
 				The TSF shall ensure that all mandatory fields in the OCSP response contain values
 				in accordance with the standards specified in FDP_CSI_EXT.1. At a minimum, the
 				following items shall be enforced:<h:br/><h:br/>
@@ -7370,6 +6891,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             </dependencies>
 		<f-element>
 			<title>
+				<comment>This SFR is defined in the X.509 FP. A review of these two versions of the SFRs is needed to determine the 
+					appropriate assignments/selections such that the configuration is comparable to its old 
+					definitions. Note that the X.509 version of this SFR lacks an explicit element to require the CA Operations Staff to export requests and import responses.</comment>
 				The TSF shall be able to generate CMC full requests and 
 				<selectables>
 					<selectable>simple requests</selectable>
@@ -7501,6 +7025,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             </dependencies>
 		<f-element>
 			<title>
+				<comment>This SFR is defined in the X.509 FP. A review of these two versions of the SFRs is needed to determine the 
+					appropriate assignments/selections such that the configuration is comparable to its old 
+					definitions. Note that the X.509 version of this SFR is more open-ended in several places compared to this SFR (e.g., cryptographic support required per FIA_CMCS_EXT.1.4). </comment>
 				The TSF shall be able to accept and process CMC full requests and 
 				<selectables>
 					<selectable>simple requests</selectable>
@@ -7897,6 +7424,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             </dependencies>
 		<f-element>
 			<title>
+				<comment>This SFR is defined in the X.509 FP. A review of these two versions of the SFRs is needed to determine the 
+					appropriate assignments/selections such that the configuration is comparable to its old 
+					definitions. Note that the X.509 version of this SFR does not contain requirements to validate EST servers per FCS_TLSC_EXT.2 in FIA_ESTC_EXT.1.4. 
+					It additionally contains a requirement to be able to update its EST-specific Trust Anchor Database per a specific process in RFC 7030.</comment>
 				The TSF shall use the Enrollment over Secure Transport (EST) as specified in RFC
 				7030 to obtain its CA certificate and 
 				<assignable>other certificates for the TOE</assignable>
@@ -7915,7 +7446,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							<selectable>CA operations staff</selectable>
 						</selectables></selectable>
 					<selectable>an explicit TA database populated via a TLSauthenticated EST CA
-						certificate request in accordance with RFC 7030 section 4.1.2 and FCS_TLSC_EXT.2
+						certificate request in accordance with RFC 7030 section 4.1.2 and FCS_TLSC_EXT.2 (as defined in the <xref to="pkgTLS"/>)
 					</selectable>
 				</selectables>.
 			</title>
@@ -7938,12 +7469,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				, from an authorized EST server using 
 				<selectables linebreak="yes">
 					<selectable>HTTP basic authentication transported over TLS in accordance with RFC 7030
-						section 3.2.3 and FCS_TLSC_EXT.2.</selectable>
+						section 3.2.3 and FCS_TLSC_EXT.2 (as defined in the <xref to="pkgTLS"/>).</selectable>
 					<selectable>HTTP digest authentication using a cryptographic hash algorithm in
 						accordance with FCS_COP.1/HASH, transported over TLS in accordance with
-						RFC 7030 section 3.2.3 and FCS_TLSC_EXT.2.</selectable>
+						RFC 7030 section 3.2.3 and FCS_TLSC_EXT.2 (as defined in the <xref to="pkgTLS"/>).</selectable>
 					<selectable>Certificate-based authentication in accordance with RFC 7030 section 3.3.2
-						and FCS_TSL_EXT.2 using 
+						and FCS_TLSC_EXT.2 (as defined in the <xref to="pkgTLS"/>) using 
 						<assignable>a pre-existing certificate authorized by the EST server</assignable>
 						</selectable>
 				</selectables>.
@@ -8054,7 +7585,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             </dependencies>
 	<f-element>
 		<title>
-			<!-- Was a similar objective SFR in STIP? This exact language may not be present in X.509 FP. -->
+			<comment>The parent requirement for this SFR (FIA_ESTC_EXT.1) will be moved to the X.509 FP, 
+				whose version of FIA_ESTC_EXT.1 does not include a requirement to include a tls-unique value. 
+				A determination will need to be made on if this requirement should be included in a future 
+				version of the X.509 FP, or how this requirement should be handled in another case.</comment>
 			The TSF shall generate tls-unique values and integrate them into EST requests it
 			generates in accordance with RFC 7030 section 3.5.
 		</title>
@@ -8138,7 +7672,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>HTTP digest authentication using a cryptographic hash algorithm in
 						accordance with FCS_COP.1/Hash and RFC 7030 section 3.2.3;</selectable>
 					<selectable>TLS certificate-based mutual authentication in accordance with
-						RFC 7030 section 3.3.2 and FCS_TLSS_EXT.1</selectable>
+						RFC 7030 section 3.3.2 and FCS_TLSS_EXT.1 (as defined in the <xref to="pkgTLS"/>).</selectable>
 				</selectables>.
 			</title>
 		</f-element>
@@ -8154,7 +7688,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				Enrollment over Secure Transport (EST) uses the simple Certificate Request
 				Message as specified in RFC 7030. EST also uses HTTPS as specified in
 				FCS_HTTPS_EXT.1 to establish a secure connection with an EST client.<h:br/><h:br/>
-				This SFR is included in the ST if TODO. If this requirement is included in the ST, the ST author includes FCS_TLSS_EXT.1.<h:br/><h:br/>
+				This SFR is included in the ST if TODO. If this requirement is included in the ST, the ST author includes FCS_TLSS_EXT.1 (as defined in the <xref to="pkgTLS"/>).<h:br/><h:br/>
 				For FIA_ESTS_EXT.1.3, the ST author selects the method used to authenticate
 				clients for initial enrollment, or in cases where supplemental authentication is
 				required. If the second item is chosen in the selection, the ST author includes
@@ -8261,6 +7795,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             </dependencies>
 	<f-element>
 		<title>
+			<comment>The parent requirement for this SFR (FIA_ESTS_EXT.1) will be moved to the X.509 FP, 
+				whose version of FIA_ESTs_EXT.1 does not include a requirement to include a tls-unique value. 
+				A determination will need to be made on if this requirement should be included in a future 
+				version of the X.509 FP, or how this requirement should be handled in another case.</comment>
 			The TSF shall verify tls-unique values offered by EST clients in accordance with
 			RFC 7030 section 3.5.
 		</title>
@@ -8943,6 +8481,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <f-component cc-id="fia_x509_ext.2" name="Certificate-based Authentication" >
 		<f-element>
 			<title>
+				<comment>This SFR is defined in the X.509 FP. A review of these two versions of the SFRs is needed to determine the 
+					appropriate assignments/selections such that the configuration is comparable to its old 
+					definitions. Note that the X.509 version of this SFR is more open-ended and it lacks an explicit element to deny invalid peer certificates akin to FIA_X509_EXT.2.3.</comment>
 				The TSF shall 
 				<selectables>
 					<selectable>use</selectable>
@@ -9065,6 +8606,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<depends on-sel="sel-pwd-auth"/>  <!-- TODO This is wrong -->
 		<f-element>
 			<title>
+				<comment>This SFR is defined in the X.509 FP. A review of these two versions of the SFRs is needed to determine the 
+					appropriate assignments/selections such that the configuration is comparable to its old 
+					definitions. Note that the X.509 FP version of this SFR includes support for alternate request mechanisms as compared to this SFR. 
+					</comment>
 				The TSF shall generate a Certificate Request Message as specified by RFC
 				2986 and be able to provide the following information in the request:
 				public key, CA's distinguished name, 
@@ -9254,7 +8799,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>TSF</selectable>
 					<selectable>Operational Environment</selectable>
 				</selectables></refinement>
-				shall restict the ability to
+				shall restrict the ability to
 				[<h:i>
 				<refinement>
 					<h:ul>
@@ -11113,8 +10658,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<selectables>
 					<selectable id="ftp-itc-https">HTTPS</selectable>
 					<selectable id="ftp-itc-ipsec">IPsec</selectable>
-					<selectable id="ftp-itc-tls">TLS</selectable>
-					<selectable id="ftp-itc-ssh">SSH</selectable>
+					<selectable id="ftp-itc-tls">TLS as defined in the <xref to="pkgTLS"/></selectable>
+					<selectable id="ftp-itc-ssh">SSH as defined in the <xref to="pkgSSH"/></selectable>
 					<selectable id="ftp-itc-https">HTTPS</selectable>
 				</selectables> to</refinement>
 				 provide a <refinement>trusted</refinement>
@@ -11155,7 +10700,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				entity (it is acceptable to assign “no services” for FTP_ITC.1.3 if the TOE does not
 				initiate any of the covered connections). Note that SSH is not included because
 				this protocol is not used by the TSF to connect to other components. If the ST
-				author selects SSH, the TSF shall be validated against the <xref to="pkgSSH"/>. <h:br/><h:br/>
+				author selects SSH, the TSF shall be validated against the <xref to="pkgSSH"/>.
+				If the ST author selects TLS, the TSF shall be validated against the <xref to="pkgTLS"/>. <h:br/><h:br/>
 				The requirement implies that not only are communications protected when they
 				are initially established, but also on resumption after an interruption. It may be
 				the case that some part of the TOE setup involves manually setting up tunnels to
@@ -11244,8 +10790,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<refinement>use <selectables>
 					<selectable id="ftp-trp-https">HTTPS</selectable>
 					<selectable id="ftp-trp-ipsec">IPsec</selectable>
-					<selectable id="ftp-trp-ssh">SSH</selectable>
-					<selectable id="ftp-trp-tls">TLS</selectable>
+					<selectable id="ftp-trp-ssh">SSH as defined in the <xref to="pkgSSH"/></selectable>
+					<selectable id="ftp-trp-tls">TLS as defined in the <xref to="pkgTLS"/></selectable>
 					</selectables> to </refinement>
 				provide a <refinement>trusted</refinement> communication path between itself and 
 				[<h:i>remote <refinement>subscribers and privileged</refinement></h:i>] users 
