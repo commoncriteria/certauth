@@ -9989,9 +9989,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     			</Tests>
     		</aactivity>
     		</f-element>
-			<audit-event>
-				<audit-event-descr><comment>The appropriate audit event(s) for this new SFR should be determined and added. CC:2022 part 2 suggests either "Indication that the TSF self-tests were completed and any failures of the tests." or "Execution of the TSF self-tests and the results of the tests."</comment></audit-event-descr>    	
-			</audit-event>	
+		<audit-event>
+			<audit-event-descr>Execution of this set of TSF integrity tests<h:br/>(Retention: Normal)</audit-event-descr>
+		</audit-event>
+		<audit-event>
+			<audit-event-descr>Detected integrity violations<h:br/>(Retention: Normal)</audit-event-descr>
+			<audit-event-info>The identity of the object that caused the integrity violation</audit-event-info>
+		</audit-event>
     	</f-component>
 
 
