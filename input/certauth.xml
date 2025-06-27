@@ -555,7 +555,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</feature>
 			<feature id="auditPreSelect" title="TSF Supports Audit Pre-Select">
 				<description>If any audit pre-selection is performed by an auditor through an interface provided
-					by the TSF, then the following SFRs muct be included:</description>
+					by the TSF, then the following SFRs must be included:</description>
 			</feature>
 			<feature id="auditStorage" title="TSF Supports Storage of Audit Records">
 				<description>If any storage of audit records is performed by the TOE, then the following SFRs must be
@@ -609,7 +609,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<addressed-by>FMT_MOF.1/CA</addressed-by><rationale>Defines management functions to be performed by CA Staff.</rationale>
 			<addressed-by>FMT_MOF.1/CO</addressed-by><rationale>Defines management functions to be performed by Administrators, Auditor, or CA Staff.</rationale>
 			<addressed-by>FMT_MOF.1/RA</addressed-by><rationale>Defines management functions to be performed by CA or RA Staff.</rationale>
-			<addressed-by>FMT_MTD.1</addressed-by><rationale>Requires that only priviledged users manage TSF data.</rationale>
+			<addressed-by>FMT_MTD.1</addressed-by><rationale>Requires that only privileged users manage TSF data.</rationale>
 			<addressed-by>FMT_SMF.1</addressed-by><rationale>Defines management functions implemented or supported by the TOE.</rationale>
 			<addressed-by>FMT_SMR.2</addressed-by><rationale>Defines user roles maintained or supported by the TSF.</rationale>
 			<addressed-by>FTA_SSL.4</addressed-by><rationale>Requires that the TSF support user-initiated termination of their own SSL sessions.</rationale>
@@ -617,9 +617,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<addressed-by>FTA_SSL.3 (optional)</addressed-by><rationale>(Optional) Requires an inactivity timeout on remote user sessions.</rationale>
 			<addressed-by>FTA_SSL_EXT.1 (optional)</addressed-by><rationale>(Optional) Requires an inactivity timeout on local user sessions.</rationale>
 			<addressed-by>FAU_STG.2/EXT (selection-based)</addressed-by><rationale>Requires the TSF protect audit records from unauthorized deletion.</rationale>
-			<addressed-by>FAU_STG.2/STA (selection-based)</addressed-by><rationale>Requires that audit records with retentaion requirements be retained for the appropriate period.</rationale>
+			<addressed-by>FAU_STG.2/STA (selection-based)</addressed-by><rationale>Requires that audit records with retention requirements be retained for the appropriate period.</rationale>
 			<addressed-by>FAU_STG_EXT.1 (selection-based)</addressed-by><rationale>Specifies rules for the retention of audit data.</rationale>
-			<addressed-by>FIA_AFL.1 (selection-based)</addressed-by><rationale>Requires that the TSF detect exceessive unsuccessful login attempts from a remote user.</rationale>
+			<addressed-by>FIA_AFL.1 (selection-based)</addressed-by><rationale>Requires that the TSF detect excessive unsuccessful login attempts from a remote user.</rationale>
 			<addressed-by>FIA_PMG_EXT.1 (selection-based)</addressed-by><rationale>Specifies password composition rules.</rationale>
 			<addressed-by>FIA_UAU.7 (selection-based)</addressed-by><rationale>Defines feedback permitted to the user during authentication.</rationale>
 			<addressed-by>FPT_APW_EXT.1 (selection-based)</addressed-by><rationale>Defines protections for plaintext passwords.</rationale>
@@ -643,8 +643,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<addressed-by>FDP_CER_EXT.1</addressed-by><rationale>Requires that the TSF support configured certifcate profiles.</rationale>
 				<addressed-by>FDP_CER_EXT.2</addressed-by><rationale>Requires that TSF associate certificate requests with certificates.</rationale>
 				<addressed-by>FDP_CER_EXT.3</addressed-by><rationale>Requires that the TSF support approval of certificates against profiles.</rationale>
-				<addressed-by>FDP_CSI_EXT.1</addressed-by><rationale>Requires that the TSF provide formatted certificatee status information.</rationale>
-				<addressed-by>FIA_X509_EXT.1</addressed-by><rationale>Requires the TSF support validation of cerficates according to a set of rules.</rationale>
+				<addressed-by>FDP_CSI_EXT.1</addressed-by><rationale>Requires that the TSF provide formatted certificate status information.</rationale>
+				<addressed-by>FIA_X509_EXT.1</addressed-by><rationale>Requires the TSF support validation of certificates according to a set of rules.</rationale>
 				<addressed-by>FIA_X509_EXT.2</addressed-by><rationale>Requires that the TOE use X.509 certificates for code signing and other purposes.</rationale>
 				<addressed-by>FIA_X509_EXT.3</addressed-by><rationale>Requires that the TOE support the use of Certificate Requests to receive a certificate chain.</rationale>
 				<addressed-by>FMT_MOF.1/Admin</addressed-by><rationale>Defines management functions to be performed exclusively by Administrators.</rationale>
@@ -652,9 +652,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<addressed-by>FMT_MOF.1/CA</addressed-by><rationale>Defines management functions to be performed by CA Staff.</rationale>
 				<addressed-by>FMT_MOF.1/CO</addressed-by><rationale>Defines management functions to be performed by Administrators, Auditor, or CA Staff.</rationale>
 				<addressed-by>FMT_MOF.1/RA</addressed-by><rationale>Defines management functions to be performed by CA or RA Staff.</rationale>
-				<addressed-by>FMT_MTD.1</addressed-by><rationale>Requires that only priviledged users manage TSF data.</rationale>
+				<addressed-by>FMT_MTD.1</addressed-by><rationale>Requires that only privileged users manage TSF data.</rationale>
 				<addressed-by>FDP_CER_EXT.4 (optional)</addressed-by><rationale>(Optional) Requires that non-v3 certificates have certain characteristics.</rationale>
-				<addressed-by>FDP_STG_EXT.1(optional)</addressed-by><rationale>(OPtional) Requires that the TSF protect trusted public keys and certificates.</rationale>
+				<addressed-by>FDP_STG_EXT.1(optional)</addressed-by><rationale>(Optional) Requires that the TSF protect trusted public keys and certificates.</rationale>
 				<addressed-by>FPT_NPE_EXT.1 (optional)</addressed-by><rationale>(Optional) Requires the TSF enforce rules for submitting NPE certificate requests.</rationale>
 				<addressed-by>FPT_TST_EXT.1 (optional)</addressed-by><rationale>(Optional) Requires the TSF ensure the integrity of TOE software and firmware.</rationale>
 				<addressed-by>FPT_TST_EXT.2 (optional)</addressed-by><rationale>(Optional) Requires the TSF ensure the integrity of certain data relevant to TOE security.</rationale>
@@ -664,14 +664,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<addressed-by> FCO_NRR_EXT.2 (selection-based)</addressed-by><rationale>Requires that the TSF provide certificate-based proof of receipt.</rationale>
 				<addressed-by> FCS_CKM_EXT.5 (selection-based)</addressed-by><rationale>Requires that the TSF protect public keys from modification.</rationale>
 				<addressed-by> FIA_CMCC_EXT.1(selection-based)</addressed-by><rationale>Specifies requirements for CMC requests and responses.</rationale>
-				<addressed-by> FIA_CMCS_EXT.1 (selection-based)</addressed-by><rationale>Defines the types of CMC reuests handled by the TSF.</rationale>
+				<addressed-by> FIA_CMCS_EXT.1 (selection-based)</addressed-by><rationale>Defines the types of CMC requests handled by the TSF.</rationale>
 				<addressed-by> FIA_ESTC_EXT.1 (selection-based)</addressed-by><rationale>Specifies requirements for client-side EST enrollment requests.</rationale>
 				<addressed-by> FIA_ESTS_EXT.1 (selection-based)</addressed-by><rationale>Specifies requirements for EST enrollment requests.</rationale>
 				<addressed-by>FDP_CRL_EXT.1 (selection-based)</addressed-by><rationale>Specifies contents for certificate revocation lists.</rationale>
 				<addressed-by> FDP_OCSPG_EXT.1 (selection-based)</addressed-by><rationale>Specifies the contents of OCSP response messages.</rationale>
 				<addressed-by> FDP_SDP_EXT.1 (selection-based)</addressed-by><rationale>(Optional) Requires that the TSF protect certain information through encryption.</rationale>
 				<addressed-by> FDP_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect user data during transmission between physically separate parts of the TOE.</rationale>
-				<addressed-by>FPT_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect data transmissed between different parts of the TOE.</rationale>
+				<addressed-by>FPT_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect data transmitted between different parts of the TOE.</rationale>
 				<addressed-by>FPT_TST.1 (selection-based)</addressed-by><rationale>Requires that the TSF test the health of the DRBG.</rationale>		
         </threat>
         <threat name="T.UNAUTHORIZED_ACCESS">
@@ -686,11 +686,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<addressed-by>FMT_MOF.1/CA</addressed-by><rationale>Defines management functions to be performed by CA Staff.</rationale>
 			<addressed-by>FMT_MOF.1/CO</addressed-by><rationale>Defines management functions to be performed by Administrators, Auditor, or CA Staff.</rationale>
 			<addressed-by>FMT_MOF.1/RA</addressed-by><rationale>Defines management functions to be performed by CA or RA Staff.</rationale>
-			<addressed-by>FMT_MTD.1</addressed-by><rationale>Requires that only priviledged users manage TSF data.</rationale>
+			<addressed-by>FMT_MTD.1</addressed-by><rationale>Requires that only privileged users manage TSF data.</rationale>
 			<addressed-by>FMT_SMF.1</addressed-by><rationale>Defines management functions implemented or supported by the TOE.</rationale>
 			<addressed-by>FMT_SMR.2</addressed-by><rationale>Defines user roles maintained or supported by the TSF.</rationale>
 			<addressed-by>FPT_KST_EXT.1</addressed-by><rationale>Requires that the TSF prevent export of plaintext keys.</rationale>
-			<addressed-by>FPT_KST_EXT.2</addressed-by><rationale>Requires that the TSF prevent unauthorized use of provate and secret keys.</rationale>
+			<addressed-by>FPT_KST_EXT.2</addressed-by><rationale>Requires that the TSF prevent unauthorized use of private and secret keys.</rationale>
 			<addressed-by>FPT_SKP_EXT.1</addressed-by><rationale>Requires that the TSF be able to prevent reading of pre-shared, private and secret keys.</rationale>
 			<addressed-by>FTA_SSL.4</addressed-by><rationale>Requires that the TSF support user-initiated termination of their own SSL sessions.</rationale>
 			<addressed-by>FTP_TRP.1</addressed-by><rationale>Requires the TSF to provide a trusted path to remote entities.</rationale>
@@ -700,16 +700,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<addressed-by>FTA_SSL.3 (optional)</addressed-by><rationale>(Optional) Requires an inactivity timeout on remote user sessions.</rationale>
 			<addressed-by>FTA_SSL_EXT.1 (optional)</addressed-by><rationale>(Optional) Requires an inactivity timeout on local user sessions.</rationale>
 			<addressed-by>FCS_KSH_EXT.1 (objective)</addressed-by><rationale>Requires two-party control for the export of critical keys to the CA operation.</rationale>
-			<addressed-by>FCS_COP.1/Hash (selection-based)</addressed-by><rationale>Defines permissible cryptographic hash algorthms and sizes.</rationale>
+			<addressed-by>FCS_COP.1/Hash (selection-based)</addressed-by><rationale>Defines permissible cryptographic hash algorithms and sizes.</rationale>
 			<addressed-by>FCS_COP.1/KeyedHash (selection-based)</addressed-by><rationale>Defines permissible keyed-hash message authentication algorithms.</rationale>
 			<addressed-by>FCS_COP.1/Sig (selection-based)</addressed-by><rationale>Defines permissible cryptographic signature algorithms.</rationale>
 			<addressed-by>FCS_COP.1/SKC (selection-based)</addressed-by><rationale>Defines permissible AES encryption algorithms and key sizes.</rationale>
-			<addressed-by>FCS_CKM.1 (selection-based)</addressed-by><rationale>Specifies allowable algorithms for generation of assymmetric keys.</rationale>
+			<addressed-by>FCS_CKM.1 (selection-based)</addressed-by><rationale>Specifies allowable algorithms for generation of asymmetric keys.</rationale>
 			<addressed-by>FCS_CKM.2 (selection-based)</addressed-by><rationale>Specifies allowable algorithms for key establishment.</rationale>
 			<addressed-by>FCS_CKM.6 (selection-based)</addressed-by><rationale>Specifies requirements for cryptographic key destruction.</rationale>
-			<addressed-by>FCS_CKM_EXT.1/DEK (selection-based)</addressed-by><rationale>Specifies requirements for assymmetric key generation.</rationale>
+			<addressed-by>FCS_CKM_EXT.1/DEK (selection-based)</addressed-by><rationale>Specifies requirements for asymmetric key generation.</rationale>
 			<addressed-by>FCS_CKM_EXT.1/KEK (selection-based)</addressed-by><rationale>Specifies requirements for generation of KEKs.</rationale>
-			<addressed-by>FCS_CKM_EXT.1/KEKT (selection-based)</addressed-by><rationale>Specifies requirements for assymmetric KEKs.</rationale>
+			<addressed-by>FCS_CKM_EXT.1/KEKT (selection-based)</addressed-by><rationale>Specifies requirements for asymmetric KEKs.</rationale>
 			<addressed-by>FCS_CKM_EXT.1/SHARE (selection-based)</addressed-by><rationale>Specifies requirements for key shares.</rationale>
 			<addressed-by>FCS_CKM_EXT.6 (selection-based)</addressed-by><rationale>Requires the TSF to support the secure archival, import and export of keys 
 				required for continuity of TOE operations.</rationale>
@@ -722,14 +722,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<addressed-by>FCS_RBG.3 (selection-based)</addressed-by><rationale>Allows the DRBG to be seeded by a single internal source.</rationale>
 			<addressed-by>FCS_RBG.4 (selection-based)</addressed-by><rationale>Allows the DRBG to be seeded by multiple internal sources.</rationale>
 			<addressed-by>FCS_RBG.5 (selection-based)</addressed-by><rationale>Allows the DRBG to combine noise from multiple sources.</rationale>
-			<addressed-by>FIA_AFL.1 (selection-based)</addressed-by><rationale>Requires that the TSF detect exceessive unsuccessful login attempts from a remote user.</rationale>
+			<addressed-by>FIA_AFL.1 (selection-based)</addressed-by><rationale>Requires that the TSF detect excessive unsuccessful login attempts from a remote user.</rationale>
 			<addressed-by>FIA_PMG_EXT.1 (selection-based)</addressed-by><rationale>Specifies password composition rules.</rationale>
-			<addressed-by>FIA_PSK_EXT.1 (selection-based)</addressed-by><rationale>Defines requiremetns for pre-shared keys used by the TSF.</rationale>
+			<addressed-by>FIA_PSK_EXT.1 (selection-based)</addressed-by><rationale>Defines requirements for pre-shared keys used by the TSF.</rationale>
 			<addressed-by>FIA_UAU.7 (selection-based)</addressed-by><rationale>Defines feedback permitted to the user during authentication.</rationale>
 			<addressed-by>FDP_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect user data during transmission between physically separate parts of the TOE.</rationale>
 			<addressed-by>FPT_APW_EXT.1 (selection-based)</addressed-by><rationale>Defines protections for plaintext passwords.</rationale>
-			<addressed-by>FPT_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect data transmissed between different parts of the TOE.</rationale>
-			<addressed-by>FPT_SKY_EXT.2 (selection-based)</addressed-by><rationale>Requires that key shares be accessible only by priviledged users.</rationale>
+			<addressed-by>FPT_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect data transmitted between different parts of the TOE.</rationale>
+			<addressed-by>FPT_SKY_EXT.2 (selection-based)</addressed-by><rationale>Requires that key shares be accessible only by privileged users.</rationale>
 			<addressed-by>FTP_ITC.1 (selection-based)</addressed-by><rationale>Requires secure communications between the TOE and external IT entities.</rationale>
         </threat>
         <threat name="T.UNAUTHORIZED_UPDATE">
@@ -749,13 +749,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<addressed-by>FAU_STG.1</addressed-by><rationale>Requires that the TSF identify where audit events are stored.</rationale>
 			<addressed-by>FAU_STG.5</addressed-by><rationale>Prevents audited events if the audit data storage cannot be written to.</rationale>
 			<addressed-by>FIA_UIA_EXT.1</addressed-by><rationale>Defines the actions permitted prior to authentication of a user.</rationale>
-			<addressed-by>FPT_STM.1</addressed-by><rationale>Requires thet the TSF provide or support reliable time stamps.</rationale>
+			<addressed-by>FPT_STM.1</addressed-by><rationale>Requires that the TSF provide or support reliable time stamps.</rationale>
 			<addressed-by>FAU_SAR.1 (selection-based)</addressed-by><rationale>Requires that auditors be able to read all audit records.</rationale>
 			<addressed-by>FAU_SAR.3 (selection-based)</addressed-by><rationale>Requires support for searches of audit data based on certificate identifier.</rationale>
 			<addressed-by>FAU_SCR_EXT.1 (selection-based)</addressed-by><rationale>Requires the TSF support review of certificates in a repository.</rationale>
-			<addressed-by>FAU_SEL.1 (selection-based)</addressed-by><rationale>Requires support for selelection of audit events based on specified attributes.</rationale>
+			<addressed-by>FAU_SEL.1 (selection-based)</addressed-by><rationale>Requires support for selection of audit events based on specified attributes.</rationale>
 			<addressed-by>FAU_STG.2/EXT (selection-based)</addressed-by><rationale>Requires the TSF protect audit records from unauthorized deletion.</rationale>
-			<addressed-by>FAU_STG.2/STA (selection-based)</addressed-by><rationale>Requires that audit records with retentaion requirements be retained for the appropriate period.</rationale>
+			<addressed-by>FAU_STG.2/STA (selection-based)</addressed-by><rationale>Requires that audit records with retention requirements be retained for the appropriate period.</rationale>
 			<addressed-by>FAU_STG_EXT.1 (selection-based)</addressed-by><rationale>Requires that the TSF ensure the integrity of audit data.</rationale>
         </threat>
         <threat name="T.USER_DATA_REUSE">
@@ -770,22 +770,22 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<addressed-by>FCS_STG_EXT.1</addressed-by><rationale>Requires secure storage of private and secret keys.</rationale>
 			<addressed-by>FIA_X509_EXT.2</addressed-by><rationale>Specifies the contents of Certificate Request Messages generated by the TSF.</rationale>
 			<addressed-by>FPT_KST_EXT.1</addressed-by><rationale>Requires that the TSF prevent export of plaintext keys.</rationale>
-			<addressed-by>FPT_KST_EXT.2</addressed-by><rationale>Requires that the TSF prevent unauthorized use of provate and secret keys.</rationale>
+			<addressed-by>FPT_KST_EXT.2</addressed-by><rationale>Requires that the TSF prevent unauthorized use of private and secret keys.</rationale>
 			<addressed-by>FPT_SKP_EXT.1</addressed-by><rationale>Requires that the TSF be able to prevent reading of pre-shared, private and secret keys.</rationale>
 			<addressed-by>FPT_TUD_EXT.1</addressed-by><rationale>Requires that the TSF support a secure TOE update process.</rationale>
 			<addressed-by>FTP_TRP.1</addressed-by><rationale>Requires the TSF to provide a trusted path to remote entities.</rationale>
 			<addressed-by>FCS_COP.1/PBKDF (optional)</addressed-by><rationale>(Optional) Requires the TSF to support password-based key derivation.</rationale>
 			<addressed-by>FPT_SKY_EXT.1/CA (optional)</addressed-by><rationale>(Optional) Requires two-party control for the export of CA signing keys.</rationale>
 			<addressed-by>FPT_SKY_EXT.1/OTH (optional)</addressed-by><rationale>(Optional) Requires two-party control for the export of other sensitive data or keys.</rationale>
-			<addressed-by>FCS_COP.1/Hash (selection-based)</addressed-by><rationale>Defines permissible cryptographic hash algorthms and sizes.</rationale>
+			<addressed-by>FCS_COP.1/Hash (selection-based)</addressed-by><rationale>Defines permissible cryptographic hash algorithms and sizes.</rationale>
 			<addressed-by>FCS_COP.1/KeyedHash (selection-based)</addressed-by><rationale>Defines permissible keyed-hash message authentication algorithms.</rationale>
 			<addressed-by>FCS_COP.1/Sig (selection-based)</addressed-by><rationale>Defines permissible cryptographic signature algorithms.</rationale>
 			<addressed-by>FCS_COP.1/SKC (selection-based)</addressed-by><rationale>Defines permissible AES encryption algorithms and key sizes.</rationale>
-			<addressed-by>FCS_CKM.1 (selection-based)</addressed-by><rationale>Specifies allowable algorithms for generation of assymmetric keys.</rationale>
+			<addressed-by>FCS_CKM.1 (selection-based)</addressed-by><rationale>Specifies allowable algorithms for generation of asymmetric keys.</rationale>
 			<addressed-by>FCS_CKM.2 (selection-based)</addressed-by><rationale>Specifies allowable algorithms for key establishment.</rationale>
-			<addressed-by>FCS_CKM_EXT.1/DEK (selection-based)</addressed-by><rationale>Specifies requirements for assymmetric key generation.</rationale>
+			<addressed-by>FCS_CKM_EXT.1/DEK (selection-based)</addressed-by><rationale>Specifies requirements for asymmetric key generation.</rationale>
 			<addressed-by>FCS_CKM_EXT.1/KEK (selection-based)</addressed-by><rationale>Specifies requirements for generation of KEKs.</rationale>
-			<addressed-by>FCS_CKM_EXT.1/KEKT (selection-based)</addressed-by><rationale>Specifies requirements for assymmetric KEKs.</rationale>
+			<addressed-by>FCS_CKM_EXT.1/KEKT (selection-based)</addressed-by><rationale>Specifies requirements for asymmetric KEKs.</rationale>
 			<addressed-by>FCS_CKM_EXT.1/SHARE (selection-based)</addressed-by><rationale>Specifies requirements for key shares.</rationale>
 			<addressed-by>FCS_CKM.6 (selection-based)</addressed-by><rationale>Specifies requirements for cryptographic key destruction.</rationale>
 			<addressed-by>FCS_CKM_EXT.7 (selection-based)</addressed-by><rationale>Requires support for a hardware-protected REK.</rationale>
@@ -944,7 +944,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
 				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
 			</comment>
-			The Operational Environment provides the ability to use split knowledge procedures to enforce twoparty control to export keys necessary to resume CA functionality if the TSF should fail.
+			The Operational Environment provides the ability to use split knowledge procedures to enforce two-party control to export keys necessary to resume CA functionality if the TSF should fail.
 		</description>
         </SOE>
         <SOE name="OE.NO_GENERAL_PURPOSE">
@@ -1139,7 +1139,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		Environment is responsible for handling these events.<h:br/><h:br/>
 		      
 		For those auditable events that are generated by the TOE and stored within the
-		TOE boundary, the assurance activities are included for the relevant selectionbased audit SFRs.
+		TOE boundary, the assurance activities are included for the relevant selection-based audit SFRs.
               </TSS>
               <Guidance>
 		There is no guidance associated with this evaluation activity.
@@ -1340,7 +1340,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
                     <Tests>
                         The evaluator shall test the TOE’s ability to correctly generate audit records by
 			having the TOE generate audit records for the events listed in Table 4, any
-			events in Table 5 and Table 6 that correspond with the optional and selectionbased SFRs claimed in the Security Target, startup of the audit functions (or
+			events in Table 5 and Table 6 that correspond with the optional and selection-based SFRs claimed in the Security Target, startup of the audit functions (or
 			startup of the TOE if audit functionality is not enabled or disabled
 			independently of the TOE), and administrative actions. This should include all
 			instances of an event. The evaluator shall test that audit records are generated
@@ -2973,7 +2973,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		Environment to generate") should have also been chosen. If the TSF uses a method
 		to combine KEKs to produce the DEK, the third item is selected and the method
 		used to produce the DEK from the KEKs is chosen in the fourth selection.
-		Additionally, if thisthird item is selected (TSF combining KEKs to produce the DEK),
+		Additionally, if this third item is selected (TSF combining KEKs to produce the DEK),
 		then FCS_CKM_EXT.1/KEK (to specify how the KEKs used are generated) and
 		FCS_CKM_EXT.7 (to specify how the REK that anchors the KEKs is generated and
 		protected) in Annex B.8 must be included. Finally, if the third item in the fourth
@@ -3197,7 +3197,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			If a symmetric KEK is generated, the number of bits of the KEK is specified in the
 			third selection.<h:br/><h:br/>
 			For the fourth selection, identify the key sharing mechanism used and reference
-			analysis that documents the basis for the security and entropy preservations. <h:br/><h:br/>
+			analysis that documents the basis for the security and entropy preservation. <h:br/><h:br/>
 		</note>
 		<aactivity>
 			<TSS>
@@ -3935,7 +3935,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<h:b><h:u>AES-CCM Tests</h:u></h:b><h:br/><h:br/>
 				The evaluator shall test the generation-encryption and decryption-verification
 				functionality of AES-CCM for the following input parameter and tag lengths: <h:br/><h:br/>
-				<h:b>Eash selected key length</h:b><h:br/><h:br/>
+				<h:b>Each selected key length</h:b><h:br/><h:br/>
 				<h:b>Two payload lengths.</h:b>One payload length shall be the shortest
 				supported payload length, greater than or equal to zero bytes. The
 				other payload length shall be the longest supported payload length,
@@ -5044,7 +5044,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						connection with the peer.
 					</test>
 					<test>
-						[conditional] The evaluator shall generate a pre-shared key offTOE and use it, as indicated in the operational guidance, to establish
+						[conditional] The evaluator shall generate a pre-shared key off-TOE and use it, as indicated in the operational guidance, to establish
 						an IPsec connection with the peer.
 					</test>
 				</testlist>
@@ -7356,7 +7356,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							<selectable>administrator</selectable>
 							<selectable>CA operations staff</selectable>
 						</selectables></selectable>
-					<selectable>an explicit TA database populated via a TLSauthenticated EST CA
+					<selectable>an explicit TA database populated via a TLS-authenticated EST CA
 						certificate request in accordance with RFC 7030 section 4.1.2 and FCS_TLSC_EXT.2 (as defined in the <xref to="pkgTLS"/>)
 					</selectable>
 				</selectables>.
@@ -7447,7 +7447,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							certificate issued by the external CA. 
 						</test>
 						<test>
-							The evaluator shall generate a re-enrollement request and
+							The evaluator shall generate a re-enrollment request and
 							submit it to the authorized EST server in accordance with
 							FIA_ESTC_EXT.1 to update the CA’s signing certificate the same CA
 							implemented by the TOE used in Test 3. The evaluator shall make
@@ -7487,7 +7487,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 <!--               -->     
 <!-- FIA_ESTC_EXT.2 -->
 <!--               -->     
-<f-component cc-id="fia_estc_ext.2" name="EST Cient use of TLS-unique value" status="objective">
+<f-component cc-id="fia_estc_ext.2" name="EST Client use of TLS-unique value" status="objective">
 	<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
             <management>TODO: QQQQQ</management>
             <audit>TODO: QQQQQ</audit>
@@ -7634,7 +7634,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						<test>
 							The evaluator shall use an EST client to request certificate
 							enrollment of an authorized subject to obtain a new certificate
-							from the TOE using the simple enrolment method described in RFC
+							from the TOE using the simple enrollment method described in RFC
 							7030 Section 4.2, authenticating the request using an existing
 							certificate and corresponding private key as described by RFC 7030
 							Section 3.3.2. The evaluator shall confirm that the TOE issues a
@@ -7643,7 +7643,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						<test>
 							The evaluator shall use an EST client to request certificate
 							enrollment of an authorized subject to obtain a new certificate
-							from the TOE using the simple enrolment method described in RFC
+							from the TOE using the simple enrollment method described in RFC
 							7030 Section 4.2, authenticating the request using an existing
 							certificate and corresponding private key as described by RFC 7030
 							Section 3.3.2. The evaluator shall confirm that the TOE issues a
@@ -7671,7 +7671,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							confirm that the TOE does not issue a certificate.
 						</test>
 						<test>
-							The evaluator shall modify the EST client or setup a man-inthe-middle tool between the EST client and TOE to perform the
+							The evaluator shall modify the EST client or setup a man-in-the-middle tool between the EST client and TOE to perform the
 							and modify a valid certificate request by modifying at least one byte in
 							the certificationRequestInfo field of the certificate request message and verify that the
 							TOE rejects the request.
@@ -7742,7 +7742,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						configured to perform EST re-enrollment requests using tls-unique
 						values in accordance with RFC 7030 section 3.5. The evaluator shall
 						configure the TOE to authorize EST services for the client and
-						configure the TOE to verifiy the tls-unique value. The evaluator
+						configure the TOE to verify the tls-unique value. The evaluator
 						shall submit an EST re-enrollment request and confirm that the
 						TOE responds with a signed certificate issued to the subject
 						identified in the current request.
@@ -7868,7 +7868,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</title>
 			<note role="application">
 				The TOE may need to support pre-shared keys for use in the IPsec protocol (if it does, “Pre-shared Keys”
-				will be selected as a peer authentication method in FCS_IPSEC_EXT.1.13. There are two types of preshared keys—text-based (which are required) and bit-based (which are optional)—supported by the TOE,
+				will be selected as a peer authentication method in FCS_IPSEC_EXT.1.13). There are two types of pre-shared keys: text-based (which are required) and bit-based (which are optional)—supported by the TOE,
 				as specified in the requirements below. The first type is referred to as “text-based pre-shared keys”, which
 				refer to pre-shared keys that are entered by users as a string of characters from a standard character set,
 				similar to a password. Such pre-shared keys must be conditioned so that the string of characters is
@@ -7975,14 +7975,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						</test>
 						<test>
 							[conditional]: If the TOE supports bit-based pre-shared keys
-							but does not generate such keys, the evaluator shall obtain a bitbased pre-shared key of the appropriate length and enter it
+							but does not generate such keys, the evaluator shall obtain a bit-based pre-shared key of the appropriate length and enter it
 							according to the instructions in the operational guidance. The
 							evaluator shall then demonstrate that a successful protocol
 							negotiation can be performed with the key.
 						</test>
 						<test>
 							[conditional]: If the TOE supports bit-based pre-shared keys
-							and does generate such keys, the evaluator shall generate a bitbased pre-shared key of the appropriate length and use it
+							and does generate such keys, the evaluator shall generate a bit-based pre-shared key of the appropriate length and use it
 							according to the instructions in the operational guidance. The
 							evaluator shall then demonstrate that a successful protocol
 							negotiation can be performed with the key.
@@ -8302,7 +8302,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The TSF may rely on the Operational Environment to perform certificate handling
 				functionality in cases where the TOE relies on an environmental component to
 				provide trusted remote communications.<h:br/><h:br/>
-				FIA_X509_EXT.1 lists the rules for validating certificates. The ST authorshall select
+				FIA_X509_EXT.1 lists the rules for validating certificates. The ST author shall select
 				whether revocation status is verified using OCSP or CRLs. Depending on this
 				selection, the appropriate CRL or OCSP requirements from Annex B must be
 				included.<h:br/><h:br/>
@@ -8497,7 +8497,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							verify the validity of the certificate, and observe that the action
 							selected in FIA_X509_EXT.2.2 is performed. If the selected action is
 							administrator-configurable, then the evaluator shall follow the
-							operational guidance to determine that all supported administratorconfigurable options behave in their documented manner. 
+							operational guidance to determine that all supported administrator-configurable options behave in their documented manner. 
 						</test>
 					</testlist>
 					<h:i>Equivalency</h:i><h:br/><h:br/>		
@@ -8879,7 +8879,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The word “manage” includes but is not limited to create, initialize, view, change
 				default, modify, delete, clear, and append. This requirement is intended to be the
 				“default” requirement for management of TSF data; other iterations of FMT_MTD
-				should place different restrictions or operations available on the specificallyidentified TSF data. TSF data includes cryptographic information as well;
+				should place different restrictions or operations available on the specifically identified TSF data. TSF data includes cryptographic information as well;
 				managing these data would include the association of a cryptographic protocol
 				with an interface, for instance. The specifics of management of data associated
 				with defined operations are contained in the FMT_MOF iterations.
@@ -9153,7 +9153,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				could directly read memory to capture a password but is trusted not to do so.<h:br/><h:br/>
 				In this version of the PP there are no requirements on the method used to store
 				the passwords in non-plaintext form, but cryptographic methods based on the
-				requirements in FCS_COP are preferred. In future versions of this PP, FCS_COPbased cryptographic methods that conform to the Level 2 Credential Storage
+				requirements in FCS_COP are preferred. In future versions of this PP, FCS_COP-based cryptographic methods that conform to the Level 2 Credential Storage
 				requirements from NIST SP 800-63 will be required.
 			</note>
 			<aactivity>
@@ -9427,7 +9427,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>All unauthorized attempts to use the TOE secret abnd private keys.<h:br/>(Retention: Normal)</audit-event-descr>
+			<audit-event-descr>All unauthorized attempts to use the TOE secret and private keys.<h:br/>(Retention: Normal)</audit-event-descr>
 			<audit-event-info>Identifier of user or process that attempted access.</audit-event-info>
 		</audit-event>
 	</f-component>
@@ -9438,7 +9438,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <ext-comp-def fam-id="FPT_NPE_EXT" title="NPE Constraints">
 		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
 	</ext-comp-def>
-	<f-component cc-id="fpt_npe_ext.1" name="NPE Contraints" status="optional">
+	<f-component cc-id="fpt_npe_ext.1" name="NPE Constraints" status="optional">
 		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
             <management>TODO: QQQQQ</management>
             <audit>TODO: QQQQQ</audit>
@@ -9772,7 +9772,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</title>
 			<note role="application">
 				The intent of this requirement is to limit access to other critical keys or data 
-				that are archived when the TSF provides, or iterfaces with the OE to provide, a 
+				that are archived when the TSF provides, or interfaces with the OE to provide, a 
 				split knowledge mechanism different than what is provided to archive and recover 
 				the CA signing key and other critical keys and data required to restore CA 
 				functionality. This requirement may include protection mechanisms for critical keys 
@@ -10284,7 +10284,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						<test>
 							The evaluator shall obtain or produce an update with an
 							invalid signature, and shall attempt to install it on the TOE. The
-							evaluatorshall verify that the TOE rejects the update and performs
+							evaluator shall verify that the TOE rejects the update and performs
 							any other actions specified in the TSS.
 						</test>
 						<test>
@@ -11081,7 +11081,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	</section>
 
 	<section id="alc" title="Class ALC: Life-cycle Support"> 
-	At the assurance level provided for TOEs conformant to this PP, life-cycle support is limited to end-uservisible aspects of the life-cycle, rather than an examination of the TOE vendor’s development and
+	At the assurance level provided for TOEs conformant to this PP, life-cycle support is limited to end-user-visible aspects of the life-cycle, rather than an examination of the TOE vendor’s development and
 	configuration management process. This is not meant to diminish the critical role that a developer’s
 	practices play in contributing to the overall trustworthiness of a product; rather, it is a reflection on the
 	information to be made available for evaluation at this assurance level.
