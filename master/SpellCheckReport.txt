@@ -14,8 +14,6 @@ output/certauth-release-linkable.html: 6C
 output/certauth-release-linkable.html: 7C
 output/certauth-release-linkable.html: 90A
 output/certauth-release-linkable.html: AAD
-output/certauth-release-linkable.html: AESCBC
-output/certauth-release-linkable.html: AESGCM
 output/certauth-release-linkable.html: AORs
 output/certauth-release-linkable.html: Adleman
 output/certauth-release-linkable.html: Asmuth
@@ -67,7 +65,6 @@ output/certauth-release-linkable.html: Reissuance
 output/certauth-release-linkable.html: SAs
 output/certauth-release-linkable.html: SFP
 output/certauth-release-linkable.html: SHAVS
-output/certauth-release-linkable.html: SHAbased
 output/certauth-release-linkable.html: SP800
 output/certauth-release-linkable.html: SPD
 output/certauth-release-linkable.html: SPDs
@@ -178,8 +175,6 @@ output/certauth-release.html: 6C
 output/certauth-release.html: 7C
 output/certauth-release.html: 90A
 output/certauth-release.html: AAD
-output/certauth-release.html: AESCBC
-output/certauth-release.html: AESGCM
 output/certauth-release.html: AORs
 output/certauth-release.html: Adleman
 output/certauth-release.html: Asmuth
@@ -233,7 +228,6 @@ output/certauth-release.html: Retention’
 output/certauth-release.html: SAs
 output/certauth-release.html: SFP
 output/certauth-release.html: SHAVS
-output/certauth-release.html: SHAbased
 output/certauth-release.html: SP800
 output/certauth-release.html: SPD
 output/certauth-release.html: SPDs
@@ -356,8 +350,6 @@ output/certauth.html: 6C
 output/certauth.html: 7C
 output/certauth.html: 90A
 output/certauth.html: AAD
-output/certauth.html: AESCBC
-output/certauth.html: AESGCM
 output/certauth.html: AORs
 output/certauth.html: Adleman
 output/certauth.html: Asmuth
@@ -411,7 +403,6 @@ output/certauth.html: Retention’
 output/certauth.html: SAs
 output/certauth.html: SFP
 output/certauth.html: SHAVS
-output/certauth.html: SHAbased
 output/certauth.html: SP800
 output/certauth.html: SPD
 output/certauth.html: SPDs
