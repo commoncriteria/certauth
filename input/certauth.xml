@@ -798,9 +798,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<addressed-by>FCS_RBG.4 (selection-based)</addressed-by><rationale>Allows the DRBG to be seeded by multiple internal sources.</rationale>
 			<addressed-by>FCS_RBG.5 (selection-based)</addressed-by><rationale>Allows the DRBG to combine noise from multiple sources.</rationale>
 			<addressed-by>FDP_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect user data during transmission between physically separate parts of the TOE.</rationale>
-			<addressed-by>FIA_PSK_EXT.1 (selection-based)</addressed-by><rationale>Defines requiremetns for pre-shared keys used by the TSF.</rationale>
-			<addressed-by>FPT_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect data transmissed between different parts of the TOE.</rationale>
-			<addressed-by>FPT_SKY_EXT.2 (selection-based)</addressed-by><rationale>Requires that key shares be accessible only by priviledged users.</rationale>
+			<addressed-by>FIA_PSK_EXT.1 (selection-based)</addressed-by><rationale>Defines requirements for pre-shared keys used by the TSF.</rationale>
+			<addressed-by>FPT_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect data transmitted between different parts of the TOE.</rationale>
+			<addressed-by>FPT_SKY_EXT.2 (selection-based)</addressed-by><rationale>Requires that key shares be accessible only by privileged users.</rationale>
 			<addressed-by>FTP_ITC.1 (selection-based)</addressed-by><rationale>Requires secure communications between the TOE and external IT entities.</rationale>
         </threat>
       </threats>
@@ -2936,7 +2936,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		    <selectables linebreak="yes">
 		  	<selectable>an RBG that meets this profile (as specified in FCS_RBG_EXT.1)</selectable>
 			<selectable>a key generation capability of the Operational Environment</selectable>
-			<selectable>a TSF-provided mechanism that combines KEKs in a way that preserves the
+			<selectable id="sel-tsf-kek-combine">a TSF-provided mechanism that combines KEKs in a way that preserves the
 				effective entropy of each factor by 
 				<selectables linebreak="yes">
 					<selectable>using an XOR operation</selectable>
@@ -3017,7 +3017,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- QQQQ: Should be renamed FCS_CKM_EXT.1/KEK  -->
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.1" iteration="KEK" name="Symmetric Key Generation (KEKs)" status="sel-based">
-	<depends on-sel="crypto-sel-ckm-1i3"/>  <!-- TODO -->
+	<depends on-sel="sel-tsf-kek-combine"/> 
 	<f-element>
 		<title>
 			The TSF shall be able to 
@@ -3036,7 +3036,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectables linebreak="yes">
 						<selectable>an RBG that meets this profile (as specified in FCS_RBG_EXT.1), a key
 							generation capability of the Operational Environment</selectable>
-						<selectable>a TSF-provided mechanism that combines KEKs in a way that preserves the
+						<selectable id="sel-tsf-kek">a TSF-provided mechanism that combines KEKs in a way that preserves the
 							effective entropy of each factor by
 							<selectables linebreak="yes">
 								<selectable>using an XOR operation</selectable>
@@ -3058,7 +3058,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</selectables>.
 		</title>
 		<note role="application">
-			This SFR must be included in the ST if ...TODO <h:br/><h:br/>
+			This SFR must be included in the ST if "a TSF-provided mechanism that combines KEKs..." is selected in FCS_CKM_EXT.1/DEK.<h:br/><h:br/>
 			There are three major types of keys described in this PP: asymmetric keys used by
 			the TSF for signing, establishing secure channels, and TOE integrity; data
 			encryption keys (DEKs); and key encryption keys (KEKs). Additionally, the TSF may
@@ -3142,7 +3142,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.1" iteration="KEKT" name="Symmetric Key Generation (KEKs for TOE Key Archival)"
 		 status="sel-based">
-	<depends on-sel="crypto-sel-ckm-1i3"/>
+	<depends on-sel="crypto-sel-ckm-ext-1i3"/>
 	<f-element>
 		<title>
 			The TSF shall be able to 
@@ -3219,7 +3219,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- QQQQ: Shuld be renamed FCS_CKM_EXT.1/SHARES  -->
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.1" iteration="SHARE" name="Symmetric Key Generation (Key Shares)" status="sel-based">
-	<depends on-sel="crypto-sel-ckm-1i4"/>
+	<depends on-sel="crypto-sel-ckm-ext-1i4"/>
 	<f-element>
 		<title>The TSF shall be able to
 			<selectables>
@@ -3456,7 +3456,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- Selection-based  -->
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.7" name="Key Generation for KEKs" status="sel-based">
-	<depends on-sel="crypto-sel-ckm-ext-5"/>  <!-- TODO -->
+	<depends on-sel="sel-tsf-kek" or="sel-tsf-kek-combine"/> 
 	<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
 	<management>TODO: QQQQQ</management>
 	<audit>TODO: QQQQQ</audit>
@@ -3492,7 +3492,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</selectables>.
 		</title>
 		<note role="application">
-			This SFR must be included in the ST if..TODO.<h:br/><h:br/>
+			This SFR must be included in the ST if "a TSF-provided mechanism that combines KEKs..." is selected in FCS_CKM_EXT.1/KEK 
+			or if "a TSF-provided mechanism that combines KEKs..." is selected in FCS_CKM_EXT.1/DEK.<h:br/><h:br/>
 			Either asymmetric or symmetric keys are allowed; the ST author makes the
 			selection appropriate for the device. Symmetric keys must be of size 256
 			bits in order to correspond with FCS_COP.1/SKC. Asymmetric keys may be of any
@@ -3551,7 +3552,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- Selection-based  -->
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.8" name="Key Hierarchy Entropy" status="sel-based">
-	<depends on-sel="crypto-sel-ckm-ext-5"/>  <!-- TODO -->
+	<depends on-sel="sel-tsf-kek" or="sel-tsf-kek-combine"/> 
 	<f-element>
 		<title>
 			The TSF shall provide a traceable hierarchy of keys (DEKs or KEKs) formed from
@@ -3574,8 +3575,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</selectables> bits in accordance with the sensitivity of the data encrypted.
 		</title>
 		<note role="application">
-			This SFR is included whenever both FCS_CKM_EXT.1/KEK and FCS_CKM_EXT.7 are
-			included in the ST. TODO TODO !!!!<h:br/><h:br/>
+			This SFR must be included in the ST if "a TSF-provided mechanism that combines KEKs..." is selected in FCS_CKM_EXT.1/KEK 
+			or if "a TSF-provided mechanism that combines KEKs..." is selected in FCS_CKM_EXT.1/DEK.<h:br/><h:br/>
 			KEKs may form key hierarchies, each rooted in a root encryption key (REK); a REK
 			is considered a KEK. DEKs are used to protect data (e.g., subscriber PII). KEKs are
 			used to protect other keys–- DEKs, other KEKs, and other types of keys stored by
@@ -9580,7 +9581,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>The fact that a faiure of service discontinuity occurred.<h:br/>(Retention: Extended)</audit-event-descr>
+			<audit-event-descr>The fact that a failure of service discontinuity occurred.<h:br/>(Retention: Extended)</audit-event-descr>
 			<audit-event-info>The type of failure or service discontinuity.</audit-event-info>
 		</audit-event>
 		<audit-event>
