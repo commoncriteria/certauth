@@ -49,6 +49,7 @@ output/certauth-release-linkable.html: OGD
 output/certauth-release-linkable.html: PINs
 output/certauth-release-linkable.html: POPAlgID
 output/certauth-release-linkable.html: PRF
+output/certauth-release-linkable.html: PTD
 output/certauth-release-linkable.html: PasswordRecipientInfo
 output/certauth-release-linkable.html: QQQQQ
 output/certauth-release-linkable.html: RAs
@@ -69,6 +70,7 @@ output/certauth-release-linkable.html: SignedData
 output/certauth-release-linkable.html: TDs
 output/certauth-release-linkable.html: TG
 output/certauth-release-linkable.html: TODO
+output/certauth-release-linkable.html: XAUTH
 output/certauth-release-linkable.html: XORing
 output/certauth-release-linkable.html: authorityKeyIdentifier
 output/certauth-release-linkable.html: cA
@@ -88,9 +90,11 @@ output/certauth-release-linkable.html: issuerUniqueID
 output/certauth-release-linkable.html: jittered
 output/certauth-release-linkable.html: keyGenAlgorithm
 output/certauth-release-linkable.html: kpcmcRA
+output/certauth-release-linkable.html: lifecycle
 output/certauth-release-linkable.html: log2
 output/certauth-release-linkable.html: macAlgId
 output/certauth-release-linkable.html: macAlgorithm
+output/certauth-release-linkable.html: modelled
 output/certauth-release-linkable.html: nextUpdate
 output/certauth-release-linkable.html: nonauthenticated
 output/certauth-release-linkable.html: nonrepudiation
@@ -98,7 +102,6 @@ output/certauth-release-linkable.html: notAfter
 output/certauth-release-linkable.html: notBefore
 output/certauth-release-linkable.html: preshared
 output/certauth-release-linkable.html: producedAt
-output/certauth-release-linkable.html: reauthenticate
 output/certauth-release-linkable.html: reauthentication
 output/certauth-release-linkable.html: reenablement
 output/certauth-release-linkable.html: reinstantiating
@@ -117,6 +120,7 @@ output/certauth-release-linkable.html: thisUpdate
 output/certauth-release-linkable.html: tls
 output/certauth-release-linkable.html: uninstantiating
 output/certauth-release-linkable.html: unobscured
+output/certauth-release-linkable.html: userinitiated
 output/certauth-release-linkable.html: v1
 output/certauth-release-linkable.html: witnessAlgID
 output/certauth-release.html: 0’s
@@ -173,6 +177,7 @@ output/certauth-release.html: OGD
 output/certauth-release.html: PINs
 output/certauth-release.html: POPAlgID
 output/certauth-release.html: PRF
+output/certauth-release.html: PTD
 output/certauth-release.html: PasswordRecipientInfo
 output/certauth-release.html: QQQQQ
 output/certauth-release.html: RAs
@@ -194,6 +199,7 @@ output/certauth-release.html: SignedData
 output/certauth-release.html: TDs
 output/certauth-release.html: TG
 output/certauth-release.html: TODO
+output/certauth-release.html: XAUTH
 output/certauth-release.html: XORing
 output/certauth-release.html: authorityKeyIdentifier
 output/certauth-release.html: cA
@@ -216,9 +222,11 @@ output/certauth-release.html: issuerUniqueID
 output/certauth-release.html: jittered
 output/certauth-release.html: keyGenAlgorithm
 output/certauth-release.html: kpcmcRA
+output/certauth-release.html: lifecycle
 output/certauth-release.html: log2
 output/certauth-release.html: macAlgId
 output/certauth-release.html: macAlgorithm
+output/certauth-release.html: modelled
 output/certauth-release.html: nextUpdate
 output/certauth-release.html: nonauthenticated
 output/certauth-release.html: nonrepudiation
@@ -229,7 +237,6 @@ output/certauth-release.html: parties’
 output/certauth-release.html: pool’
 output/certauth-release.html: preshared
 output/certauth-release.html: producedAt
-output/certauth-release.html: reauthenticate
 output/certauth-release.html: reauthentication
 output/certauth-release.html: reenablement
 output/certauth-release.html: reinstantiating
@@ -252,6 +259,7 @@ output/certauth-release.html: thisUpdate
 output/certauth-release.html: tls
 output/certauth-release.html: uninstantiating
 output/certauth-release.html: unobscured
+output/certauth-release.html: userinitiated
 output/certauth-release.html: users’
 output/certauth-release.html: v1
 output/certauth-release.html: witnessAlgID
@@ -310,6 +318,7 @@ output/certauth.html: OGD
 output/certauth.html: PINs
 output/certauth.html: POPAlgID
 output/certauth.html: PRF
+output/certauth.html: PTD
 output/certauth.html: PasswordRecipientInfo
 output/certauth.html: QQQQQ
 output/certauth.html: RAs
@@ -331,6 +340,7 @@ output/certauth.html: SignedData
 output/certauth.html: TDs
 output/certauth.html: TG
 output/certauth.html: TODO
+output/certauth.html: XAUTH
 output/certauth.html: XORing
 output/certauth.html: authorityKeyIdentifier
 output/certauth.html: cA
@@ -350,9 +360,11 @@ output/certauth.html: issuerUniqueID
 output/certauth.html: jittered
 output/certauth.html: keyGenAlgorithm
 output/certauth.html: kpcmcRA
+output/certauth.html: lifecycle
 output/certauth.html: log2
 output/certauth.html: macAlgId
 output/certauth.html: macAlgorithm
+output/certauth.html: modelled
 output/certauth.html: nextUpdate
 output/certauth.html: nonauthenticated
 output/certauth.html: nonrepudiation
@@ -363,7 +375,6 @@ output/certauth.html: parties’
 output/certauth.html: pool’
 output/certauth.html: preshared
 output/certauth.html: producedAt
-output/certauth.html: reauthenticate
 output/certauth.html: reauthentication
 output/certauth.html: reinstantiating
 output/certauth.html: rekeying
@@ -386,6 +397,7 @@ output/certauth.html: thisUpdate
 output/certauth.html: tls
 output/certauth.html: uninstantiating
 output/certauth.html: unobscured
+output/certauth.html: userinitiated
 output/certauth.html: users’
 output/certauth.html: v1
 output/certauth.html: witnessAlgID
