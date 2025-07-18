@@ -3307,10 +3307,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<depends on-sel="crypto-sel-ckm-ext-5"/>
     	<comp-lev>requires the TSF to apply a cryptographic integrity validation method to public keys in persistent storage.</comp-lev>
     	<management>No specific management functions are identified.</management>
-    	<audit>There are no auditable events foreseen.</audit>
-	<dependencies>
-		TODO: QQQQQ
-	</dependencies>
+    	<audit>The following actions should be auditable if FAU_GEN.1 Audit Data Generation is included
+    		in the PP/ST:<h:ul>
+    			<h:li>Failure of the key destruction process for TOE related keys.
+    				(Retention: Normal)</h:li>
+    		</h:ul></audit>
+	<dependencies>No dependencies.</dependencies>
 	<f-element>
 		<title>
 			The TSF shall 
@@ -3403,11 +3405,22 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.6" name="Key Archival" status="sel-based">
 	<depends on-sel="crypto-sel-ckm-ext-6"/>
-	<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-	<management>TODO: QQQQQ</management>
-	<audit>TODO: QQQQQ</audit>
+	<comp-lev>requires the TSF to provide and protect keys.</comp-lev>
+    	<management>The following actions could be considered for the management functions in
+    		FMT:<h:ul>
+    		<h:li>Ability to import private keys</h:li>
+    		<h:li>Ability to export TOE private keys (not for archival)</h:li>
+    		</h:ul>
+    	</management>
+    	<audit>The following actions should be auditable if FAU_GEN.1 Audit Data Generation is included
+    		in the PP/ST:<h:ul>
+    			<h:li>All key archival actions.
+    				(Retention: Extended)</h:li>
+    		</h:ul></audit>
 	<dependencies>
-		TODO: QQQQQ
+		FCS_COP.1 Cryptographic Operations<h:br/><h:br/>
+		FCS_CKM.1 Cryptographic Key Management<h:br/><h:br/>
+		FCS_RBG.1 Random Bit Generation
 	</dependencies>
 	<f-element>
 		<title>The TSF shall 
@@ -3421,6 +3434,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<selectable>no other keys</selectable>
 			</selectables>.
 		</title>
+		<ext-comp-def-title>
+			<title></title>
+		</ext-comp-def-title>
 	</f-element>
 	<f-element>
 		<title>
@@ -6781,7 +6797,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <f-component cc-id="fdp_stg_ext.1" name="User Sensitive Data Protection" status="optional">
     	<comp-lev>requires the TSF to protect public key and certificate data using either access controlled storage or a cryptographic integrity mechanism.</comp-lev>
     	<management>No specific management functions are identified.</management>
-    	<audit>There are no auditable events foreseen.</audit>
+    	<audit>The following actions should be auditable if FAU_GEN.1 Audit Data Generation is included
+    		in the PP/ST:<h:ul>
+    			<h:li>Changes to the trusted public keys and certificates relevant to TOE functions, including additions and deletions.
+    				(Retention: Normal)</h:li>
+    		</h:ul></audit>
             <dependencies>
                 FCS_CKM_EXT.5 Public Key Integrity
             </dependencies>
