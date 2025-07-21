@@ -502,9 +502,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	A CA system which is the Target of Evaluation (TOE) of this PP may be a software package installed on a
 	general computing platform, a set of software packages installed on distributed general computing
 	platforms, or an integrated device including hardware and software. This PP makes no distinction in these
-	cases and imposes requirements on the TOE and/or Operational Environment to ensure that the
+	cases and imposes requirements on the TOE and/or operational environment to ensure that the
 	requirements can be met in any of these cases. Whenever the TOE depends on external components to
-	meet the requirements of this PP, those components are included in the Operational Environment and
+	meet the requirements of this PP, those components are included in the operational environment and
 	the AGD_OPE and AGD_PRE sections of this PP describe requirements on the TOE to document these
 	dependencies. For example, the TOE provides cryptographic operations involved in the signing of
 	certificates, which may depend on an external cryptographic module such as a trusted computing module
@@ -864,12 +864,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 <!-- 4.1 Security Objectives for the Operational Environment -->
 
     <section title="Security Objectives for the Operational Environment"
-      id="SecurityObjectivesTOEorEnvironment">Note that PP allows the ST author in some cases to select if the TSF or Operational Environment is
-	invoked to perform some function. There are several Objectives for the Operational Environment that
+      id="SecurityObjectivesTOEorEnvironment">Note that PP allows the ST author in some cases to select if the TSF or operational environment is
+	invoked to perform some function. There are several Objectives for the operational environment that
 	correspond to those SFRs, covering the case where the ST author selects the item pertaining to the
-	Operational Environment being invoked to perform the function. If the TOE performs all such functions
-	(that is, the Operational Environment-related selection is not chosen), then the corresponding Objective
-	for the Operational Environment will need to be removed by the ST author.
+	operational environment being invoked to perform the function. If the TOE performs all such functions
+	(that is, the operational environment-related selection is not chosen), then the corresponding Objective
+	for the operational environment will need to be removed by the ST author.
       <SOEs>
       	<SOE name="OE.AUDIT_GENERATION">
       		<!-- QQQQ: Remove if audit functionality is implemented by the TOE. -->
@@ -878,7 +878,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
       			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
       				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
       			</comment>
-      			The Operational Environment provides a mechanism for the generation of portions of the audit data.</description>
+      			The operational environment provides a mechanism for the generation of portions of the audit data.</description>
       	</SOE>
       	<SOE name="OE.AUDIT_RETENTION">
       		<!-- QQQQ: Remove if FAU_STG_EXT.2 is included in the ST. -->
@@ -886,7 +886,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
       			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
       				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
       			</comment>
-      			The Operational Environment provides mechanisms for retention of audit records for both normal
+      			The operational environment provides mechanisms for retention of audit records for both normal
       			and extended retention periods.</description>
       	</SOE>
       	<SOE name="OE.AUDIT_REVIEW">
@@ -895,7 +895,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
       			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
       				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
       			</comment>
-      			The Operational Environment provides a mechanism for the review of specified audit data.</description>
+      			The operational environment provides a mechanism for the review of specified audit data.</description>
       	</SOE>
       	<SOE name="OE.AUDIT_STORAGE">
       		<!-- QQQQ: Remove if audit functionality is implemented by the TOE. -->
@@ -903,7 +903,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
       			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
       				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
       			</comment>
-      			The Operational Environment provides a mechanism for the storage of specified audit data.</description>
+      			The operational environment provides a mechanism for the storage of specified audit data.</description>
       	</SOE>
         <SOE name="OE.CERT_REPOSITORY">
 	<!-- QQQQ: Remove if Operational Environment is not selected in FAU_GCR_EXT.1 is included in the ST. -->
@@ -911,7 +911,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
 				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
 			</comment>
-			The Operational Environment provides a certificate repository for storage of certificates (and
+			The operational environment provides a certificate repository for storage of certificates (and
 		optionally CRLs) issued by the TSF.
 		</description>
         </SOE>
@@ -921,7 +921,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
 				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
 			</comment>
-			The Operational Environment provides the ability to search a certificate repository for specific
+			The operational environment provides the ability to search a certificate repository for specific
 		certificate fields in certificates issued by the TSF and return the certificate and an identifier for the
 		certificate that can be used to search the audit trail for events related to that certificate. </description>
         </SOE>
@@ -932,7 +932,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
 				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
 			</comment>
-			The Operational Environment provides cryptographic services that can be invoked by the TSF in order
+			The operational environment provides cryptographic services that can be invoked by the TSF in order
 		to perform security functionality.</description>
         </SOE>
         <SOE name="OE.KEY_ARCHIVAL">
@@ -941,7 +941,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
 				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
 			</comment>
-			The Operational Environment provides the ability to use split knowledge procedures to enforce two-party control to export keys necessary to resume CA functionality if the TSF should fail.
+			The operational environment provides the ability to use split knowledge procedures to enforce two-party control to export keys necessary to resume CA functionality if the TSF should fail.
 		</description>
         </SOE>
         <SOE name="OE.NO_GENERAL_PURPOSE">
@@ -963,7 +963,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
 				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
 			</comment>
-			The Operational Environment provides protection for specified public keys associated with CA
+			The operational environment provides protection for specified public keys associated with CA
 		functions.</description>
         </SOE>
         <SOE name="OE.SESSION_PROTECTION_LOCAL">
@@ -972,7 +972,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
 				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
 			</comment>
-			The Operational Environment provides the ability to lock or terminate local administrative sessions.</description>
+			The operational environment provides the ability to lock or terminate local administrative sessions.</description>
         </SOE>
         <SOE name="OE.SESSION_PROTECTION_REMOTE">
 	<!-- QQQQ: Remove if FAU_SSL_EXT.1 is included in the ST. -->
@@ -980,7 +980,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
 				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
 			</comment>
-			The Operational Environment provides the ability to lock or terminate remote administrative sessions.</description>
+			The operational environment provides the ability to lock or terminate remote administrative sessions.</description>
         </SOE>
         <SOE name="OE.TOE_ADMINISTRATION">
 	<!-- QQQQ: Remove if all administrative actions from O.TOE_ADMINISTRATION requirements are performed directly by the TOE. -->
@@ -988,7 +988,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<comment>This OE objective is marked as conditional in the previous version of this PP depending on whether the TSF implements its own functions for this or relies on the OE to do it.
 				We currently lack the syntax capability to handle such a conditional OE objective and in that light, should this objective remain?
 			</comment>
-			The Operational Environment provides specified management capabilities required for the overall
+			The operational environment provides specified management capabilities required for the overall
 		operation of a Certificate Authority, and the ability to restrict access to a subset of the capabilities as
 		specified in the ST. </description>
         </SOE>
@@ -1024,9 +1024,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <section title="Security Functional Requirements" id="SFRs">
 	The following table lists the SFRs that are defined in this
 	section as well as any auditable events associated with their enforcement. The following table presents
-	the baseline (mandatory) requirements for compliant TOEs. If the TOE relies on the Operational Environment to provide some of the
+	the baseline (mandatory) requirements for compliant TOEs. If the TOE relies on the operational environment to provide some of the
 	TOE’s auditing functionality, the ST author is expected to identify whether each of the auditable events
-	for the claimed SFRs are implemented by the TSF or by the Operational Environment, along with the
+	for the claimed SFRs are implemented by the TSF or by the operational environment, along with the
 	specific environmental component that provides the auditing functionality if applicable.<h:br/><h:br/>
 
 	<!-- For some reason, the audit table is here. But why not? -->
@@ -1084,7 +1084,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
           <f-element>
             <title> The TSF shall implement audit functionality and 
 		    <selectables>
-			    <selectable>interface with auditing functions in the Operational Environment</selectable>
+			    <selectable>interface with auditing functions in the operational environment</selectable>
 			    <selectable>no additional audit functionality</selectable>
 		    </selectables>
 		    in order to perform audit operations on the following audit data: 
@@ -1094,10 +1094,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		  If any audit functions (e.g. storage, review) are accomplished by the TOE
 		communicating over a network connection with a physically external audit server,
 		then the ST author must include FTP_ITC.1 with "audit server" selected. If the TOE
-		relies on the Operational Environment to provide some of the TOE’s auditing
+		relies on the operational environment to provide some of the TOE’s auditing
 		functionality, the ST author is expected to identify whether each of the auditable
-		events for the claimed SFRs are implemented by the TOE or by the Operational
-		Environment, along with the specific environmental component that provides the
+		events for the claimed SFRs are implemented by the TOE or by the operational environment, along with the specific environmental component that provides the
 		auditing functionality if applicable. The ST author should refer to the right-most
 		column of Tables 2, 5, 6, 7, and 8 and complete these fields accordingly<h:br/><h:br/>
 		    
@@ -1138,8 +1137,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
               <TSS>
 		The evaluator shall examine the TSS and operational guidance in order to verify
 		that they describe each of the relevant auditable events, how audit records of
-		these events are formatted, and what component of the TOE or Operational
-		Environment is responsible for handling these events.<h:br/><h:br/>
+		these events are formatted, and what component of the TOE or operational environment is responsible for handling these events.<h:br/><h:br/>
 		      
 		For those auditable events that are generated by the TOE and stored within the
 		TOE boundary, the assurance activities are included for the relevant selection-based audit SFRs.
@@ -1148,8 +1146,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		There is no guidance associated with this evaluation activity.
               </Guidance>
              <Tests>
-		For any auditable events that are handled by the TOE’s Operational
-		Environment, the evaluator shall demonstrate that these events are auditable.<h:br/><h:br/>	     
+		For any auditable events that are handled by the TOE’s operational environment, the evaluator shall demonstrate that these events are auditable.<h:br/><h:br/>	     
 		Testing that audit records associated with an SFR are generated is performed
 		in conjunction with testing the SFR.
               </Tests>
@@ -1183,7 +1180,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             <title>The TSF shall 
 		    <selectables>
 			    <selectable id="store-certs">store</selectable> <!-- causes inclusion of FAU_SCR_EXT.1 -->
-			    <selectable>invoke the Operational Environment to store</selectable>
+			    <selectable>invoke the operational environment to store</selectable>
 		    </selectables>
 		certificates and 
 		    <selectables>
@@ -1194,7 +1191,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		  	<ext-comp-def-title>
 		  		<title>The TSF shall <selectables>
 		  			<selectable>store</selectable>
-		  			<selectable>invoke the Operational Environment to store</selectable>
+		  			<selectable>invoke the operational environment to store</selectable>
 		  		</selectables>
 		  		certificates issued by the TSF.
 		  		</title>
@@ -1248,8 +1245,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <f-component cc-id="fau_gen.1" name="Audit Data Generation">
            <f-element>
-		   <title>The TSF shall generate <refinement>and <selectables><selectable>invoke the Operational 
-		      Environment to generate</selectable><selectable>no other actions</selectable></selectables></refinement>
+		   <title>The TSF shall generate <refinement>and <selectables><selectable>invoke the operational environment to generate</selectable><selectable>no other actions</selectable></selectables></refinement>
 		      audit data of the following auditable events:
                             <h:ol type="a">
                                 <h:li>Start-up and shutdown of the audit functions</h:li>
@@ -1287,7 +1283,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <f-element>
 		<title>The TSF shall <refinement>
 			<selectables><selectable>record</selectable>
-				<selectable> invoke the Operational Environment to record</selectable>
+				<selectable> invoke the operational environment to record</selectable>
 			</selectables></refinement>
 			within the audit data at least the following information:
                         <h:ol type="a">
@@ -1307,7 +1303,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			TSF or the OE via the selection; it is permissible to be a combination of both. It
 			may be the case that when the TSF generates an audit record, some or all of the
 			information listed in the SFR are actually put into the audit record by the OE. In
-			these cases, “invoke the Operational Environment to record” should be selected.
+			these cases, “invoke the operational environment to record” should be selected.
 			OE.AUDIT_GENERATION will be included in the ST if the OE is selected in any of
 			the FAU_GEN elements.
                  </note>
@@ -1344,9 +1340,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			with AGD_OPE.<h:br></h:br><h:br></h:br>
 			The evaluator shall check that audit review tools are described in the
 			operational guidance and conform to the requirements of FAU_SAR.1.<h:br></h:br><h:br></h:br>
-    			When the Operational Environment is selected in FAU_GEN.1.1 or
+    			When the operational environment is selected in FAU_GEN.1.1 or
 			FAU_GEN.1.2, the evaluator shall examine the operational guidance to ensure
-			the configuration of the Operational Environment necessary to generate the
+			the configuration of the operational environment necessary to generate the
 			required elements, and instructions on how to examine the various audit
 			records is provided.
                     </Guidance>
@@ -1368,9 +1364,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			proper entries and that the audit records are provided in a manner suitable for
 			interpretation. The evaluator shall also ensure the ability to apply searches of
 			audit data based on the type of event, the user responsible for causing the
-			event, and identity of the applicable certificate. When the Operational
-			Environment is selected in FAU_GEN.1.1 or FAU_GEN.1.2, the evaluator shall
-			follow the operational guidance to configure the Operational Environment as
+			event, and identity of the applicable certificate. When the operational environment is selected in FAU_GEN.1.1 or FAU_GEN.1.2, the evaluator shall
+			follow the operational guidance to configure the operational environment as
 			specified in the TSS and identify the audit records used and audit information
 			assigned to each audit record. The evaluator shall then inspect the indicated
 			audit records for audit information assigned to each audit record indicated.<h:br/><h:br/>    
@@ -1396,14 +1391,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
           <f-element>
 		  <title>For audit events resulting from actions of identified users, the TSF
 		    shall be able to <refinement><selectables><selectable>associate</selectable>
-		    <selectable>invoke the Operational Environment to associate</selectable></selectables>
+		    <selectable>invoke the operational environment to associate</selectable></selectables>
 		    </refinement>
 		    each auditable event with the identity of the user that caused the event.
 	    </title>
             <note role="application">
 		As with FAU_GEN.1.2, if the TSF initiates the generation of the audit event, but
 		the OE is responsible for associating the user ID with that event (if appropriate for
-		that event), then the ST author selects “invoke the Operational Environment to
+		that event), then the ST author selects “invoke the operational environment to
 		associate” for this SFR. 
 	    </note>
             <aactivity>
@@ -1537,7 +1532,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<title>The TSF shall 
 				<selectables>   <!-- This should not be a selection, only "provide" makes sense here -->
 					<selectable>provide</selectable>
-					<selectable>invoke the Operational Environment to provide</selectable>
+					<selectable>invoke the operational environment to provide</selectable>
 				</selectables> the capability to search for certificates containing specified values
 				of the following certificate fields:
 				<selectables linebreak="yes">
@@ -1558,7 +1553,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<ext-comp-def-title>
 					<title>The TSF shall <selectables>
 						<selectable>provide</selectable>
-						<selectable>invoke the Operational Environment to provide</selectable>
+						<selectable>invoke the operational environment to provide</selectable>
 					</selectables>
 					the capability to search for certificates containing specified values of the following
 					certificate fields: <assignable>list of certificate fields</assignable>,
@@ -1907,8 +1902,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				If the last item in the selection is chosen, the ST author must include FTP_ITC.1
 				with “audit server” selection, and ensures that the supporting protocol
 				requirement matches the selection is included in the ST.<h:br/><h:br/>
-				The TOE platform and external IT entity are considered part of the Operational
-				Environment.
+				The TOE platform and external IT entity are considered part of the operational environment.
 			</note>
 			<aactivity>
 				<TSS>
@@ -1985,7 +1979,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<note role="application">
 			This requirement applies to the TOE regardless of whether the audit trail is stored
 			within the TOE boundary or on an external system in the
-			Operational Environment. If the audit trail (in whole or in part) is stored locally 
+			operational environment. If the audit trail (in whole or in part) is stored locally 
 			(either within the TOE boundary or on the TOE platform), then the requirement applies 
 			when the audit trail cannot be written to when it is full.  If the audit trail (in whole 
 			or in part) is stored on a system external to the TOE platform, then the requirement 
@@ -2030,7 +2024,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						privileged user can perform the documented remedial steps.
 					</test>
 					<test> (conditional) If the TOE uses a remote repository in the
-						Operational Environment to store audit data, the evaluator shall cause
+						operational environment to store audit data, the evaluator shall cause
 						the audit trail to become unavailable, verify that the TSF behaves as
 						documented in the TSS, and verify that a privileged user can perform
 						the documented remedial steps.
@@ -2382,7 +2376,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             <title> The TSF shall 
 		    <selectables>
 			    <selectable>implement cryptographic functionality</selectable>
-			    <selectable>invoke interfaces provided by the Operational Environment</selectable>
+			    <selectable>invoke interfaces provided by the operational environment</selectable>
 		    </selectables>
 		    in order to perform 
 		    <selectables>
@@ -2410,13 +2404,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<title>The TSF shall 
 						<selectables>
 							<selectable>implement cryptographic functionality</selectable>
-							<selectable>invoke interfaces provided by the Operational Environment</selectable>
+							<selectable>invoke interfaces provided by the operational environment</selectable>
 						</selectables>
 						in order to perform <assignable>list of functional requirements</assignable> cryptographic operations.</title>
 				</ext-comp-def-title>
 				<note role="application"> 
 		Cryptographic functionality can be provided entirely by the TOE, entirely by the
-		Operational Environment, or by both. The SFRs that detail the cryptographic
+		operational environment, or by both. The SFRs that detail the cryptographic
 		functionality are contained in Appendices A, B, and C; these SFRs are included in the
 		ST depending on selections in other SFRs that describe the mandated and optional
 		functionality that requires cryptographic functions (for instance, the inclusion of
@@ -2443,8 +2437,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		those that are provided for the individual cryptographic SFRs.		
 	    </note>
             <aactivity>
-              <TSS> If the TSF invokes interfaces to a cryptographic module in the Operational
-		Environment to provide the necessary cryptographic functionality, the
+              <TSS> If the TSF invokes interfaces to a cryptographic module in the operational environment to provide the necessary cryptographic functionality, the
 		evaluator shall review the TSS to ensure that it specifies the interfaces that
 		are invoked, and the cryptographic provider of the functionality. The
 		evaluator shall review the TSS and verify that all cryptographic SFRs required
@@ -2483,7 +2476,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<title>The TSF shall <refinement>
 			<selectables>
 				<selectable>generate</selectable>
-				<selectable>invoke interfaces provided by the Operational Environment to generate</selectable>
+				<selectable>invoke interfaces provided by the operational environment to generate</selectable>
 			</selectables> asymmetric </refinement>cryptographic keys in accordance with a specified cryptographic key generation algorithm
 			<selectables linebreak="yes">
 				<selectable>RSA schemes using cryptographic key sizes of 3072-bit or
@@ -2500,10 +2493,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</title>
 	    	<note role="application">
 			The ST authors should specify whether the TOE generates these keys or whether
-			the Operational Environment is used.<h:br/><h:br/>
+			the operational environment is used.<h:br/><h:br/>
 			For keys used for authentication, only RSA- or ECC-based selections are allowed.
 			The ST author will make clear in the ST which keys are used for what purpose.<h:br/><h:br/>
-			This component requires that the TSF or Operational Environment be able to
+			This component requires that the TSF or operational environment be able to
 			generate the public/private key pairs that are used for key establishment purposes
 			for the various cryptographic protocols (HTTPS, TLS, IPsec, SSH) used by the TOE.
 			he ST author selects all key establishment schemes used for the selected cryptographic 
@@ -2648,7 +2641,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			The TSF shall <refinement>
 			<selectables>
 				<selectable>perform</selectable>
-				<selectable>invoke interfaces provided by the Operational Environment to perform</selectable>
+				<selectable>invoke interfaces provided by the operational environment to perform</selectable>
 			</selectables> key establishment </refinement>in accordance with a
 			specified cryptographic key <refinement>establishment algorithm</refinement>
 			<selectables linebreak="yes">
@@ -2670,7 +2663,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<note role="application">
 			This is a refinement of the SFR FCS_CKM.2 to deal with key establishment rather
 			than key distribution. The ST authors should specify whether the TOE performs
-			the key establishment function or whether the Operational Environment is used.<h:br/><h:br/>
+			the key establishment function or whether the operational environment is used.<h:br/><h:br/>
 			The ST author selects all key establishment schemes used for the selected
 			cryptographic protocols. For Diffie-Hellman group 14, ST authors should make the
 			corresponding selection from the SFR instead of using the Finite field-based key
@@ -2692,7 +2685,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</TSS>
 			<Guidance>
 				The evaluator shall examine the AGD guidance to ensure it contains
-				instructions for configuring the TOE or Operational Environment to use the
+				instructions for configuring the TOE or operational environment to use the
 				selected key establishment scheme(s).
 			</Guidance>
 			<Tests>
@@ -2794,7 +2787,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			The TSF shall <h:b>
 			<selectables>
 				<selectable>destroy</selectable>
-				<selectable>invoke interfaces provided by the Operational Environment to destroy</selectable>
+				<selectable>invoke interfaces provided by the operational environment to destroy</selectable>
 			</selectables></h:b> [<h:i>all plaintext keying material and cryptographic security
 				parameters</h:i>] when [<h:i>no longer needed</h:i>]. 
 		</title>	
@@ -2970,7 +2963,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
       			<title>The TSF shall
       			<selectables>
       				<selectable>generate</selectable>
-      				<selectable>invoke interfaces provided by the Operational Environment to generate</selectable>
+      				<selectable>invoke interfaces provided by the operational environment to generate</selectable>
       			</selectables>
       			<assignable> type of cryptographic keys</assignable> using <assignable>cryptographic key
       				sizes</assignable> in accordance with <assignable>cryptographic key generation
@@ -2985,7 +2978,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             <title>The TSF shall
 		    <selectables>
 			    <selectable>generate</selectable>
-			    <selectable>invoke interfaces provided by the Operational Environment to generate</selectable>
+			    <selectable>invoke interfaces provided by the operational environment to generate</selectable>
 		    </selectables> 
 		    [<h:i>data encryption keys (DEKs)</h:i>] using <selectables>
 			    <selectable>128-bit</selectable>
@@ -3022,9 +3015,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		or implemented by the OE, the first item is selected and FCS_RBG_EXT.1 is
 		included in the ST. If the TSF invokes a key-generation mechanism in the OE (that
 		is not a direct invocation of an RBG), then the second item (“a key generation
-		capability of the Operational Environment”) is selected; in this case the second
-		item of the first selection ("invoke interfaces provided by the Operational
-		Environment to generate") should have also been chosen. If the TSF uses a method
+		capability of the operational environment”) is selected; in this case the second
+		item of the first selection ("invoke interfaces provided by the operational environment to generate") should have also been chosen. If the TSF uses a method
 		to combine KEKs to produce the DEK, the third item is selected and the method
 		used to produce the DEK from the KEKs is chosen in the fourth selection.
 		Additionally, if this third item is selected (TSF combining KEKs to produce the DEK),
@@ -3037,8 +3029,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
           <aactivity>
           	<TSS>
 			For DEKs generated using an RBG, the evaluator shall examine the TSS of the
-			TOE to verify that it describes, for either the TOE or the Operational
-			Environment, how the functionality described by FCS_RBG_EXT.1 is invoked.
+			TOE to verify that it describes, for either the TOE or the operational environment, how the functionality described by FCS_RBG_EXT.1 is invoked.
 			The evaluator shall review the TSS and other evidence to determine that the
 			key size being requested from the RBG is identical to the key size used for the
 			encryption/decryption of the data or key.<h:br/><h:br/>
@@ -3077,7 +3068,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			The TSF shall be able to 
 			<selectables>
 				<selectable>generate</selectable>
-				<selectable>invoke interfaces in the Operational Environment to generate</selectable>
+				<selectable>invoke interfaces in the operational environment to generate</selectable>
 			</selectables> <selectables> 
 				<selectable>asymmetric KEKs using <assignable>security strength greater than or equal to 112 bits </assignable>
 					<h:b>security strength</h:b> in accordance with [<h:i>FCS_CKM.1</h:i>]</selectable>
@@ -3089,7 +3080,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					</selectables> in accordance with
 					<selectables linebreak="yes">
 						<selectable>an RBG that meets this profile (as specified in FCS_RBG.1), a key
-							generation capability of the Operational Environment</selectable>
+							generation capability of the operational environment</selectable>
 						<selectable id="sel-tsf-kek">a TSF-provided mechanism that combines KEKs in a way that preserves the
 							effective entropy of each factor by
 							<selectables linebreak="yes">
@@ -3127,7 +3118,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			For the generation of symmetric KEKs, if any option but the RBG option is
 			selected, FCS_CKM_EXT.7 in Appendix B.4 must be included.<h:br/><h:br/>
 			In the first selection, the ST author chooses whether the TOE performs the
-			operation, or whether it invokes interfaces in the Operational Environment for the
+			operation, or whether it invokes interfaces in the operational environment for the
 			functionality.<h:br/><h:br/>
 			The second selection indicates if the KEK generated is asymmetric or symmetric,
 			and the requirements on each.<h:br/><h:br/>
@@ -3141,9 +3132,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			TOE or implemented by the OE, the first item is selected and FCS_RBG_EXT.1 is
 			included in the ST. If the TSF invokes a key-generation mechanism in the OE
 			(that is not a direct invocation of an RBG), then the second item (“a key
-			generation capability of the Operational Environment”) is selected; in this case
+			generation capability of the operational environment”) is selected; in this case
 			the second item of the first selection ("invoke interfaces provided by the
-			Operational Environment to perform") should have also been chosen. If the TSF
+			operational environment to perform") should have also been chosen. If the TSF
 			uses a method to combine KEKs to produce a KEK, the third item is selected and
 			the method used to produce the KEK from the other KEKs is chosen in the fifth
 			selection. If the third item in the fifth selection statement is chosen (key wrap),
@@ -3195,7 +3186,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			The TSF shall be able to 
 			<selectables>
 				<selectable>generate</selectable>
-				<selectable>invoke interfaces provided by the Operational Environment to generate</selectable>
+				<selectable>invoke interfaces provided by the operational environment to generate</selectable>
 			</selectables>
 			<selectables>
 				<selectable>asymmetric KEKs using 
@@ -3205,7 +3196,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</selectable>
 			</selectables> using <h:br/><h:br/>
 			<selectables linebreak="yes">
-				<selectable>an Operational Environment-provided mechanism that combines Key Shares
+				<selectable>an operational environment-provided mechanism that combines Key Shares
 					and produces a KEK,</selectable>
 				<selectable>a TSF-provided mechanism that combines Key Shares in a way that preserves
 					the effective entropy of each factor by 
@@ -3231,7 +3222,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			mechanisms specified in FCS_CKM_EXT.6 to protect the keys specified in
 			FPT_SKY_EXT.1/CA or FPT_SKY_EXT.1/OTH.<h:br/><h:br/>
 			In the first selection, the ST author chooses whether the TOE performs the
-			operation, or whether it invokes interfaces in the Operational Environment for the
+			operation, or whether it invokes interfaces in the operational environment for the
 			functionality.<h:br/><h:br/>
 			The second selection indicates if the KEK generated is asymmetric or symmetric.<h:br/><h:br/>
 			If an asymmetric KEK is generated, then the ST author specifies the security
@@ -3268,7 +3259,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<title>The TSF shall be able to
 			<selectables>
 				<selectable>generate</selectable>
-				<selectable>invoke interfaces provided by the Operational Environment to generate</selectable>
+				<selectable>invoke interfaces provided by the operational environment to generate</selectable>
 			</selectables> [<h:i>key shares</h:i> using [<h:i>greater than or equal to the security strength of
 				the KEK</h:i>] in accordance with [<h:i>FCS_CKM_EXT.1/KEKT</h:i>]
 			for use in [<h:i>the key sharing mechanism indicated in FCS_CKM_EXT.1/KEKT</h:i>].
@@ -3318,7 +3309,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			The TSF shall 
 			<selectables>
 				<selectable>protect</selectable>
-				<selectable>invoke interfaces in the Operational Environment to protect</selectable>
+				<selectable>invoke interfaces in the operational environment to protect</selectable>
 			</selectables> public keys used to meet CA requirements against undetected
 			modification through the use of
 			<selectables>
@@ -3426,7 +3417,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<title>The TSF shall 
 			<selectables>
 				<selectable>provide</selectable>
-				<selectable>invoke interfaces in the Operational Environment to provide</selectable>
+				<selectable>invoke interfaces in the operational environment to provide</selectable>
 			</selectables> a mechanism to protect TOE secret and private keys required for
 			continuity of operations and 
 			<selectables>
@@ -3434,16 +3425,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<selectable>no other keys</selectable>
 			</selectables>.
 		</title>
-		<ext-comp-def-title>
-			<title></title>
-		</ext-comp-def-title>
 	</f-element>
 	<f-element>
 		<title>
 			The TSF shall 
 			<selectables>
 				<selectable>be able to</selectable>
-				<selectable>invoke interfaces in the Operational Environment to be able to</selectable>
+				<selectable>invoke interfaces in the operational environment to be able to</selectable>
 			</selectables> export the protected keys (in FCS_CKM_EXT.6.1) for
 			the purpose of archival in encrypted form.
 		</title>
@@ -3453,7 +3441,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			The TSF shall 
 			<selectables>
 				<selectable>be able to</selectable>
-				<selectable>invoke interfaces in the Operational Environment to be able to</selectable>
+				<selectable>invoke interfaces in the operational environment to be able to</selectable>
 			</selectables> import protected keys (in FCS_CKM_EXT.6.1) for the
 			purpose of continued operations after failure.
 		</title>
@@ -3463,7 +3451,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			The TSF shall 
 			<selectables>
 				<selectable>encrypt</selectable>
-				<selectable>invoke interfaces in the Operational Environment to encrypt</selectable>
+				<selectable>invoke interfaces in the operational Environment to encrypt</selectable>
 			</selectables> the keys specified in FCS_CKM_EXT.6.1 in accordance with 
 			<selectables>
 				<selectable>FCS_COP.1/SKC</selectable>
@@ -3471,19 +3459,37 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</selectables> using the KEK generated in accordance with
 			FCS_CKM_EXT.1/KEKT.
 		</title>
+		<ext-comp-def-title>
+			<title>The TSF shall 
+				<selectables>
+					<selectable>encrypt</selectable>
+					<selectable>invoke interfaces in the operational Environment to encrypt</selectable>
+				</selectables> the keys specified in FCS_CKM_EXT.6.1 in accordance with
+				<assignable>cryptographic function</assignable> using the KEK generated in accordance with
+				FCS_CKM_EXT.1.</title>
+		</ext-comp-def-title>
 	</f-element>
 	<f-element>
 		<title>
 			The TSF shall 
 			<selectables>
 				<selectable>decrypt</selectable>
-				<selectable>invoke interfaces in the Operational Environment to decrypt</selectable>
+				<selectable>invoke interfaces in the operational Environment to decrypt</selectable>
 			</selectables> the keys specified in FCS_CKM_EXT.6.1 in accordance with 
 			<selectables>
 				<selectable>FCS_COP.1/SKC</selectable>
 				<selectable>FCS_CKM.1</selectable>
 			</selectables> using the KEK generated in accordance with FCS_CKM_EXT.1/KEKT.
 		</title>
+		<ext-comp-def-title>
+			<title>The TSF shall 
+				<selectables>
+					<selectable>decrypt</selectable>
+					<selectable>invoke interfaces in the operational Environment to decrypt</selectable>
+				</selectables> the keys specified in FCS_CKM_EXT.6.1 in accordance with
+				<assignable>cryptographic function</assignable> using the KEK generated in accordance with
+				FCS_CKM_EXT.1.</title>
+		</ext-comp-def-title>
 		<note role="application">
 			This requirement is required when ‘key sharing mechanisms…’ is selected in
 			FPT_SKY_EXT.1/CA or FPT_SKY_EXT.1/OTH, and ensures that the archival of any keys required for continuity
@@ -3518,37 +3524,52 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.7" name="Key Generation for KEKs" status="sel-based">
 	<depends on-sel="sel-tsf-kek" or="sel-tsf-kek-combine"/> 
-	<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-	<management>TODO: QQQQQ</management>
-	<audit>TODO: QQQQQ</audit>
+	<comp-lev>requires support and management of key generation for KEKs.</comp-lev>
+    	<management>The following actions could be considered for the management functions in
+    		FMT:<h:ul>
+    			<h:li>Ability to import private keys</h:li>
+    			<h:li>Ability to export TOE private keys (not for archival)</h:li>
+    		</h:ul>
+    	</management>
+    	<audit>There are no auditable events foreseen.</audit>
 	<dependencies>
-		TODO: QQQQQ
+		FCS_CKM_EXT.1 Symmetric Key Generation<h:br/><h:br/>
+		FCS_COP.1 Cryptographic Operation<h:br/><h:br/>
+		FCS_RBG.1 Random Bit Generation
 	</dependencies>
 	<f-element>
 		<title>
 			The 
 			<selectables>
 				<selectable>TSF</selectable>
-				<selectable>Operational environment</selectable>
+				<selectable>operational environment</selectable>
 			</selectables> shall support a hardware protected REK generated in accordance with FCS_CKM_EXT.1.1/KEK. 
 		</title>
+		<ext-comp-def-title>
+			<title>The 
+				<selectables>
+					<selectable>TSF</selectable>
+					<selectable>operational environment</selectable>
+				</selectables> shall support a hardware protected REK generated in accordance with
+				FCS_CKM_EXT.1.1.</title>
+		</ext-comp-def-title>
 	</f-element>
 	<f-element>
 		<title>
-			A REK shall not be able to be read from or exported from the hardware.
+			An REK shall not be able to be read from or exported from the hardware.
 		</title>
 	</f-element>
 	<f-element>
 		<title>
-			The TSF shall be able only to request encryption/decryption by the key and shall
-			not be able to read, import, or export a REK.
+			The TSF shall only be able to request encryption and decryption by the key and shall
+			not be able to read, import, or export an REK.
 		</title>
 	</f-element>
 	<f-element>
 		<title>
-			A REK shall be generated 
+			An REK shall be generated 
 			<selectables>
-				<selectable>by a RBG in accordance with FCS_RBG_EXT.1</selectable>
+				<selectable>by an RBG in accordance with FCS_RBG.1</selectable>
 				<selectable>according to FCS_CKM.1</selectable>
 			</selectables>.
 		</title>
@@ -3561,12 +3582,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			strength corresponding to FCS_CKM.1.<h:br/><h:br/>
 			The lack of a public/documented API for importing or exporting, when a
 			private/undocumented API exists, is not sufficient to meet this requirement.<h:br/><h:br/>
-			When TSF is selected in FCS_CKM_EXT.7.1, the RBG used to generate a REK may
-			be a RBG native to a hardware key container that is within the TOE boundary or
+			When TSF is selected in FCS_CKM_EXT.7.1, the RBG used to generate an REK may
+			be an RBG native to a hardware key container that is within the TOE boundary or
 			may be generated using an off-device RBG during manufacturing. If generated by
 			an off-device RBG during manufacturing, the device manufacturer shall not be
-			able to access a REK after the manufacturing process has been completed. If a
-			hardware component in the Operational Environment stores the REK, the RBG
+			able to access an REK after the manufacturing process has been completed. If a
+			hardware component in the operational Environment stores the REK, the RBG
 			may be resident in the component where the REK is stored, or in a separate
 			component. The assurance activities for these cases differ.<h:br/><h:br/>
 			This SFR is included when FCS_CKM_EXT.1/KEK is included and selects generation of
@@ -3576,17 +3597,17 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</note>
 		<aactivity>
 			<TSS>
-				The evaluator shall examine the TSS to determine that when a REK is supported
+				The evaluator shall examine the TSS to determine that when an REK is supported
 				by the TSF, the TSS includes a description of the protection provided by the TSF 
-				for a REK, and that the TSS includes a description of the method of generation
-				of a REK.<h:br/><h:br/>
-				The evaluator shall verify that the description of the protection of a REK
+				for an REK, and that the TSS includes a description of the method of generation
+				of an REK.<h:br/><h:br/>
+				The evaluator shall verify that the description of the protection of an REK
 				describes how any reading, import, and export of that REK is prevented. The
 				evaluator shall verify that the TSS describes how encryption/decryption actions
 				are isolated so as to prevent applications and system-level processes from
 				reading the REK while allowing encryption/decryption by the key.<h:br/><h:br/>
 				<h:u>REK generated by the TOE:</h:u><h:br/><h:br/>
-				If a REK is generated by the TOE, the TSS shall include a description of the
+				If an REK is generated by the TOE, the TSS shall include a description of the
 				generation mechanism including what triggers a generation, how the
 				functionality described by FCS_RBG_EXT.1 is invoked, and whether a separate
 				instance of the RBG is used for REK(s).<h:br/><h:br/>
@@ -3614,11 +3635,24 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.8" name="Key Hierarchy Entropy" status="sel-based">
 	<depends on-sel="sel-tsf-kek" or="sel-tsf-kek-combine"/> 
+    	<comp-lev>requires support and management of key hierarchy and entropy.</comp-lev>
+    	<management>The following actions could be considered for the management functions in
+    		FMT:<h:ul>
+    			<h:li>Ability to import private keys</h:li>
+    			<h:li>Ability to export TOE private keys (not for archival)</h:li>
+    		</h:ul>
+    	</management>
+    	<audit>There are no auditable events foreseen.</audit>
+    	<dependencies>
+    		FCS_CKM_EXT.1 Symmetric Key Generation<h:br/><h:br/>
+    		FCS_COP.1 Cryptographic Operation<h:br/><h:br/>
+    		FCS_RBG.1 Random Bit Generation
+    	</dependencies>
 	<f-element>
 		<title>
 			The TSF shall provide a traceable hierarchy of keys (DEKs or KEKs) formed from
-			combinations or by encrypting one key with another to a REK generated in
-			accordance with FCS_RBG_EXT.1 using a hardware-based mechanism. 
+			combinations or by encrypting one key with another to an REK generated in
+			accordance with FCS_RBG.1 using a hardware-based mechanism. 
 		</title>
 	</f-element>
 	<f-element>
@@ -3635,13 +3669,17 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<selectable>256</selectable>
 			</selectables> bits in accordance with the sensitivity of the data encrypted.
 		</title>
+		<ext-comp-def-title>
+			<title>Key entropy for DEKs shall be <assignable>number of bits</assignable> bits in accordance
+				with the sensitivity of the data encrypted.</title>
+		</ext-comp-def-title>
 		<note role="application">
 			This SFR must be included in the ST if "a TSF-provided mechanism that combines KEKs..." is selected in FCS_CKM_EXT.1/KEK 
 			or if "a TSF-provided mechanism that combines KEKs..." is selected in FCS_CKM_EXT.1/DEK.<h:br/><h:br/>
-			KEKs may form key hierarchies, each rooted in a root encryption key (REK); a REK
+			KEKs may form key hierarchies, each rooted in a root encryption key (REK); an REK
 			is considered a KEK. DEKs are used to protect data (e.g., subscriber PII). KEKs are
 			used to protect other keys–- DEKs, other KEKs, and other types of keys stored by
-			the user or applications. A REK is a special KEK that uses available hardware
+			the user or applications. An REK is a special KEK that uses available hardware
 			protections (e.g., trusted platform module (TPM) or external hardware
 			cryptographic module) and is generated in accordance with FCS_RBG_EXT.1.
 		</note>
@@ -3650,7 +3688,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The evaluator shall examine the TSS to ensure a key hierarchy is described
 				showing the relationship of all KEKs and DEKs formed by combinations or by
 				encrypting one key in another. The evaluator shall confirm that each
-				independent hierarchy is terminated in a REK and that the each REK is
+				independent hierarchy is terminated in an REK and that the each REK is
 				generated, stored, and destroyed using hardware-based controls.<h:br/><h:br/>
 				The evaluator shall examine the key hierarchy to ensure that the formation of
 				all KEKs and DEKs is described, and that the key sizes match that described by
@@ -3723,7 +3761,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</TSS>
 			<Guidance>
 				The evaluator shall examine the AGD guidance to ensure it documents how to
-				configure the TOE or the TOE in conjunction with the Operational Environment
+				configure the TOE or the TOE in conjunction with the operational environment
 				for the required hash sizes. The AGD guidance shall also include instructions
 				for disabling deprecated algorithms.
 			</Guidance>
@@ -3817,7 +3855,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<Guidance>
 				The evaluator shall examine the AGD guidance to ensure it contains
 				instructions for configuring the TOE or the TOE in conjunction with the
-				Operational Environment for the required hash sizes and message digest sizes.
+				operational environment for the required hash sizes and message digest sizes.
 			</Guidance>
 			<Tests>
 				If this requirement is met by the TOE, the evaluator shall perform the following
@@ -3871,7 +3909,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</title>
 		<note role="application">
 			The ST should specify whether the TOE performs the algorithms, or whether the
-			TOE in combination with the Operational Environment is used.<h:br/><h:br/>
+			TOE in combination with the operational environment is used.<h:br/><h:br/>
 			The ST author should choose the algorithm implemented to perform digital
 			signature generation; if more than one algorithm is available, this requirement (and the
 			corresponding FCS_CKM.1 requirement) should be iterated to specify the
@@ -3891,7 +3929,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<Guidance>
 				The evaluator shall examine the AGD guidance to ensure it contains
 				instructions for configuring the TOE or the TIE in conjunction with the
-				Operational Environment for the required signature algorithms and associated
+				operational environment for the required signature algorithms and associated
 				modes and key sizes.
 			</Guidance>
 			<Tests>
@@ -4017,7 +4055,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
       			</title>
       			<note role="application">
       				The ST should specify whether the TOE performs the algorithms, or whether the
-      				TOE in combination with the Operational Environment is used.<h:br/><h:br/>
+      				TOE in combination with the operational environment is used.<h:br/><h:br/>
       				The ST author should choose the algorithm implemented to verify digital
       				signatures; if more than one algorithm is available, this requirement (and the
       				corresponding FCS_CKM.1 requirement) should be iterated to specify the
@@ -4037,7 +4075,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
       				<Guidance>
       					The evaluator shall examine the AGD guidance to ensure it contains
       					instructions for configuring the TOE or the TIE in conjunction with the
-      					Operational Environment for the required signature algorithms and associated
+      					operational environment for the required signature algorithms and associated
       					modes and key sizes.
       				</Guidance>
       				<Tests>
@@ -4139,7 +4177,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
       				<Guidance>
       					The evaluator shall examine the AGD guidance to ensure it contains
       					instructions for configuring the TOE or the TOE in conjunction with the
-      					Operational Environment for the required encryption algorithms and
+      					operational environment for the required encryption algorithms and
       					associated modes and key sizes.
       				</Guidance>
       				<Tests>
@@ -4396,7 +4434,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The TSF shall
 			    	<refinement><selectables>
 				    	<selectable>perform</selectable>
-				    	<selectable>invoke interfaces in the Operational Environment to perform</selectable>
+				    	<selectable>invoke interfaces in the operational environment to perform</selectable>
 				    	</selectables>
 			    	</refinement>
 				[<h:i>Password-based Key Derivation Functions</h:i>]
@@ -4411,8 +4449,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				user depends on passwords. It may also be claimed if other mechanisms use
 				password-based encryption.<h:br/><h:br/>
 				In the first selection for each element, the ST author chooses whether the TOE
-				performs the derivation, or whether it invokes interfaces in the Operational
-				Environment for the functionality.<h:br/><h:br/>
+				performs the derivation, or whether it invokes interfaces in the operational environment for the functionality.<h:br/><h:br/>
 				The cryptographic key sizes in the third selection should be made to correspond to
 				the KEK key sizes selected in FCS_CKM_EXT.1/KEKT. A future requirement will add a
 				refinement to require a PBKDF iteration count of at least 1000.<h:br/><h:br/>
@@ -4825,8 +4862,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<TSS>
 				The evaluator shall ensure the TSS identifies the algorithms used for encrypting
 				the IKEv2 payload.<h:br/><h:br/>
-				If the cryptographic functionality is implemented by the Operational
-				Environment and invoked by the TOE, the evaluator shall examine the TSS to
+				If the cryptographic functionality is implemented by the operational environment and invoked by the TOE, the evaluator shall examine the TSS to
 				determine that it lists the cryptographic provider for the functionality and the
 				interfaces that are invoked.
 			</TSS>
@@ -5393,14 +5429,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 <!-- Objective      -->
 <!--                  -->    	
 <ext-comp-def fam-id="FCS_KSH_EXT" title="Key Sharing">
-		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		<fam-behavior>Components in this family ensure the management of key sharing.</fam-behavior>
 		</ext-comp-def>       
 	<f-component name="Key Sharing" cc-id="fcs_ksh_ext.1" status="objective">
-		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-		<management>TODO: QQQQQ</management>
-		<audit>TODO: QQQQQ</audit>
+		<comp-lev>mandates the use of key sharing.</comp-lev>
+		<management>No specific management functions are identified.</management>
+		<audit>There are no auditable events foreseen.</audit>
 		<dependencies>
-			TODO: QQQQQ
+			FCS_CKM_EXT.1 Symmetric Key Generation<h:br/><h:br/>
+			FCS_CKM_EXT.7 Key Generation for KEKs<h:br/><h:br/>
+			FPT_SKY_EXT.1 Split Knowledge Procedures
 		</dependencies>
 		<f-element>
 			<title>
@@ -5419,6 +5457,20 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				mechanisms in accordance with FCS_CKM_EXT.1.1/KEKT, FCS_CKM_EXT.1.2/KEKT,
 				FCS_CKM_EXT.7.1 and FPT_SKY_EXT.1.1/CA.
 			</title>
+			<ext-comp-def-title>
+				<title>The TSF shall 
+					<selectables>
+						<selectable>support</selectable>
+						<selectable>interface with the operational environment to support</selectable>
+					</selectables>
+					split knowledge procedures to enforce two-party control for the export of CA signing keys 
+					<selectables>
+						<selectable>no other data</selectable>
+						<selectable><assignable>critical data or keys</assignable></selectable>
+					</selectables>
+					necessary to resume CA functionality after TSF failure using key sharing
+					mechanisms in accordance with FCS_CKM_EXT.1.1, FCS_CKM_EXT.1.2, FCS_CKM_EXT.7.1 and FPT_SKY_EXT.1.1.</title>
+			</ext-comp-def-title>
 			<note role="application">
 				This SFR, which mandates the use of key sharing to control the export of CA signing
 				keys, is intended to replace FPT_SKY_EXT.1/CA in future versions of this PP.
@@ -5431,7 +5483,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</TSS>
 				<Guidance>
 					The evaluator shall examine the AGD guidance to ensure it contains
-					instructions for configuring the TOE or Operational Environment to restrict
+					instructions for configuring the TOE or operational environment to restrict
 					access to the shares and limit each one to a single privileged user.
 				</Guidance>
 				<Tests>
@@ -5783,8 +5835,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
  	      </note>
 	      <aactivity>
 		      <TSS>
-			Regardless of whether this requirement is met by the TOE or the Operational
-			Environment, the evaluator will check the TSS to ensure that it lists each
+			Regardless of whether this requirement is met by the TOE or the operational environment, the evaluator will check the TSS to ensure that it lists each
 			persistent secret and private key needed to meet the requirements in the ST.
 			For each of these items, the evaluator will confirm that the TSS lists for what
 			purpose it is used, and how it is stored. 
@@ -6614,7 +6665,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<title>
 				The TSF <refinement>and 
 				<selectables>
-					<selectable>Operational Environment</selectable>
+					<selectable>operational environment</selectable>
 					<selectable>no other component</selectable>
 				</selectables></refinement>
 				shall ensure that any previous information content of a resource is
@@ -6634,7 +6685,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				to resources that the TSF controls. “Objects” refers to any sensitive data objects
 				that are under control of the TSF, such as subscribers’ personally identifiable
 				information.<h:br/><h:br/>
-				The first selection should include ‘Operational Environment’ if the TSF depends on
+				The first selection should include ‘operational environment’ if the TSF depends on
 				a component of the OE to store and protect TSF data. The ST should specify the
 				component and any interface used to meet this requirement. 
 			</note>
@@ -6666,21 +6717,24 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- QQQQ: The DEK referenced in FDP_SDP_EXT.1.1 is generated by FCS_CKM_EXT.1(1).  -->
 	<!--               -->     
     <ext-comp-def fam-id="FDP_SDP_EXT" title="Sensitive Data Protection">
-		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		<fam-behavior>Components in this family ensure the protection of user sensitive data.</fam-behavior>
 		</ext-comp-def>     
 	<f-component cc-id="fdp_sdp_ext.1" name="User Sensitive Data Protection" status="optional">
-		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-            <management>TODO: QQQQQ</management>
-            <audit>TODO: QQQQQ</audit>
+		<comp-lev>requires the TSF to protect or destroy personally identifiable information.</comp-lev>
+		<management>The following actions could be considered for the management functions in FMT:<h:ul>
+			<h:li>Ability to destroy sensitive user data when no longer needed</h:li>
+		</h:ul></management>
+		<audit>There are no auditable events foreseen.</audit>
             <dependencies>
-                TODO: QQQQQ
+            	FCS_CKM.1 Symmetric Key Generation<h:br/><h:br/>
+                FCS_COP.1 Cryptographic Operation
             </dependencies>
 		<f-element>
 			<title>
 				The TSF shall 
 				<selectables>
 					<selectable>protect</selectable>
-					<selectable>invoke interfaces to the Operational Environment to protect</selectable>
+					<selectable>invoke interfaces to the operational environment to protect</selectable>
 				</selectables>
 				<selectables linebreak="yes">
 					<selectable>subscriber identity information</selectable>
@@ -6693,13 +6747,22 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable><assignable>other personally identifiable information</assignable></selectable>
 				</selectables> through encryption in accordance with FCS_COP.1/SKC using a DEK.
 			</title>
+			<ext-comp-def-title>
+				<title>The TSF shall 
+					<selectables>
+						<selectable>protect</selectable>
+						<selectable>invoke interfaces to the operational environment to protect</selectable>
+					</selectables>
+					<assignable>types of information</assignable> through encryption in accordance with FCS_COP.1 using a DEK.
+				</title>
+			</ext-comp-def-title>
 		</f-element>
 		<f-element>
 			<title>
 				The TSF shall 
 				<selectables>
 					<selectable>destroy</selectable>
-					<selectable>invoke interfaces to the Operational Environment to destroy</selectable>
+					<selectable>invoke interfaces to the operational environment to destroy</selectable>
 				</selectables> all protected data when no longer required in accordance with the
 				specified cryptographic data destruction method:
 				<selectables linebreak="yes">
@@ -6721,14 +6784,23 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					</selectable>
 				</selectables>
 			</title>
+			<ext-comp-def-title>
+				<title>The TSF shall 
+					<selectables>
+						<selectable>destroy</selectable>
+						<selectable>invoke interfaces to the operational environment to destroy</selectable>
+					</selectables> all protected data when no longer required in accordance with the
+					specified cryptographic data destruction method: <assignable>type of destruction
+						methods</assignable>.
+				</title>
+			</ext-comp-def-title>
 			<note role="application">
 				In the first selection for each element, the ST author chooses whether the TOE
 				performs the protection/destruction, or whether it invokes interfaces in the
-				Operational Environment for the functionality.<h:br/><h:br/>
+				operational environment for the functionality.<h:br/><h:br/>
 				The DEK referenced in FDP_SDP_EXT.1.1 is generated by FCS_CKM_EXT.1/DEK.<h:br/><h:br/>
 				In the second selection in FDP_SDP_EXT.1.1, the ST author should indicate all
-				protected data (e.g., subscriber PII) that is protected by the TOE or Operational
-				Environment and specify how that protection is accomplished. Information
+				protected data (e.g., subscriber PII) that is protected by the TOE or operational environment and specify how that protection is accomplished. Information
 				included only in issued certificates is not included in this requirement. This is not
 				a general requirement to protect all PII anywhere on the system, but instead deals
 				only with information used by the TOE in performing CA functions.<h:br/><h:br/>
@@ -6747,7 +6819,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					and the type of destruction procedure that is performed.<h:br/><h:br/>
 					The evaluator shall ensure that the mode and key size used in the encryption
 					of the data is specified in the FCS_COP.1 SFR.<h:br/><h:br/>
-					If the Operational Environment is invoked to perform the functions, the TSS
+					If the operational environment is invoked to perform the functions, the TSS
 					shall list the interfaces (APIs) that are invoked.
 				</TSS>
 				<Guidance>
@@ -6889,7 +6961,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The TSF shall 
 				<refinement><selectables>
 					<selectable>implement</selectable>
-					<selectable>interface with the Operational Environment to implement</selectable>
+					<selectable>interface with the operational environment to implement</selectable>
 				</selectables> 
 				the ability </refinement>to detect when [<h:i>an administrator
 				configurable positive integer within <assignable>range of acceptable values</assignable></h:i>]
@@ -6931,7 +7003,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					TSS shall also describe the method by which the remote privileged user is
 					prevented from successfully logging on to the TOE, and the actions necessary
 					to restore this ability.<h:br/><h:br/>
-					If the Operational Environment is responsible for this function, the evaluator
+					If the operational environment is responsible for this function, the evaluator
 					shall verify that the TSS describes that function.<h:br/><h:br/>
 				</TSS>
 				<Guidance>
@@ -6942,14 +7014,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					again successfully log on is described for each “action” specified (if that option
 					is chosen). If different actions or mechanisms are implemented depending on
 					the authentication method (e.g., TLS vs. SSH), all must be described.<h:br/><h:br/>
-					If the Operational Environment is responsible for this function, the evaluator
+					If the operational environment is responsible for this function, the evaluator
 					shall verify that the operational guidance instructs the reader to rely on this
 					capability.<h:br/><h:br/>
 				</Guidance>
 				<Tests>
 					The evaluator shall perform the following tests for each method by which
 					remote privileged users access the TOE, either directly or by authenticating to
-					the Operational Environment from which the TOE inherits user information
+					the operational environment from which the TOE inherits user information
 					(e.g., TLS, SSH):<h:br/><h:br/>
 					<testlist>
 						<test>
@@ -8266,15 +8338,19 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <!-- FIA_UAU_EXT.1 -->
 	<!--               -->     
     <ext-comp-def fam-id="FIA_UAU_EXT" title="Authentication Mechanism">
-		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		<fam-behavior>Components in this family ensure there is an authentication mechanism for user
+			authentication.</fam-behavior>
 	</ext-comp-def>    
 	<f-component cc-id="fia_uau_ext.1" name="Authentication Mechanism" >
-		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-            <management>TODO: QQQQQ</management>
-            <audit>TODO: QQQQQ</audit>
-            <dependencies>
-                TODO: QQQQQ
-            </dependencies>
+		<comp-lev>requires the TSF to provide a specified authentication mechanism to ensure user
+			authentication.</comp-lev>
+		<management>No specific management functions are identified.</management>
+		<audit>The following actions should be auditable if FAU_GEN.1 Audit Data Generation is included in
+			the PP/ST:<h:ul>
+				<h:li>All uses of the authentication mechanism used for access to TOE related functions
+					(Retention: Normal)</h:li>
+			</h:ul></audit>
+            <dependencies>No dependencies.</dependencies>
 		<f-element id="fia-uau-ext-1e1">
 			<title>
 				The TSF shall 
@@ -8288,6 +8364,15 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</selectables>
 				to perform privileged user authentication. 
 			</title>
+			<ext-comp-def-title>
+				<title>The TSF shall 
+					<selectables>
+						<selectable>provide</selectable>
+						<selectable>interface with the OE to provide</selectable>
+					</selectables> a <assignable>type of authentication mechanism</assignable> to perform
+					privileged user authentication.   
+				</title>
+			</ext-comp-def-title>
 			<note role="application">
 				Examples of “other authentication mechanisms” for the selection include onetime
 				password mechanisms such as RSA SecurID, certificates, and biometrics.
@@ -8489,7 +8574,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The TSF shall 
 				<selectables>
 					<selectable>validate</selectable>
-					<selectable>interface with the Operational Environment to validate</selectable>
+					<selectable>interface with the operational environment to validate</selectable>
 				</selectables>
 				certificates in accordance with the following rules: <h:br/><h:br/>
 				<h:ul>
@@ -8522,7 +8607,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</h:ul>
 			</title>
 			<note role="application">
-				The TSF may rely on the Operational Environment to perform certificate handling
+				The TSF may rely on the operational environment to perform certificate handling
 				functionality in cases where the TOE relies on an environmental component to
 				provide trusted remote communications.<h:br/><h:br/>
 				FIA_X509_EXT.1 lists the rules for validating certificates. The ST author shall select
@@ -8627,7 +8712,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The TSF shall 
 				<selectables>
 					<selectable>use</selectable>
-					<selectable>interface with the Operational Environment to use</selectable>
+					<selectable>interface with the operational environment to use</selectable>
 				</selectables>
 				X.509v3 certificates as defined by RFC 5280 to support authentication for code
 				signing for TOE updates, 
@@ -8662,7 +8747,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</selectables>.
 			</title>
 			<note role="application">
-				The TSF may rely on the Operational Environment to perform certificate handling
+				The TSF may rely on the operational environment to perform certificate handling
 				functionality in cases where the TOE relies on an environmental component to 
 				provide trusted remote communications. If the ST author selects SSH, the TSF shall
 				be validated against the <xref to="pkgSSH"/>.<h:br/><h:br/>
@@ -8836,7 +8921,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The 
 				<refinement><selectables>
 					<selectable>TSF</selectable>
-					<selectable>Operational Environment</selectable>
+					<selectable>operational environment</selectable>
 					</selectables></refinement>
 				shall restrict the ability to
 				[<h:i>
@@ -8866,7 +8951,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				to [<h:i>Administrators</h:i>].	
 			</title>
 			<note role="application">
-				It is likely that some combination of the TOE and its Operational Environment are
+				It is likely that some combination of the TOE and its operational environment are
 				collectively responsible for implementing these management functions. In such
 				cases, the ST author should specify, for each function, the component that
 				enforces it. <h:p/>
@@ -8898,7 +8983,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The 
 				<refinement><selectables>
 					<selectable>TSF</selectable>
-					<selectable>Operational Environment</selectable>
+					<selectable>operational environment</selectable>
 					</selectables>
 				</refinement>
 				shall restrict the ability to
@@ -8937,7 +9022,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The <refinement>
 				<selectables>
 					<selectable>TSF</selectable>
-					<selectable>Operational Environment</selectable>
+					<selectable>operational environment</selectable>
 				</selectables></refinement>
 				shall restrict the ability to
 				[<h:i>
@@ -8985,7 +9070,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The
 				<refinement><selectables>
 					<selectable>TSF</selectable>
-					<selectable>Operational Environment</selectable>
+					<selectable>operational environment</selectable>
 					</selectables></refinement>
 				shall restrict the ability to
 				[<h:i><refinement><h:ul>
@@ -9017,7 +9102,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					consistent with this requirement. For every function specified across all
 					iterations, the TSS must specify how the restriction is achieved and how (by
 					role or some other specified mechanism). This applies whether the ST author
-					selects “TSF” or “Operational Environment” in the first SFR selection.
+					selects “TSF” or “operational environment” in the first SFR selection.
 				</TSS>
 				<Guidance>
 					If the role restriction mechanism is configurable, the evaluator shall examine
@@ -9037,8 +9122,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					Testing of the TOE may be performed on a subset of the platforms listed in the
 					TOE’s evaluated configuration in the ST. Justification must be provided for
 					those platforms that were excluded from testing. Note that this must explicitly
-					cover functionality for capabilities implemented by the Operational
-					Environment, if “Operational Environment” is selected.<h:br/><h:br/>
+					cover functionality for capabilities implemented by the operational environment, if “operational environment” is selected.<h:br/><h:br/>
 				</Tests>
 			</aactivity>
 		</f-element>
@@ -9054,7 +9138,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The
 				<refinement><selectables>
 					<selectable>TSF</selectable>
-					<selectable>Operational Environment</selectable>
+					<selectable>operational environment</selectable>
 					</selectables></refinement>
 				shall restrict the ability to<h:br/><h:br/>
 				[<h:i>
@@ -9148,7 +9232,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The 
 				<refinement><selectables>
 					<selectable>TSF</selectable>
-					<selectable>Operational Environment</selectable>
+					<selectable>operational environment</selectable>
 					</selectables>
 				</refinement>
 				shall be capable of performing the following management functions: [
@@ -9189,7 +9273,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</h:ul>
 			</title>
 			<note role="application">
-				Some TOE functions require the use of the Operational Environment. The ST
+				Some TOE functions require the use of the operational environment. The ST
 				author simply must make clear in the ST what management functions are
 				performed by the TOE itself or which are performed by the TOE in conjunction with
 				its environment.<h:br/><h:br/>
@@ -9224,7 +9308,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					TOE’s evaluated configuration in the ST. Justification must be provided for
 					those platforms that were excluded from testing. Note that this must explicitly
 					cover guidance instructions and functionality for capabilities implemented by
-					the Operational Environment, if “Operational Environment” is selected.
+					the operational environment, if “operational environment” is selected.
 				</Tests>
 			</aactivity>
 	     </f-element>
@@ -9241,7 +9325,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The TSF 
 				<refinement>and 
 					<selectables>
-						<selectable>Operational Environment</selectable>
+						<selectable>operational environment</selectable>
 						<selectable>no other component</selectable>
 					</selectables>
 				</refinement> shall maintain the roles: [<h:br/>
@@ -9262,7 +9346,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<title>The TSF 
 				<refinement> and
 					<selectables>
-						<selectable>Operational Environment</selectable>
+						<selectable>operational environment</selectable>
 						<selectable>no other component</selectable>
 					</selectables>
 				</refinement>
@@ -9273,7 +9357,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<title>
 				The TSF
 				<refinement>and<selectables>
-					<selectable>Operational Environment</selectable>
+					<selectable>operational environment</selectable>
 					<selectable>no other component</selectable>
 					</selectables>
 				</refinement>shall ensure that the conditions [
@@ -9425,7 +9509,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>integrity failure on audit</selectable>
 					<selectable>integrity failure on Trust Anchor database</selectable>
 					<selectable><assignable>other potential TSF failures</assignable></selectable>
-					<selectable><assignable>other potential Operational Environment failures</assignable></selectable>
+					<selectable><assignable>other potential operational environment failures</assignable></selectable>
 				</selectables>.
 			</title>
 			<note role="application">
@@ -9435,7 +9519,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				occurs. If the TOE should encounter a failure in the middle of a critical operation,
 				the TOE should not just quit operating, leaving key material and user data
 				unprotected.<h:br/><h:br/>
-				The failure of an Operational Environment component can be just as detrimental
+				The failure of an operational environment component can be just as detrimental
 				to security as a failure of the TSF itself. Therefore, in addition to describing the
 				potential TSF failures and how the TOE preserves a secure state in response, the
 				ST author is also expected to use this SFR to express how the TOE is made aware
@@ -9562,7 +9646,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<title>
 				The TSF and 
 				<selectables>
-					<selectable>Operational Environment</selectable>
+					<selectable>operational environment</selectable>
 					<selectable>no other component</selectable>
 				</selectables> shall prevent the plaintext export of
 				<assignable>list of all keys used by the TSF</assignable>.
@@ -9572,7 +9656,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				keys. The intent of this optional requirement is to prevent the keys from being
 				exported during an archive event authorized by the TOE user or administrator.<h:br/><h:br/>
 				If TSF keys are stored in the OE, the TSF requires support of the OE to meet this
-				requirement. The Operational Environment shall be selected and the specific
+				requirement. The operational environment shall be selected and the specific
 				components used shall be described in the TSS.
 			</note>
 			<aactivity>
@@ -9619,7 +9703,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<title>
 				The TSF and 
 				<selectables>
-					<selectable>Operational Environment</selectable>
+					<selectable>operational environment</selectable>
 					<selectable>no other components</selectable>
 				</selectables>
 				shall prevent unauthorized use of all TSF private and secret keys.
@@ -9636,7 +9720,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</TSS>
 				<Guidance>
 					The evaluator shall examine the AGD guidance to ensure it contains
-					instructions for configuring the TOE or Operational Environment to prevent
+					instructions for configuring the TOE or operational environment to prevent
 					unauthorized access to TSF secret and private keys by users or processes.
 				</Guidance>
 				<Tests>
@@ -9666,18 +9750,23 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- FPT_NPE_EXT.1 -->
     <!--               -->     
     <ext-comp-def fam-id="FPT_NPE_EXT" title="NPE Constraints">
-		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		<fam-behavior>Components in this family ensure rulesets for NPE certificates.</fam-behavior>
 	</ext-comp-def>
 	<f-component cc-id="fpt_npe_ext.1" name="NPE Constraints" status="optional">
-		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-            <management>TODO: QQQQQ</management>
-            <audit>TODO: QQQQQ</audit>
-            <dependencies>
-                TODO: QQQQQ
-            </dependencies>
+		<comp-lev>enforces rulesets for NPE certificate requests and requires registration to a specified
+			authority.</comp-lev>
+		<management>The following actions could be considered for the management functions in FMT:<h:ul>
+			<h:li>Ability to configure the NPE ruleset</h:li>
+			<h:li>bility to approve rulesets that govern the authorizations of RAs or AORs to manage particular certificates on behalf of an organization</h:li>
+		</h:ul></management>
+		<audit>The following actions should be auditable if FAU_GEN.1 Audit Data Generation is included in the PP/ST: <h:ul>
+            	<h:li>All changes to NPE rule sets and NPE.
+            		(Retention: Extended)</h:li>
+            </h:ul></audit>
+            <dependencies>No dependencies.</dependencies>
 		<f-element>
 			<title>
-				The TSF shall enforce an Administrator-configurable ruleset that specifies
+				The TSF shall enforce an administrator-configurable ruleset that specifies
 				authorizations to submit NPE certificate requests. 
 			</title>
 			<note role="application">
@@ -9688,8 +9777,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</f-element>
 		<f-element>
 			<title>
-				The TSF shall require the CA Operations Staff to register any RA, and shall require
-				a CA Operations Staff or authorized RA to register any AORs, and associate each
+				The TSF shall require the CA operations staff to register any RA, and shall require
+				a CA operations staff or authorized RA to register any AORs, and associate each
 				AOR with an organization or set of devices prior to that AOR making requests on
 				behalf of an assigned organization or devices. 
 			</title>
@@ -9839,7 +9928,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The TSF shall 
 				<selectables>
 					<selectable>implement</selectable>
-					<selectable>interface with the Operational Environment to implement</selectable>
+					<selectable>interface with the operational environment to implement</selectable>
 				</selectables>
 				the ability to prevent reading of all pre-shared, private, and
 				secret keys (e.g., KEKs, DEKs, session keys).
@@ -9854,8 +9943,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</note>
 			<aactivity>
 				<TSS>
-					Regardless of whether this requirement is met by the TOE or the Operational
-					Environment, the evaluator shall examine the TSS to determine that it details
+					Regardless of whether this requirement is met by the TOE or the operational environment, the evaluator shall examine the TSS to determine that it details
 					each persistent private and secret key needed to meet the requirements in the
 					ST. For each of these items, the evaluator shall confirm that the TSS details how
 					any secret or private keys are stored and that they are unable to be viewed
@@ -9865,7 +9953,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</TSS>
 				<Guidance>
 					The evaluator shall examine the AGD guidance to ensure it contains any
-					necessary instructions for configuring the TOE or Operational Environment to
+					necessary instructions for configuring the TOE or operational environment to
 					support this requirement.
 				</Guidance>
 				<Tests>
@@ -9896,15 +9984,22 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	included in the ST and OE.KEY_ARCHIVAL is included in the ST.   -->
 	<!--               -->     
     <ext-comp-def fam-id="FPT_SKY_EXT" title="Split Knowledge Procedures">
-		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		<fam-behavior>Components in this family ensure support for split knowledge procedure
+			functionality.</fam-behavior>
 	</ext-comp-def>
+     	
 	<!-- invisible non-iterated FPT_SKY_EXT.1 for ECD purposes -->
 	<f-component cc-id="fpt_sky_ext.1" name="Split Knowledge Procedures" status="invisible">
-		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-            <management>TODO: QQQQQ</management>
-            <audit>TODO: QQQQQ</audit>
+		<comp-lev>requires support for split knowledge procedures for the management of keys.</comp-lev>
+		<management>The following actions could be considered for the management functions in FMT:<h:ul>
+			<h:li>Ability to export TOE private keys (not for archival)</h:li>
+		</h:ul></management>
+		<audit>There are no auditable events foreseen.</audit>
             <dependencies>
-                TODO: QQQQQ
+                FCS_CKM_EXT.1 Symmetric Key Generation<h:br/><h:br/>
+            	FCS_CKM_EXT.6 Key Archival<h:br/><h:br/>
+            	FCS_RBG.1 Random Bit Generation<h:br/><h:br/>
+            	FPT_SKY_EXT.2 Key Share Access
             </dependencies>
 	</f-component>
 	<f-component cc-id="fpt_sky_ext.1" iteration="CA" name="Split Knowledge Procedures (CA Functionality)" status="optional">
@@ -9927,6 +10022,17 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable><assignable>other mechanism</assignable></selectable>
 				</selectables>.
 			</title>
+			<ext-comp-def-title>
+				<title>The TSF shall 
+					<selectables>
+						<selectable>support</selectable>
+						<selectable>interface with the operational environment to support</selectable>
+					</selectables>
+					split knowledge procedures to enforce two-party control for the export of CA signing keys and
+					<assignable>types of data or keys</assignable> necessary to resume CA functionality after TSF
+					failure using <assignable>types of mechanisms</assignable>. 
+				</title>
+			</ext-comp-def-title>
 			<note role="application">
 				The intent of this requirement is to limit access to critical keys that are necessary
 				to maintain operations after a failure.
@@ -9947,8 +10053,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				FCS_CKM_EXT.6. FPT_SKY_EXT.2 specifies access control for the key shares
 				themselves.
 				<TSS>
-					If the TSF interfaces with a cryptographic module in the Operational
-					Environment to implement a key sharing mechanism, the evaluator shall
+					If the TSF interfaces with a cryptographic module in the operational environment to implement a key sharing mechanism, the evaluator shall
 					examine the TSS to ensure that the interface to the OE, and cryptographic
 					provider for the key sharing mechanism is described.<h:br/><h:br/>
 					If the TSF implements another split knowledge procedure, the evaluator shall
@@ -10002,6 +10107,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable><assignable>other mechanism</assignable></selectable>
 				</selectables>.
 			</title>
+			<ext-comp-def-title>
+				<title>The TSF shall 
+					<selectables>
+						<selectable>support</selectable>
+						<selectable>interface with the operational environment to support</selectable>
+					</selectables>
+					split knowledge procedures to enforce two-party control for the export of 
+					<assignable>types of data or keys</assignable> using <assignable>types of mechanisms</assignable>. 
+				</title>
+			</ext-comp-def-title>
 			<note role="application">
 				The intent of this requirement is to limit access to other critical keys or data 
 				that are archived when the TSF provides, or interfaces with the OE to provide, a 
@@ -10028,7 +10143,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<TSS>
 					The evaluator shall ensure that the TSS describes the dependence on the OE and identifies any 
 					cryptographic providers within the OE used to support the procedures. <h:p/>
-					If the TSF interfaces with a cryptographic module in the Operational Environment to implement 
+					If the TSF interfaces with a cryptographic module in the operational environment to implement 
 					a key sharing mechanism, the evaluator shall examine the TSS to ensure that the interface to 
 					the OE, and cryptographic provider for the key sharing mechanism is described.<h:p/>
 					If the TSF implements another split knowledge procedure, the evaluator shall examine the TSS 
@@ -10056,23 +10171,37 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	
 	<f-component cc-id="fpt_sky_ext.2" name="Key Share Access" status="sel-based">
 		<depends on-sel="sel-pwd-auth"/> <!-- TODO: This is wrong -->
-		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-            <management>TODO: QQQQQ</management>
-            <audit>TODO: QQQQQ</audit>
+		<comp-lev>requires the TOE to ensure the proper use of key share access.</comp-lev>
+		<management>No specific management functions are identified.</management>
+		<audit>The following actions should be auditable if FAU_GEN.1 Audit Data Generation is included in
+			the PP/ST:<h:ul>
+				<h:li>Access control violations for users involved in key share establishment or control.
+					(Retention: Extended)</h:li>
+			</h:ul></audit>
             <dependencies>
-                TODO: QQQQQ
+                FCS_CKM_EXT.1 Symmetric Key Generation<h:br/><h:br/>
+            	FCS_RBG.1 Random Bit Generation
             </dependencies>
 		<f-element>
 			<title>
 				The 
 				<selectables>
 					<selectable>TSF</selectable>
-					<selectable>Operational Environment</selectable>
+					<selectable>operational environment</selectable>
 				</selectables> shall ensure that key shares
-				generated in accordance with FCS_CKM_EXT.1/SHARE are accessible only to privileged
+				generated in accordance with FCS_CKM_EXT.1<h:b>/SHARE</h:b> are accessible only to privileged
 				users, and that each share is only accessible to a single privileged user as
 				configured by an Administrator.
 			</title>
+			<ext-comp-def-title>
+				<title><selectables>
+					<selectable>TSF</selectable>
+					<selectable>operational environment</selectable>
+				</selectables> shall ensure that key shares
+					generated in accordance with FCS_CKM_EXT.1 are accessible only to privileged
+					users, and that each share is only accessible to a single privileged user as
+					configured by an Administrator.</title>
+			</ext-comp-def-title>
 			<note role="application">
 				This SFR shall be included if “key sharing mechanisms in accordance with
 				FCS_CKM_EXT.1/KEKT, FCS_CKM_EXT.1/SHARE, FCS_CKM_EXT.6, and FPT_SKY_EXT.2” is
@@ -10115,7 +10244,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The TSF shall be able to <refinement>
 				<selectables>
 					<selectable>provide</selectable>
-					<selectable>interface with the Operational Environment to provide</selectable>
+					<selectable>interface with the operational environment to provide</selectable>
 				</selectables></refinement> reliable time stamps. 
 			</title>
 			<note role="application">
@@ -10242,32 +10371,49 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	TSF interfaces with the OE to invoke the algorithms indicated.   -->
 	<!--               -->     
     <ext-comp-def fam-id="FPT_TST_EXT" title="TOE Testing">
-		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		<fam-behavior>Components in this family ensure the integrity of testing.</fam-behavior>
 	</ext-comp-def>
 	<f-component cc-id="fpt_tst_ext.1" name="TOE Integrity Test" status="optional">
-		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-            <management>TODO: QQQQQ</management>
-            <audit>TODO: QQQQQ</audit>
+		<comp-lev>requires the TOE testing to be secure and the integrity to be verified.</comp-lev>
+		<management>The following actions could be considered for the management functions in FMT:<h:ul>
+			<h:li>Ability to perform on-demand integrity tests</h:li>
+		</h:ul></management>
+		<audit>The following actions should be auditable if FAU_GEN.1 Audit Data Generation is included in
+			the PP/ST:<h:ul>
+				<h:li>Execution of this set of TSF integrity tests
+					(Retention: Normal)</h:li>
+				<h:li>Detected integrity violations
+					(Retention: Normal)</h:li>
+			</h:ul></audit>
             <dependencies>
-                TODO: QQQQQ
+                FCS_COP.1 Cryptographic Operations
+                FPT_TST.1 TSF Self-Testing
             </dependencies>
 		<f-element>
 			<title>
 				The TSF shall apply a 
 				<selectables>
-					<selectable>keyed hash according to FCS_COP.1/KeyedHash</selectable>
-					<selectable>digital signature algorithm according to FCS_COP.1/Sig</selectable>
+					<selectable>keyed hash according to FCS_COP.1<h:b>/KeyedHash</h:b></selectable>
+					<selectable>digital signature algorithm according to FCS_COP.1<h:b>/Sig</h:b></selectable>
 				</selectables>
 				to the TOE software and firmware.
 				<comment>This requirement is similar to the requirements laid out in FPT_TST.1.3, which has been added as a required dependency for FCS_RBG.1. Should this requirement be folded into that one?</comment>
 			</title>
+			<ext-comp-def-title>
+				<title>The TSF shall apply a 
+					<selectables>
+						<selectable>keyed hash according to FCS_COP.1</selectable>
+						<selectable>digital signature algorithm according to FCS_COP.1</selectable>
+					</selectables>
+					to the TOE software and firmware.</title>
+			</ext-comp-def-title>
 		</f-element>
 		<f-element>
 			<title>
 				The 
 				<selectables>
 					<selectable>TSF</selectable>
-					<selectable>Operational Environment</selectable>
+					<selectable>operational environment</selectable>
 				</selectables> 
 				shall verify the integrity of the TOE software and firmware 
 				<selectables>
@@ -10276,6 +10422,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>on-demand by a privileged user</selectable>
 				</selectables>.
 			</title>
+			<ext-comp-def-title>
+				<title>The 
+					<selectables>
+						<selectable>TSF</selectable>
+						<selectable>operational environment</selectable>
+					</selectables> 
+					shall verify the integrity of the TOE software and firmware <assignable>list of
+						actions</assignable>.
+				</title>
+			</ext-comp-def-title>
 			<note role="application">
 				The ST author includes this SFR when the TSF includes a mechanism that can
 				perform integrity tests on software/firmware, for instance, if the TSF includes an
@@ -10330,18 +10486,26 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	included in the ST.   -->
 	<!--               -->     
     <f-component cc-id="fpt_tst_ext.2" name="Integrity Test" status="optional">
-		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-            <management>TODO: QQQQQ</management>
-            <audit>TODO: QQQQQ</audit>
-            <dependencies>
-                TODO: QQQQQ
-            </dependencies>
+    	<comp-lev>requires testing to be secure and the integrity to be verified.</comp-lev>
+    	<management>The following actions could be considered for the management functions in FMT:<h:ul>
+    		<h:li>Ability to perform on-demand integrity tests</h:li>
+    	</h:ul></management>
+    	<audit>The following actions should be auditable if FAU_GEN.1 Audit Data Generation is included in
+    		the PP/ST:<h:ul>
+    			<h:li>Execution of this set of TSF integrity tests
+    				(Retention: Normal)</h:li>
+    			<h:li>Detected integrity violations</h:li>
+    		</h:ul></audit>
+    	<dependencies>
+    		FCS_COP.1 Cryptographic Operations
+    		FPT_TST.1 TSF Self-Testing
+    	</dependencies>
 		<f-element>
 			<title>
 				The TSF shall apply a 
 				<selectables>
-					<selectable>keyed hash according to FCS_COP.1/KeyedHash</selectable>
-					<selectable>digital signature algorithm according to FCS_COP.1/Sig</selectable>
+					<selectable>keyed hash according to FCS_COP.1<h:b>/KeyedHash</h:b></selectable>
+					<selectable>digital signature algorithm according to <h:b>FCS_COP.1/Sig</h:b></selectable>
 				</selectables>
 				to the 
 				<selectables>
@@ -10352,6 +10516,15 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</selectables>.
 				<comment>This requirement is similar to the requirements laid out in FPT_TST.1.2, which has been added as a required dependency for FCS_RBG.1. Should this requirement be folded into that one?</comment>
 			</title>
+			<ext-comp-def-title>
+				<title>The TSF shall apply a 
+					<selectables>
+						<selectable>keyed hash according to FCS_COP.1</selectable>
+						<selectable>digital signature algorithm according to FCS_COP.1</selectable>
+					</selectables>
+					to the <assignable>types of data relevant to TSF security</assignable>.
+				</title>
+			</ext-comp-def-title>
 		</f-element>
 		<f-element>
 			<title>
@@ -10362,6 +10535,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>on-demand by a privileged user</selectable>
 				</selectables>.
 			</title>
+			<ext-comp-def-title>
+				<title>Integrity shall be verified at <assignable>list of
+					actions</assignable>.
+				</title>
+			</ext-comp-def-title>
 			<note role="application">
 				The ST author includes this SFR when the TSF itself provides integrity protection
 				for any of the items listed in the second selection of FPT_TST_EXT.2.1.<h:br/><h:br/>
@@ -10414,21 +10592,28 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <!-- FPT_TUD_EXT.1 -->
 	<!--               -->     
     <ext-comp-def fam-id="FPT_TUD_EXT" title="Trusted Update">
-		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+		<fam-behavior>Components in this family ensure the TOE can manage updates and digital signatures.</fam-behavior>
 	</ext-comp-def>
 	<f-component cc-id="fpt_tud_ext.1" name="Trusted Update" >
-		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-            <management>TODO: QQQQQ</management>
-            <audit>TODO: QQQQQ</audit>
+		<comp-lev>requires the TSF to check for and provide access for administrators to verify updates
+			and signatures.</comp-lev>
+		<management>The following actions could be considered for the management functions in FMT:<h:ul>
+			<h:li>Ability to perform updates to the TOE</h:li>
+		</h:ul></management>
+		<audit>The following actions should be auditable if FAU_GEN.1 Audit Data Generation is included in
+			the PP/ST:<h:ul>
+				<h:li>Initiation of update.
+					(Retention: Extended)</h:li>
+			</h:ul></audit>
             <dependencies>
-                TODO: QQQQQ
+                FCS_COP.1 Cryptographic Operations
             </dependencies>
 		<f-element>
 			<title>
 				The TSF shall
 				<selectables>
 					<selectable>implement</selectable>
-					<selectable>interface with the Operational Environment to implement</selectable>
+					<selectable>interface with the operational environment to implement</selectable>
 				</selectables>
 				the ability to check for updates and patches to the TOE.
 			</title>
@@ -10438,7 +10623,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The TSF shall
 				<selectables>
 					<selectable>implement</selectable>
-					<selectable>interface with the Operational Environment to implement</selectable>
+					<selectable>interface with the operational environment to implement</selectable>
 				</selectables>
 				the ability to provide Administrators the ability to initiate updates
 				to TOE firmware/software.
@@ -10449,7 +10634,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The TSF shall
 				<selectables>
 					<selectable>implement</selectable>
-					<selectable>interface with the Operational Environment to implement</selectable>
+					<selectable>interface with the operational environment to implement</selectable>
 				</selectables>
 				the ability to verify firmware/software updates to the TOE using a
 				digital signature prior to installing those updates.
@@ -10460,7 +10645,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The TSF shall
 				<selectables>
 					<selectable>implement</selectable>
-					<selectable>interface with the Operational Environment to implement</selectable>
+					<selectable>interface with the operational environment to implement</selectable>
 				</selectables>
 				 the ability to verify the digital signature whenever the software or
 				firmware is externally loaded into the TOE and if verification fails, the TSF shall
@@ -10622,7 +10807,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The TSF shall 
 				<refinement><selectables>
 					<selectable>implement</selectable>
-					<selectable>interface with the Operational Environment to implement</selectable>
+					<selectable>interface with the operational environment to implement</selectable>
 					</selectables> the ability to </refinement> allow <refinement>privileged </refinement>
 				user-initiated termination of the <refinement>privileged</refinement> user’s own interactive session.
 			</title>
@@ -11092,7 +11277,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		  <h:td>ST Introduction (ASE_INT.1)</h:td>
         </h:tr>
 		<h:tr><h:td>Conformance Claims (ASE_CCL.1)</h:td></h:tr>
-		<h:tr><h:td>Security Objectives for the Operational Environment
+		<h:tr><h:td>Security Objectives for the operational environment
           (ASE_OBJ.1)</h:td></h:tr>
         <h:tr><h:td>Extended Components Definition (ASE_ECD.1)</h:td></h:tr>
         <h:tr><h:td>Stated Security Requirements (ASE_REQ.1)</h:td></h:tr>
@@ -11172,7 +11357,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
 	<section id="agd" title="Class AGD: Guidance Documentation">
 		The guidance documents will be provided with the ST. Guidance must include a description of how the IT
-		personnel verifies that the Operational Environment can fulfill its role for the security functionality. The
+		personnel verifies that the operational environment can fulfill its role for the security functionality. The
 		documentation should be in an informal style and readable by the IT personnel. Guidance must be
 		provided for every operational environment that the product supports as claimed in the ST. This guidance
 		includes instructions to successfully install the TSF in that environment; and Instructions to manage the
@@ -11241,7 +11426,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					The operational guidance shall at a minimum list the processes that comprise
 					the TOE in its evaluated configuration.<h:br/><h:br/>
 					The operational guidance shall contain instructions for configuring the
-					Operational Environment to support the functions of the TOE. These
+					operational environment to support the functions of the TOE. These
 					instructions shall include configuration of the cryptographic engine associated
 					with the evaluated configuration of the TOE as well as configuration of the
 					underlying platform. It shall provide a warning to the administrator that use of
@@ -11301,20 +11486,19 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<h:li>As indicated in the introductory material, administration of the TOE is
 						performed by one or more administrators that are a subset of the
 						group of all users of the TOE. While it must be the case that the overall
-						system (TOE plus Operational Environment [Operational 
-						Environment]) provide this capability, the responsibility for the
+						system (TOE plus operational environment [operational environment]) provide this capability, the responsibility for the
 						implementation of the functionality can vary from totally the
-						Operational Environment’s responsibility to totally the TOE’s
+						operational environment’s responsibility to totally the TOE’s
 						responsibility. At a high level, the guidance must contain the
-						appropriate instructions so that the Operational Environment is
+						appropriate instructions so that the operational environment is
 						configured so that it provides the portion of the capability for which it
 						is responsible.</h:li>
 					<h:li>Many of the cryptographic requirements in the PP can be met by the
-						TOE, the Operational Environment, or a combination of the two. The
-						Operational Environment may provide the necessary functionality via
+						TOE, the operational environment, or a combination of the two. The
+						operational environment may provide the necessary functionality via
 						use of an external cryptographic module such as a HSM. The guidance
 						must contain the appropriate instructions so that the TOE or
-						Operational Environment is configured to provide the portion of the
+						operational environment is configured to provide the portion of the
 						capability for which it is responsible.</h:li>
 				</h:ul>
 			</aactivity>
