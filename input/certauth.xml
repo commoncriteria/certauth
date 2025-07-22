@@ -2116,7 +2116,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		requirements from Annex B (i.e., FIA_CMCS_EXT.1, FIA_ESTS_EXT.1) must be included."  --> 	      
 	<!--               -->     
 	<ext-comp-def fam-id="FCO_NRO_EXT" title="Certificate-Based Proof of Origin">
-		<fam-behavior>Components in this family ensure that the originator of information cannot successfully deny
+		<fam-behavior>Components in this family define requirements to ensure that the originator of information cannot successfully deny
 			having sent the information.</fam-behavior>
 		 </ext-comp-def>
 	<f-component cc-id="fco_nro_ext.2" name="Certificate-Based Proof of Origin" >
@@ -2132,8 +2132,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<f-element>
                	<title>The TSF shall provide proof of origin for certificates it issues in accordance with
 			the digital signature requirements using a mechanism in accordance with RFC
-			5280 and FCS_COP.1/SigGen.
+			5280 and FCS_COP.1<h:b>/SigGen</h:b>.
                 </title>
+			<ext-comp-def-title>
+				<title>The TSF shall provide proof of origin for certificates it issues in accordance with
+					the digital signature requirements using a mechanism in accordance with RFC
+					5280 and FCS_COP.1.</title>
+			</ext-comp-def-title>
 		</f-element>
 		<f-element>
                	<title>The TSF shall provide proof of origin for certificate status information it issues in
@@ -2141,23 +2146,35 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<selectables><selectable>CRLs (RFC 5280)</selectable>
 				<selectable>OCSP (RFC 6960)</selectable>
 				<selectable><assignable>other OCSP standards</assignable></selectable>
-			</selectables> and FCS_COP.1/SigGen.
+			</selectables> and FCS_COP.1<h:b>/SigGen</h:b>.
                 </title>
+			<ext-comp-def-title>
+				<title>The TSF shall provide proof of origin for certificate status information it issues in
+					accordance with the digital signature requirements in <assignable>list of
+						standards</assignable> and FCS_COP.1.</title>
+			</ext-comp-def-title>
 		</f-element>
 		<f-element>
                	<title>The TSF shall require and verify proof of origin for certificate requests it receives
 			<selectables><selectable>CMC using mechanisms in accordance with FIA_CMCS_EXT.1</selectable>
 				<selectable>EST using mechanisms in accordance with FIA_ESTS_EXT.1</selectable></selectables>.
                 </title>
+			<ext-comp-def-title>
+				<title>The TSF shall require and verify proof of origin for certificate requests it receives
+					<assignable>list of protocols and mechanisms used</assignable></title>
+			</ext-comp-def-title>
 		</f-element>
 		<f-element>
-               	<title>The TSF shall require and verify proof of origin for public keys contained in
-			certificate requests it receives via 
-			<selectables><selectable>proof-of-possession mechanisms in CMC using mechanisms in
-				accordance with FIA_CMCS_EXT.1</selectable>
-				<selectable>proof-of-possession mechanisms in EST in accordance with FIA_ESTS_EXT.1</selectable>
-			</selectables>.
+			<title>The TSF shall require and verify proof of origin for public keys contained in
+				certificate requests it receives via <selectables>
+					<selectable>proof-of-possession mechanisms in CMC using mechanisms in accordance with FIA_CMCS_EXT.1</selectable>
+					<selectable>proof-of-possession mechanisms in EST in accordance with FIA_ESTS_EXT.1</selectable>
+				</selectables>.
                 </title>
+			<ext-comp-def-title>
+				<title>The TSF shall require and verify proof of origin for public keys contained in
+			certificate requests it receives via <assignable>list of mechanism types</assignable>.</title>
+			</ext-comp-def-title>
 		</f-element>
 		<f-element>
                	<title>The TSF shall 
@@ -2173,7 +2190,15 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</selectable>
 			</selectables>.
 		</title>
-                <note role="application">
+			<ext-comp-def-title>
+				<title>The TSF shall <selectables>
+						<selectable>require and verify proof of origin for revocation request it receives via
+							<assignable>list of protocols and mechanisms used</assignable></selectable>
+						<selectable><assignable>support manual processes for revocation request and
+							responses</assignable></selectable>
+					</selectables>.</title>
+			</ext-comp-def-title>
+			<note role="application">
 			The TOE is responsible for providing proof of origin for information it issues and
 			verifying proof of origin for information it receives. Based on what is chosen in the
 			selection for FCO_NRO_EXT.2.2, the applicable requirements from Appendix B (i.e.,
@@ -2279,7 +2304,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	B (i.e., FIA_CMCS_EXT.1, FIA_ESTS_EXT.1) must be included.       -->
     <!--                  -->    	      
 	<ext-comp-def fam-id="FCO_NRR_EXT" title="Certificate-Based Proof of Receipt">
-		<fam-behavior>Components in this family ensure that the recipient of information cannot successfully deny
+		<fam-behavior>Components in this family define requirements to ensure the recipient of information cannot successfully deny
 			receiving the information.</fam-behavior>
 		 </ext-comp-def>
 <f-component name="Certificate-Based Proof of Receipt" cc-id="fco_nrr_ext.2" status="sel-based">
@@ -2361,7 +2386,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		FTP_ITC.1 with “external cryptographic module” selected.   -->
 	<!--               -->     
         <ext-comp-def fam-id="FCS_CDP_EXT" title="Cryptographic Dependencies">
-			<fam-behavior>Components in this family require the ability to perform cryptographic operations.</fam-behavior>
+        	<fam-behavior>Components in this family define requirements for performing cryptographic
+        		operations..</fam-behavior>
 		 </ext-comp-def>
 		<f-component cc-id="fcs_cdp_ext.1" name="Cryptographic Dependencies" >
           	<comp-lev>requires the TSF to be able to perform cryptographic operations based on a set
@@ -2958,9 +2984,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
       		<comp-lev>requires the TSF to generate key shares of a specified strength.</comp-lev>
       		<management>No specific management functions are identified.</management>
       		<audit>There are no auditable events foreseen.</audit>
-      		<dependencies>No dependencies</dependencies>
+      		<dependencies>No dependencies.</dependencies>
       		<f-element>
-      			<title>The TSF shall
+      			<title>The TSF shall be able to
       			<selectables>
       				<selectable>generate</selectable>
       				<selectable>invoke interfaces provided by the operational environment to generate</selectable>
@@ -2975,7 +3001,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<f-component cc-id="fcs_ckm_ext.1" iteration="DEK" name="Symmetric Key Generation (DEKs)" status="feat-based">
           <depends on-feat="protectSubscriberInfo"/>
           <f-element>
-            <title>The TSF shall
+            <title>The TSF shall be able to
 		    <selectables>
 			    <selectable>generate</selectable>
 			    <selectable>invoke interfaces provided by the operational environment to generate</selectable>
@@ -3072,7 +3098,6 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</selectables> <selectables> 
 				<selectable>asymmetric KEKs using <assignable>security strength greater than or equal to 112 bits </assignable>
 					<h:b>security strength</h:b> in accordance with [<h:i>FCS_CKM.1</h:i>]</selectable>
-				<selectable></selectable>
 				<selectable>symmetric KEKs using
 					<selectables>
 						<selectable>128-bit</selectable>
@@ -3189,12 +3214,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<selectable>invoke interfaces provided by the operational environment to generate</selectable>
 			</selectables>
 			<selectables>
-				<selectable>asymmetric KEKs using 
-					<assignable>security strength greater than or equal to 112 bits</assignable> security strength
-				</selectable>
-				<selectable>symmetric KEKs of size 256-bit
-				</selectable>
-			</selectables> using <h:br/><h:br/>
+				<selectable>asymmetric KEKs using <assignable>security strength greater than or equal to 112 bits</assignable> security strength</selectable>
+				<selectable>symmetric KEKs of size 256-bit</selectable>
+			</selectables> in accordance with
 			<selectables linebreak="yes">
 				<selectable>an operational environment-provided mechanism that combines Key Shares
 					and produces a KEK,</selectable>
@@ -3260,7 +3282,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<selectables>
 				<selectable>generate</selectable>
 				<selectable>invoke interfaces provided by the operational environment to generate</selectable>
-			</selectables> [<h:i>key shares</h:i> using [<h:i>greater than or equal to the security strength of
+			</selectables> [<h:b>key shares of strength</h:b>] [<h:i>greater than or equal to the security strength of
 				the KEK</h:i>] in accordance with [<h:i>FCS_CKM_EXT.1/KEKT</h:i>]
 			for use in [<h:i>the key sharing mechanism indicated in FCS_CKM_EXT.1/KEKT</h:i>].
 		</title>
@@ -3313,10 +3335,22 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</selectables> public keys used to meet CA requirements against undetected
 			modification through the use of
 			<selectables>
-				<selectable>digital signatures (in accordance with FCS_COP.1/Sig)</selectable>
-				<selectable>keyed hashes (in accordance with FCS_COP.1/KeyedHash)</selectable>
+				<selectable>digital signatures (in accordance with FCS_COP.1<h:b>/Sig)</h:b></selectable>
+				<selectable>keyed hashes (in accordance with FCS_COP.1<h:b>/KeyedHash)</h:b></selectable>
 			</selectables>.
 		</title>
+		<ext-comp-def-title>
+			<title>The TSF shall 
+				<selectables>
+					<selectable>protect</selectable>
+					<selectable>invoke interfaces in the operational environment to protect</selectable>
+				</selectables> public keys used to meet CA requirements against undetected
+				modification through the use of
+				<selectables>
+					<selectable>digital signatures (in accordance with FCS_COP.1)</selectable>
+					<selectable>keyed hashes (in accordance with FCS_COP.1)</selectable>
+				</selectables>.</title>
+		</ext-comp-def-title>
 	</f-element>
 	<f-element>
 		<title>The 
@@ -3451,7 +3485,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			The TSF shall 
 			<selectables>
 				<selectable>encrypt</selectable>
-				<selectable>invoke interfaces in the operational Environment to encrypt</selectable>
+				<selectable>invoke interfaces in the operational environment to encrypt</selectable>
 			</selectables> the keys specified in FCS_CKM_EXT.6.1 in accordance with 
 			<selectables>
 				<selectable>FCS_COP.1/SKC</selectable>
@@ -3463,9 +3497,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<title>The TSF shall 
 				<selectables>
 					<selectable>encrypt</selectable>
-					<selectable>invoke interfaces in the operational Environment to encrypt</selectable>
+					<selectable>invoke interfaces in the operational environment to encrypt</selectable>
 				</selectables> the keys specified in FCS_CKM_EXT.6.1 in accordance with
-				<assignable>cryptographic function</assignable> using the KEK generated in accordance with
+				<assignable>cryptographic functions</assignable> using the KEK generated in accordance with
 				FCS_CKM_EXT.1.</title>
 		</ext-comp-def-title>
 	</f-element>
@@ -3474,7 +3508,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			The TSF shall 
 			<selectables>
 				<selectable>decrypt</selectable>
-				<selectable>invoke interfaces in the operational Environment to decrypt</selectable>
+				<selectable>invoke interfaces in the operational environment to decrypt</selectable>
 			</selectables> the keys specified in FCS_CKM_EXT.6.1 in accordance with 
 			<selectables>
 				<selectable>FCS_COP.1/SKC</selectable>
@@ -4499,9 +4533,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!--                  -->    	
 	<ext-comp-def fam-id="FCS_HTTPS_EXT" title="HTTPS Protocol">
 		<fam-behavior>Components in this family define the requirements for protecting remote
-		management sessions between the TOE and a Security Administrator. This family
-		describes how HTTPS will be implemented. This is a new family defined for the
-		FCS Class.</fam-behavior>
+		management sessions between the TOE and a security administrator. This family
+		describes how HTTPS will be implemented.</fam-behavior>
 		</ext-comp-def>    
 <f-component name="HTTPS Protocol" cc-id="fcs_https_ext.1" status="sel-based">
 	<depends on-sel="ftp-itc-https"/>
@@ -4561,16 +4594,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- QQQQ: FCS_RBG_EXT.1,  RSA, ECDSA] that use X.509v3 ,  -->
     <!--                  -->    	 
 	<ext-comp-def fam-id="FCS_IPSEC_EXT" title="IPsec Protocol">
-		<fam-behavior>Components in this family address the requirements for protecting
-			communications using IPsec. This is a new family defined for the FCS class.</fam-behavior>
+		<fam-behavior>Components in this family define requirements for protecting
+			communications using IPsec.</fam-behavior>
 		</ext-comp-def>      
 <f-component name="IPsec Protocol" cc-id="fcs_ipsec_ext.1" status="sel-based">
 	<depends on-sel="ftp-itc-ipsec"/>
 	<depends on-sel="ftp-trp-ipsec"/>
 	<comp-lev>requires that IPsec be implemented as specified.</comp-lev>
-	<management>The following actions could be considered for the management functions in FMT:<h:ul>
-		<h:li></h:li>
-	</h:ul></management>
+	<management>No specific management functions are identified.</management>
 	<audit>The following actions should be considered for audit if FAU_GEN Security audit
 		data generation is included in the PP/ST:<h:ul>
 			<h:li>Failure to establish an IPsec SA (Retention: Normal)</h:li>
@@ -4894,15 +4925,15 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</title>
 		<ext-comp-def-title>
 			<title>The TSF shall ensure that <selectables>
-				<selectable>IKEv2 SA lifetimes can be configured by an administrator based on<selectables linebreak="yes">
+				<selectable>IKEv2 SA lifetimes can be configured by an administrator based on <selectables linebreak="yes">
 					<selectable>number of packets or number of bytes</selectable>
 					<selectable>length of time</selectable>
 				</selectables></selectable>
 					<selectable>IKEv1 SA lifetimes <selectables>
-					<selectable>can be configured by an administrator based on<selectables>
+					<selectable>can be configured by an administrator based on <selectables>
 						<selectable>number of packets or number of bytes</selectable>
 						<selectable>length of time</selectable></selectables></selectable>
-						<selectable>are fixed based on<selectables>
+						<selectable>are fixed based on <selectables>
 							<selectable>number of packets or number of bytes</selectable>
 							<selectable>length of time</selectable>
 						</selectables></selectable>						
@@ -4976,15 +5007,15 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</title>
 		<ext-comp-def-title>
 			<title>The TSF shall ensure that <selectables>
-				<selectable>IKEv2 Child SA lifetimes can be configured by an administrator based on<selectables linebreak="yes">
+				<selectable>IKEv2 Child SA lifetimes can be configured by an administrator based on <selectables linebreak="yes">
 					<selectable>number of packets or number of bytes</selectable>
 					<selectable>length of time</selectable>
 				</selectables></selectable>
 				<selectable>IKEv1 Child SA lifetimes <selectables>
-					<selectable>can be configured by an administrator based on<selectables>
+					<selectable>can be configured by an administrator based on <selectables>
 						<selectable>number of packets or number of bytes</selectable>
 						<selectable>length of time</selectable></selectables></selectable>
-					<selectable>are fixed based on<selectables>
+					<selectable>are fixed based on <selectables>
 						<selectable>number of packets or number of bytes</selectable>
 						<selectable>length of time</selectable>
 					</selectables></selectable>						
@@ -5086,7 +5117,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<title>The TSF shall generate nonces used in <selectables>
 				<selectable>IKEv1</selectable>
 				<selectable>IKEv2</selectable>
-			</selectables>exchanges of length <selectables>
+			</selectables> exchanges of length <selectables>
 				<selectable>according to the security strength associated with the negotiated Diffie-Hellman
 					group</selectable>
 				<selectable>at least 128 bits in size and at least half the output size of the negotiated
@@ -5116,7 +5147,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<title>
 			The TSF shall ensure that all IKE protocols implement 
 			[<selectables>
-				<selectable>DH Group 20 (384-bit Random ECP)</selectable>
+				<selectable>Group 20 (384-bit Random ECP)</selectable>
 				<selectable>no other DH groups</selectable>
 			</selectables>].
 		</title>
@@ -5177,7 +5208,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				algorithm (in terms of the number of bits in the key) negotiated to protect the <selectables>
 					<selectable>IKEv1 Phase 2</selectable>
 					<selectable>IKEv2 CHILD_SA</selectable>
-				</selectables>connection.</title>
+				</selectables> connection.</title>
 		</ext-comp-def-title>
 		<note role="application">
 			While it is acceptable for this capability to be configurable, the
@@ -5232,7 +5263,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<selectable>ECDSA</selectable>
 			</selectables> that use X.509v3 certificates that conform to RFC 4945 and 
 			<selectables>
-				<selectable id="sel-pre-shared-keys">Pre-shared Keys</selectable>
+				<selectable id="sel-pre-shared-keys">pre-shared keys</selectable>
 				<selectable>no other method</selectable>
 			</selectables>.
 		</title>
@@ -5429,7 +5460,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 <!-- Objective      -->
 <!--                  -->    	
 <ext-comp-def fam-id="FCS_KSH_EXT" title="Key Sharing">
-		<fam-behavior>Components in this family ensure the management of key sharing.</fam-behavior>
+		<fam-behavior>Components in this family define requirements to ensure the management of key sharing.</fam-behavior>
 		</ext-comp-def>       
 	<f-component name="Key Sharing" cc-id="fcs_ksh_ext.1" status="objective">
 		<comp-lev>mandates the use of key sharing.</comp-lev>
@@ -5454,8 +5485,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable><assignable>critical data or keys</assignable></selectable>
 				</selectables>
 				necessary to resume CA functionality after TSF failure using key sharing
-				mechanisms in accordance with FCS_CKM_EXT.1.1/KEKT, FCS_CKM_EXT.1.2/KEKT,
-				FCS_CKM_EXT.7.1 and FPT_SKY_EXT.1.1/CA.
+				mechanisms in accordance with FCS_CKM_EXT.1.1<h:b>/KEKT</h:b>, FCS_CKM_EXT.7.1 and FPT_SKY_EXT.1.1<h:b>/CA</h:b>.
 			</title>
 			<ext-comp-def-title>
 				<title>The TSF shall 
@@ -5469,7 +5499,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						<selectable><assignable>critical data or keys</assignable></selectable>
 					</selectables>
 					necessary to resume CA functionality after TSF failure using key sharing
-					mechanisms in accordance with FCS_CKM_EXT.1.1, FCS_CKM_EXT.1.2, FCS_CKM_EXT.7.1 and FPT_SKY_EXT.1.1.</title>
+					mechanisms in accordance with FCS_CKM_EXT.1, FCS_CKM_EXT.7.1, and FPT_SKY_EXT.1.1.</title>
 			</ext-comp-def-title>
 			<note role="application">
 				This SFR, which mandates the use of key sharing to control the export of CA signing
@@ -5813,15 +5843,27 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<selectable>encrypted within a hardware rooted key hierarchy established in
 				accordance with
 				<selectables>
-					<selectable>FCS_CKM_EXT.1/KEK</selectable>
-					<selectable>FCS_CKM_EXT.1/KEKT</selectable>
-				</selectables>,
-				FCS_CKM_EXT.7, and FCS_CKM_EXT.8
+					<selectable>FCS_CKM_EXT.1<h:b>/KEK</h:b></selectable>
+					<selectable>FCS_CKM_EXT.1<h:b>/KEKT</h:b></selectable>
+				</selectables>, FCS_CKM_EXT.7, and FCS_CKM_EXT.8
 				</selectable>
 			<selectable>in a hardware cryptographic module</selectable>
 		 </selectables>. 
 	      </title>
-              <note role="application">This requirement ensures that persistent secret keys and private keys are stored
+				<ext-comp-def-title>
+					<title>Persistent private and secret keys shall be stored within the
+						<selectables>
+							<selectable>TSF</selectable>
+							<selectable>Operational environment</selectable>
+						</selectables> 
+						<selectables linebreak="yes">
+							<selectable>encrypted within a hardware rooted key hierarchy established in
+								accordance with <assignable>list of requirements</assignable>, 
+								FCS_CKM_EXT.7, and FCS_CKM_EXT.8</selectable>
+							<selectable>in a hardware cryptographic module</selectable></selectables>.
+					</title>
+				</ext-comp-def-title>
+				<note role="application">This requirement ensures that persistent secret keys and private keys are stored
 		securely when not in use. If some secrets/keys are manipulated by the TOE and
 		others are manipulated by the environment, then both of the selections can be
 		specified by the ST author and the ST author must identify in the TSS those keys
@@ -8338,7 +8380,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <!-- FIA_UAU_EXT.1 -->
 	<!--               -->     
     <ext-comp-def fam-id="FIA_UAU_EXT" title="Authentication Mechanism">
-		<fam-behavior>Components in this family ensure there is an authentication mechanism for user
+		<fam-behavior>Components in this family define requirements to ensure there is an authentication mechanism for user
 			authentication.</fam-behavior>
 	</ext-comp-def>    
 	<f-component cc-id="fia_uau_ext.1" name="Authentication Mechanism" >
@@ -8398,8 +8440,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
     <ext-comp-def fam-id="FIA_UIA_EXT" title="User Identification and Authentication">
     	<fam-behavior>The TSF allows certain specified actions before the non-TOE entity goes through
-    		the identification and authentication process. This is a new family defined for the
-    		FIA class.</fam-behavior>
+    		the identification and authentication process.</fam-behavior>
 	</ext-comp-def>    
 	<f-component cc-id="fia_uia_ext.1" name="User Identification and Authentication" >
 		<comp-lev>requires administrators (including remote administrators) to be identified and authenticated by the TOE,
@@ -9436,8 +9477,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
     <ext-comp-def fam-id="FPT_APW_EXT" title="Protection of User Password">
     	<fam-behavior>Components in this family ensure that the TSF will protect plaintext credential
-    		data such as passwords from unauthorized disclosure. This is a new family
-    		defined for the FPT class.</fam-behavior>
+    		data such as passwords from unauthorized disclosure.</fam-behavior>
 	</ext-comp-def>    
 	<f-component cc-id="fpt_apw_ext.1" name="Protection of Privileged User Password" status="sel-based">
 		<depends on-sel="sel-pwd-auth"/>
@@ -9750,7 +9790,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- FPT_NPE_EXT.1 -->
     <!--               -->     
     <ext-comp-def fam-id="FPT_NPE_EXT" title="NPE Constraints">
-		<fam-behavior>Components in this family ensure rulesets for NPE certificates.</fam-behavior>
+		<fam-behavior>Components in this family define requirements to ensure there are rulesets for NPE certificates.</fam-behavior>
 	</ext-comp-def>
 	<f-component cc-id="fpt_npe_ext.1" name="NPE Constraints" status="optional">
 		<comp-lev>enforces rulesets for NPE certificate requests and requires registration to a specified
@@ -9912,9 +9952,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <!-- FPT_SKP_EXT.1 -->
 	<!--               -->     
     <ext-comp-def fam-id="FPT_SKP_EXT" title="Protection of Keys">
-    	<fam-behavior>Components in this family address the requirements for managing and protecting
-    		TSF data, such as cryptographic keys. This is a new family modelled after the
-    		FPT_PTD Class.</fam-behavior>
+    	<fam-behavior>Components in this family define requirements for managing and protecting
+    		TSF data, such as cryptographic keys.</fam-behavior>
 	</ext-comp-def>    
 	<f-component cc-id="fpt_skp_ext.1" name="Protection of Keys" >
 		<comp-lev>requires
@@ -9984,7 +10023,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	included in the ST and OE.KEY_ARCHIVAL is included in the ST.   -->
 	<!--               -->     
     <ext-comp-def fam-id="FPT_SKY_EXT" title="Split Knowledge Procedures">
-		<fam-behavior>Components in this family ensure support for split knowledge procedure
+		<fam-behavior>Components in this family define requirements to ensure support for split knowledge procedure
 			functionality.</fam-behavior>
 	</ext-comp-def>
      	
@@ -10017,8 +10056,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</selectables>
 				necessary to resume CA functionality after TSF failure using
 				<selectables>
-					<selectable>key sharing mechanisms in accordance with FCS_CKM_EXT.1/KEKT, 
-					FCS_CKM_EXT.1/SHARE, FCS_CKM_EXT.6, and FPT_SKY_EXT.2</selectable>
+					<selectable>key sharing mechanisms in accordance with FCS_CKM_EXT.1<h:b>/KEKT</h:b>, 
+					FCS_CKM_EXT.1<h:b>/SHARE</h:b>, FCS_CKM_EXT.6, and FPT_SKY_EXT.2</selectable>
 					<selectable><assignable>other mechanism</assignable></selectable>
 				</selectables>.
 			</title>
@@ -10102,8 +10141,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</selectables>
 				using
 				<selectables>
-					<selectable>key sharing mechanisms in accordance with FCS_CKM_EXT.1/KEKT, 
-					FCS_CKM_EXT.1/SHARE, FCS_CKM_EXT.6, and FPT_SKY_EXT.2</selectable>
+					<selectable>key sharing mechanisms in accordance with FCS_CKM_EXT.1<h:b>/KEKT</h:b>, 
+						FCS_CKM_EXT.1<h:b>/SHARE</h:b>, FCS_CKM_EXT.6, and FPT_SKY_EXT.2</selectable>
 					<selectable><assignable>other mechanism</assignable></selectable>
 				</selectables>.
 			</title>
@@ -10191,16 +10230,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</selectables> shall ensure that key shares
 				generated in accordance with FCS_CKM_EXT.1<h:b>/SHARE</h:b> are accessible only to privileged
 				users, and that each share is only accessible to a single privileged user as
-				configured by an Administrator.
+				configured by an administrator.
 			</title>
 			<ext-comp-def-title>
-				<title><selectables>
+				<title>The <selectables>
 					<selectable>TSF</selectable>
 					<selectable>operational environment</selectable>
 				</selectables> shall ensure that key shares
 					generated in accordance with FCS_CKM_EXT.1 are accessible only to privileged
 					users, and that each share is only accessible to a single privileged user as
-					configured by an Administrator.</title>
+					configured by an administrator.</title>
 			</ext-comp-def-title>
 			<note role="application">
 				This SFR shall be included if “key sharing mechanisms in accordance with
@@ -10371,7 +10410,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	TSF interfaces with the OE to invoke the algorithms indicated.   -->
 	<!--               -->     
     <ext-comp-def fam-id="FPT_TST_EXT" title="TOE Testing">
-		<fam-behavior>Components in this family ensure the integrity of testing.</fam-behavior>
+		<fam-behavior>Components in this family define requirements to ensure the integrity of testing.</fam-behavior>
 	</ext-comp-def>
 	<f-component cc-id="fpt_tst_ext.1" name="TOE Integrity Test" status="optional">
 		<comp-lev>requires the TOE testing to be secure and the integrity to be verified.</comp-lev>
@@ -10386,7 +10425,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					(Retention: Normal)</h:li>
 			</h:ul></audit>
             <dependencies>
-                FCS_COP.1 Cryptographic Operations
+                FCS_COP.1 Cryptographic Operations<h:br/><h:br/>
                 FPT_TST.1 TSF Self-Testing
             </dependencies>
 		<f-element>
@@ -10497,7 +10536,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     			<h:li>Detected integrity violations</h:li>
     		</h:ul></audit>
     	<dependencies>
-    		FCS_COP.1 Cryptographic Operations
+    		FCS_COP.1 Cryptographic Operations<h:br/><h:br/>
     		FPT_TST.1 TSF Self-Testing
     	</dependencies>
 		<f-element>
