@@ -50,7 +50,6 @@ output/certauth-release-linkable.html: PINs
 output/certauth-release-linkable.html: POPAlgID
 output/certauth-release-linkable.html: PRF
 output/certauth-release-linkable.html: PasswordRecipientInfo
-output/certauth-release-linkable.html: QQQQQ
 output/certauth-release-linkable.html: RAs
 output/certauth-release-linkable.html: REKs
 output/certauth-release-linkable.html: RFC5280
@@ -119,7 +118,6 @@ output/certauth-release-linkable.html: thisUpdate
 output/certauth-release-linkable.html: tls
 output/certauth-release-linkable.html: uninstantiating
 output/certauth-release-linkable.html: unobscured
-output/certauth-release-linkable.html: userinitiated
 output/certauth-release-linkable.html: v1
 output/certauth-release-linkable.html: witnessAlgID
 output/certauth-release.html: 0’s
@@ -176,7 +174,6 @@ output/certauth-release.html: PINs
 output/certauth-release.html: POPAlgID
 output/certauth-release.html: PRF
 output/certauth-release.html: PasswordRecipientInfo
-output/certauth-release.html: QQQQQ
 output/certauth-release.html: RAs
 output/certauth-release.html: REKs
 output/certauth-release.html: RFC5280
@@ -257,7 +254,6 @@ output/certauth-release.html: thisUpdate
 output/certauth-release.html: tls
 output/certauth-release.html: uninstantiating
 output/certauth-release.html: unobscured
-output/certauth-release.html: userinitiated
 output/certauth-release.html: users’
 output/certauth-release.html: v1
 output/certauth-release.html: witnessAlgID
@@ -316,7 +312,6 @@ output/certauth.html: PINs
 output/certauth.html: POPAlgID
 output/certauth.html: PRF
 output/certauth.html: PasswordRecipientInfo
-output/certauth.html: QQQQQ
 output/certauth.html: RAs
 output/certauth.html: REKs
 output/certauth.html: RFC5280
@@ -394,7 +389,6 @@ output/certauth.html: thisUpdate
 output/certauth.html: tls
 output/certauth.html: uninstantiating
 output/certauth.html: unobscured
-output/certauth.html: userinitiated
 output/certauth.html: users’
 output/certauth.html: v1
 output/certauth.html: witnessAlgID
