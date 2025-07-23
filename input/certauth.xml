@@ -1515,7 +1515,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	-->
 	<!--               -->     
 		<ext-comp-def fam-id="FAU_SCR_EXT" title="Certificate Repository Review">
-			<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
+			<fam-behavior>Components in this family define requirements for management of certificate
+				repositories.</fam-behavior>
 		 </ext-comp-def>
         <f-component cc-id="fau_scr_ext.1" name="Certificate Repository Review" status="sel-based">
 			<depends on-sel="store-certs"/>
@@ -5916,12 +5917,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		defined characteristics.</fam-behavior>
 		</ext-comp-def> 
         <f-component cc-id="fdp_cer_ext.1" name="Certificate Profiles" >
-        	<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-        	<management>TODO: QQQQQ</management>
-        	<audit>TODO: QQQQQ</audit>
-        	<dependencies>
-        		TODO: QQQQQ
-        	</dependencies>
+        	
 			<f-element>
 			<title>
 				<comment>This SFR is defined in the X.509 FP. A review of these two versions of the SFRs is needed to determine the 
@@ -6111,12 +6107,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <!-- FDP_CER_EXT.2 -->
 	<!--               -->     
         <f-component cc-id="fdp_cer_ext.2" name="Certificate Request Matching" >
-			<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-            <management>TODO: QQQQQ</management>
-            <audit>TODO: QQQQQ</audit>
-            <dependencies>
-                TODO: QQQQQ
-            </dependencies>
+			
 			<f-element>
 			<title>
 				<comment>This SFR is defined in the X.509 FP. A review of these two versions of the SFRs is needed to determine the 
@@ -6189,7 +6180,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</title>
 				<ext-comp-def-title>
 					<title>The TSF shall support the approval of certificates by <assignable>a specified set of
-						rules</assignable>issued according to a configured certificate profile.</title>
+						rules</assignable> issued according to a configured certificate profile.</title>
 				</ext-comp-def-title>
 				<aactivity>
 				<TSS>
@@ -6320,17 +6311,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- Selection-based -->
 	<!-- QQQQ: Inclusion criteria not specified.  -->
 	<!--               -->     
-	<ext-comp-def fam-id="FDP_CRL_EXT" title="Certificate Revocation Lists">
-		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
-		</ext-comp-def> 
+	
 	<f-component cc-id="fdp_crl_ext.1" name="Certificate Revocation List Validation" status="sel-based">
 		<depends on-sel="sel-pwd-auth"/> <!-- TODO: This is wrong -->
-		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-            <management>TODO: QQQQQ</management>
-            <audit>TODO: QQQQQ</audit>
-            <dependencies>
-                TODO: QQQQQ
-            </dependencies>
 		<f-element>
 			<title>
 				<comment>This SFR is defined in the X.509 FP. A review of these two versions of the SFRs is needed to determine the 
@@ -6409,16 +6392,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- QQQQ: Based on the selection, the ST author must choose the appropriate requirements
 		from Annex B.   -->
 	<!--               -->   
-		<ext-comp-def fam-id="FDP_CSI_EXT" title="Certificate Status Information">
-		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
-		</ext-comp-def>   
+		   
         <f-component cc-id="fdp_csi_ext.1" name="Certificate Status Information" >
-		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-            <management>TODO: QQQQQ</management>
-            <audit>TODO: QQQQQ</audit>
-            <dependencies>
-                TODO: QQQQQ
-            </dependencies>
+		
 			<f-element>
 			<title>
 				<comment>This SFR is defined in the X.509 FP. A review of these two versions of the SFRs is needed to determine the 
@@ -6615,17 +6591,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		equivalent fields for items a – e above should be identified and the current
 		version should match the specification.   -->
 	<!--               -->     
-	<ext-comp-def fam-id="FDP_OCSPG_EXT" title="OCSP Response Generation">
-		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
-	</ext-comp-def> 
+	
 	<f-component cc-id="fdp_ocspg_ext.1" name="OCSP Basic Response Generation" status="sel-based">
 		<depends on-sel="sel-pwd-auth"/> <!-- TODO: This is wrong -->
-		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-            <management>TODO: QQQQQ</management>
-            <audit>TODO: QQQQQ</audit>
-            <dependencies>
-                TODO: QQQQQ
-            </dependencies>
 		<f-element>
 			<title>
 				<comment>This SFR is defined in the X.509 FP (FDP_OCSP_EXT.1). A review of these two versions of the SFRs is needed to determine the 
@@ -6759,7 +6727,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- QQQQ: The DEK referenced in FDP_SDP_EXT.1.1 is generated by FCS_CKM_EXT.1(1).  -->
 	<!--               -->     
     <ext-comp-def fam-id="FDP_SDP_EXT" title="Sensitive Data Protection">
-		<fam-behavior>Components in this family ensure the protection of user sensitive data.</fam-behavior>
+		<fam-behavior>Components in this family define requirements to ensure the protection of user sensitive data.</fam-behavior>
 		</ext-comp-def>     
 	<f-component cc-id="fdp_sdp_ext.1" name="User Sensitive Data Protection" status="optional">
 		<comp-lev>requires the TSF to protect or destroy personally identifiable information.</comp-lev>
@@ -6787,7 +6755,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>copies of legal documents</selectable>
 					<selectable>captured biometrics</selectable>
 					<selectable><assignable>other personally identifiable information</assignable></selectable>
-				</selectables> through encryption in accordance with FCS_COP.1/SKC using a DEK.
+				</selectables> through encryption in accordance with FCS_COP.1<h:b>/SKC</h:b> using a DEK.
 			</title>
 			<ext-comp-def-title>
 				<title>The TSF shall 
@@ -6924,7 +6892,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The TSF shall use <selectables>
 					<selectable>access controlled storage</selectable>
 					<selectable>an integrity mechanism</selectable>
-				</selectables>to protect the trusted public keys and certificates (trust store elements) used to
+				</selectables> to protect the trusted public keys and certificates (trust store elements) used to
 				validate local logon, trusted channel, and external communication to the CA.
 			</title>
 			<note role="application">
@@ -7115,18 +7083,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		shared secrets in AuthenticatedData requests or in the Identity Proof Version 2
 		Control of SignedData requests, the TSF shall require HTTPS with client authentication.  -->	
 	<!--               -->     
-    <ext-comp-def fam-id="FIA_CMCC_EXT" title="Certificate Management over CMS Client">
-		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
-		</ext-comp-def>     
+         
 	<f-component cc-id="fia_cmcc_ext.1" name="Certificate Management over CMS (CMC) Client" status="sel-based">
 		<depends on-sel="sel-fco-cmcc-ext-1"/>
-		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-            <management>TODO: QQQQQ</management>
-            <audit>TODO: QQQQQ</audit>
-            <dependencies>
-                TODO: QQQQQ
-            </dependencies>
-		<f-element>
+	<f-element>
 			<title>
 				<comment>This SFR is defined in the X.509 FP. A review of these two versions of the SFRs is needed to determine the 
 					appropriate assignments/selections such that the configuration is comparable to its old 
@@ -7249,17 +7209,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- QQQQ: ...in accordance with FCS_COP.1(3)   -->
 	<!-- QQQQ: ...in accordance with FCS_COP.1(4)   -->
 	<!--               -->     
-	<ext-comp-def fam-id="FIA_CMCS_EXT" title="Certificate Management over CMS Server">
-		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
-	</ext-comp-def>
 	<f-component cc-id="fia_cmcs_ext.1" name="Certificate Management over CMS (CMC) Server" status="sel-based">
 		<depends on-sel="sel-fco-cmcs-ext-1"/>
-		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-            <management>TODO: QQQQQ</management>
-            <audit>TODO: QQQQQ</audit>
-            <dependencies>
-                TODO: QQQQQ
-            </dependencies>
 		<f-element>
 			<title>
 				<comment>This SFR is defined in the X.509 FP. A review of these two versions of the SFRs is needed to determine the 
@@ -7594,17 +7545,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 <!--               -->     
 <!-- FIA_ENR_EXT.1 -->
 <!--               -->     
-<ext-comp-def fam-id="FIA_ENR_EXT" title="Certificate Enrollment">
-		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
-	</ext-comp-def>
-<f-component cc-id="fia_enr_ext.1" name="Certificate Enrollment" status="objective">
-	<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-            <management>TODO: QQQQQ</management>
-            <audit>TODO: QQQQQ</audit>
-            <dependencies>
-                TODO: QQQQQ
-            </dependencies>
-	<f-element>
+	<f-component cc-id="fia_enr_ext.1" name="Certificate Enrollment" status="objective">
+		<f-element>
 		<title>
 			<comment>This SFR appears to be covered by the X.509 FP requirement FIA_X509_EXT.3. It may be appropriate to remove this objective SFR. </comment>
 			The TSF shall be able to generate a certificate request to an external certification
@@ -7648,17 +7590,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- Inclusion criteria not specified -->
 	<!-- QQQQ: in accordance with TLS, X509, FCS_TLSC_EXT.2, FCS_COP.1/HASH  -->
 	<!--               -->     
-    <ext-comp-def fam-id="FIA_ESTC_EXT" title="Enrollment over Secure Transport Client">
-		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
-	</ext-comp-def>
+    
 	<f-component cc-id="fia_estc_ext.1" name="Enrollment over Secure Transport (EST) Client" status="sel-based">
 		<depends on-sel="sel-fco-ests-ext-1"/>  <!-- TODO This is probably wrong -->
-		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-            <management>TODO: QQQQQ</management>
-            <audit>TODO: QQQQQ</audit>
-            <dependencies>
-                TODO: QQQQQ
-            </dependencies>
 		<f-element>
 			<title>
 				<comment>This SFR is defined in the X.509 FP. A review of these two versions of the SFRs is needed to determine the 
@@ -7814,12 +7748,6 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 <!-- FIA_ESTC_EXT.2 -->
 <!--               -->     
 <f-component cc-id="fia_estc_ext.2" name="EST Client use of TLS-unique value" status="objective">
-	<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-            <management>TODO: QQQQQ</management>
-            <audit>TODO: QQQQQ</audit>
-            <dependencies>
-                TODO: QQQQQ
-            </dependencies>
 	<f-element>
 		<title>
 			<comment>The parent requirement for this SFR (FIA_ESTC_EXT.1) will be moved to the X.509 FP, 
@@ -7882,17 +7810,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		is required for initial authentication and SFR selections associated to the support
 		for these optional roles must be claimed.   -->
 	<!--               -->     
-    <ext-comp-def fam-id="FIA_ESTS_EXT" title="Enrollment over Secure Transport Server">
-		<fam-behavior>Components in this family TODO: QQQQQ</fam-behavior>
-	</ext-comp-def>
+    
 	<f-component cc-id="fia_ests_ext.1" name="Enrollment over Secure Transport (EST) Server" status="sel-based">
 		<depends on-sel="sel-fco-ests-ext-1"/>
-		<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-            <management>TODO: QQQQQ</management>
-            <audit>TODO: QQQQQ</audit>
-            <dependencies>
-                TODO: QQQQQ
-            </dependencies>
 		<f-element>
 			<title>
 				<comment>This SFR is defined in the X.509 FP. A review of these two versions of the SFRs is needed to determine the 
@@ -8027,12 +7947,6 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 <!-- FIA_ESTS_EXT.2 -->
 <!--               -->     
 <f-component cc-id="fia_ests_ext.2" name="Enrollment over Secure Transport (EST) Server" status="objective">
-	<comp-lev>requires a conformant TOE to TODO: QQQQQ</comp-lev>
-            <management>TODO: QQQQQ</management>
-            <audit>TODO: QQQQQ</audit>
-            <dependencies>
-                TODO: QQQQQ
-            </dependencies>
 	<f-element>
 		<title>
 			<comment>The parent requirement for this SFR (FIA_ESTS_EXT.1) will be moved to the X.509 FP, 
@@ -10631,7 +10545,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <!-- FPT_TUD_EXT.1 -->
 	<!--               -->     
     <ext-comp-def fam-id="FPT_TUD_EXT" title="Trusted Update">
-		<fam-behavior>Components in this family ensure the TOE can manage updates and digital signatures.</fam-behavior>
+		<fam-behavior>Components in this family define requirements to ensure the TOE can manage updates and digital signatures.</fam-behavior>
 	</ext-comp-def>
 	<f-component cc-id="fpt_tud_ext.1" name="Trusted Update" >
 		<comp-lev>requires the TSF to check for and provide access for administrators to verify updates
@@ -10665,7 +10579,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>interface with the operational environment to implement</selectable>
 				</selectables>
 				the ability to provide Administrators the ability to initiate updates
-				to TOE firmware/software.
+				to TOE firmware and software.
 			</title>
 		</f-element>
 		<f-element>
@@ -10675,7 +10589,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>implement</selectable>
 					<selectable>interface with the operational environment to implement</selectable>
 				</selectables>
-				the ability to verify firmware/software updates to the TOE using a
+				the ability to verify firmware and software updates to the TOE using a
 				digital signature prior to installing those updates.
 			</title>
 		</f-element>
@@ -10895,9 +10809,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		not included in the ST, then OE.SESSION_PROTECTION_LOCAL will be included in
 		the ST.            -->     
     <ext-comp-def fam-id="FTA_SSL_EXT" title="TSF-Initiated Session Locking">
-    	<fam-behavior>Components in this family address the requirements for TSF-initiated and userinitiated
-    		locking, unlocking, and termination of interactive sessions. The
-    		extended FTA_SSL_EXT family is based on the FTA_SSL family.</fam-behavior>
+    	<fam-behavior>Components in this family address the requirements for TSF-initiated and user-initiated
+    		locking, unlocking, and termination of interactive sessions.</fam-behavior>
 	</ext-comp-def>
 		<f-component cc-id="fta_ssl_ext.1" name="TSF-Initiated Session Locking" status="optional">
 			<comp-lev>requires system initiated locking of
