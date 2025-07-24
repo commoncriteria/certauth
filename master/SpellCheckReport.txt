@@ -52,7 +52,6 @@ output/certauth-release-linkable.html: PRF
 output/certauth-release-linkable.html: PasswordRecipientInfo
 output/certauth-release-linkable.html: RAs
 output/certauth-release-linkable.html: REKs
-output/certauth-release-linkable.html: RFC5280
 output/certauth-release-linkable.html: RFC7030
 output/certauth-release-linkable.html: RGB
 output/certauth-release-linkable.html: Reissuance
@@ -158,6 +157,7 @@ output/certauth-release.html: ECP
 output/certauth-release.html: EKU
 output/certauth-release.html: ESTs
 output/certauth-release.html: EnvelopedData
+output/certauth-release.html: Events’
 output/certauth-release.html: FQDN
 output/certauth-release.html: Hardcoded
 output/certauth-release.html: IKEv1
@@ -176,11 +176,9 @@ output/certauth-release.html: PRF
 output/certauth-release.html: PasswordRecipientInfo
 output/certauth-release.html: RAs
 output/certauth-release.html: REKs
-output/certauth-release.html: RFC5280
 output/certauth-release.html: RFC7030
 output/certauth-release.html: RGB
 output/certauth-release.html: Reissuance
-output/certauth-release.html: Retention’
 output/certauth-release.html: SAs
 output/certauth-release.html: SFP
 output/certauth-release.html: SHAVS
@@ -204,7 +202,6 @@ output/certauth-release.html: certificatePolicy
 output/certauth-release.html: certificationRequestInfo
 output/certauth-release.html: deallocation
 output/certauth-release.html: enpoint
-output/certauth-release.html: environment’
 output/certauth-release.html: evaluator’s
 output/certauth-release.html: extended’
 output/certauth-release.html: forgeable
@@ -296,6 +293,7 @@ output/certauth.html: ECP
 output/certauth.html: EKU
 output/certauth.html: ESTs
 output/certauth.html: EnvelopedData
+output/certauth.html: Events’
 output/certauth.html: FQDN
 output/certauth.html: Hardcoded
 output/certauth.html: IKEv1
@@ -314,11 +312,9 @@ output/certauth.html: PRF
 output/certauth.html: PasswordRecipientInfo
 output/certauth.html: RAs
 output/certauth.html: REKs
-output/certauth.html: RFC5280
 output/certauth.html: RFC7030
 output/certauth.html: RGB
 output/certauth.html: Reissuance
-output/certauth.html: Retention’
 output/certauth.html: SAs
 output/certauth.html: SFP
 output/certauth.html: SHAVS
@@ -340,7 +336,6 @@ output/certauth.html: certifcate
 output/certauth.html: certificatePolicy
 output/certauth.html: certificationRequestInfo
 output/certauth.html: deallocation
-output/certauth.html: environment’
 output/certauth.html: evaluator’s
 output/certauth.html: extended’
 output/certauth.html: forgeable

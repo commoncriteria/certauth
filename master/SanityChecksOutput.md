@@ -18,7 +18,7 @@
 * Error: Detected multiple elements with an id of 'ftp-itc-https'.
 * Error: Detected multiple elements with an id of 'ftp-itc-https'.
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The follo"/section[4]""/f-component[23]""/f-element[1]""/note[1]"NIST SP 8"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The follo"/section[7]""/f-component[1]""/f-element[1]""/note[1]"It is lik"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The follo"/section[7]"FMT_MOF.1"/f-component[1]""/f-element[1]""/note[1]"It is lik"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The follo"/section[8]""/f-component[10]""/f-element[1]""/aactivity[1]"If the TS"/Guidance[1]"The evalu"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The follo"/section[8]""/f-component[11]""/f-element[1]""/note[1]"The inten"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The follo"/section[8]""/f-component[11]""/f-element[1]""/aactivity[1]"If the TS"/h:p[1]""
@@ -26,5 +26,7 @@
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The follo"/section[8]""/f-component[11]""/f-element[1]""/aactivity[1]"If the TS"/TSS[1]"The evalu"/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The follo"/section[8]""/f-component[11]""/f-element[1]""/aactivity[1]"If the TS"/TSS[1]"The evalu"/h:p[3]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The follo"/section[8]""/f-component[11]""/f-element[1]""/aactivity[1]"If the TS"/Guidance[1]"The evalu"/h:p[1]""
+* Warning: Since FAU_GCR_EXT.1.1 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.
+                       
 * Warning: Since FCS_IPSEC_EXT.1.13 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.
                        
