@@ -66,7 +66,7 @@
 	
 <!-- Proposed Package Inclusion Section
     This could be stand-alone or part of a larger section that defines the relationship between this doc and 
-other requirements docs. e.g. allowable PP compositions, supported modules, etc.
+other requirements docs. e.g., allowable PP compositions, supported modules, etc.
 And maybe there should be a section of the PP that says all this. So maybe some boilerplate around this?
     There are 3 kinds (so far): mandatory (always included), 
 				conditional (sel-based), 
@@ -1048,7 +1048,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
  	 <!-- FAU_ADP_EXT.1 -->
 	 <!-- This SFR needs to be greatly expanded to cover all the selections that are mentioed in the AppNote, but  -->
  	 <!-- are not represented by selections in this SFR. Namely:  -->
-	 <!-- QQQQ: If any audit functions (e.g. storage, review) are accomplished by the TOE
+	 <!-- QQQQ: If any audit functions (e.g., storage, review) are accomplished by the TOE
 		communicating over a network connection with a physically external audit server,
 		then the ST author must include FTP_ITC.1 with "audit server" selected.    -->
 	 <!-- QQQQ:  If any audit review is performed by an auditor through an interface provided by
@@ -1091,24 +1091,25 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		    <assignable>Auditable events in Tables 2, 5, 6, 7, and 8 that require persistent storage</assignable>. 
             </title>
             <note role="application">
-		  If any audit functions (e.g. storage, review) are accomplished by the TOE
+		  If any audit functions (e.g., storage, review) are accomplished by the TOE
 		communicating over a network connection with a physically external audit server,
 		then the ST author must include FTP_ITC.1 with "audit server" selected. If the TOE
 		relies on the operational environment to provide some of the TOE’s auditing
 		functionality, the ST author is expected to identify whether each of the auditable
-		events for the claimed SFRs are implemented by the TOE or by the operational environment, along with the specific environmental component that provides the
-		auditing functionality if applicable. The ST author should refer to the right-most
+		events for the claimed SFRs are implemented by the TOE or by the operational environment,
+		along with the specific environmental component that provides the auditing functionality 
+		if applicable. The ST author should refer to the Additional Audit Records Content 
 		column of Tables 2, 5, 6, 7, and 8 and complete these fields accordingly<h:br/><h:br/>
 		    
 		   If any audit review is performed by an auditor through an interface provided by
-		the TSF, then FAU_SAR.1 and FAU_SAR.3 in Appendix B.2 will be included in the ST by
+		the TSF, then FAU_SAR.1 and FAU_SAR.3 in Appendix A.3.2 will be included in the ST by
 		the ST author.<h:br/><h:br/>
 
 		If any audit pre-selection is performed by an auditor through an interface provided
 		by the TSF, then FAU_SEL.1 in Appendix A.3.2 will be included in the ST by the ST author.<h:br/><h:br/>
 		    
 		Audit records stored within the TOE boundary that are generated due to audit
-		events marked “extended” in tables 4, 5, and 6 that are included in the ST, then
+		events marked “extended” in Tables 2, 5, 6, 7, and 8 that are included in the ST, then
 		FAU_STG.2/EXT will be included in the ST by the ST author.<h:br/><h:br/>   
 
 		If the TSF initiates the storage of the audit data (that is, it generates audit data
@@ -1119,16 +1120,15 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		periods might be significantly different operationally. Generally, information
 		necessary to maintain an issued certificate or to determine the circumstances of
 		a certificate issuance is required to be available at least as long as the validity of
-		an issued certificate, and perhaps longer according the statutes, laws, or policies
+		an issued certificate, and perhaps longer according to the statutes, laws, or policies
 		applicable to the issuance and intended use of a particular certificate. Other audit
-		data is typically retained only to support normal operations. The ‘Retention’
+		data is typically retained only to support normal operations. The ‘Auditable Events’
 		column in Table 2 (as well as Tables 5, 6, 7, and 8 for the optional, objective,
-		implementation-based and selection-based
-		SFRs) indicates whether the audit record is intended to be used for ‘normal’
-		(shorter-term) or ‘extended’ (longer-term) purposes.<h:br/><h:br/>
+		implementation-based and selection-based SFRs) indicates whether the audit record is 
+		intended to be used for ‘normal’ (shorter-term) or ‘extended’ (longer-term) purposes.<h:br/><h:br/>
    
 		For the FDP_CER_EXT.2 audit event, the intent is that auditing is performed only
-		once incoming data are recognized by the TOE as a “request”. Cases where
+		once incoming data are recognized by the TOE as a “request.” Cases where
 		incoming data are rejected before they are processed as “requests” by the TOE
 		(and thus the action “fails”) do not need to be audited by the FDP_CER_EXT.2
 		audit event.<h:br/><h:br/>
@@ -1137,10 +1137,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
               <TSS>
 		The evaluator shall examine the TSS and operational guidance in order to verify
 		that they describe each of the relevant auditable events, how audit records of
-		these events are formatted, and what component of the TOE or operational environment is responsible for handling these events.<h:br/><h:br/>
+		these events are formatted, and what component of the TOE or operational environment
+		is responsible for handling these events.<h:br/><h:br/>
 		      
 		For those auditable events that are generated by the TOE and stored within the
-		TOE boundary, the assurance activities are included for the relevant selection-based audit SFRs.
+		TOE boundary, the evaluation activities are included for the relevant selection-based audit SFRs.
               </TSS>
               <Guidance>
 		There is no guidance associated with this evaluation activity.
@@ -1188,26 +1189,18 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			    <selectable>no other information</selectable>
 		    </selectables>
 		issued by the TSF. </title>
-		  	<ext-comp-def-title>
-		  		<title>The TSF shall <selectables>
-		  			<selectable>store</selectable>
-		  			<selectable>invoke the operational environment to store</selectable>
-		  		</selectables>
-		  		certificates issued by the TSF.
-		  		</title>
-		  	</ext-comp-def-title>
 		  	<note role="application">
 		While there is a requirement that a certificate repository exists and the TOE stores
 		all certificates (and CRLs, if selected in FCO_NRO_EXT.2.2) it generates in that
 		repository, the repository can physically be within the TOE or within (and provided
 		by storage in) the OE. If the repository is provided by the TOE (that is, it is within
-		the TOE boundary), then the first item in the first selection is chosen. If the storage
-		is provided by the OE, then the second item in the first selection is chosen. It
-		should be noted that the physical implementation of the certificate repository is
-		left to the vendor; for instance, it can be a standalone store, or incorporated
-		within the audit trail. <h:br/><h:br/>
-		If “CRLs (RFC 5280)” is chosen for FCO_NRO_EXT.2.2, then “CRLs” is selected in
-		the second selection; otherwise, “no other information is selected”.
+		the TOE boundary), then "store" is chosen in the first selection. If the storage is 
+		provided by the OE, then "invoke the operational environment to store" is chosen in the first
+		selection. It should be noted that the physical implementation of the certificate repository 
+		is left to the vendor; for instance, it can be a standalone store, or incorporated within 
+		the audit trail. <h:br/><h:br/> 
+		If “CRLs (RFC 5280)” is chosen in FCO_NRO_EXT.2.2, then “CRLs” is selected in
+		the second selection; otherwise, “no other information is selected.”
 	    </note>
             <aactivity>
 		<TSS>
@@ -1250,14 +1243,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
                             <h:ol type="a">
                                 <h:li>Start-up and shutdown of the audit functions</h:li>
                                 <h:li>All auditable events for the [<h:i>not specified</h:i>] level of audit;</h:li>
-                                <h:li>[<h:i>
+                                <h:li><h:i>
 									<h:ul>
-									<h:li>All administrative actions invoked through the TSF interface;</h:li>
+									<h:li>[All administrative actions invoked through the TSF interface;</h:li>
                                 	<h:li>Specifically defined auditable events listed in <xref to="at-mandatory"/></h:li>
                                 	<h:li>Specifically defined auditable events listed in <xref g="t-audit-optional"/></h:li>
                                 	<h:li>Specifically defined auditable events listed in <xref g="t-audit-sel-based"/></h:li>
-									<h:li>Specifically defined auditable events listed in <xref g="t-audit-impl-dep"/></h:li>
-								</h:ul></h:i>].</h:li>
+									<h:li>Specifically defined auditable events listed in <xref g="t-audit-impl-dep"/>]</h:li>
+								</h:ul></h:i>.</h:li>
 
 			    </h:ol>
              </title>
@@ -1265,17 +1258,17 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		The ST author will include a consolidated table of auditable events for all
 		mandatory, optional, and selected components in the ST per FAU_ADP_EXT.1 that
 		will indicate the component that is responsible for producing the audit event.
-		There are three cases for the generational of audit events. The audit event is
+		There are three cases for the generation of audit events. The audit event is
 		generated by the TSF; the audit event is generated on initiation by the TOE, but
 		the OE is involved in some or all of the actual generation of the audit event; and
 		the audit event is generated entirely by the OE without prompting from the TOE.<h:br/><h:br/>
 		The first two cases are covered by this requirement. Additionally, the start-up of
-		the TOE functions and all administrative actions that performed either by or
+		the TOE functions and all administrative actions performed either by or
 		through the TOE are required to be auditable. If all of the audit records are
 		generated by the TOE, or if the audit records are either generated entirely by the
 		TOE and entirely by the OE (that is, none of the audit records are generated by
 		invoking the OE), then “no other actions” is chosen in the selection. The meaning
-		of “specifically defined auditable events…” in item d refers to events in the table
+		of “specifically defined auditable events…” in item c refers to events in the table
 		produced by FAU_ADP_EXT.1 that indicate they are generated in whole or part of
 		the TSF.
 	    </note>	     
@@ -1290,7 +1283,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
                              <h:li>Date and time of the auditable event, type of event, subject identity (if applicable), and the outcome
 				(success or failure) of the event;</h:li>
                              <h:li>For each audit event type, based on the auditable event definitions of the
-				functional components included in the PP, PP-Module, functional package or ST, [<h:i>information specified in
+				functional components included in the PP, PP-Module, functional package, or ST, [<h:i>information specified in
 				     column three of the Auditable Events table in which the auditable event was defined</h:i>. </h:li>
                         </h:ol>
                 </title>
@@ -1312,20 +1305,21 @@ And maybe there should be a section of the PP that says all this. So maybe some 
                        	The evaluator shall ensure that the TSS describes every audit event type
 			mandated by the PP and that the description of the fields contains the
 			information required in FAU_GEN.1.2, and the additional information specified
-			in Tables 4 through 6, depending on the characterization of the SFR associated
-			with the particular event as mandatory, optional, or selection-based. For each applicable audit 
-			event, the evaluator shall additionally ensure that the TSS describes whether the TSF or the OE 
-			is responsible for storing records of the event. If multiple OE components are used for audit 
-			storage, the specific ones used in each case shall be identified.
+			in Tables 2, 5, 6, 7, and 8, depending on the characterization of the SFR associated
+			with the particular event as mandatory, optional, objective, implementation-dependent,
+			or selection-based. For each applicable audit event, the evaluator shall additionally 
+			ensure that the TSS describes whether the TSF or the OE is responsible for storing 
+			records of the event. If multiple OE components are used for audit storage, the 
+			specific ones used in each case shall be identified.
 			<h:br/><h:br/>
 			The evaluator shall also ensure that the TSS describes all cases where the
 			generation of ephemeral key pairs is not audited for FCS_CKM.1.    
                     </TSS>
                     <Guidance>
                         The evaluator shall examine the operational guidance to ensure that it
-			describes the audit mechanism, lists all of the auditable events and provides a
+			describes the audit mechanism, lists all of the auditable events, and provides a
 			format for audit records. Each audit record format type must be covered, along
-			with a brief description of each field. <h:br></h:br><h:br></h:br>
+			with a brief description of each field. <h:br/><h:br/>
 			The evaluator shall also make a determination of the administrative actions
 			that are relevant in the context of this PP. The evaluator shall examine the
 			operational guidance and make a determination of which administrative
@@ -1337,9 +1331,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			operational guidance are security relevant with respect to this PP. The
 			evaluator may perform this activity as part of the activities associated with
 			ensuring the operational guidance satisfies the requirements in accordance
-			with AGD_OPE.<h:br></h:br><h:br></h:br>
+			with AGD_OPE.<h:br/><h:br/>
 			The evaluator shall check that audit review tools are described in the
-			operational guidance and conform to the requirements of FAU_SAR.1.<h:br></h:br><h:br></h:br>
+			operational guidance and conform to the requirements of FAU_SAR.1.<h:br/><h:br/>
     			When the operational environment is selected in FAU_GEN.1.1 or
 			FAU_GEN.1.2, the evaluator shall examine the operational guidance to ensure
 			the configuration of the operational environment necessary to generate the
@@ -1349,7 +1343,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
                     <Tests>
                         The evaluator shall test the TOE’s ability to correctly generate audit records by
 			having the TOE generate audit records for the events listed in Table 2, any
-			events in Tables 2, 5, 6, 7, and 8 that correspond with the optional and selection-based SFRs claimed in the Security Target, startup of the audit functions (or
+			events in Tables 5, 6, 7, and 8 that correspond with the optional, objective,
+			implementation-dependent, or selection-based SFRs claimed in the Security Target, startup of the audit functions (or
 			startup of the TOE if audit functionality is not enabled or disabled
 			independently of the TOE), and administrative actions. This should include all
 			instances of an event. The evaluator shall test that audit records are generated
@@ -1358,7 +1353,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			evaluator shall test that each action determined by the evaluator above to be
 			security relevant in the context of this PP is auditable.  <h:br></h:br><h:br></h:br>
 			When verifying the test results, the evaluator shall use audit review tools in
-			conformance of FAU_SAR.1 and the operational guidance. The evaluator shall
+			conformance with FAU_SAR.1 and the operational guidance. The evaluator shall
 			ensure the audit records generated during testing match the format specified
 			in the operational guidance, and that the fields in each audit record have the
 			proper entries and that the audit records are provided in a manner suitable for
@@ -2000,13 +1995,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				and how the TSF detects audit full conditions for remote audit repositories; and 
 				how the TSF detects loss of communication with external audit repositories (if 
 				using an external audit server).  The evaluator shall also ensure the TSS describes 
-				what actions can be performed by the Auditor, if any, in each case where the audit 
+				what actions can be performed by the auditor, if any, in each case where the audit 
 				trail cannot be written.
 			</TSS>
 			<Guidance>
 				The evaluator shall examine the operational guidance to ensure it describes what 
 				conditions result in the audit trail not being able to be written to, and how an 
-				Auditor recognizes that such a condition has occurred. The evaluator shall also 
+				auditor recognizes that such a condition has occurred. The evaluator shall also 
 				examine the operational guidance to ensure it includes remedial steps for correcting such issues.
 			</Guidance>
 			<Tests>
@@ -2030,8 +2025,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						documented in the TSS, and verify that a privileged user can perform
 						the documented remedial steps.
 					</test>
-				</testlist>
-				<h:br/><h:br/>
+				</testlist>				
 				<h:i>Equivalency</h:i><h:br/><h:br/>
 				Testing of the TOE may be performed on a subset of the platforms listed in the
 				TOE's ST. Justification must be provided for those platforms that were excluded
@@ -2072,7 +2066,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<note role="application">
 				This SFR is to be included if “locally on the TOE” is selected in FAU_STG.1, and
 				OE.AUDIT_RETENTION is not included in the ST. The TSF may apply different
-				policies for different types of audit data (e.g. one type of record may be stored
+				policies for different types of audit data (e.g., one type of record may be stored
 				indefinitely while another type is automatically purged after a set period of time).
 				If this SFR is not included in the ST, then OE.AUDIT_RETENTION is included in the
 				ST.
@@ -2129,7 +2123,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</h:ul>
 		</management>
 		<audit>There are no auditable events foreseen.</audit>
-		<dependencies>FCS_COP.1 Cryptographic Operations<h:br/><h:br/></dependencies>
+		<dependencies>FCS_COP.1 Cryptographic Operations</dependencies>
 		<f-element>
                	<title>The TSF shall provide proof of origin for certificates it issues in accordance with
 			the digital signature requirements using a mechanism in accordance with RFC
@@ -2192,11 +2186,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</selectables>.
 		</title>
 			<ext-comp-def-title>
-				<title>The TSF shall <selectables>
+				<title>The TSF shall <selectables linebreak="yes">
 						<selectable>require and verify proof of origin for revocation request it receives via
 							<assignable>list of protocols and mechanisms used</assignable></selectable>
-						<selectable><assignable>support manual processes for revocation request and
-							responses</assignable></selectable>
+						<selectable>support manual processes for revocation requests and responses</selectable>
 					</selectables>.</title>
 			</ext-comp-def-title>
 			<note role="application">
@@ -2204,12 +2197,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			verifying proof of origin for information it receives. Based on what is chosen in the
 			selection for FCO_NRO_EXT.2.2, the applicable requirements from Appendix B (i.e.,
 			FDP_CRL_EXT.1, FDP_OCSPG_EXT.1) must be included. Based on what is chosen
-			in the selections for FCO_NRO_EXT.2.3-FCO_NRO_EXT.2.5, the applicable
+			in the selections for FCO_NRO_EXT.2.3 through FCO_NRO_EXT.2.5, the applicable
 			requirements from Appendix B (i.e., FIA_CMCS_EXT.1, FIA_ESTS_EXT.1) must be
 			included. <h:br/><h:br/>
 			A TOE that supports both EST and CMC and can obtain revocation requests via
 			one of the protocols would be in compliance with FCO_NRO_EXT.2.5. Manual
-			process to support revocation requests and responses are claimed and described
+			processes to support revocation requests and responses are claimed and described
 			if EST does not support full CMC requests and CMC is not claimed.<h:br/><h:br/>
 			This SFR references FCS_COP.1/Sig which, according to FCS_CDP_EXT.1, may be
 			implemented by the TOE or the OE. If FCS_CDP_EXT.1 indicates that FCS_COP.1/Sig
@@ -2268,7 +2261,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					requests that are not signed by authorized entities, submit to the TOE,
 					and verify that the TOE rejects the request.
                                     </test>
-                                    <test>For each supported request using password based
+                                    <test>For each supported request using password-based
 					authentication, the evaluator shall use invalid passwords and verify
 					that the TSF rejects the requests.
                                     </test>
@@ -2282,11 +2275,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					verify the TSF rejects the request.
                                     </test>
                                     <test>(Offline Test): With the TOE in offline mode, the evaluator shall log into the
-					TOE locally as the CA Operations Staff role and perform tests 1-4
+					TOE locally as the CA operations staff role and perform tests 1-4
 					above.
                                     </test>
                                 </testlist>
-				<h:i>Equivalency</h:i>
+				<h:i>Equivalency</h:i><h:br/><h:br/>
 				Testing of the TOE may be performed on a subset of the platforms listed in the
 				TOE's ST. Justification must be provided for those platforms that were excluded
 				from testing.
@@ -2388,7 +2381,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <ext-comp-def fam-id="FCS_CDP_EXT" title="Cryptographic Dependencies">
         	<fam-behavior>Components in this family define requirements for performing cryptographic
-        		operations..</fam-behavior>
+        		operations.</fam-behavior>
 		 </ext-comp-def>
 		<f-component cc-id="fcs_cdp_ext.1" name="Cryptographic Dependencies" >
           	<comp-lev>requires the TSF to be able to perform cryptographic operations based on a set
@@ -2438,11 +2431,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<note role="application"> 
 		Cryptographic functionality can be provided entirely by the TOE, entirely by the
 		operational environment, or by both. The SFRs that detail the cryptographic
-		functionality are contained in Appendices A, B, and C; these SFRs are included in the
+		functionality are contained in Appendices A and B; these SFRs are included in the
 		ST depending on selections in other SFRs that describe the mandated and optional
 		functionality that requires cryptographic functions (for instance, the inclusion of
 		TLS). The appropriate selection for whether the cryptographic functionality is
-		implemented by the TOE or by the OE is made for each of the SFRs in the Appendix
+		implemented by the TOE or by the OE is made for each of the SFRs in the Appendices
 		when instantiated in the ST. If both the TSF and OE work together to provide the
 		required cryptography for the TOE, iterate this SFR once for the TSF and once of
 		the OE, and list the specific SFRs implemented by each. In aggregate, all
@@ -2452,15 +2445,15 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		in the OE and there is no direct TSF invocation for that function. For instance, if
 		the DRBG is implemented by an HSM that is in the OE, that the TOE only invokes
 		the HSM for higher-level cryptographic functions (such as “create key”, “sign
-		certificate”, etc.), then (in that case) FCS_RBG_EXT.1 would not appear in any
+		certificate”, etc.), then (in that case) FCS_RBG.1 would not appear in any
 		iteration of the FCS_CDP_EXT.<h:br/><h:br/>
     
 		If the functionality is provided by communicating over a network connection with
 		a physically external cryptographic device, then the ST author must include
 		FTP_ITC.1 with “external cryptographic module” selected.<h:br/><h:br/>
    
-		The individual cryptographic SFRs may have Assurance Activities in addition to
-		those specified below; the intent is that the Assurance Activities below augment
+		The individual cryptographic SFRs may have evaluation activities in addition to
+		those specified below; the intent is that the evaluation activities below augment
 		those that are provided for the individual cryptographic SFRs.		
 	    </note>
             <aactivity>
@@ -2468,16 +2461,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		evaluator shall review the TSS to ensure that it specifies the interfaces that
 		are invoked, and the cryptographic provider of the functionality. The
 		evaluator shall review the TSS and verify that all cryptographic SFRs required
-		by the ST—through inclusion of (other) mandatory and optional SFRs--are
+		by the ST—through inclusion of (other) mandatory and optional SFRs—are
 		included.<h:br/><h:br/>
 		Other required TSS activities are associated with the cryptographic SFRs
 		themselves.    
 	      </TSS>
               <Guidance>
-		Required Guidance activities are associated with the cryptographic SFRs themselves.
+		Required guidance activities are associated with the cryptographic SFRs themselves.
               </Guidance>
               <Tests>
-		Required Test activities are associated with the cryptographic SFRs themselves.
+		Required test activities are associated with the cryptographic SFRs themselves.
               </Tests>
             </aactivity>
           </f-element>
@@ -4166,7 +4159,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	for encryption only, AES-CCM and AES-GCM for encryption and authentication,
 	AES-XTS for encryption only, and AES Key Wrap and AES Key Wrap with Padding
 	for key wrapping. It is necessary for the ST author to ensure that the selected AES
-	modes and key sizes are consistent with the claims made in any of the selectionbased cryptographic protocols (e.g. if FCS_IPSEC_EXT.1 is selected, CBC and/or
+	modes and key sizes are consistent with the claims made in any of the selectionbased cryptographic protocols (e.g., if FCS_IPSEC_EXT.1 is selected, CBC and/or
 	GCM must be selected depending on the selections made in FCS_IPSEC_EXT.1.4).  -->	      
       	<!--                  -->    	      
       	
@@ -4199,7 +4192,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
       				for encryption only, AES-CCM and AES-GCM for encryption and authentication,
       				AES-XTS for encryption only, and AES Key Wrap and AES Key Wrap with Padding
       				for key wrapping. It is necessary for the ST author to ensure that the selected AES
-      				modes and key sizes are consistent with the claims made in any of the selection-based cryptographic protocols (e.g. if FCS_IPSEC_EXT.1 is selected, CBC and/or
+      				modes and key sizes are consistent with the claims made in any of the selection-based cryptographic protocols (e.g., if FCS_IPSEC_EXT.1 is selected, CBC and/or
       				GCM must be selected).<h:br/><h:br/>
       			</note>
       			<aactivity>
@@ -5361,7 +5354,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			certificate which are both presented identifiers, as required by RFC 4945 and 2)
 			verification that the peer identified by the ID payload and the certificate is the
 			peer expected by the TOE (per the reference identifier). At that time, the TOE will
-			be required to demonstrate both aspects (i.e. that the TOE enforces that the peer’s
+			be required to demonstrate both aspects (i.e., that the TOE enforces that the peer’s
 			ID payload matches the peer’s certificate which both match configured peer
 			reference identifiers).<h:br/><h:br/>
 			Excluding the DN identifier type (which is necessarily the Subject DN in the peer
@@ -5838,7 +5831,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
               <title>Persistent private and secret keys shall be stored within the
 		<selectables>
 			<selectable>TSF</selectable>
-			<selectable>Operational environment</selectable>
+			<selectable>operational environment</selectable>
 		</selectables>
                 <selectables linebreak="yes">
 			<selectable>encrypted within a hardware rooted key hierarchy established in
@@ -5855,7 +5848,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<title>Persistent private and secret keys shall be stored within the
 						<selectables>
 							<selectable>TSF</selectable>
-							<selectable>Operational environment</selectable>
+							<selectable>operational environment</selectable>
 						</selectables> 
 						<selectables linebreak="yes">
 							<selectable>encrypted within a hardware rooted key hierarchy established in
@@ -5865,7 +5858,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					</title>
 				</ext-comp-def-title>
 				<note role="application">This requirement ensures that persistent secret keys and private keys are stored
-		securely when not in use. If some secrets/keys are manipulated by the TOE and
+		securely when not in use. If some secrets or keys are manipulated by the TOE and
 		others are manipulated by the environment, then both of the selections can be
 		specified by the ST author and the ST author must identify in the TSS those keys
 		which are manipulated by the TOE and those by the environment.<h:br/><h:br/> 
@@ -5878,18 +5871,19 @@ And maybe there should be a section of the PP that says all this. So maybe some 
  	      </note>
 	      <aactivity>
 		      <TSS>
-			Regardless of whether this requirement is met by the TOE or the operational environment, the evaluator will check the TSS to ensure that it lists each
+			Regardless of whether this requirement is met by the TOE or the operational environment, the
+			evaluator shall check the TSS to ensure that it lists each
 			persistent secret and private key needed to meet the requirements in the ST.
-			For each of these items, the evaluator will confirm that the TSS lists for what
+			For each of these items, the evaluator shall confirm that the TSS lists for what
 			purpose it is used, and how it is stored. 
 		      </TSS>
 		      <Guidance>
-			There are no AGD assurance activities for this requirement beyond what is
+			There are no guidance evaluation activities for this requirement beyond what is
 			necessary to satisfy the requirements in [CEM].   
 		      </Guidance>
 		      <Tests>
-			There are no test assurance activities for this requirement beyond what is
-			necessary to satisfy the requirements in [CEM]. 
+			There are no test evaluation activities for this requirement beyond what is
+			necessary to satisfy the requirements in [CEM]. <h:br/><h:br/>
 		      <h:i>Equivalency</h:i><h:br/><h:br/>
 		      	Testing of the TOE may be performed on a subset of the platforms listed in the
 			TOE’s ST. Justification must be provided for those platforms that were excluded
@@ -5931,7 +5925,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<title>
 				The TSF shall generate certificates using profiles that comply with requirements
 				for certificates as specified in IETF RFC 5280, “Internet X.509 Public Key
-				Infrastructure Certificate and Certificate Revocation List (CRL) Profile”, while
+				Infrastructure Certificate and Certificate Revocation List (CRL) Profile,” while
 				ensuring that the following conditions are met:
 				<h:ol type="a">
 					<h:li>The version field shall contain the integer 2.</h:li>
@@ -5989,7 +5983,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</f-element>
       		<f-element>
 			<title>
-				The TSF shall be able to generate at least 20 bits of random for use in issued
+				The TSF shall be able to generate at least 20 bits of random data for use in issued
 				certificates to be included in 
 				<selectables>
 					<selectable>serialNumber</selectable>
@@ -6001,7 +5995,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The requirement applies only to the issuance of X.509 v3 certificates. An optional
 				requirement in Appendix A allows for the issuance of X.509 certificates other than
 				V3.<h:br/><h:br/>
-				Consistency is defined in RFC5280 for FDP_CER_EXT.1.2, item i; specifically, for
+				Consistency is defined in RFC 5280 for FDP_CER_EXT.1.2, item i; specifically, for
 				each extendedKeyUsage purpose specified, there must be a consistent keyUsage
 				purpose set.<h:br/><h:br/>
 				RFC updates to RFC 5280 are included in this requirement.<h:br/><h:br/>
@@ -6017,7 +6011,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					accordance with FDP_CER_EXT.1.2. The evaluator shall also ensure that the TSS
 					describes how the TSF ensures that a certificate-requesting subject possesses
 					the applicable private key. Finally, the evaluator shall ensure that the TSS
-					describes how 20 bits of random are generated in accordance with
+					describes how 20 bits of random data are generated in accordance with
 					FDP_CER_EXT.1.3 and which certificate fields are involved.
 				</TSS>
 				<Guidance>
@@ -6043,7 +6037,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						FDP_CER_EXT.1.2.
 					</test>
 					<test>
-						The evaluator shall test the fields “d”, “e”, “f”, and “i” in
+						The evaluator shall test the fields “d,” “e,” “f,” and “i” in
 						FDP_CER_EXT.1.2 as follows:<h:br/><h:br/>
 						<h:b>Field “d”:</h:b> The evaluator shall send a request with a
 						subjectPublicKeyInfo that is allowed by the profile, and observe the
@@ -6135,6 +6129,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							between submitted certificate requests and issued certificates is provided.
 						</test>
 					</testlist>
+					
 					<h:i>Equivalency</h:i><h:br/><h:br/>		
 					Testing of the TOE may be performed on a subset of the platforms listed in the
 					TOE’s ST. Justification must be provided for those platforms that were excluded
@@ -6173,27 +6168,28 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>RA</selectable>
 					<selectable>AOR</selectable>
 					<selectable>CA</selectable>
-					<selectable>Operations Staff</selectable>
+					<selectable>operations staff</selectable>
 					<selectable>rules</selectable>
 				</selectables>
 				issued according to a configured certificate profile.
 			</title>
 				<ext-comp-def-title>
-					<title>The TSF shall support the approval of certificates by <assignable>a specified set of
+					<title>The TSF shall support the approval of certificates by <assignable>specified set of
 						rules</assignable> issued according to a configured certificate profile.</title>
 				</ext-comp-def-title>
 				<aactivity>
 				<TSS>
 					The evaluator shall examine the TSS to ensure it describes the certificate
 					issuance approval function, including the available interfaces that must be
-					used.<h:br/><h:br/>
+					used.
+				</TSS>
+				<Guidance>
 					The evaluator shall examine the operational guidance to ensure that it contains
 					instructions for any configuration aspects of the certificate issuance approval
 					function and the steps needed to perform an approval.
-				</TSS>
-				<Guidance/>
+				</Guidance>
 				<Tests>
-					The evaluator shall perform the following test:
+					The evaluator shall perform the following tests:
 					<testlist>
 						<test>
 							The evaluator shall configure the certificate issuance approval
@@ -6201,14 +6197,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							create a certificate request and submit it to the TOE. The evaluator shall
 							access the TOE using the defined interface and verify that the submitted
 							request is in the appropriate queue. The evaluator shall then assume either
-							the CA Operations Staff role or the RA Staff role and approve the certificate
+							the CA operations staff role or the RA staff role and approve the certificate
 							request and issue the certificate. The evaluator shall verify that a certificate
 							was issued.
 						</test>
 						If ‘rules’ is selected in FDP_CER_EXT.3.1 to allow automatic approval, the
 						evaluator shall follow operational guidance to configure the certificate
 						issuance approval function to follow a rule for automatic approval, and
-						perform the following tests:
+						perform the following tests: <testlist>
 						<test>
 							The evaluator shall construct one or more certificate requests that
 							meet the rules for automatic approval, and shall verify that each requested
@@ -6219,11 +6215,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							requests that violate the rules for automatic approval, and shall verify that
 							the requested certificates are not issued.
 						</test>
+						</testlist>
 					</testlist>
 					<h:i>Equivalency</h:i><h:br/><h:br/>		
 					Testing of the TOE may be performed on a subset of the platforms listed in the
 					TOE’s ST. Justification must be provided for those platforms that were excluded
-					from testing.<h:br/><h:br/>
+					from testing.
 				</Tests>
 			</aactivity>
 		</f-element>
@@ -6426,7 +6423,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				Based on the selection, the ST author must choose the appropriate requirements
 				from Appendix B.<h:br/><h:br/>
 				The ST should specify the format used to supply certificate status information. If
-				other OCSP standard is selected, only current standards shall be selected, the RFC
+				"other OCSP standard" is selected, only current standards shall be selected, the RFC
 				shall be referenced, and any optional features within the RFC shall be specified.<h:br/><h:br/>
 				The various iterations of FMT_MOF.1 defines the role or roles authorized to
 				approve changes to a certificate’s status.<h:br/><h:br/>
@@ -6446,7 +6443,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				used.<h:br/><h:br/>
 				If the TOE supports the configuration of certificate status information, the
 				evaluator shall examine the operational guidance to ensure that instructions
-				are available to configure the certificate status function to utilize the formats
+				are available to configure the certificate status function to use the formats
 				identified in FDP_CSI_EXT.1.1. 
 			</TSS>
 			<Guidance>
@@ -6456,7 +6453,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</Guidance>
 			<Tests>
 				Based on the selection, the evaluator shall perform the applicable tests
-				associated with the requirements in Appendix A.2:
+				associated with the requirements in Table 5:
 				<testlist>
 					<test>
 						For certificate status information, the evaluator shall configure
@@ -6690,12 +6687,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				“Resources” in the context of this requirement are any data buffers used to
 				implement certificate authority functions, including network communications
 				with the Certificate Authority. The concern is that a buffer or memory area might
-				be reused in subsequent function or communication channel resulting in
+				be reused in a subsequent function or communication channel resulting in
 				inappropriate disclosure of sensitive data. Note that this requirement applies only
 				to resources that the TSF controls. “Objects” refers to any sensitive data objects
 				that are under control of the TSF, such as subscribers’ personally identifiable
 				information.<h:br/><h:br/>
-				The first selection should include ‘operational environment’ if the TSF depends on
+				The first selection should include "operational environment" if the TSF depends on
 				a component of the OE to store and protect TSF data. The ST should specify the
 				component and any interface used to meet this requirement. 
 			</note>
@@ -6706,7 +6703,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					in the buffer processing this occurs.
 				</TSS>
 				<Guidance>
-					There are no AGD assurance activities for this requirement beyond what is
+					There are no guidance evaluation activities for this requirement beyond what is
 					necessary to satisfy the requirements in [CEM].
 				</Guidance>
 				<Tests>
@@ -8316,7 +8313,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</selectables> a 
 				<selectables>
 					<selectable id="sel-pwd-auth">password-based authentication mechanism</selectable>
-					<selectable><assignable>other authentication mechanism(s)</assignable></selectable>
+					<selectable><assignable>other authentication mechanisms</assignable></selectable>
 				</selectables>
 				to perform privileged user authentication. 
 			</title>
@@ -8325,17 +8322,17 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectables>
 						<selectable>provide</selectable>
 						<selectable>interface with the OE to provide</selectable>
-					</selectables> a <assignable>type of authentication mechanism</assignable> to perform
+					</selectables> a <assignable>type of authentication mechanisms</assignable> to perform
 					privileged user authentication.   
 				</title>
 			</ext-comp-def-title>
 			<note role="application">
-				Examples of “other authentication mechanisms” for the selection include onetime
+				Examples of “other authentication mechanisms” for the selection include one-time
 				password mechanisms such as RSA SecurID, certificates, and biometrics.
 			</note>
 			<aactivity>
 				<TSS>
-					Assurance activities for this requirement are covered under those for
+					Evaluation activities for this requirement are covered under those for
 					FIA_UIA_EXT.1. If other authentication mechanisms are specified, the
 					evaluator shall include those methods in the activities for FIA_UIA_EXT.1.
 				</TSS>
@@ -8420,7 +8417,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</title>
 			<note role="application">
 				Authentication can be password-based through the local console or through a
-				protocol that supports passwords (such as SSH), or certificates (such as TLS).<h:br/><h:br/>
+				protocol that supports passwords (such as SSH) or certificates (such as TLS).<h:br/><h:br/>
 				Certificate renewal and certificate revocation requests can be performed by
 				subscribers with valid certificates and are limited to actions on those certificates;
 				subscribers cannot renew or revoke other users’ certificates. Privileged user access
@@ -8431,10 +8428,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<aactivity>
 				<TSS>
 					The evaluator shall examine the TSS to ensure it describes the logon process
-					for each logon method (local, remote (HTTPS, SSH, etc.)) supported for the TOE.
+					for each logon method [local, remote (HTTPS, SSH, etc.)] supported for the TOE.
 					This description shall contain information pertaining to the credentials
-					allowed/used, any protocol transactions that take place, and what constitutes
-					a “successful logon”.<h:br/><h:br/>
+					allowed or used, any protocol transactions that take place, and what constitutes
+					a successful logon.<h:br/><h:br/>
 					The evaluator shall examine the TSS to determine that it describes all actions
 					that can be performed prior to I&amp;A as well as all actions that require successful
 					I&amp;A, and by whom these actions can be performed. Any constraints on these
@@ -8460,7 +8457,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						<test>
 							The evaluator shall use the operational guidance to
 							configure the appropriate credential supported for the access
-							method. For that credential/access method, the evaluator shall
+							method. For that credential and access method, the evaluator shall
 							show that providing correct I&amp;A information results in the ability
 							to access the system, while providing incorrect information results
 							in denial of access.
@@ -8483,16 +8480,16 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						</test>
 						<test>
 							The evaluator shall configure the constraints on subscriber
-							self-service requests. The evaluator shall assume a CA Operations
-							Staff or RA Staff role and issue a certificate to at least one unique
+							self-service requests. The evaluator shall assume a CA operations
+							staff or RA staff role and issue a certificate to at least one unique
 							subscriber. For each configured service, the evaluator shall request
 							authorized activities using the issued certificates and verify that
 							they can be performed.
 						</test>
 						<test>
 							The evaluator shall configure the constraints on subscriber
-							self-service requests. The evaluator shall assume a CA Operations
-							Staff or RA Staff role and issue a certificate to at least two unique
+							self-service requests. The evaluator shall assume a CA operations
+							staff or RA staff role and issue a certificate to at least two unique
 							subscribers. For each configured service, the evaluator shall
 							request authorized activities using one issued certificate for the
 							other subscriber’s information and shall verify that the request is
@@ -8503,7 +8500,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<h:i>Equivalency</h:i><h:br/><h:br/>		
 					Testing of the TOE may be performed on a subset of the platforms listed in the
 					TOE’s ST. Justification must be provided for those platforms that were excluded
-					from testing.<h:br/><h:br/>
+					from testing.
 				</Tests>
 			</aactivity>
 		</f-element>
@@ -8570,7 +8567,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				selection, the appropriate CRL or OCSP requirements from Appendix B must be
 				included.<h:br/><h:br/>
 				Certificates may optionally be used for trusted updates of TSF Software
-				(FPT_TUD_EXT.1) and for data/software integrity verification (FPT_TST_EXT.2)
+				(FPT_TUD_EXT.1) and for data and software integrity verification (FPT_TST_EXT.2)
 				and, if implemented, must be validated to contain the Code Signing purpose
 				extendedKeyUsage. <h:br/><h:br/>
 				Whenever TLS or HTTPS is used by the TSF to protect communications originating
@@ -8600,12 +8597,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					certificate format supported by the TOE.
 				</TSS>
 				<Guidance>
-					There are no AGD assurance activities for this requirement beyond what is
+					There are no guidance evaluation activities for this requirement beyond what is
 					necessary to satisfy the requirements in [CEM].
 				</Guidance>
 				<Tests>
 					The evaluator shall perform the following tests in conjunction with the other
-					Certificate Services assurance activities, including the use cases in
+					certificate services evaluation activities, including the use cases in
 					FIA_X509_EXT.2.1. The tests for the extendedKeyUsage rules are performed in
 					conjunction with the uses that require those rules.<h:br/><h:br/>
 					<testlist>
@@ -8621,7 +8618,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						<test>The evaluator shall test that the TOE can properly handle
 							revoked certificates –conditional on whether CRL or OCSP is selected;
 							if both are selected, and then a test is performed for each method. The 
-							evaluator has to only test one up in the trust chain (future revisions
+							evaluator only has to test one up in the trust chain (future revisions
 							may require to ensure the validation is done up the entire chain). The
 							evaluator shall ensure that a valid certificate is used, and that the
 							validation function succeeds. The evaluator shall then attempt the test
@@ -8644,7 +8641,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<h:i>Equivalency</h:i><h:br/><h:br/>		
 					Testing of the TOE may be performed on a subset of the platforms listed in the
 					TOE’s ST. Justification must be provided for those platforms that were excluded
-					from testing.<h:br/><h:br/>
+					from testing.
 				</Tests>
 			</aactivity>
 		</f-element>
@@ -8685,7 +8682,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</selectables>.
 			</title>
 			<note role="application">
-				The ST author‘s selection of trusted communication channel is expected to match
+				The ST author‘s selection of a trusted communication channel is expected to match
 				the selections in FTP_TRP.1.1 and FTP_ITC.1.1 (if FTP_ITC.1 is included in the ST).
 				Certificates may optionally be used for integrity verification (FPT_TST_EXT.2) and
 				other uses.
@@ -8714,7 +8711,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				indicated in the second selection shall determine the validity. The TOE must not
 				accept the certificate if it fails any of the other validation rules in FIA_X509_EXT.1.
 				If the administrator-configured option is selected by the ST author, the ST author
-				must also select function 22 in FMT_SMF.1.
+				must also select "Ability to accept certificates whose revocation status cannot be 
+				determined" in FMT_SMF.1.
 			</note>
 		</f-element>
 		<f-element>
@@ -8724,7 +8722,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</title>
 			<aactivity>
 				<TSS>
-					The evaluator shall examine the TSS to ensure it describes the certificate(s)
+					The evaluator shall examine the TSS to ensure it describes the certificates
 					used by the TOE, the different uses for each certificate, and how the TSF
 					chooses which certificates to use. The evaluator shall examine the TSS to
 					confirm that it describes the behavior of the TOE when a connection cannot be
@@ -8732,7 +8730,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					trusted channel. 
 				</TSS>
 				<Guidance>
-					The evaluator shall examine the operational guidance to ensure clear
+					The evaluator shall examine the operational guidance to ensure there are clear
 					instructions for configuring the operating environment so that the TOE can use
 					the certificates which are provided. If the requirement is that the administrator
 					is able to specify the default action if the peer certificate is deemed invalid,
@@ -8749,24 +8747,26 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							failing. Using the operational guidance, the evaluator shall then load a
 							certificate or certificates needed to validate the certificate to be used
 							in the function, and demonstrate that the function succeeds. The 
-							evaluator then shall delete one of the certificates, and show that the
+							evaluator shall then delete one of the certificates, and show that the
 							function fails.
 						</test>
 						<test>
-							The evaluator shall demonstrate that using a valid certificate
-							that requires certificate validation checking to be performed in at least
-							some part by communicating with a non-TOE entity. The evaluator
-							shall then manipulate the environment so that the TOE is unable to
-							verify the validity of the certificate, and observe that the action
-							selected in FIA_X509_EXT.2.2 is performed. If the selected action is
-							administrator-configurable, then the evaluator shall follow the
-							operational guidance to determine that all supported administrator-configurable options behave in their documented manner. 
+							The evaluator shall demonstrate the proper function of the certificate 
+							validity check function by using the TOE to connect to a non-TOE entity
+							using an interface where the presented certificate is checked for revocation
+							status, such that a revoked certificate is rejected and a non-revoked certificate
+							is accepted. The evaluator shall then manipulate the environment so that the TOE
+							is no longer able to verify the certificate's revocation status and use the TOE 
+							to connect to the same non-TOE entity. The result of this action shall be consistent
+							with the action selected in FIA_X509_EXT.2.2. If the selected action is administrator-
+							configurable, then the evaluator shall follow the operational guidance to determine 
+							that all supported administrator-configurable options behave in their documented manner. 
 						</test>
 					</testlist>
 					<h:i>Equivalency</h:i><h:br/><h:br/>		
 					Testing of the TOE may be performed on a subset of the platforms listed in the
 					TOE’s ST. Justification must be provided for those platforms that were excluded
-					from testing.<h:br/><h:br/>
+					from testing.
 				</Tests>
 			</aactivity>
 		</f-element>
@@ -8854,8 +8854,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
  	<!--                             -->
 	<!-- Class: FMT: Security Management  -->
         <!--                             -->
-     <section title="Class: Security Management (FMT)" id="fmt">
-	<h:b>Application Note: </h:b>
+     <section title="Class: Security Management (FMT)" id="fmt">	
 		FMT_MOF.1 has been broken up into several iterations to define the specific
 		management functions that are available to each of the roles defined by
 		FMT_SMR.2. The FMT_MOF.1 iterations restrict some functions to a particular
@@ -8879,30 +8878,28 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>operational environment</selectable>
 					</selectables></refinement>
 				shall restrict the ability to
-				[<h:i>
-				<refinement>
+				<refinement>[<h:i>				
 					<h:ul>
-						<h:li>manage the TOE locally and remotely;</h:li>
-						<h:li>configure the audit mechanism;</h:li>
-						<h:li>configure and manage certificate profiles;</h:li>
-						<h:li>modify revocation configuration;</h:li>
-						<h:li>perform updates to the TOE;</h:li>
-						<h:li>perform on-demand integrity tests;</h:li>
-						<h:li>import and remove X.509v3 certificates into/from the Trust Anchor
-							Database;</h:li>
+						<h:li>manage the TOE locally and remotely</h:li>
+						<h:li>configure the audit mechanism</h:li>
+						<h:li>configure and manage certificate profiles</h:li>
+						<h:li>modify revocation configuration</h:li>
+						<h:li>perform updates to the TOE</h:li>
+						<h:li>perform on-demand integrity tests</h:li>
+						<h:li>import and remove X.509v3 certificates into and from the Trust Anchor Database</h:li>
 						<h:li>
 						<selectables linebreak="yes">
-							<selectable>Import <assignable> secret and private keys other than the CA’s signing keys</assignable></selectable>
-							<selectable>configure certificate revocation list function;</selectable>
-							<selectable>configure OCSP function;</selectable>
-							<selectable>disable deprecated algorithms;</selectable>
-							<selectable>accept certificates whose validity cannot be determined;</selectable>
-							<selectable>export PKCS#10 certificate request;</selectable>
-							<selectable>import CA certificate;</selectable>
+							<selectable>import <assignable> secret and private keys other than the CA’s signing keys</assignable></selectable>
+							<selectable>configure certificate revocation list function</selectable>
+							<selectable>configure OCSP function</selectable>
+							<selectable>disable deprecated algorithms</selectable>
+							<selectable>accept certificates whose validity cannot be determined</selectable>
+							<selectable>export PKCS#10 certificate request</selectable>
+							<selectable>import CA certificate</selectable>
 							<selectable><assignable>other security management functions</assignable></selectable>
 						</selectables></h:li>
 					</h:ul>
-				</refinement></h:i>]
+				</h:i></refinement>]
 				to [<h:i>Administrators</h:i>].	
 			</title>
 			<note role="application">
