@@ -4643,7 +4643,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			rules accordingly. There may be multiple SPDs (one for each network interface),
 			but this is not required.
 		</note>
-		<aactivity>
+		<aactivity level="element">
 			<TSS>
 				The evaluator shall examine the TSS and determine that it describes what takes
 				place when a packet is processed by the TOE, (e.g., the algorithm used to
@@ -4664,7 +4664,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</TSS>
 			<Guidance>
 				The evaluator shall examine the operational guidance to verify it instructs the
-				Administrator how to construct entries into the SPD that specify a rule for
+				administrator how to construct entries into the SPD that specify a rule for
 				processing a packet. The description includes both cases – a rule that ensures
 				packets between authorized components are protected and a rule that all
 				other packets are dropped. The evaluator shall determine that the description
@@ -4679,7 +4679,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<testlist>
 					<test>
 						The evaluator shall configure the SPD such that there is a rule
-						for dropping a packet, encrypting a packet. The selectors used in the
+						for dropping a packet, encrypting a packet, and allowing a packet to 
+						flow in plaintext. The selectors used in the
 						construction of the rule shall be different such that the evaluator can
 						generate a packet and send packets to the gateway with the 
 						appropriate fields (fields that are used by the rule - e.g., the IP
@@ -4712,7 +4713,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			The TSF shall have a nominal, final entry in the SPD that matches anything that is
 			otherwise unmatched, and discards it.
 		</title>
-		<aactivity>
+		<aactivity level="element">
 			<Tests>
 				The assurance activity for this element is performed in conjunction with the
 				activities for FCS_IPSEC_EXT.1.1.<h:br/><h:br/>
@@ -4745,7 +4746,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<selectable>no other mode</selectable>
 			</selectables>.
 		</title>
-		<aactivity>
+		<aactivity level="element">
 			<TSS>
 				The evaluator checks the TSS to ensure it states that the VPN can be established
 				to operate in tunnel mode and/or transport mode (as identified in
@@ -4806,7 +4807,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			together with a Secure Hash Algorithm (SHA)-based HMAC.
 			</title>
 		</ext-comp-def-title>
-		<aactivity>
+		<aactivity level="element">
 			<TSS>
 				The evaluator shall examine the TSS to verify that the algorithms supported are described. In addition, the evaluator ensures that the SHA-based HMAC algorithm conforms to the algorithms specified in FCS_COP.1/KeyedHash.
 			</TSS>
@@ -4859,7 +4860,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			If the TOE implements SHA-2 hash algorithms, the ST author
 			shall select RFC 4868. 
 		</note>
-		<aactivity>
+		<aactivity level="element">
 			<TSS>
 				The evaluator shall examine the TSS to verify that IKEv2 is
 				implemented. It may
@@ -4896,7 +4897,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</selectables>protocol uses the cryptographic algorithms <assignable>supported cryptographic
 				algorithms</assignable>.</title>
 		</ext-comp-def-title>
-		<aactivity>
+		<aactivity level="element">
 			<TSS>
 				The evaluator shall ensure the TSS identifies the algorithms used for encrypting
 				the IKEv2 payload.<h:br/><h:br/>
@@ -4956,7 +4957,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			implementation, including lifetime of the SAs, should be included in the
 			operational guidance generated for AGD_OPE. 
 		</note>
-		<aactivity>
+		<aactivity level="element">
 			<Guidance>
 				The evaluator shall verify that the values for SA lifetimes can be configured and
 				that the instructions for doing so are located in the operational guidance. If
@@ -5038,7 +5039,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			implementation, including lifetime of the SAs, should be included in the
 			operational guidance generated for AGD_OPE. 
 		</note>
-		<aactivity>
+		<aactivity level="element">
 			<Guidance>
 				The evaluator shall verify that the values for SA lifetimes can be configured and
 				that the instructions for doing so are located in the operational guidance. If
@@ -5105,7 +5106,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			and group 20 (ECDH using NIST curve P-384). From Table 2, the bits of security
 			value for group 14 is 112, and for group 20 it is 192.
 		</note>
-		<aactivity>
+		<aactivity level="element">
 			<TSS>
 				The evaluator shall check to ensure that, for each DH group supported, the TSS
 				describes the process for generating "x" (as defined in FCS_IPSEC_EXT.1.). The
@@ -5135,7 +5136,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			Because nonces may be exchanged before the DH group is negotiated, the nonce
 			used should be large enough to support all TOE-chosen proposals in the exchange.
 		</note>
-		<aactivity>
+		<aactivity level="element">
 			<Tests>
 				<testlist>
 					<test>
@@ -5183,7 +5184,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			are specified, they must comply with the requirements (in terms of the ephemeral
 			keys that are established) listed in FCS_CKM.1/FCS_CKM.2.
 		</note>
-		<aactivity>
+		<aactivity level="element">
 			<TSS>
 				The evaluator shall check to ensure that the DH groups specified in the
 				requirement are listed as being supported in the TSS. If there is more than one
@@ -5222,7 +5223,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			default configuration in the evaluated configuration (either "out of the box" or by
 			configuration guidance in the AGD documentation) must enable this functionality.
 		</note>
-		<aactivity>
+		<aactivity level="element">
 			<TSS>
 				The evaluator shall check that the TSS describes the potential strengths (in
 				terms of the number of bits in the symmetric key) of the algorithms that are
@@ -5284,7 +5285,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			2409 specifies three authentication methods using public keys; each one
 			supported will be described in the TSS).
 		</note>
-		<aactivity>
+		<aactivity level="element">
 			<TSS>
 				The evaluator ensures that the TSS identifies RSA and/or ECDSA as being used
 				to perform peer authentication. The description shall be consistent with the
@@ -5347,7 +5348,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			supported by the TOE in general. The ST author may assign additional supported
 			identifier types in the second selection.
 		</note>
-		<aactivity>
+		<aactivity level="element">
 			<Tests>
 				The assurance activities for this element are performed in conjunction with the
 				assurance activities for the next element.
@@ -5379,7 +5380,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			identifier to the presented identifier in the SAN only, ignoring the Common Name.<h:br/><h:br/>
 			The configuration of the peer reference identifier is addressed by FMT_SMF.1.1.
 		</note>
-		<aactivity>
+		<aactivity level="element">
 			<TSS>
 				The evaluator shall ensure that the TSS describes how the TOE compares the
 				peer’s presented identifier to the reference identifier. This description shall
