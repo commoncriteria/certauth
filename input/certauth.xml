@@ -4718,7 +4718,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The assurance activity for this element is performed in conjunction with the
 				activities for FCS_IPSEC_EXT.1.1.<h:br/><h:br/>
 				The evaluator uses the operational guidance to configure the TOE to carry out
-				the following tests:<h:br/><h:br/>
+				the following test:<h:br/><h:br/>
 				<testlist>
 					<test>
 						The evaluator shall configure the SPD such that there is a rule
@@ -4730,7 +4730,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						network packet is passed to the proper destination interface with no
 						modification. The evaluator shall then modify a field in the packet
 						header; such that it no longer matches the evaluator-created entries
-						(there may be a “TOE/platform created” final entry that discards
+						(there may be a TOE or platform-created final entry that discards
 						packets that do not match any previous entries). The evaluator sends
 						the packet, and observes that the packet was dropped.
 					</test>
@@ -4749,7 +4749,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<aactivity level="element">
 			<TSS>
 				The evaluator checks the TSS to ensure it states that the VPN can be established
-				to operate in tunnel mode and/or transport mode (as identified in
+				to operate in tunnel mode or transport mode (or both), (as identified in
 				FCS_IPSEC_EXT.1.3). 
 			</TSS>
 			<Guidance>
@@ -4757,30 +4757,30 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				on how to configure the connection in each mode selected. 
 			</Guidance>
 			<Tests>
-				The evaluator shall perform the following test(s) based on the selections
+				The evaluator shall perform the following tests based on the selections
 				chosen:<h:br/><h:br/>
 				<testlist>
 					<test>
-						(conditional) If tunnel mode is selected, the evaluator uses the
-						operational guidance to configure the TOE/platform to operate in
+						(conditional) If tunnel mode is selected, the evaluator shall use the
+						operational guidance to configure the TOE or platform to operate in
 						tunnel mode and also configures a VPN peer to operate in tunnel
-						mode. The evaluator configures the TOE/platform and the VPN peer to
+						mode. The evaluator shall configure the TOE or platform and the VPN peer to
 						use any of the allowable cryptographic algorithms, authentication
 						methods, etc. to ensure an allowable SA can be negotiated. The
-						evaluator shall then initiate a connection from the TOE/Platform to the
-						VPN peer. The evaluator observes (for example, in the audit trail and
+						evaluator shall then initiate a connection from the TOE or platform to the
+						VPN peer. The evaluator shall observe (for example, in the audit trail and
 						the captured packets) that a successful connection was established
 						using the tunnel mode.
 					</test>
 					<test>
-						The evaluator uses the operational guidance to configure the
-						TOE/platform to operate in transport mode and also configures a VPN
-						peer to operate in transport mode. The evaluator configures the
-						TOE/platform and the VPN peer to use any of the allowed
+						The evaluator shall use the operational guidance to configure the
+						TOE or platform to operate in transport mode and also configures a VPN
+						peer to operate in transport mode. The evaluator shall configure the
+						TOE or platform and the VPN peer to use any of the allowed
 						cryptographic algorithms, authentication methods, etc. to ensure an
-						allowable SA can be negotiated. The evaluator then initiates a
-						connection from the TOE/platform to connect to the VPN peer. The
-						evaluator observes (for example, in the audit trail and the captured
+						allowable SA can be negotiated. The evaluator shall then initiate a
+						connection from the TOE or platform to connect to the VPN peer. The
+						evaluator shall observe (for example, in the audit trail and the captured
 						packets) that a successful connection was established using the
 						transport mode.
 					</test>
@@ -4809,15 +4809,17 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</ext-comp-def-title>
 		<aactivity level="element">
 			<TSS>
-				The evaluator shall examine the TSS to verify that the algorithms supported are described. In addition, the evaluator ensures that the SHA-based HMAC algorithm conforms to the algorithms specified in FCS_COP.1/KeyedHash.
+				The evaluator shall examine the TSS to verify that the algorithms supported are described. 
+				In addition, the evaluator shall ensure that the SHA-based HMAC algorithm conforms to the
+				algorithms specified in FCS_COP.1/KeyedHash.
 			</TSS>
 			<Guidance>
-				The evaluator checks the operational guidance to ensure it provides
-				instructions on how to configure the TOE/platform to use the algorithms.
+				The evaluator shall checks the operational guidance to ensure it provides
+				instructions on how to configure the TOE or platform to use the algorithms.
 			</Guidance>
 			<Tests>
-				The evaluator shall configure the TOE/platform as indicated in the operational
-				guidance configuring the TOE/platform to use the supported
+				The evaluator shall configure the TOE or platform as indicated in the operational
+				guidance configuring the TOE or platform to use the supported
 				algorithms, attempt to establish a connection using ESP, and verify that the
 				attempt succeeds.
 			</Tests>
@@ -4863,20 +4865,19 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<aactivity level="element">
 			<TSS>
 				The evaluator shall examine the TSS to verify that IKEv2 is
-				implemented. It may
-				be that this is a configurable option.
+				implemented. It may be that this is a configurable option.
 			</TSS>
 			<Guidance>
 				The evaluator shall check the operational guidance to ensure it instructs the
-				administrator how to configure the TOE/platform to use IKEv2, and uses the guidance to 
-				configure the TOE/platform to perform NAT traversal for the following test (if selected). 
+				administrator how to configure the TOE or platform to use IKEv2, and uses the guidance to 
+				configure the TOE or platform to perform NAT traversal for the following test (if selected). 
 			</Guidance>
 			<Tests>
 				Tests are performed in conjunction with the other IPsec evaluation activities
 				with the exception of the activity below:<h:br/><h:br/>
 				<testlist>
 					<test>
-						(Conditional) The evaluator shall configure the TOE/platform so that it will
+						(Conditional) The evaluator shall configure the TOE or platform so that it will
 						perform NAT traversal processing as described in the TSS and RFC 5996,
 						section 2.23. The evaluator shall initiate an IPsec connection and
 						determine that the NAT is successfully traversed.
@@ -4901,21 +4902,22 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<TSS>
 				The evaluator shall ensure the TSS identifies the algorithms used for encrypting
 				the IKEv2 payload.<h:br/><h:br/>
-				If the cryptographic functionality is implemented by the operational environment and invoked by the TOE, the evaluator shall examine the TSS to
+				If the cryptographic functionality is implemented by the operational environment 
+				and invoked by the TOE, the evaluator shall examine the TSS to
 				determine that it lists the cryptographic provider for the functionality and the
 				interfaces that are invoked.
 			</TSS>
 			<Guidance>
-				The evaluator ensures that the operational guidance describes the
+				The evaluator shall ensure that the operational guidance describes the
 				configuration of the mandated algorithms, as well as any additional algorithms
 				selected in the requirement. The guidance is then used to configure the
-				TOE/platform to perform the following test for each ciphersuite selected.
+				TOE or platform to perform the following test for each ciphersuite selected.
 			</Guidance>
 			<Tests>
-				The evaluator shall configure the TOE/platform to use the ciphersuite under
-				test to encrypt the IKEv1 and/or IKEv2 payload and establish a connection with
+				The evaluator shall configure the TOE or platform to use the ciphersuite under
+				test to encrypt the IKEv1 or IKEv2 payload and establish a connection with
 				a peer device, which is configured to only accept the payload encrypted using
-				the indicated ciphersuite. The evaluator will confirm the algorithm was that
+				the indicated ciphersuite. The evaluator shall confirm the algorithm that was
 				used in the negotiation.
 			</Tests>
 		</aactivity>
@@ -4958,16 +4960,17 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			operational guidance generated for AGD_OPE. 
 		</note>
 		<aactivity level="element">
+			<TSS/>
 			<Guidance>
 				The evaluator shall verify that the values for SA lifetimes can be configured and
 				that the instructions for doing so are located in the operational guidance. If
-				time-based limits are supported, the evaluator ensures that the Administrator
+				time-based limits are supported, the evaluator ensures that the administrator
 				is able to configure Phase 1 SA values for 24 hours. Currently there are no
-				values mandated for the number of packets or number of bytes, the evaluator
-				just ensures that this can be configured if selected in the requirement. 
+				values mandated for the number of packets or number of bytes, the evaluator shall
+				just ensure that this can be configured, if selected in the requirement. 
 			</Guidance>
 			<Tests>
-				When testing this functionality, the evaluator needs to ensure that both sides
+				When testing this functionality, the evaluator must ensure that both sides
 				are configured appropriately. From the RFC “A difference between IKEv1 and
 				IKEv2 is that in IKEv1 SA lifetimes were negotiated. In IKEv2, each end of the SA
 				is responsible for enforcing its own lifetime policy on the SA and rekeying the
@@ -4983,7 +4986,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						(Conditional) The evaluator shall configure a maximum lifetime
 						in terms of the number of packets (or bytes) allowed following the 
 						operational guidance. The evaluator shall configure a test peer with a
-						packet/byte lifetime that exceeds the lifetime of the TOE. The
+						packet or byte lifetime that exceeds the lifetime of the TOE. The
 						evaluator shall establish an SA between the TOE and the test peer, and
 						determine that once the allowed number of packets (or bytes) through
 						this SA is exceeded, a new SA is negotiated. The evaluator shall verify
@@ -5040,12 +5043,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			operational guidance generated for AGD_OPE. 
 		</note>
 		<aactivity level="element">
+			<TSS/>
 			<Guidance>
 				The evaluator shall verify that the values for SA lifetimes can be configured and
 				that the instructions for doing so are located in the operational guidance. If
-				time-based limits are supported, the evaluator ensures that the Administrator
-				is able to configure Phase 2 SA values for 8 hours. Currently there are no values
-				mandated for the number of packets or number of bytes, the evaluator just
+				time-based limits are supported, the evaluator ensures that the administrator
+				is able to configure Phase 2 SA values for eight hours. Currently there are no values
+				mandated for the number of packets or number of bytes, the evaluator shall
 				ensures that this can be configured if selected in the requirement. 
 			</Guidance>
 			<Tests>
@@ -5065,7 +5069,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						(Conditional) The evaluator shall configure a maximum lifetime
 						in terms of the number of packets (or bytes) allowed following the
 						operational guidance. The evaluator shall configure a test peer with a
-						packet/byte lifetime that exceeds the lifetime of the TOE. The
+						packet or byte lifetime that exceeds the lifetime of the TOE. The
 						evaluator shall establish an SA between the TOE and the test peer, and
 						determine that once the allowed number of packets (or bytes) through
 						this SA is exceeded, a new SA is negotiated. The evaluator shall verify
@@ -5073,11 +5077,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					</test>
 					<test>
 						(Conditional) The evaluator shall configure a maximum lifetime
-						of 8 hours for the Phase 2 SA following the operational guidance. The
+						of eight hours for the Phase 2 SA following the operational guidance. The
 						evaluator shall configure a test peer with a lifetime that exceeds the
 						lifetime of the TOE. The evaluator shall establish an SA between the
-						TOE and the test peer, maintain the Phase 1 SA for 8 hours, and
-						determine that once 8 hours has elapsed, a new Phase 2 SA is
+						TOE and the test peer, maintain the Phase 1 SA for eight hours, and
+						determine that once eight hours has elapsed, a new Phase 2 SA is
 						negotiated. The evaluator shall verify that the TOE initiates a Phase 2
 						negotiation.
 					</test>
@@ -5114,6 +5118,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				that meets the requirements in this PP is used, and that the length of "x" meets
 				the stipulations in the requirement.
 			</TSS>
+			<Guidance/>
+			<Tests/>
 		</aactivity>
 	</f-element>
 	<f-element>
@@ -5137,6 +5143,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			used should be large enough to support all TOE-chosen proposals in the exchange.
 		</note>
 		<aactivity level="element">
+			<TSS/>
+			<Guidance/>
 			<Tests>
 				<testlist>
 					<test>
@@ -5189,8 +5197,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The evaluator shall check to ensure that the DH groups specified in the
 				requirement are listed as being supported in the TSS. If there is more than one
 				DH group supported, the evaluator checks to ensure the TSS describes how a
-				particular DH group is specified/negotiated with a peer.
+				particular DH group is specified or negotiated with a peer.
 			</TSS>
+			<Guidance/>	
 			<Tests>
 				For each supported DH group, the evaluator shall test to ensure that all
 				supported IKE protocols can be successfully completed using that particular DH
@@ -5233,8 +5242,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				algorithm) of the negotiated algorithm is less than or equal to that of the IKE
 				SA that is protecting the negotiation.
 			</TSS>
+			<Guidance/>
 			<Tests>
-				The evaluator follows the guidance to configure the TOE/platform to
+				The evaluator shall follow the guidance to configure the TOE or platform to
 				perform the following tests.<h:br/><h:br/>
 				<testlist>
 					<test>
@@ -5287,7 +5297,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</note>
 		<aactivity level="element">
 			<TSS>
-				The evaluator ensures that the TSS identifies RSA and/or ECDSA as being used
+				The evaluator ensures that the TSS identifies RSA or ECDSA as being used
 				to perform peer authentication. The description shall be consistent with the
 				algorithms as specified in FCS_COP.1/Sig Cryptographic Operations (for
 				cryptographic signature).<h:br/><h:br/>
@@ -5300,12 +5310,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				generate a pre-shared key as well as TOEs that simply use a pre-shared key. 
 			</TSS>
 			<Guidance>
-				The evaluator ensures the operational guidance describes how to set up the
-				TOE to use certificates with RSA and/or ECDSA signatures and public keys.
+				The evaluator shall ensure the operational guidance describes how to set up the
+				TOE to use certificates with RSA or ECDSA signatures and public keys.
 				In order to construct the environment and configure the TOE for the following
-				tests, the evaluator will ensure that the operational guidance describes how to
+				tests, the evaluator shall ensure that the operational guidance describes how to
 				configure the TOE to connect to a trusted CA, and ensure a valid certificate for
-				that CA is loaded into the TOE and marked “trusted”. 
+				that CA is loaded into the TOE and marked trusted. 
 			</Guidance>
 			<Tests>
 				For efficiency sake, the testing that is performed may be combined with the
@@ -5349,9 +5359,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			identifier types in the second selection.
 		</note>
 		<aactivity level="element">
+			<TSS/>
+			<Guidance/>
 			<Tests>
-				The assurance activities for this element are performed in conjunction with the
-				assurance activities for the next element.
+				The evaluation activities for this element are performed in conjunction with the
+				evaluation activities for FCS_IPSEC_EXT.1.15.
 			</Tests>
 		</aactivity>
 	</f-element>
@@ -5385,7 +5397,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The evaluator shall ensure that the TSS describes how the TOE compares the
 				peer’s presented identifier to the reference identifier. This description shall
 				include whether the certificate presented identifier is compared to the ID
-				payload presented identifier, which field(s) of the certificate are used as the
+				payload presented identifier, which fields of the certificate are used as the
 				presented identifier (DN, Common Name, or SAN), and, if multiple fields are
 				supported, the logical order comparison. If the ST author assigned an additional
 				identifier type, the TSS description shall also include a description of that type
@@ -5394,7 +5406,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</TSS>
 			<Guidance>
 				The evaluator shall ensure that the operational guidance includes the
-				configuration of the reference identifier(s) for the peer.
+				configuration of the reference identifiers for the peer.
 			</Guidance>
 			<Tests>
 				For each supported identifier type (excluding DNs), the evaluator shall repeat
@@ -5403,13 +5415,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<test>
 						For each field of the certificate supported for comparison, the evaluator
 						shall configure the peer’s reference identifier on the TOE (per the 
-						administrative guidance) to match the field in the peer’s presented certificate
+						operational guidance) to match the field in the peer’s presented certificate
 						and shall verify that the IKE authentication succeeds.
 					</test>
 					<test>
 						For each field of the certificate support for comparison, the evaluator
 						shall configure the peer’s reference identifier on the TOE (per the
-						administrative guidance) to not match the field in the peer’s presented
+						operational guidance) to not match the field in the peer’s presented
 						certificate and shall verify that the IKE authentication fails.
 					</test>
 					<test>
@@ -5433,7 +5445,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					</test>
 					<test>
 						(conditional) If the TOE supports both IPv4 and IPv6 and supports IP
-						address identifier types, the evaluator must repeat test 1 and 2 with both IPv4
+						address identifier types, the evaluator must repeat Tests 1 and 2 with both IPv4
 						address identifiers and IPv6 identifiers. Additionally, the evaluator shall verify
 						that the TOE verifies that the IP header matches the identifiers by setting the
 						presented identifiers and the reference identifier with the same IP address that
@@ -5587,7 +5599,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
               The ST author will select the function used and include the specific underlying cryptographic primitives used in the requirement or in the TSS.
               While any of the identified hash functions (SHA-224, SHA-256, SHA-384, SHA-512) are allowed for Hash_DRBG or HMAC_DRBG,
               only AES-based implementations for CTR_DRBG are allowed.<h:p/>
-			  The ST author selects "TSF RBG failure" in FPT_FLS.1 if this component is included in the ST.
+			  The ST author selects "TSF RBG failure" in FPT_FLS.1, if this component is included in the ST.
             </note>
             <aactivity level="element">
               <TSS>The evaluator shall verify that the TSS identifies the DRBGs used by the TOE.</TSS>
@@ -5624,7 +5636,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
                   additional input and entropy input to the call to reseed. The final value is
                   additional input to the second generate call.
                 </h:p><h:p>
-                  The following list contains more information on some of the input values to be generated/selected by the evaluator.
+                  The following list contains more information on some of the input values to be
+                  generated or selected by the evaluator.
                   <h:ul>
                     <h:li> <h:b>Entropy input:</h:b> The length of the entropy input value must equal the seed
                       length.</h:li>
@@ -5634,7 +5647,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
                     <h:li><h:b>Personalization string:</h:b> The length of the personalization string must be
                       less than or equal to seed length. If the implementation only supports one
                       personalization string length, then the same length can be used for both values.
-                      If more than one string length is support, the evaluator shall use personalization
+                      If more than one string length is supported, the evaluator shall use personalization
                       strings of two different lengths. If the implementation does not use a
                       personalization string, no value needs to be supplied. </h:li>
                     <h:li><h:b>Additional input:</h:b> The additional input bit lengths have the same defaults
@@ -5671,8 +5684,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             </note>
             <aactivity level="element">
             	<h:p>
-            		Documentation will be produced - and the evaluator shall perform the
-            		activities - in accordance with Appendix D - Entropy Documentation and Assessment appendix and
+            		Documentation will be produced&#8211;and the evaluator shall perform the
+            		activities&#8211;in accordance with Appendix D - Entropy Documentation and Assessment and
             		the
             		<h:a href="https://www.niap-ccevs.org/static/media/EntropyDocumentation_v2.b9820eaabf6977209f9a.pdf"
             			>Clarification to the Entropy Documentation and Assessment Annex</h:a>.
@@ -5701,9 +5714,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             </title>
             <aactivity level="element">              
               <TSS>
-                The evaluator shall verify that the TSS identifies how the DRBG state is updated, and the situations under which this may occur.
+                The evaluator shall verify that the TSS identifies how the DRBG state is updated, and the
+                situations under which this may occur.
               </TSS>
-              <Guidance>If the ST claims that the DRBG state can be updated on demand, the evaluator shall verify that the operational guidance has instructions for how to perform this operation.</Guidance>
+              <Guidance>If the ST claims that the DRBG state can be updated on demand, the evaluator shall
+              	verify that the operational guidance has instructions for how to perform this operation.</Guidance>
               <Tests/>
             </aactivity>
           </f-element>
@@ -5730,7 +5745,15 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</note>
 			<aactivity>
 				<h:p>
-				The evaluator shall examine the entropy documentation required by FCS_RBG.1.2 to verify that it identifies, for each DRBG function implemented by the TOE, the TSF external interface used to seed the TOE's DRBG. The evaluator shall verify that this includes the amount of sampled data and the min-entropy rate of the sampled data such that it can be determined that sufficient entropy can be made available for the highest strength keys that the TSF can generate (e.g., 256 bits). If the seed data cannot be assumed to have full entropy (e.g., the min-entropy of the sampled bits is less than 1), the evaluator shall ensure that the entropy documentation describes the method by which the TOE estimates the amount of entropy that has been accumulated to ensure that sufficient data is collected and any conditioning that the TSF applies to the output data to create a seed of sufficient size with full entropy.
+				The evaluator shall examine the entropy documentation required by FCS_RBG.1.2 to verify that it identifies,
+				for each DRBG function implemented by the TOE, the TSF external interface used to seed the TOE's DRBG. The 
+				evaluator shall verify that this includes the amount of sampled data and the min-entropy rate of the sampled
+				data such that it can be determined that sufficient entropy can be made available for the highest strength 
+				keys that the TSF can generate (e.g., 256 bits). If the seed data cannot be assumed to have full entropy 
+				(e.g., the min-entropy of the sampled bits is less than 1), the evaluator shall ensure that the entropy 
+				documentation describes the method by which the TOE estimates the amount of entropy that has been accumulated 
+				to ensure that sufficient data is collected and any conditioning that the TSF applies to the output data to 
+				create a seed of sufficient size with full entropy.
 				</h:p>
 				<TSS/>
 				<Guidance/>
@@ -5760,7 +5783,15 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
           <aactivity>
           <h:p>
-            The evaluator shall examine the entropy documentation required by FCS_RBG.1.2 to verify that it identifies, for each DRBG function implemented by the TOE, the TSF noise source used to seed the TOE's DRBG. The evaluator shall verify that this includes the amount of sampled data and the min-entropy rate of the sampled data such that it can be determined that sufficient entropy can be made available for the highest strength keys that the TSF can generate (e.g., 256 bits). If the seed data cannot be assumed to have full entropy (e.g., the min-entropy of the sampled bits is less than 1), the evaluator shall ensure that the entropy documentation describes the method by which the TOE estimates the amount of entropy that has been accumulated to ensure that sufficient data is collected and any conditioning that the TSF applies to the output data to create a seed of sufficient size with full entropy.
+            The evaluator shall examine the entropy documentation required by FCS_RBG.1.2 to verify that it identifies,
+            for each DRBG function implemented by the TOE, the TSF noise source used to seed the TOE's DRBG. The evaluator
+            shall verify that this includes the amount of sampled data and the min-entropy rate of the sampled data such 
+            that it can be determined that sufficient entropy can be made available for the highest strength keys that 
+            the TSF can generate (e.g., 256 bits). If the seed data cannot be assumed to have full entropy (e.g., the 
+            min-entropy of the sampled bits is less than 1), the evaluator shall ensure that the entropy documentation
+            describes the method by which the TOE estimates the amount of entropy that has been accumulated to ensure 
+            that sufficient data is collected and any conditioning that the TSF applies to the output data to create a
+            seed of sufficient size with full entropy.
           </h:p>
             <TSS/>
             <Guidance/>
@@ -5780,8 +5811,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             <title>
               The TSF shall be able to seed the RBG using 
 			  <selectables>
-				<selectable><assignable>number</assignable> TSF software-based noise source(s)</selectable>
-				<selectable><assignable>number</assignable> TSF hardware-based noise source(s)</selectable>
+				<selectable><assignable>number</assignable> TSF software-based noise sources</selectable>
+				<selectable><assignable>number</assignable> TSF hardware-based noise sources</selectable>
 			  </selectables>.
             </title>
             <note role="application">
@@ -5790,7 +5821,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
             </note>
           <aactivity>
           <h:p>
-            The evaluator shall examine the entropy documentation required by FCS_RBG.1.2 to verify that it identifies, for each DRBG function implemented by the TOE, each TSF noise source used to seed the TOE's DRBG. The evaluator shall verify that this includes the amount of sampled data and the min-entropy rate of the sampled data from each data source.
+            The evaluator shall examine the entropy documentation required by FCS_RBG.1.2 to verify that it identifies,
+            for each DRBG function implemented by the TOE, each TSF noise source used to seed the TOE's DRBG. The 
+            evaluator shall verify that this includes the amount of sampled data and the min-entropy rate of the sampled 
+            data from each data source.
           </h:p>
             <TSS/>
             <Guidance/>
@@ -5809,8 +5843,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
           <f-element id="fel-rbg-comb">
             <title>
               The TSF shall <assignable>combining operation</assignable> <selectables>
-                <selectable>output from TSF noise source(s)</selectable>
-                <selectable>input from TSF interface(s) for seeding</selectable></selectables>
+                <selectable>output from TSF noise sources</selectable>
+                <selectable>input from TSF interfaces for seeding</selectable></selectables>
                 to create the entropy input into the derivation function as defined in <assignable>list of standards</assignable>, resulting
                 in a minimum of <assignable>number of bits</assignable> bits of min-entropy.              
             </title> 
@@ -6333,7 +6367,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					("If the issuer field contains a null Name...").</comment>
 				A TSF that issues CRLs shall verify that all mandatory fields in any CRL issued
 				contain values in accordance with ITU-T Recommendation X.509. At a minimum,
-				the following items shall be validated:<h:br/><h:br/>
+				the following items shall be validated:
 				<h:ol type="a">
 					<h:li>If the version field is present, then it shall contain a 1.</h:li>
 					<h:li>If the CRL contains any critical extensions, then the version 
@@ -6354,7 +6388,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<aactivity>
 				<TSS>
 					The evaluator shall examine the TSS to ensure it indicates whether the TOE
-					supports CRL generation and, if so, describes the CRL generation function. Also,
+					supports CRL generation, and if so, describes the CRL generation function. Also,
 					the evaluator shall ensure that the TSS identifies which of the values identified
 					in FDP_CRL_EXT.1.1 can be included in CRLs.	
 				</TSS>
@@ -6385,10 +6419,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							such attempts are rejected by the TSF.
 						</test>
 					</testlist>
-					<h:i>Equivalency</h:i>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
 					Testing of the TOE may be performed on a subset of the platforms listed in the
 					TOE’s ST. Justification must be provided for those platforms that were excluded
-					from testing.<h:br/><h:br/>
+					from testing.
 				</Tests>
 			</aactivity>
 		</f-element>
@@ -6541,16 +6575,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<note role="application">
 				<comment>It is unclear what the inclusion criteria for this selection-based SFR are. The encoding of this SFR in the XML points to a dummy location in FIA_UAU_EXT.1 but is commented as being wrong.</comment>
 				This requirement must be included in the ST if...<h:br/><h:br/>
-				To refine this requirement, the phrase “[assignment: access control SFP(s) and/or information flow control SFP(s)]
-				to” was removed and the phrase “through the use of [selection, choose at least one of: IPsec, SSH, TLS,
-				TLS/HTTPS]” was added.<h:br/><h:br/>
+				
 				This requirement ensures all communications between components of a
 				distributed TOE is protected through the use of an encrypted communications
 				channel. The data passed in this trusted communication channel are encrypted as
 				defined by the protocol chosen in the first selection. The ST author chooses the
-				mechanism(s) supported by the TOE, and then ensures the detailed requirements
-				in Appendix B.5 corresponding to their selection are copied to the ST if not already
-				present.<h:br/><h:br/>
+				mechanisms supported by the TOE, and then ensures the detailed certificate request protocol requirements
+				corresponding to their selection are copied to the ST if not already present.<h:br/><h:br/>
 				If SSH is selected, the TOE is expected to conform to the <xref to="pkgSSH"/>.
 			</note>
 			<aactivity>
@@ -6573,7 +6604,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							The evaluators shall ensure that communications using
 							each specified (in the operational guidance) communications
 							method is tested during the course of the evaluation, setting up
-							the connections as described in the operational guidance and
+							the connections as described in the operational guidance, and
 							ensuring that communication is successful.
 						</test>
 						<test>
@@ -6581,7 +6612,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							communication, the channel data is not sent in plaintext.
 						</test>
 					</testlist>
-					Further assurance activities are associated with the specific protocols.<h:br/><h:br/>
+					Further evaluation activities are associated with the specific protocols.<h:br/><h:br/>
 					<h:i>Equivalency</h:i><h:br/><h:br/>
 					Testing of the TOE may be performed on a subset of the platforms listed in the
 					TOE’s ST. Justification must be provided for those platforms that were excluded
@@ -6612,7 +6643,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					definitions. Note that the X.509 FP version of the SFR contains more granular requirements for the signature algorithms used to sign responses.</comment>
 				The TSF shall ensure that all mandatory fields in the OCSP response contain values
 				in accordance with the standards specified in FDP_CSI_EXT.1. At a minimum, the
-				following items shall be enforced:<h:br/><h:br/>
+				following items shall be enforced:
 				<h:ol type="a">
 					<h:li>The version field shall indicate a current version.</h:li>
 					<h:li>The signatureAlgorithm field shall contain the object 
@@ -6629,14 +6660,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<note role="application">
 				This SFR must be included in the ST if TODO.<h:br/><h:br/>
 				If RFC 6960 is selected in FCO_NRO_EXT.2.2, the current version is 1 (value 0)
-				and the fields are as named above. If ‘other OCSP standard’ is selected, then the
+				and the fields are as named above. If "other OCSP standard" is selected, then the
 				equivalent fields for items a – e above should be identified and the current
 				version should match the specification. 
 			</note>
 			<aactivity>
 				<TSS>
 					The evaluator shall examine the TSS to ensure it indicates whether the TOE
-					supports OCSP and, if so, describes the OCSP response function. Also, the
+					supports OCSP, and if so, describes the OCSP response function. Also, the
 					evaluator shall ensure that the TSS identifies which of the values identified in
 					FDP_OCSPG_EXT.1.1 can be included in OCSP responses.
 				</TSS>
@@ -6665,15 +6696,15 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							shall determine that all such attempts are rejected by the TSF. 
 						</test>
 					</testlist>
-					<h:i>Equivalency</h:i>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
 					Testing of the TOE may be performed on a subset of the platforms listed in the
 					TOE’s ST. Justification must be provided for those platforms that were excluded
-					from testing.<h:br/><h:br/>
+					from testing.
 				</Tests>
 			</aactivity>
 		</f-element>
 		<audit-event>
-			<audit-event-descr>Failure to generate cerficate status information.<h:br/>(Retention: Normal)</audit-event-descr>
+			<audit-event-descr>Failure to generate certificate status information.<h:br/>(Retention: Normal)</audit-event-descr>
 		</audit-event>
 	</f-component>
 
@@ -6996,15 +7027,15 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<selectables>
 					<selectable>prevent the remote privileged user
 						from successfully authenticating until <assignable>action</assignable>
-						is taken by an Administrator</selectable>
+						is taken by an administrator</selectable>
 					<selectable>prevent the privileged user from successfully authenticating 
-						until an Administrator defined time period has elapsed</selectable>
+						until an administrator defined time period has elapsed</selectable>
 				</selectables>.
 			</title>
 			<note role="application">
 				This requirement is applicable only if the TOE provides its own password-based
-				authentication mechanism. Thus it is included in the ST only if "local 
-				password-based authentication mechanism" is selected in FIA_UAU_EXT.1.1.<h:br/><h:br/>
+				authentication mechanism. Thus it is included in the ST only if "password-based
+				authentication mechanism" is selected in FIA_UAU_EXT.1.1.<h:br/><h:br/>
 				This requirement does not apply to a privileged user at the local console, since it
 				does not make sense to lock a local privileged user’s account in this fashion. This
 				could be addressed by (for example) requiring a separate account for local
@@ -7024,30 +7055,30 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					prevented from successfully logging on to the TOE, and the actions necessary
 					to restore this ability.<h:br/><h:br/>
 					If the operational environment is responsible for this function, the evaluator
-					shall verify that the TSS describes that function.<h:br/><h:br/>
+					shall verify that the TSS describes that function.
 				</TSS>
 				<Guidance>
 					The evaluator shall examine the operational guidance to ensure that
 					instructions for configuring the number of successive unsuccessful
 					authentication attempts (1.1) and time period (1.2, if implemented) are
 					provided, and that the process of allowing the remote privileged user to once
-					again successfully log on is described for each “action” specified (if that option
+					again successfully log on is described for each action specified (if that option
 					is chosen). If different actions or mechanisms are implemented depending on
 					the authentication method (e.g., TLS vs. SSH), all must be described.<h:br/><h:br/>
 					If the operational environment is responsible for this function, the evaluator
 					shall verify that the operational guidance instructs the reader to rely on this
-					capability.<h:br/><h:br/>
+					capability.
 				</Guidance>
 				<Tests>
 					The evaluator shall perform the following tests for each method by which
 					remote privileged users access the TOE, either directly or by authenticating to
 					the operational environment from which the TOE inherits user information
-					(e.g., TLS, SSH):<h:br/><h:br/>
+					(e.g., TLS, SSH):
 					<testlist>
 						<test>
 							[conditional on first selection item]: The evaluator shall use the
 							operational guidance to configure the number of successive
-							unsuccessful authentication attempts allowed by the TOE. The
+							unsuccessful authentication attempts are allowed by the TOE. The
 							evaluator shall test that once the limit is reached, attempts with valid
 							credentials are not successful. For each action specified by the
 							requirement, the evaluator shall show that following the operational
@@ -7057,7 +7088,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						<test>
 							[conditional on second selection item]: The evaluator shall use
 							the operational guidance to configure the number of successive
-							unsuccessful authentication attempts allowed by the TOE and a time
+							unsuccessful authentication attempts are allowed by the TOE and a time
 							period after which valid logins will be allowed for a remote privileged 
 							user. After exceeding the specified number of invalid login attempts
 							and showing that valid login is not possible, the evaluator shall show
@@ -7069,7 +7100,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<h:i>Equivalency</h:i><h:br/><h:br/>
 					Testing of the TOE may be performed on a subset of the platforms listed in the
 					TOE’s ST. Justification must be provided for those platforms that were excluded
-					from testing.<h:br/><h:br/>
+					from testing.
 				</Tests>
 			</aactivity>
 		</f-element>
@@ -7100,7 +7131,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<title>
 				<comment>This SFR is defined in the X.509 FP. A review of these two versions of the SFRs is needed to determine the 
 					appropriate assignments/selections such that the configuration is comparable to its old 
-					definitions. Note that the X.509 version of this SFR lacks an explicit element to require the CA Operations Staff to export requests and import responses.</comment>
+					definitions. Note that the X.509 version of this SFR lacks an explicit element to require the
+					CA operations staff to export requests and import responses.</comment>
 				The TSF shall be able to generate CMC full requests and 
 				<selectables>
 					<selectable>simple requests</selectable>
@@ -7114,7 +7146,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<f-element>
 			<title>
 				The TSF shall export CMC requests and import CMC responses under the control
-				of a privileged user under the CA Operations Staff role.
+				of a privileged user under the CA operations staff role.
 			</title>
 		</f-element>
 		<f-element>
@@ -7142,7 +7174,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					Control mechanisms using shared secretes are supported, the evaluator shall
 					also examine the operational guidance to ensure that it describes how to
 					authenticate requests for subordinate CA certificates, initial subscriber
-					certificates and, if supported, initial certificates for Registration Authority
+					certificates, and if supported, initial certificates for Registration Authority
 					Officers, when no other certificates are available.
 				</Guidance>
 				<Tests>
@@ -7155,11 +7187,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							<h:li>The evaluator shall review the CA-1 TSF’s trust store and observe
 								that the offline CA-0 certificate is trusted.</h:li>
 							<h:li>The evaluator shall log onto the CA-1 TSF using a privileged user
-								without CA Operations Staff privilege (e.g., with administrator
+								without CA operations staff privilege (e.g., with administrator
 								privileges), and attempt to export the request, observing that the
 								attempt fails.</h:li>
-							<h:li>The evaluator shall examine the certificate request(s) generated on
-								the CA-1 TSF are compliant with with RFC 5272 as updated by RFC
+							<h:li>The evaluator shall examine the certificate requests generated on
+								the CA-1 TSF are compliant with RFC 5272 as updated by RFC
 								6402 and RFC 5474 as updated by RFC 6402.</h:li>
 						</h:ul>
 						</h:li>
@@ -7174,7 +7206,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 									established for Test Group B in FIA_CMCC_EXT.1. </h:li>
 								<h:li>For one of the request types indicated in the selection for
 									FIA_CMCC_EXT.1.1 and one of the POP control supported, the
-									evaluator shall log into the CA-2 TSF in the CA Operations Staff role
+									evaluator shall log into the CA-2 TSF in the CA operations staff role
 									and cause CA-2 to generate CMC request.</h:li>
 								<h:li>The evaluator shall cause the CA-2 CMC request to be
 									authenticated (using any available mechanism) to CA-1, and install
@@ -7254,7 +7286,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				shared secrets in AuthenticatedData requests or in the Identity Proof Version 2
 				Control of SignedData requests, the TSF shall require HTTPS with client
 				authentication, shall ensure the authenticating entity is the same as the entity
-				signing the CMC request and any subject indicated in the requested certificate(s)
+				signing the CMC request and any subject indicated in the requested certificates
 				are the same as the authenticating entity, or the authenticating entity is
 				<selectables>
 					<selectable>an authorized RA for the requested subject</selectable>
@@ -7266,7 +7298,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<f-element>
 			<title>
 				The TSF shall require CMC simple and full messages use cryptographic support in
-				accordance with this profile. At a minimum the TSF shall ensure:<h:br/><h:br/>
+				accordance with this profile. At a minimum the TSF shall ensure:
 				<h:ul>
 					<h:li>Signature generation and verification for SignedData are performed in
 						accordance with FCS_COP.1/Sig</h:li>
@@ -7288,9 +7320,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<f-element>
 			<title>
 				The TSF shall accept, process and export CMC messages under the control of local
-				privileged user sessions for privileged users with CA Operations Staff, 
+				privileged user sessions for privileged users with CA operations staff, 
 				<selectables>
-					<selectable>RA Staff</selectable>
+					<selectable>RA staff</selectable>
 					<selectable>no other</selectable>
 				</selectables> role.
 			</title>
@@ -7321,14 +7353,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</Guidance>
 				<Tests>
 					The evaluator shall perform the following tests:<h:br/><h:br/>
-					<h:b>Test Group A. Offline CA Operations:</h:b><h:br/><h:br/>
+					<h:b>Test Group A. Offline CA operations:</h:b><h:br/><h:br/>
 					<testlist>
 						<test><h:ul>
 							<h:li>The evaluator shall establish the TSF in an offline mode to provide
 								an operational root CA, (CA-0) according to AGD-PRE.</h:li>
 							<h:li>The evaluator shall use a CMC client to generate and export a CMC
 								full request to obtain CA-0’s certificate. The evaluator shall log into
-								the TSF with CA Operations Staff role to submit the request, and
+								the TSF with CA operations staff role to submit the request, and
 								observe that the CA-0’s certificate is returned in the response.</h:li>
 							<h:li>[Conditional on CMC support for shared secrets:] While still logged
 								into the TSF, the evaluator shall establish a username and shared
@@ -7344,7 +7376,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							<h:li>The evaluator shall log into the CA-1 TSF in the CA Operations Staff
 								role and load the self-signed certificate obtained in Test 1 into the
 								CA-1’s trust store</h:li>
-							<h:li>The evaluator shall generate certificate request(s):
+							<h:li>The evaluator shall generate certificate requests:
 								<h:ul>
 									<h:li>[Conditional on CMC support shared secrets]: The evaluator
 										shall request the CA-1 TSF to generate a CMC requests for the
@@ -7368,7 +7400,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							</h:ul>
 						</test>
 						<test><h:ul>
-							<h:li>The evaluator shall sign into the CA-0 TSF in the CA Operations Staff
+							<h:li>The evaluator shall sign into the CA-0 TSF in the CA operations staff
 								role and submit in turn the requests generated in Test 2.</h:li>
 							<h:li>The evaluator shall observe that the CA-0 TSF generates a CMC
 								response containing CA-1’s signed certificate for the correctly
@@ -7383,7 +7415,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						</test>
 						<test>
 							The evaluator shall sign into the subordinate CA in the CA
-							Operations Staff role, import the simple CMC response and complete
+							operations staff role, import the simple CMC response and complete
 							the initialization of the CA-1 TSF in accordance with OGD-PRE.
 						</test>
 					</testlist>
@@ -7402,7 +7434,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 								evaluator shall use the CMC client to establish a CMC request, using
 								a different identifier (subject name) for each request. </h:li>
 							<h:li>[Conditional on CMC support for shared secrets:] The evaluator
-								shall log onto the subordinate CA in the CA Operations Staff role
+								shall log onto the subordinate CA in the CA operations otaff role
 								and establish a username and shared secret for entities
 								represented by the CMC client established above. A different
 								username and shared secret should be used for at least as many
@@ -7440,7 +7472,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							<h:li>The evaluator shall select one of the client’s certificates and use
 								the CMC client to generate a CMC request for a certificate update,
 								authenticated with the selected certificate.</h:li>
-							<h:li>The evaluator shall submit the request under the existing, nonauthenticated HTTPS session, and observe that either the CA-1 TSF
+							<h:li>The evaluator shall submit the request under the existing, non-authenticated HTTPS session, and observe that either the CA-1 TSF
 								responds with a full CMC response indicating that the transport is
 								invalid or that no response is provided and the CA-1 TSF’s audit trail
 								indicates the error.</h:li>
@@ -7695,7 +7727,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					The evaluator shall perform the following tests:
 					<testlist>
 						<test>The evaluator shall establish an external CA and EST server,
-							and configure the TOE as indicated in the AGD to authorize the EST
+							and configure the TOE as indicated in the operational guidance to authorize the EST
 							server for EST services using the external CA. The evaluator shall
 							examine the TOE logs and TA database(s) using available interfaces
 							to ensure the EST server and external CA’s certificates are
@@ -7734,10 +7766,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							server is not listed as the issuer of certificate chain returned.
 						</test>
 					</testlist>
-					<h:i>Equivalency</h:i>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
 					Testing of the TOE may be performed on a subset of the platforms listed in the
 					TOE’s ST. Justification must be provided for those platforms that were excluded
-					from testing.<h:br/><h:br/>
+					from testing.
 				</Tests>
 			</aactivity>
 		</f-element>
@@ -8049,12 +8081,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						<selectable>“)”</selectable>
 						<selectable><assignable>other characters</assignable></selectable>
 					</selectables>;</h:li>
-				<h:li>Minimum password length shall be settable by the Administrator, and
+				<h:li>Minimum password length shall be settable by the administrator, and
 					support passwords of 14 characters or greater.</h:li></h:ul>
 			</title>
 			<note role="application">
 				This requirement is applicable only if the TOE provides its own password-based
-				authentication mechanism. Thus it is included in the ST only if "local 
+				authentication mechanism. Thus it is included in the ST only if " 
 				password-based authentication mechanism" is selected in FIA_UAU_EXT.1.1.<h:br/><h:br/>				
 				The ST author selects the special characters that are supported by TOE; they may
 				optionally list additional special characters supported using the assignment.
@@ -8089,7 +8121,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<h:i>Equivalency</h:i><h:br/><h:br/>
 					Testing of the TOE may be performed on a subset of the platforms listed in the
 					TOE’s ST. Justification must be provided for those platforms that were excluded
-					from testing.<h:br/><h:br/>
+					from testing.
 				</Tests>
 			</aactivity>
 		</f-element>
@@ -8113,17 +8145,17 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The TSF shall be able to use pre-shared keys for IPsec.
 			</title>
 			<note role="application">
-				The TOE may need to support pre-shared keys for use in the IPsec protocol (if it does, “Pre-shared Keys”
+				The TOE may need to support pre-shared keys for use in the IPsec protocol (if it does, “pre-shared Keys”
 				will be selected as a peer authentication method in FCS_IPSEC_EXT.1.13). There are two types of pre-shared keys: text-based (which are required) and bit-based (which are optional)—supported by the TOE,
 				as specified in the requirements below. The first type is referred to as “text-based pre-shared keys”, which
 				refer to pre-shared keys that are entered by users as a string of characters from a standard character set,
 				similar to a password. Such pre-shared keys must be conditioned so that the string of characters is
 				transformed into a string of bits, which is then used as the key.<h:br/><h:br/>
 				The second type is referred to as “bit-based pre-shared keys” (for lack of a standard term); this refers to
-				keys that are either generated by the TSF on a command from the administrator, or input in "direct form"
-				by an administrator. "Direct form" means that the input is used directly as the key, with no "conditioning"
-				as was the case for text-based pre-shared keys. An example would be a string of hex digits that represent
-				the bits that comprise the key.<h:br/><h:br/>
+				keys that are either generated by the TSF on a command from the administrator, or input in
+				'direct form' by an administrator. 'Direct form' means that the input is used directly as the key, with no
+				conditioning as was the case for text-based pre-shared keys. An example would be a string of hex digits 
+				that represent the bits that comprise the key.<h:br/><h:br/>
 				The requirements below mandate that the TOE must support text-based pre-shared keys and optionally
 				support bit-based pre-shared keys, although generation of the bit-based pre-shared keys may be done
 				either by the TOE or in the operational environment.
@@ -8169,14 +8201,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				should be listed in the assignment; this assignment can also specify a range of
 				values (e.g., "lengths from 5 to 55 characters") as well.<h:br/><h:br/>
 				In the second selection for FIA_PSK_EXT.1.3, the ST author fills in the method by
-				which the text string entered by the administrator is “conditioned” into the bit
+				which the text string entered by the administrator is 'conditioned' into the bit
 				string used as the key. This can be done by using one of the specified hash
-				functions, or some other method through the assignment statement. If “bit-based
-				pre-shared keys” is selected, the ST author specifies whether the TSF merely
+				functions, or some other method through the assignment statement. If any “bit-based
+				pre-shared keys” are selected, the ST author specifies whether the TSF merely
 				accepts bit-based pre-shared keys, or is capable of generating them. If it
 				generates them, the requirement specified that they must be generated using the
 				RBG specified by the requirements. If the use of bit-based pre-shared keys is not
-				supported, the ST author chooses “use no other pre-shared keys”.
+				supported, the ST author chooses “use no other pre-shared keys.”
 			</note>
 			<aactivity>
 				<TSS>
@@ -8196,9 +8228,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					provides information on the merits of shorter or longer pre-shared keys. The
 					guidance must specify the allowable characters for pre-shared keys, and that
 					list must be a super-set of the list contained in FIA_PSK_EXT.1.2.<h:br/><h:br/>
-					If “bit-based pre-shared keys” is selected, the evaluator shall confirm the
-					operational guidance contains instructions for either entering bit-based pre-
-					shared keys for each protocol identified in the requirement, or generating a
+					If any “bit-based pre-shared keys” are	 selected, the evaluator shall confirm the
+					operational guidance contains instructions for either entering bit-based pre-shared 
+					keys for each protocol identified in the requirement, or generating a
 					bit-based pre-shared key (or both). The evaluator shall also examine the TSS to
 					ensure it describes the process by which the bit-based pre-shared keys are
 					generated (if the TOE supports this functionality), and confirm that this process
@@ -8217,7 +8249,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						<test>
 							[conditional]: If the TOE supports pre-shared keys of
 							multiple lengths, the evaluator shall repeat Test 1 using the
-							minimum length; the maximum length; and an invalid length. The
+							minimum length, the maximum length, and an invalid length. The
 							minimum and maximum length tests should be successful, and the
 							invalid length must be rejected by the TOE.
 						</test>
@@ -8266,8 +8298,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</title>
 			<note role="application">
 				This requirement is applicable only if the TOE provides its own password-based
-				authentication mechanism. Thus it is included in the ST only if "local 
-				password-based authentication mechanism" is selected in FIA_UAU_EXT.1.1.<h:br/><h:br/>
+				authentication mechanism. Thus it is included in the ST only if "password-based
+				authentication mechanism" is selected in FIA_UAU_EXT.1.1.
 			</note>
 			<aactivity>
 				<TSS>
@@ -8277,7 +8309,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					TSS must provide justification for why it is not provided.
 				</TSS>
 				<Guidance>
-					There are no AGD assurance activities for this requirement beyond what is
+					There are no operational guidance evaluation activities for this requirement beyond what is
 					necessary to satisfy the requirements in [CEM].
 				</Guidance>
 				<Tests>
@@ -8285,7 +8317,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<testlist>
 						<test>
 							The evaluator shall locally authenticate to the TOE and verify
-							that at most obscured feedback is provided while entering the
+							that at most, obscured feedback is provided while entering the
 							authentication information.
 						</test>
 					</testlist>
@@ -8811,7 +8843,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<note role="application">
 				The public key is the public key portion of the public-private key pair generated
 				by the TOE as specified in FCS_CKM.1. The CA distinguished name and any
-				additional information shall be configurable by a CA Operations Staff role.
+				additional information shall be configurable by a CA operations staff role.
 			</note>
 		</f-element>
 		<f-element>
@@ -8824,15 +8856,15 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</note>
 			<aactivity>
 				<TSS>
-					If the ST author selects “device-specific information”, the evaluator shall verify
+					If the ST author selects “device-specific information,” the evaluator shall verify
 					that the TSS contains a description of the device-specific fields used in certificate
 					requests.
 				</TSS>
 				<Guidance>
 					The evaluator shall check to ensure that the guidance documentation contains
 					instructions on requesting certificates from a CA, including generation of a
-					Certificate Request Message. If the ST author selects “Common Name",
-					"Organization”, “Organizational Unit”, or "Country", the evaluator shall ensure
+					Certificate Request Message. If the ST author selects “Common Name,"
+					"Organization,” “Organizational Unit,” or "Country," the evaluator shall ensure
 					that this guidance includes instructions for establishing these fields before
 					creating the certificate request message.
 				</Guidance>
@@ -9053,6 +9085,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <f-component cc-id="fmt_mof.1" iteration="CO" name="Management of Security Functions
         	Behavior (Admin/Officer Functions)" status="sel-based">
+        	<depends on-sel="fmt-smr-2e1"/>
 		<f-element>	     
 			<title>
 				The
@@ -9091,7 +9124,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					Testing for this requirement is defined under FMT_MOF.1/Admin. The only
 					difference between the iterations of FMT_MOF.1 is the specific set of
 					management functions that are available to each administrative role. Testing
-					for this SFR is conducted sufficiently thoroughly if the evaluator can
+					for this SFR is conducted sufficiently if the evaluator can
 					demonstrate that the assigned role can perform only the functions specified in
 					the SFR.
 				</Tests>
@@ -9103,7 +9136,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- FMT_MOF.1/RA          -->     
 	<!-- Formally FMT_MOF.1(2) -->
 	<!--               -->     
-     	<f-component cc-id="fmt_mof.1" iteration="RA" name="Management of Security Functions Behavior (CA/RA Functions)" status="sel-based">
+     	<f-component cc-id="fmt_mof.1" iteration="RA" name="Management of Security Functions Behavior
+     		(CA/RA Functions)" status="sel-based">
+     		<depends on-sel="fmt-smr-2e1"/>
 		<f-element>	     
 			<title>
 				The
@@ -9112,8 +9147,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>operational environment</selectable>
 					</selectables></refinement>
 				shall restrict the ability to<h:br/><h:br/>
-				[<refinement><h:i>
-				<h:ul>
+				[<refinement><h:i><h:ul>
 					<h:li>approve and execute the issuance of certificates</h:li>
 					<h:li>configure subscriber self-service request constraints</h:li>
 					<h:li><selectables linebreak="yes">
@@ -9136,7 +9170,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					Testing for this requirement is defined under FMT_MOF.1/Admin. The only
 					difference between the iterations of FMT_MOF.1 is the specific set of
 					management functions that are available to each administrative role. Testing
-					for this SFR is conducted sufficiently thoroughly if the evaluator can
+					for this SFR is conducted sufficiently if the evaluator can
 					demonstrate that the assigned role can perform only the functions specified in
 					the SFR.
 				</Tests>
@@ -9292,7 +9326,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <!-- FMT_SMR.2 -->
 	<!--               -->     
         <f-component cc-id="fmt_smr.2" name="Restrictions on Security Roles" >
-		<f-element>
+		<f-element id="fmt-smr-2e1">
 			<title>
 				The TSF 
 				<refinement>and 
@@ -9424,12 +9458,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<title>The TSF shall prevent the reading of plaintext passwords.</title>
 			<note role="application">
 				This requirement is applicable only if the TOE provides its own password-based
-				authentication mechanism. Thus it is included in the ST only if "local 
-				password-based authentication mechanism" is selected in FIA_UAU_EXT.1.1.<h:br/><h:br/>
+				authentication mechanism. Thus it is included in the ST only if "password-based
+				authentication mechanism" is selected in FIA_UAU_EXT.1.1.<h:br/><h:br/>
 				The intent of the requirement is that raw password authentication data are not
 				stored in the clear, and that no user or administrator is able to read the plaintext
-				password through “normal” interfaces. An all-powerful administrator of course
-				could directly read memory to capture a password but is trusted not to do so.<h:br/><h:br/>
+				password through normal interfaces. An all-powerful administrator 
+				could directly read memory to capture a password, but is trusted not to do so.<h:br/><h:br/>
 				In this version of the PP there are no requirements on the method used to store
 				the passwords in non-plaintext form, but cryptographic methods based on the
 				requirements in FCS_COP are preferred. In future versions of this PP, FCS_COP-based cryptographic methods that conform to the Level 2 Credential Storage
@@ -9442,13 +9476,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					to obscure the plaintext password data when stored. The evaluator shall
 					ensure that the TSS also details that passwords are stored in such a way that
 					they are unable to be viewed through an interface designed specifically for that
-					purpose, as outlined in the application note.<h:br/><h:br/>
-					There are no AGD assurance activities for this requirement beyond what is
-					necessary to satisfy the requirements in [CEM].
+					purpose, as outlined in the application note.					
 				</TSS>
 				<Guidance/>
 				<Tests>
-					The evaluator shall perform the following test:<h:br/><h:br/>
+					The evaluator shall perform the following test:
 					<testlist>
 						<test> 
 							The evaluator shall use forensic tools to search storage media
@@ -9555,11 +9587,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<comment>It is unclear what the inclusion criteria for this selection-based SFR are. The encoding of this SFR in the XML points to a dummy location in FIA_UAU_EXT.1 but is commented as being wrong.</comment>
 				This SFR must be included in the ST if ...<h:br/><h:br/>
 				This requirement ensures all communications between components of a
-				distributed TOE is protected through the use of an encrypted communications
+				distributed TOE are protected through the use of an encrypted communications
 				channel. The data passed in this trusted communication channel are encrypted as
-				defined the protocol chosen in the first selection. The ST author chooses the
-				mechanism(s) supported by the TOE, and then ensures the detailed requirements
-				in Appendix B corresponding to their selection are copied to the ST if not already
+				defined by the protocol chosen in the first selection. The ST author shall chooses the
+				mechanisms supported by the TOE, and then ensure the detailed requirements
+				correspond to the selection are copied to the ST if not already
 				present.<h:br/><h:br/>
 				If SSH is selected, the TOE is expected to conform to the <xref to="pkgSSH"/>.
 			</note>
@@ -9580,18 +9612,18 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					The evaluator shall perform the following tests:
 					<testlist>
 						<test>
-							The evaluators shall ensure that communications using each
+							The evaluator shall ensure that communications using each
 							specified (in the operational guidance) communications method is
 							tested during the course of the evaluation, setting up the
 							connections as described in the operational guidance and ensuring
-							that communication is successful.
+							communication is successful.
 						</test>
 						<test>
 							The evaluator shall ensure, for each method of
 							communication, the channel data is not sent in plaintext.
 						</test>
 					</testlist>
-					Further assurance activities are associated with the specific protocols.<h:br/><h:br/>
+					Further evaluation activities are associated with the specific protocols.<h:br/><h:br/>
 					<h:i>Equivalency</h:i><h:br/><h:br/>
 					Testing of the TOE may be performed on a subset of the platforms listed in the
 					TOE’s ST. Justification must be provided for those platforms that were excluded
@@ -10164,7 +10196,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</note>
 			<aactivity>
 				<TSS>
-					The Evaluator shall review the user guidance and observe that instructions on
+					The evaluator shall review the user guidance and observe that instructions on
 					how to establish key shares is provided.
 				</TSS>
 				<Guidance>
@@ -10173,7 +10205,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					by a single user.
 				</Guidance>
 				<Tests>
-					The evaluator shall assume the role of Administrator and attempt to establish
+					The evaluator shall assume the role of administrator and attempt to establish
 					two key shares for the same user and observe that the operation fails. Note
 					that this is key shares for a single key as per FCS_CKM_EXT.1/SHARE and
 					FCS_CKM_EXT.1/KEKT, in contrast to key shares that may be generated at
@@ -10272,7 +10304,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     		
     		<f-element id="fel-tsf-ver-int-data">
     			<title>
-    				The TSF shall provide authorized users with the capability to verify the integrity of [<h:i>[DRBG seed/output data]</h:i>].
+    				The TSF shall provide authorized users with the capability to verify the integrity of
+    				[<h:i>[DRBG seed and output data]</h:i>].
     			</title>
     		</f-element>
     		
@@ -10284,7 +10317,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     		<aactivity>
     			<TSS>
     				<h:p>
-    				The	evaluator shall examine the TSS to ensure that it details the self-tests that are run by the TSF along with how they are run. This description should include an outline of what the tests are actually doing. The evaluator shall ensure that the TSS makes an argument that the tests are sufficient to demonstrate that the DRBG is operating correctly.
+    				The evaluator shall examine the TSS to ensure that it details the self-tests that are run by the TSF along with how they are run. This description should include an outline of what the tests are actually doing. The evaluator shall ensure that the TSS makes an argument that the tests are sufficient to demonstrate that the DRBG is operating correctly.
     				</h:p><h:p>
     					Note that this information may also be placed in the entropy documentation specified by <xref to="entropyappendix"/>. 
     				</h:p>
@@ -10956,13 +10989,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable id="ftp-itc-https">HTTPS</selectable>
 					<selectable id="ftp-itc-ipsec">IPsec</selectable>
 					<selectable id="ftp-itc-tls">TLS as defined in the <xref to="pkgTLS"/></selectable>
-					<selectable id="ftp-itc-ssh">SSH as defined in the <xref to="pkgSSH"/></selectable>
-					<selectable id="ftp-itc-https">HTTPS</selectable>
+					<selectable id="ftp-itc-ssh">SSH as defined in the <xref to="pkgSSH"/></selectable>					
 				</selectables> to</refinement>
 				 provide a <refinement>trusted</refinement>
-				communication channel between itself and 
-				<refinement>authorized external network
-				based IT entities supporting the following capabilities: 
+				communication channel between itself and <refinement>authorized external network-based IT 
+					entities supporting the following capabilities: 
 				<selectables>
 					<selectable>audit server</selectable>
 					<selectable>external cryptographic module</selectable>
@@ -10999,7 +11030,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				this protocol is not used by the TSF to connect to other components. If the ST
 				author selects SSH, the TSF shall be validated against the <xref to="pkgSSH"/>.
 				If the ST author selects TLS, the TSF shall be validated against the <xref to="pkgTLS"/>. <h:br/><h:br/>
-				The requirement implies that not only are communications protected when they
+				This requirement implies that not only are communications protected when they
 				are initially established, but also on resumption after an interruption. It may be
 				the case that some part of the TOE setup involves manually setting up tunnels to
 				protect other communication, and if after an interruption the TOE attempts to reestablish the communication automatically with (the necessary) manual
@@ -11052,11 +11083,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							is restored, communications are appropriately protected.
 						</test>
 					</testlist>
-					Further assurance activities are associated with the specific protocols. <h:br/><h:br/>
-					<h:i>Equivalency</h:i>
+					Further evaluation activities are associated with the specific protocols. <h:br/><h:br/>
+					<h:i>Equivalency</h:i><h:br/><h:br/>
 					Testing of the TOE may be performed on a subset of the platforms listed in the
 					TOE’s ST. Justification must be provided for those platforms that were excluded
-					from testing.<h:br/><h:br/>
+					from testing.
 				</Tests>
 			</aactivity>
 		</f-element>
