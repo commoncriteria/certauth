@@ -70,7 +70,6 @@ output/certauth-release-linkable.html: XORing
 output/certauth-release-linkable.html: authorityKeyIdentifier
 output/certauth-release-linkable.html: bility
 output/certauth-release-linkable.html: cA
-output/certauth-release-linkable.html: cerficate
 output/certauth-release-linkable.html: certifcate
 output/certauth-release-linkable.html: certificatePolicy
 output/certauth-release-linkable.html: certificationRequestInfo
@@ -91,11 +90,11 @@ output/certauth-release-linkable.html: log2
 output/certauth-release-linkable.html: macAlgId
 output/certauth-release-linkable.html: macAlgorithm
 output/certauth-release-linkable.html: nextUpdate
-output/certauth-release-linkable.html: nonauthenticated
 output/certauth-release-linkable.html: nonrepudiation
 output/certauth-release-linkable.html: notAfter
 output/certauth-release-linkable.html: notBefore
 output/certauth-release-linkable.html: operatonal
+output/certauth-release-linkable.html: otaff
 output/certauth-release-linkable.html: preshared
 output/certauth-release-linkable.html: producedAt
 output/certauth-release-linkable.html: reauthentication
@@ -193,7 +192,6 @@ output/certauth-release.html: XORing
 output/certauth-release.html: authorityKeyIdentifier
 output/certauth-release.html: bility
 output/certauth-release.html: cA
-output/certauth-release.html: cerficate
 output/certauth-release.html: certifcate
 output/certauth-release.html: certificatePolicy
 output/certauth-release.html: certificationRequestInfo
@@ -217,12 +215,12 @@ output/certauth-release.html: log2
 output/certauth-release.html: macAlgId
 output/certauth-release.html: macAlgorithm
 output/certauth-release.html: nextUpdate
-output/certauth-release.html: nonauthenticated
 output/certauth-release.html: nonrepudiation
 output/certauth-release.html: normal’
 output/certauth-release.html: notAfter
 output/certauth-release.html: notBefore
 output/certauth-release.html: operatonal
+output/certauth-release.html: otaff
 output/certauth-release.html: parties’
 output/certauth-release.html: preshared
 output/certauth-release.html: producedAt
@@ -237,7 +235,6 @@ output/certauth-release.html: rules’
 output/certauth-release.html: semiblocks
 output/certauth-release.html: serialNumber
 output/certauth-release.html: signatureAlgorithm
-output/certauth-release.html: standard’
 output/certauth-release.html: subcommands
 output/certauth-release.html: subjectAltName
 output/certauth-release.html: subjectKeyIdentifier
@@ -348,12 +345,12 @@ output/certauth.html: log2
 output/certauth.html: macAlgId
 output/certauth.html: macAlgorithm
 output/certauth.html: nextUpdate
-output/certauth.html: nonauthenticated
 output/certauth.html: nonrepudiation
 output/certauth.html: normal’
 output/certauth.html: notAfter
 output/certauth.html: notBefore
 output/certauth.html: operatonal
+output/certauth.html: otaff
 output/certauth.html: parties’
 output/certauth.html: preshared
 output/certauth.html: producedAt
@@ -368,7 +365,6 @@ output/certauth.html: sel
 output/certauth.html: semiblocks
 output/certauth.html: serialNumber
 output/certauth.html: signatureAlgorithm
-output/certauth.html: standard’
 output/certauth.html: subcommands
 output/certauth.html: subjectAltName
 output/certauth.html: subjectKeyIdentifier

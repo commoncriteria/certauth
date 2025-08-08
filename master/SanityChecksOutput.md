@@ -7,8 +7,6 @@
         on-sel/PP[1]""/sec:Security_Requirements[1]""/section[1]"The follo"/section[6]""/f-component[5]""/depends[1]""/on-sel[1]""
 * Error: Detected dangling id-reference to sel-fco-ests-ext-1 from attribute
         on-sel/PP[1]""/sec:Security_Requirements[1]""/section[1]"The follo"/section[6]""/f-component[7]""/depends[1]""/on-sel[1]""
-* Error: Detected multiple elements with an id of 'ftp-itc-https'.
-* Error: Detected multiple elements with an id of 'ftp-itc-https'.
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The follo"/section[4]""/f-component[23]""/f-element[1]""/note[1]"NIST SP 8"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The follo"/section[7]"FMT_MOF.1"/f-component[1]""/f-element[1]""/note[1]"It is lik"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The follo"/section[8]""/f-component[10]""/f-element[1]""/aactivity[1]"If the TS"/Guidance[1]"The evalu"/h:p[1]""
