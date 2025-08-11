@@ -6,6 +6,7 @@ output/certauth-release-linkable.html: 38D
 output/certauth-release-linkable.html: 38E
 output/certauth-release-linkable.html: 38F
 output/certauth-release-linkable.html: 4C
+output/certauth-release-linkable.html: 4as
 output/certauth-release-linkable.html: 509v1
 output/certauth-release-linkable.html: 509v2
 output/certauth-release-linkable.html: 56A
@@ -70,7 +71,6 @@ output/certauth-release-linkable.html: XORing
 output/certauth-release-linkable.html: authorityKeyIdentifier
 output/certauth-release-linkable.html: bility
 output/certauth-release-linkable.html: cA
-output/certauth-release-linkable.html: certifcate
 output/certauth-release-linkable.html: certificatePolicy
 output/certauth-release-linkable.html: certificationRequestInfo
 output/certauth-release-linkable.html: deallocation
@@ -127,6 +127,7 @@ output/certauth-release.html: 38D
 output/certauth-release.html: 38E
 output/certauth-release.html: 38F
 output/certauth-release.html: 4C
+output/certauth-release.html: 4as
 output/certauth-release.html: 509v1
 output/certauth-release.html: 509v2
 output/certauth-release.html: 56A
@@ -192,7 +193,6 @@ output/certauth-release.html: XORing
 output/certauth-release.html: authorityKeyIdentifier
 output/certauth-release.html: bility
 output/certauth-release.html: cA
-output/certauth-release.html: certifcate
 output/certauth-release.html: certificatePolicy
 output/certauth-release.html: certificationRequestInfo
 output/certauth-release.html: deallocation
@@ -259,6 +259,7 @@ output/certauth.html: 38D
 output/certauth.html: 38E
 output/certauth.html: 38F
 output/certauth.html: 4C
+output/certauth.html: 4as
 output/certauth.html: 509v1
 output/certauth.html: 509v2
 output/certauth.html: 56A
@@ -324,7 +325,6 @@ output/certauth.html: XORing
 output/certauth.html: authorityKeyIdentifier
 output/certauth.html: bility
 output/certauth.html: cA
-output/certauth.html: certifcate
 output/certauth.html: certificatePolicy
 output/certauth.html: certificationRequestInfo
 output/certauth.html: deallocation

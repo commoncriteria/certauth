@@ -1040,7 +1040,7 @@ The following sections list Common Criteria and technology terms used in this do
 				to their credentials for use in authenticating and providing privacy for transactions. Without 
 				the proper binding provided by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, relying parties cannot ensure adequate access controls
 				on sensitive information, ensure transactional integrity, ensure proper accountability, and/or
-				enforce nonrepudiation. </span></dd><dt class="threat defined" id="T.UNAUTHORIZED_ACCESS">T.UNAUTHORIZED_ACCESS</dt><dd><span class="description"> A malicious user, process, or external <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entity intentionally circumvents <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> security
+				enforce non-repudiation. </span></dd><dt class="threat defined" id="T.UNAUTHORIZED_ACCESS">T.UNAUTHORIZED_ACCESS</dt><dd><span class="description"> A malicious user, process, or external <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entity intentionally circumvents <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> security
 		  		mechanisms. </span></dd><dt class="threat defined" id="T.UNAUTHORIZED_UPDATE">T.UNAUTHORIZED_UPDATE</dt><dd><span class="description"> A malicious party attempts to supply the end user with an update to the product that
 		  		may compromise the security features of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</span></dd><dt class="threat defined" id="T.UNDETECTED_ACTIONS">T.UNDETECTED_ACTIONS</dt><dd><span class="description"> Remote users or external <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entities may take actions that adversely affect the security of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</span></dd><dt class="threat defined" id="T.USER_DATA_REUSE">T.USER_DATA_REUSE</dt><dd><span class="description">A malicious user, process, or external <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entity may gain access to user data that is not cleared
 		  when resources are reallocated.</span></dd><dt class="threat defined" id="T.WEAK_CRYPTO">T.WEAK_CRYPTO</dt><dd><span class="description">A weak hash or signature scheme may be compromised by an attacker and used to apply
@@ -1274,11 +1274,14 @@ The following sections list Common Criteria and technology terms used in this do
 		implementation-based and selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>) indicates whether the audit record is 
 		intended to be used for ‘normal’ (shorter-term) or ‘extended’ (longer-term) purposes.<br/><br/>
    
-		For the <a href="#FDP_CER_EXT.2">FDP_CER_EXT.2</a> audit event, the intent is that auditing is performed only
+   For the <a href="#FDP_CER_EXT.2">FDP_CER_EXT.2</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> audit event, the intent is that auditing is performed only
 		once incoming data are recognized by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> as a “request.” Cases where
 		incoming data are rejected before they are processed as “requests” by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
-		(and thus the action “fails”) do not need to be audited by the <a href="#FDP_CER_EXT.2">FDP_CER_EXT.2</a>
-		audit event.<br/><br/>
+		(and thus the action “fails”) do not need to be audited by the <a href="#FDP_CER_EXT.2">FDP_CER_EXT.2</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> audit event.<br/><br/>
 	  </span></div></div></div>
  	   
         <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FAU_ADP_EXT.1">FAU_ADP_EXT.1</a></div>
@@ -1651,7 +1654,9 @@ The following sections list Common Criteria and technology terms used in this do
 					instructions for searching the specified information.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The test activities can be conducted in conjunction with
-					those for <a href="#FDP_CER_EXT.1">FDP_CER_EXT.1</a> and <a href="#FAU_GCR_EXT.1">FAU_GCR_EXT.1</a>.<br/><br/>
+					those for <a href="#FDP_CER_EXT.1">FDP_CER_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> and <a href="#FAU_GCR_EXT.1">FAU_GCR_EXT.1</a>.<br/><br/>
 					The evaluator shall generate a sufficient number and variety of certificates to
 					populate the repository certificates having at least two values for each of the
 					search fields selected in this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. The evaluator shall then, following the
@@ -1981,7 +1986,7 @@ The following sections list Common Criteria and technology terms used in this do
 	     
         <div class="comp" id="FAU_STG.5"><h4>FAU_STG.5 Prevention of Audit Data Loss</h4>
         <div class="element"><div class="reqid" id="FAU_STG.5.1"><a href="#FAU_STG.5.1" class="abbr">FAU_STG.5.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<i>prevent audited events, except those taken
-			by the <span class="refinement">Auditor</span></i>], [<b>assignment</b>: 
+			by the <span class="refinement">auditor</span></i>], [<b>assignment</b>: 
      <span class="assignable-content">other actions to be taken in case of audit storage
 			failure and conditions for the actions</span>] if the audit data storage <b>cannot be written to</b>.
                 <div class="appnote"><span class="note-header">Application
@@ -2134,14 +2139,27 @@ The following sections list Common Criteria and technology terms used in this do
      <span class="assignable-content">other <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> standards</span>]</span>] and FCS_COP.1<b>/SigGen</b>.
                 </div></div>
 		<div class="element"><div class="reqid" id="FCO_NRO_EXT.2.3"><a href="#FCO_NRO_EXT.2.3" class="abbr">FCO_NRO_EXT.2.3</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall require and verify proof of origin for certificate requests it receives
-			[<b>selection</b>: <span class="selectable-content" id="_s_38"><abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> using mechanisms in accordance with <a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a></span>, <span class="selectable-content" id="_s_39"><abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> using mechanisms in accordance with <a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a></span>].
+               		[<b>selection</b>: <span class="selectable-content" id="_s_38"><abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> using mechanisms in accordance with <a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a></span>, <span class="selectable-content" id="_s_39"><abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> using mechanisms in accordance with <a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a></span>].
                 </div></div>
 		<div class="element"><div class="reqid" id="FCO_NRO_EXT.2.4"><a href="#FCO_NRO_EXT.2.4" class="abbr">FCO_NRO_EXT.2.4</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall require and verify proof of origin for public keys contained in
-				certificate requests it receives via [<b>selection</b>: <span class="selectable-content" id="_s_40">proof-of-possession mechanisms in <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> using mechanisms in accordance with <a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a></span>, <span class="selectable-content" id="_s_41">proof-of-possession mechanisms in <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> in accordance with <a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a></span>].
+				certificate requests it receives via [<b>selection</b>: <span class="selectable-content" id="_s_40">proof-of-possession mechanisms in <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> using mechanisms in accordance with
+						<a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a></span>, <span class="selectable-content" id="_s_41">proof-of-possession mechanisms in <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> in accordance with <a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a></span>].
                 </div></div>
 		<div class="element"><div class="reqid" id="FCO_NRO_EXT.2.5"><a href="#FCO_NRO_EXT.2.5" class="abbr">FCO_NRO_EXT.2.5</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
 			[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_42">require and verify proof of origin for revocation requests it receives via
-					[<b>selection</b>: <span class="selectable-content" id="_s_43"><abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> using mechanisms in accordance with <a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a></span>, <span class="selectable-content" id="_s_44"><abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> using optional “full <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr>” functionality in accordance with <a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a></span>]
+					[<b>selection</b>: <span class="selectable-content" id="_s_43"><abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> using mechanisms in accordance with <a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a></span>, <span class="selectable-content" id="_s_44"><abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> using optional “full <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr>” functionality in accordance with <a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a></span>]
 				</span></li><li style=""><span class="selectable-content" id="_s_45">
 					[<b>assignment</b>: 
      <span class="assignable-content">support manual processes for revocation requests and responses</span>]
@@ -2152,9 +2170,13 @@ The following sections list Common Criteria and technology terms used in this do
 			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is responsible for providing proof of origin for information it issues and
 			verifying proof of origin for information it receives. Based on what is chosen in the
 			selection for <a href="#FCO_NRO_EXT.2.2">FCO_NRO_EXT.2.2</a>, the applicable requirements from Appendix B (i.e.,
-			<a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a>, <a href="#FDP_OCSPG_EXT.1">FDP_OCSPG_EXT.1</a>) must be included. Based on what is chosen
+			<a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a> and <a href="#FDP_OCSPG_EXT.1">FDP_OCSPG_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>) must be included. Based on what is chosen
 			in the selections for <a href="#FCO_NRO_EXT.2.3">FCO_NRO_EXT.2.3</a> through <a href="#FCO_NRO_EXT.2.5">FCO_NRO_EXT.2.5</a>, the applicable
-			requirements from Appendix B (i.e., <a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a>, <a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a>) must be
+			requirements from Appendix B (i.e., <a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a> and <a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>) must be
 			included. <br/><br/>
 			A <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that supports both <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> and can obtain revocation requests via
 			one of the protocols would be in compliance with <a href="#FCO_NRO_EXT.2.5">FCO_NRO_EXT.2.5</a>. Manual
@@ -2274,9 +2296,14 @@ The following sections list Common Criteria and technology terms used in this do
 		<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
-			Based on what is chosen in the selections, the applicable requirements (i.e., <a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a>, <a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a>)
+			Based on what is chosen in the selections, the applicable requirements (i.e., <a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a> and
+			<a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>)
 			must be included.<br/><br/>
-			This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is claimed if “<abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> full responses” is selected in <a href="#FIA_CMCS_EXT.1.2">FIA_CMCS_EXT.1.2</a>.
+			This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is claimed if “<abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> full responses” is selected in <a href="#FIA_CMCS_EXT.1.2">FIA_CMCS_EXT.1.2</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>.
 		</span></div></div></div>
 	
 <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCO_NRR_EXT.2">FCO_NRR_EXT.2</a></div>
@@ -2667,7 +2694,7 @@ The following sections list Common Criteria and technology terms used in this do
 				<b>RSAES-PKCS1-v1_5 Key Establishment Schemes </b><br/><br/>
 				The evaluator shall verify the correctness of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>’s implementation of 
 				RSAES-PKCS1-v1_5 by using a known good implementation for each protocol 
-				selected in FTP_ITC, FTP_TRP, and FPT_ITT.
+				selected in FTP_ITC, FTP_TRP, and FPT_ITT.<br/><br/>
 				<b>Diffie-Hellman Group 14</b><br/><br/>
 				The evaluator shall verify the correctness of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>’s implementation of
 				Diffie-Hellman group 14 by using a known good implementation for each
@@ -3528,7 +3555,7 @@ The following sections list Common Criteria and technology terms used in this do
       				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
       				<span class="refinement">[<b>selection</b>: <span class="selectable-content" id="_s_193">perform</span>, <span class="selectable-content" id="_s_194">invoke interfaces in the operational environment to perform</span>]
       				</span>
-      				[<i>Password-based Key Derivation Functions</i>]
+      				[<i>password-based key derivation functions</i>]
       				in accordance with a specified cryptographic algorithm
       				[<i><abbr class="dyn-abbr"><a href="#abbr_HMAC">HMAC</a></abbr>-SHA-384</i>]				
       				and <span class="refinement">output</span> cryptographic key sizes 
@@ -3584,213 +3611,6 @@ The following sections list Common Criteria and technology terms used in this do
       					from testing.
       				</div></div></div></div></div>
 	
-	     
-    
-        	      
-
-	<div class="comp" id="FCS_COP.1/SigGen"><h4>FCS_COP.1/SigGen Cryptographic Operation (Cryptographic Signature)</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
-	  <a href="#FCS_CDP_EXT.1.1">FCS_CDP_EXT.1.1</a>.
-      </i></b></div>
-	
-	<div class="element"><div class="reqid" id="FCS_COP.1.1/SigGen"><a href="#FCS_COP.1.1/SigGen" class="abbr">FCS_COP.1.1/SigGen</a></div><div class="reqdesc">
-			The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <span class="refinement">
-			[<b>selection</b>: <span class="selectable-content" id="_s_195">perform</span>, <span class="selectable-content" id="_s_196">invoke interfaces in the operational environment to perform</span>]</span> [<i>cryptographic signature generation services</i>] in
-			accordance with a specified cryptographic algorithm 
-			[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_197"><abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> Digital Signature Algorithm (<abbr class="dyn-abbr"><a href="#abbr_rDSA">rDSA</a></abbr>) with a key size (modulus) of
-					[<i>3072 bits or greater</i>]
-					that meets <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr>-PUB 186-5, “Digital Signature Standard”</span></li><li style=""><span class="selectable-content" id="_s_198">Elliptic Curve Digital Signature Algorithm (<abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr>) with a key size 
-					of [<i>&gt;384 bits or greater</i>] that meets <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-5, “Digital Signature
-					Standard” with “<abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> curves” P-384
-					(as defined in <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-5, “Digital Signature Standard”)</span></li></ul>].			
-		<div class="appnote"><span class="note-header">Application
-      Note:
-    </span><span class="note">
-			The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> should specify whether the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> performs the algorithms or the
-			<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in combination with the operational environment is used.<br/><br/>
-			The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author should choose the algorithm implemented to perform digital
-			signature generation; if more than one algorithm is available, this requirement (and the
-			corresponding <a href="#FCS_CKM.1">FCS_CKM.1</a> requirement) should be iterated to specify the
-			functionality. For the algorithm chosen, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author should make the
-			appropriate assignments and selections to specify the parameters that are
-			implemented for that algorithm.<br/><br/>
-			For elliptic curve-based schemes, the key size refers to the log2 of the order of the
-			base point. As the preferred approach for digital signatures, <abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr> will be
-			required in future publications of this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.<br/><br/>
-		</span></div></div></div>
-	
-	
-    <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_COP.1/SigGen">FCS_COP.1/SigGen</a></div>
-			
-			
-			
-		<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
-				Regardless of whether the requirement is met by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform, the
-				evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to ensure that all signature generation functions 
-				use the approved algorithms and key sizes.
-			</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
-				The evaluator shall examine the AGD guidance to ensure it contains
-				instructions for configuring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in conjunction with the
-				operational environment for the required signature algorithms and associated
-				modes and key sizes.
-			</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-				The following tests shall be performed for functionality implemented by the
-				<abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.<br/><br/>
-				<b>Key Generation</b><br/><br/>
-				<b>Key Generation for <abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> Signature Schemes</b><br/><br/>
-				The evaluator shall verify the implementation of <abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> Key Generation
-				by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> using the Key Generation test. This test verifies the ability
-				of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to correctly produce values for the key components
-				including the public verification exponent e, the private prime factors
-				p and q, the public modulus n and the calculation of the private
-				signature exponent d.<br/><br/>
-				Key Pair generation specifies 5 ways (or methods) to generate the
-				primes p and q. These include:<br/><br/>
-				<ul>
-					<li>Random Primes:</li>
-					<ul>
-						<li>Provable Primes</li>
-						<li>Probable Primes</li>
-					</ul>
-					<li>Primes with Conditions:</li>
-					<ul>
-						<li>Primes p1, p2, q1, q2, p, and q shall all be provable primes</li>
-						<li>Primes p1, p2, q1, and q2 shall be provable primes and
-							p and q shall be probable primes</li>
-						<li>Primes p1, p2, q1, q2, p, and q shall all be probable
-							primes </li>
-					</ul>
-				</ul>
-				To test the key generation method for the Random Provable primes
-				method and for all the Primes with Conditions methods, the evaluator
-				must seed the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> key generation routine with sufficient data to
-				deterministically generate the <abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> key pair. This includes the random
-				seeds, the public exponent of the <abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> key, and the desired key length.
-				For each key length supported, the evaluator shall have the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>
-				generate 25 key pairs. The evaluator shall verify the correctness of the
-				<abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>’s implementation by comparing values generated by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> with
-				those generated from a known good implementation.<br/><br/>
-				<b><abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr> Key Generation Tests</b><br/><br/>
-				<b><abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> 186-5 <abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr> Key Generation Test</b><br/><br/>
-				For each supported <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> curve, (i.e., P-384), the
-				evaluator shall require the implementation under test (<abbr class="dyn-abbr"><a href="#abbr_IUT">IUT</a></abbr>) to
-				generate 10 private and public key pairs. The private key shall be
-				generated using an approved random bit generator (<abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr>). To
-				determine correctness, the evaluator shall submit the generated key
-				pairs to the public key verification (<abbr class="dyn-abbr"><a href="#abbr_PKV">PKV</a></abbr>) function of a known good
-				implementation.<br/><br/>
-				<b><abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr> Algorithm Tests</b><br/><br/>
-				<b><abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> 186-5 Signature Generation Test</b><br/><br/>
-				For each supported <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> curve (i.e., P-384) and <abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>
-				function pair, the evaluator shall generate 10 1024-bit long messages
-				and obtain for each message a public key and the resulting signature
-				values R and S. To determine correctness, the evaluator shall use the
-				signature verification function of a known good implementation.<br/><br/>
-				<b><abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> Signature Algorithm Tests</b><br/><br/>
-				<b>Signature Generation Tests</b><br/><br/>
-				The evaluator shall verify the implementation of <abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> Signature
-				Generation by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> using the Signature Generation Test. To
-				conduct this test the evaluator must generate or obtain 10 messages
-				from a trusted reference implementation for each modulus size and <abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>
-				combination supported by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. The evaluator shall have the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
-				use their private key and modulus value to sign these messages.<br/><br/>
-				The evaluator shall verify the correctness of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>’s signature using a
-				known good implementation and the associated public keys to verify
-				the signatures.<br/><br/>
-				<i>Equivalency</i><br/><br/>
-				Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
-				<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
-				from testing.<br/><br/>
-			</div></div></div></div></div>
-	
-      	
-      	     
-      	
-      	
-      	
-      	    	   
-      	<div class="comp" id="FCS_COP.1/SigVer"><h4>FCS_COP.1/SigVer Cryptographic Operation (Cryptographic Signature)</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
-	  <a href="#FCS_CDP_EXT.1.1">FCS_CDP_EXT.1.1</a>.
-      </i></b></div>
-      		
-      		<div class="element"><div class="reqid" id="FCS_COP.1.1/SigVer"><a href="#FCS_COP.1.1/SigVer" class="abbr">FCS_COP.1.1/SigVer</a></div><div class="reqdesc">
-      				
-      				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <span class="refinement">
-      					[<b>selection</b>: <span class="selectable-content" id="_s_199">perform</span>, <span class="selectable-content" id="_s_200">invoke interfaces in the operational environment to perform</span>]</span> [<i>cryptographic signature verification services</i>] in
-      				accordance with a specified cryptographic algorithm 
-      				[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_201"><abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> Digital Signature Algorithm (<abbr class="dyn-abbr"><a href="#abbr_rDSA">rDSA</a></abbr>) with a key size (modulus) of
-      						[<i>3072 bits or greater</i>]
-      						that meets <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr>-PUB 186-5, “Digital Signature Standard”</span></li><li style=""><span class="selectable-content" id="_s_202">Elliptic Curve Digital Signature Algorithm (<abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr>) with a key size 
-      						of [<i>256 bits or greater</i>] that meets <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-5, “Digital Signature
-      						Standard” with “<abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> curves” P-384 and 
-      						[<b>selection</b>: <span class="selectable-content" id="_s_203">P-521</span>, <span class="selectable-content" id="_s_204">no other curves</span>]
-      						(as defined in <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-5, “Digital Signature Standard”)</span></li><li style=""><span class="selectable-content" id="_s_205">Digital Signature Algorithm (<abbr class="dyn-abbr"><a href="#abbr_DSA">DSA</a></abbr>) with a key size (modulus) of [<i>2048
-      						bits or greater</i>], that meets <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr>-PUB 186-5, “Digital Signature Standard”]</span></li></ul>]
-      				
-      			<div class="appnote"><span class="note-header">Application
-      Note:
-    </span><span class="note">
-      				The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> should specify whether the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> performs the algorithms or the
-      				<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in combination with the operational environment is used.<br/><br/>
-      				The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author should choose the algorithm implemented to verify digital
-      				signatures; if more than one algorithm is available, this requirement (and the
-      				corresponding <a href="#FCS_CKM.1">FCS_CKM.1</a> requirement) should be iterated to specify the
-      				functionality. For the algorithm chosen, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author should make the
-      				appropriate assignments and selections to specify the parameters that are
-      				implemented for that algorithm.<br/><br/>
-      				For elliptic curve-based schemes, the key size refers to the log2 of the order of the
-      				base point. As the preferred approach for digital signatures, <abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr> will be
-      				required in future publications of this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.<br/><br/>
-      			</span></div></div></div>
-      		
-      		
-      	<div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_COP.1/SigVer">FCS_COP.1/SigVer</a></div>
-      				
-      				
-      				
-      			<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
-      					Regardless of whether the requirement is met by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform, the
-      					evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to ensure that all signature
-      					verification functions use the approved algorithms and key sizes.
-      				</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
-      					The evaluator shall examine the operational guidance to ensure it contains
-      					instructions for configuring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in conjunction with the
-      					operational environment for the required signature algorithms and associated
-      					modes and key sizes.
-      				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-      					The following tests shall be performed for functionality implemented by the
-      					<abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.<br/><br/>
-      					<b><abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> 186-5 Public Key Verification (<abbr class="dyn-abbr"><a href="#abbr_PKV">PKV</a></abbr>) Test</b><br/><br/>
-      					For each supported <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> curve, (i.e., P-384 and P-521), the
-      					evaluator shall generate 10 private and public key pairs using the key
-      					generation function of a known good implementation and modify five
-      					of the public key values so that they are incorrect, leaving five values
-      					unchanged (i.e., correct). The evaluator shall obtain in response a set
-      					of 10 PASS/FAIL values.<br/><br/>
-      					<b><abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr> Algorithm Tests</b><br/><br/>
-      					<b><abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> 186-5 Signature Verification Test</b><br/><br/>
-      					For each supported <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> curve (i.e.,P-384 and P-521) and <abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>
-      					function pair, the evaluator shall generate a set of 10 1024-bit
-      					message, public key and signature tuples and modify one of the values
-      					(message, public key, or signature) in five of the 10 tuples. The
-      					evaluator shall obtain in response a set of 10 PASS/FAIL values.<br/><br/>
-      					<b><abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> Signature Algorithm Tests</b><br/><br/>
-      					<b>Signature Verification Test</b><br/><br/>
-      					The evaluator shall perform the Signature Verification Test to verify the
-      					ability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to recognize another party’s valid and invalid
-      					signatures. The evaluator shall inject errors into the test vectors
-      					produced during the Signature Verification Test by introducing errors
-      					in some of the public keys e, messages, IR format, or signatures.
-      					The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> attempts to verify the signatures and returns success or
-      					failure.<br/><br/>
-      					The evaluator shall use these test vectors to emulate the signature verification
-      					test using the corresponding parameters and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> detects these
-      					errors.<br/><br/>
-      					<i>Equivalency</i><br/><br/>
-      					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
-      					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
-      					from testing.
-      				</div></div></div></div></div>
-      	
       	     
       	
       	
@@ -3804,8 +3624,8 @@ The following sections list Common Criteria and technology terms used in this do
       		
       		<div class="element"><div class="reqid" id="FCS_COP.1.1/SKC"><a href="#FCS_COP.1.1/SKC" class="abbr">FCS_COP.1.1/SKC</a></div><div class="reqdesc">
       				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
-      				<span class="refinement">[<b>selection</b>: <span class="selectable-content" id="_s_206">perform</span>, <span class="selectable-content" id="_s_207">invoke interfaces in the operational environment to perform</span>]</span> [<i>encryption and decryption</i>] in accordance
-      				with a specified cryptographic algorithm: [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_208"><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CBC (as defined in <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> SP 800-38A) mode</span></li><li style=""><span class="selectable-content" id="_s_209"><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CCM (as defined in <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> SP 800-38C) mode</span></li><li style=""><span class="selectable-content" id="_s_210"><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-GCM (as defined in <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> SP 800-38D) mode</span></li><li style=""><span class="selectable-content" id="_s_211"><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-XTS (as defined in <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> SP 800-38E) mode</span></li><li style=""><span class="selectable-content" id="_s_212"><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> Key Wrap (<abbr class="dyn-abbr"><a href="#abbr_KW">KW</a></abbr>) (as defined in <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> SP 800-38F) mode</span></li><li style=""><span class="selectable-content" id="_s_213"><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> Key Wrap with Padding (<abbr class="dyn-abbr"><a href="#abbr_KWP">KWP</a></abbr>) (as defined in <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> SP 800-38F) mode</span></li></ul>]
+      				<span class="refinement">[<b>selection</b>: <span class="selectable-content" id="_s_195">perform</span>, <span class="selectable-content" id="_s_196">invoke interfaces in the operational environment to perform</span>]</span> [<i>encryption and decryption</i>] in accordance
+      				with a specified cryptographic algorithm: [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_197"><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CBC (as defined in <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> SP 800-38A) mode</span></li><li style=""><span class="selectable-content" id="_s_198"><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CCM (as defined in <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> SP 800-38C) mode</span></li><li style=""><span class="selectable-content" id="_s_199"><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-GCM (as defined in <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> SP 800-38D) mode</span></li><li style=""><span class="selectable-content" id="_s_200"><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-XTS (as defined in <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> SP 800-38E) mode</span></li><li style=""><span class="selectable-content" id="_s_201"><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> Key Wrap (<abbr class="dyn-abbr"><a href="#abbr_KW">KW</a></abbr>) (as defined in <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> SP 800-38F) mode</span></li><li style=""><span class="selectable-content" id="_s_202"><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> Key Wrap with Padding (<abbr class="dyn-abbr"><a href="#abbr_KWP">KWP</a></abbr>) (as defined in <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> SP 800-38F) mode</span></li></ul>]
       				and cryptographic key size 
       				[<i>256-bit</i>] <s>that meet the following: [assignment: list of standards]</s>.
       			<div class="appnote"><span class="note-header">Application
@@ -3940,24 +3760,24 @@ The following sections list Common Criteria and technology terms used in this do
       					<ul>
       						<li>Each selected key length<ul>
       							<li><b>Two payload lengths.</b>One payload length shall be the shortest
-      					supported payload length, greater than or equal to zero bytes. The
-      					other payload length shall be the longest supported payload length,
-      					less than or equal to 32 bytes (256 bits).</li>
+      								supported payload length, greater than or equal to zero bytes. The
+      								other payload length shall be the longest supported payload length,
+      								less than or equal to 32 bytes (256 bits).</li>
       							<li><b>Two payload lengths.</b> One payload length shall be the shortest
-      					supported payload length, greater than or equal to zero bytes. The
-      					other payload length shall be the longest supported payload length,
-      					less than or equal to 32 bytes (256 bits).</li>
+      								supported payload length, greater than or equal to zero bytes. The
+      								other payload length shall be the longest supported payload length,
+      								less than or equal to 32 bytes (256 bits).</li>
       							<li><b>Two or three associated data lengths.</b> One associated data length shall
-      					be 0, if supported. One associated data length shall be the shortest
-      					supported payload length, greater than or equal to zero bytes. One
-      					associated data length shall be the longest supported payload length,
-      					less than or equal to 32 bytes (256 bits).</li>
+      								be 0, if supported. One associated data length shall be the shortest
+      								supported payload length, greater than or equal to zero bytes. One
+      								associated data length shall be the longest supported payload length,
+      								less than or equal to 32 bytes (256 bits).</li>
       						</ul></li>
-      					If the implementation supports an associated data length of 216 bytes:
+      						If the implementation supports an associated data length of 216 bytes:
       						<li><b>Nonce lengths.</b> All supported nonce lengths between 7 and 13 bytes,
       							inclusive, shall be tested.</li>
-      							<li><b>Tag lengths.</b> All supported tag lengths of 4, 6, 8, 10, 12, 14, and 16 bytes
-      								shall be tested.</li>
+      						<li><b>Tag lengths.</b> All supported tag lengths of 4, 6, 8, 10, 12, 14, and 16 bytes
+      							shall be tested.</li>
       					</ul>     
       					
       					To test the generation-encryption functionality of <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CCMP, the evaluator
@@ -4078,6 +3898,215 @@ The following sections list Common Criteria and technology terms used in this do
       					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
       					from testing.<br/><br/>
       				</div></div></div></div></div>
+	
+	     
+    
+        	      
+
+	<div class="comp" id="FCS_COP.1/SigGen"><h4>FCS_COP.1/SigGen Cryptographic Operation (Cryptographic Signature)</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
+	  <a href="#FCS_CDP_EXT.1.1">FCS_CDP_EXT.1.1</a>.
+      </i></b></div>
+	
+	<div class="element"><div class="reqid" id="FCS_COP.1.1/SigGen"><a href="#FCS_COP.1.1/SigGen" class="abbr">FCS_COP.1.1/SigGen</a></div><div class="reqdesc">
+			The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <span class="refinement">
+			[<b>selection</b>: <span class="selectable-content" id="_s_203">perform</span>, <span class="selectable-content" id="_s_204">invoke interfaces in the operational environment to perform</span>]</span> [<i>cryptographic signature generation services</i>] in
+			accordance with a specified cryptographic algorithm 
+			[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_205"><abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> Digital Signature Algorithm (<abbr class="dyn-abbr"><a href="#abbr_rDSA">rDSA</a></abbr>) with a key size (modulus) of
+					[<i>3072 bits or greater</i>]
+					that meets <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr>-PUB 186-5, “Digital Signature Standard”</span></li><li style=""><span class="selectable-content" id="_s_206">Elliptic Curve Digital Signature Algorithm (<abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr>) with a key size 
+					of [<i>&gt;384 bits or greater</i>] that meets <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-5, “Digital Signature
+					Standard” with “<abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> curves” P-384
+					(as defined in <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-5, “Digital Signature Standard”)</span></li></ul>].			
+		<div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+			The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> should specify whether the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> performs the algorithms or the
+			<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in combination with the operational environment is used.<br/><br/>
+			The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author should choose the algorithm implemented to perform digital
+			signature generation; if more than one algorithm is available, this requirement (and the
+			corresponding <a href="#FCS_CKM.1">FCS_CKM.1</a> requirement) should be iterated to specify the
+			functionality. For the algorithm chosen, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author should make the
+			appropriate assignments and selections to specify the parameters that are
+			implemented for that algorithm.<br/><br/>
+			For elliptic curve-based schemes, the key size refers to the log2 of the order of the
+			base point. As the preferred approach for digital signatures, <abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr> will be
+			required in future publications of this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.<br/><br/>
+		</span></div></div></div>
+	
+	
+    <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_COP.1/SigGen">FCS_COP.1/SigGen</a></div>
+			
+			
+			
+		<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
+				Regardless of whether the requirement is met by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform, the
+				evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to ensure that all signature generation functions 
+				use the approved algorithms and key sizes.
+			</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
+				The evaluator shall examine the AGD guidance to ensure it contains
+				instructions for configuring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in conjunction with the
+				operational environment for the required signature algorithms and associated
+				modes and key sizes.
+			</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+				The following tests shall be performed for functionality implemented by the
+				<abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.<br/><br/>
+				<b>Key Generation</b><br/><br/>
+				<b>Key Generation for <abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> Signature Schemes</b><br/><br/>
+				The evaluator shall verify the implementation of <abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> Key Generation
+				by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> using the Key Generation test. This test verifies the ability
+				of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to correctly produce values for the key components
+				including the public verification exponent e, the private prime factors
+				p and q, the public modulus n and the calculation of the private
+				signature exponent d.<br/><br/>
+				Key Pair generation specifies 5 ways (or methods) to generate the
+				primes p and q. These include:<br/><br/>
+				<ul>
+					<li>Random Primes:</li>
+					<ul>
+						<li>Provable Primes</li>
+						<li>Probable Primes</li>
+					</ul>
+					<li>Primes with Conditions:</li>
+					<ul>
+						<li>Primes p1, p2, q1, q2, p, and q shall all be provable primes</li>
+						<li>Primes p1, p2, q1, and q2 shall be provable primes and
+							p and q shall be probable primes</li>
+						<li>Primes p1, p2, q1, q2, p, and q shall all be probable
+							primes </li>
+					</ul>
+				</ul>
+				To test the key generation method for the Random Provable primes
+				method and for all the Primes with Conditions methods, the evaluator
+				must seed the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> key generation routine with sufficient data to
+				deterministically generate the <abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> key pair. This includes the random
+				seeds, the public exponent of the <abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> key, and the desired key length.
+				For each key length supported, the evaluator shall have the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>
+				generate 25 key pairs. The evaluator shall verify the correctness of the
+				<abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>’s implementation by comparing values generated by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> with
+				those generated from a known good implementation.<br/><br/>
+				<b><abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr> Key Generation Tests</b><br/><br/>
+				<b><abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> 186-5 <abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr> Key Generation Test</b><br/><br/>
+				For each supported <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> curve, (i.e., P-384), the
+				evaluator shall require the implementation under test (<abbr class="dyn-abbr"><a href="#abbr_IUT">IUT</a></abbr>) to
+				generate 10 private and public key pairs. The private key shall be
+				generated using an approved random bit generator (<abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr>). To
+				determine correctness, the evaluator shall submit the generated key
+				pairs to the public key verification (<abbr class="dyn-abbr"><a href="#abbr_PKV">PKV</a></abbr>) function of a known good
+				implementation.<br/><br/>
+				<b><abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr> Algorithm Tests</b><br/><br/>
+				<b><abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> 186-5 Signature Generation Test</b><br/><br/>
+				For each supported <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> curve (i.e., P-384) and <abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>
+				function pair, the evaluator shall generate 10 1024-bit long messages
+				and obtain for each message a public key and the resulting signature
+				values R and S. To determine correctness, the evaluator shall use the
+				signature verification function of a known good implementation.<br/><br/>
+				<b><abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> Signature Algorithm Tests</b><br/><br/>
+				<b>Signature Generation Tests</b><br/><br/>
+				The evaluator shall verify the implementation of <abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> Signature
+				Generation by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> using the Signature Generation Test. To
+				conduct this test the evaluator must generate or obtain 10 messages
+				from a trusted reference implementation for each modulus size and <abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>
+				combination supported by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. The evaluator shall have the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
+				use their private key and modulus value to sign these messages.<br/><br/>
+				The evaluator shall verify the correctness of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>’s signature using a
+				known good implementation and the associated public keys to verify
+				the signatures.<br/><br/>
+				<i>Equivalency</i><br/><br/>
+				Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
+				<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
+				from testing.<br/><br/>
+			</div></div></div></div></div>
+	
+      	
+      	     
+      	
+      	
+      	
+      	    	   
+      	<div class="comp" id="FCS_COP.1/SigVer"><h4>FCS_COP.1/SigVer Cryptographic Operation (Cryptographic Signature)</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
+	  <a href="#FCS_CDP_EXT.1.1">FCS_CDP_EXT.1.1</a>.
+      </i></b></div>
+      		
+      		<div class="element"><div class="reqid" id="FCS_COP.1.1/SigVer"><a href="#FCS_COP.1.1/SigVer" class="abbr">FCS_COP.1.1/SigVer</a></div><div class="reqdesc">
+      				
+      				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <span class="refinement">
+      					[<b>selection</b>: <span class="selectable-content" id="_s_207">perform</span>, <span class="selectable-content" id="_s_208">invoke interfaces in the operational environment to perform</span>]</span> [<i>cryptographic signature verification services</i>] in
+      				accordance with a specified cryptographic algorithm 
+      				[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_209"><abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> Digital Signature Algorithm (<abbr class="dyn-abbr"><a href="#abbr_rDSA">rDSA</a></abbr>) with a key size (modulus) of
+      						[<i>3072 bits or greater</i>]
+      						that meets <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr>-PUB 186-5, “Digital Signature Standard”</span></li><li style=""><span class="selectable-content" id="_s_210">Elliptic Curve Digital Signature Algorithm (<abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr>) with a key size 
+      						of [<i>256 bits or greater</i>] that meets <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-5, “Digital Signature
+      						Standard” with “<abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> curves” P-384 and 
+      						[<b>selection</b>: <span class="selectable-content" id="_s_211">P-521</span>, <span class="selectable-content" id="_s_212">no other curves</span>]
+      						(as defined in <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-5, “Digital Signature Standard”)</span></li><li style=""><span class="selectable-content" id="_s_213">Digital Signature Algorithm (<abbr class="dyn-abbr"><a href="#abbr_DSA">DSA</a></abbr>) with a key size (modulus) of [<i>2048
+      						bits or greater</i>], that meets <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr>-PUB 186-5, “Digital Signature Standard”]</span></li></ul>]
+      				
+      			<div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+      				The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> should specify whether the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> performs the algorithms or the
+      				<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in combination with the operational environment is used.<br/><br/>
+      				The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author should choose the algorithm implemented to verify digital
+      				signatures; if more than one algorithm is available, this requirement (and the
+      				corresponding <a href="#FCS_CKM.1">FCS_CKM.1</a> requirement) should be iterated to specify the
+      				functionality. For the algorithm chosen, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author should make the
+      				appropriate assignments and selections to specify the parameters that are
+      				implemented for that algorithm.<br/><br/>
+      				For elliptic curve-based schemes, the key size refers to the log2 of the order of the
+      				base point. As the preferred approach for digital signatures, <abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr> will be
+      				required in future publications of this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.<br/><br/>
+      			</span></div></div></div>
+      		
+      		
+      	<div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_COP.1/SigVer">FCS_COP.1/SigVer</a></div>
+      				
+      				
+      				
+      			<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
+      					Regardless of whether the requirement is met by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform, the
+      					evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to ensure that all signature
+      					verification functions use the approved algorithms and key sizes.
+      				</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
+      					The evaluator shall examine the operational guidance to ensure it contains
+      					instructions for configuring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in conjunction with the
+      					operational environment for the required signature algorithms and associated
+      					modes and key sizes.
+      				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+      					The following tests shall be performed for functionality implemented by the
+      					<abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.<br/><br/>
+      					<b><abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> 186-5 Public Key Verification (<abbr class="dyn-abbr"><a href="#abbr_PKV">PKV</a></abbr>) Test</b><br/><br/>
+      					For each supported <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> curve, (i.e., P-384 and P-521), the
+      					evaluator shall generate 10 private and public key pairs using the key
+      					generation function of a known good implementation and modify five
+      					of the public key values so that they are incorrect, leaving five values
+      					unchanged (i.e., correct). The evaluator shall obtain in response a set
+      					of 10 PASS/FAIL values.<br/><br/>
+      					<b><abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr> Algorithm Tests</b><br/><br/>
+      					<b><abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> 186-5 Signature Verification Test</b><br/><br/>
+      					For each supported <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> curve (i.e.,P-384 and P-521) and <abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>
+      					function pair, the evaluator shall generate a set of 10 1024-bit
+      					message, public key and signature tuples and modify one of the values
+      					(message, public key, or signature) in five of the 10 tuples. The
+      					evaluator shall obtain in response a set of 10 PASS/FAIL values.<br/><br/>
+      					<b><abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> Signature Algorithm Tests</b><br/><br/>
+      					<b>Signature Verification Test</b><br/><br/>
+      					The evaluator shall perform the Signature Verification Test to verify the
+      					ability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to recognize another party’s valid and invalid
+      					signatures. The evaluator shall inject errors into the test vectors
+      					produced during the Signature Verification Test by introducing errors
+      					in some of the public keys e, messages, IR format, or signatures.
+      					The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> attempts to verify the signatures and returns success or
+      					failure.<br/><br/>
+      					The evaluator shall use these test vectors to emulate the signature verification
+      					test using the corresponding parameters and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> detects these
+      					errors.<br/><br/>
+      					<i>Equivalency</i><br/><br/>
+      					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
+      					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
+      					from testing.
+      				</div></div></div></div></div>
+      	
+      	
          
     
     
@@ -4737,7 +4766,9 @@ The following sections list Common Criteria and technology terms used in this do
 			</div>
 			<div class="eacategory">Tests</div><div class="ea">
 				For efficiency sake, the testing that is performed may be combined with the
-				testing for <a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a>, <a href="#FIA_X509_EXT.2">FIA_X509_EXT.2</a> (for <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr> connections), and
+				testing for <a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a> and <a href="#FIA_X509_EXT.2">FIA_X509_EXT.2</a> (for <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr> connections) as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>, and
 				<a href="#FCS_IPSEC_EXT.1.1">FCS_IPSEC_EXT.1.1</a>. The following tests shall be repeated for each peer
 				authentication selected in the <a href="#FCS_IPSEC_EXT.1.1">FCS_IPSEC_EXT.1.1</a> selection above:
 				<span class="testlist-"><ul>
@@ -5308,7 +5339,9 @@ The following sections list Common Criteria and technology terms used in this do
 			<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
-				<a href="#FDP_CER_EXT.1.2">FDP_CER_EXT.1.2</a> is intended to clarify the standard interpretation that subject
+				<a href="#FDP_CER_EXT.1.2">FDP_CER_EXT.1.2</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> is intended to clarify the standard interpretation that subject
 				key identifiers MUST be unique to a public key in a certificate issued by a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> (not
 				that the public keys are unique). The intended meaning is that it is acceptable to
 				issue a certificate with a public key contained in a request that happens to match 
@@ -5337,11 +5370,15 @@ The following sections list Common Criteria and technology terms used in this do
 				The requirement applies only to the issuance of X.509 v3 certificates. An optional
 				requirement in Appendix A allows for the issuance of X.509 certificates other than
 				V3.<br/><br/>
-				Consistency is defined in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5280 for <a href="#FDP_CER_EXT.1.2">FDP_CER_EXT.1.2</a>, item i; specifically, for
+				Consistency is defined in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5280 for <a href="#FDP_CER_EXT.1.2">FDP_CER_EXT.1.2</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>, item i; specifically, for
 				each extendedKeyUsage purpose specified, there must be a consistent keyUsage
 				purpose set.<br/><br/>
 				<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> updates to <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5280 are included in this requirement.<br/><br/>
-				The random input to issued certificates in <a href="#FDP_CER_EXT.1.3">FDP_CER_EXT.1.3</a> can be spread across
+				The random input to issued certificates in <a href="#FDP_CER_EXT.1.3">FDP_CER_EXT.1.3</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> can be spread across
 				multiple of the selectable fields so that the total number of inserted bits is at least
 				20. Select all that apply.
 			</span></div></div></div>	
@@ -5352,13 +5389,19 @@ The following sections list Common Criteria and technology terms used in this do
 				
 			<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
 					The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to ensure it describes the certificate profile
-					function in accordance with <a href="#FDP_CER_EXT.1.1">FDP_CER_EXT.1.1</a> The <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> shall describe how
+					function in accordance with <a href="#FDP_CER_EXT.1.1">FDP_CER_EXT.1.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>. The <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> shall describe how
 					certificate profiles are configured and then selected to issue certificates in
-					accordance with <a href="#FDP_CER_EXT.1.2">FDP_CER_EXT.1.2</a>. The evaluator shall also ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>
+					accordance with <a href="#FDP_CER_EXT.1.2">FDP_CER_EXT.1.2</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>. The evaluator shall also ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>
 					describes how the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> ensures that a certificate-requesting subject possesses
 					the applicable private key. Finally, the evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>
 					describes how 20 bits of random data are generated in accordance with
-					<a href="#FDP_CER_EXT.1.3">FDP_CER_EXT.1.3</a> and which certificate fields are involved.
+					<a href="#FDP_CER_EXT.1.3">FDP_CER_EXT.1.3</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> and which certificate fields are involved.
 				</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
 					The evaluator shall examine the operational guidance to ensure that
 					instructions are available to configure certificate profiles used for certificate
@@ -5385,7 +5428,9 @@ The following sections list Common Criteria and technology terms used in this do
 					<li class="test-"><a id="_t_59" class="defined" href="#_t_59">Test FDP_CER_EXT.1:3</a>:
       
 						The evaluator shall test the fields “d,” “e,” “f,” and “i” in
-						<a href="#FDP_CER_EXT.1.2">FDP_CER_EXT.1.2</a> as follows:<br/><br/>
+						<a href="#FDP_CER_EXT.1.2">FDP_CER_EXT.1.2</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> as follows:<br/><br/>
 						<b>Field “d”:</b> The evaluator shall send a request with a
 						subjectPublicKeyInfo that is allowed by the profile, and observe the
 						request succeeds. The evaluator shall then send a request with a
@@ -5580,9 +5625,13 @@ The following sections list Common Criteria and technology terms used in this do
 			<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
 					The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to ensure it describes the X.509 certificate
 					generation function and the supported and non-features of the ITU-T
-					Recommendation X.509, in accordance with <a href="#FDP_CER_EXT.2.1">FDP_CER_EXT.2.1</a>, that can be
+					Recommendation X.509, in accordance with <a href="#FDP_CER_EXT.2.1">FDP_CER_EXT.2.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>, that can be
 					used to issue certificates. The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> identifies
-					which of the values identified in <a href="#FDP_CER_EXT.2.1">FDP_CER_EXT.2.1</a> can be included in generated
+					which of the values identified in <a href="#FDP_CER_EXT.2.1">FDP_CER_EXT.2.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> can be included in generated
 					certificates.
 				</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
 					If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports configurable certificate profiles, the evaluator shall
@@ -5593,7 +5642,9 @@ The following sections list Common Criteria and technology terms used in this do
 					<span class="testlist-"><ul>
 						<li class="test-"><a id="_t_66" class="defined" href="#_t_66">Test FDP_CER_EXT.4:1</a>:
       
-							For each field defined in <a href="#FDP_CER_EXT.2.1">FDP_CER_EXT.2.1</a>, the evaluator shall
+							For each field defined in <a href="#FDP_CER_EXT.2.1">FDP_CER_EXT.2.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>, the evaluator shall
 							attempt to create a certificate request that violates the required
 							conditions of the field. The evaluator shall determine that all such
 							attempts are rejected by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. 
@@ -5650,13 +5701,17 @@ The following sections list Common Criteria and technology terms used in this do
 					The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to ensure it indicates whether the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
 					supports <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> generation, and if so, describes the <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> generation function. Also,
 					the evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> identifies which of the values identified
-					in <a href="#FDP_CRL_EXT.1.1">FDP_CRL_EXT.1.1</a> can be included in CRLs.	
+					in <a href="#FDP_CRL_EXT.1.1">FDP_CRL_EXT.1.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> can be included in CRLs.	
 				</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports configuration of the <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> issuing function, the evaluator
 					shall examine the operational guidance to ensure that instructions are
 					available to configure issuance of <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> in accordance with 
-					<a href="#FDP_CRL_EXT.1.1">FDP_CRL_EXT.1.1</a>.<br/><br/>
+					<a href="#FDP_CRL_EXT.1.1">FDP_CRL_EXT.1.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>.<br/><br/>
 					The evaluator shall perform the following tests:<br/><br/>
 					<span class="testlist-"><ul>
 						<li class="test-"><a id="_t_67" class="defined" href="#_t_67">Test FDP_CRL_EXT.1:1</a>:
@@ -5664,11 +5719,15 @@ The following sections list Common Criteria and technology terms used in this do
 							If <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> can be issued, the evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>
 							function using available user guidance and request a <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> in order to
 							ensure that the resulting <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> satisfies all field constraints in
-							<a href="#FDP_CRL_EXT.1.1">FDP_CRL_EXT.1.1</a>.
+							<a href="#FDP_CRL_EXT.1.1">FDP_CRL_EXT.1.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>.
 						</li>
 						<li class="test-"><a id="_t_68" class="defined" href="#_t_68">Test FDP_CRL_EXT.1:2</a>:
       
-							For each field defined in <a href="#FDP_CRL_EXT.1.1">FDP_CRL_EXT.1.1</a>, the evaluator shall
+							For each field defined in <a href="#FDP_CRL_EXT.1.1">FDP_CRL_EXT.1.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>, the evaluator shall
 							attempt to create a <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> that violates the required conditions of the
 							field. The evaluator shall determine that all such attempts are rejected
 							by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. 
@@ -5717,7 +5776,9 @@ The following sections list Common Criteria and technology terms used in this do
 				shall be referenced, and any optional features within the <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> shall be specified.<br/><br/>
 				The various iterations of FMT_MOF.1 defines the role or roles authorized to
 				approve changes to a certificate’s status.<br/><br/>
-				The “changes” referenced in <a href="#FDP_CSI_EXT.1.2">FDP_CSI_EXT.1.2</a> are the revocation requests
+				The “changes” referenced in <a href="#FDP_CSI_EXT.1.2">FDP_CSI_EXT.1.2</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> are the revocation requests
 				received by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
 			</span></div></div></div>
 		
@@ -5738,7 +5799,9 @@ The following sections list Common Criteria and technology terms used in this do
 				If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports the configuration of certificate status information, the
 				evaluator shall examine the operational guidance to ensure that instructions
 				are available to configure the certificate status function to use the formats
-				identified in <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a>. 
+				identified in <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>. 
 			</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
 				The evaluator shall examine the operational guidance to ensure that it contains
 				instructions for any configuration aspects of the certificate status change
@@ -5751,7 +5814,9 @@ The following sections list Common Criteria and technology terms used in this do
       
 						For certificate status information, the evaluator shall configure
 						the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to provide certificate status information according to each
-						format identified in <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a> in turn and request certificate
+						format identified in <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> in turn and request certificate
 						status for each format. Each certificate status response shall be
 						examined to ensure that it conforms to the format as described in the
 						<abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>.
@@ -5882,7 +5947,9 @@ The following sections list Common Criteria and technology terms used in this do
 					appropriate assignments/selections such that the configuration is comparable to its old 
 					definitions. Note that the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> version of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> contains more granular requirements for the signature algorithms used to sign responses.</span>
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall ensure that all mandatory fields in the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> response contain values
-				in accordance with the standards specified in <a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a>. At a minimum, the
+				in accordance with the standards specified in <a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>. At a minimum, the
 				following items shall be enforced:
 				<ol type="a">
 					<li>The version field shall indicate a current version.</li>
@@ -5914,12 +5981,12 @@ The following sections list Common Criteria and technology terms used in this do
 					The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to ensure it indicates whether the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
 					supports <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr>, and if so, describes the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> response function. Also, the
 					evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> identifies which of the values identified in
-					<a href="#FDP_OCSPG_EXT.1.1">FDP_OCSPG_EXT.1.1</a> can be included in <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responses.
+					<a href="#FDP_OCSPG_EXT.1.1">FDP_OCSPG_EXT.1.1</a> as defined in <a href="#pkgx509" class="dynref" data-format=""></a> can be included in <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> responses.
 				</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports configuration of the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> function, the evaluator shall
 					examine the operational guidance to ensure that instructions are available to
-					configure the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> response function in accordance with <a href="#FDP_OCSPG_EXT.1.1">FDP_OCSPG_EXT.1.1</a>.<br/><br/>
+					configure the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> response function in accordance with <a href="#FDP_OCSPG_EXT.1.1">FDP_OCSPG_EXT.1.1</a> as defined in <a href="#pkgx509" class="dynref" data-format=""></a>.<br/><br/>
 					The evaluator shall perform the following tests:<br/><br/>
 					<span class="testlist-"><ul>
 						<li class="test-"><a id="_t_76" class="defined" href="#_t_76">Test FDP_OCSPG_EXT.1:1</a>:
@@ -5931,12 +5998,14 @@ The following sections list Common Criteria and technology terms used in this do
 							revoked, a certificate issued by a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> which
 							has been revoked, and a certificate not issued by a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> implemented by
 							the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. The evaluator shall ensure that the responses satisfy all
-							constraints in <a href="#FDP_OCSPG_EXT.1.1">FDP_OCSPG_EXT.1.1</a> and reflects the correct status in
+							constraints in <a href="#FDP_OCSPG_EXT.1.1">FDP_OCSPG_EXT.1.1</a> as defined in <a href="#pkgx509" class="dynref" data-format=""></a> and reflects the correct status in
 							accordance with the referenced standard.
 						</li>
 						<li class="test-"><a id="_t_77" class="defined" href="#_t_77">Test FDP_OCSPG_EXT.1:2</a>:
       
-							For each <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> response format defined in <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a>,
+							For each <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> response format defined in <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>,
 							and for each item a-e of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>, the evaluator shall attempt to create
 							an <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> response that violates the required conditions. The evaluator
 							shall determine that all such attempts are rejected by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. 
@@ -6328,9 +6397,15 @@ The following sections list Common Criteria and technology terms used in this do
 					certificates, and if supported, initial certificates for Registration Authority
 					Officers, when no other certificates are available.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-					Testing for <a href="#FIA_CMCC_EXT.1">FIA_CMCC_EXT.1</a> is performed in conjunction with tests in
-					<a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a>, performing additional test activities as follows:<br/><br/>
-					While completing test 2 for <a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a> for Test Group A:<br/><br/>
+					Testing for <a href="#FIA_CMCC_EXT.1">FIA_CMCC_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> is performed in conjunction with tests in
+					<a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>, performing additional test activities as follows:<br/><br/>
+					While completing test 2 for <a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> for Test Group A:<br/><br/>
 					<ul>
 						<li>Test 2:
 						<ul>
@@ -6353,9 +6428,13 @@ The following sections list Common Criteria and technology terms used in this do
 							<ul>
 								<li>The evaluator shall establish a third instance of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>
 									implementing an online <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> (<abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>-2) subordinate to the online <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>-1
-									established for Test Group B in <a href="#FIA_CMCC_EXT.1">FIA_CMCC_EXT.1</a>. </li>
+									established for Test Group B in <a href="#FIA_CMCC_EXT.1">FIA_CMCC_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>. </li>
 								<li>For one of the request types indicated in the selection for
-									<a href="#FIA_CMCC_EXT.1.1">FIA_CMCC_EXT.1.1</a> and one of the POP control supported, the
+									<a href="#FIA_CMCC_EXT.1.1">FIA_CMCC_EXT.1.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> and one of the POP control supported, the
 									evaluator shall log into the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>-2 <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> in the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> operations staff role
 									and cause <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>-2 to generate <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> request.</li>
 								<li>The evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>-2 <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> request to be
@@ -6395,7 +6474,8 @@ The following sections list Common Criteria and technology terms used in this do
 		<div class="element"><div class="reqid" id="FIA_CMCS_EXT.1.1"><a href="#FIA_CMCS_EXT.1.1" class="abbr">FIA_CMCS_EXT.1.1</a></div><div class="reqdesc">
 				<span style="" class="comment " id="Comment-22-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is defined in the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>. A review of these two versions of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> is needed to determine the 
 					appropriate assignments/selections such that the configuration is comparable to its old 
-					definitions. Note that the X.509 version of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is more open-ended in several places compared to this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> (e.g., cryptographic support required per <a href="#FIA_CMCS_EXT.1.4">FIA_CMCS_EXT.1.4</a>). </span>
+					definitions. Note that the X.509 version of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is more open-ended in several places
+					compared to this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> (e.g., cryptographic support required per <a href="#FIA_CMCS_EXT.1.4">FIA_CMCS_EXT.1.4</a>). </span>
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to accept and process <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> full requests and 
 				[<b>selection</b>: <span class="selectable-content" id="_s_385">simple requests</span>, <span class="selectable-content" id="_s_386">no other requests</span>].
 			</div></div>
@@ -6446,7 +6526,9 @@ The following sections list Common Criteria and technology terms used in this do
       Note:
     </span><span class="note">
 				This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is selected if TODO.<br/><br/>
-				<a href="#FIA_CMCS_EXT.1.5">FIA_CMCS_EXT.1.5</a> focuses on offline root CAs that do not have direct connection
+				<a href="#FIA_CMCS_EXT.1.5">FIA_CMCS_EXT.1.5</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> focuses on offline root CAs that do not have direct connection
 				to external <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entities.<br/><br/>
 				In subsequent versions of the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> will be required to meet the Suite B
 				profile for <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> as described in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6403. 
@@ -6556,7 +6638,9 @@ The following sections list Common Criteria and technology terms used in this do
 								secret should be used for at least as many entities are there are
 								request types and POP controls (but at least two).</li>
 							<li>For each request type indicated in the selection for
-								<a href="#FIA_CMCS_EXT.1.1">FIA_CMCS_EXT.1.1</a> and for each POP control supported, the
+								<a href="#FIA_CMCS_EXT.1.1">FIA_CMCS_EXT.1.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> and for each POP control supported, the
 								evaluator shall use the <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> client to establish a <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> request, using
 								a different identifier (subject name) for each request. </li>
 							<li>[Conditional on <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> support for shared secrets:] The evaluator
@@ -6567,7 +6651,9 @@ The following sections list Common Criteria and technology terms used in this do
 								entities are there are request types and POP controls (but at least
 								two).</li>
 							<li>For each request type indicated in the selection for
-								<a href="#FIA_CMCS_EXT.1.1">FIA_CMCS_EXT.1.1</a> and for each POP control supported, the 
+								<a href="#FIA_CMCS_EXT.1.1">FIA_CMCS_EXT.1.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> and for each POP control supported, the 
 								evaluator shall use the client to establish a <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> request, using a
 								different identifier (subject name) for each request.
 								<ul>
@@ -6691,7 +6777,9 @@ The following sections list Common Criteria and technology terms used in this do
 					<span class="testlist-"><ul>
 						<li class="test-"><a id="_t_96" class="defined" href="#_t_96">Test FIA_CMCS_EXT.1:14</a>:
       
-							For each item in <a href="#FIA_CMCS_EXT.1.5">FIA_CMCS_EXT.1.5</a>, the evaluator shall
+							For each item in <a href="#FIA_CMCS_EXT.1.5">FIA_CMCS_EXT.1.5</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>, the evaluator shall
 							generate and submit an otherwise valid <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> request including a
 							certificate update where the item uses an invalid cryptographic
 							mechanism, and observe that the subordinate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> returns a full <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr>
@@ -6714,7 +6802,13 @@ The following sections list Common Criteria and technology terms used in this do
 			<span style="" class="comment " id="Comment-23-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> appears to be covered by the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> requirement <a href="#FIA_X509_EXT.3">FIA_X509_EXT.3</a>. It may be appropriate to remove this objective <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. </span>
 			The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to generate a certificate request to an external certification
 			authority to receive a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate for a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>'s signing key using 
-			[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_394">PKCS#10 in accordance with <a href="#FIA_X509_EXT.3">FIA_X509_EXT.3</a></span></li><li style=""><span class="selectable-content" id="_s_395">Enrollment over Secure Transport (<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>) in accordance with <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a></span></li><li style=""><span class="selectable-content" id="_s_396">Certificate Management over CMM in accordance with <a href="#FIA_CMCC_EXT.1">FIA_CMCC_EXT.1</a></span></li></ul>]
+			[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_394">PKCS#10 in accordance with <a href="#FIA_X509_EXT.3">FIA_X509_EXT.3</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a></span></li><li style=""><span class="selectable-content" id="_s_395">Enrollment over Secure Transport (<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>) in accordance with <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a></span></li><li style=""><span class="selectable-content" id="_s_396">Certificate Management over CMM in accordance with <a href="#FIA_CMCC_EXT.1">FIA_CMCC_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a></span></li></ul>]
 		<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -6734,7 +6828,9 @@ The following sections list Common Criteria and technology terms used in this do
 			</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
 				The evaluator shall examine the operational guidance documentation and
 				confirm that it contains instructions for obtaining a certificate for the
-				embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> using the options claimed in <a href="#FIA_ENR_EXT.1.1">FIA_ENR_EXT.1.1</a>.
+				embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> using the options claimed in <a href="#FIA_ENR_EXT.1.1">FIA_ENR_EXT.1.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>.
 			</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 				Testing is covered under the tests for the referenced <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> of the claimed
 				options.
@@ -6756,7 +6852,8 @@ The following sections list Common Criteria and technology terms used in this do
 		<div class="element"><div class="reqid" id="FIA_ESTC_EXT.1.1"><a href="#FIA_ESTC_EXT.1.1" class="abbr">FIA_ESTC_EXT.1.1</a></div><div class="reqdesc">
 				<span style="" class="comment " id="Comment-24-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is defined in the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>. A review of these two versions of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> is needed to determine the 
 					appropriate assignments/selections such that the configuration is comparable to its old 
-					definitions. Note that the X.509 version of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> does not contain requirements to validate <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> servers per FCS_TLSC_EXT.2 in <a href="#FIA_ESTC_EXT.1.4">FIA_ESTC_EXT.1.4</a>. 
+					definitions. Note that the X.509 version of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> does not contain requirements to validate
+					<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> servers per FCS_TLSC_EXT.2 in <a href="#FIA_ESTC_EXT.1.4">FIA_ESTC_EXT.1.4</a>. 
 					It additionally contains a requirement to be able to update its <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>-specific trust anchor database per a specific process in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030.</span>
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use the Enrollment over Secure Transport (<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>) as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr>
 				7030 to obtain its <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate and 
@@ -6813,7 +6910,9 @@ The following sections list Common Criteria and technology terms used in this do
 				A <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> used as an intermediate certification authority in a <abbr class="dyn-abbr"><a href="#abbr_PKI">PKI</a></abbr> will need to make
 				requests to external CAs to which it is subordinate. It is acceptable to use <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> to
 				generate these requests. <br/><br/>
-				The third choice in the selection for <a href="#FIA_ESTC_EXT.1.4">FIA_ESTC_EXT.1.4</a> is selected if a pre-existing
+				The third choice in the selection for <a href="#FIA_ESTC_EXT.1.4">FIA_ESTC_EXT.1.4</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> is selected if a pre-existing
 				certificate exists. The assignment should specify whether this pre-existing
 				certificate is established by the vendor, or installed by a privileged user. 
 			</span></div></div></div>
@@ -6848,7 +6947,9 @@ The following sections list Common Criteria and technology terms used in this do
 						<li class="test-"><a id="_t_98" class="defined" href="#_t_98">Test FIA_ESTC_EXT.1:2</a>:
       
 							For each authentication method specified in
-							<a href="#FIA_ESTC_EXT.1.4">FIA_ESTC_EXT.1.4</a>, the evaluator shall generate one or more
+							<a href="#FIA_ESTC_EXT.1.4">FIA_ESTC_EXT.1.4</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>, the evaluator shall generate one or more
 							certificate enrollment requests using the authentication method
 							to obtain <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> required certificates from the authorized <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> via the
 							<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server established in Test 1. In accordance with guidance
@@ -6866,7 +6967,9 @@ The following sections list Common Criteria and technology terms used in this do
       
 							The evaluator shall generate a re-enrollment request and
 							submit it to the authorized <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server in accordance with
-							<a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> to update the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’s signing certificate the same <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>
+							<a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> to update the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’s signing certificate the same <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>
 							implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> used in Test 3. The evaluator shall make
 							a valid request for a certificate from that <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>, and observe that the
 							new <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate signs the returned certificate.
@@ -6895,7 +6998,7 @@ The following sections list Common Criteria and technology terms used in this do
           </b></i></div>
 	<div class="element"><div class="reqid" id="FIA_ESTC_EXT.2.1"><a href="#FIA_ESTC_EXT.2.1" class="abbr">FIA_ESTC_EXT.2.1</a></div><div class="reqdesc">
 			<span style="" class="comment " id="Comment-25-">The parent requirement for this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> (<a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a>) will be moved to the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>, 
-				whose version of <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> does not include a requirement to include a tls-unique value. 
+				whose version of <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> as defined in does not include a requirement to include a tls-unique value. 
 				A determination will need to be made on if this requirement should be included in a future 
 				version of the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>, or how this requirement should be handled in another case.</span>
 			The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate tls-unique values and integrate them into <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> requests it
@@ -6906,7 +7009,11 @@ The following sections list Common Criteria and technology terms used in this do
 			This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> describes an optional element of <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 that strengthens the
 			authentication provided by <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>. While <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 requires <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> servers to validate
 			the tls-unique values when presented, this requirement is not implemented in
-			current <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> servers. <a href="#FIA_ESTC_EXT.2.1">FIA_ESTC_EXT.2.1</a> will be integrated into <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> in a
+			current <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> servers. <a href="#FIA_ESTC_EXT.2.1">FIA_ESTC_EXT.2.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> will be integrated into <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> in a
 			subsequent release of this EP and should be claimed if the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> implementation
 			supports it. 
 		</span></div></div></div>
@@ -6987,16 +7094,24 @@ The following sections list Common Criteria and technology terms used in this do
 				This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if TODO. If this requirement is included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author includes FCS_TLSS_EXT.1 (as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
         version 
         2.0</a>).<br/><br/>
-				For <a href="#FIA_ESTS_EXT.1.3">FIA_ESTS_EXT.1.3</a>, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author selects the method used to authenticate
+				For <a href="#FIA_ESTS_EXT.1.3">FIA_ESTS_EXT.1.3</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author selects the method used to authenticate
 				clients for initial enrollment, or in cases where supplemental authentication is
 				required. If the second item is chosen in the selection, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author includes
 				<a href="#FCS_COP.1/Hash">FCS_COP.1/Hash</a> in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>.<br/><br/>
-				For <a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a>.4, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author should specify how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> determines a
+				For <a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a>.4 as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author should specify how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> determines a
 				client is authorized if the request does not have the id-kp-cmcRA EKU included in
 				its certificate. The assignment requires that this method be compliant with the
 				requirements in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030, section 3.7.<br/><br/>
-				If only the third item is chosen in the selection for <a href="#FIA_ESTS_EXT.1.3">FIA_ESTS_EXT.1.3</a>, or if the first
-				item is chosen in the selection for <a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a>.4, then support of an <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_AOR">AOR</a></abbr>
+				If only the third item is chosen in the selection for <a href="#FIA_ESTS_EXT.1.3">FIA_ESTS_EXT.1.3</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>, or if the first
+				item is chosen in the selection for <a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a>.4 as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>, then support of an <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_AOR">AOR</a></abbr>
 				is required for initial authentication and <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> selections associated to the support
 				for these optional roles must be claimed.	
 			</span></div></div></div>
@@ -7041,7 +7156,9 @@ The following sections list Common Criteria and technology terms used in this do
 						<li class="test-"><a id="_t_105" class="defined" href="#_t_105">Test FIA_ESTS_EXT.1:3</a>:
       
 							If “a certificate issued by the same issuer that asserts id-kpcmcRA in its extended key usage extension” is selected in
-							<a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a>.4, the evaluator shall use an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> client to request
+							<a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a>.4as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>, the evaluator shall use an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> client to request
 							certificate enrollment of a subject not known to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to be
 							authorized, to request an initial certificate from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> using the
 							simple enrollment method described in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.2,
@@ -7052,7 +7169,9 @@ The following sections list Common Criteria and technology terms used in this do
 						<li class="test-"><a id="_t_106" class="defined" href="#_t_106">Test FIA_ESTS_EXT.1:4</a>:
       
 							If “a certificate issued by the same issuer that asserts id-kpcmcRA in its extended key usage extension” is selected in
-							<a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a>.4, the evaluator shall use an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> client to request
+							<a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a>.4 as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>, the evaluator shall use an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> client to request
 							certificate enrollment of a subject not known to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to be
 							authorized, to request an initial certificate from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> using the
 							simple enrollment method described in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 Section 4.2,
@@ -7600,7 +7719,11 @@ The following sections list Common Criteria and technology terms used in this do
 						certificates.</li>
 					<li>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate the revocation status of the certificate using 
 						[<b>selection</b>: <span class="selectable-content" id="_s_442">the Online Certificate Status Protocol (<abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr>) as 
-								specified in <a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a></span>, <span class="selectable-content" id="_s_443">a Certificate Revocation List (<abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>) as specified in <a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a></span>].</li>
+								specified in <a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a></span>, <span class="selectable-content" id="_s_443">a Certificate Revocation List (<abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>) as specified in <a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a></span>].</li>
 					<li>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate the extendedKeyUsage field according to the following
 						rules:
 						<ul>
@@ -7622,7 +7745,9 @@ The following sections list Common Criteria and technology terms used in this do
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> may rely on the operational environment to perform certificate handling
 				functionality in cases where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> relies on an environmental component to
 				provide trusted remote communications.<br/><br/>
-				<a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a> lists the rules for validating certificates. The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author shall select
+				<a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> lists the rules for validating certificates. The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author shall select
 				whether revocation status is verified using <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> or CRLs. Depending on this
 				selection, the appropriate <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> requirements from Appendix B must be
 				included.<br/><br/>
@@ -7664,7 +7789,9 @@ The following sections list Common Criteria and technology terms used in this do
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following tests in conjunction with the other
 					certificate services evaluation activities, including the use cases in
-					<a href="#FIA_X509_EXT.2.1">FIA_X509_EXT.2.1</a>. The tests for the extendedKeyUsage rules are performed in
+					<a href="#FIA_X509_EXT.2.1">FIA_X509_EXT.2.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>. The tests for the extendedKeyUsage rules are performed in
 					conjunction with the uses that require those rules.<br/><br/>
 					<span class="testlist-"><ul>
 						<li class="test-"><a id="_t_121" class="defined" href="#_t_121">Test FIA_X509_EXT.1:1</a>:
@@ -7720,7 +7847,8 @@ The following sections list Common Criteria and technology terms used in this do
 		<div class="element"><div class="reqid" id="FIA_X509_EXT.2.1"><a href="#FIA_X509_EXT.2.1" class="abbr">FIA_X509_EXT.2.1</a></div><div class="reqdesc">
 				<span style="" class="comment " id="Comment-29-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is defined in the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>. A review of these two versions of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> is needed to determine the 
 					appropriate assignments/selections such that the configuration is comparable to its old 
-					definitions. Note that the X.509 version of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is more open-ended and it lacks an explicit element to deny invalid peer certificates akin to <a href="#FIA_X509_EXT.2.3">FIA_X509_EXT.2.3</a>.</span>
+					definitions. Note that the X.509 version of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is more open-ended and it lacks an
+					explicit element to deny invalid peer certificates akin to <a href="#FIA_X509_EXT.2.3">FIA_X509_EXT.2.3</a>.</span>
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
 				[<b>selection</b>: <span class="selectable-content" id="_s_444">use</span>, <span class="selectable-content" id="_s_445">interface with the operational environment to use</span>]
 				X.509v3 certificates as defined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5280 to support authentication for code
@@ -7753,9 +7881,13 @@ The following sections list Common Criteria and technology terms used in this do
 				status of a certificate - either to download a <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> or to perform <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr>. The selection
 				is used to describe the behavior in the event that such a connection cannot be
 				established (for example, due to a network error). If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> has determined the
-				certificate valid according to all other rules in <a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a>, the behavior
+				certificate valid according to all other rules in <a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>, the behavior
 				indicated in the second selection shall determine the validity. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must not
-				accept the certificate if it fails any of the other validation rules in <a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a>.
+				accept the certificate if it fails any of the other validation rules in <a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a>.
 				If the administrator-configured option is selected by the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author
 				must also select "Ability to accept certificates whose revocation status cannot be 
 				determined" in <a href="#FMT_SMF.1">FMT_SMF.1</a>.
@@ -9304,7 +9436,9 @@ The following sections list Common Criteria and technology terms used in this do
 					unauthorized parties.<br/><br/>
 					[conditional] If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author indicates that the public key for software update
 					digital signature verification is used, the evaluator shall verify that the update
-					mechanism includes a certificate validation according to <a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a> and
+					mechanism includes a certificate validation according to <a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
+        version 
+        1.0</a> and
 					a check for the code signing purpose in the extendedKeyUsage.
 				</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
 					The evaluator shall examine the operational guidance to ensure it contains the
@@ -9789,78 +9923,59 @@ The following sections list Common Criteria and technology terms used in this do
 
 	    
    <h3 id="obj-req-map" class="indexable" data-level="3">5.1.11 TOE Security Functional Requirements Rationale</h3><p>The following rationale provides justification for each <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, 
-    showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to address the specified threats:<br/><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">3</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Threat</th><th>Addressed by</th><th>Rationale</th></tr><tr class="major-row"><td rowspan="23"><a href="#T.PRIVILEGED_USER_ERROR">T.PRIVILEGED_​USER_​ERROR</a></td><td><a href="#FAU_ADP_EXT.1">FAU_ADP_EXT.1</a></td><td>Requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to implement or support audit functionality.</td></tr>
+    showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to address the specified threats:<br/><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">3</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Threat</th><th>Addressed by</th><th>Rationale</th></tr><tr class="major-row"><td rowspan="22"><a href="#T.PRIVILEGED_USER_ERROR">T.PRIVILEGED_​USER_​ERROR</a></td><td><a href="#FAU_ADP_EXT.1">FAU_ADP_EXT.1</a></td><td>Requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to implement or support audit functionality.</td></tr>
 <tr><td><a href="#FAU_STG.5">FAU_STG.5</a></td><td>Prevents audited events if the audit trail cannot be written to.</td></tr>
 <tr><td><a href="#FIA_UAU_EXT.1">FIA_UAU_EXT.1</a></td><td>Requires that he <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> provide a mechanism for authenticating privileged users.</td></tr>
 <tr><td><a href="#FIA_UIA_EXT.1">FIA_UIA_EXT.1</a></td><td>Defines the actions permitted prior to authentication of a user.</td></tr>
 <tr><td><a href="#FMT_MOF.1/Admin">FMT_MOF.1/Admin</a></td><td>Defines management functions to be performed exclusively by Administrators.</td></tr>
 <tr><td><a href="#FMT_MOF.1/Auditor">FMT_MOF.1/Auditor</a></td><td>Defines management functions to be performed by auditors.</td></tr>
 <tr><td><a href="#FMT_MOF.1/CA">FMT_MOF.1/CA</a></td><td>Defines management functions to be performed by <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Staff.</td></tr>
-<tr><td><a href="#FMT_MOF.1/CO">FMT_MOF.1/CO</a></td><td>Defines management functions to be performed by Administrators, Auditor, or <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Staff.</td></tr>
-<tr><td><a href="#FMT_MOF.1/RA">FMT_MOF.1/RA</a></td><td>Defines management functions to be performed by <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> Staff.</td></tr>
 <tr><td><a href="#FMT_MTD.1">FMT_MTD.1</a></td><td>Requires that only privileged users manage <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> data.</td></tr>
 <tr><td><a href="#FMT_SMF.1">FMT_SMF.1</a></td><td>Defines management functions implemented or supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr>
 <tr><td><a href="#FMT_SMR.2">FMT_SMR.2</a></td><td>Defines user roles maintained or supported by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td></tr>
 <tr><td><a href="#FTA_SSL.4">FTA_SSL.4</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> support user-initiated termination of their own <abbr class="dyn-abbr"><a href="#abbr_SSL">SSL</a></abbr> sessions.</td></tr>
-<tr><td><a href="#FTA_SSL_EXT.1">FTA_SSL_EXT.1</a> (optional)</td><td>(Optional) Requires an inactivity timeout on local user sessions.</td></tr>
 <tr><td><a href="#FTA_SSL.3">FTA_SSL.3</a> (optional)</td><td>(Optional) Requires an inactivity timeout on remote user sessions.</td></tr>
 <tr><td><a href="#FTA_SSL_EXT.1">FTA_SSL_EXT.1</a> (optional)</td><td>(Optional) Requires an inactivity timeout on local user sessions.</td></tr>
-<tr><td><a href="#FAU_STG.2/EXT">FAU_STG.2/EXT</a> (selection-based)</td><td>Requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> protect audit records from unauthorized deletion.</td></tr>
-<tr><td><a href="#FAU_STG.2/STA">FAU_STG.2/STA</a> (selection-based)</td><td>Requires that audit records with retention requirements be retained for the appropriate period.</td></tr>
+<tr><td><a href="#FAU_STG.2/EXT">FAU_STG.2/EXT</a> (implementation-dependent)</td><td>Requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> protect audit records from unauthorized deletion.</td></tr>
+<tr><td><a href="#FAU_STG.2/STA">FAU_STG.2/STA</a> (implementation-dependent)</td><td>Requires that audit records with retention requirements be retained for the appropriate period.</td></tr>
 <tr><td><a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a> (selection-based)</td><td>Specifies rules for the retention of audit data.</td></tr>
 <tr><td><a href="#FIA_AFL.1">FIA_AFL.1</a> (selection-based)</td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> detect excessive unsuccessful login attempts from a remote user.</td></tr>
 <tr><td><a href="#FIA_PMG_EXT.1">FIA_PMG_EXT.1</a> (selection-based)</td><td>Specifies password composition rules.</td></tr>
 <tr><td><a href="#FIA_UAU.7">FIA_UAU.7</a> (selection-based)</td><td>Defines feedback permitted to the user during authentication.</td></tr>
+<tr><td><a href="#FMT_MOF.1/CO">FMT_MOF.1/CO</a> (selection-based)</td><td>Defines management functions to be performed by Administrators, Auditor, or <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Staff.</td></tr>
+<tr><td><a href="#FMT_MOF.1/RA">FMT_MOF.1/RA</a> (selection-based)</td><td>Defines management functions to be performed by <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> Staff.</td></tr>
 <tr><td><a href="#FPT_APW_EXT.1">FPT_APW_EXT.1</a> (selection-based)</td><td>Defines protections for plaintext passwords.</td></tr>
 <tr class="major-row"><td rowspan="5"><a href="#T.TSF_FAILURE">T.TSF_​FAILURE</a></td><td><a href="#FPT_FLS.1">FPT_FLS.1</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> enters a secure state if failures in the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> occur.</td></tr>
 <tr><td><a href="#FPT_RCV.1">FPT_RCV.1</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> provide a maintenance mode where the ability to return to secure state is provided.</td></tr>
 <tr><td><a href="#FPT_TST_EXT.1">FPT_TST_EXT.1</a> (optional)</td><td>(Optional) Requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> ensure the integrity of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> software and firmware.</td></tr>
 <tr><td> <a href="#FPT_TST_EXT.2">FPT_TST_EXT.2</a> (optional)</td><td>(Optional) Requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> ensure the integrity of certain data relevant to <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> security.</td></tr>
 <tr><td><a href="#FPT_TST.1">FPT_TST.1</a> (selection-based)</td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> test the health of the <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr>.</td></tr>
-<tr class="major-row"><td rowspan="35"><a href="#T.UNAUTHENTICATED_TRANSACTIONS">T.UNAUTHENTICATED_​TRANSACTIONS</a></td><td><a href="#FCO_NRO_EXT.2">FCO_NRO_EXT.2</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> provide proof of origin for certificates it issues.</td></tr>
+<tr class="major-row"><td rowspan="19"><a href="#T.UNAUTHENTICATED_TRANSACTIONS">T.UNAUTHENTICATED_​TRANSACTIONS</a></td><td><a href="#FCO_NRO_EXT.2">FCO_NRO_EXT.2</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> provide proof of origin for certificates it issues.</td></tr>
 <tr><td><a href="#FCS_CDP_EXT.1">FCS_CDP_EXT.1</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> implements or invokes cryptographic functionality.</td></tr>
-<tr><td><a href="#FDP_CER_EXT.1">FDP_CER_EXT.1</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> support configured certifcate profiles.</td></tr>
-<tr><td><a href="#FDP_CER_EXT.2">FDP_CER_EXT.2</a></td><td>Requires that <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> associate certificate requests with certificates.</td></tr>
-<tr><td><a href="#FDP_CER_EXT.3">FDP_CER_EXT.3</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> support approval of certificates against profiles.</td></tr>
-<tr><td><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> provide formatted certificate status information.</td></tr>
-<tr><td><a href="#FIA_X509_EXT.1">FIA_X509_EXT.1</a></td><td>Requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> support validation of certificates according to a set of rules.</td></tr>
-<tr><td><a href="#FIA_X509_EXT.2">FIA_X509_EXT.2</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> use X.509 certificates for code signing and other purposes.</td></tr>
-<tr><td><a href="#FIA_X509_EXT.3">FIA_X509_EXT.3</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> support the use of Certificate Requests to receive a certificate chain.</td></tr>
 <tr><td><a href="#FMT_MOF.1/Admin">FMT_MOF.1/Admin</a></td><td>Defines management functions to be performed exclusively by Administrators.</td></tr>
 <tr><td><a href="#FMT_MOF.1/Auditor">FMT_MOF.1/Auditor</a></td><td>Defines management functions to be performed by auditors.</td></tr>
 <tr><td><a href="#FMT_MOF.1/CA">FMT_MOF.1/CA</a></td><td>Defines management functions to be performed by <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Staff.</td></tr>
-<tr><td><a href="#FMT_MOF.1/CO">FMT_MOF.1/CO</a></td><td>Defines management functions to be performed by Administrators, Auditor, or <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Staff.</td></tr>
-<tr><td><a href="#FMT_MOF.1/RA">FMT_MOF.1/RA</a></td><td>Defines management functions to be performed by <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> Staff.</td></tr>
 <tr><td><a href="#FMT_MTD.1">FMT_MTD.1</a></td><td>Requires that only privileged users manage <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> data.</td></tr>
 <tr><td><a href="#FDP_CER_EXT.4">FDP_CER_EXT.4</a> (optional)</td><td>(Optional) Requires that non-v3 certificates have certain characteristics.</td></tr>
+<tr><td><a href="#FDP_SDP_EXT.1">FDP_SDP_EXT.1</a> (optional)</td><td>(Optional) Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> protect certain information through encryption.</td></tr>
 <tr><td><a href="#FDP_STG_EXT.1">FDP_STG_EXT.1</a>(optional)</td><td>(Optional) Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> protect trusted public keys and certificates.</td></tr>
 <tr><td><a href="#FPT_NPE_EXT.1">FPT_NPE_EXT.1</a> (optional)</td><td>(Optional) Requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> enforce rules for submitting <abbr class="dyn-abbr"><a href="#abbr_NPE">NPE</a></abbr> certificate requests.</td></tr>
 <tr><td><a href="#FPT_TST_EXT.1">FPT_TST_EXT.1</a> (optional)</td><td>(Optional) Requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> ensure the integrity of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> software and firmware.</td></tr>
 <tr><td><a href="#FPT_TST_EXT.2">FPT_TST_EXT.2</a> (optional)</td><td>(Optional) Requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> ensure the integrity of certain data relevant to <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> security.</td></tr>
-<tr><td><a href="#FIA_ENR_EXT.1">FIA_ENR_EXT.1</a> (objective)</td><td>Requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to use secure request mechanisms to receive a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate for the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>'s use.</td></tr>
-<tr><td><a href="#FIA_ESTC_EXT.2">FIA_ESTC_EXT.2</a> (objective)</td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> use a strengthened implementation of <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> through the incorporation of the tls-unique values in its generated requests.</td></tr>
-<tr><td><a href="#FIA_ESTS_EXT.2">FIA_ESTS_EXT.2</a> (objective)</td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> use a strengthened implementation of <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> through the verification of tls-unique values in requests it receives.</td></tr>
-<tr><td> <a href="#FCO_NRR_EXT.2">FCO_NRR_EXT.2</a> (selection-based)</td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> provide certificate-based proof of receipt.</td></tr>
-<tr><td> <a href="#FCS_CKM_EXT.5">FCS_CKM_EXT.5</a> (selection-based)</td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> protect public keys from modification.</td></tr>
-<tr><td> <a href="#FIA_CMCC_EXT.1">FIA_CMCC_EXT.1</a>(selection-based)</td><td>Specifies requirements for <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> requests and responses.</td></tr>
-<tr><td> <a href="#FIA_CMCS_EXT.1">FIA_CMCS_EXT.1</a> (selection-based)</td><td>Defines the types of <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> requests handled by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td></tr>
-<tr><td> <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> (selection-based)</td><td>Specifies requirements for client-side <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> enrollment requests.</td></tr>
-<tr><td> <a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a> (selection-based)</td><td>Specifies requirements for <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> enrollment requests.</td></tr>
-<tr><td><a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a> (selection-based)</td><td>Specifies contents for certificate revocation lists.</td></tr>
-<tr><td> <a href="#FDP_OCSPG_EXT.1">FDP_OCSPG_EXT.1</a> (selection-based)</td><td>Specifies the contents of <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> response messages.</td></tr>
-<tr><td> <a href="#FDP_SDP_EXT.1">FDP_SDP_EXT.1</a> (selection-based)</td><td>(Optional) Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> protect certain information through encryption.</td></tr>
-<tr><td> <a href="#FDP_ITT.1">FDP_ITT.1</a> (selection-based)</td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> protect user data during transmission between physically separate parts of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr>
+<tr><td><a href="#FCO_NRR_EXT.2">FCO_NRR_EXT.2</a> (selection-based)</td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> provide certificate-based proof of receipt.</td></tr>
+<tr><td><a href="#FCS_CKM_EXT.5">FCS_CKM_EXT.5</a> (selection-based)</td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> protect public keys from modification.</td></tr>
+<tr><td><a href="#FDP_ITT.1">FDP_ITT.1</a> (selection-based)</td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> protect user data during transmission between physically separate parts of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr>
+<tr><td><a href="#FMT_MOF.1/CO">FMT_MOF.1/CO</a> (selection-based)</td><td>Defines management functions to be performed by Administrators, Auditor, or <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Staff.</td></tr>
+<tr><td><a href="#FMT_MOF.1/RA">FMT_MOF.1/RA</a> (selection-based)</td><td>Defines management functions to be performed by <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> Staff.</td></tr>
 <tr><td><a href="#FPT_ITT.1">FPT_ITT.1</a> (selection-based)</td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> protect data transmitted between different parts of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr>
 <tr><td><a href="#FPT_TST.1">FPT_TST.1</a> (selection-based)</td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> test the health of the <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr>.</td></tr>
-<tr class="major-row"><td rowspan="53"><a href="#T.UNAUTHORIZED_ACCESS">T.UNAUTHORIZED_​ACCESS</a></td><td><a href="#FCS_CDP_EXT.1">FCS_CDP_EXT.1</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> implements or invokes cryptographic functionality.</td></tr>
+<tr class="major-row"><td rowspan="55"><a href="#T.UNAUTHORIZED_ACCESS">T.UNAUTHORIZED_​ACCESS</a></td><td><a href="#FCS_CDP_EXT.1">FCS_CDP_EXT.1</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> implements or invokes cryptographic functionality.</td></tr>
 <tr><td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td>Requires secure storage of private and secret keys.</td></tr>
 <tr><td><a href="#FIA_UAU_EXT.1">FIA_UAU_EXT.1</a></td><td>Requires that he <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> provide a mechanism for authenticating privileged users.</td></tr>
 <tr><td><a href="#FIA_UIA_EXT.1">FIA_UIA_EXT.1</a></td><td>Defines the actions permitted prior to authentication of a user.</td></tr>
 <tr><td><a href="#FMT_MOF.1/Admin">FMT_MOF.1/Admin</a></td><td>Defines management functions to be performed exclusively by Administrators.</td></tr>
 <tr><td><a href="#FMT_MOF.1/Auditor">FMT_MOF.1/Auditor</a></td><td>Defines management functions to be performed by auditors.</td></tr>
 <tr><td><a href="#FMT_MOF.1/CA">FMT_MOF.1/CA</a></td><td>Defines management functions to be performed by <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Staff.</td></tr>
-<tr><td><a href="#FMT_MOF.1/CO">FMT_MOF.1/CO</a></td><td>Defines management functions to be performed by Administrators, Auditor, or <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Staff.</td></tr>
-<tr><td><a href="#FMT_MOF.1/RA">FMT_MOF.1/RA</a></td><td>Defines management functions to be performed by <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> Staff.</td></tr>
 <tr><td><a href="#FMT_MTD.1">FMT_MTD.1</a></td><td>Requires that only privileged users manage <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> data.</td></tr>
 <tr><td><a href="#FMT_SMF.1">FMT_SMF.1</a></td><td>Defines management functions implemented or supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr>
 <tr><td><a href="#FMT_SMR.2">FMT_SMR.2</a></td><td>Defines user roles maintained or supported by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td></tr>
@@ -9868,6 +9983,7 @@ The following sections list Common Criteria and technology terms used in this do
 <tr><td><a href="#FPT_KST_EXT.2">FPT_KST_EXT.2</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> prevent unauthorized use of private and secret keys.</td></tr>
 <tr><td><a href="#FPT_SKP_EXT.1">FPT_SKP_EXT.1</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> be able to prevent reading of pre-shared, private and secret keys.</td></tr>
 <tr><td><a href="#FTA_SSL.4">FTA_SSL.4</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> support user-initiated termination of their own <abbr class="dyn-abbr"><a href="#abbr_SSL">SSL</a></abbr> sessions.</td></tr>
+<tr><td><a href="#FTA_TAB.1">FTA_TAB.1</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> display a notice and consent warning at login attempts.</td></tr>
 <tr><td><a href="#FTP_TRP.1">FTP_TRP.1</a></td><td>Requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to provide a trusted path to remote entities.</td></tr>
 <tr><td><a href="#FCS_COP.1/PBKDF">FCS_COP.1/PBKDF</a> (optional)</td><td>(Optional) Requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to support password-based key derivation.</td></tr>
 <tr><td><a href="#FPT_SKY_EXT.1/CA">FPT_SKY_EXT.1/CA</a> (optional)</td><td>(Optional) Requires two-party control for the export of <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> signing keys.</td></tr>
@@ -9875,14 +9991,15 @@ The following sections list Common Criteria and technology terms used in this do
 <tr><td><a href="#FTA_SSL.3">FTA_SSL.3</a> (optional)</td><td>(Optional) Requires an inactivity timeout on remote user sessions.</td></tr>
 <tr><td><a href="#FTA_SSL_EXT.1">FTA_SSL_EXT.1</a> (optional)</td><td>(Optional) Requires an inactivity timeout on local user sessions.</td></tr>
 <tr><td><a href="#FCS_KSH_EXT.1">FCS_KSH_EXT.1</a> (objective)</td><td>Requires two-party control for the export of critical keys to the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> operation.</td></tr>
+<tr><td><a href="#FCS_CKM_EXT.1/DEK">FCS_CKM_EXT.1/DEK</a> (implementation-dependent)</td><td>Specifies requirements for asymmetric key generation.</td></tr>
 <tr><td><a href="#FCS_COP.1/Hash">FCS_COP.1/Hash</a> (selection-based)</td><td>Defines permissible cryptographic hash algorithms and sizes.</td></tr>
 <tr><td><a href="#FCS_COP.1/KeyedHash">FCS_COP.1/KeyedHash</a> (selection-based)</td><td>Defines permissible keyed-hash message authentication algorithms.</td></tr>
-<tr><td>FCS_COP.1/Sig (selection-based)</td><td>Defines permissible cryptographic signature algorithms.</td></tr>
+<tr><td><a href="#FCS_COP.1/SigGen">FCS_COP.1/SigGen</a> (selection-based)</td><td>Defines permissible cryptographic signature algorithms.</td></tr>
+<tr><td><a href="#FCS_COP.1/SigVer">FCS_COP.1/SigVer</a> (selection-based)</td><td>Defines permissible cryptographic signature verification.</td></tr>
 <tr><td><a href="#FCS_COP.1/SKC">FCS_COP.1/SKC</a> (selection-based)</td><td>Defines permissible <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> encryption algorithms and key sizes.</td></tr>
 <tr><td><a href="#FCS_CKM.1">FCS_CKM.1</a> (selection-based)</td><td>Specifies allowable algorithms for generation of asymmetric keys.</td></tr>
 <tr><td><a href="#FCS_CKM.2">FCS_CKM.2</a> (selection-based)</td><td>Specifies allowable algorithms for key establishment.</td></tr>
 <tr><td><a href="#FCS_CKM.6">FCS_CKM.6</a> (selection-based)</td><td>Specifies requirements for cryptographic key destruction.</td></tr>
-<tr><td><a href="#FCS_CKM_EXT.1/DEK">FCS_CKM_EXT.1/DEK</a> (selection-based)</td><td>Specifies requirements for asymmetric key generation.</td></tr>
 <tr><td><a href="#FCS_CKM_EXT.1/KEK">FCS_CKM_EXT.1/KEK</a> (selection-based)</td><td>Specifies requirements for generation of KEKs.</td></tr>
 <tr><td><a href="#FCS_CKM_EXT.1/KEKT">FCS_CKM_EXT.1/KEKT</a> (selection-based)</td><td>Specifies requirements for asymmetric KEKs.</td></tr>
 <tr><td><a href="#FCS_CKM_EXT.1/SHARE">FCS_CKM_EXT.1/SHARE</a> (selection-based)</td><td>Specifies requirements for key shares.</td></tr>
@@ -9897,19 +10014,22 @@ The following sections list Common Criteria and technology terms used in this do
 <tr><td><a href="#FCS_RBG.3">FCS_RBG.3</a> (selection-based)</td><td>Allows the <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> to be seeded by a single internal source.</td></tr>
 <tr><td><a href="#FCS_RBG.4">FCS_RBG.4</a> (selection-based)</td><td>Allows the <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> to be seeded by multiple internal sources.</td></tr>
 <tr><td><a href="#FCS_RBG.5">FCS_RBG.5</a> (selection-based)</td><td>Allows the <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> to combine noise from multiple sources.</td></tr>
+<tr><td><a href="#FDP_ITT.1">FDP_ITT.1</a> (selection-based)</td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> protect user data during transmission between physically separate parts of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr>
 <tr><td><a href="#FIA_AFL.1">FIA_AFL.1</a> (selection-based)</td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> detect excessive unsuccessful login attempts from a remote user.</td></tr>
 <tr><td><a href="#FIA_PMG_EXT.1">FIA_PMG_EXT.1</a> (selection-based)</td><td>Specifies password composition rules.</td></tr>
 <tr><td><a href="#FIA_PSK_EXT.1">FIA_PSK_EXT.1</a> (selection-based)</td><td>Defines requirements for pre-shared keys used by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td></tr>
 <tr><td><a href="#FIA_UAU.7">FIA_UAU.7</a> (selection-based)</td><td>Defines feedback permitted to the user during authentication.</td></tr>
-<tr><td><a href="#FDP_ITT.1">FDP_ITT.1</a> (selection-based)</td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> protect user data during transmission between physically separate parts of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr>
+<tr><td><a href="#FMT_MOF.1/CO">FMT_MOF.1/CO</a> (selection-based)</td><td>Defines management functions to be performed by Administrators, Auditor, or <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Staff.</td></tr>
+<tr><td><a href="#FMT_MOF.1/RA">FMT_MOF.1/RA</a> (selection-based)</td><td>Defines management functions to be performed by <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> Staff.</td></tr>
 <tr><td><a href="#FPT_APW_EXT.1">FPT_APW_EXT.1</a> (selection-based)</td><td>Defines protections for plaintext passwords.</td></tr>
 <tr><td><a href="#FPT_ITT.1">FPT_ITT.1</a> (selection-based)</td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> protect data transmitted between different parts of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr>
 <tr><td><a href="#FPT_SKY_EXT.2">FPT_SKY_EXT.2</a> (selection-based)</td><td>Requires that key shares be accessible only by privileged users.</td></tr>
 <tr><td><a href="#FTP_ITC.1">FTP_ITC.1</a> (selection-based)</td><td>Requires secure communications between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and external <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entities.</td></tr>
-<tr class="major-row"><td rowspan="4"><a href="#T.UNAUTHORIZED_UPDATE">T.UNAUTHORIZED_​UPDATE</a></td><td><a href="#FCS_CDP_EXT.1">FCS_CDP_EXT.1</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> implements or invokes cryptographic functionality.</td></tr>
-<tr><td> FCS_COP.1/Sig (selection-based)</td><td>Defines permissible cryptographic signature algorithms.</td></tr>
-<tr><td> <a href="#FIA_X509_EXT.2">FIA_X509_EXT.2</a></td><td>Specifies the contents of Certificate Request Messages generated by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td></tr>
-<tr><td> <a href="#FPT_TUD_EXT.1">FPT_TUD_EXT.1</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> support a secure <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> update process.</td></tr>
+<tr class="major-row"><td rowspan="5"><a href="#T.UNAUTHORIZED_UPDATE">T.UNAUTHORIZED_​UPDATE</a></td><td><a href="#FCS_CDP_EXT.1">FCS_CDP_EXT.1</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> implements or invokes cryptographic functionality.</td></tr>
+<tr><td><a href="#FIA_X509_EXT.2">FIA_X509_EXT.2</a></td><td>Specifies the contents of Certificate Request Messages generated by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td></tr>
+<tr><td><a href="#FPT_TUD_EXT.1">FPT_TUD_EXT.1</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> support a secure <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> update process.</td></tr>
+<tr><td><a href="#FCS_COP.1/SigGen">FCS_COP.1/SigGen</a> (selection-based)</td><td>Defines permissible cryptographic signature algorithms.</td></tr>
+<tr><td><a href="#FCS_COP.1/SigVer">FCS_COP.1/SigVer</a> (selection-based)</td><td>Defines permissible cryptographic signature verification.</td></tr>
 <tr class="major-row"><td rowspan="15"><a href="#T.UNDETECTED_ACTIONS">T.UNDETECTED_​ACTIONS</a></td><td><a href="#FAU_ADP_EXT.1">FAU_ADP_EXT.1</a></td><td>Requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to implement or support audit functionality.</td></tr>
 <tr><td><a href="#FAU_GCR_EXT.1">FAU_GCR_EXT.1</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> store certificates that it issues.</td></tr>
 <tr><td><a href="#FAU_GEN.1">FAU_GEN.1</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> an audit record for defined auditable events.</td></tr>
@@ -9918,17 +10038,16 @@ The following sections list Common Criteria and technology terms used in this do
 <tr><td><a href="#FAU_STG.5">FAU_STG.5</a></td><td>Prevents audited events if the audit data storage cannot be written to.</td></tr>
 <tr><td><a href="#FIA_UIA_EXT.1">FIA_UIA_EXT.1</a></td><td>Defines the actions permitted prior to authentication of a user.</td></tr>
 <tr><td><a href="#FPT_STM.1">FPT_STM.1</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> provide or support reliable time stamps.</td></tr>
-<tr><td><a href="#FAU_SAR.1">FAU_SAR.1</a> (selection-based)</td><td>Requires that auditors be able to read all audit records.</td></tr>
-<tr><td><a href="#FAU_SAR.3">FAU_SAR.3</a> (selection-based)</td><td>Requires support for searches of audit data based on certificate identifier.</td></tr>
+<tr><td><a href="#FAU_SAR.1">FAU_SAR.1</a> (implementation-dependent)</td><td>Requires that auditors be able to read all audit records.</td></tr>
+<tr><td><a href="#FAU_SAR.3">FAU_SAR.3</a> (implementation-dependent)</td><td>Requires support for searches of audit data based on certificate identifier.</td></tr>
+<tr><td><a href="#FAU_SEL.1">FAU_SEL.1</a> (implementation-dependent)</td><td>Requires support for selection of audit events based on specified attributes.</td></tr>
+<tr><td><a href="#FAU_STG.2/EXT">FAU_STG.2/EXT</a> (implementation-dependent)</td><td>Requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> protect audit records from unauthorized deletion.</td></tr>
+<tr><td><a href="#FAU_STG.2/STA">FAU_STG.2/STA</a> (implementation-dependent)</td><td>Requires that audit records with retention requirements be retained for the appropriate period.</td></tr>
 <tr><td><a href="#FAU_SCR_EXT.1">FAU_SCR_EXT.1</a> (selection-based)</td><td>Requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> support review of certificates in a repository.</td></tr>
-<tr><td><a href="#FAU_SEL.1">FAU_SEL.1</a> (selection-based)</td><td>Requires support for selection of audit events based on specified attributes.</td></tr>
-<tr><td><a href="#FAU_STG.2/EXT">FAU_STG.2/EXT</a> (selection-based)</td><td>Requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> protect audit records from unauthorized deletion.</td></tr>
-<tr><td><a href="#FAU_STG.2/STA">FAU_STG.2/STA</a> (selection-based)</td><td>Requires that audit records with retention requirements be retained for the appropriate period.</td></tr>
 <tr><td><a href="#FAU_STG_EXT.1">FAU_STG_EXT.1</a> (selection-based)</td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> ensure the integrity of audit data.</td></tr>
 <tr class="major-row"><td rowspan="1"><a href="#T.USER_DATA_REUSE">T.USER_​DATA_​REUSE</a></td><td><a href="#FDP_RIP.1">FDP_RIP.1</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> ensure that residual information is not perpetuated.</td></tr>
 <tr class="major-row"><td rowspan="36"><a href="#T.WEAK_CRYPTO">T.WEAK_​CRYPTO</a></td><td><a href="#FCS_CDP_EXT.1">FCS_CDP_EXT.1</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> implements or invokes cryptographic functionality.</td></tr>
 <tr><td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td>Requires secure storage of private and secret keys.</td></tr>
-<tr><td><a href="#FIA_X509_EXT.2">FIA_X509_EXT.2</a></td><td>Specifies the contents of Certificate Request Messages generated by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td></tr>
 <tr><td><a href="#FPT_KST_EXT.1">FPT_KST_EXT.1</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> prevent export of plaintext keys.</td></tr>
 <tr><td><a href="#FPT_KST_EXT.2">FPT_KST_EXT.2</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> prevent unauthorized use of private and secret keys.</td></tr>
 <tr><td><a href="#FPT_SKP_EXT.1">FPT_SKP_EXT.1</a></td><td>Requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> be able to prevent reading of pre-shared, private and secret keys.</td></tr>
@@ -9937,13 +10056,14 @@ The following sections list Common Criteria and technology terms used in this do
 <tr><td><a href="#FCS_COP.1/PBKDF">FCS_COP.1/PBKDF</a> (optional)</td><td>(Optional) Requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to support password-based key derivation.</td></tr>
 <tr><td><a href="#FPT_SKY_EXT.1/CA">FPT_SKY_EXT.1/CA</a> (optional)</td><td>(Optional) Requires two-party control for the export of <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> signing keys.</td></tr>
 <tr><td><a href="#FPT_SKY_EXT.1/OTH">FPT_SKY_EXT.1/OTH</a> (optional)</td><td>(Optional) Requires two-party control for the export of other sensitive data or keys.</td></tr>
-<tr><td><a href="#FCS_COP.1/Hash">FCS_COP.1/Hash</a> (selection-based)</td><td>Defines permissible cryptographic hash algorithms and sizes.</td></tr>
-<tr><td><a href="#FCS_COP.1/KeyedHash">FCS_COP.1/KeyedHash</a> (selection-based)</td><td>Defines permissible keyed-hash message authentication algorithms.</td></tr>
-<tr><td>FCS_COP.1/Sig (selection-based)</td><td>Defines permissible cryptographic signature algorithms.</td></tr>
-<tr><td><a href="#FCS_COP.1/SKC">FCS_COP.1/SKC</a> (selection-based)</td><td>Defines permissible <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> encryption algorithms and key sizes.</td></tr>
+<tr><td><a href="#FCS_CKM_EXT.1/DEK">FCS_CKM_EXT.1/DEK</a> (implementation-dependent)</td><td>Specifies requirements for asymmetric key generation.</td></tr>
 <tr><td><a href="#FCS_CKM.1">FCS_CKM.1</a> (selection-based)</td><td>Specifies allowable algorithms for generation of asymmetric keys.</td></tr>
 <tr><td><a href="#FCS_CKM.2">FCS_CKM.2</a> (selection-based)</td><td>Specifies allowable algorithms for key establishment.</td></tr>
-<tr><td><a href="#FCS_CKM_EXT.1/DEK">FCS_CKM_EXT.1/DEK</a> (selection-based)</td><td>Specifies requirements for asymmetric key generation.</td></tr>
+<tr><td><a href="#FCS_COP.1/Hash">FCS_COP.1/Hash</a> (selection-based)</td><td>Defines permissible cryptographic hash algorithms and sizes.</td></tr>
+<tr><td><a href="#FCS_COP.1/KeyedHash">FCS_COP.1/KeyedHash</a> (selection-based)</td><td>Defines permissible keyed-hash message authentication algorithms.</td></tr>
+<tr><td><a href="#FCS_COP.1/SigGen">FCS_COP.1/SigGen</a> (selection-based)</td><td>Defines permissible cryptographic signature algorithms.</td></tr>
+<tr><td><a href="#FCS_COP.1/SigVer">FCS_COP.1/SigVer</a> (selection-based)</td><td>Defines permissible cryptographic signature verification.</td></tr>
+<tr><td><a href="#FCS_COP.1/SKC">FCS_COP.1/SKC</a> (selection-based)</td><td>Defines permissible <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> encryption algorithms and key sizes.</td></tr>
 <tr><td><a href="#FCS_CKM_EXT.1/KEK">FCS_CKM_EXT.1/KEK</a> (selection-based)</td><td>Specifies requirements for generation of KEKs.</td></tr>
 <tr><td><a href="#FCS_CKM_EXT.1/KEKT">FCS_CKM_EXT.1/KEKT</a> (selection-based)</td><td>Specifies requirements for asymmetric KEKs.</td></tr>
 <tr><td><a href="#FCS_CKM_EXT.1/SHARE">FCS_CKM_EXT.1/SHARE</a> (selection-based)</td><td>Specifies requirements for key shares.</td></tr>
@@ -10243,7 +10363,7 @@ The following sections list Common Criteria and technology terms used in this do
 	
 	
 	<h3 class="indexable" data-level="3" id="ase">5.2.4 Class ASE: Security Target Evaluation</h3>
-		As per ASE activities defined in [<abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr>]. In addition, there may be Evaluation Activities 
+		As per ASE activities defined in [<abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr>]. In addition, there may be evaluation activities 
 		specified within Section 5.1 and relevant appendices that call for necessary descriptions 
 		to be included in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> that are specific to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> technology type.
 	

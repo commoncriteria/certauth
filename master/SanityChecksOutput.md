@@ -14,6 +14,9 @@
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The follo"/section[8]""/f-component[11]""/f-element[1]""/aactivity[1]"If the TS"/TSS[1]"The evalu"/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The follo"/section[8]""/f-component[11]""/f-element[1]""/aactivity[1]"If the TS"/TSS[1]"The evalu"/h:p[3]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Security_Requirements[1]""/section[1]"The follo"/section[8]""/f-component[11]""/f-element[1]""/aactivity[1]"If the TS"/Guidance[1]"The evalu"/h:p[1]""
+ Failed to find a reference to pkgx509.
+ Failed to find a reference to pkgx509.
+ Failed to find a reference to pkgx509.
 * Warning: Since FAU_GCR_EXT.1.1 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.
                        
 * Warning: Since FCS_IPSEC_EXT.1.13 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.
