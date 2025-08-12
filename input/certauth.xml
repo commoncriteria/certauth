@@ -1505,7 +1505,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		 </ext-comp-def>
         <f-component cc-id="fau_scr_ext.1" name="Certificate Repository Review" status="sel-based">
 			<depends on-sel="store-certs"/>
-        	<comp-lev>requires a conformant TOE to support the searching of a certificate repository based on the values of specific certificate fields.</comp-lev>
+        	<comp-lev>requires a conformant TOE to support searching certificate repositories based on the values of specific certificate fields.</comp-lev>
         	<management>The following actions could be considered for the management functions in
         		FMT:<h:ul>
         			<h:li>Ability to search the certificate repository.</h:li>
@@ -4134,11 +4134,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
       							<h:li><h:b>Two payload lengths.</h:b>One payload length shall be the shortest
       								supported payload length, greater than or equal to zero bytes. The
       								other payload length shall be the longest supported payload length,
-      								less than or equal to 32 bytes (256 bits).</h:li>
-      							<h:li><h:b>Two payload lengths.</h:b> One payload length shall be the shortest
-      								supported payload length, greater than or equal to zero bytes. The
-      								other payload length shall be the longest supported payload length,
-      								less than or equal to 32 bytes (256 bits).</h:li>
+      								less than or equal to 32 bytes (256 bits).</h:li>      							
       							<h:li><h:b>Two or three associated data lengths.</h:b> One associated data length shall
       								be 0, if supported. One associated data length shall be the shortest
       								supported payload length, greater than or equal to zero bytes. One
@@ -4387,7 +4383,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<h:i>Equivalency</h:i><h:br/><h:br/>
 				Testing of the TOE may be performed on a subset of the platforms listed in the
 				TOE’s ST. Justification must be provided for those platforms that were excluded
-				from testing.<h:br/><h:br/>
+				from testing.
 			</Tests>
 		</aactivity>
 	</f-element>
@@ -9079,7 +9075,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <f-component cc-id="fmt_mof.1" iteration="CO" name="Management of Security Functions
         	Behavior (Admin/Officer Functions)" status="sel-based">
-        	<depends on-sel="fmt-smr-2e1"/>
+        	<depends on-sel="fmt_smr-2e1b"/>
 		<f-element>	     
 			<title>
 				The
@@ -9132,7 +9128,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
      	<f-component cc-id="fmt_mof.1" iteration="RA" name="Management of Security Functions Behavior
      		(CA/RA Functions)" status="sel-based">
-     		<depends on-sel="fmt-smr-2e1"/>
+     		<depends on-sel="fmt_smr-2e1b"/>
 		<f-element>	     
 			<title>
 				The
@@ -9329,7 +9325,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						<selectable>no other component</selectable>
 					</selectables>
 				</refinement> shall maintain the roles: [<h:br/>
-				<h:ul>
+				<h:ul to="fmt_smr-2e1b">
 					<h:li><h:i>administrator</h:i></h:li>
 					<h:li><h:i>auditor</h:i></h:li>
 					<h:li><h:i>CA operations staff</h:i></h:li>
@@ -9914,8 +9910,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	</ext-comp-def>    
 	<f-component cc-id="fpt_skp_ext.1" name="Protection of Keys" >
 		<comp-lev>requires
-			preventing symmetric keys from being read by any user or subject. It is the only
-			component of this family.</comp-lev>
+			preventing symmetric keys from being read by any user or subject.</comp-lev>
 		<management>No specific management functions are identified.</management>
 		<audit>There are no auditable events foreseen.</audit>
             <dependencies>No dependencies.</dependencies>
@@ -10838,13 +10833,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		not included in the ST, then OE.SESSION_PROTECTION_LOCAL will be included in
 		the ST.            -->     
     <ext-comp-def fam-id="FTA_SSL_EXT" title="TSF-Initiated Session Locking">
-    	<fam-behavior>Components in this family address the requirements for TSF-initiated and user-initiated
+    	<fam-behavior>Components in this family address the requirements for TSF- and user-initiated
     		locking, unlocking, and termination of interactive sessions.</fam-behavior>
 	</ext-comp-def>
 		<f-component cc-id="fta_ssl_ext.1" name="TSF-Initiated Session Locking" status="optional">
 			<comp-lev>requires system initiated locking of
-				an interactive session after a specified period of inactivity. It is the only
-				component of this family.</comp-lev>
+				an interactive session after a specified period of inactivity.</comp-lev>
 			<management>No specific management functions are identified.</management>
 			<audit>The following actions should be auditable if FAU_GEN Security audit data
 				generation is included in the PP/ST:<h:ul>
