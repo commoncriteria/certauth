@@ -1039,7 +1039,7 @@ The following sections list Common Criteria and technology terms used in this do
 				circumvention of security mechanisms.</span></dd><dt class="threat defined" id="T.TSF_FAILURE">T.TSF_FAILURE</dt><dd><span class="description"> Security mechanisms of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may fail, leading to a compromise of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</span></dd><dt class="threat defined" id="T.UNAUTHENTICATED_TRANSACTIONS">T.UNAUTHENTICATED_TRANSACTIONS</dt><dd><span class="description"> Relying parties within an information system depend on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to accurately bind subjects
 				to their credentials for use in authenticating and providing privacy for transactions. Without 
 				the proper binding provided by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, relying parties cannot ensure adequate access controls
-				on sensitive information, ensure transactional integrity, ensure proper accountability, and/or
+				on sensitive information, ensure transactional integrity, ensure proper accountability, or
 				enforce non-repudiation. </span></dd><dt class="threat defined" id="T.UNAUTHORIZED_ACCESS">T.UNAUTHORIZED_ACCESS</dt><dd><span class="description"> A malicious user, process, or external <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entity intentionally circumvents <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> security
 		  		mechanisms. </span></dd><dt class="threat defined" id="T.UNAUTHORIZED_UPDATE">T.UNAUTHORIZED_UPDATE</dt><dd><span class="description"> A malicious party attempts to supply the end user with an update to the product that
 		  		may compromise the security features of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</span></dd><dt class="threat defined" id="T.UNDETECTED_ACTIONS">T.UNDETECTED_ACTIONS</dt><dd><span class="description"> Remote users or external <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entities may take actions that adversely affect the security of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</span></dd><dt class="threat defined" id="T.USER_DATA_REUSE">T.USER_DATA_REUSE</dt><dd><span class="description">A malicious user, process, or external <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entity may gain access to user data that is not cleared
@@ -1883,7 +1883,7 @@ The following sections list Common Criteria and technology terms used in this do
 					provide a justification for why the role cannot delete or modify the audit
 					records.
 				</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
-					There are no operatonal guidance evaluation activities for this requirement beyond what is
+					There are no operational guidance evaluation activities for this requirement beyond what is
 					necessary to satisfy the requirements in [<abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr>].
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The testing may be accomplished with the testing performed by <a href="#FAU_STG.2/STA">FAU_STG.2/STA</a>.<br/><br/>
@@ -3752,7 +3752,7 @@ The following sections list Common Criteria and technology terms used in this do
       					that trial. This result shall be compared to the result of running 1000 iterations
       					with the same values using a known good implementation.<br/><br/>
       					The evaluator shall test the decrypt functionality using the same test as for
-      					encrypt, exchanging CT and PT and replacing <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CBC-Encrypt with <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CBCDecrypt. <br/><br/>
+      					encrypt, exchanging CT and PT and replacing <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CBC-Encrypt with <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CBC-Decrypt. <br/><br/>
       					
       					<b><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CCM Tests</b><br/><br/>
       					The evaluator shall test the generation-encryption and decryption-verification
@@ -6644,7 +6644,7 @@ The following sections list Common Criteria and technology terms used in this do
 								evaluator shall use the <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> client to establish a <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> request, using
 								a different identifier (subject name) for each request. </li>
 							<li>[Conditional on <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> support for shared secrets:] The evaluator
-								shall log onto the subordinate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> in the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> operations otaff role
+								shall log onto the subordinate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> in the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> operations staff role
 								and establish a username and shared secret for entities
 								represented by the <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> client established above. A different
 								username and shared secret should be used for at least as many
@@ -7014,7 +7014,7 @@ The following sections list Common Criteria and technology terms used in this do
         1.0</a> will be integrated into <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
         version 
         1.0</a> in a
-			subsequent release of this EP and should be claimed if the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> implementation
+			subsequent release of this <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> and should be claimed if the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> implementation
 			supports it. 
 		</span></div></div></div>
 	
@@ -7072,7 +7072,7 @@ The following sections list Common Criteria and technology terms used in this do
 		<div class="element"><div class="reqid" id="FIA_ESTS_EXT.1.2"><a href="#FIA_ESTS_EXT.1.2" class="abbr">FIA_ESTS_EXT.1.2</a></div><div class="reqdesc">
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall authenticate <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> clients for initial enrollment and for supplemental
 				authentication via 
-				[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_406"><abbr class="dyn-abbr"><a href="#abbr_HTTP">HTTP</a></abbr> basic authentication in accordance with RFC7030 section 3.2.3;</span></li><li style=""><span class="selectable-content" id="_s_407"><abbr class="dyn-abbr"><a href="#abbr_HTTP">HTTP</a></abbr> digest authentication using a cryptographic hash algorithm in
+				[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_406"><abbr class="dyn-abbr"><a href="#abbr_HTTP">HTTP</a></abbr> basic authentication in accordance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 section 3.2.3;</span></li><li style=""><span class="selectable-content" id="_s_407"><abbr class="dyn-abbr"><a href="#abbr_HTTP">HTTP</a></abbr> digest authentication using a cryptographic hash algorithm in
 						accordance with <a href="#FCS_COP.1/Hash">FCS_COP.1/Hash</a> and <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 section 3.2.3;</span></li><li style=""><span class="selectable-content" id="_s_408"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> certificate-based mutual authentication in accordance with
 						<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030 section 3.3.2 and FCS_TLSS_EXT.1 (as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
         version 
@@ -10551,7 +10551,7 @@ The following sections list Common Criteria and technology terms used in this do
      <span class="assignable-content">purpose of the key</span>].
       			</div><h4>Management: FCS_CKM_EXT.5</h4><p>No specific management functions are identified.</p><h4>Audit: FCS_CKM_EXT.5</h4><p>The following actions should be auditable if <a href="#FAU_GEN.1">FAU_GEN.1</a> Audit Data Generation is included
     		in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:<ul>
-    			<li>Failure of the key destruction process for <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> related keys.
+    			<li>Failure of the key destruction process for <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>-related keys.
     				(Retention: Normal)</li>
     		</ul></p><h4>FCS_CKM_EXT.5 Public Key Integrity</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>No dependencies.</td></tr></table><h4 id="ext-comp-FCS_CKM_EXT.5.1">FCS_CKM_EXT.5.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
 				[<b>selection</b>: <span class="selectable-content" id="_s_155">protect</span>, <span class="selectable-content" id="_s_156">invoke interfaces in the operational environment to protect</span>] public keys used to meet <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> requirements against undetected
@@ -10636,7 +10636,7 @@ The following sections list Common Criteria and technology terms used in this do
 		according to <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 2818 and supports <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>.</p><h4>Management: FCS_HTTPS_EXT.1</h4><p>No specific management functions are identified.</p><h4>Audit: FCS_HTTPS_EXT.1</h4><p>The following actions should be auditable if FAU_GEN Security audit data
 		generation is included in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:<ul>
 			<li>Failure to establish an <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> session. (Retention: Normal)</li>
-		</ul>Establishment or Termination of an <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> session. (Retention: Normal)</p><h4>FCS_HTTPS_EXT.1 HTTPS Protocol</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
+			<li>Establishment or Termination of an <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> session. (Retention: Normal)</li></ul></p><h4>FCS_HTTPS_EXT.1 HTTPS Protocol</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
 		[FCS_TLSC_EXT.1 <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> Client Protocol or FCS_TLSS_EXT.1 <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> Server Protocol]
 	</td></tr></table><h4 id="ext-comp-FCS_HTTPS_EXT.1.1">FCS_HTTPS_EXT.1.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement the <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> protocol that complies with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 2818.<h4 id="ext-comp-FCS_HTTPS_EXT.1.2">FCS_HTTPS_EXT.1.2</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> using <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>.</div></div><h3 id="ext-comp-FCS_IPSEC_EXT" class="indexable" data-level="4">B.2.2.4 FCS_IPSEC_EXT IPsec Protocol</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for protecting
 			communications using <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr>.</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FCS_IPSEC_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FCS_IPSEC_EXT.1">FCS_IPSEC_EXT.1</a>,
@@ -10832,7 +10832,7 @@ The following sections list Common Criteria and technology terms used in this do
              enforces rulesets for <abbr class="dyn-abbr"><a href="#abbr_NPE">NPE</a></abbr> certificate requests and requires registration to a specified
 			authority.</p><h4>Management: FPT_NPE_EXT.1</h4><p>The following actions could be considered for the management functions in FMT:<ul>
 			<li>Ability to configure the <abbr class="dyn-abbr"><a href="#abbr_NPE">NPE</a></abbr> ruleset</li>
-			<li>bility to approve rulesets that govern the authorizations of RAs or AORs to manage particular certificates on behalf of an organization</li>
+			<li>Ability to approve rulesets that govern the authorizations of RAs or AORs to manage particular certificates on behalf of an organization</li>
 		</ul></p><h4>Audit: FPT_NPE_EXT.1</h4><p>The following actions should be auditable if <a href="#FAU_GEN.1">FAU_GEN.1</a> Audit Data Generation is included in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>: <ul>
             	<li>All changes to <abbr class="dyn-abbr"><a href="#abbr_NPE">NPE</a></abbr> rule sets and <abbr class="dyn-abbr"><a href="#abbr_NPE">NPE</a></abbr>.
             		(Retention: Extended)</li>
