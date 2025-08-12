@@ -635,7 +635,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
           	<description> Relying parties within an information system depend on the TOE to accurately bind subjects
 				to their credentials for use in authenticating and providing privacy for transactions. Without 
 				the proper binding provided by the TOE, relying parties cannot ensure adequate access controls
-				on sensitive information, ensure transactional integrity, ensure proper accountability, and/or
+				on sensitive information, ensure transactional integrity, ensure proper accountability, or
 				enforce non-repudiation. </description>
 				<addressed-by>FCO_NRO_EXT.2</addressed-by><rationale>Requires that the TSF provide proof of origin for certificates it issues.</rationale>
 				<addressed-by>FCS_CDP_EXT.1</addressed-by><rationale>Requires that the TSF implements or invokes cryptographic functionality.</rationale>
@@ -1845,7 +1845,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					records.
 				</TSS>
 				<Guidance>
-					There are no operatonal guidance evaluation activities for this requirement beyond what is
+					There are no operational guidance evaluation activities for this requirement beyond what is
 					necessary to satisfy the requirements in [CEM].
 				</Guidance>
 				<Tests>
@@ -2640,7 +2640,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</aactivity>
 	</f-element>
         <audit-event>
-		<audit-event-descr>Generation of non-ephemeral key for TOE-related funtions.<h:br/>(Retention: Normal)</audit-event-descr>
+		<audit-event-descr>Generation of non-ephemeral key for TOE-related functions.<h:br/>(Retention: Normal)</audit-event-descr>
 		<audit-event-info>Public key generated if successful</audit-event-info>
 	</audit-event>
 	<audit-event type="optional">
@@ -3315,7 +3315,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     	<management>No specific management functions are identified.</management>
     	<audit>The following actions should be auditable if FAU_GEN.1 Audit Data Generation is included
     		in the PP/ST:<h:ul>
-    			<h:li>Failure of the key destruction process for TOE related keys.
+    			<h:li>Failure of the key destruction process for TOE-related keys.
     				(Retention: Normal)</h:li>
     		</h:ul></audit>
 	<dependencies>No dependencies.</dependencies>
@@ -3400,7 +3400,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</aactivity>
 	</f-element>
 	<audit-event>
-		<audit-event-descr>Failure of the key destruction process for TOE related keys.<h:br/>(Retention: Normal)</audit-event-descr>
+		<audit-event-descr>Failure of the key destruction process for TOE-related keys.<h:br/>(Retention: Normal)</audit-event-descr>
 	</audit-event>
     </f-component>
 	      
@@ -4124,7 +4124,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
       					that trial. This result shall be compared to the result of running 1000 iterations
       					with the same values using a known good implementation.<h:br/><h:br/>
       					The evaluator shall test the decrypt functionality using the same test as for
-      					encrypt, exchanging CT and PT and replacing AES-CBC-Encrypt with AES-CBCDecrypt. <h:br/><h:br/>
+      					encrypt, exchanging CT and PT and replacing AES-CBC-Encrypt with AES-CBC-Decrypt. <h:br/><h:br/>
       					
       					<h:b>AES-CCM Tests</h:b><h:br/><h:br/>
       					The evaluator shall test the generation-encryption and decryption-verification
@@ -4542,7 +4542,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<audit>The following actions should be auditable if FAU_GEN Security audit data
 		generation is included in the PP/ST:<h:ul>
 			<h:li>Failure to establish an HTTPS session. (Retention: Normal)</h:li>
-		</h:ul>Establishment or Termination of an HTTPS session. (Retention: Normal)</audit>
+			<h:li>Establishment or Termination of an HTTPS session. (Retention: Normal)</h:li></h:ul></audit>
 	<dependencies>
 		[FCS_TLSC_EXT.1 TLS Client Protocol or FCS_TLSS_EXT.1 TLS Server Protocol]
 	</dependencies>
@@ -4576,7 +4576,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	</audit-event>
 	<audit-event>
 		<audit-event-descr>Establishment or Termination of an HTTPS session.<h:br/>(Retention: Normal)</audit-event-descr>
-		<audit-event-info>Non-TOE enpoint of connection (IP address).</audit-event-info>
+		<audit-event-info>Non-TOE endpoint of connection (IP address).</audit-event-info>
 	</audit-event>
 </f-component>
 			
@@ -7425,7 +7425,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 								evaluator shall use the CMC client to establish a CMC request, using
 								a different identifier (subject name) for each request. </h:li>
 							<h:li>[Conditional on CMC support for shared secrets:] The evaluator
-								shall log onto the subordinate CA in the CA operations otaff role
+								shall log onto the subordinate CA in the CA operations staff role
 								and establish a username and shared secret for entities
 								represented by the CMC client established above. A different
 								username and shared secret should be used for at least as many
@@ -7797,7 +7797,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			the tls-unique values when presented, this requirement is not implemented in
 			current EST servers. FIA_ESTC_EXT.2.1 as defined in <xref to="pkgX509"/> will be integrated into FIA_ESTC_EXT.1 as defined in <xref
 				to="pkgX509"/> in a
-			subsequent release of this EP and should be claimed if the EST implementation
+			subsequent release of this FP and should be claimed if the EST implementation
 			supports it. 
 		</note>
 		<aactivity>
@@ -7863,7 +7863,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The TSF shall authenticate EST clients for initial enrollment and for supplemental
 				authentication via 
 				<selectables linebreak="yes">
-					<selectable>HTTP basic authentication in accordance with RFC7030 section 3.2.3;</selectable>
+					<selectable>HTTP basic authentication in accordance with RFC 7030 section 3.2.3;</selectable>
 					<selectable>HTTP digest authentication using a cryptographic hash algorithm in
 						accordance with FCS_COP.1/Hash and RFC 7030 section 3.2.3;</selectable>
 					<selectable>TLS certificate-based mutual authentication in accordance with
@@ -9754,7 +9754,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			authority.</comp-lev>
 		<management>The following actions could be considered for the management functions in FMT:<h:ul>
 			<h:li>Ability to configure the NPE ruleset</h:li>
-			<h:li>bility to approve rulesets that govern the authorizations of RAs or AORs to manage particular certificates on behalf of an organization</h:li>
+			<h:li>Ability to approve rulesets that govern the authorizations of RAs or AORs to manage particular certificates on behalf of an organization</h:li>
 		</h:ul></management>
 		<audit>The following actions should be auditable if FAU_GEN.1 Audit Data Generation is included in the PP/ST: <h:ul>
             	<h:li>All changes to NPE rule sets and NPE.
