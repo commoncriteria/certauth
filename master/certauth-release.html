@@ -3641,7 +3641,7 @@ The following sections list Common Criteria and technology terms used in this do
 				<span class="refinement">and 
 					[<b>selection</b>: <span class="selectable-content" id="_s_512">operational environment</span>, <span class="selectable-content" id="_s_513">no other component</span>]
 				</span> shall maintain the roles: [<br/>
-				<ul>
+				<ul to="fmt_smr-2e1b">
 					<li><i>administrator</i></li>
 					<li><i>auditor</i></li>
 					<li><i><abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> operations staff</i></li>
@@ -7495,11 +7495,7 @@ The following sections list Common Criteria and technology terms used in this do
       							<li><b>Two payload lengths.</b>One payload length shall be the shortest
       								supported payload length, greater than or equal to zero bytes. The
       								other payload length shall be the longest supported payload length,
-      								less than or equal to 32 bytes (256 bits).</li>
-      							<li><b>Two payload lengths.</b> One payload length shall be the shortest
-      								supported payload length, greater than or equal to zero bytes. The
-      								other payload length shall be the longest supported payload length,
-      								less than or equal to 32 bytes (256 bits).</li>
+      								less than or equal to 32 bytes (256 bits).</li>      							
       							<li><b>Two or three associated data lengths.</b> One associated data length shall
       								be 0, if supported. One associated data length shall be the shortest
       								supported payload length, greater than or equal to zero bytes. One
@@ -7741,7 +7737,7 @@ The following sections list Common Criteria and technology terms used in this do
 				<i>Equivalency</i><br/><br/>
 				Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 				<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
-				from testing.<br/><br/>
+				from testing.
 			</div></div></div></div></div><div class="comp" id="FCS_COP.1/SigVer"><h4>FCS_COP.1/SigVer Cryptographic Operation (Cryptographic Signature)</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
            <a href="#FCS_CDP_EXT.1.1">FCS_CDP_EXT.1.1</a>.
            </i></b></div>
@@ -10887,8 +10883,7 @@ The following sections list Common Criteria and technology terms used in this do
     		<abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> data, such as cryptographic keys.</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FPT_SKP_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FPT_SKP_EXT.1">FPT_SKP_EXT.1</a>,
              Protection of Keys,
              requires
-			preventing symmetric keys from being read by any user or subject. It is the only
-			component of this family.</p><h4>Management: FPT_SKP_EXT.1</h4><p>No specific management functions are identified.</p><h4>Audit: FPT_SKP_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FPT_SKP_EXT.1 Protection of Keys</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>No dependencies.</td></tr></table><h4 id="ext-comp-FPT_SKP_EXT.1.1">FPT_SKP_EXT.1.1</h4>
+			preventing symmetric keys from being read by any user or subject.</p><h4>Management: FPT_SKP_EXT.1</h4><p>No specific management functions are identified.</p><h4>Audit: FPT_SKP_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FPT_SKP_EXT.1 Protection of Keys</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>No dependencies.</td></tr></table><h4 id="ext-comp-FPT_SKP_EXT.1.1">FPT_SKP_EXT.1.1</h4>
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
 				[<b>selection</b>: <span class="selectable-content" id="_s_536">implement</span>, <span class="selectable-content" id="_s_537">interface with the operational environment to implement</span>]
 				the ability to prevent reading of all pre-shared, private, and
@@ -11015,7 +11010,7 @@ The following sections list Common Criteria and technology terms used in this do
 		issued by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. </div></div><h3 id="ext-comp-FAU_SCR_EXT" class="indexable" data-level="4">C.2.5.3 FAU_SCR_EXT Certificate Repository Review</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for management of certificate
 				repositories.</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FAU_SCR_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FAU_SCR_EXT.1">FAU_SCR_EXT.1</a>,
              Certificate Repository Review,
-             requires a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to support the searching of a certificate repository based on the values of specific certificate fields.</p><h4>Management: FAU_SCR_EXT.1</h4><p>The following actions could be considered for the management functions in
+             requires a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to support searching certificate repositories based on the values of specific certificate fields.</p><h4>Management: FAU_SCR_EXT.1</h4><p>The following actions could be considered for the management functions in
         		FMT:<ul>
         			<li>Ability to search the certificate repository.</li>
         		</ul></p><h4>Audit: FAU_SCR_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FAU_SCR_EXT.1 Certificate Repository Review</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
@@ -11040,12 +11035,11 @@ The following sections list Common Criteria and technology terms used in this do
 				</ul>
 			</div></div></span><span data-sortkey="Class: TOE Access (FTA)"><h3 id="ext-comp-FTA" class="indexable" data-level="3">C.2.6 Class: TOE Access (FTA)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> defines the following extended components as part of the
 	 FTA class originally defined by <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2:
-	<h3 id="ext-comp-FTA_SSL_EXT" class="indexable" data-level="4">C.2.6.1 FTA_SSL_EXT TSF-Initiated Session Locking</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family address the requirements for <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>-initiated and user-initiated
+	<h3 id="ext-comp-FTA_SSL_EXT" class="indexable" data-level="4">C.2.6.1 FTA_SSL_EXT TSF-Initiated Session Locking</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family address the requirements for <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>- and user-initiated
     		locking, unlocking, and termination of interactive sessions.</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FTA_SSL_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FTA_SSL_EXT.1">FTA_SSL_EXT.1</a>,
              <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>-Initiated Session Locking,
              requires system initiated locking of
-				an interactive session after a specified period of inactivity. It is the only
-				component of this family.</p><h4>Management: FTA_SSL_EXT.1</h4><p>No specific management functions are identified.</p><h4>Audit: FTA_SSL_EXT.1</h4><p>The following actions should be auditable if FAU_GEN Security audit data
+				an interactive session after a specified period of inactivity.</p><h4>Management: FTA_SSL_EXT.1</h4><p>No specific management functions are identified.</p><h4>Audit: FTA_SSL_EXT.1</h4><p>The following actions should be auditable if FAU_GEN Security audit data
 				generation is included in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:<ul>
 					<li>Any attempts at unlocking or termination of an interactive session.
 						(Retention: Normal)</li>
