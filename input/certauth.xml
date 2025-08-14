@@ -544,6 +544,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		The feature(s) enumerated below, if implemented by the TOE, require that additional SFRs be claimed in the ST.<h:br/>
 	<!-- These might go away if I can turn all these into selections like they shoud be -->
 		<implements>
+			<feature id="phys-logic-dist" title="Physically or Logically Distributed TOE">
+				<description>If the TOE is logically (FPT_ITT.1) or physically (FDP_ITT.1) distributed, the following SFRs must be
+					claimed as appropriate:</description>
+			</feature>
 			<feature id="protectSubscriberInfo" title="TOE Responsible for Protecting Subscriber Information">
 			<description>If the TOE does not rely on an RA, or if the CA provides a centralized repository for
 				subscriber information, the following SFRs must be claimed in order for the TOE to provide
@@ -552,9 +556,6 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<feature id="Auditoreview" title="TOE Supports Audit Review">
 				<description> If the TOE supports review of audit records, then the following SFRs must be included:
 				</description>
-			</feature>
-			<feature id="phys-logic-dist" title="">
-				<description></description>
 			</feature>
 			<feature id="auditPreSelect" title="TSF Supports Audit Pre-Select">
 				<description>If any audit pre-selection is performed by an auditor through an interface provided
@@ -9116,7 +9117,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <f-component cc-id="fmt_mof.1" iteration="CO" name="Management of Security Functions
         	Behavior (Admin/Officer Functions)" status="sel-based">
-        	<depends on-sel="fmt-smr-2e1b"/>
+        	<depends on-sel="fmt-smr-2e1"/>
 		<f-element>	     
 			<title>
 				The
@@ -9171,7 +9172,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
      	<f-component cc-id="fmt_mof.1" iteration="RA" name="Management of Security Functions Behavior
      		(CA/RA Functions)" status="sel-based">
-     		<depends on-sel="fmt-smr-2e1b"/>
+     		<depends on-sel="fmt-smr-2e1"/>
 		<f-element>	     
 			<title>
 				The
@@ -9372,7 +9373,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						<selectable>no other component</selectable>
 					</selectables>
 				</refinement> shall maintain the roles: [<h:br/>
-				<h:ul id="fmt-smr-2e1b">
+				<h:ul>
 					<h:li><h:i>administrator</h:i></h:li>
 					<h:li><h:i>auditor</h:i></h:li>
 					<h:li><h:i>CA operations staff</h:i></h:li>
@@ -9611,7 +9612,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <!-- FPT_ITT.1 -->
 	<!--               -->     
-        <f-component cc-id="fpt_itt.1" name="Basic Internal TSF Data Transfer Protection" status="sel-based">
+        <f-component cc-id="fpt_itt.1" name="Basic Internal TSF Data Transfer Protection" status="feat-based">
         	<depends on-sel="phys-logic-dist"/>
 		<f-element id="fpt-itt-1e1">
 			<title>
