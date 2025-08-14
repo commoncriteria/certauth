@@ -37,6 +37,7 @@ output/certauth-release-linkable.html: EnvelopedData
 output/certauth-release-linkable.html: FQDN
 output/certauth-release-linkable.html: IKEv1
 output/certauth-release-linkable.html: IKEv2
+output/certauth-release-linkable.html: IPSCE
 output/certauth-release-linkable.html: Interagency
 output/certauth-release-linkable.html: KATs
 output/certauth-release-linkable.html: KeyUsage
@@ -153,6 +154,7 @@ output/certauth-release.html: Events’
 output/certauth-release.html: FQDN
 output/certauth-release.html: IKEv1
 output/certauth-release.html: IKEv2
+output/certauth-release.html: IPSCE
 output/certauth-release.html: Interagency
 output/certauth-release.html: KATs
 output/certauth-release.html: KeyUsage
@@ -279,6 +281,7 @@ output/certauth.html: Events’
 output/certauth.html: FQDN
 output/certauth.html: IKEv1
 output/certauth.html: IKEv2
+output/certauth.html: IPSCE
 output/certauth.html: Interagency
 output/certauth.html: KATs
 output/certauth.html: KeyUsage
