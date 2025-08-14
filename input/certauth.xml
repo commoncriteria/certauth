@@ -549,9 +549,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				subscriber information, the following SFRs must be claimed in order for the TOE to provide
 				assurance that subscriber data is protected.     </description>
 			</feature>
-			<feature id="Auditoreview" title="TOE supports Audit Review">
+			<feature id="Auditoreview" title="TOE Supports Audit Review">
 				<description> If the TOE supports review of audit records, then the following SFRs must be included:
 				</description>
+			</feature>
+			<feature id="phys-logic-dist" title="">
+				<description></description>
 			</feature>
 			<feature id="auditPreSelect" title="TSF Supports Audit Pre-Select">
 				<description>If any audit pre-selection is performed by an auditor through an interface provided
@@ -1176,6 +1179,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		    </selectables>
 		issued by the TSF. </title>
 		  	<note role="application">
+		  		If "store" is chosen in the first selection, the ST must claim FAU_SCR_EXT.1.
 		While there is a requirement that a certificate repository exists and the TOE stores
 		all certificates (and CRLs, if selected in FCO_NRO_EXT.2.2) it generates in that
 		repository, the repository can physically be within the TOE or within (and provided
@@ -1548,6 +1552,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					</title>
 				</ext-comp-def-title>
 				<note role="application">
+					This requirement is dependent on "store" being selected in FAU_GCR_EXT.1.1.
 				The ability to search on certificate fields is useful for conducting forensic analysis.
 				If the certificate repository is stored within the TOE boundary, then the first item
 				of the first selection is chosen. If the repository is stored in the OE, but the auditor
@@ -1700,6 +1705,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
       				</selectables>.
       			</title>
       			<note role="application">
+      				If "locally on the TOE platform" is chosen, then the ST must claim FAU_STG_EXT.1.
+      				If "transmit the generated audit data..." is selected, then the ST must claim FTP_ITC.1.
       				There are 3 cases for the storage of audit data: Locally on the TOE (within the TOE
       				boundary without going over a network connection); locally on the TOE platform
       				(outside the TOE boundary, but without going over a network connection); and
@@ -2395,21 +2402,23 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		    <selectables>
 			    <selectable id="crypto-sel-ckm-1">FCS_CKM.1</selectable>
 			    <selectable id="crypto-sel-ckm-2">FCS_CKM.2</selectable>
+		    	<selectable id="crypto-sel-ckm-ext-4">FCS_CKM.6</selectable>
 			    <selectable id="crypto-sel-ckm-ext-1i1">FCS_CKM_EXT.1/DEK</selectable>
                 <selectable id="crypto-sel-ckm-ext-1i2">FCS_CKM_EXT.1/KEK</selectable>  <!-- Is this here? -->
 			    <selectable id="crypto-sel-ckm-ext-1i3">FCS_CKM_EXT.1/KEKT</selectable>
-			    <selectable id="crypto-sel-ckm-ext-1i4">FCS_CKM_EXT.1/SHARE</selectable>
-			    <selectable id="crypto-sel-ckm-ext-4">FCS_CKM.6</selectable>
+			    <selectable id="crypto-sel-ckm-ext-1i4">FCS_CKM_EXT.1/SHARE</selectable>			    
 			    <selectable id="crypto-sel-ckm-ext-5">FCS_CKM_EXT.5</selectable>
 			    <selectable id="crypto-sel-ckm-ext-6">FCS_CKM_EXT.6</selectable>
 		        <selectable id="crypto-sel-ckm-ext-7">FCS_CKM_EXT.7</selectable>
 			    <selectable id="crypto-sel-ckm-ext-8">FCS_CKM_EXT.8</selectable>
-			    <selectable id="crypto-sel-cop-1i1">FCS_COP.1/SKC</selectable>
-			    <selectable id="crypto-sel-cop-1i2">FCS_COP.1/SigGen</selectable>
 			    <selectable id="crypto-sel-cop-1i3">FCS_COP.1/Hash</selectable>
 			    <selectable id="crypto-sel-cop-1i4">FCS_COP.1/KeyedHash</selectable>
+		    	<selectable id="crypto-sel-cop-1i1">FCS_COP.1/SKC</selectable>
+			    <selectable id="crypto-sel-cop-1i2">FCS_COP.1/SigGen</selectable>
+		    	<selectable id="crypto-sel-cop-1i5">FCS_COP.1/SigVer</selectable>
 			    <selectable id="crypto-sel-rbg-ext-1">FCS_RBG.1</selectable>
 			    <selectable id="crypto-sel-ksh-ext-1">FCS_KSH_EXT.1</selectable>
+		    	<selectable id="crypto-sel-tst-ext-1">FPT_TST.1</selectable>
 		    </selectables>
 		    cryptographic operations.
             </title>
@@ -2422,6 +2431,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						in order to perform <assignable>list of functional requirements</assignable> cryptographic operations.</title>
 				</ext-comp-def-title>
 				<note role="application"> 
+					Based on the requirement chosen in the second selection, that requirement must be included in
+					the ST.
 		Cryptographic functionality can be provided entirely by the TOE, entirely by the
 		operational environment, or by both. The SFRs that detail the cryptographic
 		functionality are contained in Appendices A and B; these SFRs are included in the
@@ -2506,6 +2517,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<h:s>that meet the following: [assignment: list of standards]</h:s>.
 		</title>
 	    	<note role="application">
+	    		This requirement is dependent on FCS_CKM.1 being selected in FCS_CDP_EXT.1.1.
 			The ST author should specify whether the TOE generates these keys or 
 			the operational environment is used.<h:br/><h:br/>
 			For keys used for authentication, only RSA- or ECC-based selections are allowed.
@@ -2684,6 +2696,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<h:s>that meet the following: [assignment: list of standards]</h:s>.
 		</title>
 		<note role="application">
+			This requirement is dependent on FCS_CKM.2 being selected in FCS_CDP_EXT.1.1.
 			This is a refinement of the SFR FCS_CKM.2 to deal with key establishment rather
 			than key distribution. The ST authors should specify whether the TOE performs
 			the key establishment function or whether the operational environment is used.<h:br/><h:br/>
@@ -2815,6 +2828,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				parameters</h:i>] when [<h:i>no longer needed</h:i>]. 
 		</title>	
 		<note role="application">
+			This requirement is dependent on FCS_CKM.6 being selected in FCS_CDP_EXT.1.1.
 			The interface referenced in the requirement could take different forms, the most
 			likely of which is an application programming interface to an OS kernel. There may
 			be various levels of abstraction visible. For instance, in a given implementation
@@ -2991,7 +3005,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		
 	<f-component cc-id="fcs_ckm_ext.1" iteration="DEK" name="Symmetric Key Generation (DEKs)" status="feat-based">
           <depends on-feat="protectSubscriberInfo"/>
-          <f-element>
+          <f-element id="fcs_ckm_ext-1e1">
             <title>The TSF shall be able to
 		    <selectables>
 			    <selectable>generate</selectable>
@@ -3081,7 +3095,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <!-- QQQQ: Should be renamed FCS_CKM_EXT.1/KEK  -->
     <!--                  -->     
     <f-component cc-id="fcs_ckm_ext.1" iteration="KEK" name="Symmetric Key Generation (KEKs)" status="sel-based">
-	<depends on-sel="sel-tsf-kek-combine"/> 
+	<depends on-sel="sel-tsf-kek-combine"/>
+    	<depends on-sel="fcs_ckm_ext-1e1"></depends>
 	<f-element>
 		<title>
 			The TSF shall be able to 
@@ -3114,7 +3129,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					for use in [<h:i>protection of data at rest</h:i>].
 		</title>
 		<note role="application">
-			This SFR must be included in the ST if "a TSF-provided mechanism that combines KEKs..." is selected in FCS_CKM_EXT.1/DEK.<h:br/><h:br/>
+			This requirement is dependent on FCS_CKM_EXT.1/KEK being selected in FCS_CDP_EXT.1.1 or "a
+			TSF-provided mechanism that combines KEKs..." being selected in FCS_CKM_EXT.1/DEK.<h:br/><h:br/>
 			There are three major types of keys described in this PP: asymmetric keys used by
 			the TSF for signing, establishing secure channels, and TOE integrity; data
 			encryption keys (DEKs); and key encryption keys (KEKs). Additionally, the TSF may
@@ -3132,7 +3148,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			FCS_CKM.1) will be  assigned in the requirement in the ST. If symmetric
 			generation is chosen, then the size of the symmetric key is as selected, and the 
 			method or methods of generating the symmetric KEKs also will need to be
-			selected.<h:br/><h:br/>
+			selected. Additionally, FCS_CKM_EXT.8 must also be included in these cases to ensure the consistency of the entire key hierarchy.<h:br/><h:br/>
 			For the generation of symmetric KEKs, if any option but the RBG option is
 			selected, FCS_CKM_EXT.7 must be included.<h:br/><h:br/>
 			In the first selection, the ST author chooses whether the TOE performs the
@@ -3199,6 +3215,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     <f-component cc-id="fcs_ckm_ext.1" iteration="KEKT" name="Symmetric Key Generation (KEKs for TOE Key Archival)"
 		 status="sel-based">
 	<depends on-sel="crypto-sel-ckm-ext-1i3"/>
+    	<depends on-sel="key-share-mech-ca"/>
+    	<depends on-sel="key-share-mech-oth"/>
 	<f-element>
 		<title>
 			The TSF shall be able to 
@@ -3228,8 +3246,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				sharing mechanism</h:i>].
 		</title>
 	    	<note role="application">
-			This SFR is included when the third selection in FPT_SKY_EXT.1/CA or FPT_SKY_EXT.1/OTH indicates that a
-			“key sharing mechanisms in accordance with…” is used. This requirement
+	    		This requirement is dependent on FCS_CKM_EXT.1/KEKT being selected in FCS_CDP_EXT.1.1.
+	    		This SFR is included when the third selection in FPT_SKY_EXT.1/CA or FPT_SKY_EXT.1/OTH indicates that a
+			“key sharing mechanisms in accordance with…” is selected. This requirement
 			specifies how the KEK that will be used to protect the keys listed in FPT_SKY_EXT.1/CA or FPT_SKY_EXT.1/OTH
 			is generated from two or more shares. The generation of the shares themselves
 			is specified in FCS_CKM_EXT.1/SHARE, which the ST author includes whenever this SFR
@@ -3279,6 +3298,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				the KEK</h:i>] in accordance with [<h:i>FCS_CKM_EXT.1/KEKT</h:i>]
 			for use in [<h:i>the key sharing mechanism indicated in FCS_CKM_EXT.1/KEKT</h:i>].
 		</title>
+		<note role="Application">
+			This requirement is dependent on FCS_CKM_EXT.1/SHARE being selected in FCS_CDP_EXT.1.1.
+		</note>
 		<aactivity>
 			<TSS>
 				The evaluator shall review the TSS to confirm that the key share mechanism is
@@ -3311,6 +3333,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     
     <f-component cc-id="fcs_ckm_ext.5" name="Public Key Integrity" status="sel-based">
 	<depends on-sel="crypto-sel-ckm-ext-5"/>
+    	<depends on-sel="integ-mech"/>
     	<comp-lev>requires the TSF to apply a cryptographic integrity validation method to public keys in persistent storage.</comp-lev>
     	<management>No specific management functions are identified.</management>
     	<audit>The following actions should be auditable if FAU_GEN.1 Audit Data Generation is included
@@ -3353,6 +3376,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</selectables> used to protect a public key shall be verified upon each access to the key. 
 		</title>
 		<note role="application">
+			This requirement is dependent on FCS_CKM_EXT.5 being selected in FCS_CDP_EXT.1.1.
 			This SFR is included when the second selection in FDP_STG_EXT.1.1 is chosen, and
 			applies to the public keys listed in that SFR. If integrity protection is provided
 			entirely by the OE with no interaction from the TOE (and that is the only method
@@ -3518,6 +3542,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				FCS_CKM_EXT.1.</title>
 		</ext-comp-def-title>
 		<note role="application">
+			This requirement is dependent on FCS_CKM_EXT.6 being selected in FCS_CDP_EXT.1.1.			
 			This requirement is required when "key sharing mechanisms in accordance with…" is selected in
 			FPT_SKY_EXT.1/CA or FPT_SKY_EXT.1/OTH, and ensures that the archival of any keys required for continuity
 			of operations (e.g., signature keys used to sign CRLs) from the TOE involves
@@ -3768,7 +3793,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			that meet the following: [<h:i>FIPS Pub 180-4, “Secure Hash Standard”</h:i>].
 		</title>
 		<note role="application">
-			
+			This requirement is dependent on FCS_COP.1/HASH being selected in FCS_CDP_EXT.1.1.
 			The selection of the hashing algorithm must correspond to the selection of the
 			message digest size; for example, if SHA-256 is chosen, then the only valid message
 			digest size selection would be 256 bits.<h:br/><h:br/>
@@ -3866,6 +3891,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			FIPS Pub 180-4, “Secure Hash Standard”</h:i>].
 		</title>
 		<note role="application">
+			This requirement is dependent on FCS_COP.1/KeyedHash being selected in FCS_CDP_EXT.1.1.
 			The intent of this requirement is to specify the keyed hash message authentication
 			function used for key establishment purposes for the various
 			cryptographic protocols used by the TOE (e.g., trusted channel). The hash
@@ -3984,6 +4010,247 @@ And maybe there should be a section of the PP that says all this. So maybe some 
       	<!--                  -->    	      
       	
       	
+	<!-- FCS_COP.1/SigGen -->     
+    <!-- Selection-based  -->
+    <!--                  -->    	      
+
+	<f-component name="Cryptographic Operation (Cryptographic Signature)" cc-id="fcs_cop.1" iteration="SigGen" status="sel-based">
+	<depends on-sel="crypto-sel-cop-1i2"/>
+	<f-element>
+		<title>
+			The TSF shall <refinement>
+			<selectables>
+				<selectable>perform</selectable>
+				<selectable>invoke interfaces in the operational environment to perform</selectable>
+			</selectables></refinement> [<h:i>cryptographic signature generation services</h:i>] in
+			accordance with a specified cryptographic algorithm 
+			<selectables linebreak="yes">
+				<selectable>RSA Digital Signature Algorithm (rDSA) with a key size (modulus) of
+					[<h:i>3072 bits or greater</h:i>]
+					that meets FIPS-PUB 186-5, “Digital Signature Standard”</selectable>
+				<selectable>Elliptic Curve Digital Signature Algorithm (ECDSA) with a key size 
+					of [<h:i>>384 bits or greater</h:i>] that meets FIPS PUB 186-5, “Digital Signature
+					Standard” with “NIST curves” P-384
+					(as defined in FIPS PUB 186-5, “Digital Signature Standard”)</selectable>
+			</selectables>.			
+		</title>
+		<note role="application">
+			This requirement is dependent on FCS_COP.1/SigGen being selected in FCS_CDP_EXT.1.1.<h:br/><h:br/>
+			The ST should specify whether the TOE performs the algorithms or the
+			TOE in combination with the operational environment is used.<h:br/><h:br/>
+			The ST author should choose the algorithm implemented to perform digital
+			signature generation; if more than one algorithm is available, this requirement (and the
+			corresponding FCS_CKM.1 requirement) should be iterated to specify the
+			functionality. For the algorithm chosen, the ST author should make the
+			appropriate assignments and selections to specify the parameters that are
+			implemented for that algorithm.<h:br/><h:br/>
+			For elliptic curve-based schemes, the key size refers to the log2 of the order of the
+			base point. As the preferred approach for digital signatures, ECDSA will be
+			required in future publications of this PP.<h:br/><h:br/>
+		</note>
+		<aactivity>
+			<TSS>
+				Regardless of whether the requirement is met by the TSF or TOE platform, the
+				evaluator shall examine the TSS to ensure that all signature generation functions 
+				use the approved algorithms and key sizes.
+			</TSS>
+			<Guidance>
+				The evaluator shall examine the AGD guidance to ensure it contains
+				instructions for configuring the TOE or the TOE in conjunction with the
+				operational environment for the required signature algorithms and associated
+				modes and key sizes.
+			</Guidance>
+			<Tests>
+				The following tests shall be performed for functionality implemented by the
+				TSF.<h:br/><h:br/>
+				<h:b>Key Generation</h:b><h:br/><h:br/>
+				<h:b>Key Generation for RSA Signature Schemes</h:b><h:br/><h:br/>
+				The evaluator shall verify the implementation of RSA Key Generation
+				by the TOE using the Key Generation test. This test verifies the ability
+				of the TSF to correctly produce values for the key components
+				including the public verification exponent e, the private prime factors
+				p and q, the public modulus n and the calculation of the private
+				signature exponent d.<h:br/><h:br/>
+				Key Pair generation specifies 5 ways (or methods) to generate the
+				primes p and q. These include:<h:br/><h:br/>
+				<h:ul>
+					<h:li>Random Primes:</h:li>
+					<h:ul>
+						<h:li>Provable Primes</h:li>
+						<h:li>Probable Primes</h:li>
+					</h:ul>
+					<h:li>Primes with Conditions:</h:li>
+					<h:ul>
+						<h:li>Primes p1, p2, q1, q2, p, and q shall all be provable primes</h:li>
+						<h:li>Primes p1, p2, q1, and q2 shall be provable primes and
+							p and q shall be probable primes</h:li>
+						<h:li>Primes p1, p2, q1, q2, p, and q shall all be probable
+							primes </h:li>
+					</h:ul>
+				</h:ul>
+				To test the key generation method for the Random Provable primes
+				method and for all the Primes with Conditions methods, the evaluator
+				must seed the TSF key generation routine with sufficient data to
+				deterministically generate the RSA key pair. This includes the random
+				seeds, the public exponent of the RSA key, and the desired key length.
+				For each key length supported, the evaluator shall have the TSF
+				generate 25 key pairs. The evaluator shall verify the correctness of the
+				TSF’s implementation by comparing values generated by the TSF with
+				those generated from a known good implementation.<h:br/><h:br/>
+				<h:b>ECDSA Key Generation Tests</h:b><h:br/><h:br/>
+				<h:b>FIPS 186-5 ECDSA Key Generation Test</h:b><h:br/><h:br/>
+				For each supported NIST curve, (i.e., P-384), the
+				evaluator shall require the implementation under test (IUT) to
+				generate 10 private and public key pairs. The private key shall be
+				generated using an approved random bit generator (RBG). To
+				determine correctness, the evaluator shall submit the generated key
+				pairs to the public key verification (PKV) function of a known good
+				implementation.<h:br/><h:br/>
+				<h:b>ECDSA Algorithm Tests</h:b><h:br/><h:br/>
+				<h:b>ECDSA FIPS 186-5 Signature Generation Test</h:b><h:br/><h:br/>
+				For each supported NIST curve (i.e., P-384) and SHA
+				function pair, the evaluator shall generate 10 1024-bit long messages
+				and obtain for each message a public key and the resulting signature
+				values R and S. To determine correctness, the evaluator shall use the
+				signature verification function of a known good implementation.<h:br/><h:br/>
+				<h:b>RSA Signature Algorithm Tests</h:b><h:br/><h:br/>
+				<h:b>Signature Generation Tests</h:b><h:br/><h:br/>
+				The evaluator shall verify the implementation of RSA Signature
+				Generation by the TOE using the Signature Generation Test. To
+				conduct this test the evaluator must generate or obtain 10 messages
+				from a trusted reference implementation for each modulus size and SHA
+				combination supported by the TSF. The evaluator shall have the TOE
+				use their private key and modulus value to sign these messages.<h:br/><h:br/>
+				The evaluator shall verify the correctness of the TSF’s signature using a
+				known good implementation and the associated public keys to verify
+				the signatures.<h:br/><h:br/>
+				<h:i>Equivalency</h:i><h:br/><h:br/>
+				Testing of the TOE may be performed on a subset of the platforms listed in the
+				TOE’s ST. Justification must be provided for those platforms that were excluded
+				from testing.
+			</Tests>
+		</aactivity>
+	</f-element>
+	<audit-event>
+		<audit-event-descr>All occurrences of signature generation using a CA signing key.<h:br/>(Retention: Extended)</audit-event-descr>
+		<audit-event-info>Name/identifier of object being signed.</audit-event-info>
+		<audit-event-info>Identifier of key used for signing.</audit-event-info>
+	</audit-event>
+	<audit-event>
+		<audit-event-descr>Failure in signature generation.<h:br/>(Retention: Normal)</audit-event-descr>
+	</audit-event>
+    </f-component>
+	
+      	
+      	<!-- FCS_COP.1/SigVer         -->     
+      	<!-- Formally FCS_COP.1(2) -->
+      	<!-- Selection-based  -->
+      	<!-- QQQQ: The ST author should choose the algorithm implemented to perform digital
+	signatures; if more than one algorithm is available, this requirement (and the
+	corresponding FCS_CKM.1 requirement) should be iterated to specify the
+	functionality. For the algorithm chosen, the ST author should make the
+	appropriate assignments/selections to specify the parameters that are
+	implemented for that algorithm.  -->
+      	<!--                  -->    	   
+      	<f-component name="Cryptographic Operation (Cryptographic Signature)" cc-id="fcs_cop.1" iteration="SigVer" status="sel-based">
+      		<depends on-sel="crypto-sel-cop-1i2"/>
+      		<f-element>
+      			<title>
+      				
+      				The TSF shall <refinement>
+      					<selectables>
+      						<selectable>perform</selectable>
+      						<selectable>invoke interfaces in the operational environment to perform</selectable>
+      					</selectables></refinement> [<h:i>cryptographic signature verification services</h:i>] in
+      				accordance with a specified cryptographic algorithm 
+      				<selectables linebreak="yes">
+      					<selectable>RSA Digital Signature Algorithm (rDSA) with a key size (modulus) of
+      						[<h:i>3072 bits or greater</h:i>]
+      						that meets FIPS-PUB 186-5, “Digital Signature Standard”</selectable>
+      					<selectable>Elliptic Curve Digital Signature Algorithm (ECDSA) with a key size 
+      						of [<h:i>256 bits or greater</h:i>] that meets FIPS PUB 186-5, “Digital Signature
+      						Standard” with “NIST curves” P-384 and 
+      						<selectables>
+      							<selectable>P-521</selectable><selectable>no other curves</selectable>
+      						</selectables>
+      						(as defined in FIPS PUB 186-5, “Digital Signature Standard”)</selectable>
+      					<selectable>Digital Signature Algorithm (DSA) with a key size (modulus) of [<h:i>2048
+      						bits or greater</h:i>], that meets FIPS-PUB 186-5, “Digital Signature Standard”]</selectable>
+      				</selectables>
+      				
+      			</title>
+      			<note role="application">
+      				This requirement is dependent on FCS_COP.1/SigVer being selected in FCS_CDP_EXT.1.1.<h:br/><h:br/>
+      				The ST should specify whether the TOE performs the algorithms or the
+      				TOE in combination with the operational environment is used.<h:br/><h:br/>
+      				The ST author should choose the algorithm implemented to verify digital
+      				signatures; if more than one algorithm is available, this requirement (and the
+      				corresponding FCS_CKM.1 requirement) should be iterated to specify the
+      				functionality. For the algorithm chosen, the ST author should make the
+      				appropriate assignments and selections to specify the parameters that are
+      				implemented for that algorithm.<h:br/><h:br/>
+      				For elliptic curve-based schemes, the key size refers to the log2 of the order of the
+      				base point. As the preferred approach for digital signatures, ECDSA will be
+      				required in future publications of this PP.<h:br/><h:br/>
+      			</note>
+      			<aactivity>
+      				<TSS>
+      					Regardless of whether the requirement is met by the TSF or TOE platform, the
+      					evaluator shall examine the TSS to ensure that all signature
+      					verification functions use the approved algorithms and key sizes.
+      				</TSS>
+      				<Guidance>
+      					The evaluator shall examine the operational guidance to ensure it contains
+      					instructions for configuring the TOE or the TOE in conjunction with the
+      					operational environment for the required signature algorithms and associated
+      					modes and key sizes.
+      				</Guidance>
+      				<Tests>
+      					The following tests shall be performed for functionality implemented by the
+      					TSF.<h:br/><h:br/>
+      					<h:b>FIPS 186-5 Public Key Verification (PKV) Test</h:b><h:br/><h:br/>
+      					For each supported NIST curve, (i.e., P-384 and P-521), the
+      					evaluator shall generate 10 private and public key pairs using the key
+      					generation function of a known good implementation and modify five
+      					of the public key values so that they are incorrect, leaving five values
+      					unchanged (i.e., correct). The evaluator shall obtain in response a set
+      					of 10 PASS/FAIL values.<h:br/><h:br/>
+      					<h:b>ECDSA Algorithm Tests</h:b><h:br/><h:br/>
+      					<h:b>ECDSA FIPS 186-5 Signature Verification Test</h:b><h:br/><h:br/>
+      					For each supported NIST curve (i.e.,P-384 and P-521) and SHA
+      					function pair, the evaluator shall generate a set of 10 1024-bit
+      					message, public key and signature tuples and modify one of the values
+      					(message, public key, or signature) in five of the 10 tuples. The
+      					evaluator shall obtain in response a set of 10 PASS/FAIL values.<h:br/><h:br/>
+      					<h:b>RSA Signature Algorithm Tests</h:b><h:br/><h:br/>
+      					<h:b>Signature Verification Test</h:b><h:br/><h:br/>
+      					The evaluator shall perform the Signature Verification Test to verify the
+      					ability of the TOE to recognize another party’s valid and invalid
+      					signatures. The evaluator shall inject errors into the test vectors
+      					produced during the Signature Verification Test by introducing errors
+      					in some of the public keys e, messages, IR format, or signatures.
+      					The TOE attempts to verify the signatures and returns success or
+      					failure.<h:br/><h:br/>
+      					The evaluator shall use these test vectors to emulate the signature verification
+      					test using the corresponding parameters and verify that the TOE detects these
+      					errors.<h:br/><h:br/>
+      					<h:i>Equivalency</h:i><h:br/><h:br/>
+      					Testing of the TOE may be performed on a subset of the platforms listed in the
+      					TOE’s ST. Justification must be provided for those platforms that were excluded
+      					from testing.
+      				</Tests>
+      			</aactivity>
+      		</f-element>
+      		<audit-event>
+      			<audit-event-descr>All occurrences of signature generation using a CA signing key.<h:br/>(Retention: Extended)</audit-event-descr>
+      			<audit-event-info>Name/identifier of object being signed.</audit-event-info>
+      			<audit-event-info>Identifier of key used for signing.</audit-event-info>
+      		</audit-event>
+      		<audit-event>
+      			<audit-event-descr>Failure in signature generation.<h:br/>(Retention: Normal)</audit-event-descr>
+      		</audit-event>
+      	</f-component>
+      	
       	<f-component name="Cryptographic Operation (AES Encryption/Decryption)" cc-id="fcs_cop.1" iteration="SKC" status="sel-based">
       		<depends on-sel="crypto-sel-cop-1i1"/>
       		<f-element>
@@ -4005,6 +4272,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
       				[<h:i>256-bit</h:i>] <h:s>that meet the following: [assignment: list of standards]</h:s>.
       			</title>
       			<note role="application">
+      				This requirement is dependent on FCS_COP.1/SKC being selected in
+      				FCS_CDP_EXT.1.1.<h:br/><h:br/>
       				For the third selection of FCS_COP.1.1/SKC, the ST author should choose the mode
       				or modes in which AES operates.<h:br/><h:br/>
       				This SFR is in support of multiple TOE encryption requirements. AES-CBC is used
@@ -4266,247 +4535,6 @@ And maybe there should be a section of the PP that says all this. So maybe some 
       		</f-element>
       		<audit-event />
       	</f-component>
-	
-	<!-- FCS_COP.1/SigGen -->     
-    <!-- Selection-based  -->
-    <!--                  -->    	      
-
-	<f-component name="Cryptographic Operation (Cryptographic Signature)" cc-id="fcs_cop.1" iteration="SigGen" status="sel-based">
-	<depends on-sel="crypto-sel-cop-1i2"/>
-	<f-element>
-		<title>
-			The TSF shall <refinement>
-			<selectables>
-				<selectable>perform</selectable>
-				<selectable>invoke interfaces in the operational environment to perform</selectable>
-			</selectables></refinement> [<h:i>cryptographic signature generation services</h:i>] in
-			accordance with a specified cryptographic algorithm 
-			<selectables linebreak="yes">
-				<selectable>RSA Digital Signature Algorithm (rDSA) with a key size (modulus) of
-					[<h:i>3072 bits or greater</h:i>]
-					that meets FIPS-PUB 186-5, “Digital Signature Standard”</selectable>
-				<selectable>Elliptic Curve Digital Signature Algorithm (ECDSA) with a key size 
-					of [<h:i>>384 bits or greater</h:i>] that meets FIPS PUB 186-5, “Digital Signature
-					Standard” with “NIST curves” P-384
-					(as defined in FIPS PUB 186-5, “Digital Signature Standard”)</selectable>
-			</selectables>.			
-		</title>
-		<note role="application">
-			The ST should specify whether the TOE performs the algorithms or the
-			TOE in combination with the operational environment is used.<h:br/><h:br/>
-			The ST author should choose the algorithm implemented to perform digital
-			signature generation; if more than one algorithm is available, this requirement (and the
-			corresponding FCS_CKM.1 requirement) should be iterated to specify the
-			functionality. For the algorithm chosen, the ST author should make the
-			appropriate assignments and selections to specify the parameters that are
-			implemented for that algorithm.<h:br/><h:br/>
-			For elliptic curve-based schemes, the key size refers to the log2 of the order of the
-			base point. As the preferred approach for digital signatures, ECDSA will be
-			required in future publications of this PP.<h:br/><h:br/>
-		</note>
-		<aactivity>
-			<TSS>
-				Regardless of whether the requirement is met by the TSF or TOE platform, the
-				evaluator shall examine the TSS to ensure that all signature generation functions 
-				use the approved algorithms and key sizes.
-			</TSS>
-			<Guidance>
-				The evaluator shall examine the AGD guidance to ensure it contains
-				instructions for configuring the TOE or the TOE in conjunction with the
-				operational environment for the required signature algorithms and associated
-				modes and key sizes.
-			</Guidance>
-			<Tests>
-				The following tests shall be performed for functionality implemented by the
-				TSF.<h:br/><h:br/>
-				<h:b>Key Generation</h:b><h:br/><h:br/>
-				<h:b>Key Generation for RSA Signature Schemes</h:b><h:br/><h:br/>
-				The evaluator shall verify the implementation of RSA Key Generation
-				by the TOE using the Key Generation test. This test verifies the ability
-				of the TSF to correctly produce values for the key components
-				including the public verification exponent e, the private prime factors
-				p and q, the public modulus n and the calculation of the private
-				signature exponent d.<h:br/><h:br/>
-				Key Pair generation specifies 5 ways (or methods) to generate the
-				primes p and q. These include:<h:br/><h:br/>
-				<h:ul>
-					<h:li>Random Primes:</h:li>
-					<h:ul>
-						<h:li>Provable Primes</h:li>
-						<h:li>Probable Primes</h:li>
-					</h:ul>
-					<h:li>Primes with Conditions:</h:li>
-					<h:ul>
-						<h:li>Primes p1, p2, q1, q2, p, and q shall all be provable primes</h:li>
-						<h:li>Primes p1, p2, q1, and q2 shall be provable primes and
-							p and q shall be probable primes</h:li>
-						<h:li>Primes p1, p2, q1, q2, p, and q shall all be probable
-							primes </h:li>
-					</h:ul>
-				</h:ul>
-				To test the key generation method for the Random Provable primes
-				method and for all the Primes with Conditions methods, the evaluator
-				must seed the TSF key generation routine with sufficient data to
-				deterministically generate the RSA key pair. This includes the random
-				seeds, the public exponent of the RSA key, and the desired key length.
-				For each key length supported, the evaluator shall have the TSF
-				generate 25 key pairs. The evaluator shall verify the correctness of the
-				TSF’s implementation by comparing values generated by the TSF with
-				those generated from a known good implementation.<h:br/><h:br/>
-				<h:b>ECDSA Key Generation Tests</h:b><h:br/><h:br/>
-				<h:b>FIPS 186-5 ECDSA Key Generation Test</h:b><h:br/><h:br/>
-				For each supported NIST curve, (i.e., P-384), the
-				evaluator shall require the implementation under test (IUT) to
-				generate 10 private and public key pairs. The private key shall be
-				generated using an approved random bit generator (RBG). To
-				determine correctness, the evaluator shall submit the generated key
-				pairs to the public key verification (PKV) function of a known good
-				implementation.<h:br/><h:br/>
-				<h:b>ECDSA Algorithm Tests</h:b><h:br/><h:br/>
-				<h:b>ECDSA FIPS 186-5 Signature Generation Test</h:b><h:br/><h:br/>
-				For each supported NIST curve (i.e., P-384) and SHA
-				function pair, the evaluator shall generate 10 1024-bit long messages
-				and obtain for each message a public key and the resulting signature
-				values R and S. To determine correctness, the evaluator shall use the
-				signature verification function of a known good implementation.<h:br/><h:br/>
-				<h:b>RSA Signature Algorithm Tests</h:b><h:br/><h:br/>
-				<h:b>Signature Generation Tests</h:b><h:br/><h:br/>
-				The evaluator shall verify the implementation of RSA Signature
-				Generation by the TOE using the Signature Generation Test. To
-				conduct this test the evaluator must generate or obtain 10 messages
-				from a trusted reference implementation for each modulus size and SHA
-				combination supported by the TSF. The evaluator shall have the TOE
-				use their private key and modulus value to sign these messages.<h:br/><h:br/>
-				The evaluator shall verify the correctness of the TSF’s signature using a
-				known good implementation and the associated public keys to verify
-				the signatures.<h:br/><h:br/>
-				<h:i>Equivalency</h:i><h:br/><h:br/>
-				Testing of the TOE may be performed on a subset of the platforms listed in the
-				TOE’s ST. Justification must be provided for those platforms that were excluded
-				from testing.
-			</Tests>
-		</aactivity>
-	</f-element>
-	<audit-event>
-		<audit-event-descr>All occurrences of signature generation using a CA signing key.<h:br/>(Retention: Extended)</audit-event-descr>
-		<audit-event-info>Name/identifier of object being signed.</audit-event-info>
-		<audit-event-info>Identifier of key used for signing.</audit-event-info>
-	</audit-event>
-	<audit-event>
-		<audit-event-descr>Failure in signature generation.<h:br/>(Retention: Normal)</audit-event-descr>
-	</audit-event>
-    </f-component>
-	
-      	
-      	<!-- FCS_COP.1/SigVer         -->     
-      	<!-- Formally FCS_COP.1(2) -->
-      	<!-- Selection-based  -->
-      	<!-- QQQQ: The ST author should choose the algorithm implemented to perform digital
-	signatures; if more than one algorithm is available, this requirement (and the
-	corresponding FCS_CKM.1 requirement) should be iterated to specify the
-	functionality. For the algorithm chosen, the ST author should make the
-	appropriate assignments/selections to specify the parameters that are
-	implemented for that algorithm.  -->
-      	<!--                  -->    	   
-      	<f-component name="Cryptographic Operation (Cryptographic Signature)" cc-id="fcs_cop.1" iteration="SigVer" status="sel-based">
-      		<depends on-sel="crypto-sel-cop-1i2"/>
-      		<f-element>
-      			<title>
-      				
-      				The TSF shall <refinement>
-      					<selectables>
-      						<selectable>perform</selectable>
-      						<selectable>invoke interfaces in the operational environment to perform</selectable>
-      					</selectables></refinement> [<h:i>cryptographic signature verification services</h:i>] in
-      				accordance with a specified cryptographic algorithm 
-      				<selectables linebreak="yes">
-      					<selectable>RSA Digital Signature Algorithm (rDSA) with a key size (modulus) of
-      						[<h:i>3072 bits or greater</h:i>]
-      						that meets FIPS-PUB 186-5, “Digital Signature Standard”</selectable>
-      					<selectable>Elliptic Curve Digital Signature Algorithm (ECDSA) with a key size 
-      						of [<h:i>256 bits or greater</h:i>] that meets FIPS PUB 186-5, “Digital Signature
-      						Standard” with “NIST curves” P-384 and 
-      						<selectables>
-      							<selectable>P-521</selectable><selectable>no other curves</selectable>
-      						</selectables>
-      						(as defined in FIPS PUB 186-5, “Digital Signature Standard”)</selectable>
-      					<selectable>Digital Signature Algorithm (DSA) with a key size (modulus) of [<h:i>2048
-      						bits or greater</h:i>], that meets FIPS-PUB 186-5, “Digital Signature Standard”]</selectable>
-      				</selectables>
-      				
-      			</title>
-      			<note role="application">
-      				The ST should specify whether the TOE performs the algorithms or the
-      				TOE in combination with the operational environment is used.<h:br/><h:br/>
-      				The ST author should choose the algorithm implemented to verify digital
-      				signatures; if more than one algorithm is available, this requirement (and the
-      				corresponding FCS_CKM.1 requirement) should be iterated to specify the
-      				functionality. For the algorithm chosen, the ST author should make the
-      				appropriate assignments and selections to specify the parameters that are
-      				implemented for that algorithm.<h:br/><h:br/>
-      				For elliptic curve-based schemes, the key size refers to the log2 of the order of the
-      				base point. As the preferred approach for digital signatures, ECDSA will be
-      				required in future publications of this PP.<h:br/><h:br/>
-      			</note>
-      			<aactivity>
-      				<TSS>
-      					Regardless of whether the requirement is met by the TSF or TOE platform, the
-      					evaluator shall examine the TSS to ensure that all signature
-      					verification functions use the approved algorithms and key sizes.
-      				</TSS>
-      				<Guidance>
-      					The evaluator shall examine the operational guidance to ensure it contains
-      					instructions for configuring the TOE or the TOE in conjunction with the
-      					operational environment for the required signature algorithms and associated
-      					modes and key sizes.
-      				</Guidance>
-      				<Tests>
-      					The following tests shall be performed for functionality implemented by the
-      					TSF.<h:br/><h:br/>
-      					<h:b>FIPS 186-5 Public Key Verification (PKV) Test</h:b><h:br/><h:br/>
-      					For each supported NIST curve, (i.e., P-384 and P-521), the
-      					evaluator shall generate 10 private and public key pairs using the key
-      					generation function of a known good implementation and modify five
-      					of the public key values so that they are incorrect, leaving five values
-      					unchanged (i.e., correct). The evaluator shall obtain in response a set
-      					of 10 PASS/FAIL values.<h:br/><h:br/>
-      					<h:b>ECDSA Algorithm Tests</h:b><h:br/><h:br/>
-      					<h:b>ECDSA FIPS 186-5 Signature Verification Test</h:b><h:br/><h:br/>
-      					For each supported NIST curve (i.e.,P-384 and P-521) and SHA
-      					function pair, the evaluator shall generate a set of 10 1024-bit
-      					message, public key and signature tuples and modify one of the values
-      					(message, public key, or signature) in five of the 10 tuples. The
-      					evaluator shall obtain in response a set of 10 PASS/FAIL values.<h:br/><h:br/>
-      					<h:b>RSA Signature Algorithm Tests</h:b><h:br/><h:br/>
-      					<h:b>Signature Verification Test</h:b><h:br/><h:br/>
-      					The evaluator shall perform the Signature Verification Test to verify the
-      					ability of the TOE to recognize another party’s valid and invalid
-      					signatures. The evaluator shall inject errors into the test vectors
-      					produced during the Signature Verification Test by introducing errors
-      					in some of the public keys e, messages, IR format, or signatures.
-      					The TOE attempts to verify the signatures and returns success or
-      					failure.<h:br/><h:br/>
-      					The evaluator shall use these test vectors to emulate the signature verification
-      					test using the corresponding parameters and verify that the TOE detects these
-      					errors.<h:br/><h:br/>
-      					<h:i>Equivalency</h:i><h:br/><h:br/>
-      					Testing of the TOE may be performed on a subset of the platforms listed in the
-      					TOE’s ST. Justification must be provided for those platforms that were excluded
-      					from testing.
-      				</Tests>
-      			</aactivity>
-      		</f-element>
-      		<audit-event>
-      			<audit-event-descr>All occurrences of signature generation using a CA signing key.<h:br/>(Retention: Extended)</audit-event-descr>
-      			<audit-event-info>Name/identifier of object being signed.</audit-event-info>
-      			<audit-event-info>Identifier of key used for signing.</audit-event-info>
-      		</audit-event>
-      		<audit-event>
-      			<audit-event-descr>Failure in signature generation.<h:br/>(Retention: Normal)</audit-event-descr>
-      		</audit-event>
-      	</f-component>
-      	
-      	
     <!-- FCS_COP.1/PBKDF       -->     
     <!-- Formally FCS_COP.1(5) -->
     <!-- Really Mandatory or selection-based   -->
@@ -4545,6 +4573,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<f-element>
 		<title>The TSF shall implement the HTTPS protocol that complies with RFC 2818.</title>
 		<note role="application">
+			This requirement is dependent on "HTTPS" being chosen in FTP_ITC.1.1 or FTP_TRP.1.1.
 			The ST author must provide enough detail to determine how the implementation
 			is complying with the standards identified; this can be done either by adding
 			elements to this component, or by additional detail in the TSS. 
@@ -5272,8 +5301,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</selectables>.
 		</title>
 		<note role="application">
+			If "pre-shared keys" is selected, then the ST must claim FIA_PSK_EXT.1.
 			At least one public-key-based Peer Authentication method is required in order to
-			conform to this PP; one or more of the public key schemes is chosen by the ST
 			author to reflect what is implemented. The ST author also ensures that
 			appropriate FCS requirements reflecting the algorithms used (and key generation
 			capabilities, if provided) are listed to support those methods. Note that the TSS
@@ -5580,6 +5609,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
               with [<h:i>NIST SP 800-90A</h:i>] after initialization with a seed.              
             </title>
             <note role="application">
+            	This requirement is dependent on FCS_RBG.1 being selected in
+            	FCS_CDP_EXT.1.1.<h:br/><h:br/>
               NIST SP 800-90A contains three different methods of generating random numbers;
               each of these, in turn, depends on underlying cryptographic primitives (hash functions/ciphers).
               The ST author will select the function used and include the specific underlying cryptographic primitives used in the requirement or in the TSS.
@@ -5723,6 +5754,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					from a TSF interface for the purpose of seeding.
 				</title>
 				<note role="application">
+					This requirement is dependent on "TSF interface for seeding" being selected in
+					FCS_RBG.1.2.<h:br/><h:br/>
 					This requirement is claimed when a DRBG is seeded with entropy from one or more noise sources that are outside the TOE
 					boundary. Typically the entropy produced by an environmental noise source is conditioned such that the input length has
 					full entropy and is therefore  usable as the seed. However, if this is not the case, it should be noted what the minimum
@@ -5765,7 +5798,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			  <assignable>name of noise source</assignable>
                 with a minimum of <assignable>number of bits</assignable> bits of min-entropy.
             </title>        
-            <note role="application">This requirement is claimed when a DRBG is seeded with entropy from a single noise source that is within the TOE boundary. Min-entropy should be expressed as a ratio of entropy bits to sampled bits so that the total amount of data needed to ensure full entropy is known, as well as the conditioning function by which that data is reduced in size to the seed.</note>
+            <note role="application">
+            	This requirement is dependent on "TSF noise source" being selected in
+            	FCS_RBG.1.2.<h:br/><h:br/>
+            	This requirement is claimed when a DRBG is seeded with entropy from a single noise source that is within the TOE boundary. Min-entropy should be expressed as a ratio of entropy bits to sampled bits so that the total amount of data needed to ensure full entropy is known, as well as the conditioning function by which that data is reduced in size to the seed.</note>
 
           <aactivity>
           <h:p>
@@ -5802,6 +5838,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			  </selectables>.
             </title>
             <note role="application">
+            	This requirement is dependent on "multiple TSF noise sources" being selected in
+            	FCS_RBG.1.2.<h:br/><h:br/>
               This requirement is claimed when a DRBG is seeded with entropy from multiple noise sources that are within the TOE boundary. 
               FCS_RBG.5 defines the mechanism by which these sources are combined to ensure sufficient minimum entropy.
             </note>
@@ -5835,6 +5873,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
                 in a minimum of <assignable>number of bits</assignable> bits of min-entropy.              
             </title> 
 	    <note role="application">
+	    	This requirement is dependent on "multiple TSF noise sources" being selected in
+	    	FCS_RBG.1.2.<h:br/><h:br/>
               Examples of typical combining operations include, but are not limited to, XORing or hashing.
             </note>
           <aactivity>
@@ -6541,8 +6581,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		in Annex C corresponding to their selection are copied to the ST if not already present.  -->
 	<!-- QQQQ: If SSH is selected, the TOE is expected to conform to the Extended Package for Secure Shell. -->
 	<!--               -->     
-	<f-component cc-id="fdp_itt.1" name="Basic Internal Transfer Protection" status="sel-based">
-		<depends on-sel="sel-pwd-auth"/> <!-- TODO: This is wrong -->
+	<f-component cc-id="fdp_itt.1" name="Basic Internal Transfer Protection" status="feat-based">
+		<depends on-sel="phys-logic-dist"></depends>
 		<f-element>
 			<title>
 				The TSF shall 
@@ -6558,10 +6598,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					</selectables>.
 				</refinement>
 			</title>
-			<note role="application">
-				<comment>It is unclear what the inclusion criteria for this selection-based SFR are. The encoding of this SFR in the XML points to a dummy location in FIA_UAU_EXT.1 but is commented as being wrong.</comment>
-				This requirement must be included in the ST if...<h:br/><h:br/>
-				
+			<note role="application">				
 				This requirement ensures all communications between components of a
 				distributed TOE is protected through the use of an encrypted communications
 				channel. The data passed in this trusted communication channel are encrypted as
@@ -6918,7 +6955,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<title>
 				The TSF shall use <selectables>
 					<selectable>access controlled storage</selectable>
-					<selectable>an integrity mechanism</selectable>
+					<selectable id="integ-mech">an integrity mechanism</selectable>
 				</selectables> to protect the trusted public keys and certificates (trust store elements) used to
 				validate local logon, trusted channel, and external communication to the CA.
 			</title>
@@ -6954,7 +6991,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					certificates and public keys from the protected storage.
 				</Guidance>
 				<Tests>
-					This test is conditional on the first selection in the SFR being chosen. If the
+					This test is conditional on the first selection in the SFR being selected. If the
 					second selection is chosen, the evaluator does not perform this and instead
 					performs the actions called for in FCS_CKM_EXT.5.
 					<testlist>
@@ -8361,6 +8398,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</title>
 			</ext-comp-def-title>
 			<note role="application">
+				If "password-based authentication mechanism is selected, then the ST must claim FIA_AFL.1, 
+				FIA_PMG_EXT.1, FIA_UAU.7, and FPT_APW_EXT.1.
+				If the authenticated mechanism claimed  requires a secure channel to director services (e.g., an
+				external RADIUS server), then the ST must claim FTP_ITC.1.
 				Examples of “other authentication mechanisms” for the selection include one-time
 				password mechanisms such as RSA SecurID, certificates, and biometrics.
 			</note>
@@ -9075,7 +9116,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <f-component cc-id="fmt_mof.1" iteration="CO" name="Management of Security Functions
         	Behavior (Admin/Officer Functions)" status="sel-based">
-        	<depends on-sel="fmt_smr-2e1b"/>
+        	<depends on-sel="fmt-smr-2e1b"/>
 		<f-element>	     
 			<title>
 				The
@@ -9102,6 +9143,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					</selectables>.
 			</title>
 			<note role="application">
+				This requirement is dependent on "administrators," "auditor," or "CA operations staff" being
+				selected in FMT_SMR.2.1.
 				It is acceptable to have the auditor participate in archive and recovery of the key
 				as one of the parties in a two-party procedure; in the current key archive
 				requirements, any participant (including the auditor) only gains access to key
@@ -9128,7 +9171,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
      	<f-component cc-id="fmt_mof.1" iteration="RA" name="Management of Security Functions Behavior
      		(CA/RA Functions)" status="sel-based">
-     		<depends on-sel="fmt_smr-2e1b"/>
+     		<depends on-sel="fmt-smr-2e1b"/>
 		<f-element>	     
 			<title>
 				The
@@ -9153,6 +9196,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						<selectable>RA staff</selectable>
 				</selectables>.
 			</title>
+			<note role="Application">
+				This requirement is dependent on "CA operations staff" or "RA staff" being
+				selected in FMT_SMR.2.1.
+			</note>
 			<aactivity>
 				<TSS/>
 				<Guidance/>
@@ -9325,7 +9372,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						<selectable>no other component</selectable>
 					</selectables>
 				</refinement> shall maintain the roles: [<h:br/>
-				<h:ul to="fmt_smr-2e1b">
+				<h:ul id="fmt-smr-2e1b">
 					<h:li><h:i>administrator</h:i></h:li>
 					<h:li><h:i>auditor</h:i></h:li>
 					<h:li><h:i>CA operations staff</h:i></h:li>
@@ -9365,6 +9412,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</h:ul> are satisfied.
 			</title>
 			<note role="application">
+				If "administrator," "auditor," or "CA operations staff" are selected, the ST must claim
+				FMT_MOF.1/CO and select the same choice in that requirements last selection.
+				If "CA operations staff" or "RA staff" are selected, the ST must claim FMT_MOF.1/RA and select
+				the same choice in that requirements last selection.				
 				This document specifies five roles: Administrator, Auditor, CA Operations Staff,
 				Registration Authority, and Authorized Organizational Representative. However,
 				the TOE is not required to maintain all six roles. 
@@ -9561,7 +9612,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <!-- FPT_ITT.1 -->
 	<!--               -->     
         <f-component cc-id="fpt_itt.1" name="Basic Internal TSF Data Transfer Protection" status="sel-based">
-		<depends on-sel="sel-pwd-auth"/>    <!-- TODO: This is wrong -->
+        	<depends on-sel="phys-logic-dist"/>
 		<f-element id="fpt-itt-1e1">
 			<title>
 				The TSF shall protect TSF data from [<h:i>disclosure, modification</h:i>]
@@ -9574,8 +9625,6 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</selectables>.</refinement>
 			</title>
 			<note role="application">
-				<comment>It is unclear what the inclusion criteria for this selection-based SFR are. The encoding of this SFR in the XML points to a dummy location in FIA_UAU_EXT.1 but is commented as being wrong.</comment>
-				This SFR must be included in the ST if ...<h:br/><h:br/>
 				This requirement ensures all communications between components of a
 				distributed TOE are protected through the use of an encrypted communications
 				channel. The data passed in this trusted communication channel are encrypted as
@@ -10016,7 +10065,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</selectables>
 				<h:b>necessary to resume CA functionality after TSF failure</h:b> using
 				<selectables>
-					<selectable>key sharing mechanisms in accordance with FCS_CKM_EXT.1<h:b>/KEKT</h:b>, 
+					<selectable id="key-share-mech-ca">key sharing mechanisms in accordance with FCS_CKM_EXT.1<h:b>/KEKT</h:b>, 
 					FCS_CKM_EXT.1<h:b>/SHARE</h:b>, FCS_CKM_EXT.6, and FPT_SKY_EXT.2</selectable>
 					<selectable><assignable>other mechanism</assignable></selectable>
 				</selectables>.
@@ -10087,7 +10136,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</selectables>
 				using
 				<selectables>
-					<selectable>key sharing mechanisms in accordance with FCS_CKM_EXT.1<h:b>/KEKT</h:b>, 
+					<selectable id="key-share-mech-oth">key sharing mechanisms in accordance with FCS_CKM_EXT.1<h:b>/KEKT</h:b>, 
 						FCS_CKM_EXT.1<h:b>/SHARE</h:b>, FCS_CKM_EXT.6, and FPT_SKY_EXT.2</selectable>
 					<selectable><assignable>other mechanism</assignable></selectable>
 				</selectables>.
@@ -10145,7 +10194,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
 	
 	<f-component cc-id="fpt_sky_ext.2" name="Key Share Access" status="sel-based">
-		<depends on-sel="sel-pwd-auth"/> <!-- TODO: This is wrong -->
+		<depends on-sel="key-share-mech-ca"/>
+		<depends on-sel="key-share-mech-oth"/>
 		<comp-lev>requires the TOE to ensure the proper use of key share access.</comp-lev>
 		<management>No specific management functions are identified.</management>
 		<audit>The following actions should be auditable if FAU_GEN.1 Audit Data Generation is included in
@@ -10178,10 +10228,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					configured by an administrator.</title>
 			</ext-comp-def-title>
 			<note role="application">
-				This SFR shall be included if “key sharing mechanisms in accordance with
-				FCS_CKM_EXT.1/KEKT, FCS_CKM_EXT.1/SHARE, FCS_CKM_EXT.6, and FPT_SKY_EXT.2” is
-				selected in FPT_SKY_EXT.1.1/CA or FPT_SKY_EXT.1.1/OTH. It should be noted that this protection can be
-				accomplished via FCS_COP.1/PBKDF; if it is, then that SFR should be included in the ST.
+				This SFR shall be included if “key sharing mechanisms in accordance with..." is 
+				selected in FPT_SKY_EXT.1.1/CA or FPT_SKY_EXT.1.1/OTH. It should be noted that 
+				this protection can be accomplished via FCS_COP.1/PBKDF; if it is, then that 
+				SFR should be included in the ST.
 			</note>
 			<aactivity>
 				<TSS>
@@ -10278,7 +10328,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- 			   -->
 
 	<f-component cc-id="fpt_tst.1" name="TSF Self-Testing" status="sel-based">
-    		<depends on-sel="crypto-sel-rbg-ext-1"/>
+		<depends on-sel="crypto-sel-tst-ext-1"/>
     		<f-element id="fel-tsf-self-test">
     			<title>
     				The TSF shall run a suite of the following self-tests <selectables>
@@ -10302,7 +10352,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
     			<title>
     				The TSF shall provide authorized users with the capability to verify the integrity of [<h:i>[TSF DRBG specified in FCS_RBG.1]</h:i>].
     			</title>
-    		<note role="application">This SFR is a required dependency of FCS_RBG.1. It is intended to require that any DRBG implemented by the TOE undergo health testing to ensure that the random bit generation functionality has not been degraded. If the TSF supports multiple DRBGs, this SFR should be iterated to describe the self-test behavior for each.</note>
+    		<note role="application">
+    			This requirement is dependent on FPT_TST.1 being selected in FCS_CDP_EXT.1.1.
+    			This SFR is a required dependency of FCS_RBG.1. It is intended to require that any DRBG implemented by the TOE undergo health testing to ensure that the random bit generation functionality has not been degraded. If the TSF supports multiple DRBGs, this SFR should be iterated to describe the self-test behavior for each.</note>
     		<aactivity>
     			<TSS>
     				<h:p>
@@ -10959,8 +11011,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
      <section title="Class: Trusted Path/Channels (FTP)" id="ftp">
 
 	<!--               -->     
-    	<!-- FTP_ITC.1 -->
-	<!-- QQQQ: Inclusion criteria not specified -->
+    	<!-- FTP_ITC.1 -->	 
 	<!-- QQQQ:  HTTPS, IPsec, TLS, SSH   -->
 	<!-- QQQQ: If the ST author selects SSH, the TSF shall be validated against the Extended Package for Secure Shell  -->
 	<!--               -->     
@@ -10969,7 +11020,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		selections, otherwise it is not selection-based. -->
 	
 	<f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel" status="sel-based">
-		<depends on-sel="sel-pwd-auth"/> <!-- TODO: This is wrong -->
+		<depends on-sel="tchannel"/>
+		<depends on-sel="sel-pwd-auth"/>
 		<f-element id="ftp-itc-1e1">
 			<title>
 				
@@ -11007,8 +11059,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					list of services for which the TSF is able to initiate communications</assignable>.
 			</title>
 			<note role="application">
-				<comment>It is unclear what the inclusion criteria for this selection-based SFR are. The encoding of this SFR in the XML points to a dummy location in FIA_UAU_EXT.1 but is commented as being wrong.</comment>
-				This SFR must be included in the SFR if TODO.<h:br/><h:br/>
+				This requirement is dependent on "transmit the generated audit data to an external IT entity
+				using a trusted channel according to FTP_ITC" being selected in FAU_STG.1.<h:br/><h:br/>
+				If the authentication mechanism claimed in FIA_UAU_EXT.1 requires a secure channel to directory services (e.g.,
+				an external RADIUS server), then the ST must claim this SFR.
+				If "HTTPS" is selected, then the ST must claim FCS_HTTPS_EXT.1.<h:br/><h:br/>
+				If "IPSEC" is selected, then the ST must claim FCS_IPSEC_EXT.1.<h:br/><h:br/>
+				If "TLS as defined..." is selected, then the ST must claim the Functional Package for TLS.<h:br/><h:br/>
+				If "SSH as defined..." is selected, then the ST must claim the Functional Package for SSH.<h:br/><h:br/>					
 				The intent of the above requirement is to use a cryptographic protocol to protect
 				external communications with authorized IT entities that the TOE interacts with
 				to perform its functions. While there are no requirements on the party initiating
@@ -11129,6 +11187,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				privileged user authentication and all remote administration actions]</h:i>].
 			</title>
 			<note role="application">
+				If "HTTPS" is selected, then the ST must claim FCS_HTTPS_EXT.1.<h:br/><h:br/>
+				If "IPSEC" is selected, then the ST must claim FCS_IPSCE_EXT.1.<h:br/><h:br/>
 				This requirement ensures that remote subscribers and privileged users initiate all
 				communication with the TOE via a trusted path, and that all communications with
 				the TOE by remote subscribers and privileged users is performed over this path.
