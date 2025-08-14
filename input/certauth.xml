@@ -6583,7 +6583,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- QQQQ: If SSH is selected, the TOE is expected to conform to the Extended Package for Secure Shell. -->
 	<!--               -->     
 	<f-component cc-id="fdp_itt.1" name="Basic Internal Transfer Protection" status="feat-based">
-		<depends on-sel="phys-logic-dist"></depends>
+		<depends on="phys-logic-dist"></depends>
 		<f-element>
 			<title>
 				The TSF shall 
