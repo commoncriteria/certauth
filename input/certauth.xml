@@ -236,7 +236,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
       	<term abbr='DES' full="Data Encryption Standard"/>
       	<term full="Digital Signature">
 		A non-forgeable transformation of data that allows proof of the source (with
-		nonrepudiation) and verification of the integrity of that data.
+		non-repudiation) and verification of the integrity of that data.
 	</term>
       	<term abbr='DH' full="Diffie-Hellman"/>   
       	<term abbr='DHE' full="Diffie-Hellman Key Exchange"/>
@@ -476,7 +476,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	      
 	<figure entity="images/CertAuth-TOE.png" title="TOE Boundary in Example PKI Architecture" id="toe"/><h:br/><h:br/>
 	      
-	This PP defines requirements only for CA system component(s) that issue and manage public key
+	This PP defines requirements only for CA system components that issue and manage public key
 	certificates and certificate status information, to include interfaces to components not under the control
 	of the ST author that may be required to meet these requirements as shown in Figure 1 (above). <h:br/><h:br/>
 	      
@@ -484,7 +484,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	environment) is discussed in detail in later sections, it is useful to give a brief description here. Compliant
 	TOEs will provide security functionality that addresses threats to the TOE and implements policies that
 	are imposed by law or regulation. Compliant TOEs must authenticate and validate certificate requests and
-	control the use of its private signature key(s) so that only valid, properly authorized certificates are issued;
+	control the use of its private signature keys so that only valid, properly authorized certificates are issued;
 	it must validate and authenticate all revocation requests and provide accurate and up-to-date revocation
 	status information; and it must validate any requests for optional services (key generation, key escrow or
 	recovery), authenticate and determine authorization for such services according to applicable security
@@ -502,7 +502,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	A CA system which is the Target of Evaluation (TOE) of this PP may be a software package installed on a
 	general computing platform, a set of software packages installed on distributed general computing
 	platforms, or an integrated device including hardware and software. This PP makes no distinction in these
-	cases and imposes requirements on the TOE and/or operational environment to ensure that the
+	cases and imposes requirements on the TOE and operational environment to ensure that the
 	requirements can be met in any of these cases. Whenever the TOE depends on external components to
 	meet the requirements of this PP, those components are included in the operational environment and
 	the AGD_OPE and AGD_PRE sections of this PP describe requirements on the TOE to document these
@@ -541,7 +541,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 
 <!-- 1.5 Product Features Mapped to Implementation-Dependent Requirements -->
 	<section title="Product Features Mapped to Implementation-Dependent Requirements" id="features">
-		The feature(s) enumerated below, if implemented by the TOE, require that additional SFRs be claimed in the ST.<h:br/>
+		The features enumerated below, if implemented by the TOE, require that additional SFRs be claimed in the ST.<h:br/>
 	<!-- These might go away if I can turn all these into selections like they shoud be -->
 		<implements>
 			<feature id="phys-logic-dist" title="Physically or Logically Distributed TOE">
@@ -2752,7 +2752,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				or the NIST approved curve (ECC) per 10 sets of public keys. These keys are
 				static, ephemeral, or both depending on the scheme being tested.<h:br/><h:br/>
 				The evaluator shall obtain the DKM, the corresponding TOE’s public keys (static
-				and/or ephemeral), the MAC tag(s), and any inputs used in the KDF, such as the
+				or ephemeral), the MAC tags, and any inputs used in the KDF, such as the
 				Other Information field OI and TOE ID fields.<h:br/><h:br/>
 				If the TOE does not use a KDF defined in SP 800-56A, the evaluator shall obtain
 				only the public keys and the hashed value of the shared secret.<h:br/><h:br/>
@@ -2803,7 +2803,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</aactivity>
 	</f-element>
         <audit-event>
-		<audit-event-descr>Establishment of non-ephemeral key for TOE-related funtions.<h:br/>(Retention: Normal)</audit-event-descr>
+		<audit-event-descr>Establishment of non-ephemeral key for TOE-related functions.<h:br/>(Retention: Normal)</audit-event-descr>
 		<audit-event-info>Key established if successful</audit-event-info>
 	</audit-event>
 	<audit-event type="optional">
@@ -6587,7 +6587,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<f-element>
 			<title>
 				The TSF shall 
-				<h:s>enforce the [assignment: access control SFP(s) and/or information flow control SFP(s)] to </h:s>
+				<h:s>enforce the [assignment: access control SFPs and information flow control SFPs] to </h:s>
 				prevent the [<h:i>disclosure, modification</h:i>] of user data when it is transmitted between 
 				physically-separated parts of the TOE
 				<refinement>through the use of
@@ -7411,7 +7411,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 										mechanisms,</h:li>
 									<h:li>[Conditional on CMC support for shared secrets] The evaluator
 										shall generate two CMC request for certificates on the CMC
-										client using the same authentication mechanism(s) as on the 
+										client using the same authentication mechanisms as on the 
 										subordinate CA-1 TSF. The first request CMC client shall use the
 										same username established by the CA-0 TSF, but use a
 										modified the shared secret. The second request shall use a
@@ -7755,7 +7755,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						<test>The evaluator shall establish an external CA and EST server,
 							and configure the TOE as indicated in the operational guidance to authorize the EST
 							server for EST services using the external CA. The evaluator shall
-							examine the TOE logs and TA database(s) using available interfaces
+							examine the TOE logs and TA databases using available interfaces
 							to ensure the EST server and external CA’s certificates are
 							authorized for EST services.
 						</test>
@@ -8515,7 +8515,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</TSS>
 				<Guidance>
 					The evaluator shall examine the operational guidance to determine that any
-					necessary preparatory steps (e.g., establishing credential material such as preshared keys, tunnels, certificates, etc.) to logging in are described. For each
+					necessary preparatory steps (e.g., establishing credential material such as pre shared keys, tunnels, certificates, etc.) to logging in are described. For each
 					supported login method, the evaluator shall ensure the operational guidance
 					provides clear instructions for successfully logging on. If configuration is
 					necessary to ensure the services provided before login are limited, the
@@ -9364,12 +9364,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						<selectable>operational environment</selectable>
 						<selectable>no other component</selectable>
 					</selectables>
-				</refinement> shall maintain the roles: administrators, auditor, CA operations staff, and
+				</refinement> shall maintain the roles: [administrators, auditor, CA operations staff, and
 				<selectables>
 					<selectable>RA staff</selectable>
 					<selectable>authorized organizational representative</selectable>
 					<selectable>no other roles</selectable>
-				</selectables>								
+				</selectables>]								
 			</title>
 		</f-element>
 		<f-element>
