@@ -752,7 +752,7 @@ The following sections list Common Criteria and technology terms used in this do
 	</td></tr>
 <tr><td><div id="Digital_Signature">Digital Signature</div></td><td>
 		A non-forgeable transformation of data that allows proof of the source (with
-		nonrepudiation) and verification of the integrity of that data.
+		non-repudiation) and verification of the integrity of that data.
 	</td></tr>
 <tr><td><div id="Encrypted_key">Encrypted key</div></td><td>
 		A cryptographic key that has been encrypted with a key encrypting key, a PIN or a
@@ -913,7 +913,7 @@ The following sections list Common Criteria and technology terms used in this do
 	<div class="figure" id="figure-toe"><img id="toe" src="images/CertAuth-TOE.png" width="" height=""></img><br/><span class="ctr" data-myid="toe" data-counter-type="ct-figure">Figure <span class="counter">1</span></span>:
       <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Boundary in Example <abbr class="dyn-abbr"><a href="#abbr_PKI">PKI</a></abbr> Architecture</div><br/><br/>
 	      
-	This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> defines requirements only for <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> system component(s) that issue and manage public key
+	This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> defines requirements only for <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> system components that issue and manage public key
 	certificates and certificate status information, to include interfaces to components not under the control
 	of the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author that may be required to meet these requirements as shown in Figure 1 (above). <br/><br/>
 	      
@@ -921,7 +921,7 @@ The following sections list Common Criteria and technology terms used in this do
 	environment) is discussed in detail in later sections, it is useful to give a brief description here. Compliant
 	<abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> will provide security functionality that addresses threats to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and implements policies that
 	are imposed by law or regulation. Compliant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> must authenticate and validate certificate requests and
-	control the use of its private signature key(s) so that only valid, properly authorized certificates are issued;
+	control the use of its private signature keys so that only valid, properly authorized certificates are issued;
 	it must validate and authenticate all revocation requests and provide accurate and up-to-date revocation
 	status information; and it must validate any requests for optional services (key generation, key escrow or
 	recovery), authenticate and determine authorization for such services according to applicable security
@@ -939,7 +939,7 @@ The following sections list Common Criteria and technology terms used in this do
 	A <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> system which is the Target of Evaluation (<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>) of this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> may be a software package installed on a
 	general computing platform, a set of software packages installed on distributed general computing
 	platforms, or an integrated device including hardware and software. This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> makes no distinction in these
-	cases and imposes requirements on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and/or operational environment to ensure that the
+	cases and imposes requirements on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and operational environment to ensure that the
 	requirements can be met in any of these cases. Whenever the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> depends on external components to
 	meet the requirements of this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, those components are included in the operational environment and
 	the AGD_OPE and AGD_PRE sections of this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> describe requirements on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to document these
@@ -978,7 +978,7 @@ The following sections list Common Criteria and technology terms used in this do
 
 
 	<h2 class="indexable" data-level="2" id="features">1.5 Product Features Mapped to Implementation-Dependent Requirements</h2>
-		The feature(s) enumerated below, if implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, require that additional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> be claimed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>.<br/>
+		The features enumerated below, if implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, require that additional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> be claimed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>.<br/>
 	
 		<h3 class="indexable" data-level="3" id="phys-logic-dist">1.5.1 Physically or Logically Distributed TOE</h3><span class="description">If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is logically (<a href="#FPT_ITT.1">FPT_ITT.1</a>) or physically (<a href="#FDP_ITT.1">FDP_ITT.1</a>) distributed, the following <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> must be
 					claimed as appropriate:</span><br/><p>
@@ -2668,7 +2668,7 @@ The following sections list Common Criteria and technology terms used in this do
 				or the <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> approved curve (<abbr class="dyn-abbr"><a href="#abbr_ECC">ECC</a></abbr>) per 10 sets of public keys. These keys are
 				static, ephemeral, or both depending on the scheme being tested.<br/><br/>
 				The evaluator shall obtain the <abbr class="dyn-abbr"><a href="#abbr_DKM">DKM</a></abbr>, the corresponding <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s public keys (static
-				and/or ephemeral), the <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> tag(s), and any inputs used in the <abbr class="dyn-abbr"><a href="#abbr_KDF">KDF</a></abbr>, such as the
+				or ephemeral), the <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> tags, and any inputs used in the <abbr class="dyn-abbr"><a href="#abbr_KDF">KDF</a></abbr>, such as the
 				Other Information field OI and <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> ID fields.<br/><br/>
 				If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not use a <abbr class="dyn-abbr"><a href="#abbr_KDF">KDF</a></abbr> defined in SP 800-56A, the evaluator shall obtain
 				only the public keys and the hashed value of the shared secret.<br/><br/>
@@ -5906,7 +5906,7 @@ The following sections list Common Criteria and technology terms used in this do
 		
 		<div class="element"><div class="reqid" id="FDP_ITT.1.1"><a href="#FDP_ITT.1.1" class="abbr">FDP_ITT.1.1</a></div><div class="reqdesc">
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
-				<s>enforce the [assignment: access control SFP(s) and/or information flow control SFP(s)] to </s>
+				<s>enforce the [assignment: access control SFPs and information flow control SFPs] to </s>
 				prevent the [<i>disclosure, modification</i>] of user data when it is transmitted between 
 				physically-separated parts of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
 				<span class="refinement">through the use of
@@ -6625,7 +6625,7 @@ The following sections list Common Criteria and technology terms used in this do
 										mechanisms,</li>
 									<li>[Conditional on <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> support for shared secrets] The evaluator
 										shall generate two <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> request for certificates on the <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr>
-										client using the same authentication mechanism(s) as on the 
+										client using the same authentication mechanisms as on the 
 										subordinate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>-1 <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. The first request <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> client shall use the
 										same username established by the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>-0 <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>, but use a
 										modified the shared secret. The second request shall use a
@@ -6974,7 +6974,7 @@ The following sections list Common Criteria and technology terms used in this do
       The evaluator shall establish an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server,
 							and configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> as indicated in the operational guidance to authorize the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>
 							server for <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> services using the external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. The evaluator shall
-							examine the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> logs and TA database(s) using available interfaces
+							examine the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> logs and TA databases using available interfaces
 							to ensure the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server and external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’s certificates are
 							authorized for <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> services.
 						</li>
@@ -7667,7 +7667,7 @@ The following sections list Common Criteria and technology terms used in this do
 					services shall be documented in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>.
 				</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
 					The evaluator shall examine the operational guidance to determine that any
-					necessary preparatory steps (e.g., establishing credential material such as preshared keys, tunnels, certificates, etc.) to logging in are described. For each
+					necessary preparatory steps (e.g., establishing credential material such as pre shared keys, tunnels, certificates, etc.) to logging in are described. For each
 					supported login method, the evaluator shall ensure the operational guidance
 					provides clear instructions for successfully logging on. If configuration is
 					necessary to ensure the services provided before login are limited, the
@@ -8418,8 +8418,8 @@ The following sections list Common Criteria and technology terms used in this do
 				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> 
 				<span class="refinement">and 
 					[<b>selection</b>: <span class="selectable-content" id="_s_514">operational environment</span>, <span class="selectable-content" id="_s_515">no other component</span>]
-				</span> shall maintain the roles: administrators, auditor, <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> operations staff, and
-				[<b>selection</b>: <span class="selectable-content" id="_s_516"><abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> staff</span>, <span class="selectable-content" id="_s_517">authorized organizational representative</span>, <span class="selectable-content" id="_s_518">no other roles</span>]								
+				</span> shall maintain the roles: [administrators, auditor, <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> operations staff, and
+				[<b>selection</b>: <span class="selectable-content" id="_s_516"><abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> staff</span>, <span class="selectable-content" id="_s_517">authorized organizational representative</span>, <span class="selectable-content" id="_s_518">no other roles</span>]]								
 			</div></div>
 		<div class="element"><div class="reqid" id="FMT_SMR.2.2"><a href="#FMT_SMR.2.2" class="abbr">FMT_SMR.2.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> 
 				<span class="refinement"> and

@@ -54,7 +54,7 @@ output/certauth-release-linkable.html: RAs
 output/certauth-release-linkable.html: REKs
 output/certauth-release-linkable.html: Reissuance
 output/certauth-release-linkable.html: SAs
-output/certauth-release-linkable.html: SFP
+output/certauth-release-linkable.html: SFPs
 output/certauth-release-linkable.html: SHAVS
 output/certauth-release-linkable.html: SP800
 output/certauth-release-linkable.html: SPD
@@ -73,7 +73,6 @@ output/certauth-release-linkable.html: certificatePolicy
 output/certauth-release-linkable.html: certificationRequestInfo
 output/certauth-release-linkable.html: deallocation
 output/certauth-release-linkable.html: forgeable
-output/certauth-release-linkable.html: funtions
 output/certauth-release-linkable.html: hashAlgId
 output/certauth-release-linkable.html: hashAlgorithm
 output/certauth-release-linkable.html: impl
@@ -87,10 +86,8 @@ output/certauth-release-linkable.html: log2
 output/certauth-release-linkable.html: macAlgId
 output/certauth-release-linkable.html: macAlgorithm
 output/certauth-release-linkable.html: nextUpdate
-output/certauth-release-linkable.html: nonrepudiation
 output/certauth-release-linkable.html: notAfter
 output/certauth-release-linkable.html: notBefore
-output/certauth-release-linkable.html: preshared
 output/certauth-release-linkable.html: producedAt
 output/certauth-release-linkable.html: reauthentication
 output/certauth-release-linkable.html: reenablement
@@ -171,7 +168,7 @@ output/certauth-release.html: RAs
 output/certauth-release.html: REKs
 output/certauth-release.html: Reissuance
 output/certauth-release.html: SAs
-output/certauth-release.html: SFP
+output/certauth-release.html: SFPs
 output/certauth-release.html: SHAVS
 output/certauth-release.html: SP800
 output/certauth-release.html: SPD
@@ -192,7 +189,6 @@ output/certauth-release.html: deallocation
 output/certauth-release.html: evaluator’s
 output/certauth-release.html: extended’
 output/certauth-release.html: forgeable
-output/certauth-release.html: funtions
 output/certauth-release.html: hashAlgId
 output/certauth-release.html: hashAlgorithm
 output/certauth-release.html: impl
@@ -207,12 +203,10 @@ output/certauth-release.html: log2
 output/certauth-release.html: macAlgId
 output/certauth-release.html: macAlgorithm
 output/certauth-release.html: nextUpdate
-output/certauth-release.html: nonrepudiation
 output/certauth-release.html: normal’
 output/certauth-release.html: notAfter
 output/certauth-release.html: notBefore
 output/certauth-release.html: parties’
-output/certauth-release.html: preshared
 output/certauth-release.html: producedAt
 output/certauth-release.html: reauthentication
 output/certauth-release.html: reenablement
@@ -298,7 +292,7 @@ output/certauth.html: RAs
 output/certauth.html: REKs
 output/certauth.html: Reissuance
 output/certauth.html: SAs
-output/certauth.html: SFP
+output/certauth.html: SFPs
 output/certauth.html: SHAVS
 output/certauth.html: SP800
 output/certauth.html: SPD
@@ -333,12 +327,10 @@ output/certauth.html: log2
 output/certauth.html: macAlgId
 output/certauth.html: macAlgorithm
 output/certauth.html: nextUpdate
-output/certauth.html: nonrepudiation
 output/certauth.html: normal’
 output/certauth.html: notAfter
 output/certauth.html: notBefore
 output/certauth.html: parties’
-output/certauth.html: preshared
 output/certauth.html: producedAt
 output/certauth.html: reauthentication
 output/certauth.html: reinstantiating
