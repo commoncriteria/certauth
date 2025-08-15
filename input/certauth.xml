@@ -611,6 +611,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<addressed-by>FMT_MOF.1/Admin</addressed-by><rationale>Defines management functions to be performed exclusively by Administrators.</rationale>
 			<addressed-by>FMT_MOF.1/Auditor</addressed-by><rationale>Defines management functions to be performed by auditors.</rationale>
 			<addressed-by>FMT_MOF.1/CA</addressed-by><rationale>Defines management functions to be performed by CA Staff.</rationale>			
+			<addressed-by>FMT_MOF.1/CO</addressed-by><rationale>Defines management functions to be performed by Administrators, Auditor, or CA Staff.</rationale>
+			<addressed-by>FMT_MOF.1/RA</addressed-by><rationale>Defines management functions to be performed by CA or RA Staff.</rationale>
 			<addressed-by>FMT_MTD.1</addressed-by><rationale>Requires that only privileged users manage TSF data.</rationale>
 			<addressed-by>FMT_SMF.1</addressed-by><rationale>Defines management functions implemented or supported by the TOE.</rationale>
 			<addressed-by>FMT_SMR.2</addressed-by><rationale>Defines user roles maintained or supported by the TSF.</rationale>
@@ -622,9 +624,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<addressed-by>FAU_STG_EXT.1 (selection-based)</addressed-by><rationale>Specifies rules for the retention of audit data.</rationale>
 			<addressed-by>FIA_AFL.1 (selection-based)</addressed-by><rationale>Requires that the TSF detect excessive unsuccessful login attempts from a remote user.</rationale>
 			<addressed-by>FIA_PMG_EXT.1 (selection-based)</addressed-by><rationale>Specifies password composition rules.</rationale>
-			<addressed-by>FIA_UAU.7 (selection-based)</addressed-by><rationale>Defines feedback permitted to the user during authentication.</rationale>
-			<addressed-by>FMT_MOF.1/CO (selection-based)</addressed-by><rationale>Defines management functions to be performed by Administrators, Auditor, or CA Staff.</rationale>
-			<addressed-by>FMT_MOF.1/RA (selection-based)</addressed-by><rationale>Defines management functions to be performed by CA or RA Staff.</rationale>
+			<addressed-by>FIA_UAU.7 (selection-based)</addressed-by><rationale>Defines feedback permitted to the user during authentication.</rationale>			
 			<addressed-by>FPT_APW_EXT.1 (selection-based)</addressed-by><rationale>Defines protections for plaintext passwords.</rationale>
         </threat>
         <threat name="T.TSF_FAILURE">
@@ -646,19 +646,19 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<addressed-by>FMT_MOF.1/Admin</addressed-by><rationale>Defines management functions to be performed exclusively by Administrators.</rationale>
 				<addressed-by>FMT_MOF.1/Auditor</addressed-by><rationale>Defines management functions to be performed by auditors.</rationale>
 				<addressed-by>FMT_MOF.1/CA</addressed-by><rationale>Defines management functions to be performed by CA Staff.</rationale>
-				<addressed-by>FMT_MTD.1</addressed-by><rationale>Requires that only privileged users manage TSF data.</rationale>
+        		<addressed-by>FMT_MOF.1/CO</addressed-by><rationale>Defines management functions to be performed by Administrators, Auditor, or CA Staff.</rationale>
+        		<addressed-by>FMT_MOF.1/RA</addressed-by><rationale>Defines management functions to be performed by CA or RA Staff.</rationale>	
+        		<addressed-by>FMT_MTD.1</addressed-by><rationale>Requires that only privileged users manage TSF data.</rationale>
 				<addressed-by>FDP_CER_EXT.4 (optional)</addressed-by><rationale>(Optional) Requires that non-v3 certificates have certain characteristics.</rationale>
 				<addressed-by>FDP_SDP_EXT.1 (optional)</addressed-by><rationale>(Optional) Requires that the TSF protect certain information through encryption.</rationale>
 	        	<addressed-by>FDP_STG_EXT.1(optional)</addressed-by><rationale>(Optional) Requires that the TSF protect trusted public keys and certificates.</rationale>
 				<addressed-by>FPT_NPE_EXT.1 (optional)</addressed-by><rationale>(Optional) Requires the TSF enforce rules for submitting NPE certificate requests.</rationale>
 				<addressed-by>FPT_TST_EXT.1 (optional)</addressed-by><rationale>(Optional) Requires the TSF ensure the integrity of TOE software and firmware.</rationale>
 				<addressed-by>FPT_TST_EXT.2 (optional)</addressed-by><rationale>(Optional) Requires the TSF ensure the integrity of certain data relevant to TOE security.</rationale>				
-				<addressed-by>FCO_NRR_EXT.2 (selection-based)</addressed-by><rationale>Requires that the TSF provide certificate-based proof of receipt.</rationale>
-				<addressed-by>FCS_CKM_EXT.5 (selection-based)</addressed-by><rationale>Requires that the TSF protect public keys from modification.</rationale>
-				<addressed-by>FDP_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect user data during transmission between physically separate parts of the TOE.</rationale>
-	        	<addressed-by>FMT_MOF.1/CO (selection-based)</addressed-by><rationale>Defines management functions to be performed by Administrators, Auditor, or CA Staff.</rationale>
-        		<addressed-by>FMT_MOF.1/RA (selection-based)</addressed-by><rationale>Defines management functions to be performed by CA or RA Staff.</rationale>				
-				<addressed-by>FPT_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect data transmitted between different parts of the TOE.</rationale>
+	        	<addressed-by>FDP_ITT.1 (implementation-dependent)</addressed-by><rationale>Requires that the TSF protect user data during transmission between physically separate parts of the TOE.</rationale>
+    	    	<addressed-by>FPT_ITT.1 (implementation-dependent)</addressed-by><rationale>Requires that the TSF protect data transmitted between different parts of the TOE.</rationale>	
+        		<addressed-by>FCO_NRR_EXT.2 (selection-based)</addressed-by><rationale>Requires that the TSF provide certificate-based proof of receipt.</rationale>
+				<addressed-by>FCS_CKM_EXT.5 (selection-based)</addressed-by><rationale>Requires that the TSF protect public keys from modification.</rationale>        	
 				<addressed-by>FPT_TST.1 (selection-based)</addressed-by><rationale>Requires that the TSF test the health of the DRBG.</rationale>		
         </threat>
         <threat name="T.UNAUTHORIZED_ACCESS">
@@ -671,7 +671,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<addressed-by>FMT_MOF.1/Admin</addressed-by><rationale>Defines management functions to be performed exclusively by Administrators.</rationale>
 			<addressed-by>FMT_MOF.1/Auditor</addressed-by><rationale>Defines management functions to be performed by auditors.</rationale>
         	<addressed-by>FMT_MOF.1/CA</addressed-by><rationale>Defines management functions to be performed by CA Staff.</rationale>        	
-			<addressed-by>FMT_MTD.1</addressed-by><rationale>Requires that only privileged users manage TSF data.</rationale>
+        	<addressed-by>FMT_MOF.1/CO</addressed-by><rationale>Defines management functions to be performed by Administrators, Auditor, or CA Staff.</rationale>
+        	<addressed-by>FMT_MOF.1/RA</addressed-by><rationale>Defines management functions to be performed by CA or RA Staff.</rationale>
+        	<addressed-by>FMT_MTD.1</addressed-by><rationale>Requires that only privileged users manage TSF data.</rationale>
 			<addressed-by>FMT_SMF.1</addressed-by><rationale>Defines management functions implemented or supported by the TOE.</rationale>
 			<addressed-by>FMT_SMR.2</addressed-by><rationale>Defines user roles maintained or supported by the TSF.</rationale>
 			<addressed-by>FPT_KST_EXT.1</addressed-by><rationale>Requires that the TSF prevent export of plaintext keys.</rationale>
@@ -687,7 +689,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<addressed-by>FTA_SSL_EXT.1 (optional)</addressed-by><rationale>(Optional) Requires an inactivity timeout on local user sessions.</rationale>
 			<addressed-by>FCS_KSH_EXT.1 (objective)</addressed-by><rationale>Requires two-party control for the export of critical keys to the CA operation.</rationale>
         	<addressed-by>FCS_CKM_EXT.1/DEK (implementation-dependent)</addressed-by><rationale>Specifies requirements for asymmetric key generation.</rationale>
-			<addressed-by>FCS_COP.1/Hash (selection-based)</addressed-by><rationale>Defines permissible cryptographic hash algorithms and sizes.</rationale>
+        	<addressed-by>FDP_ITT.1 (implementation-dependent)</addressed-by><rationale>Requires that the TSF protect user data during transmission between physically separate parts of the TOE.</rationale>
+        	<addressed-by>FPT_ITT.1 (implementation-dependent)</addressed-by><rationale>Requires that the TSF protect data transmitted between different parts of the TOE.</rationale>
+        	<addressed-by>FCS_COP.1/Hash (selection-based)</addressed-by><rationale>Defines permissible cryptographic hash algorithms and sizes.</rationale>
 			<addressed-by>FCS_COP.1/KeyedHash (selection-based)</addressed-by><rationale>Defines permissible keyed-hash message authentication algorithms.</rationale>
 			<addressed-by>FCS_COP.1/SigGen (selection-based)</addressed-by><rationale>Defines permissible cryptographic signature algorithms.</rationale>			
         	<addressed-by>FCS_COP.1/SigVer (selection-based)</addressed-by><rationale>Defines permissible cryptographic signature verification.</rationale>
@@ -708,16 +712,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<addressed-by>FCS_RBG.2 (selection-based)</addressed-by><rationale>Allows the DRBG to be seeded by an external source.</rationale>
 			<addressed-by>FCS_RBG.3 (selection-based)</addressed-by><rationale>Allows the DRBG to be seeded by a single internal source.</rationale>
 			<addressed-by>FCS_RBG.4 (selection-based)</addressed-by><rationale>Allows the DRBG to be seeded by multiple internal sources.</rationale>
-			<addressed-by>FCS_RBG.5 (selection-based)</addressed-by><rationale>Allows the DRBG to combine noise from multiple sources.</rationale>
-        	<addressed-by>FDP_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect user data during transmission between physically separate parts of the TOE.</rationale>
+			<addressed-by>FCS_RBG.5 (selection-based)</addressed-by><rationale>Allows the DRBG to combine noise from multiple sources.</rationale>        	
         	<addressed-by>FIA_AFL.1 (selection-based)</addressed-by><rationale>Requires that the TSF detect excessive unsuccessful login attempts from a remote user.</rationale>
 			<addressed-by>FIA_PMG_EXT.1 (selection-based)</addressed-by><rationale>Specifies password composition rules.</rationale>
 			<addressed-by>FIA_PSK_EXT.1 (selection-based)</addressed-by><rationale>Defines requirements for pre-shared keys used by the TSF.</rationale>
-			<addressed-by>FIA_UAU.7 (selection-based)</addressed-by><rationale>Defines feedback permitted to the user during authentication.</rationale>			
-        	<addressed-by>FMT_MOF.1/CO (selection-based)</addressed-by><rationale>Defines management functions to be performed by Administrators, Auditor, or CA Staff.</rationale>
-        	<addressed-by>FMT_MOF.1/RA (selection-based)</addressed-by><rationale>Defines management functions to be performed by CA or RA Staff.</rationale>
-			<addressed-by>FPT_APW_EXT.1 (selection-based)</addressed-by><rationale>Defines protections for plaintext passwords.</rationale>
-			<addressed-by>FPT_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect data transmitted between different parts of the TOE.</rationale>
+			<addressed-by>FIA_UAU.7 (selection-based)</addressed-by><rationale>Defines feedback permitted to the user during authentication.</rationale>
+			<addressed-by>FPT_APW_EXT.1 (selection-based)</addressed-by><rationale>Defines protections for plaintext passwords.</rationale>			
 			<addressed-by>FPT_SKY_EXT.2 (selection-based)</addressed-by><rationale>Requires that key shares be accessible only by privileged users.</rationale>
 			<addressed-by>FTP_ITC.1 (selection-based)</addressed-by><rationale>Requires secure communications between the TOE and external IT entities.</rationale>
         </threat>
@@ -767,6 +767,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<addressed-by>FPT_SKY_EXT.1/CA (optional)</addressed-by><rationale>(Optional) Requires two-party control for the export of CA signing keys.</rationale>
 			<addressed-by>FPT_SKY_EXT.1/OTH (optional)</addressed-by><rationale>(Optional) Requires two-party control for the export of other sensitive data or keys.</rationale>
         	<addressed-by>FCS_CKM_EXT.1/DEK (implementation-dependent)</addressed-by><rationale>Specifies requirements for asymmetric key generation.</rationale>
+        	<addressed-by>FDP_ITT.1 (implementation-dependent)</addressed-by><rationale>Requires that the TSF protect user data during transmission between physically separate parts of the TOE.</rationale>
+        	<addressed-by>FPT_ITT.1 (implementation-dependent)</addressed-by><rationale>Requires that the TSF protect data transmitted between different parts of the TOE.</rationale>
         	<addressed-by>FCS_CKM.1 (selection-based)</addressed-by><rationale>Specifies allowable algorithms for generation of asymmetric keys.</rationale>
         	<addressed-by>FCS_CKM.2 (selection-based)</addressed-by><rationale>Specifies allowable algorithms for key establishment.</rationale>
         	<addressed-by>FCS_COP.1/Hash (selection-based)</addressed-by><rationale>Defines permissible cryptographic hash algorithms and sizes.</rationale>
@@ -786,10 +788,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<addressed-by>FCS_RBG.2 (selection-based)</addressed-by><rationale>Allows the DRBG to be seeded by an external source.</rationale>
 			<addressed-by>FCS_RBG.3 (selection-based)</addressed-by><rationale>Allows the DRBG to be seeded by a single internal source.</rationale>
 			<addressed-by>FCS_RBG.4 (selection-based)</addressed-by><rationale>Allows the DRBG to be seeded by multiple internal sources.</rationale>
-			<addressed-by>FCS_RBG.5 (selection-based)</addressed-by><rationale>Allows the DRBG to combine noise from multiple sources.</rationale>
-			<addressed-by>FDP_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect user data during transmission between physically separate parts of the TOE.</rationale>
-			<addressed-by>FIA_PSK_EXT.1 (selection-based)</addressed-by><rationale>Defines requirements for pre-shared keys used by the TSF.</rationale>
-			<addressed-by>FPT_ITT.1 (selection-based)</addressed-by><rationale>Requires that the TSF protect data transmitted between different parts of the TOE.</rationale>
+			<addressed-by>FCS_RBG.5 (selection-based)</addressed-by><rationale>Allows the DRBG to combine noise from multiple sources.</rationale>			
+			<addressed-by>FIA_PSK_EXT.1 (selection-based)</addressed-by><rationale>Defines requirements for pre-shared keys used by the TSF.</rationale>			
 			<addressed-by>FPT_SKY_EXT.2 (selection-based)</addressed-by><rationale>Requires that key shares be accessible only by privileged users.</rationale>
 			<addressed-by>FTP_ITC.1 (selection-based)</addressed-by><rationale>Requires secure communications between the TOE and external IT entities.</rationale>
         </threat>
@@ -9116,8 +9116,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- Formally FMT_MOF.1(4) -->
 	<!--               -->     
         <f-component cc-id="fmt_mof.1" iteration="CO" name="Management of Security Functions
-        	Behavior (Admin/Officer Functions)" status="sel-based">
-        	<depends on-sel="admin-audit-caos"/>
+        	Behavior (Admin/Officer Functions)">        	
 		<f-element>	     
 			<title>
 				The
@@ -9143,9 +9142,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>CA operations staff</selectable>
 					</selectables>.
 			</title>
-			<note role="application">
-				This requirement is dependent on "administrators, auditor, or CA operations staff" being
-				selected in FMT_SMR.2.1.
+			<note role="application">				
 				It is acceptable to have the auditor participate in archive and recovery of the key
 				as one of the parties in a two-party procedure; in the current key archive
 				requirements, any participant (including the auditor) only gains access to key
@@ -9171,8 +9168,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!-- Formally FMT_MOF.1(2) -->
 	<!--               -->     
      	<f-component cc-id="fmt_mof.1" iteration="RA" name="Management of Security Functions Behavior
-     		(CA/RA Functions)" status="sel-based">
-     		<depends on-sel="RA-authorgrep-noother"/>
+     		(CA/RA Functions)">
 		<f-element>	     
 			<title>
 				The
@@ -9197,10 +9193,6 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						<selectable>RA staff</selectable>
 				</selectables>.
 			</title>
-			<note role="Application">
-				This requirement is dependent on "CA operations staff" or "RA staff" being
-				selected in FMT_SMR.2.1.
-			</note>
 			<aactivity>
 				<TSS/>
 				<Guidance/>
@@ -9373,11 +9365,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						<selectable>no other component</selectable>
 					</selectables>
 				</refinement> shall maintain the roles: administrators, auditor, CA operations staff, and
-				<selectables>					
-					<selectable id="RA-authorgrep-noother">selectable>RA staff <selectables>
+				<selectables>
+					<selectable>RA staff</selectable>
 					<selectable>authorized organizational representative</selectable>
 					<selectable>no other roles</selectable>
-					</selectables>						
+				</selectables>								
 			</title>
 		</f-element>
 		<f-element>
@@ -9406,14 +9398,10 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						of the other roles in FMT_SMR.2.1</h:li></h:i>]
 				</h:ul> are satisfied.
 			</title>
-			<note role="application">
-				If "administrator," "auditor," or "CA operations staff" are selected, the ST must claim
-				FMT_MOF.1/CO and select the same choice in that requirements last selection.
-				If "CA operations staff" or "RA staff" are selected, the ST must claim FMT_MOF.1/RA and select
-				the same choice in that requirements last selection.				
+			<note role="application">								
 				This document specifies five roles: Administrator, Auditor, CA Operations Staff,
 				Registration Authority, and Authorized Organizational Representative. However,
-				the TOE is not required to maintain all six roles. 
+				the TOE is not required to maintain all five roles. 
 			</note>
 			<aactivity>
 				<TSS>
