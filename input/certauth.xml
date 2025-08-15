@@ -9117,7 +9117,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
         <f-component cc-id="fmt_mof.1" iteration="CO" name="Management of Security Functions
         	Behavior (Admin/Officer Functions)" status="sel-based">
-        	<depends on-sel="fmt-smr-2e1"/>
+        	<depends on-sel="admin-audit-caos"/>
 		<f-element>	     
 			<title>
 				The
@@ -9144,7 +9144,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					</selectables>.
 			</title>
 			<note role="application">
-				This requirement is dependent on "administrators," "auditor," or "CA operations staff" being
+				This requirement is dependent on "administrators, auditor, or CA operations staff" being
 				selected in FMT_SMR.2.1.
 				It is acceptable to have the auditor participate in archive and recovery of the key
 				as one of the parties in a two-party procedure; in the current key archive
@@ -9172,7 +9172,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--               -->     
      	<f-component cc-id="fmt_mof.1" iteration="RA" name="Management of Security Functions Behavior
      		(CA/RA Functions)" status="sel-based">
-     		<depends on-sel="fmt-smr-2e1"/>
+     		<depends on-sel="RA-authorgrep-noother"/>
 		<f-element>	     
 			<title>
 				The
@@ -9372,18 +9372,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						<selectable>operational environment</selectable>
 						<selectable>no other component</selectable>
 					</selectables>
-				</refinement> shall maintain the roles: [<h:br/>
-				<h:ul>
-					<h:li><h:i>administrator</h:i></h:li>
-					<h:li><h:i>auditor</h:i></h:li>
-					<h:li><h:i>CA operations staff</h:i></h:li>
-					<h:li><selectables>
-						<selectable>RA staff</selectable>
-						<selectable>authorized organizational representative</selectable>
-						<selectable>no other roles</selectable>
-						</selectables>
-					</h:li>
-				</h:ul>
+				</refinement> shall maintain the roles: administrators, auditor, CA operations staff, and
+				<selectables>					
+					<selectable id="RA-authorgrep-noother">selectable>RA staff <selectables>
+					<selectable>authorized organizational representative</selectable>
+					<selectable>no other roles</selectable>
+					</selectables>						
 			</title>
 		</f-element>
 		<f-element>
