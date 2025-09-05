@@ -1,3 +1,4 @@
 * https://commoncriteria.github.io/certauth/master/certauth-release-linkable.html[certauth-release-linkable.html]
 * https://commoncriteria.github.io/certauth/master/certauth-release.html[certauth-release.html]
 * https://commoncriteria.github.io/certauth/master/certauth.html[certauth.html]
+* https://commoncriteria.github.io/certauth/master/diff-pre-pub-initial.html[diff-pre-pub-initial.html]
