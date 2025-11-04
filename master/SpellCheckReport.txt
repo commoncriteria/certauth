@@ -1,3 +1,5 @@
+output/certauth-release-linkable.html: 10C
+output/certauth-release-linkable.html: 11C
 output/certauth-release-linkable.html: 1x
 output/certauth-release-linkable.html: 362r6
 output/certauth-release-linkable.html: 38A
@@ -13,7 +15,9 @@ output/certauth-release-linkable.html: 56A
 output/certauth-release-linkable.html: 5C
 output/certauth-release-linkable.html: 6C
 output/certauth-release-linkable.html: 7C
+output/certauth-release-linkable.html: 8C
 output/certauth-release-linkable.html: 90A
+output/certauth-release-linkable.html: 9C
 output/certauth-release-linkable.html: AAD
 output/certauth-release-linkable.html: AORs
 output/certauth-release-linkable.html: Adleman
@@ -72,6 +76,7 @@ output/certauth-release-linkable.html: cA
 output/certauth-release-linkable.html: certificatePolicy
 output/certauth-release-linkable.html: certificationRequestInfo
 output/certauth-release-linkable.html: deallocation
+output/certauth-release-linkable.html: enquiries
 output/certauth-release-linkable.html: forgeable
 output/certauth-release-linkable.html: hashAlgId
 output/certauth-release-linkable.html: hashAlgorithm
@@ -110,6 +115,8 @@ output/certauth-release-linkable.html: unobscured
 output/certauth-release-linkable.html: v1
 output/certauth-release-linkable.html: witnessAlgID
 output/certauth-release.html: 0’s
+output/certauth-release.html: 10C
+output/certauth-release.html: 11C
 output/certauth-release.html: 1x
 output/certauth-release.html: 1’s
 output/certauth-release.html: 362r6
@@ -126,7 +133,9 @@ output/certauth-release.html: 56A
 output/certauth-release.html: 5C
 output/certauth-release.html: 6C
 output/certauth-release.html: 7C
+output/certauth-release.html: 8C
 output/certauth-release.html: 90A
+output/certauth-release.html: 9C
 output/certauth-release.html: AAD
 output/certauth-release.html: AORs
 output/certauth-release.html: Adleman
@@ -186,6 +195,7 @@ output/certauth-release.html: cA
 output/certauth-release.html: certificatePolicy
 output/certauth-release.html: certificationRequestInfo
 output/certauth-release.html: deallocation
+output/certauth-release.html: enquiries
 output/certauth-release.html: evaluator’s
 output/certauth-release.html: extended’
 output/certauth-release.html: forgeable
