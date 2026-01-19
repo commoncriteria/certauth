@@ -5789,15 +5789,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <f-component cc-id="fcs_rbg.3" name="Random Bit Generation (Internal Seeding - Single Source)" status="sel-based">
           <depends on="internal-seed"/>
           <f-element id="fel-rbg-seed-int-sing">
-            <title>
-              The TSF shall be able to seed the RBG using a 
-			  <selectables>
-				<selectable>TSF software-based noise source</selectable>
-				<selectable>TSF hardware-based noise source</selectable>
-			  </selectables>
-			  <assignable>name of noise source</assignable>
-                with a minimum of <assignable>number of bits</assignable> bits of min-entropy.
-            </title>        
+          	<title>
+          		The TSF shall be able to seed the RBG using a <selectables onlyone="yes">
+          			<selectable>TSF software-based noise source</selectable>
+          			<selectable>TSF hardware-based noise source</selectable></selectables>  <assignable>name of noise source</assignable>
+          		with a minimum of <assignable>number of bits</assignable> bits of min-entropy.
+          	</title>        
             <note role="application">
             	This requirement is dependent on "TSF noise source" being selected in
             	FCS_RBG.1.2.<h:br/><h:br/>
