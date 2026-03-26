@@ -1031,7 +1031,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <!--                             -->
 	<!-- 5.1.2 Class: FAU: Security Audit  -->
         <!--                             -->
-      <section title="Class: Security Audit (FAU)" id="fau">
+      <section title="Class FAU: Security Audit" id="fau">
 	       
 	 <!--               -->     
  	 <!-- FAU_ADP_EXT.1 -->
@@ -2098,7 +2098,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <!--                             -->
 	<!-- Class: FCO: Communications  -->
         <!--                             -->
-      <section title="Class: Communications (FCO)" id="fco">
+      <section title="Class FCO: Communications" id="fco">
 
 	<!--               -->     
         <!-- 5.1.3 FCO_NRO_EXT.2 -->
@@ -2370,7 +2370,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <!--                             -->
 	<!-- Class: FCS: Cryptographic Support  -->
         <!--                             -->
-      <section title="Class: Cryptographic Support (FCS)" id="fcs">
+      <section title="Class FCS: Cryptographic Support" id="fcs">
 
 	      
 	<!--               -->     
@@ -5971,7 +5971,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
         <!--                             -->
 	<!-- Class: FDP: User Data Protection  -->
         <!--                             -->
-      <section title="Class: User Data Protection (FDP)" id="fdp">
+      <section title="Class FDP: User Data Protection" id="fdp">
 
 	<!--               -->     
         <!-- FDP_CER_EXT.1 -->
@@ -7018,7 +7018,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--                             -->
 	<!-- Class: FIA: Identification and Authentication  -->
         <!--                             -->
-      	<section title="Class: Identification and Authentication (FIA)" id="fia">
+      	<section title="Class FIA: Identification and Authentication" id="fia">
 
 	<!--               -->     
         <!-- FIA_AFL.1 -->
@@ -8927,7 +8927,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
  	<!--                             -->
 	<!-- Class: FMT: Security Management  -->
         <!--                             -->
-     <section title="Class: Security Management (FMT)" id="fmt">	
+     <section title="Class FMT: Security Management" id="fmt">	
 		FMT_MOF.1 has been broken up into several iterations to define the specific
 		management functions that are available to each of the roles defined by
 		FMT_SMR.2. The FMT_MOF.1 iterations restrict some functions to a particular
@@ -9453,7 +9453,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
  	<!--                             -->
 	<!-- Class: FPT: Protection of the TSF  -->
         <!--                             -->
-     <section title="Class: Protection of the TSF (FPT)" id="fpt">
+     <section title="Class FPT: Protection of the TSF" id="fpt">
 
 	<!--               -->     
         <!-- FPT_APW_EXT.1 -->
@@ -10749,7 +10749,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
  	<!--                             -->
 	<!-- Class: FTA: TOE Access  -->
         <!--                             -->
-     <section title="Class: TOE Access (FTA)" id="fta">
+     <section title="Class FTA: TOE Access" id="fta">
 
 	<!--               -->     
     <!-- FTA_SSL.3 -->
@@ -10987,7 +10987,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	<!--                             -->
 	<!-- Class: FTP: Trusted Path/Channels  -->
         <!--                             -->
-     <section title="Class: Trusted Path/Channels (FTP)" id="ftp">
+     <section title="Class FTP: Trusted Path/Channels" id="ftp">
 
 	<!--               -->     
     	<!-- FTP_ITC.1 -->	 
