@@ -1366,18 +1366,15 @@ The following sections list Common Criteria and technology terms used in this do
 		There is no guidance associated with this evaluation activity.
                 </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 			The evaluator shall perform the following tests:
-			<span class="testlist-"><ul>
-				<li class="test-"><a id="_t_1" class="defined" href="#_t_1">Test FAU_GCR_EXT.1:1</a>:
+			<span class="testlist-"><ul><li class="test-"><a id="_t_1" class="defined" href="#_t_1">Test FAU_GCR_EXT.1:1</a>:
       The evaluator shall generate a certificate to be stored in the
 				repository. The evaluator shall confirm that the certificate is stored in
 				the certificate repository.
-				</li>
-				<li class="test-"><a id="_t_2" class="defined" href="#_t_2">Test FAU_GCR_EXT.1:2</a>:
+				</li><li class="test-"><a id="_t_2" class="defined" href="#_t_2">Test FAU_GCR_EXT.1:2</a>:
       (conditional) If “CRLs” are selected in the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>, the evaluator
 				shall generate a <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> and verify that it is stored in the certificate
 				repository.
-				</li>
-			</ul></span>
+				</li></ul></span>
 		 </div></div></div></div></div>
 		
 	     
@@ -1641,8 +1638,7 @@ The following sections list Common Criteria and technology terms used in this do
       					the particular trusted channel mechanism.<br/><br/>
       					The evaluator shall perform the following tests if the last selection in the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is
       					made:
-      					<span class="testlist-"><ul>
-      						<li class="test-"><a id="_t_5" class="defined" href="#_t_5">Test FAU_STG.1:1</a>:
+      					<span class="testlist-"><ul><li class="test-"><a id="_t_5" class="defined" href="#_t_5">Test FAU_STG.1:1</a>:
       
       							[conditional] The evaluator shall establish a connection
       							between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and the audit server according to the configuration
@@ -1654,8 +1650,7 @@ The following sections list Common Criteria and technology terms used in this do
       							successfully received by the audit server. The evaluator shall record the
       							particular software (name, version) used on the audit server during
       							testing.
-      						</li>
-      						<li class="test-"><a id="_t_6" class="defined" href="#_t_6">Test FAU_STG.1:2</a>:
+      						</li><li class="test-"><a id="_t_6" class="defined" href="#_t_6">Test FAU_STG.1:2</a>:
       
       							[conditional] The evaluator shall examine the audit data
       							transferred to the external audit server in Test 1 and compare it to the
@@ -1663,8 +1658,7 @@ The following sections list Common Criteria and technology terms used in this do
       							records match. If there and any differences, the evaluator shall
       							examine the operational guidance to verify that it explains any
       							discrepancies between locally stored and transmitted audit data. 
-      						</li>
-      					</ul></span>
+      						</li></ul></span>
       					<i>Equivalency</i><br/><br/>
       					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
       					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -1745,21 +1739,18 @@ The following sections list Common Criteria and technology terms used in this do
 				repository is full, then this test will be run for those types of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> as well. 
 				Test 2 is only executed in cases where an external repository is supported, and 
 				tests the ability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to detect when the connection to the repository becomes unavailable.
-				<span class="testlist-"><ul>
-					<li class="test-"><a id="_t_11" class="defined" href="#_t_11">Test FAU_STG.5:1</a>:
+				<span class="testlist-"><ul><li class="test-"><a id="_t_11" class="defined" href="#_t_11">Test FAU_STG.5:1</a>:
       
 					    (conditional) The evaluator shall cause the audit trail to become full, verify
 						that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> behaves as documented in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>, and verify that a
 						privileged user can perform the documented remedial steps.
-					</li>
-					<li class="test-"><a id="_t_12" class="defined" href="#_t_12">Test FAU_STG.5:2</a>:
+					</li><li class="test-"><a id="_t_12" class="defined" href="#_t_12">Test FAU_STG.5:2</a>:
        (conditional) If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses a remote repository in the
 						operational environment to store audit data, the evaluator shall cause
 						the audit trail to become unavailable, verify that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> behaves as
 						documented in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>, and verify that a privileged user can perform
 						the documented remedial steps.
-					</li>
-				</ul></span>				
+					</li></ul></span>				
 				<i>Equivalency</i><br/><br/>
 				Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 				<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -1885,49 +1876,40 @@ The following sections list Common Criteria and technology terms used in this do
 				selected and for each request supported:<br/><br/>
 				<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is online (requires establishment of a client capable of generating
 				certificate requests and has a valid <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> connection to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>):
-                                <span class="testlist-"><ul>
-                                    <li class="test-"><a id="_t_13" class="defined" href="#_t_13">Test FCO_NRO_EXT.2:1</a>:
+                                <span class="testlist-"><ul><li class="test-"><a id="_t_13" class="defined" href="#_t_13">Test FCO_NRO_EXT.2:1</a>:
       For each supported request, the evaluator shall generate and
 					submit a properly authenticated request to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and verify the
 					responses are signed.
-                                    </li>
-                                    <li class="test-"><a id="_t_14" class="defined" href="#_t_14">Test FCO_NRO_EXT.2:2</a>:
+                                    </li><li class="test-"><a id="_t_14" class="defined" href="#_t_14">Test FCO_NRO_EXT.2:2</a>:
       For each supported request, the evaluator shall generate
 					requests that are unsigned, submit to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
 					rejects the request.
-                                    </li>
-                                    <li class="test-"><a id="_t_15" class="defined" href="#_t_15">Test FCO_NRO_EXT.2:3</a>:
+                                    </li><li class="test-"><a id="_t_15" class="defined" href="#_t_15">Test FCO_NRO_EXT.2:3</a>:
       For each supported request, the evaluator shall generate
 					requests that have an invalid signature based on the <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr>, submit to the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> rejects the request.
-                                    </li>
-                                    <li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test FCO_NRO_EXT.2:4</a>:
+                                    </li><li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test FCO_NRO_EXT.2:4</a>:
       For each supported request, the evaluator shall generate
 					requests that are not signed by authorized entities, submit to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>,
 					and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> rejects the request.
-                                    </li>
-                                    <li class="test-"><a id="_t_17" class="defined" href="#_t_17">Test FCO_NRO_EXT.2:5</a>:
+                                    </li><li class="test-"><a id="_t_17" class="defined" href="#_t_17">Test FCO_NRO_EXT.2:5</a>:
       For each supported request using password-based
 					authentication, the evaluator shall use invalid passwords and verify
 					that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> rejects the requests.
-                                    </li>
-                                    <li class="test-"><a id="_t_18" class="defined" href="#_t_18">Test FCO_NRO_EXT.2:6</a>:
+                                    </li><li class="test-"><a id="_t_18" class="defined" href="#_t_18">Test FCO_NRO_EXT.2:6</a>:
       For each proof of possession mode supported, the evaluator
 					shall generate an otherwise valid request but modify the proof of
 					possession value. The evaluator shall submit the modified request and
 					verify that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> rejects the request.
-                                    </li>
-                                    <li class="test-"><a id="_t_19" class="defined" href="#_t_19">Test FCO_NRO_EXT.2:7</a>:
+                                    </li><li class="test-"><a id="_t_19" class="defined" href="#_t_19">Test FCO_NRO_EXT.2:7</a>:
       (Transport Test) For each supported request message, the evaluator shall send
 					an otherwise valid request using <abbr class="dyn-abbr"><a href="#abbr_HTTP">HTTP</a></abbr> rather than <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> and shall
 					verify the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> rejects the request.
-                                    </li>
-                                    <li class="test-"><a id="_t_20" class="defined" href="#_t_20">Test FCO_NRO_EXT.2:8</a>:
+                                    </li><li class="test-"><a id="_t_20" class="defined" href="#_t_20">Test FCO_NRO_EXT.2:8</a>:
       (Offline Test): With the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in offline mode, the evaluator shall log into the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> locally as the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> operations staff role and perform tests 1-4
 					above.
-                                    </li>
-                                </ul></span>
+                                    </li></ul></span>
 				<i>Equivalency</i><br/><br/>
 				Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 				<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -2423,21 +2405,18 @@ The following sections list Common Criteria and technology terms used in this do
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following tests for each supported certificate
 					format:
-					<span class="testlist-"><ul>
-					<li class="test-"><a id="_t_57" class="defined" href="#_t_57">Test FDP_CER_EXT.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_57" class="defined" href="#_t_57">Test FDP_CER_EXT.1:1</a>:
       
 						The evaluator shall configure a certificate profile using the
 						available guidance, request a certificate using the profile, and then
 						examine the certificate contents to ensure it matches the configured
 						certificate profile.
-					</li>
-					<li class="test-"><a id="_t_58" class="defined" href="#_t_58">Test FDP_CER_EXT.1:2</a>:
+					</li><li class="test-"><a id="_t_58" class="defined" href="#_t_58">Test FDP_CER_EXT.1:2</a>:
       
 						The evaluator shall specifically examine the certificate
 						generated in Test 1 to ensure that it satisfies all field constraints in
 						<a href="#FDP_CER_EXT.1.2">FDP_CER_EXT.1.2</a>.
-					</li>
-					<li class="test-"><a id="_t_59" class="defined" href="#_t_59">Test FDP_CER_EXT.1:3</a>:
+					</li><li class="test-"><a id="_t_59" class="defined" href="#_t_59">Test FDP_CER_EXT.1:3</a>:
       
 						The evaluator shall test the fields “d,” “e,” “f,” and “i” in
 						<a href="#FDP_CER_EXT.1.2">FDP_CER_EXT.1.2</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
@@ -2469,8 +2448,7 @@ The following sections list Common Criteria and technology terms used in this do
 						(but no specified EKU) and observe the request succeeds. The 
 						evaluator shall send the EKU to a profile with an inconsistent KeyUsage
 						(but no specified EKU) and observe the request is rejected.<br/><br/>
-					</li>
-					<li class="test-"><a id="_t_60" class="defined" href="#_t_60">Test FDP_CER_EXT.1:4</a>:
+					</li><li class="test-"><a id="_t_60" class="defined" href="#_t_60">Test FDP_CER_EXT.1:4</a>:
       
 						For each extendedKeyUsage value defined in section 4.2.1.12
 						of <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5280, the evaluator shall attempt to configure a certificate
@@ -2479,8 +2457,7 @@ The following sections list Common Criteria and technology terms used in this do
 						test succeeds. If the creation of such a profile is allowed, the evaluator
 						shall submit a certificate request using the profile, and show that the
 						<abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> does not issue the certificate.<br/><br/>
-					</li>
-					<li class="test-"><a id="_t_61" class="defined" href="#_t_61">Test FDP_CER_EXT.1:5</a>:
+					</li><li class="test-"><a id="_t_61" class="defined" href="#_t_61">Test FDP_CER_EXT.1:5</a>:
       
 						The evaluator shall configure a certificate profile and create a
 						certificate request that violates the validity period setting in the
@@ -2488,8 +2465,7 @@ The following sections list Common Criteria and technology terms used in this do
 						combination of notBefore and notAfter is beyond the validity period
 						setting). The evaluator shall submit the certificate request using the
 						profile and verify that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> rejects the request.<br/><br/>
-					</li>
-					</ul></span>
+					</li></ul></span>
 					<i>Equivalency</i><br/><br/>		
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -2522,15 +2498,13 @@ The following sections list Common Criteria and technology terms used in this do
 					vice versa via the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s interface.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following test:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_62" class="defined" href="#_t_62">Test FDP_CER_EXT.2:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_62" class="defined" href="#_t_62">Test FDP_CER_EXT.2:1</a>:
       
 							The evaluator shall configure a certificate profile using the available
 							guidance and request a certificate using the profile as a subscriber. The
 							evaluator shall then assume the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Operations role and verify that a linkage
 							between submitted certificate requests and issued certificates is provided.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					
 					<i>Equivalency</i><br/><br/>		
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
@@ -2566,8 +2540,21 @@ The following sections list Common Criteria and technology terms used in this do
 					function and the steps needed to perform an approval.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following tests:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_63" class="defined" href="#_t_63">Test FDP_CER_EXT.3:1</a>:
+					<span class="testlist-">
+						If ‘rules’ is selected in <a href="#FDP_CER_EXT.3.1">FDP_CER_EXT.3.1</a> to allow automatic approval, the
+						evaluator shall follow operational guidance to configure the certificate
+						issuance approval function to follow a rule for automatic approval, and
+						perform the following tests: <span class="testlist-"><ul><li class="test-"><a id="_t_64" class="defined" href="#_t_64">Test FDP_CER_EXT.3:1</a>:
+      
+							The evaluator shall construct one or more certificate requests that
+							meet the rules for automatic approval, and shall verify that each requested
+							certificate was issued.
+						</li><li class="test-"><a id="_t_65" class="defined" href="#_t_65">Test FDP_CER_EXT.3:2</a>:
+      
+							The evaluator shall attempt to construct one or more certificate
+							requests that violate the rules for automatic approval, and shall verify that
+							the requested certificates are not issued.
+						</li></ul></span><ul><li class="test-"><a id="_t_63" class="defined" href="#_t_63">Test FDP_CER_EXT.3:3</a>:
       
 							The evaluator shall configure the certificate issuance approval
 							function in accordance with the operational guidance. The evaluator shall
@@ -2577,25 +2564,7 @@ The following sections list Common Criteria and technology terms used in this do
 							the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> operations staff role or the <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> staff role and approve the certificate
 							request and issue the certificate. The evaluator shall verify that a certificate
 							was issued.
-						</li>
-						If ‘rules’ is selected in <a href="#FDP_CER_EXT.3.1">FDP_CER_EXT.3.1</a> to allow automatic approval, the
-						evaluator shall follow operational guidance to configure the certificate
-						issuance approval function to follow a rule for automatic approval, and
-						perform the following tests: <span class="testlist-"><ul>
-						<li class="test-"><a id="_t_64" class="defined" href="#_t_64">Test FDP_CER_EXT.3:2</a>:
-      
-							The evaluator shall construct one or more certificate requests that
-							meet the rules for automatic approval, and shall verify that each requested
-							certificate was issued.
-						</li>
-						<li class="test-"><a id="_t_65" class="defined" href="#_t_65">Test FDP_CER_EXT.3:3</a>:
-      
-							The evaluator shall attempt to construct one or more certificate
-							requests that violate the rules for automatic approval, and shall verify that
-							the requested certificates are not issued.
-						</li>
-						</ul></span>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>		
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -2679,8 +2648,7 @@ The following sections list Common Criteria and technology terms used in this do
 			</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 				Based on the selection, the evaluator shall perform the applicable tests
 				associated with the requirements in Table 5:
-				<span class="testlist-"><ul>
-					<li class="test-"><a id="_t_70" class="defined" href="#_t_70">Test FDP_CSI_EXT.1:1</a>:
+				<span class="testlist-"><ul><li class="test-"><a id="_t_70" class="defined" href="#_t_70">Test FDP_CSI_EXT.1:1</a>:
       
 						For certificate status information, the evaluator shall configure
 						the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to provide certificate status information according to each
@@ -2690,24 +2658,21 @@ The following sections list Common Criteria and technology terms used in this do
 						status for each format. Each certificate status response shall be
 						examined to ensure that it conforms to the format as described in the
 						<abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>.
-					</li>
-					<li class="test-"><a id="_t_71" class="defined" href="#_t_71">Test FDP_CSI_EXT.1:2</a>:
+					</li><li class="test-"><a id="_t_71" class="defined" href="#_t_71">Test FDP_CSI_EXT.1:2</a>:
       
 						For each selected certificate status format, the evaluator shall
 						issue a valid certificate from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. The evaluator shall then cause
 						the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to issue certificate status information. The evaluator shall
 						check the certificate status information to verify that it reflects that the
 						certificate is valid.
-					</li>
-					<li class="test-"><a id="_t_72" class="defined" href="#_t_72">Test FDP_CSI_EXT.1:3</a>:
+					</li><li class="test-"><a id="_t_72" class="defined" href="#_t_72">Test FDP_CSI_EXT.1:3</a>:
       
 						For each selected certificate status format, the evaluator shall
 						revoke a valid certificate from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. The evaluator shall then cause
 						the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to issue certificate status information. The evaluator shall
 						check the certificate status information to verify that it reflects that the
 						certificate is revoked.
-					</li>
-					<li class="test-"><a id="_t_73" class="defined" href="#_t_73">Test FDP_CSI_EXT.1:4</a>:
+					</li><li class="test-"><a id="_t_73" class="defined" href="#_t_73">Test FDP_CSI_EXT.1:4</a>:
       
 						The evaluator shall configure the certificate status change
 						approval function in accordance with the operational guidance. The
@@ -2718,8 +2683,7 @@ The following sections list Common Criteria and technology terms used in this do
 						request. The evaluator shall then cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to issue certificate
 						status information. The evaluator shall check the certificate status
 						information to verify that it reflects the state of the certificate.
-					</li>
-				</ul></span>
+					</li></ul></span>
 				<i>Equivalency</i><br/><br/>		
 				Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 				<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -3034,8 +2998,7 @@ The following sections list Common Criteria and technology terms used in this do
 					privileged users access the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (local and remote), as well as for each type of
 					credential supported by the access method in accordance with the
 					authentication mechanisms listed in <a href="#FIA_UAU_EXT.1">FIA_UAU_EXT.1</a>:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_116" class="defined" href="#_t_116">Test FIA_UIA_EXT.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_116" class="defined" href="#_t_116">Test FIA_UIA_EXT.1:1</a>:
       
 							The evaluator shall use the operational guidance to
 							configure the appropriate credential supported for the access
@@ -3043,8 +3006,7 @@ The following sections list Common Criteria and technology terms used in this do
 							show that providing correct I&amp;A information results in the ability
 							to access the system, while providing incorrect information results
 							in denial of access.
-						</li>
-						<li class="test-"><a id="_t_117" class="defined" href="#_t_117">Test FIA_UIA_EXT.1:2</a>:
+						</li><li class="test-"><a id="_t_117" class="defined" href="#_t_117">Test FIA_UIA_EXT.1:2</a>:
       
 							The evaluator shall configure the non-authenticated
 							services allowed according to the operational guidance, and then
@@ -3054,15 +3016,13 @@ The following sections list Common Criteria and technology terms used in this do
 							specified in the requirement. The evaluator shall also verify that
 							non-authenticated remote entities cannot access the services
 							listed in <a href="#FIA_UIA_EXT.1.2">FIA_UIA_EXT.1.2</a> that require I&amp;A.
-						</li>
-						<li class="test-"><a id="_t_118" class="defined" href="#_t_118">Test FIA_UIA_EXT.1:3</a>:
+						</li><li class="test-"><a id="_t_118" class="defined" href="#_t_118">Test FIA_UIA_EXT.1:3</a>:
       
 							For local access, the evaluator shall exercise the services in
 							accordance with <a href="#FIA_UIA_EXT.1.1">FIA_UIA_EXT.1.1</a> available to a local privileged
 							user prior to I&amp;A, and make sure this list is consistent with the
 							requirement.
-						</li>
-						<li class="test-"><a id="_t_119" class="defined" href="#_t_119">Test FIA_UIA_EXT.1:4</a>:
+						</li><li class="test-"><a id="_t_119" class="defined" href="#_t_119">Test FIA_UIA_EXT.1:4</a>:
       
 							The evaluator shall configure the constraints on subscriber
 							self-service requests. The evaluator shall assume a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> operations
@@ -3070,8 +3030,7 @@ The following sections list Common Criteria and technology terms used in this do
 							subscriber. For each configured service, the evaluator shall request
 							authorized activities using the issued certificates and verify that
 							they can be performed.
-						</li>
-						<li class="test-"><a id="_t_120" class="defined" href="#_t_120">Test FIA_UIA_EXT.1:5</a>:
+						</li><li class="test-"><a id="_t_120" class="defined" href="#_t_120">Test FIA_UIA_EXT.1:5</a>:
       
 							The evaluator shall configure the constraints on subscriber
 							self-service requests. The evaluator shall assume a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> operations
@@ -3081,8 +3040,7 @@ The following sections list Common Criteria and technology terms used in this do
 							other subscriber’s information and shall verify that the request is
 							denied. The evaluator shall request unauthorized activities using
 							one issued certificate and shall verify that the request is denied.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>		
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -3185,19 +3143,16 @@ The following sections list Common Criteria and technology terms used in this do
         version 
         1.0</a>. The tests for the extendedKeyUsage rules are performed in
 					conjunction with the uses that require those rules.<br/><br/>
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_121" class="defined" href="#_t_121">Test FIA_X509_EXT.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_121" class="defined" href="#_t_121">Test FIA_X509_EXT.1:1</a>:
       The evaluator shall demonstrate that validating a certificate
 							without a valid certification path results in the function (application
 							validation, trusted channel setup, or trusted software update) failing.
 							The evaluator shall then load a certificate or certificates needed to
 							validate the certificate to be used in the function, and demonstrate
 							that the function succeeds. The evaluator then shall delete one of the
-							certificates, and show that the function fails. </li>
-						<li class="test-"><a id="_t_122" class="defined" href="#_t_122">Test FIA_X509_EXT.1:2</a>:
+							certificates, and show that the function fails. </li><li class="test-"><a id="_t_122" class="defined" href="#_t_122">Test FIA_X509_EXT.1:2</a>:
       The evaluator shall demonstrate that validating an expired
-							certificate anywhere in a certificate path results in the function failing.</li>
-						<li class="test-"><a id="_t_123" class="defined" href="#_t_123">Test FIA_X509_EXT.1:3</a>:
+							certificate anywhere in a certificate path results in the function failing.</li><li class="test-"><a id="_t_123" class="defined" href="#_t_123">Test FIA_X509_EXT.1:3</a>:
       The evaluator shall test that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can properly handle
 							revoked certificates –conditional on whether <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> is selected;
 							if both are selected, and then a test is performed for each method. The 
@@ -3206,25 +3161,20 @@ The following sections list Common Criteria and technology terms used in this do
 							evaluator shall ensure that a valid certificate is used, and that the
 							validation function succeeds. The evaluator shall then attempt the test
 							with a certificate that will be revoked (for each method chosen in the
-							selection) and verify that the validation function fails. </li>
-						<li class="test-"><a id="_t_124" class="defined" href="#_t_124">Test FIA_X509_EXT.1:4</a>:
+							selection) and verify that the validation function fails. </li><li class="test-"><a id="_t_124" class="defined" href="#_t_124">Test FIA_X509_EXT.1:4</a>:
       The evaluator shall construct a certificate path, such that the
 							certificate of the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> issuing the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’s certificate does not contain the
-							basicConstraints extension. The validation of the certificate path fails.</li>
-						<li class="test-"><a id="_t_125" class="defined" href="#_t_125">Test FIA_X509_EXT.1:5</a>:
+							basicConstraints extension. The validation of the certificate path fails.</li><li class="test-"><a id="_t_125" class="defined" href="#_t_125">Test FIA_X509_EXT.1:5</a>:
       The evaluator shall construct a certificate path, such that the
 							certificate of the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> issuing the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’s certificate has the cA flag in the
 							basicConstraints extension not set. The validation of the certificate
-							path fails.</li>
-						<li class="test-"><a id="_t_126" class="defined" href="#_t_126">Test FIA_X509_EXT.1:6</a>:
+							path fails.</li><li class="test-"><a id="_t_126" class="defined" href="#_t_126">Test FIA_X509_EXT.1:6</a>:
       The evaluator shall construct a certificate path, such that the
 							certificate of the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> issuing the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’s certificate has the cA flag in the
 							basicConstraints extension set to TRUE. The validation of the certificate
-							path succeeds.</li>
-						<li class="test-"><a id="_t_127" class="defined" href="#_t_127">Test FIA_X509_EXT.1:7</a>:
+							path succeeds.</li><li class="test-"><a id="_t_127" class="defined" href="#_t_127">Test FIA_X509_EXT.1:7</a>:
       The evaluator shall modify a single byte in the certificate and
-							verify that the certificate fails to validate.</li>
-					</ul></span>
+							verify that the certificate fails to validate.</li></ul></span>
 					<i>Equivalency</i><br/><br/>		
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -3309,8 +3259,7 @@ The following sections list Common Criteria and technology terms used in this do
 					instructions on how this configuration action is performed.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following tests:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_128" class="defined" href="#_t_128">Test FIA_X509_EXT.2:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_128" class="defined" href="#_t_128">Test FIA_X509_EXT.2:1</a>:
       
 							For each function listed in <a href="#FIA_X509_EXT.2.1">FIA_X509_EXT.2.1</a> that requires the
 							use of certificates the evaluator shall demonstrate that using a
@@ -3320,8 +3269,7 @@ The following sections list Common Criteria and technology terms used in this do
 							in the function, and demonstrate that the function succeeds. The 
 							evaluator shall then delete one of the certificates, and show that the
 							function fails.
-						</li>
-						<li class="test-"><a id="_t_129" class="defined" href="#_t_129">Test FIA_X509_EXT.2:2</a>:
+						</li><li class="test-"><a id="_t_129" class="defined" href="#_t_129">Test FIA_X509_EXT.2:2</a>:
       
 							The evaluator shall demonstrate the proper function of the certificate 
 							validity check function by using the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to connect to a non-TOE entity
@@ -3333,8 +3281,7 @@ The following sections list Common Criteria and technology terms used in this do
 							with the action selected in <a href="#FIA_X509_EXT.2.2">FIA_X509_EXT.2.2</a>. If the selected action is administrator-
 							configurable, then the evaluator shall follow the operational guidance to determine 
 							that all supported administrator-configurable options behave in their documented manner. 
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>		
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -3752,27 +3699,23 @@ The following sections list Common Criteria and technology terms used in this do
 					and which interfaces are supported.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following tests:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_132" class="defined" href="#_t_132">Test FMT_SMR.2:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_132" class="defined" href="#_t_132">Test FMT_SMR.2:1</a>:
       
 							For each supported role, the evaluator shall assume the role
 							and connect to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> as specified in the guidance documentation. The
 							evaluator shall verify that the role can perform the documented
 							operations.
-						</li>
-						<li class="test-"><a id="_t_133" class="defined" href="#_t_133">Test FMT_SMR.2:2</a>:
+						</li><li class="test-"><a id="_t_133" class="defined" href="#_t_133">Test FMT_SMR.2:2</a>:
       
 							The evaluator shall attempt to assume the auditor role in
 							conjunction with any other role as defined in <a href="#FMT_SMR.2.1">FMT_SMR.2.1</a> and shall
 							verify it is not possible.
-						</li>
-						<li class="test-"><a id="_t_134" class="defined" href="#_t_134">Test FMT_SMR.2:3</a>:
+						</li><li class="test-"><a id="_t_134" class="defined" href="#_t_134">Test FMT_SMR.2:3</a>:
       
 							The evaluator shall attempt to assume the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> operations staff
 							role in conjunction with any other role as defined in <a href="#FMT_SMR.2.1">FMT_SMR.2.1</a> and
 							shall verify it is not possible.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -3837,16 +3780,14 @@ The following sections list Common Criteria and technology terms used in this do
 					administrator.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following test:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_136" class="defined" href="#_t_136">Test FPT_FLS.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_136" class="defined" href="#_t_136">Test FPT_FLS.1:1</a>:
       
 							The evaluator shall attempt to cause each documented failure
 							to occur and shall verify that the actions taken by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> are those
 							specified in <a href="#FPT_FLS.1.1">FPT_FLS.1.1</a>. For those failures that the evaluator cannot
 							cause, the evaluator shall provide a justification to explain why the
 							failure could not be induced. 
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -3895,14 +3836,12 @@ The following sections list Common Criteria and technology terms used in this do
 					necessary to satisfy the requirements in [<abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr>].
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following test:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_139" class="defined" href="#_t_139">Test FPT_KST_EXT.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_139" class="defined" href="#_t_139">Test FPT_KST_EXT.1:1</a>:
       
 							The evaluator shall access the export interface of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and
 							 verify that the interface prevents the export of all keys listed in
 							the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -3942,15 +3881,13 @@ The following sections list Common Criteria and technology terms used in this do
 					unauthorized access to <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> secret and private keys by users or processes.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following test:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_140" class="defined" href="#_t_140">Test FPT_KST_EXT.2:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_140" class="defined" href="#_t_140">Test FPT_KST_EXT.2:1</a>:
       
 							The evaluator shall assume each of the non-administrator
 							roles supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and shall attempt to use the available
 							<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface to access the keys. The evaluator shall verify that
 							these attempts fail.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -4002,8 +3939,7 @@ The following sections list Common Criteria and technology terms used in this do
 					state.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following test:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_144" class="defined" href="#_t_144">Test FPT_RCV.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_144" class="defined" href="#_t_144">Test FPT_RCV.1:1</a>:
       
 							The evaluator shall attempt to cause each documented
 							failure to occur and shall verify that the result of this failure is that
@@ -4011,8 +3947,7 @@ The following sections list Common Criteria and technology terms used in this do
 							that the maintenance mode can be exited and the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> can be
 							restored to a secure state. This testing may be performed in
 							conjunction with <a href="#FPT_FLS.1">FPT_FLS.1</a>.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -4062,15 +3997,13 @@ The following sections list Common Criteria and technology terms used in this do
 					support this requirement.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following test:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_145" class="defined" href="#_t_145">Test FPT_SKP_EXT.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_145" class="defined" href="#_t_145">Test FPT_SKP_EXT.1:1</a>:
       
 							The evaluator shall assume each of the non-administrator
 							roles supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and shall attempt to use the available
 							<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interface to read the keys specified by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. The evaluator
 							shall verify that these attempts fail.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -4131,14 +4064,12 @@ The following sections list Common Criteria and technology terms used in this do
 					any configuration of the <abbr class="dyn-abbr"><a href="#abbr_NTP">NTP</a></abbr> client on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to support this communication.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following tests:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_146" class="defined" href="#_t_146">Test FPT_STM.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_146" class="defined" href="#_t_146">Test FPT_STM.1:1</a>:
       
 							The evaluator shall use the operational guidance to set the
 							time. The evaluator shall then use an available interface to observe
 							that the time was set correctly.
-						</li>
-						<li class="test-"><a id="_t_147" class="defined" href="#_t_147">Test FPT_STM.1:2</a>:
+						</li><li class="test-"><a id="_t_147" class="defined" href="#_t_147">Test FPT_STM.1:2</a>:
       
 							[conditional] If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports the use of an <abbr class="dyn-abbr"><a href="#abbr_NTP">NTP</a></abbr> server,
 							the evaluator shall use the operational guidance to configure the
@@ -4148,8 +4079,7 @@ The following sections list Common Criteria and technology terms used in this do
 							protocols for establishing a connection with the <abbr class="dyn-abbr"><a href="#abbr_NTP">NTP</a></abbr> server, the
 							evaluator shall perform this test using each supported protocol
 							claimed in the operational guidance.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -4252,8 +4182,7 @@ The following sections list Common Criteria and technology terms used in this do
 					specified in <a href="#AGD_OPE.1">AGD_OPE.1</a>.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following tests:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_151" class="defined" href="#_t_151">Test FPT_TUD_EXT.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_151" class="defined" href="#_t_151">Test FPT_TUD_EXT.1:1</a>:
       
 							The evaluator shall perform the version verification activity
 							to determine the current version of the product. The evaluator
@@ -4264,21 +4193,18 @@ The following sections list Common Criteria and technology terms used in this do
 							as expected. After the update, the evaluator shall perform the
 							version verification activity again to verify the version correctly
 							corresponds to that of the update.
-						</li>
-						<li class="test-"><a id="_t_152" class="defined" href="#_t_152">Test FPT_TUD_EXT.1:2</a>:
+						</li><li class="test-"><a id="_t_152" class="defined" href="#_t_152">Test FPT_TUD_EXT.1:2</a>:
       
 							The evaluator shall obtain or produce an illegitimate
 							update, and shall attempt to install it on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. The evaluator
 							shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> rejects the update.
-						</li>
-						<li class="test-"><a id="_t_153" class="defined" href="#_t_153">Test FPT_TUD_EXT.1:3</a>:
+						</li><li class="test-"><a id="_t_153" class="defined" href="#_t_153">Test FPT_TUD_EXT.1:3</a>:
       
 							The evaluator shall obtain or produce an update with an
 							invalid signature, and shall attempt to install it on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. The
 							evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> rejects the update and performs
 							any other actions specified in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>.
-						</li>
-						<li class="test-"><a id="_t_154" class="defined" href="#_t_154">Test FPT_TUD_EXT.1:4</a>:
+						</li><li class="test-"><a id="_t_154" class="defined" href="#_t_154">Test FPT_TUD_EXT.1:4</a>:
       
 							[conditional] If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports use of X509 certificates for code signing, 
 							the evaluator shall digitally sign the update with a
@@ -4287,15 +4213,13 @@ The following sections list Common Criteria and technology terms used in this do
 							test using a valid certificate and a certificate that contains the code
 							signing purpose and verify that the application installation
 							succeeds.
-						</li>
-						<li class="test-"><a id="_t_155" class="defined" href="#_t_155">Test FPT_TUD_EXT.1:5</a>:
+						</li><li class="test-"><a id="_t_155" class="defined" href="#_t_155">Test FPT_TUD_EXT.1:5</a>:
       
 							The tester shall attempt to install an update without the
 							digital signature and shall verify that installation fails. The tester
 							shall attempt to install an update with altered digital signature, and
 							verify that installation fails.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -4338,22 +4262,19 @@ The following sections list Common Criteria and technology terms used in this do
 					how to terminate interactive sessions.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following tests:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_157" class="defined" href="#_t_157">Test FTA_SSL.4:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_157" class="defined" href="#_t_157">Test FTA_SSL.4:1</a>:
       
 							The evaluator shall initiate an interactive local session with
 							the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. The evaluator shall then follow the operational guidance
 							to terminate the session and observe that the session has been
 							terminated.
-						</li>
-						<li class="test-"><a id="_t_158" class="defined" href="#_t_158">Test FTA_SSL.4:2</a>:
+						</li><li class="test-"><a id="_t_158" class="defined" href="#_t_158">Test FTA_SSL.4:2</a>:
       
 							The evaluator shall initiate an interactive remote session
 							with the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. The evaluator shall then follow the operational
 							guidance to terminate the session and observe that the session has
 							been terminated.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -4401,16 +4322,14 @@ The following sections list Common Criteria and technology terms used in this do
 					instructions for how to configure notices and consent warning messages. 
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following test:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_160" class="defined" href="#_t_160">Test FTA_TAB.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_160" class="defined" href="#_t_160">Test FTA_TAB.1:1</a>:
       
 							The evaluator shall follow the operational guidance to
 							configure a notice and consent warning message. The evaluator
 							shall then, for each method of access specified in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>, establish
 							a session with the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. The evaluator shall verify that the notice
 							and consent warning message is displayed in each instance.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -4490,28 +4409,24 @@ The following sections list Common Criteria and technology terms used in this do
 					instructions for establishing the remote sessions for each supported method. 
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following tests:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_165" class="defined" href="#_t_165">Test FTP_TRP.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_165" class="defined" href="#_t_165">Test FTP_TRP.1:1</a>:
       
 							The evaluator shall ensure that communications using each
 							specified (in the operational guidance) remote method is tested
 							during the course of the evaluation, setting up the connections as
 							described in the operational guidance and ensuring that
 							communication is successful.
-						</li>
-						<li class="test-"><a id="_t_166" class="defined" href="#_t_166">Test FTP_TRP.1:2</a>:
+						</li><li class="test-"><a id="_t_166" class="defined" href="#_t_166">Test FTP_TRP.1:2</a>:
       
 							For each method of remote communication supported, the
 							evaluator shall follow the operational guidance to ensure that
 							there is no available interface that can be used by a remote user to
 							establish a remote session without invoking the trusted path.
-						</li>
-						<li class="test-"><a id="_t_167" class="defined" href="#_t_167">Test FTP_TRP.1:3</a>:
+						</li><li class="test-"><a id="_t_167" class="defined" href="#_t_167">Test FTP_TRP.1:3</a>:
       
 							The evaluator shall ensure, for each method of remote
 							communication, the channel data is not sent in plaintext.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					Further evaluation activities are associated with the specific protocols.<br/><br/>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
@@ -5325,8 +5240,7 @@ The following sections list Common Criteria and technology terms used in this do
 					configure certificate profiles used for the generation of X.509 certificates. 
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following test:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_66" class="defined" href="#_t_66">Test FDP_CER_EXT.4:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_66" class="defined" href="#_t_66">Test FDP_CER_EXT.4:1</a>:
       
 							For each field defined in <a href="#FDP_CER_EXT.2.1">FDP_CER_EXT.2.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
         version 
@@ -5334,8 +5248,7 @@ The following sections list Common Criteria and technology terms used in this do
 							attempt to create a certificate request that violates the required
 							conditions of the field. The evaluator shall determine that all such
 							attempts are rejected by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. 
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>		
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -5404,21 +5317,18 @@ The following sections list Common Criteria and technology terms used in this do
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following tests for each platform listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_78" class="defined" href="#_t_78">Test FDP_SDP_EXT.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_78" class="defined" href="#_t_78">Test FDP_SDP_EXT.1:1</a>:
       
 							The evaluator shall, for each user data type listed in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>,
 							locate where the data is stored and verify that it is encrypted.
-						</li>
-						<li class="test-"><a id="_t_79" class="defined" href="#_t_79">Test FDP_SDP_EXT.1:2</a>:
+						</li><li class="test-"><a id="_t_79" class="defined" href="#_t_79">Test FDP_SDP_EXT.1:2</a>:
       
 							The evaluator shall, for each user data type listed in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>,
 							initiate the supported data destruction mechanism according to the
 							documented times that it should be initiated for that user data type
 							(e.g., immediately after use, on system shutdown, etc.) and verify
 							that the protected data has been destroyed.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>		
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -5470,14 +5380,12 @@ The following sections list Common Criteria and technology terms used in this do
 					This test is conditional on the first selection in the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> being selected. If the
 					second selection is chosen, the evaluator does not perform this and instead
 					performs the actions called for in <a href="#FCS_CKM_EXT.5">FCS_CKM_EXT.5</a>.
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_80" class="defined" href="#_t_80">Test FDP_STG_EXT.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_80" class="defined" href="#_t_80">Test FDP_STG_EXT.1:1</a>:
       
 							(conditional) The evaluator shall attempt to modify the
 							contents of the trust anchor database in a way that violates the
 							documented permissions and verify that the attempt fails. 
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -5532,14 +5440,12 @@ The following sections list Common Criteria and technology terms used in this do
 					of the organization for which they are registered.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following tests:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_141" class="defined" href="#_t_141">Test FPT_NPE_EXT.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_141" class="defined" href="#_t_141">Test FPT_NPE_EXT.1:1</a>:
       
 							The evaluator shall assume the administrator role and
 							configure the ruleset. The evaluator shall then assume other roles and
 							verify that no other roles can modify the ruleset.
-						</li>
-						<li class="test-"><a id="_t_142" class="defined" href="#_t_142">Test FPT_NPE_EXT.1:2</a>:
+						</li><li class="test-"><a id="_t_142" class="defined" href="#_t_142">Test FPT_NPE_EXT.1:2</a>:
       
 							The evaluator shall configure the ruleset that restricts an <abbr class="dyn-abbr"><a href="#abbr_AOR">AOR</a></abbr>
 							to a particular organization. The evaluator shall assume a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>
@@ -5547,8 +5453,7 @@ The following sections list Common Criteria and technology terms used in this do
 							authorizing the <abbr class="dyn-abbr"><a href="#abbr_AOR">AOR</a></abbr> to perform specific operations on that 
 							organization’s behalf. The evaluator shall then verify that the <abbr class="dyn-abbr"><a href="#abbr_AOR">AOR</a></abbr> can
 							perform each authorized operation on behalf of the organization.
-						</li>
-						<li class="test-"><a id="_t_143" class="defined" href="#_t_143">Test FPT_NPE_EXT.1:3</a>:
+						</li><li class="test-"><a id="_t_143" class="defined" href="#_t_143">Test FPT_NPE_EXT.1:3</a>:
       
 							The evaluator shall configure the ruleset that restricts an <abbr class="dyn-abbr"><a href="#abbr_AOR">AOR</a></abbr>
 							to a particular organization. The evaluator shall assume a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>
@@ -5558,8 +5463,7 @@ The following sections list Common Criteria and technology terms used in this do
 							perform any operations on behalf of organizations for which it is not
 							registered. The evaluator shall also verify that the <abbr class="dyn-abbr"><a href="#abbr_AOR">AOR</a></abbr> cannot perform
 							unauthorized operations on behalf of its assigned organization.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -5722,15 +5626,13 @@ The following sections list Common Criteria and technology terms used in this do
 					instructions to verify the integrity of the software and firmware. 
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following test:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_148" class="defined" href="#_t_148">Test FPT_TST_EXT.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_148" class="defined" href="#_t_148">Test FPT_TST_EXT.1:1</a>:
       
 							The evaluator shall modify a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> binary to verify the
 							integrity test fails and the action defined in <a href="#FPT_TST_EXT.1.2">FPT_TST_EXT.1.2</a>
 							occurs. If this test cannot be performed, the evaluator shall provide
 							a justification.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -5774,21 +5676,18 @@ The following sections list Common Criteria and technology terms used in this do
 					instructions to verify the integrity of the selected data. 
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following tests:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_149" class="defined" href="#_t_149">Test FPT_TST_EXT.2:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_149" class="defined" href="#_t_149">Test FPT_TST_EXT.2:1</a>:
       
 							The evaluator shall use the operational guidance
 							instructions to verify the integrity of each protected element
 							specified in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>.
-						</li>
-						<li class="test-"><a id="_t_150" class="defined" href="#_t_150">Test FPT_TST_EXT.2:2</a>:
+						</li><li class="test-"><a id="_t_150" class="defined" href="#_t_150">Test FPT_TST_EXT.2:2</a>:
       
 							The evaluator shall modify an instance of each type of data
 							selected in <a href="#FPT_TST_EXT.2.1">FPT_TST_EXT.2.1</a> to verify the integrity test fails and the
 							action defined in <a href="#FPT_TST_EXT.2.2">FPT_TST_EXT.2.2</a> occurs. If this test cannot be
 							performed, the evaluator shall provide a justification.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -5821,8 +5720,7 @@ The following sections list Common Criteria and technology terms used in this do
 					sessions.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following test:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_156" class="defined" href="#_t_156">Test FTA_SSL.3:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_156" class="defined" href="#_t_156">Test FTA_SSL.3:1</a>:
       
 							The evaluator shall follow the operational guidance to
 							configure several different values for the inactivity time period
@@ -5830,8 +5728,7 @@ The following sections list Common Criteria and technology terms used in this do
 							evaluator shall establish a remote interactive session with the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
 							The evaluator shall then observe that the session is terminated
 							after the configured time period.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -5868,8 +5765,7 @@ The following sections list Common Criteria and technology terms used in this do
 					sessions.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following test:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_159" class="defined" href="#_t_159">Test FTA_SSL_EXT.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_159" class="defined" href="#_t_159">Test FTA_SSL_EXT.1:1</a>:
       
 							The evaluator shall follow the operational guidance to
 							configure several different values for the inactivity time period
@@ -5879,8 +5775,7 @@ The following sections list Common Criteria and technology terms used in this do
 							or terminated after the configured time period. If locking was
 							selected from the component, the evaluator shall ensure that reauthentication 
 							is needed when trying to unlock the session.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -5923,8 +5818,7 @@ The following sections list Common Criteria and technology terms used in this do
 					access to the shares and limit each one to a single privileged user.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following test:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_56" class="defined" href="#_t_56">Test FCS_KSH_EXT.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_56" class="defined" href="#_t_56">Test FCS_KSH_EXT.1:1</a>:
       
 							The evaluator shall generate key shares that require two
 							persons. The evaluator shall assume a single role and shall verify
@@ -5932,8 +5826,7 @@ The following sections list Common Criteria and technology terms used in this do
 							the original key is not. The evaluator shall then assume a second
 							role and assign a key share to them, then verify that their actions
 							together result in a reconstituted key. 
-						</li>
-					</ul></span>
+						</li></ul></span>
 					Note that in order to perform this testing, it is acceptable to violate the
 					operational guidance so that the same evaluator is simultaneously accessing 
 					the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> as two separate identities. Alternatively, this test can be performed by
@@ -6016,8 +5909,7 @@ The following sections list Common Criteria and technology terms used in this do
 				values in certificate requests.
 			</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 				The evaluator shall perform the following test:
-				<span class="testlist-"><ul>
-					<li class="test-"><a id="_t_102" class="defined" href="#_t_102">Test FIA_ESTC_EXT.2:1</a>:
+				<span class="testlist-"><ul><li class="test-"><a id="_t_102" class="defined" href="#_t_102">Test FIA_ESTC_EXT.2:1</a>:
       
 						The evaluator shall follow guidance documentation to
 						implement the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> request function to include tls-unique values in
@@ -6027,8 +5919,7 @@ The following sections list Common Criteria and technology terms used in this do
 						by the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server and observe that the request contains the tls-unique
 						value and that the it matches the tls-unique value
 						established under the <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> session. 
-					</li>
-				</ul></span>
+					</li></ul></span>
 			</div></div></div></div></div><div class="comp" id="FIA_ESTS_EXT.2"><h4>FIA_ESTS_EXT.2 Enrollment over Secure Transport (EST) Server</h4>
 	<div class="element"><div class="reqid" id="FIA_ESTS_EXT.2.1"><a href="#FIA_ESTS_EXT.2.1" class="abbr">FIA_ESTS_EXT.2.1</a></div><div class="reqdesc">
 			<span style="" class="comment " id="Comment-26-">The parent requirement for this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> (<a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a>) will be moved to the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>, 
@@ -6060,8 +5951,7 @@ The following sections list Common Criteria and technology terms used in this do
 				and any required initial certificates.
 			</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 				The evaluator shall perform the following tests:
-				<span class="testlist-"><ul>
-					<li class="test-"><a id="_t_108" class="defined" href="#_t_108">Test FIA_ESTS_EXT.2:1</a>:
+				<span class="testlist-"><ul><li class="test-"><a id="_t_108" class="defined" href="#_t_108">Test FIA_ESTS_EXT.2:1</a>:
       
 						The evaluator shall establish an external <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> client with an
 						existing certificate issued from a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, and
@@ -6072,8 +5962,7 @@ The following sections list Common Criteria and technology terms used in this do
 						shall submit an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> re-enrollment request and confirm that the
 						<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> responds with a signed certificate issued to the subject
 						identified in the current request.
-					</li>
-					<li class="test-"><a id="_t_109" class="defined" href="#_t_109">Test FIA_ESTS_EXT.2:2</a>:
+					</li><li class="test-"><a id="_t_109" class="defined" href="#_t_109">Test FIA_ESTS_EXT.2:2</a>:
       
 						The evaluator shall use the same client established in Test
 						1, and generate a re-enrollment request in which at least one byte
@@ -6081,8 +5970,7 @@ The following sections list Common Criteria and technology terms used in this do
 						request is modified. The evaluator shall submit the request to the
 						<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and observe that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not issue a certificate in
 						response to the request.
-					</li>
-				</ul></span>
+					</li></ul></span>
 				<i>Equivalency</i><br/><br/>
 				Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 				<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -6178,15 +6066,13 @@ The following sections list Common Criteria and technology terms used in this do
 					being enforced.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following tests:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_3" class="defined" href="#_t_3">Test FAU_SEL.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_3" class="defined" href="#_t_3">Test FAU_SEL.1:1</a>:
       
 							For each attribute listed in the requirement, the evaluator shall
 							devise a test to show that selecting the attribute causes only audit
 							events with that attribute (or those that are always recorded, as
 							identified in the operational guidance) to be recorded.
-						</li>
-						<li class="test-"><a id="_t_4" class="defined" href="#_t_4">Test FAU_SEL.1:2</a>:
+						</li><li class="test-"><a id="_t_4" class="defined" href="#_t_4">Test FAU_SEL.1:2</a>:
       
 							[conditional] If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports specification of more complex
 							audit pre-selection criteria (e.g., multiple attributes, logical
@@ -6194,8 +6080,7 @@ The following sections list Common Criteria and technology terms used in this do
 							showing that this capability is correctly implemented. The evaluator
 							shall also, in the test plan, provide a short narrative justifying the set
 							of tests as representative and sufficient to exercise the capability.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -6252,22 +6137,19 @@ The following sections list Common Criteria and technology terms used in this do
 					The testing may be accomplished with the testing performed by <a href="#FAU_STG.2/STA">FAU_STG.2/STA</a>.<br/><br/>
 					The evaluator shall perform the following tests for each role other than the
 					auditor role:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_7" class="defined" href="#_t_7">Test FAU_STG.2/EXT:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_7" class="defined" href="#_t_7">Test FAU_STG.2/EXT:1</a>:
       
 							For each audit event marked identified with extended retention
 							requirements in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>, the evaluator shall assume a role and attempt
 							to delete the stored audit data, then verify that the attempted
 							deletion failed. 
-						</li>
-						<li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FAU_STG.2/EXT:2</a>:
+						</li><li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FAU_STG.2/EXT:2</a>:
       
 							For each audit event marked identified with extended retention
 							requirements in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>, the evaluator shall assume a role and attempt
 							to modify the stored audit data and verify that the attempted
 							modification was prevented.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -6306,20 +6188,17 @@ The following sections list Common Criteria and technology terms used in this do
 					There are no operational guidance evaluation activities for this requirement beyond what is
 					necessary to satisfy the requirements in [<abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr>].
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_9" class="defined" href="#_t_9">Test FAU_STG.2/STA:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_9" class="defined" href="#_t_9">Test FAU_STG.2/STA:1</a>:
       
 							The evaluator shall assume each role (other than the auditor
 							role) and attempt to delete the stored audit records, then verify that
 							the attempted deletion failed. 
-						</li>
-						<li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FAU_STG.2/STA:2</a>:
+						</li><li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FAU_STG.2/STA:2</a>:
       
 							The evaluator shall assume each role (including the auditor role)
 							and attempt to modify the stored audit records and verify that the
 							attempted modification was prevented.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -6428,21 +6307,18 @@ The following sections list Common Criteria and technology terms used in this do
 					method. 
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following tests:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_74" class="defined" href="#_t_74">Test FDP_ITT.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_74" class="defined" href="#_t_74">Test FDP_ITT.1:1</a>:
       
 							The evaluators shall ensure that communications using
 							each specified (in the operational guidance) communications
 							method is tested during the course of the evaluation, setting up
 							the connections as described in the operational guidance, and
 							ensuring that communication is successful.
-						</li>
-						<li class="test-"><a id="_t_75" class="defined" href="#_t_75">Test FDP_ITT.1:2</a>:
+						</li><li class="test-"><a id="_t_75" class="defined" href="#_t_75">Test FDP_ITT.1:2</a>:
       
 							The evaluator shall ensure, for each method of
 							communication, the channel data is not sent in plaintext.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					Further evaluation activities are associated with the specific protocols.<br/><br/>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
@@ -6485,21 +6361,18 @@ The following sections list Common Criteria and technology terms used in this do
 					method. 
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following tests:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_137" class="defined" href="#_t_137">Test FPT_ITT.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_137" class="defined" href="#_t_137">Test FPT_ITT.1:1</a>:
       
 							The evaluator shall ensure that communications using each
 							specified (in the operational guidance) communications method is
 							tested during the course of the evaluation, setting up the
 							connections as described in the operational guidance and ensuring
 							communication is successful.
-						</li>
-						<li class="test-"><a id="_t_138" class="defined" href="#_t_138">Test FPT_ITT.1:2</a>:
+						</li><li class="test-"><a id="_t_138" class="defined" href="#_t_138">Test FPT_ITT.1:2</a>:
       
 							The evaluator shall ensure, for each method of
 							communication, the channel data is not sent in plaintext.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					Further evaluation activities are associated with the specific protocols.<br/><br/>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
@@ -6687,16 +6560,14 @@ The following sections list Common Criteria and technology terms used in this do
 				origin as defined in FCS_COP.1/Sig.
 			</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 				The evaluator shall perform the following test for each selection:
-				<span class="testlist-"><ul>
-					<li class="test-"><a id="_t_21" class="defined" href="#_t_21">Test FCO_NRR_EXT.2:1</a>:
+				<span class="testlist-"><ul><li class="test-"><a id="_t_21" class="defined" href="#_t_21">Test FCO_NRR_EXT.2:1</a>:
       
 						For each supported request message, the evaluator shall
 						generate and submit a properly authenticated request to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and
 						verify the response is signed. The evaluator shall verify the signature
 						on the responses and show that they are signed by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that
 						generated the response.
-					</li>
-				</ul></span>
+					</li></ul></span>
 				<i>Equivalency</i><br/><br/>
 				Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 				<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -6756,8 +6627,7 @@ The following sections list Common Criteria and technology terms used in this do
 				If this requirement is met by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, the evaluator shall verify the
 				implementation of the key generation routines of the supported schemes using
 				the following tests:
-				<span class="testlist-"><ul>
-					<li class="test-"><a id="_t_22" class="defined" href="#_t_22">Test FCS_CKM.1:1</a>:
+				<span class="testlist-"><ul><li class="test-"><a id="_t_22" class="defined" href="#_t_22">Test FCS_CKM.1:1</a>:
       
 					<b>Key Generation for <abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-5 <abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> Schemes</b><br/><br/>
 					The evaluator shall verify the implementation of <abbr class="dyn-abbr"><a href="#abbr_RSA">RSA</a></abbr> Key Generation by the
@@ -6787,9 +6657,7 @@ The following sections list Common Criteria and technology terms used in this do
 					evaluator shall have the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> generate 25 key pairs. The evaluator shall verify
 					the correctness of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>’s implementation by comparing values generated
 					by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> with those generated from a known good implementation.
-					</li>
-					
-					<li class="test-"><a id="_t_23" class="defined" href="#_t_23">Test FCS_CKM.1:2</a>:
+					</li><li class="test-"><a id="_t_23" class="defined" href="#_t_23">Test FCS_CKM.1:2</a>:
       
 					<b>Key Generation for Elliptic Curve Cryptography (<abbr class="dyn-abbr"><a href="#abbr_ECC">ECC</a></abbr>)</b><br/><br/>
 						<b><abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> 186-5 <abbr class="dyn-abbr"><a href="#abbr_ECC">ECC</a></abbr> Key Generation Test</b><br/><br/>
@@ -6841,9 +6709,7 @@ The following sections list Common Criteria and technology terms used in this do
 					<li>g^x mod p = y</li>
 				</ul>
 				for each <abbr class="dyn-abbr"><a href="#abbr_FFC">FFC</a></abbr> parameter set and key pair.<br/><br/>
-					</li>
-					
-					<li class="test-"><a id="_t_24" class="defined" href="#_t_24">Test FCS_CKM.1:3</a>:
+					</li><li class="test-"><a id="_t_24" class="defined" href="#_t_24">Test FCS_CKM.1:3</a>:
       
 						<b>Diffie-Hellman Group 14 and <abbr class="dyn-abbr"><a href="#abbr_FFC">FFC</a></abbr> Schemes using "safe-prime" groups</b><br/><br/>
 					Testing for <abbr class="dyn-abbr"><a href="#abbr_FFC">FFC</a></abbr> Schemes using Diffie-Hellman group 14 or "safe-prime" groups 
@@ -6852,8 +6718,7 @@ The following sections list Common Criteria and technology terms used in this do
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
 					from testing.
-					</li>
-				</ul></span>
+					</li></ul></span>
 			</div></div></div></div></div><div class="comp" id="FCS_CKM.2"><h4>FCS_CKM.2 Cryptographic Key Establishment</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in:</i></b><ul><li><b><i><a href="#FCS_CDP_EXT.1.1">FCS_CDP_EXT.1.1</a></i></b></li></ul></div>
 	
 	<div class="element"><div class="reqid" id="FCS_CKM.2.1"><a href="#FCS_CKM.2.1" class="abbr">FCS_CKM.2.1</a></div><div class="reqdesc">
@@ -7038,8 +6903,7 @@ The following sections list Common Criteria and technology terms used in this do
 				If this requirement is met by volatile memory in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> boundary (the second
 				item in the second selection of <a href="#FCS_CKM.6.1">FCS_CKM.6.1</a>), the evaluator shall attempt
 				to perform the following tests:
-				<span class="testlist-"><ul>
-			    		<li class="test-"><a id="_t_25" class="defined" href="#_t_25">Test FCS_CKM.6:1</a>:
+				<span class="testlist-"><ul><li class="test-"><a id="_t_25" class="defined" href="#_t_25">Test FCS_CKM.6:1</a>:
       The evaluator shall use appropriate combinations of
 						specialized operational environment and development tools
 						(debuggers, simulators, etc.) for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and instrumented <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> builds
@@ -7067,8 +6931,7 @@ The following sections list Common Criteria and technology terms used in this do
 						and fails otherwise.<br/><br/>
 						The evaluator shall perform this test on all keys, including those subsequently
 						encrypted for storage, to ensure plaintext intermediate copies are cleared.<br/><br/>
-				      </li>
-				      <li class="test-"><a id="_t_26" class="defined" href="#_t_26">Test FCS_CKM.6:2</a>:
+				      </li><li class="test-"><a id="_t_26" class="defined" href="#_t_26">Test FCS_CKM.6:2</a>:
       
 					(Conditional) In cases where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is implemented in
 					firmware and operates in a limited operating environment that does
@@ -7082,8 +6945,7 @@ The following sections list Common Criteria and technology terms used in this do
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
 					from testing.
-					</li>
-				</ul></span>
+					</li></ul></span>
 			</div></div></div></div></div><div class="comp" id="FCS_CKM_EXT.1/KEK"><h4>FCS_CKM_EXT.1/KEK Symmetric Key Generation (KEKs)</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in:</i></b><ul><li><b><i><a href="#FCS_CKM_EXT.1.1/DEK">FCS_CKM_EXT.1.1/DEK</a></i></b></li></ul></div>
 	
     	
@@ -7299,13 +7161,11 @@ The following sections list Common Criteria and technology terms used in this do
 				indicate why the interface does not allow access to the public keys.<br/><br/>
 				For each public key identified in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>, the evaluator shall perform the
 				following test:
-				<span class="testlist-"><ul>
-					<li class="test-"><a id="_t_27" class="defined" href="#_t_27">Test FCS_CKM_EXT.5:1</a>:
+				<span class="testlist-"><ul><li class="test-"><a id="_t_27" class="defined" href="#_t_27">Test FCS_CKM_EXT.5:1</a>:
       
 						The evaluator shall attempt to violate the protection of a public
 						key to verify that the action specified in <a href="#FCS_CKM_EXT.5.2">FCS_CKM_EXT.5.2</a> occurs.
-					</li>
-				</ul></span>
+					</li></ul></span>
 				<i>Equivalency</i><br/><br/>
 				Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 				<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -7620,8 +7480,7 @@ The following sections list Common Criteria and technology terms used in this do
 			</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 				If this requirement is met by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, the evaluator shall perform the following
 				test:<br/><br/>
-				<span class="testlist-"><ul>
-					<li class="test-"><a id="_t_28" class="defined" href="#_t_28">Test FCS_COP.1/KeyedHash:1</a>:
+				<span class="testlist-"><ul><li class="test-"><a id="_t_28" class="defined" href="#_t_28">Test FCS_COP.1/KeyedHash:1</a>:
       
 						For each of the supported parameter sets, the evaluator shall
 						compose 15 sets of test data. Each set shall consist of a key and
@@ -7629,8 +7488,7 @@ The following sections list Common Criteria and technology terms used in this do
 						for these sets of test data. The resulting <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> tags shall be compared
 						to the result of generating <abbr class="dyn-abbr"><a href="#abbr_HMAC">HMAC</a></abbr> tags with the same key and <abbr class="dyn-abbr"><a href="#abbr_IV">IV</a></abbr> using
 						a known good implementation.
-					</li>
-				</ul></span>
+					</li></ul></span>
 				<i>Equivalency</i><br/><br/>
 				Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 				<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -7986,28 +7844,23 @@ The following sections list Common Criteria and technology terms used in this do
       					
       					To test the generation-encryption functionality of <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CCMP, the evaluator
       					shall perform the following tests: <br/><br/>
-      					<span class="testlist-"><ul>
-      						<li class="test-"><a id="_t_29" class="defined" href="#_t_29">Test FCS_COP.1/SKC:1</a>:
+      					<span class="testlist-"><ul><li class="test-"><a id="_t_29" class="defined" href="#_t_29">Test FCS_COP.1/SKC:1</a>:
       For EACH supported key and associated data length and ANY
       							supported payload, nonce, and tag length, the evaluator shall supply
       							one key value, one nonce value, and 10 pairs of associated data and
-      							payload values and obtain the resulting ciphertext. </li>
-      						<li class="test-"><a id="_t_30" class="defined" href="#_t_30">Test FCS_COP.1/SKC:2</a>:
+      							payload values and obtain the resulting ciphertext. </li><li class="test-"><a id="_t_30" class="defined" href="#_t_30">Test FCS_COP.1/SKC:2</a>:
       . For EACH supported key and payload length and ANY supported
       							associated data, nonce, and tag length, the evaluator shall supply one
       							key value, one nonce value, and 10 pairs of associated data and payload
-      							values and obtain the resulting ciphertext. </li>
-      						<li class="test-"><a id="_t_31" class="defined" href="#_t_31">Test FCS_COP.1/SKC:3</a>:
+      							values and obtain the resulting ciphertext. </li><li class="test-"><a id="_t_31" class="defined" href="#_t_31">Test FCS_COP.1/SKC:3</a>:
       For EACH supported key and nonce length and ANY supported
       							associated data, payload, and tag length, the evaluator shall supply one
       							key value and 10 associated data, payload, and nonce value 3-tuples
-      							and obtain the resulting ciphertext. </li>
-      						<li class="test-"><a id="_t_32" class="defined" href="#_t_32">Test FCS_COP.1/SKC:4</a>:
+      							and obtain the resulting ciphertext. </li><li class="test-"><a id="_t_32" class="defined" href="#_t_32">Test FCS_COP.1/SKC:4</a>:
       For EACH supported key and tag length and ANY supported
       							associated data, payload, and nonce length, the evaluator shall supply
       							one key value, one nonce value, and 10 pairs of associated data and
-      							payload values, and obtain the resulting ciphertext. </li>
-      					</ul></span>
+      							payload values, and obtain the resulting ciphertext. </li></ul></span>
       					To determine correctness in each of the above tests, the evaluator shall
       					compare the ciphertext with the result of generation-encryption of the same
       					inputs with a known good implementation.<br/><br/>
@@ -8365,8 +8218,7 @@ The following sections list Common Criteria and technology terms used in this do
 			<div class="eacategory">Tests</div><div class="ea">
 				The evaluator uses the operational guidance to configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to carry out
 				the following tests:<br/><br/>
-				<span class="testlist-"><ul>
-					<li class="test-"><a id="_t_33" class="defined" href="#_t_33">Test FCS_IPSEC_EXT.1.1:1</a>:
+				<span class="testlist-"><ul><li class="test-"><a id="_t_33" class="defined" href="#_t_33">Test FCS_IPSEC_EXT.1.1:1</a>:
       
 						The evaluator shall configure the SPD such that there is a rule
 						for dropping a packet, encrypting a packet, and allowing a packet to 
@@ -8380,8 +8232,7 @@ The following sections list Common Criteria and technology terms used in this do
 						the rule). The evaluator observes via the audit trail, and packet
 						captures that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> exhibited the expected behavior: appropriate
 						packets were dropped encrypted by the <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr> implementation.
-					</li>
-					<li class="test-"><a id="_t_34" class="defined" href="#_t_34">Test FCS_IPSEC_EXT.1.1:2</a>:
+					</li><li class="test-"><a id="_t_34" class="defined" href="#_t_34">Test FCS_IPSEC_EXT.1.1:2</a>:
       
 						The evaluator shall devise several tests that cover a variety of
 						scenarios for packet processing. As with Test 1, the evaluator ensures
@@ -8394,8 +8245,7 @@ The following sections list Common Criteria and technology terms used in this do
 						the audit trail and packet captures, for each scenario that the expected
 						behavior is exhibited, and is consistent with both the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and the
 						operational guidance.
-					</li>
-				</ul></span>
+					</li></ul></span>
 			</div>
 		<div class="element-activity-header"><a href="#FCS_IPSEC_EXT.1.2">FCS_IPSEC_EXT.1.2</a></div>
 			<div class="eacategory">Tests</div><div class="ea">
@@ -8403,8 +8253,7 @@ The following sections list Common Criteria and technology terms used in this do
 				activities for <a href="#FCS_IPSEC_EXT.1.1">FCS_IPSEC_EXT.1.1</a>.<br/><br/>
 				The evaluator uses the operational guidance to configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to carry out
 				the following test:<br/><br/>
-				<span class="testlist-"><ul>
-					<li class="test-"><a id="_t_35" class="defined" href="#_t_35">Test FCS_IPSEC_EXT.1.2:1</a>:
+				<span class="testlist-"><ul><li class="test-"><a id="_t_35" class="defined" href="#_t_35">Test FCS_IPSEC_EXT.1.2:1</a>:
       
 						The evaluator shall configure the SPD such that there is a rule
 						for dropping a packet, encrypting a packet, and allowing a packet to
@@ -8418,8 +8267,7 @@ The following sections list Common Criteria and technology terms used in this do
 						(there may be a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or platform-created final entry that discards
 						packets that do not match any previous entries). The evaluator sends
 						the packet, and observes that the packet was dropped.
-					</li>
-				</ul></span>
+					</li></ul></span>
 			</div>
 		<div class="element-activity-header"><a href="#FCS_IPSEC_EXT.1.3">FCS_IPSEC_EXT.1.3</a></div>
 			<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">
@@ -8434,8 +8282,7 @@ The following sections list Common Criteria and technology terms used in this do
 			<div class="eacategory">Tests</div><div class="ea">
 				The evaluator shall perform the following tests based on the selections
 				chosen:<br/><br/>
-				<span class="testlist-"><ul>
-					<li class="test-"><a id="_t_36" class="defined" href="#_t_36">Test FCS_IPSEC_EXT.1.3:1</a>:
+				<span class="testlist-"><ul><li class="test-"><a id="_t_36" class="defined" href="#_t_36">Test FCS_IPSEC_EXT.1.3:1</a>:
       
 						(conditional) If tunnel mode is selected, the evaluator shall use the
 						operational guidance to configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or platform to operate in
@@ -8447,8 +8294,7 @@ The following sections list Common Criteria and technology terms used in this do
 						VPN peer. The evaluator shall observe (for example, in the audit trail and
 						the captured packets) that a successful connection was established
 						using the tunnel mode.
-					</li>
-					<li class="test-"><a id="_t_37" class="defined" href="#_t_37">Test FCS_IPSEC_EXT.1.3:2</a>:
+					</li><li class="test-"><a id="_t_37" class="defined" href="#_t_37">Test FCS_IPSEC_EXT.1.3:2</a>:
       
 						The evaluator shall use the operational guidance to configure the
 						<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or platform to operate in transport mode and also configures a VPN
@@ -8460,8 +8306,7 @@ The following sections list Common Criteria and technology terms used in this do
 						evaluator shall observe (for example, in the audit trail and the captured
 						packets) that a successful connection was established using the
 						transport mode.
-					</li>
-				</ul></span>
+					</li></ul></span>
 			</div>
 		<div class="element-activity-header"><a href="#FCS_IPSEC_EXT.1.4">FCS_IPSEC_EXT.1.4</a></div>
 			<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">
@@ -8492,15 +8337,13 @@ The following sections list Common Criteria and technology terms used in this do
 			<div class="eacategory">Tests</div><div class="ea">
 				Tests are performed in conjunction with the other <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr> evaluation activities
 				with the exception of the activity below:<br/><br/>
-				<span class="testlist-"><ul>
-					<li class="test-"><a id="_t_38" class="defined" href="#_t_38">Test FCS_IPSEC_EXT.1.5:1</a>:
+				<span class="testlist-"><ul><li class="test-"><a id="_t_38" class="defined" href="#_t_38">Test FCS_IPSEC_EXT.1.5:1</a>:
       
 						(Conditional) The evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or platform so that it will
 						perform <abbr class="dyn-abbr"><a href="#abbr_NAT">NAT</a></abbr> traversal processing as described in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5996,
 						section 2.23. The evaluator shall initiate an <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr> connection and
 						determine that the <abbr class="dyn-abbr"><a href="#abbr_NAT">NAT</a></abbr> is successfully traversed.
-					</li>
-				</ul></span>
+					</li></ul></span>
 			</div>
 		<div class="element-activity-header"><a href="#FCS_IPSEC_EXT.1.6">FCS_IPSEC_EXT.1.6</a></div>
 			<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">
@@ -8547,8 +8390,7 @@ The following sections list Common Criteria and technology terms used in this do
 				reduce the probability of this happening, the timing of rekeying requests
 				SHOULD be jittered.”<br/><br/>
 				Each of the following tests shall be performed:<br/><br/>
-				<span class="testlist-"><ul>
-					<li class="test-"><a id="_t_39" class="defined" href="#_t_39">Test FCS_IPSEC_EXT.1.7:1</a>:
+				<span class="testlist-"><ul><li class="test-"><a id="_t_39" class="defined" href="#_t_39">Test FCS_IPSEC_EXT.1.7:1</a>:
       
 						(Conditional) The evaluator shall configure a maximum lifetime
 						in terms of the number of packets (or bytes) allowed following the 
@@ -8558,8 +8400,7 @@ The following sections list Common Criteria and technology terms used in this do
 						determine that once the allowed number of packets (or bytes) through
 						this <abbr class="dyn-abbr"><a href="#abbr_SA">SA</a></abbr> is exceeded, a new <abbr class="dyn-abbr"><a href="#abbr_SA">SA</a></abbr> is negotiated. The evaluator shall verify
 						that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> initiates a Phase 1 negotiation.
-					</li>
-					<li class="test-"><a id="_t_40" class="defined" href="#_t_40">Test FCS_IPSEC_EXT.1.7:2</a>:
+					</li><li class="test-"><a id="_t_40" class="defined" href="#_t_40">Test FCS_IPSEC_EXT.1.7:2</a>:
       
 						(Conditional) The evaluator shall configure a maximum lifetime
 						of 24 hours for the Phase 1 <abbr class="dyn-abbr"><a href="#abbr_SA">SA</a></abbr> following the operational guidance. The
@@ -8569,8 +8410,7 @@ The following sections list Common Criteria and technology terms used in this do
 						determine that once 24 hours has elapsed, a new Phase 1 <abbr class="dyn-abbr"><a href="#abbr_SA">SA</a></abbr> is
 						negotiated. The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> initiates a Phase 1
 						negotiation.
-					</li>
-				</ul></span>
+					</li></ul></span>
 			</div>
 		<div class="element-activity-header"><a href="#FCS_IPSEC_EXT.1.8">FCS_IPSEC_EXT.1.8</a></div>
 			<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div>
@@ -8595,8 +8435,7 @@ The following sections list Common Criteria and technology terms used in this do
 				reduce the probability of this happening, the timing of rekeying requests
 				SHOULD be jittered.”<br/><br/>
 				Each of the following tests shall be performed:<br/><br/>
-				<span class="testlist-"><ul>
-					<li class="test-"><a id="_t_41" class="defined" href="#_t_41">Test FCS_IPSEC_EXT.1.8:1</a>:
+				<span class="testlist-"><ul><li class="test-"><a id="_t_41" class="defined" href="#_t_41">Test FCS_IPSEC_EXT.1.8:1</a>:
       
 						(Conditional) The evaluator shall configure a maximum lifetime
 						in terms of the number of packets (or bytes) allowed following the
@@ -8606,8 +8445,7 @@ The following sections list Common Criteria and technology terms used in this do
 						determine that once the allowed number of packets (or bytes) through
 						this <abbr class="dyn-abbr"><a href="#abbr_SA">SA</a></abbr> is exceeded, a new <abbr class="dyn-abbr"><a href="#abbr_SA">SA</a></abbr> is negotiated. The evaluator shall verify
 						that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> initiates a Phase 2 negotiation.
-					</li>
-					<li class="test-"><a id="_t_42" class="defined" href="#_t_42">Test FCS_IPSEC_EXT.1.8:2</a>:
+					</li><li class="test-"><a id="_t_42" class="defined" href="#_t_42">Test FCS_IPSEC_EXT.1.8:2</a>:
       
 						(Conditional) The evaluator shall configure a maximum lifetime
 						of eight hours for the Phase 2 <abbr class="dyn-abbr"><a href="#abbr_SA">SA</a></abbr> following the operational guidance. The
@@ -8617,8 +8455,7 @@ The following sections list Common Criteria and technology terms used in this do
 						determine that once eight hours has elapsed, a new Phase 2 <abbr class="dyn-abbr"><a href="#abbr_SA">SA</a></abbr> is
 						negotiated. The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> initiates a Phase 2
 						negotiation.
-					</li>
-				</ul></span>
+					</li></ul></span>
 			</div>
 		<div class="element-activity-header"><a href="#FCS_IPSEC_EXT.1.9">FCS_IPSEC_EXT.1.9</a></div>
 			<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">
@@ -8638,8 +8475,7 @@ The following sections list Common Criteria and technology terms used in this do
 			<div class="eacategory">Guidance</div>
 			There are no additional Guidance evaluation activities for this element.<br/><br/>
 			<div class="eacategory">Tests</div><div class="ea">
-				<span class="testlist-"><ul>
-					<li class="test-"><a id="_t_43" class="defined" href="#_t_43">Test FCS_IPSEC_EXT.1.10:1</a>:
+				<span class="testlist-"><ul><li class="test-"><a id="_t_43" class="defined" href="#_t_43">Test FCS_IPSEC_EXT.1.10:1</a>:
       
 						The evaluator shall
 						check to ensure that, for each PRF hash supported, the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes
@@ -8647,8 +8483,7 @@ The following sections list Common Criteria and technology terms used in this do
 						the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> indicates that the random number generated that meets the
 						requirements in this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is used, and that the length of the nonces meet
 						the stipulations in the requirement.
-					</li>
-				</ul></span>
+					</li></ul></span>
 			</div>
 		<div class="element-activity-header"><a href="#FCS_IPSEC_EXT.1.11">FCS_IPSEC_EXT.1.11</a></div>
 			<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">
@@ -8679,34 +8514,29 @@ The following sections list Common Criteria and technology terms used in this do
 			<div class="eacategory">Tests</div><div class="ea">
 				The evaluator shall follow the guidance to configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or platform to
 				perform the following tests.<br/><br/>
-				<span class="testlist-"><ul>
-					<li class="test-"><a id="_t_44" class="defined" href="#_t_44">Test FCS_IPSEC_EXT.1.12:1</a>:
+				<span class="testlist-"><ul><li class="test-"><a id="_t_44" class="defined" href="#_t_44">Test FCS_IPSEC_EXT.1.12:1</a>:
       
 						The evaluator shall successfully negotiate an <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr> connection using
 						each of the supported algorithms and hash functions identified in the
 						requirements.
-					</li>
-					<li class="test-"><a id="_t_45" class="defined" href="#_t_45">Test FCS_IPSEC_EXT.1.12:2</a>:
+					</li><li class="test-"><a id="_t_45" class="defined" href="#_t_45">Test FCS_IPSEC_EXT.1.12:2</a>:
       
 						The evaluator shall attempt to establish an <abbr class="dyn-abbr"><a href="#abbr_SA">SA</a></abbr> for <abbr class="dyn-abbr"><a href="#abbr_ESP">ESP</a></abbr> that selects an
 						encryption algorithm with more strength than that being used for the
 						<abbr class="dyn-abbr"><a href="#abbr_IKE">IKE</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_SA">SA</a></abbr> (i.e., symmetric algorithm with a key size larger than that being
 						used for the <abbr class="dyn-abbr"><a href="#abbr_IKE">IKE</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_SA">SA</a></abbr>). Such attempts should fail.
-					</li>
-					<li class="test-"><a id="_t_46" class="defined" href="#_t_46">Test FCS_IPSEC_EXT.1.12:3</a>:
+					</li><li class="test-"><a id="_t_46" class="defined" href="#_t_46">Test FCS_IPSEC_EXT.1.12:3</a>:
        
 						The evaluator shall attempt to establish an <abbr class="dyn-abbr"><a href="#abbr_IKE">IKE</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_SA">SA</a></abbr> using an algorithm
 						that is not one of the supported algorithms and hash functions
 						identified in the requirements. Such an attempt should fail.
-					</li>
-					<li class="test-"><a id="_t_47" class="defined" href="#_t_47">Test FCS_IPSEC_EXT.1.12:4</a>:
+					</li><li class="test-"><a id="_t_47" class="defined" href="#_t_47">Test FCS_IPSEC_EXT.1.12:4</a>:
       
 						The evaluator shall attempt to establish an <abbr class="dyn-abbr"><a href="#abbr_SA">SA</a></abbr> for <abbr class="dyn-abbr"><a href="#abbr_ESP">ESP</a></abbr> (assumes the
 						proper parameters where used to establish the <abbr class="dyn-abbr"><a href="#abbr_IKE">IKE</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_SA">SA</a></abbr>) that selects an
 						encryption algorithm that is not identified in <a href="#FCS_IPSEC_EXT.1.4">FCS_IPSEC_EXT.1.4</a>. Such
 						an attempt should fail.
-					</li>
-				</ul></span>
+					</li></ul></span>
 			</div>
 		<div class="element-activity-header"><a href="#FCS_IPSEC_EXT.1.13">FCS_IPSEC_EXT.1.13</a></div>
 			<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">
@@ -8737,19 +8567,16 @@ The following sections list Common Criteria and technology terms used in this do
         1.0</a>, and
 				<a href="#FCS_IPSEC_EXT.1.1">FCS_IPSEC_EXT.1.1</a>. The following tests shall be repeated for each peer
 				authentication selected in the <a href="#FCS_IPSEC_EXT.1.1">FCS_IPSEC_EXT.1.1</a> selection above:
-				<span class="testlist-"><ul>
-					<li class="test-"><a id="_t_48" class="defined" href="#_t_48">Test FCS_IPSEC_EXT.1.13:1</a>:
+				<span class="testlist-"><ul><li class="test-"><a id="_t_48" class="defined" href="#_t_48">Test FCS_IPSEC_EXT.1.13:1</a>:
       
 						The evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to use a private key and
 						associated certificate signed by a trusted <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> and shall establish an <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr>
 						connection with the peer.
-					</li>
-					<li class="test-"><a id="_t_49" class="defined" href="#_t_49">Test FCS_IPSEC_EXT.1.13:2</a>:
+					</li><li class="test-"><a id="_t_49" class="defined" href="#_t_49">Test FCS_IPSEC_EXT.1.13:2</a>:
       
 						[conditional] The evaluator shall generate a pre-shared key off-TOE and use it, as indicated in the operational guidance, to establish
 						an <abbr class="dyn-abbr"><a href="#abbr_IPsec">IPsec</a></abbr> connection with the peer.
-					</li>
-				</ul></span>
+					</li></ul></span>
 			</div>
 		<div class="element-activity-header"><a href="#FCS_IPSEC_EXT.1.14">FCS_IPSEC_EXT.1.14</a></div>
 			<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div>
@@ -8779,22 +8606,19 @@ The following sections list Common Criteria and technology terms used in this do
 			<div class="eacategory">Tests</div><div class="ea">
 				For each supported identifier type (excluding DNs), the evaluator shall repeat
 				the following tests:<br/><br/>
-				<span class="testlist-"><ul>
-					<li class="test-"><a id="_t_50" class="defined" href="#_t_50">Test FCS_IPSEC_EXT.1.15:1</a>:
+				<span class="testlist-"><ul><li class="test-"><a id="_t_50" class="defined" href="#_t_50">Test FCS_IPSEC_EXT.1.15:1</a>:
       
 						For each field of the certificate supported for comparison, the evaluator
 						shall configure the peer’s reference identifier on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (per the 
 						operational guidance) to match the field in the peer’s presented certificate
 						and shall verify that the <abbr class="dyn-abbr"><a href="#abbr_IKE">IKE</a></abbr> authentication succeeds.
-					</li>
-					<li class="test-"><a id="_t_51" class="defined" href="#_t_51">Test FCS_IPSEC_EXT.1.15:2</a>:
+					</li><li class="test-"><a id="_t_51" class="defined" href="#_t_51">Test FCS_IPSEC_EXT.1.15:2</a>:
       
 						For each field of the certificate support for comparison, the evaluator
 						shall configure the peer’s reference identifier on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (per the
 						operational guidance) to not match the field in the peer’s presented
 						certificate and shall verify that the <abbr class="dyn-abbr"><a href="#abbr_IKE">IKE</a></abbr> authentication fails.
-					</li>
-					<li class="test-"><a id="_t_52" class="defined" href="#_t_52">Test FCS_IPSEC_EXT.1.15:3</a>:
+					</li><li class="test-"><a id="_t_52" class="defined" href="#_t_52">Test FCS_IPSEC_EXT.1.15:3</a>:
       
 						(conditional) If, according to the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports both Common
 						Name and <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> certificate fields and uses the preferred logic outlined in the
@@ -8804,8 +8628,7 @@ The following sections list Common Criteria and technology terms used in this do
 						match the <abbr class="dyn-abbr"><a href="#abbr_SAN">SAN</a></abbr> in the peer’s presented certificate but to match the Common
 						Name in the peer’s presented certificate, and verify that the <abbr class="dyn-abbr"><a href="#abbr_IKE">IKE</a></abbr> authentication
 						fails.
-					</li>
-					<li class="test-"><a id="_t_53" class="defined" href="#_t_53">Test FCS_IPSEC_EXT.1.15:4</a>:
+					</li><li class="test-"><a id="_t_53" class="defined" href="#_t_53">Test FCS_IPSEC_EXT.1.15:4</a>:
       
 						(conditional) If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports DN identifier types, the evaluator shall
 						configure the peer’s reference identifier on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (per the administrative
@@ -8814,8 +8637,7 @@ The following sections list Common Criteria and technology terms used in this do
 						comparison of the DN, the evaluator shall change a single bit in the DN
 						(preferably, in an Object Identifier (<abbr class="dyn-abbr"><a href="#abbr_OID">OID</a></abbr>) in the DN) and verify that the <abbr class="dyn-abbr"><a href="#abbr_IKE">IKE</a></abbr>
 						authentication fails.
-					</li>
-					<li class="test-"><a id="_t_54" class="defined" href="#_t_54">Test FCS_IPSEC_EXT.1.15:5</a>:
+					</li><li class="test-"><a id="_t_54" class="defined" href="#_t_54">Test FCS_IPSEC_EXT.1.15:5</a>:
       
 						(conditional) If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports both IPv4 and IPv6 and supports <abbr class="dyn-abbr"><a href="#abbr_IP">IP</a></abbr>
 						address identifier types, the evaluator must repeat Tests 1 and 2 with both IPv4
@@ -8824,8 +8646,7 @@ The following sections list Common Criteria and technology terms used in this do
 						presented identifiers and the reference identifier with the same <abbr class="dyn-abbr"><a href="#abbr_IP">IP</a></abbr> address that
 						differs from the actual <abbr class="dyn-abbr"><a href="#abbr_IP">IP</a></abbr> address of the peer in the <abbr class="dyn-abbr"><a href="#abbr_IP">IP</a></abbr> headers and verifying
 						that the <abbr class="dyn-abbr"><a href="#abbr_IKE">IKE</a></abbr> authentication fails.
-					</li>
-					<li class="test-"><a id="_t_55" class="defined" href="#_t_55">Test FCS_IPSEC_EXT.1.15:6</a>:
+					</li><li class="test-"><a id="_t_55" class="defined" href="#_t_55">Test FCS_IPSEC_EXT.1.15:6</a>:
       
 						(conditional) If, according to the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> performs comparisons
 						between the peer’s ID payload and the peer’s certificate, the evaluator shall
@@ -8833,8 +8654,7 @@ The following sections list Common Criteria and technology terms used in this do
 						and supported certificate fields (as above). The evaluator shall configure the
 						peer to present a different ID payload than the field in the peer’s presented
 						certificate and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> fails to authenticate the <abbr class="dyn-abbr"><a href="#abbr_IKE">IKE</a></abbr> peer.
-					</li>
-				</ul></span>
+					</li></ul></span>
 			</div>
 		</div></div></div><div class="comp" id="FCS_RBG.1"><h4>FCS_RBG.1 Random Bit Generation (RBG)</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in:</i></b><ul><li><b><i><a href="#FCS_CDP_EXT.1.1">FCS_CDP_EXT.1.1</a></i></b></li></ul></div>
         
@@ -9140,8 +8960,7 @@ The following sections list Common Criteria and technology terms used in this do
         version 
         1.0</a>.<br/><br/>
 					The evaluator shall perform the following tests:<br/><br/>
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_67" class="defined" href="#_t_67">Test FDP_CRL_EXT.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_67" class="defined" href="#_t_67">Test FDP_CRL_EXT.1:1</a>:
       
 							If <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> can be issued, the evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr>
 							function using available user guidance and request a <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> in order to
@@ -9149,8 +8968,7 @@ The following sections list Common Criteria and technology terms used in this do
 							<a href="#FDP_CRL_EXT.1.1">FDP_CRL_EXT.1.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
         version 
         1.0</a>.
-						</li>
-						<li class="test-"><a id="_t_68" class="defined" href="#_t_68">Test FDP_CRL_EXT.1:2</a>:
+						</li><li class="test-"><a id="_t_68" class="defined" href="#_t_68">Test FDP_CRL_EXT.1:2</a>:
       
 							For each field defined in <a href="#FDP_CRL_EXT.1.1">FDP_CRL_EXT.1.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
         version 
@@ -9158,15 +8976,13 @@ The following sections list Common Criteria and technology terms used in this do
 							attempt to create a <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> that violates the required conditions of the
 							field. The evaluator shall determine that all such attempts are rejected
 							by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. 
-						</li>
-						<li class="test-"><a id="_t_69" class="defined" href="#_t_69">Test FDP_CRL_EXT.1:3</a>:
+						</li><li class="test-"><a id="_t_69" class="defined" href="#_t_69">Test FDP_CRL_EXT.1:3</a>:
       
 							The evaluator shall make a selection of fields from a configured
 							<abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> function and shall attempt to create a <abbr class="dyn-abbr"><a href="#abbr_CRL">CRL</a></abbr> that violates the
 							required conditions of the field. The evaluator shall determine that all
 							such attempts are rejected by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -9219,8 +9035,7 @@ The following sections list Common Criteria and technology terms used in this do
 					examine the operational guidance to ensure that instructions are available to
 					configure the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> response function in accordance with <a href="#FDP_OCSPG_EXT.1.1">FDP_OCSPG_EXT.1.1</a> as defined in <a href="#pkgx509" class="dynref" data-format=""></a>.<br/><br/>
 					The evaluator shall perform the following tests:<br/><br/>
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_76" class="defined" href="#_t_76">Test FDP_OCSPG_EXT.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_76" class="defined" href="#_t_76">Test FDP_OCSPG_EXT.1:1</a>:
       
 							For each <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> response format identified in <a href="#FCO_NRO_EXT.2.2">FCO_NRO_EXT.2.2</a>,
 							the evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> response function, establish a
@@ -9231,8 +9046,7 @@ The following sections list Common Criteria and technology terms used in this do
 							the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. The evaluator shall ensure that the responses satisfy all
 							constraints in <a href="#FDP_OCSPG_EXT.1.1">FDP_OCSPG_EXT.1.1</a> as defined in <a href="#pkgx509" class="dynref" data-format=""></a> and reflects the correct status in
 							accordance with the referenced standard.
-						</li>
-						<li class="test-"><a id="_t_77" class="defined" href="#_t_77">Test FDP_OCSPG_EXT.1:2</a>:
+						</li><li class="test-"><a id="_t_77" class="defined" href="#_t_77">Test FDP_OCSPG_EXT.1:2</a>:
       
 							For each <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> response format defined in <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
         version 
@@ -9240,8 +9054,7 @@ The following sections list Common Criteria and technology terms used in this do
 							and for each item a-e of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>, the evaluator shall attempt to create
 							an <abbr class="dyn-abbr"><a href="#abbr_OCSP">OCSP</a></abbr> response that violates the required conditions. The evaluator
 							shall determine that all such attempts are rejected by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. 
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -9313,8 +9126,7 @@ The following sections list Common Criteria and technology terms used in this do
 					remote privileged users access the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, either directly or by authenticating to
 					the operational environment from which the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> inherits user information
 					(e.g., <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr>):
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_81" class="defined" href="#_t_81">Test FIA_AFL.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_81" class="defined" href="#_t_81">Test FIA_AFL.1:1</a>:
       
 							[conditional on first selection item]: The evaluator shall use the
 							operational guidance to configure the number of successive
@@ -9324,8 +9136,7 @@ The following sections list Common Criteria and technology terms used in this do
 							requirement, the evaluator shall show that following the operational
 							guidance and performing each action to allow the remote privileged
 							user access are successful.
-						</li>
-						<li class="test-"><a id="_t_82" class="defined" href="#_t_82">Test FIA_AFL.1:2</a>:
+						</li><li class="test-"><a id="_t_82" class="defined" href="#_t_82">Test FIA_AFL.1:2</a>:
       
 							[conditional on second selection item]: The evaluator shall use
 							the operational guidance to configure the number of successive
@@ -9336,8 +9147,7 @@ The following sections list Common Criteria and technology terms used in this do
 							that waiting for the interval defined by the time period before another
 							access attempt will result in the ability for the remote privileged user
 							to successfully log on using valid credentials.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -9536,8 +9346,7 @@ The following sections list Common Criteria and technology terms used in this do
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following tests:<br/><br/>
 					<b>Test Group A. Offline <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> operations:</b><br/><br/>
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_83" class="defined" href="#_t_83">Test FIA_CMCS_EXT.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_83" class="defined" href="#_t_83">Test FIA_CMCS_EXT.1:1</a>:
       <ul>
 							<li>The evaluator shall establish the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> in an offline mode to provide
 								an operational root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>, (<abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>-0) according to AGD-PRE.</li>
@@ -9552,8 +9361,7 @@ The following sections list Common Criteria and technology terms used in this do
 							<li>The evaluator shall install the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’s certificate into the <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> client’s
 								trust store for use in subsequent tests.</li>
 							</ul>
-						</li>
-						<li class="test-"><a id="_t_84" class="defined" href="#_t_84">Test FIA_CMCS_EXT.1:2</a>:
+						</li><li class="test-"><a id="_t_84" class="defined" href="#_t_84">Test FIA_CMCS_EXT.1:2</a>:
       <ul>
 							<li>The evaluator shall establish a second instance of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to be a
 								subordinate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> (<abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>-1) to the root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> established in Test 1.</li>
@@ -9582,8 +9390,7 @@ The following sections list Common Criteria and technology terms used in this do
 								</ul>
 							</li>
 							</ul>
-						</li>
-						<li class="test-"><a id="_t_85" class="defined" href="#_t_85">Test FIA_CMCS_EXT.1:3</a>:
+						</li><li class="test-"><a id="_t_85" class="defined" href="#_t_85">Test FIA_CMCS_EXT.1:3</a>:
       <ul>
 							<li>The evaluator shall sign into the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>-0 <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> in the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> operations staff
 								role and submit in turn the requests generated in Test 2.</li>
@@ -9597,18 +9404,15 @@ The following sections list Common Criteria and technology terms used in this do
 								<abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> request indicating errors or does not return a request, and
 								that the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>-0 <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>’s audit trail indicates the errors.</li>
 							</ul>
-						</li>
-						<li class="test-"><a id="_t_86" class="defined" href="#_t_86">Test FIA_CMCS_EXT.1:4</a>:
+						</li><li class="test-"><a id="_t_86" class="defined" href="#_t_86">Test FIA_CMCS_EXT.1:4</a>:
       
 							The evaluator shall sign into the subordinate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> in the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>
 							operations staff role, import the simple <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> response and complete
 							the initialization of the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>-1 <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> in accordance with OGD-PRE.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<b>Test Group B. Online subordinate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> (uses root and subordinate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> established
 						in offline tests):</b>
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_87" class="defined" href="#_t_87">Test FIA_CMCS_EXT.1:5</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_87" class="defined" href="#_t_87">Test FIA_CMCS_EXT.1:5</a>:
       <ul>
 							<li>[Conditional on <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> support for shared secrets:] The evaluator
 								shall log onto the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>-1 <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> in the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Operations Staff role and
@@ -9658,8 +9462,7 @@ The following sections list Common Criteria and technology terms used in this do
 								root <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>-0 and that the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>-1 <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>’s repository and audit trail indicate
 								successful issuance.</li>
 							</ul>
-						</li>
-						<li class="test-"><a id="_t_88" class="defined" href="#_t_88">Test FIA_CMCS_EXT.1:6</a>:
+						</li><li class="test-"><a id="_t_88" class="defined" href="#_t_88">Test FIA_CMCS_EXT.1:6</a>:
       <ul>
 							<li>The evaluator shall select one of the client’s certificates and use
 								the <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> client to generate a <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> request for a certificate update,
@@ -9669,8 +9472,7 @@ The following sections list Common Criteria and technology terms used in this do
 								invalid or that no response is provided and the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>-1 <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>’s audit trail
 								indicates the error.</li>
 							</ul>
-						</li>
-						<li class="test-"><a id="_t_89" class="defined" href="#_t_89">Test FIA_CMCS_EXT.1:7</a>:
+						</li><li class="test-"><a id="_t_89" class="defined" href="#_t_89">Test FIA_CMCS_EXT.1:7</a>:
       
 							The evaluator shall establish a new <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> session between the
 							<abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> client and the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>-1 <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> using client authentication with the
@@ -9678,24 +9480,20 @@ The following sections list Common Criteria and technology terms used in this do
 							the request selected in Test 2, observing that the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>-1 <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> returns a
 							simple <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> response containing a valid certificate for the client. The
 							<abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> session is retained for Test 4.
-						</li>
-						<li class="test-"><a id="_t_90" class="defined" href="#_t_90">Test FIA_CMCS_EXT.1:8</a>:
+						</li><li class="test-"><a id="_t_90" class="defined" href="#_t_90">Test FIA_CMCS_EXT.1:8</a>:
       
 							The evaluator shall select a second client certificate, with a
 							different subject name from that used to establish the <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> session,
 							and shall generate a <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> request to update that certificate. The
 							evaluator shall observe that the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>-1 <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> returns a full <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> response
 							indicating <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> transport failure or does not respond, and that the CA1 audit trail indicates the error.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<b>Test Group C. Support for Certificate Profiles</b>
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_91" class="defined" href="#_t_91">Test FIA_CMCS_EXT.1:9</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_91" class="defined" href="#_t_91">Test FIA_CMCS_EXT.1:9</a>:
       
 							The evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>-1 <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to use a certificate
 							profile requiring extensions not used in Test Groups A or B.
-						</li>
-						<li class="test-"><a id="_t_92" class="defined" href="#_t_92">Test FIA_CMCS_EXT.1:10</a>:
+						</li><li class="test-"><a id="_t_92" class="defined" href="#_t_92">Test FIA_CMCS_EXT.1:10</a>:
       
 							The evaluator shall select a valid certificate and use the <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr>
 							client to generate a <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> request to update the certificate that is
@@ -9713,8 +9511,7 @@ The following sections list Common Criteria and technology terms used in this do
 								<li>does not return a response, and the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>-1 <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>’s audit trail
 									indicates the error,</li>
 							</ul>
-						</li>
-						<li class="test-"><a id="_t_93" class="defined" href="#_t_93">Test FIA_CMCS_EXT.1:11</a>:
+						</li><li class="test-"><a id="_t_93" class="defined" href="#_t_93">Test FIA_CMCS_EXT.1:11</a>:
       
 							The evaluator shall generate another otherwise valid <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr>
 							request for the selected certificate, this time populating the extension,
@@ -9730,19 +9527,16 @@ The following sections list Common Criteria and technology terms used in this do
 								<li>does not return a response, and the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>-1 <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>’s audit trail
 									indicates the error,</li>
 							</ul>
-						</li>
-						<li class="test-"><a id="_t_94" class="defined" href="#_t_94">Test FIA_CMCS_EXT.1:12</a>:
+						</li><li class="test-"><a id="_t_94" class="defined" href="#_t_94">Test FIA_CMCS_EXT.1:12</a>:
       
 							The evaluator shall generate and submit a valid <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> request
 							including the extension and observe that the subordinate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> returns a
 							simple <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> response with the updated certificate and that the
 							subordinate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate repository and audit trail indicate the
 							successful issuance.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<b>Test Group D. Additional Testing of Controls</b><br/><br/>
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_95" class="defined" href="#_t_95">Test FIA_CMCS_EXT.1:13</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_95" class="defined" href="#_t_95">Test FIA_CMCS_EXT.1:13</a>:
       
 							For each required control, the evaluator shall generate and
 							submit an otherwise valid <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> request including a certificate update
@@ -9750,11 +9544,9 @@ The following sections list Common Criteria and technology terms used in this do
 							observe that the subordinate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> returns a full <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr> with the error
 							indicated or does not respond, and that the subordinate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> audit trail
 							indicates the error.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<b>Test Group E. Additional Cryptographic Testing</b><br/><br/>
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_96" class="defined" href="#_t_96">Test FIA_CMCS_EXT.1:14</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_96" class="defined" href="#_t_96">Test FIA_CMCS_EXT.1:14</a>:
       
 							For each item in <a href="#FIA_CMCS_EXT.1.5">FIA_CMCS_EXT.1.5</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
         version 
@@ -9764,8 +9556,7 @@ The following sections list Common Criteria and technology terms used in this do
 							mechanism, and observe that the subordinate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> returns a full <abbr class="dyn-abbr"><a href="#abbr_CMC">CMC</a></abbr>
 							indicating the failure or does not respond, and that the subordinate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>
 							audit trail indicates the error.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -9857,16 +9648,14 @@ The following sections list Common Criteria and technology terms used in this do
 					and any required initial certificates.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following tests:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_97" class="defined" href="#_t_97">Test FIA_ESTC_EXT.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_97" class="defined" href="#_t_97">Test FIA_ESTC_EXT.1:1</a>:
       The evaluator shall establish an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server,
 							and configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> as indicated in the operational guidance to authorize the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>
 							server for <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> services using the external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. The evaluator shall
 							examine the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> logs and TA databases using available interfaces
 							to ensure the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server and external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’s certificates are
 							authorized for <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> services.
-						</li>
-						<li class="test-"><a id="_t_98" class="defined" href="#_t_98">Test FIA_ESTC_EXT.1:2</a>:
+						</li><li class="test-"><a id="_t_98" class="defined" href="#_t_98">Test FIA_ESTC_EXT.1:2</a>:
       
 							For each authentication method specified in
 							<a href="#FIA_ESTC_EXT.1.4">FIA_ESTC_EXT.1.4</a> as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
@@ -9877,15 +9666,13 @@ The following sections list Common Criteria and technology terms used in this do
 							<abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server established in Test 1. In accordance with guidance
 							documentation, the evaluator shall obtain all required certificates
 							in aggregate to allow the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to operate a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>.
-						</li>
-						<li class="test-"><a id="_t_99" class="defined" href="#_t_99">Test FIA_ESTC_EXT.1:3</a>:
+						</li><li class="test-"><a id="_t_99" class="defined" href="#_t_99">Test FIA_ESTC_EXT.1:3</a>:
       
 							The evaluator shall make a valid request for a certificate to
 							be issued by the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate obtained in test 2, and confirm that
 							the certificate received from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is signed by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>
 							certificate issued by the external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. 
-						</li>
-						<li class="test-"><a id="_t_100" class="defined" href="#_t_100">Test FIA_ESTC_EXT.1:4</a>:
+						</li><li class="test-"><a id="_t_100" class="defined" href="#_t_100">Test FIA_ESTC_EXT.1:4</a>:
       
 							The evaluator shall generate a re-enrollment request and
 							submit it to the authorized <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server in accordance with
@@ -9895,8 +9682,7 @@ The following sections list Common Criteria and technology terms used in this do
 							implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> used in Test 3. The evaluator shall make
 							a valid request for a certificate from that <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>, and observe that the
 							new <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate signs the returned certificate.
-						</li>
-						<li class="test-"><a id="_t_101" class="defined" href="#_t_101">Test FIA_ESTC_EXT.1:5</a>:
+						</li><li class="test-"><a id="_t_101" class="defined" href="#_t_101">Test FIA_ESTC_EXT.1:5</a>:
       
 							The evaluator shall establish a second <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server configured
 							to authorize the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> client but which not authorized by the
@@ -9905,8 +9691,7 @@ The following sections list Common Criteria and technology terms used in this do
 							and submit it to the second <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> server. The evaluator shall repeat
 							Test 3, observing that the certificate returned by the second <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr>
 							server is not listed as the issuer of certificate chain returned.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -9984,8 +9769,7 @@ The following sections list Common Criteria and technology terms used in this do
 					the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>. 
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following tests:<br/><br/>
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_103" class="defined" href="#_t_103">Test FIA_ESTS_EXT.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_103" class="defined" href="#_t_103">Test FIA_ESTS_EXT.1:1</a>:
       
 							The evaluator shall use an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> client to request certificate
 							enrollment of an authorized subject to obtain a new certificate
@@ -9994,8 +9778,7 @@ The following sections list Common Criteria and technology terms used in this do
 							certificate and corresponding private key as described by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030
 							Section 3.3.2. The evaluator shall confirm that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> issues a
 							certificate and returns it to the client.	
-						</li>
-						<li class="test-"><a id="_t_104" class="defined" href="#_t_104">Test FIA_ESTS_EXT.1:2</a>:
+						</li><li class="test-"><a id="_t_104" class="defined" href="#_t_104">Test FIA_ESTS_EXT.1:2</a>:
       
 							The evaluator shall use an <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> client to request certificate
 							enrollment of an authorized subject to obtain a new certificate
@@ -10004,8 +9787,7 @@ The following sections list Common Criteria and technology terms used in this do
 							certificate and corresponding private key as described by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 7030
 							Section 3.3.2. The evaluator shall confirm that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> issues a
 							certificate and returns it to the client.
-						</li>
-						<li class="test-"><a id="_t_105" class="defined" href="#_t_105">Test FIA_ESTS_EXT.1:3</a>:
+						</li><li class="test-"><a id="_t_105" class="defined" href="#_t_105">Test FIA_ESTS_EXT.1:3</a>:
       
 							If “a certificate issued by the same issuer that asserts id-kpcmcRA in its extended key usage extension” is selected in
 							<a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a>.4as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
@@ -10017,8 +9799,7 @@ The following sections list Common Criteria and technology terms used in this do
 							authenticating the request using an <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr>’s certificate issued by the
 							<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s Certification Authority functionality that asserts id-kpcmcRA in its extended key usage extension. The evaluator shall
 							confirm that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> issues a certificate and returns it to the client.
-						</li>
-						<li class="test-"><a id="_t_106" class="defined" href="#_t_106">Test FIA_ESTS_EXT.1:4</a>:
+						</li><li class="test-"><a id="_t_106" class="defined" href="#_t_106">Test FIA_ESTS_EXT.1:4</a>:
       
 							If “a certificate issued by the same issuer that asserts id-kpcmcRA in its extended key usage extension” is selected in
 							<a href="#FIA_ESTS_EXT.1">FIA_ESTS_EXT.1</a>.4 as defined in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
@@ -10031,15 +9812,13 @@ The following sections list Common Criteria and technology terms used in this do
 							Certification Authority functionality that does not assert id-kpcmcRA in its extended key usage extension and which is not
 							associated with <abbr class="dyn-abbr"><a href="#abbr_RA">RA</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_AOR">AOR</a></abbr> privileges by the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. The evaluator shall
 							confirm that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not issue a certificate.
-						</li>
-						<li class="test-"><a id="_t_107" class="defined" href="#_t_107">Test FIA_ESTS_EXT.1:5</a>:
+						</li><li class="test-"><a id="_t_107" class="defined" href="#_t_107">Test FIA_ESTS_EXT.1:5</a>:
       
 							The evaluator shall modify the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> client or setup a man-in-the-middle tool between the <abbr class="dyn-abbr"><a href="#abbr_EST">EST</a></abbr> client and <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to perform the
 							and modify a valid certificate request by modifying at least one byte in
 							the certificationRequestInfo field of the certificate request message and verify that the
 							<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> rejects the request.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 						Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 						<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -10085,8 +9864,7 @@ The following sections list Common Criteria and technology terms used in this do
 					length.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following test:<br/><br/>
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_110" class="defined" href="#_t_110">Test FIA_PMG_EXT.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_110" class="defined" href="#_t_110">Test FIA_PMG_EXT.1:1</a>:
       
 							The evaluator shall compose passwords that either meet
 							the requirements, or fail to meet the requirements, in some way.
@@ -10096,8 +9874,7 @@ The following sections list Common Criteria and technology terms used in this do
 							evaluator shall ensure that all characters, rule characteristics, and
 							a minimum length listed in the requirement are supported, and
 							justify the subset of those characters chosen for testing.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -10195,24 +9972,21 @@ The following sections list Common Criteria and technology terms used in this do
 					uses the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> specified in <a href="#FCS_RBG.1">FCS_RBG.1</a>.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following tests:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_111" class="defined" href="#_t_111">Test FIA_PSK_EXT.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_111" class="defined" href="#_t_111">Test FIA_PSK_EXT.1:1</a>:
       
 							The evaluator shall compose at least 15 pre-shared keys of
 							22 characters that cover all allowed characters in various
 							combinations that conform to the operational guidance, and
 							demonstrates that a successful protocol negotiation can be
 							performed with each key.
-						</li>
-						<li class="test-"><a id="_t_112" class="defined" href="#_t_112">Test FIA_PSK_EXT.1:2</a>:
+						</li><li class="test-"><a id="_t_112" class="defined" href="#_t_112">Test FIA_PSK_EXT.1:2</a>:
       
 							[conditional]: If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports pre-shared keys of
 							multiple lengths, the evaluator shall repeat Test 1 using the
 							minimum length, the maximum length, and an invalid length. The
 							minimum and maximum length tests should be successful, and the
 							invalid length must be rejected by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
-						</li>
-						<li class="test-"><a id="_t_113" class="defined" href="#_t_113">Test FIA_PSK_EXT.1:3</a>:
+						</li><li class="test-"><a id="_t_113" class="defined" href="#_t_113">Test FIA_PSK_EXT.1:3</a>:
       
 							[conditional]: If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports bit-based pre-shared keys
 							but does not generate such keys, the evaluator shall obtain a 
@@ -10220,8 +9994,7 @@ The following sections list Common Criteria and technology terms used in this do
 							according to the instructions in the operational guidance. The
 							evaluator shall then demonstrate that a successful protocol
 							negotiation can be performed with the key.
-						</li>
-						<li class="test-"><a id="_t_114" class="defined" href="#_t_114">Test FIA_PSK_EXT.1:4</a>:
+						</li><li class="test-"><a id="_t_114" class="defined" href="#_t_114">Test FIA_PSK_EXT.1:4</a>:
       
 							[conditional]: If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports bit-based pre-shared keys
 							and does generate such keys, the evaluator shall generate a 
@@ -10229,8 +10002,7 @@ The following sections list Common Criteria and technology terms used in this do
 							according to the instructions in the operational guidance. The
 							evaluator shall then demonstrate that a successful protocol
 							negotiation can be performed with the key.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -10266,14 +10038,12 @@ The following sections list Common Criteria and technology terms used in this do
 					necessary to satisfy the requirements in [<abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr>].
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following test:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_115" class="defined" href="#_t_115">Test FIA_UAU.7:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_115" class="defined" href="#_t_115">Test FIA_UAU.7:1</a>:
       
 							The evaluator shall locally authenticate to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and verify
 							that at most, obscured feedback is provided while entering the
 							authentication information.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -10323,24 +10093,21 @@ The following sections list Common Criteria and technology terms used in this do
 					creating the certificate request message.
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following tests:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_130" class="defined" href="#_t_130">Test FIA_X509_EXT.3:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_130" class="defined" href="#_t_130">Test FIA_X509_EXT.3:1</a>:
       
 							The evaluator shall use the guidance documentation to cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
 							to generate a certificate request message. The evaluator shall capture the
 							generated message and ensure that it conforms to the format specified. The 
 							evaluator shall confirm that the certificate request provides the public key and
 							other required information, including any necessary user-input information.
-						</li>
-						<li class="test-"><a id="_t_131" class="defined" href="#_t_131">Test FIA_X509_EXT.3:2</a>:
+						</li><li class="test-"><a id="_t_131" class="defined" href="#_t_131">Test FIA_X509_EXT.3:2</a>:
       
 							The evaluator shall demonstrate that validating a certificate response
 							message without a valid certification path results in the function failing. The
 							evaluator shall then load a certificate or certificates as trusted CAs needed
 							to validate the certificate response message, and demonstrate that the function
 							succeeds.
-						</li>
-					</ul></span>
+						</li></ul></span>
 				</div></div></div></div></div><h2 id="fpt-sel-based" class="indexable" data-level="2">B.7 Class FPT: Protection of the TSF</h2><div class="comp" id="FPT_APW_EXT.1"><h4>FPT_APW_EXT.1 Protection of Privileged User Password</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in:</i></b><ul><li><b><i><a href="#FIA_UAU_EXT.1.1">FIA_UAU_EXT.1.1</a></i></b></li></ul></div>
 		
 		
@@ -10378,14 +10145,12 @@ The following sections list Common Criteria and technology terms used in this do
 				</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following test:
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_135" class="defined" href="#_t_135">Test FPT_APW_EXT.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_135" class="defined" href="#_t_135">Test FPT_APW_EXT.1:1</a>:
        
 							The evaluator shall use forensic tools to search storage media
 							to verify that passwords cannot be found in an unobscured (e.g.,
 							plaintext) form.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Justification must be provided for those platforms that were excluded
@@ -10558,36 +10323,31 @@ The following sections list Common Criteria and technology terms used in this do
 					interrupted. 
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 					The evaluator shall perform the following tests:<br/><br/>
-					<span class="testlist-"><ul>
-						<li class="test-"><a id="_t_161" class="defined" href="#_t_161">Test FTP_ITC.1:1</a>:
+					<span class="testlist-"><ul><li class="test-"><a id="_t_161" class="defined" href="#_t_161">Test FTP_ITC.1:1</a>:
       
 							The evaluator shall ensure that communications using each
 							protocol with each authorized <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entity is tested during the course
 							of the evaluation, setting up the connections as described in the
 							operational guidance and ensuring that communication is
 							successful.
-						</li>
-						<li class="test-"><a id="_t_162" class="defined" href="#_t_162">Test FTP_ITC.1:2</a>:
+						</li><li class="test-"><a id="_t_162" class="defined" href="#_t_162">Test FTP_ITC.1:2</a>:
       
 							For each protocol that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can initiate as defined in the
 							requirement, the evaluator shall follow the operational guidance
 							to ensure that in fact the communication channel can be initiated
 							from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
-						</li>
-						<li class="test-"><a id="_t_163" class="defined" href="#_t_163">Test FTP_ITC.1:3</a>:
+						</li><li class="test-"><a id="_t_163" class="defined" href="#_t_163">Test FTP_ITC.1:3</a>:
       
 							The evaluator shall ensure, for each communication
 							channel with an authorized <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entity, the channel data is not sent
 							in plaintext.
-						</li>
-						<li class="test-"><a id="_t_164" class="defined" href="#_t_164">Test FTP_ITC.1:4</a>:
+						</li><li class="test-"><a id="_t_164" class="defined" href="#_t_164">Test FTP_ITC.1:4</a>:
       
 							The evaluator shall, for each protocol associated with each
 							authorized <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entity tested during test 1, cause an interruption to
 							the connection. The evaluator shall ensure that when connectivity
 							is restored, communications are appropriately protected.
-						</li>
-					</ul></span>
+						</li></ul></span>
 					Further evaluation activities are associated with the specific protocols. <br/><br/>
 					<i>Equivalency</i><br/><br/>
 					Testing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be performed on a subset of the platforms listed in the
