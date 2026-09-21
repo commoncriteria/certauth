@@ -78,7 +78,6 @@ output/certauth-release-linkable.html: enquiries
 output/certauth-release-linkable.html: forgeable
 output/certauth-release-linkable.html: hashAlgId
 output/certauth-release-linkable.html: hashAlgorithm
-output/certauth-release-linkable.html: impl
 output/certauth-release-linkable.html: issuerAltName
 output/certauth-release-linkable.html: issuerUniqueID
 output/certauth-release-linkable.html: jittered
@@ -197,7 +196,6 @@ output/certauth-release.html: extended’
 output/certauth-release.html: forgeable
 output/certauth-release.html: hashAlgId
 output/certauth-release.html: hashAlgorithm
-output/certauth-release.html: impl
 output/certauth-release.html: individuals’
 output/certauth-release.html: issuerAltName
 output/certauth-release.html: issuerUniqueID
@@ -319,7 +317,6 @@ output/certauth.html: extended’
 output/certauth.html: forgeable
 output/certauth.html: hashAlgId
 output/certauth.html: hashAlgorithm
-output/certauth.html: impl
 output/certauth.html: individuals’
 output/certauth.html: issuerAltName
 output/certauth.html: issuerUniqueID

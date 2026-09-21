@@ -1,1 +1,0 @@
-/home/runner/work/certauth/certauth/input/certauth.xml:1248:116: error: value of attribute "g" is invalid; must be equal to "CC", "CEM", "feat-based-reqs", "glossary", "objective-reqs", "optional-reqs", "sel-based-reqs", "t-audit-feat-based", "t-audit-mandatory", "t-audit-objective", "t-audit-optional", "t-audit-sel-based" or "use-case-appendix"
