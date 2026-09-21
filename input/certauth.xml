@@ -85,33 +85,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	    <depends on="selection"><ref-id>sel-itc-https</ref-id></depends>
 	    <depends on="selection"><ref-id>sel-x509-2-tls</ref-id></depends>   
  </include-pkg>-->
-  <include-pkg id="pkgTLS">
-	<git>
-		<url>https://github.com/commoncriteria/tls</url>
-		<branch>release-2.1</branch>
-	</git>
-	<url>https://www.niap-ccevs.org/protectionprofiles/465</url>
-  </include-pkg>
 
  <!--<include-pkg name="Secure Shell" product="" short="SSH"  version="1.0"
 	url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=389&amp;id=389">
 	<depends on="selection"><ref-id>sel-itc-ssh</ref-id></depends>
     	<depends on="selection"><ref-id>sel-x509-2-ssh</ref-id></depends> 
  </include-pkg>	-->
- <include-pkg id="pkgSSH">
-	<git>
-		<url>https://github.com/commoncriteria/ssh</url>
-		<branch>release-2.0</branch>
-	</git>
-	<url>https://www.niap-ccevs.org/protectionprofiles/515</url>
- </include-pkg>
- <include-pkg id="pkgX509">
-    <git>
-      <url>https://github.com/commoncriteria/X509</url>
-      <branch>release-1.0</branch>
-    </git>
-    <url>https://www.niap-ccevs.org/protectionprofiles/511</url>
-  </include-pkg>
 	
 	<!-- Rules - These are rules where selections in the base require selections in the Modules.
 			So, really these belong in a composition and not here. At worst they should be in the module.
@@ -580,9 +559,33 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		<cc-pp-conf/>
 		<cc-pp-config-with/>
 		<cc-pkg-claim>
-			<FP-cc-ref conf="conformant">Functional Package for TLS, version 2.1</FP-cc-ref>
-			<FP-cc-ref conf="conformant">Functional Package for Secure Shell, version 2.0</FP-cc-ref>
-			<FP-cc-ref conf="conformant">Functional Package for X.509, version 1.0</FP-cc-ref>			
+			<FP-cc-ref conf="conformant">
+				<cc-doc-ref id="tls">
+					<git>
+						<url>https://github.com/commoncriteria/tls</url>
+						<branch>release-2.1</branch>
+					</git>
+					<url>https://www.niap-ccevs.org/protectionprofiles/519</url>
+				</cc-doc-ref>
+			</FP-cc-ref>
+			<FP-cc-ref conf="conformant">
+				<cc-doc-ref id="ssh">
+					<git>
+						<url>https://github.com/commoncriteria/ssh</url>
+						<branch>release-2.0</branch>
+					</git>
+					<url>https://www.niap-ccevs.org/protectionprofiles/515</url>
+				</cc-doc-ref>
+			</FP-cc-ref>
+			<FP-cc-ref conf="conformant">
+				<cc-doc-ref id="X509">
+					<git>
+						<url>https://github.com/commoncriteria/X509</url>
+						<branch>release-1.0</branch>
+					</git>
+					<url>https://www.niap-ccevs.org/protectionprofiles/511</url>
+				</cc-doc-ref>
+			</FP-cc-ref>
 		</cc-pkg-claim>
 	</CClaimsInfo>
   </sec:Conformance_Claims>
@@ -1116,11 +1119,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		implementation-based and selection-based SFRs) indicates whether the audit record is 
 		intended to be used for ‘normal’ (shorter-term) or ‘extended’ (longer-term) purposes.<h:br/><h:br/>
    
-   For the FDP_CER_EXT.2 as defined in <xref to="pkgX509"/> audit event, the intent is that auditing is performed only
+   For the FDP_CER_EXT.2 as defined in <xref to="X509"/> audit event, the intent is that auditing is performed only
 		once incoming data are recognized by the TOE as a “request.” Cases where
 		incoming data are rejected before they are processed as “requests” by the TOE
 		(and thus the action “fails”) do not need to be audited by the FDP_CER_EXT.2 as defined in <xref
-			to="pkgX509"/> audit event.<h:br/><h:br/>
+			to="X509"/> audit event.<h:br/><h:br/>
 	  </note>
           <aactivity>
               <TSS>
@@ -1576,7 +1579,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</Guidance>
 				<Tests>
 					The test activities can be conducted in conjunction with
-					those for FDP_CER_EXT.1 as defined in <xref to="pkgX509"/> and FAU_GCR_EXT.1.<h:br/><h:br/>
+					those for FDP_CER_EXT.1 as defined in <xref to="X509"/> and FAU_GCR_EXT.1.<h:br/><h:br/>
 					The evaluator shall generate a sufficient number and variety of certificates to
 					populate the repository certificates having at least two values for each of the
 					search fields selected in this SFR. The evaluator shall then, following the
@@ -2150,8 +2153,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		</f-element>
 		<f-element>
                	<title>The TSF shall require and verify proof of origin for certificate requests it receives
-               		<selectables><selectable>CMC using mechanisms in accordance with FIA_CMCS_EXT.1 as defined in <xref to="pkgX509"/></selectable>
-               			<selectable>EST using mechanisms in accordance with FIA_ESTS_EXT.1 as defined in <xref to="pkgX509"/></selectable></selectables>.
+               		<selectables><selectable>CMC using mechanisms in accordance with FIA_CMCS_EXT.1 as defined in <xref to="X509"/></selectable>
+               			<selectable>EST using mechanisms in accordance with FIA_ESTS_EXT.1 as defined in <xref to="X509"/></selectable></selectables>.
                 </title>
 			<ext-comp-def-title>
 				<title>The TSF shall require and verify proof of origin for certificate requests it receives
@@ -2162,8 +2165,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<title>The TSF shall require and verify proof of origin for public keys contained in
 				certificate requests it receives via <selectables>
 					<selectable>proof-of-possession mechanisms in CMC using mechanisms in accordance with
-						FIA_CMCS_EXT.1 as defined in <xref to="pkgX509"/></selectable>
-					<selectable>proof-of-possession mechanisms in EST in accordance with FIA_ESTS_EXT.1 as defined in <xref to="pkgX509"/></selectable>
+						FIA_CMCS_EXT.1 as defined in <xref to="X509"/></selectable>
+					<selectable>proof-of-possession mechanisms in EST in accordance with FIA_ESTS_EXT.1 as defined in <xref to="X509"/></selectable>
 				</selectables>.
                 </title>
 			<ext-comp-def-title>
@@ -2176,8 +2179,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<selectables>
 				<selectable>require and verify proof of origin for revocation requests it receives via
 					<selectables>
-						<selectable>CMC using mechanisms in accordance with FIA_CMCS_EXT.1 as defined in <xref to="pkgX509"/></selectable>
-						<selectable>EST using optional “full CMC” functionality in accordance with FIA_ESTS_EXT.1 as defined in <xref to="pkgX509"/></selectable>
+						<selectable>CMC using mechanisms in accordance with FIA_CMCS_EXT.1 as defined in <xref to="X509"/></selectable>
+						<selectable>EST using optional “full CMC” functionality in accordance with FIA_ESTS_EXT.1 as defined in <xref to="X509"/></selectable>
 					</selectables>
 				</selectable>
 				<selectable>
@@ -2196,9 +2199,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			The TOE is responsible for providing proof of origin for information it issues and
 			verifying proof of origin for information it receives. Based on what is chosen in the
 			selection for FCO_NRO_EXT.2.2, the applicable requirements from Appendix B (i.e.,
-			FDP_CRL_EXT.1 and FDP_OCSPG_EXT.1 as defined in <xref to="pkgX509"/>) must be included. Based on what is chosen
+			FDP_CRL_EXT.1 and FDP_OCSPG_EXT.1 as defined in <xref to="X509"/>) must be included. Based on what is chosen
 			in the selections for FCO_NRO_EXT.2.3 through FCO_NRO_EXT.2.5, the applicable
-			requirements from Appendix B (i.e., FIA_CMCS_EXT.1 and FIA_ESTS_EXT.1 as defined in <xref to="pkgX509"/>) must be
+			requirements from Appendix B (i.e., FIA_CMCS_EXT.1 and FIA_ESTS_EXT.1 as defined in <xref to="X509"/>) must be
 			included. <h:br/><h:br/>
 			A TOE that supports both EST and CMC and can obtain revocation requests via
 			one of the protocols would be in compliance with FCO_NRO_EXT.2.5. Manual
@@ -2328,9 +2331,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 		
 		<note role="application">
 			Based on what is chosen in the selections, the applicable requirements (i.e., FIA_CMCS_EXT.1 and
-			FIA_ESTS_EXT.1 as defined in <xref to="pkgX509"/>)
+			FIA_ESTS_EXT.1 as defined in <xref to="X509"/>)
 			must be included.<h:br/><h:br/>
-			This SFR is claimed if “CMC full responses” is selected in FIA_CMCS_EXT.1.2 as defined in <xref to="pkgX509"/>.
+			This SFR is claimed if “CMC full responses” is selected in FIA_CMCS_EXT.1.2 as defined in <xref to="X509"/>.
 		</note>
 		<aactivity>
 			<TSS>
@@ -5334,7 +5337,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</Guidance>
 			<Tests>
 				For efficiency sake, the testing that is performed may be combined with the
-				testing for FIA_X509_EXT.1 and FIA_X509_EXT.2 (for IPsec connections) as defined in <xref to="pkgX509"/>, and
+				testing for FIA_X509_EXT.1 and FIA_X509_EXT.2 (for IPsec connections) as defined in <xref to="X509"/>, and
 				FCS_IPSEC_EXT.1.1. The following tests shall be repeated for each peer
 				authentication selected in the FCS_IPSEC_EXT.1.1 selection above:
 				<testlist>
@@ -6032,7 +6035,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				</h:ol>
 			</title>
 			<note role="application">
-				FDP_CER_EXT.1.2 as defined in <xref to="pkgX509"/> is intended to clarify the standard interpretation that subject
+				FDP_CER_EXT.1.2 as defined in <xref to="X509"/> is intended to clarify the standard interpretation that subject
 				key identifiers MUST be unique to a public key in a certificate issued by a CA (not
 				that the public keys are unique). The intended meaning is that it is acceptable to
 				issue a certificate with a public key contained in a request that happens to match 
@@ -6066,24 +6069,24 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The requirement applies only to the issuance of X.509 v3 certificates. An optional
 				requirement in Appendix A allows for the issuance of X.509 certificates other than
 				V3.<h:br/><h:br/>
-				Consistency is defined in RFC 5280 for FDP_CER_EXT.1.2 as defined in <xref to="pkgX509"/>, item i; specifically, for
+				Consistency is defined in RFC 5280 for FDP_CER_EXT.1.2 as defined in <xref to="X509"/>, item i; specifically, for
 				each extendedKeyUsage purpose specified, there must be a consistent keyUsage
 				purpose set.<h:br/><h:br/>
 				RFC updates to RFC 5280 are included in this requirement.<h:br/><h:br/>
-				The random input to issued certificates in FDP_CER_EXT.1.3 as defined in <xref to="pkgX509"/> can be spread across
+				The random input to issued certificates in FDP_CER_EXT.1.3 as defined in <xref to="X509"/> can be spread across
 				multiple of the selectable fields so that the total number of inserted bits is at least
 				20. Select all that apply.
 			</note>
 			<aactivity>
 				<TSS>
 					The evaluator shall examine the TSS to ensure it describes the certificate profile
-					function in accordance with FDP_CER_EXT.1.1 as defined in <xref to="pkgX509"/>. The TSS shall describe how
+					function in accordance with FDP_CER_EXT.1.1 as defined in <xref to="X509"/>. The TSS shall describe how
 					certificate profiles are configured and then selected to issue certificates in
-					accordance with FDP_CER_EXT.1.2 as defined in <xref to="pkgX509"/>. The evaluator shall also ensure that the TSS
+					accordance with FDP_CER_EXT.1.2 as defined in <xref to="X509"/>. The evaluator shall also ensure that the TSS
 					describes how the TSF ensures that a certificate-requesting subject possesses
 					the applicable private key. Finally, the evaluator shall ensure that the TSS
 					describes how 20 bits of random data are generated in accordance with
-					FDP_CER_EXT.1.3 as defined in <xref to="pkgX509"/> and which certificate fields are involved.
+					FDP_CER_EXT.1.3 as defined in <xref to="X509"/> and which certificate fields are involved.
 				</TSS>
 				<Guidance>
 					The evaluator shall examine the operational guidance to ensure that
@@ -6109,7 +6112,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					</test>
 					<test>
 						The evaluator shall test the fields “d,” “e,” “f,” and “i” in
-						FDP_CER_EXT.1.2 as defined in <xref to="pkgX509"/> as follows:<h:br/><h:br/>
+						FDP_CER_EXT.1.2 as defined in <xref to="X509"/> as follows:<h:br/><h:br/>
 						<h:b>Field “d”:</h:b> The evaluator shall send a request with a
 						subjectPublicKeyInfo that is allowed by the profile, and observe the
 						request succeeds. The evaluator shall then send a request with a
@@ -6340,9 +6343,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<TSS>
 					The evaluator shall examine the TSS to ensure it describes the X.509 certificate
 					generation function and the supported and non-features of the ITU-T
-					Recommendation X.509, in accordance with FDP_CER_EXT.2.1 as defined in <xref to="pkgX509"/>, that can be
+					Recommendation X.509, in accordance with FDP_CER_EXT.2.1 as defined in <xref to="X509"/>, that can be
 					used to issue certificates. The evaluator shall ensure that the TSS identifies
-					which of the values identified in FDP_CER_EXT.2.1 as defined in <xref to="pkgX509"/> can be included in generated
+					which of the values identified in FDP_CER_EXT.2.1 as defined in <xref to="X509"/> can be included in generated
 					certificates.
 				</TSS>
 				<Guidance>
@@ -6354,7 +6357,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					The evaluator shall perform the following test:
 					<testlist>
 						<test>
-							For each field defined in FDP_CER_EXT.2.1 as defined in <xref to="pkgX509"/>, the evaluator shall
+							For each field defined in FDP_CER_EXT.2.1 as defined in <xref to="X509"/>, the evaluator shall
 							attempt to create a certificate request that violates the required
 							conditions of the field. The evaluator shall determine that all such
 							attempts are rejected by the TSF. 
@@ -6413,24 +6416,24 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					The evaluator shall examine the TSS to ensure it indicates whether the TOE
 					supports CRL generation, and if so, describes the CRL generation function. Also,
 					the evaluator shall ensure that the TSS identifies which of the values identified
-					in FDP_CRL_EXT.1.1 as defined in <xref to="pkgX509"/> can be included in CRLs.	
+					in FDP_CRL_EXT.1.1 as defined in <xref to="X509"/> can be included in CRLs.	
 				</TSS>
 				<Guidance/>
 				<Tests>
 					If the TOE supports configuration of the CRL issuing function, the evaluator
 					shall examine the operational guidance to ensure that instructions are
 					available to configure issuance of CRL in accordance with 
-					FDP_CRL_EXT.1.1 as defined in <xref to="pkgX509"/>.<h:br/><h:br/>
+					FDP_CRL_EXT.1.1 as defined in <xref to="X509"/>.<h:br/><h:br/>
 					The evaluator shall perform the following tests:<h:br/><h:br/>
 					<testlist>
 						<test>
 							If CRL can be issued, the evaluator shall configure the CRL
 							function using available user guidance and request a CRL in order to
 							ensure that the resulting CRL satisfies all field constraints in
-							FDP_CRL_EXT.1.1 as defined in <xref to="pkgX509"/>.
+							FDP_CRL_EXT.1.1 as defined in <xref to="X509"/>.
 						</test>
 						<test>
-							For each field defined in FDP_CRL_EXT.1.1 as defined in <xref to="pkgX509"/>, the evaluator shall
+							For each field defined in FDP_CRL_EXT.1.1 as defined in <xref to="X509"/>, the evaluator shall
 							attempt to create a CRL that violates the required conditions of the
 							field. The evaluator shall determine that all such attempts are rejected
 							by the TSF. 
@@ -6498,7 +6501,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				shall be referenced, and any optional features within the RFC shall be specified.<h:br/><h:br/>
 				The various iterations of FMT_MOF.1 defines the role or roles authorized to
 				approve changes to a certificate’s status.<h:br/><h:br/>
-				The “changes” referenced in FDP_CSI_EXT.1.2 as defined in <xref to="pkgX509"/> are the revocation requests
+				The “changes” referenced in FDP_CSI_EXT.1.2 as defined in <xref to="X509"/> are the revocation requests
 				received by the TOE.
 			</note>
 			<aactivity>
@@ -6515,7 +6518,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				If the TOE supports the configuration of certificate status information, the
 				evaluator shall examine the operational guidance to ensure that instructions
 				are available to configure the certificate status function to use the formats
-				identified in FDP_CSI_EXT.1.1 as defined in <xref to="pkgX509"/>. 
+				identified in FDP_CSI_EXT.1.1 as defined in <xref to="X509"/>. 
 			</TSS>
 			<Guidance>
 				The evaluator shall examine the operational guidance to ensure that it contains
@@ -6529,7 +6532,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<test>
 						For certificate status information, the evaluator shall configure
 						the TSF to provide certificate status information according to each
-						format identified in FDP_CSI_EXT.1.1 as defined in <xref to="pkgX509"/> in turn and request certificate
+						format identified in FDP_CSI_EXT.1.1 as defined in <xref to="X509"/> in turn and request certificate
 						status for each format. Each certificate status response shall be
 						examined to ensure that it conforms to the format as described in the
 						TSS.
@@ -6602,7 +6605,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				defined by the protocol chosen in the first selection. The ST author chooses the
 				mechanisms supported by the TOE, and then ensures the detailed certificate request protocol requirements
 				corresponding to their selection are copied to the ST if not already present.<h:br/><h:br/>
-				If SSH is selected, the TOE is expected to conform to the <xref to="pkgSSH"/>.
+				If SSH is selected, the TOE is expected to conform to the <xref to="ssh"/>.
 			</note>
 			<aactivity>
 				<TSS>
@@ -6662,7 +6665,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					appropriate assignments/selections such that the configuration is comparable to its old 
 					definitions. Note that the X.509 FP version of the SFR contains more granular requirements for the signature algorithms used to sign responses.</comment>
 				The TSF shall ensure that all mandatory fields in the OCSP response contain values
-				in accordance with the standards specified in FDP_CSI_EXT.1 as defined in <xref to="pkgX509"/>. At a minimum, the
+				in accordance with the standards specified in FDP_CSI_EXT.1 as defined in <xref to="X509"/>. At a minimum, the
 				following items shall be enforced:
 				<h:ol type="a">
 					<h:li>The version field shall indicate a current version.</h:li>
@@ -6689,13 +6692,13 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					The evaluator shall examine the TSS to ensure it indicates whether the TOE
 					supports OCSP, and if so, describes the OCSP response function. Also, the
 					evaluator shall ensure that the TSS identifies which of the values identified in
-					FDP_OCSPG_EXT.1.1 as defined in <xref to="pkgx509"/> can be included in OCSP responses.
+					FDP_OCSPG_EXT.1.1 as defined in <xref to="X509"/> can be included in OCSP responses.
 				</TSS>
 				<Guidance/>
 				<Tests>
 					If the TOE supports configuration of the OCSP function, the evaluator shall
 					examine the operational guidance to ensure that instructions are available to
-					configure the OCSP response function in accordance with FDP_OCSPG_EXT.1.1 as defined in <xref to="pkgx509"/>.<h:br/><h:br/>
+					configure the OCSP response function in accordance with FDP_OCSPG_EXT.1.1 as defined in <xref to="X509"/>.<h:br/><h:br/>
 					The evaluator shall perform the following tests:<h:br/><h:br/>
 					<testlist>
 						<test>
@@ -6706,11 +6709,11 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							revoked, a certificate issued by a CA implemented by the TOE which
 							has been revoked, and a certificate not issued by a CA implemented by
 							the TOE. The evaluator shall ensure that the responses satisfy all
-							constraints in FDP_OCSPG_EXT.1.1 as defined in <xref to="pkgx509"/> and reflects the correct status in
+							constraints in FDP_OCSPG_EXT.1.1 as defined in <xref to="X509"/> and reflects the correct status in
 							accordance with the referenced standard.
 						</test>
 						<test>
-							For each OCSP response format defined in FDP_CSI_EXT.1.1 as defined in <xref to="pkgX509"/>,
+							For each OCSP response format defined in FDP_CSI_EXT.1.1 as defined in <xref to="X509"/>,
 							and for each item a-e of this SFR, the evaluator shall attempt to create
 							an OCSP response that violates the required conditions. The evaluator
 							shall determine that all such attempts are rejected by the TSF. 
@@ -7198,9 +7201,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					Officers, when no other certificates are available.
 				</Guidance>
 				<Tests>
-					Testing for FIA_CMCC_EXT.1 as defined in <xref to="pkgX509"/> is performed in conjunction with tests in
-					FIA_CMCS_EXT.1 as defined in <xref to="pkgX509"/>, performing additional test activities as follows:<h:br/><h:br/>
-					While completing test 2 for FIA_CMCS_EXT.1 as defined in <xref to="pkgX509"/> for Test Group A:<h:br/><h:br/>
+					Testing for FIA_CMCC_EXT.1 as defined in <xref to="X509"/> is performed in conjunction with tests in
+					FIA_CMCS_EXT.1 as defined in <xref to="X509"/>, performing additional test activities as follows:<h:br/><h:br/>
+					While completing test 2 for FIA_CMCS_EXT.1 as defined in <xref to="X509"/> for Test Group A:<h:br/><h:br/>
 					<h:ul>
 						<h:li>Test 2:
 						<h:ul>
@@ -7223,9 +7226,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							<h:ul>
 								<h:li>The evaluator shall establish a third instance of the TSF
 									implementing an online CA (CA-2) subordinate to the online CA-1
-									established for Test Group B in FIA_CMCC_EXT.1 as defined in <xref to="pkgX509"/>. </h:li>
+									established for Test Group B in FIA_CMCC_EXT.1 as defined in <xref to="X509"/>. </h:li>
 								<h:li>For one of the request types indicated in the selection for
-									FIA_CMCC_EXT.1.1 as defined in <xref to="pkgX509"/> and one of the POP control supported, the
+									FIA_CMCC_EXT.1.1 as defined in <xref to="X509"/> and one of the POP control supported, the
 									evaluator shall log into the CA-2 TSF in the CA operations staff role
 									and cause CA-2 to generate CMC request.</h:li>
 								<h:li>The evaluator shall cause the CA-2 CMC request to be
@@ -7349,7 +7352,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			</title>
 			<note role="application">
 				This SFR is selected if TODO.<h:br/><h:br/>
-				FIA_CMCS_EXT.1.5 as defined in <xref to="pkgX509"/> focuses on offline root CAs that do not have direct connection
+				FIA_CMCS_EXT.1.5 as defined in <xref to="X509"/> focuses on offline root CAs that do not have direct connection
 				to external IT entities.<h:br/><h:br/>
 				In subsequent versions of the PP, the TSF will be required to meet the Suite B
 				profile for CMC as described in RFC 6403. 
@@ -7451,7 +7454,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 								secret should be used for at least as many entities are there are
 								request types and POP controls (but at least two).</h:li>
 							<h:li>For each request type indicated in the selection for
-								FIA_CMCS_EXT.1.1 as defined in <xref to="pkgX509"/> and for each POP control supported, the
+								FIA_CMCS_EXT.1.1 as defined in <xref to="X509"/> and for each POP control supported, the
 								evaluator shall use the CMC client to establish a CMC request, using
 								a different identifier (subject name) for each request. </h:li>
 							<h:li>[Conditional on CMC support for shared secrets:] The evaluator
@@ -7462,7 +7465,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 								entities are there are request types and POP controls (but at least
 								two).</h:li>
 							<h:li>For each request type indicated in the selection for
-								FIA_CMCS_EXT.1.1 as defined in <xref to="pkgX509"/> and for each POP control supported, the 
+								FIA_CMCS_EXT.1.1 as defined in <xref to="X509"/> and for each POP control supported, the 
 								evaluator shall use the client to establish a CMC request, using a
 								different identifier (subject name) for each request.
 								<h:ul>
@@ -7577,7 +7580,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<h:b>Test Group E. Additional Cryptographic Testing</h:b><h:br/><h:br/>
 					<testlist>
 						<test>
-							For each item in FIA_CMCS_EXT.1.5 as defined in <xref to="pkgX509"/>, the evaluator shall
+							For each item in FIA_CMCS_EXT.1.5 as defined in <xref to="X509"/>, the evaluator shall
 							generate and submit an otherwise valid CMC request including a
 							certificate update where the item uses an invalid cryptographic
 							mechanism, and observe that the subordinate CA returns a full CMC
@@ -7615,9 +7618,9 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			The TSF shall be able to generate a certificate request to an external certification
 			authority to receive a CA certificate for a CA's signing key using 
 			<selectables linebreak="yes">
-				<selectable>PKCS#10 in accordance with FIA_X509_EXT.3 as defined in <xref to="pkgX509"/></selectable>
-				<selectable>Enrollment over Secure Transport (EST) in accordance with FIA_ESTC_EXT.1 as defined in <xref to="pkgX509"/></selectable>
-				<selectable>Certificate Management over CMM in accordance with FIA_CMCC_EXT.1 as defined in <xref to="pkgX509"/></selectable>
+				<selectable>PKCS#10 in accordance with FIA_X509_EXT.3 as defined in <xref to="X509"/></selectable>
+				<selectable>Enrollment over Secure Transport (EST) in accordance with FIA_ESTC_EXT.1 as defined in <xref to="X509"/></selectable>
+				<selectable>Certificate Management over CMM in accordance with FIA_CMCC_EXT.1 as defined in <xref to="X509"/></selectable>
 			</selectables>
 		</title>
 		<note role="application">
@@ -7634,7 +7637,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			<Guidance>
 				The evaluator shall examine the operational guidance documentation and
 				confirm that it contains instructions for obtaining a certificate for the
-				embedded CA using the options claimed in FIA_ENR_EXT.1.1 as defined in <xref to="pkgX509"/>.
+				embedded CA using the options claimed in FIA_ENR_EXT.1.1 as defined in <xref to="X509"/>.
 			</Guidance>
 			<Tests>
 				Testing is covered under the tests for the referenced SFR of the claimed
@@ -7681,7 +7684,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 							<selectable>CA operations staff</selectable>
 						</selectables></selectable>
 					<selectable>an explicit TA database populated via a TLS-authenticated EST CA
-						certificate request in accordance with RFC 7030 section 4.1.2 and FCS_TLSC_EXT.2 (as defined in the <xref to="pkgTLS"/>)
+						certificate request in accordance with RFC 7030 section 4.1.2 and FCS_TLSC_EXT.2 (as defined in the <xref to="tls"/>)
 					</selectable>
 				</selectables>.
 			</title>
@@ -7704,12 +7707,12 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				, from an authorized EST server using 
 				<selectables linebreak="yes">
 					<selectable>HTTP basic authentication transported over TLS in accordance with RFC 7030
-						section 3.2.3 and FCS_TLSC_EXT.2 (as defined in the <xref to="pkgTLS"/>).</selectable>
+						section 3.2.3 and FCS_TLSC_EXT.2 (as defined in the <xref to="tls"/>).</selectable>
 					<selectable>HTTP digest authentication using a cryptographic hash algorithm in
 						accordance with FCS_COP.1/HASH, transported over TLS in accordance with
-						RFC 7030 section 3.2.3 and FCS_TLSC_EXT.2 (as defined in the <xref to="pkgTLS"/>).</selectable>
+						RFC 7030 section 3.2.3 and FCS_TLSC_EXT.2 (as defined in the <xref to="tls"/>).</selectable>
 					<selectable>Certificate-based authentication in accordance with RFC 7030 section 3.3.2
-						and FCS_TLSC_EXT.2 (as defined in the <xref to="pkgTLS"/>) using 
+						and FCS_TLSC_EXT.2 (as defined in the <xref to="tls"/>) using 
 						<assignable>a pre-existing certificate authorized by the EST server</assignable>
 						</selectable>
 				</selectables>.
@@ -7727,7 +7730,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				A CA used as an intermediate certification authority in a PKI will need to make
 				requests to external CAs to which it is subordinate. It is acceptable to use EST to
 				generate these requests. <h:br/><h:br/>
-				The third choice in the selection for FIA_ESTC_EXT.1.4 as defined in <xref to="pkgX509"/> is selected if a pre-existing
+				The third choice in the selection for FIA_ESTC_EXT.1.4 as defined in <xref to="X509"/> is selected if a pre-existing
 				certificate exists. The assignment should specify whether this pre-existing
 				certificate is established by the vendor, or installed by a privileged user. 
 			</note>
@@ -7757,7 +7760,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						</test>
 						<test>
 							For each authentication method specified in
-							FIA_ESTC_EXT.1.4 as defined in <xref to="pkgX509"/>, the evaluator shall generate one or more
+							FIA_ESTC_EXT.1.4 as defined in <xref to="X509"/>, the evaluator shall generate one or more
 							certificate enrollment requests using the authentication method
 							to obtain TOE required certificates from the authorized CA via the
 							EST server established in Test 1. In accordance with guidance
@@ -7773,7 +7776,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						<test>
 							The evaluator shall generate a re-enrollment request and
 							submit it to the authorized EST server in accordance with
-							FIA_ESTC_EXT.1 as defined in <xref to="pkgX509"/> to update the CA’s signing certificate the same CA
+							FIA_ESTC_EXT.1 as defined in <xref to="X509"/> to update the CA’s signing certificate the same CA
 							implemented by the TOE used in Test 3. The evaluator shall make
 							a valid request for a certificate from that CA, and observe that the
 							new CA certificate signs the returned certificate.
@@ -7825,8 +7828,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 			This SFR describes an optional element of RFC 7030 that strengthens the
 			authentication provided by EST. While RFC 7030 requires EST servers to validate
 			the tls-unique values when presented, this requirement is not implemented in
-			current EST servers. FIA_ESTC_EXT.2.1 as defined in <xref to="pkgX509"/> will be integrated into FIA_ESTC_EXT.1 as defined in <xref
-				to="pkgX509"/> in a
+			current EST servers. FIA_ESTC_EXT.2.1 as defined in <xref to="X509"/> will be integrated into FIA_ESTC_EXT.1 as defined in <xref
+				to="X509"/> in a
 			subsequent release of this FP and should be claimed if the EST implementation
 			supports it. 
 		</note>
@@ -7897,7 +7900,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<selectable>HTTP digest authentication using a cryptographic hash algorithm in
 						accordance with FCS_COP.1/Hash and RFC 7030 section 3.2.3;</selectable>
 					<selectable>TLS certificate-based mutual authentication in accordance with
-						RFC 7030 section 3.3.2 and FCS_TLSS_EXT.1 (as defined in the <xref to="pkgTLS"/>).</selectable>
+						RFC 7030 section 3.3.2 and FCS_TLSS_EXT.1 (as defined in the <xref to="tls"/>).</selectable>
 				</selectables>.
 			</title>
 		</f-element>
@@ -7913,17 +7916,17 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				Enrollment over Secure Transport (EST) uses the simple Certificate Request
 				Message as specified in RFC 7030. EST also uses HTTPS as specified in
 				FCS_HTTPS_EXT.1 to establish a secure connection with an EST client.<h:br/><h:br/>
-				This SFR is included in the ST if TODO. If this requirement is included in the ST, the ST author includes FCS_TLSS_EXT.1 (as defined in the <xref to="pkgTLS"/>).<h:br/><h:br/>
-				For FIA_ESTS_EXT.1.3 as defined in <xref to="pkgX509"/>, the ST author selects the method used to authenticate
+				This SFR is included in the ST if TODO. If this requirement is included in the ST, the ST author includes FCS_TLSS_EXT.1 (as defined in the <xref to="tls"/>).<h:br/><h:br/>
+				For FIA_ESTS_EXT.1.3 as defined in <xref to="X509"/>, the ST author selects the method used to authenticate
 				clients for initial enrollment, or in cases where supplemental authentication is
 				required. If the second item is chosen in the selection, the ST author includes
 				FCS_COP.1/Hash in the ST.<h:br/><h:br/>
-				For FIA_ESTS_EXT.1.4 as defined in <xref to="pkgX509"/>, the ST author should specify how the TOE determines a
+				For FIA_ESTS_EXT.1.4 as defined in <xref to="X509"/>, the ST author should specify how the TOE determines a
 				client is authorized if the request does not have the id-kp-cmcRA EKU included in
 				its certificate. The assignment requires that this method be compliant with the
 				requirements in RFC 7030, section 3.7.<h:br/><h:br/>
-				If only the third item is chosen in the selection for FIA_ESTS_EXT.1.3 as defined in <xref to="pkgX509"/>, or if the first
-				item is chosen in the selection for FIA_ESTS_EXT.1.4 as defined in <xref to="pkgX509"/>, then support of an RA or AOR
+				If only the third item is chosen in the selection for FIA_ESTS_EXT.1.3 as defined in <xref to="X509"/>, or if the first
+				item is chosen in the selection for FIA_ESTS_EXT.1.4 as defined in <xref to="X509"/>, then support of an RA or AOR
 				is required for initial authentication and SFR selections associated to the support
 				for these optional roles must be claimed.	
 			</note>
@@ -7962,7 +7965,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						</test>
 						<test>
 							If “a certificate issued by the same issuer that asserts id-kpcmcRA in its extended key usage extension” is selected in
-							FIA_ESTS_EXT.1.4as defined in <xref to="pkgX509"/>, the evaluator shall use an EST client to request
+							FIA_ESTS_EXT.1.4as defined in <xref to="X509"/>, the evaluator shall use an EST client to request
 							certificate enrollment of a subject not known to the TOE to be
 							authorized, to request an initial certificate from the TOE using the
 							simple enrollment method described in RFC 7030 Section 4.2,
@@ -7972,7 +7975,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 						</test>
 						<test>
 							If “a certificate issued by the same issuer that asserts id-kpcmcRA in its extended key usage extension” is selected in
-							FIA_ESTS_EXT.1.4 as defined in <xref to="pkgX509"/>, the evaluator shall use an EST client to request
+							FIA_ESTS_EXT.1.4 as defined in <xref to="X509"/>, the evaluator shall use an EST client to request
 							certificate enrollment of a subject not known to the TOE to be
 							authorized, to request an initial certificate from the TOE using the
 							simple enrollment method described in RFC 7030 Section 4.2,
@@ -8611,8 +8614,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					<h:li>The TSF shall validate the revocation status of the certificate using 
 						<selectables>
 							<selectable>the Online Certificate Status Protocol (OCSP) as 
-								specified in FDP_CSI_EXT.1 as defined in <xref to="pkgX509"/></selectable>
-							<selectable>a Certificate Revocation List (CRL) as specified in FDP_CSI_EXT.1 as defined in <xref to="pkgX509"/></selectable>
+								specified in FDP_CSI_EXT.1 as defined in <xref to="X509"/></selectable>
+							<selectable>a Certificate Revocation List (CRL) as specified in FDP_CSI_EXT.1 as defined in <xref to="X509"/></selectable>
 						</selectables>.</h:li>
 					<h:li>The TSF shall validate the extendedKeyUsage field according to the following
 						rules:
@@ -8634,7 +8637,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The TSF may rely on the operational environment to perform certificate handling
 				functionality in cases where the TOE relies on an environmental component to
 				provide trusted remote communications.<h:br/><h:br/>
-				FIA_X509_EXT.1 as defined in <xref to="pkgX509"/> lists the rules for validating certificates. The ST author shall select
+				FIA_X509_EXT.1 as defined in <xref to="X509"/> lists the rules for validating certificates. The ST author shall select
 				whether revocation status is verified using OCSP or CRLs. Depending on this
 				selection, the appropriate CRL or OCSP requirements from Appendix B must be
 				included.<h:br/><h:br/>
@@ -8675,7 +8678,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<Tests>
 					The evaluator shall perform the following tests in conjunction with the other
 					certificate services evaluation activities, including the use cases in
-					FIA_X509_EXT.2.1 as defined in <xref to="pkgX509"/>. The tests for the extendedKeyUsage rules are performed in
+					FIA_X509_EXT.2.1 as defined in <xref to="X509"/>. The tests for the extendedKeyUsage rules are performed in
 					conjunction with the uses that require those rules.<h:br/><h:br/>
 					<testlist>
 						<test>The evaluator shall demonstrate that validating a certificate
@@ -8775,14 +8778,14 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				The TSF may rely on the operational environment to perform certificate handling
 				functionality in cases where the TOE relies on an environmental component to 
 				provide trusted remote communications. If the ST author selects SSH, the TSF shall
-				be validated against the <xref to="pkgSSH"/>.<h:br/><h:br/>
+				be validated against the <xref to="ssh"/>.<h:br/><h:br/>
 				Often a connection must be established to perform a verification of the revocation
 				status of a certificate - either to download a CRL or to perform OCSP. The selection
 				is used to describe the behavior in the event that such a connection cannot be
 				established (for example, due to a network error). If the TOE has determined the
-				certificate valid according to all other rules in FIA_X509_EXT.1 as defined in <xref to="pkgX509"/>, the behavior
+				certificate valid according to all other rules in FIA_X509_EXT.1 as defined in <xref to="X509"/>, the behavior
 				indicated in the second selection shall determine the validity. The TOE must not
-				accept the certificate if it fails any of the other validation rules in FIA_X509_EXT.1 as defined in <xref to="pkgX509"/>.
+				accept the certificate if it fails any of the other validation rules in FIA_X509_EXT.1 as defined in <xref to="X509"/>.
 				If the administrator-configured option is selected by the ST author, the ST author
 				must also select "Ability to accept certificates whose revocation status cannot be 
 				determined" in FMT_SMF.1.
@@ -9611,7 +9614,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				mechanisms supported by the TOE, and then ensure the detailed requirements
 				correspond to the selection are copied to the ST if not already
 				present.<h:br/><h:br/>
-				If SSH is selected, the TOE is expected to conform to the <xref to="pkgSSH"/>.
+				If SSH is selected, the TOE is expected to conform to the <xref to="ssh"/>.
 			</note>
 			<aactivity>
 				<TSS>
@@ -10683,7 +10686,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 					[conditional] If the ST author indicates that the public key for software update
 					digital signature verification is used, the evaluator shall verify that the update
 					mechanism includes a certificate validation according to FIA_X509_EXT.1 as defined in <xref
-						to="pkgX509"/> and
+						to="X509"/> and
 					a check for the code signing purpose in the extendedKeyUsage.
 				</TSS>
 				<Guidance>
@@ -11008,8 +11011,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<selectables>
 					<selectable id="ftp-itc-https">HTTPS</selectable>
 					<selectable id="ftp-itc-ipsec">IPsec</selectable>
-					<selectable id="ftp-itc-tls">TLS as defined in the <xref to="pkgTLS"/></selectable>
-					<selectable id="ftp-itc-ssh">SSH as defined in the <xref to="pkgSSH"/></selectable>					
+					<selectable id="ftp-itc-tls">TLS as defined in the <xref to="tls"/></selectable>
+					<selectable id="ftp-itc-ssh">SSH as defined in the <xref to="ssh"/></selectable>					
 				</selectables> to</refinement>
 				 provide a <refinement>trusted</refinement>
 				communication channel between itself and <refinement>authorized external network-based IT 
@@ -11054,8 +11057,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				entity (it is acceptable to assign “no services” for FTP_ITC.1.3 if the TOE does not
 				initiate any of the covered connections). Note that SSH is not included because
 				this protocol is not used by the TSF to connect to other components. If the ST
-				author selects SSH, the TSF shall be validated against the <xref to="pkgSSH"/>.
-				If the ST author selects TLS, the TSF shall be validated against the <xref to="pkgTLS"/>. <h:br/><h:br/>
+				author selects SSH, the TSF shall be validated against the <xref to="ssh"/>.
+				If the ST author selects TLS, the TSF shall be validated against the <xref to="tls"/>. <h:br/><h:br/>
 				This requirement implies that not only are communications protected when they
 				are initially established, but also on resumption after an interruption. It may be
 				the case that some part of the TOE setup involves manually setting up tunnels to
@@ -11144,8 +11147,8 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				<refinement>use <selectables>
 					<selectable id="ftp-trp-https">HTTPS</selectable>
 					<selectable id="ftp-trp-ipsec">IPsec</selectable>
-					<selectable id="ftp-trp-ssh">SSH as defined in the <xref to="pkgSSH"/></selectable>
-					<selectable id="ftp-trp-tls">TLS as defined in the <xref to="pkgTLS"/></selectable>
+					<selectable id="ftp-trp-ssh">SSH as defined in the <xref to="ssh"/></selectable>
+					<selectable id="ftp-trp-tls">TLS as defined in the <xref to="tls"/></selectable>
 					</selectables> to </refinement>
 				provide a <refinement>trusted</refinement> communication path between itself and 
 				[<h:i>remote <refinement>subscribers and privileged</refinement></h:i>] users 
@@ -11800,7 +11803,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 				the TSF operates as specified.</title>
               		<note role="application"> 
 				If the ST author selects SSH, the TSF shall be validated against the
-				<xref to="pkgSSH"/>.</note>
+				<xref to="ssh"/>.</note>
               		<aactivity>
 				The evaluator shall prepare a test plan and report documenting the testing
 				aspects of the system. The test plan covers all of the testing actions contained
