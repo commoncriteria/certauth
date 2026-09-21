@@ -1028,7 +1028,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
 	    
 <!-- 5.1.1 Auditable Events for Mandatory SFRs -->
       <section title="Auditable Events for Mandatory SFRs" id="ss-audit-events">
-           <audit-table table="mandatory" id="at-mandatory"/>
+           <audit-table table="mandatory" id="t-audit-mandatory"/>
       </section>    	
 	      
         <!--                             -->
