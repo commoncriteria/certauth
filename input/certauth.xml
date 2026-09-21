@@ -1245,7 +1245,7 @@ And maybe there should be a section of the PP that says all this. So maybe some 
                                 	<h:li>Specifically defined auditable events listed in <xref g="t-audit-mandatory"/></h:li>
                                 	<h:li>Specifically defined auditable events listed in <xref g="t-audit-optional"/></h:li>
 									<h:li>Specifically defined auditable events listed in <xref g="t-audit-objective"/></h:li>
-                                	<h:li>Specifically defined auditable events listed in <xref g="t-audit-impl-dep"/>]</h:li>
+                                	<h:li>Specifically defined auditable events listed in <xref g="t-audit-feat-based"/>]</h:li>
 									<h:li>Specifically defined auditable events listed in <xref g="t-audit-sel-based"/></h:li>
 									</h:ul></h:i>.</h:li>
 
